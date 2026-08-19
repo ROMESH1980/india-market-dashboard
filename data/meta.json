@@ -1,9 +1,9 @@
 {
-  "generatedFrom": "Official NSE equity + SME security master",
+  "generatedFrom": "Official NSE/BSE security masters",
   "nseCount": 3115,
   "bseCount": 0,
   "uniqueCount": 3115,
   "lastUpdated": "2026-08-19",
   "mode": "FREE_EOD",
-  "note": "BSE is populated by scheduled collector after deployment. Scores remain null until source data is available."
+  "note": "Scores are populated only when sufficient source data is collected."
 }
