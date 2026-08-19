@@ -40,16 +40,35 @@ def load_nse():
 def load_bse():
     # Official BSE API. If BSE changes/blocks this endpoint, the job preserves existing BSE rows instead of deleting them.
     r=get(BSE_API,{"Referer":"https://www.bseindia.com/","Origin":"https://www.bseindia.com"})
-    j=r.json()
-    rows=j.get("Table") or j.get("Table1") or (j if isinstance(j,list) else [])
+    j = r.json()
+
+    if isinstance(j, list):
+        rows = j
+    elif isinstance(j, dict):
+        rows = j.get("Table") or j.get("Table1") or []
+    else:
+        rows = []
+
     out=[]
     for x in rows:
         code=str(x.get("SCRIP_CD") or x.get("Scrip_cd") or x.get("SecurityCode") or "").strip()
         name=str(x.get("SCRIP_NAME") or x.get("Scrip_Name") or x.get("SecurityName") or x.get("Issuer_Name") or "").strip()
         sid=str(x.get("SCRIP_ID") or x.get("Scrip_Id") or code).strip()
         isin=str(x.get("ISIN_NUMBER") or x.get("ISIN") or "").strip()
-        if not code and not sid: continue
-        out.append({"symbol":sid or code,"bseCode":code,"name":name or sid or code,"isin":isin,"exchange":"BSE","exchanges":["BSE"],"board":"MAIN"})
+
+        if not code and not sid:
+            continue
+
+        out.append({
+            "symbol":sid or code,
+            "bseCode":code,
+            "name":name or sid or code,
+            "isin":isin,
+            "exchange":"BSE",
+            "exchanges":["BSE"],
+            "board":"MAIN"
+        })
+
     return out
 
 def old_rows():
