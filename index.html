@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>India Market Intelligence — Free EOD</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <div>
+    <div class="eyebrow">INDIA MARKET INTELLIGENCE • FREE EOD</div>
+    <h1>NSE + BSE market research dashboard</h1>
+    <p>Daily-updated stock universe with Sector Strength, Macro Support, Value Migration, Future Growth, Fundamental Quality and CAPEX framework.</p>
+  </div>
+  <div class="livebox"><span class="dot"></span><span id="mode">Loading data…</span></div>
+</header>
+<main>
+<section class="notice">
+  <b>No fake scores.</b> A signal is shown only when its required source data is available. Missing fundamentals/filings stay as “Pending”.
+</section>
+<section class="stats" id="stats"></section>
+<section class="card toolbar">
+  <input id="q" placeholder="Search company, symbol or ISIN">
+  <select id="exchange"><option>ALL</option><option>NSE</option><option>BSE</option></select>
+  <select id="board"><option value="ALL">All boards</option><option value="MAIN">Mainboard</option><option value="SME">SME</option></select>
+  <select id="status"><option value="ALL">All data status</option><option value="READY">Scored only</option><option value="UNIVERSE_ONLY">Pending data</option></select>
+</section>
+<section class="card">
+  <div class="sectionhead"><div><h2>Stock Universe</h2><p id="resultCount"></p></div><div class="legend">EOD research • Not real-time</div></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th>Stock</th><th>Exchange</th><th>Price</th><th>Sector</th><th>Sector Strength</th>
+      <th>Macro</th><th>Value Migration</th><th>Future Growth</th><th>Fundamental</th><th>CAPEX</th><th>Overall</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+  <div class="pager"><button id="prev">← Previous</button><span id="page"></span><button id="next">Next →</button></div>
+</section>
+<section class="grid">
+ <div class="card"><h2>Scoring logic</h2>
+   <div class="formula">Overall = Macro 20% + Value Migration 20% + Future Growth 20% + Fundamental Quality 20% + CAPEX 10% + Sector Strength 10%</div>
+   <p>Scores are intentionally blank until sufficient source data exists. This prevents a missing-data company from receiving an invented rank.</p>
+ </div>
+ <div class="card"><h2>Free data pipeline</h2>
+   <p><b>Daily:</b> NSE/BSE security master + EOD market files. <b>Weekly:</b> sector/relative-strength calculations. <b>Quarterly:</b> financial results and CAPEX-related filing fields when collected.</p>
+   <p>The GitHub Action refreshes automatically on market days after deployment.</p>
+ </div>
+</section>
+</main>
+<footer>Research tool only • Verify exchange filings before investment decisions • Data may be delayed or unavailable when exchange endpoints change.</footer>
+<script src="app.js"></script>
+</body></html>
