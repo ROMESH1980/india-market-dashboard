@@ -1,8 +1,9 @@
 {
-  "generatedFrom": "Official NSE Equity + SME security master",
-  "nseCount": 3115,
-  "uniqueCount": 3115,
+  "generatedFrom": "Official NSE Equity + SME security master + NSE EOD price file",
+  "nseCount": 3116,
+  "uniqueCount": 3116,
+  "eodPriceCount": 448,
   "lastUpdated": "2026-08-20",
   "mode": "FREE_EOD",
-  "note": "NSE-only dashboard. BSE removed."
+  "note": "NSE-only dashboard."
 }
