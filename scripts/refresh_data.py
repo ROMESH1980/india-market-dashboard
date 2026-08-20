@@ -1,4 +1,4 @@
-import csv, io, json
+import csv, io, json, zipfile
 from pathlib import Path
 from datetime import datetime, timezone
 import requests
