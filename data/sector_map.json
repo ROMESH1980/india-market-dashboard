@@ -1,0 +1,14 @@
+{
+  "RELIANCE": {
+    "sector": "Energy",
+    "industry": "Oil, Gas & Consumable Fuels"
+  },
+  "HDFCBANK": {
+    "sector": "Financial Services",
+    "industry": "Banks"
+  },
+  "TCS": {
+    "sector": "Information Technology",
+    "industry": "IT Services"
+  }
+}
