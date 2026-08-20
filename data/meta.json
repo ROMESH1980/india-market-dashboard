@@ -1,9 +1,8 @@
 {
-  "generatedFrom": "Official NSE/BSE security masters",
-  "nseCount": 3115,
-  "bseCount": 0,
-  "uniqueCount": 3115,
-  "lastUpdated": "2026-08-19",
+  "generatedFrom": "Official NSE security master",
+  "nseCount": 3116,
+  "uniqueCount": 3116,
+  "lastUpdated": "2026-08-20",
   "mode": "FREE_EOD",
-  "note": "Scores are populated only when sufficient source data is collected."
+  "note": "NSE Mainboard + SME. Scores are populated only when sufficient source data is collected."
 }
