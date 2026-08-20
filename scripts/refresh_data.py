@@ -164,11 +164,18 @@ def merge(nse,old):
 def main():
     rows = merge(load_nse(), old_rows())
     prices = load_eod_prices()
-
+    try:
+        sector_map = json.loads((DATA / "sector_map.json").read_text())
+    except:
+        sector_map = {}
     for row in rows:
         symbol = row.get("symbol")
         series = row.get("series") or ""
+        s = sector_map.get(symbol, {})
 
+        if s:
+            row["sector"] = s.get("sector", row.get("sector", "Unclassified"))
+            row["industry"] = s.get("industry", row.get("industry", "Unclassified"))
         p = prices.get((symbol, series))
 
         if p is None:
