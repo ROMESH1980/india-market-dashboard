@@ -163,37 +163,51 @@ def merge(nse,old):
 
 def main():
     rows = merge(load_nse(), old_rows())
-prices = load_eod_prices()
+    prices = load_eod_prices()
 
-for row in rows:
-    symbol = row.get("symbol")
-    series = row.get("series") or ""
+    for row in rows:
+        symbol = row.get("symbol")
+        series = row.get("series") or ""
 
-    p = prices.get((symbol, series))
+        p = prices.get((symbol, series))
 
-    if p is None:
-        p = prices.get((symbol, ""))
+        if p is None:
+            p = prices.get((symbol, ""))
 
-    if p:
-        row["price"] = p.get("price")
-        row["changePct"] = p.get("changePct")
-        row["volume"] = p.get("volume")
-        row["turnoverCr"] = p.get("turnoverCr")
-        row["priceDate"] = p.get("priceDate")
-        row["dataStatus"] = "EOD_READY"
+        if p:
+            row["price"] = p.get("price")
+            row["changePct"] = p.get("changePct")
+            row["volume"] = p.get("volume")
+            row["turnoverCr"] = p.get("turnoverCr")
+            row["priceDate"] = p.get("priceDate")
+            row["dataStatus"] = "EOD_READY"
+
     DATA.mkdir(exist_ok=True)
-    today=datetime.now(timezone.utc).date().isoformat()
-    (DATA/"stocks.json").write_text(json.dumps(rows,ensure_ascii=False,separators=(",",":")))
-    meta={
-        "generatedFrom":"Official NSE Equity + SME security master",
-        "nseCount":len(rows),
-        "uniqueCount":len(rows),
-        "lastUpdated":today,
-        "mode":"FREE_EOD",
-        "note":"NSE-only dashboard."
-    }
-    (DATA/"meta.json").write_text(json.dumps(meta,indent=2))
-    print(meta)
 
-if __name__=="__main__":
+    today = datetime.now(timezone.utc).date().isoformat()
+
+    (DATA / "stocks.json").write_text(
+        json.dumps(
+            rows,
+            ensure_ascii=False,
+            separators=(",", ":")
+        )
+    )
+
+    meta = {
+        "generatedFrom": "Official NSE Equity + SME security master + NSE EOD price file",
+        "nseCount": len(rows),
+        "uniqueCount": len(rows),
+        "eodPriceCount": len(prices),
+        "lastUpdated": today,
+        "mode": "FREE_EOD",
+        "note": "NSE-only dashboard."
+    }
+
+    (DATA / "meta.json").write_text(
+        json.dumps(meta, indent=2)
+    )
+
+    print(meta)
+   if __name__ == "__main__":
     main()
