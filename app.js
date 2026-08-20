@@ -16,7 +16,7 @@ function render(){
 async function init(){
  [all,meta]=await Promise.all([fetch('data/stocks.json').then(r=>r.json()),fetch('data/meta.json').then(r=>r.json())]);
  $('mode').textContent=`${meta.mode} • Updated ${meta.lastUpdated}`;
- $('stats').innerHTML=`<div class="stat"><b>${Number(meta.uniqueCount||all.length).toLocaleString()}</b><span>Unique securities</span></div><div class="stat"><b>${Number(meta.nseCount||0).toLocaleString()}</b><span>NSE incl. SME</span></div><div class="stat"><b>${Number(meta.bseCount||0).toLocaleString()}</b><span>BSE synced</span></div><div class="stat"><b>${all.filter(s=>s.overallScore!==null).length.toLocaleString()}</b><span>Fully scored</span></div>`;
+ $('stats').innerHTML=`<div class="stat"><b>${Number(meta.uniqueCount||all.length).toLocaleString()}</b><span>Unique securities</span></div><div class="stat"><b>${Number(meta.nseCount||0).toLocaleString()}</b><span>NSE incl. SME</span></div><div class="stat"><b>${Number(meta.bseCount||0).toLocaleString()}</b><span>NSE SME</span></div><div class="stat"><b>${all.filter(s=>s.overallScore!==null).length.toLocaleString()}</b><span>Fully scored</span></div>`;
  render();
 }
 ['q','exchange','board','status'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',()=>{page=1;render()}));
