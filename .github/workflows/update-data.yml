@@ -21,8 +21,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install requirements
+         - name: Install requirements
         run: pip install -r requirements.txt
+
+      - name: Build sector map
+        run: python scripts/build_sector_map.py
 
       - name: Refresh NSE universe
         run: python scripts/refresh_data.py
