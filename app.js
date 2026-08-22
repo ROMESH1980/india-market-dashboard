@@ -30,18 +30,18 @@ function filters() {
         .includes(q);
 
     const matchesEx =
-      ex === 'ALL' ||
-      s.exchange === ex;
+      ex === 'ALL' || s.exchange === ex;
 
     const matchesBd =
-      bd === 'ALL' ||
-      s.board === bd;
+      bd === 'ALL' || s.board === bd;
 
     const matchesStatus =
       st === 'ALL' ||
-      (st === 'READY'
-        ? s.overallScore !== null && s.overallScore !== undefined
-        : s.overallScore === null || s.overallScore === undefined);
+      (
+        st === 'READY'
+          ? s.overallScore !== null && s.overallScore !== undefined
+          : s.overallScore === null || s.overallScore === undefined
+      );
 
     return matchesQ && matchesEx && matchesBd && matchesStatus;
   });
@@ -89,6 +89,7 @@ function render() {
 
   $('rows').innerHTML = rows.map(s => `
     <tr>
+
       <td>
         <div class="name">${s.name}</div>
         <div class="sub">
@@ -135,14 +136,33 @@ function render() {
       <td>${scoreVal(s.capexScore)}</td>
 
       <td>${scoreVal(s.overallScore)}</td>
+
     </tr>
   `).join('');
 }
 
+async function fetchJSON(url) {
+  const response = await fetch(
+    `${url}?v=${Date.now()}`,
+    {
+      cache: 'no-store'
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to load ${url}: ${response.status}`
+    );
+  }
+
+  return response.json();
+}
+
 async function init() {
+
   [all, meta] = await Promise.all([
-    fetch('data/stocks.json').then(r => r.json()),
-    fetch('data/meta.json').then(r => r.json())
+    fetchJSON('data/stocks.json'),
+    fetchJSON('data/meta.json')
   ]);
 
   $('mode').textContent =
@@ -201,6 +221,7 @@ async function init() {
 $('prev').onclick = () => {
   page--;
   render();
+
   scrollTo({
     top: 360,
     behavior: 'smooth'
@@ -210,6 +231,7 @@ $('prev').onclick = () => {
 $('next').onclick = () => {
   page++;
   render();
+
   scrollTo({
     top: 360,
     behavior: 'smooth'
