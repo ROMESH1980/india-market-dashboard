@@ -30,6 +30,9 @@ jobs:
       - name: Refresh NSE universe
         run: python scripts/refresh_data.py
 
+      - name: Apply research scores
+        run: python scripts/apply_research_scores.py
+
       - name: Commit updated NSE data
         run: |
           git config user.name "market-data-bot"
