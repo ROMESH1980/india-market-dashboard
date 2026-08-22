@@ -6,9 +6,9 @@
       "sectorStrength": "Sector EOD performance percentile",
       "macroSupport": "Sector-level macro policy/tailwind heuristic",
       "valueMigration": "60% price momentum + 40% turnover percentile",
-      "futureGrowth": "Pending reliable growth source",
-      "fundamentalQuality": "Pending financial source",
-      "capexScore": "Pending filing/capex source"
+      "futureGrowth": "Company-specific research input",
+      "fundamentalQuality": "Company-specific financial quality input",
+      "capexScore": "Company-specific CAPEX/expansion input"
     },
     "weights": {
       "sectorStrength": 10,
