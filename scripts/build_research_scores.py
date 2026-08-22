@@ -38,6 +38,34 @@ def percentile(value, values):
     )
 
 
+def macro_score(sector, industry):
+    text = f"{sector or ''} {industry or ''}".lower()
+
+    rules = [
+        (["renewable", "solar", "power"], 90),
+        (["capital goods", "construction", "infrastructure"], 85),
+        (["electrical equipment", "electronics", "semiconductor"], 85),
+        (["industrial manufacturing"], 80),
+        (["defence", "aerospace"], 80),
+        (["financial services", "bank"], 70),
+        (["automobile", "auto components"], 70),
+        (["healthcare", "pharma"], 70),
+        (["telecom"], 70),
+        (["metals", "mining"], 65),
+        (["realty"], 65),
+        (["consumer"], 60),
+        (["information technology"], 60),
+        (["oil", "gas"], 55),
+        (["media"], 50),
+    ]
+
+    for keywords, score in rules:
+        if any(k in text for k in keywords):
+            return score
+
+    return None
+
+
 def main():
 
     stocks = load_json(
@@ -54,10 +82,6 @@ def main():
         "stocks",
         {}
     )
-
-    # ----------------------------
-    # SECTOR STRENGTH
-    # ----------------------------
 
     sector_changes = defaultdict(list)
 
@@ -81,7 +105,6 @@ def main():
     sector_avg = {}
 
     for sector, values in sector_changes.items():
-
         if values:
             sector_avg[sector] = (
                 sum(values) / len(values)
@@ -90,10 +113,6 @@ def main():
     all_sector_avg = list(
         sector_avg.values()
     )
-
-    # ----------------------------
-    # VALUE MIGRATION INPUTS
-    # ----------------------------
 
     all_turnover = []
 
@@ -113,6 +132,7 @@ def main():
 
     sector_available = 0
     vm_available = 0
+    macro_available = 0
 
     for row in stocks:
 
@@ -122,11 +142,9 @@ def main():
             continue
 
         sector = row.get("sector")
+        industry = row.get("industry")
 
-        # ========================
         # Sector Strength
-        # ========================
-
         sector_strength = None
 
         if sector in sector_avg:
@@ -139,10 +157,7 @@ def main():
             if sector_strength is not None:
                 sector_available += 1
 
-        # ========================
-        # Value Migration
-        # ========================
-
+        # Value Migration proxy
         value_migration = None
 
         change = row.get("changePct")
@@ -177,75 +192,60 @@ def main():
             except Exception:
                 pass
 
+        # Macro Support
+        macro_support = macro_score(
+            sector,
+            industry
+        )
+
+        if macro_support is not None:
+            macro_available += 1
+
         previous = old_scores.get(
             symbol,
             {}
         )
 
         scores[symbol] = {
+            "sectorStrength": sector_strength,
+            "macroSupport": macro_support,
+            "valueMigration": value_migration,
 
-            # Always refresh these two
-            "sectorStrength":
-                sector_strength,
-
-            "valueMigration":
-                value_migration,
-
-            # Preserve manual/future data
-            "macroSupport":
-                previous.get(
-                    "macroSupport"
-                ),
-
-            "futureGrowth":
-                previous.get(
-                    "futureGrowth"
-                ),
-
-            "fundamentalQuality":
-                previous.get(
-                    "fundamentalQuality"
-                ),
-
-            "capexScore":
-                previous.get(
-                    "capexScore"
-                )
+            # Preserve these until reliable source is added
+            "futureGrowth": previous.get("futureGrowth"),
+            "fundamentalQuality": previous.get("fundamentalQuality"),
+            "capexScore": previous.get("capexScore")
         }
 
     output = {
 
         "_meta": {
-
             "description":
                 "India Market Dashboard research scoring inputs",
 
-            "scale":
-                "0-100",
+            "scale": "0-100",
 
             "method": {
-
                 "sectorStrength":
                     "Sector EOD performance percentile",
+
+                "macroSupport":
+                    "Sector-level macro policy/tailwind heuristic",
 
                 "valueMigration":
                     "60% price momentum + 40% turnover percentile",
 
-                "macroSupport":
-                    "Pending macro scoring source",
-
                 "futureGrowth":
-                    "Pending growth scoring source",
+                    "Pending reliable growth source",
 
                 "fundamentalQuality":
-                    "Pending fundamental source",
+                    "Pending financial source",
 
                 "capexScore":
-                    "Pending CAPEX/filing source"
+                    "Pending filing/capex source"
             },
 
             "weights": {
-
                 "sectorStrength": 10,
                 "macroSupport": 20,
                 "valueMigration": 20,
@@ -261,7 +261,6 @@ def main():
     (
         DATA / "research_scores.json"
     ).write_text(
-
         json.dumps(
             output,
             indent=2,
@@ -270,17 +269,11 @@ def main():
     )
 
     print({
-        "stocksProcessed":
-            len(scores),
-
-        "sectorStrengthAvailable":
-            sector_available,
-
-        "valueMigrationAvailable":
-            vm_available,
-
-        "classifiedSectors":
-            len(sector_avg)
+        "stocksProcessed": len(scores),
+        "sectorStrengthAvailable": sector_available,
+        "macroSupportAvailable": macro_available,
+        "valueMigrationAvailable": vm_available,
+        "classifiedSectors": len(sector_avg)
     })
 
 
