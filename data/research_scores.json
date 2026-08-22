@@ -40,9 +40,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.68,
+      "fundamentalQuality": 69.61,
+      "capexScore": 50
     },
     "3BBLACKBIO": {
       "sectorStrength": null,
@@ -64,9 +64,9 @@
       "sectorStrength": 71.43,
       "macroSupport": null,
       "valueMigration": 56.98,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.93,
+      "fundamentalQuality": 78.15,
+      "capexScore": 60
     },
     "3PLAND": {
       "sectorStrength": null,
@@ -136,9 +136,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 53.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.22,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "AAKAAR": {
       "sectorStrength": null,
@@ -208,9 +208,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 70.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.23,
+      "fundamentalQuality": 57.31,
+      "capexScore": 90
     },
     "AARTIPHARM": {
       "sectorStrength": null,
@@ -256,9 +256,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 54.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.19,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "ABAN": {
       "sectorStrength": null,
@@ -288,17 +288,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 62.46,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 59.66,
+      "fundamentalQuality": 82.84,
+      "capexScore": 70
     },
     "ABBOTINDIA": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 64.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.03,
+      "fundamentalQuality": 94.67,
+      "capexScore": 50
     },
     "ABHAPOWER": {
       "sectorStrength": null,
@@ -344,9 +344,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 62.61,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 23.31,
+      "fundamentalQuality": 70.02,
+      "capexScore": 50
     },
     "ACCELYA": {
       "sectorStrength": null,
@@ -408,9 +408,9 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 72.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 93.61,
+      "fundamentalQuality": 62.43,
+      "capexScore": 90
     },
     "ACSTECH": {
       "sectorStrength": null,
@@ -424,9 +424,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 71.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.63,
+      "fundamentalQuality": 80.1,
+      "capexScore": 70
     },
     "ACTIVEINFR": {
       "sectorStrength": null,
@@ -440,57 +440,57 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 60.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.59,
+      "fundamentalQuality": 98.9,
+      "capexScore": 90
     },
     "ADANIENSOL": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 67.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.78,
+      "fundamentalQuality": 51.36,
+      "capexScore": 90
     },
     "ADANIENT": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 68.91,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.93,
+      "fundamentalQuality": 51.41,
+      "capexScore": 90
     },
     "ADANIGREEN": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 73.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.6,
+      "fundamentalQuality": 57.06,
+      "capexScore": 90
     },
     "ADANIPORTS": {
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 69.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.8,
+      "fundamentalQuality": 88.26,
+      "capexScore": 90
     },
     "ADANIPOWER": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 71.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.18,
+      "fundamentalQuality": 82.67,
+      "capexScore": 90
     },
     "ATGL": {
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 57.37,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 49.5,
+      "fundamentalQuality": 66.26,
+      "capexScore": 90
     },
     "ADDIND": {
       "sectorStrength": null,
@@ -528,25 +528,25 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 71.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.68,
+      "fundamentalQuality": 48.68,
+      "capexScore": 50
     },
     "ABFRL": {
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 57.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.9,
+      "fundamentalQuality": 32.11,
+      "capexScore": 90
     },
     "ABLBL": {
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 53.47,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.71,
+      "fundamentalQuality": 34.41,
+      "capexScore": 70
     },
     "BIRLAMONEY": {
       "sectorStrength": null,
@@ -560,25 +560,25 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 53.84,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 94.55,
+      "fundamentalQuality": 5.4,
+      "capexScore": 70
     },
     "ABSLAMC": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.53,
+      "fundamentalQuality": 99.71,
+      "capexScore": 60
     },
     "CPPLUS": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 67.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.12,
+      "fundamentalQuality": 76.25,
+      "capexScore": 90
     },
     "AUSL": {
       "sectorStrength": null,
@@ -672,17 +672,17 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 94.11,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.5,
+      "fundamentalQuality": 80.79,
+      "capexScore": 80
     },
     "AEGISVOPAK": {
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 77.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.75,
+      "fundamentalQuality": 84.52,
+      "capexScore": 90
     },
     "AEQUS": {
       "sectorStrength": null,
@@ -744,17 +744,17 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 55.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 24.61,
+      "fundamentalQuality": 55.76,
+      "capexScore": 50
     },
     "AFFLE": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 56.98,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.56,
+      "fundamentalQuality": 85.21,
+      "capexScore": 80
     },
     "AFFORDABLE": {
       "sectorStrength": null,
@@ -864,9 +864,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.57,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 54.7,
+      "fundamentalQuality": 95.97,
+      "capexScore": 70
     },
     "AIMTRON": {
       "sectorStrength": null,
@@ -904,9 +904,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 59.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.62,
+      "fundamentalQuality": 90.47,
+      "capexScore": 90
     },
     "AJAXENGG": {
       "sectorStrength": null,
@@ -1104,9 +1104,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 64.2,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 39.74,
+      "fundamentalQuality": 80.94,
+      "capexScore": 80
     },
     "ALKYLAMINE": {
       "sectorStrength": null,
@@ -1168,9 +1168,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 60.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 47.47,
+      "fundamentalQuality": 60.2,
+      "capexScore": 90
     },
     "ADSL": {
       "sectorStrength": null,
@@ -1272,9 +1272,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 58.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.28,
+      "fundamentalQuality": 70.13,
+      "capexScore": 90
     },
     "AMARJOTHI": {
       "sectorStrength": null,
@@ -1312,9 +1312,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 71.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 38.37,
+      "fundamentalQuality": 58.45,
+      "capexScore": 90
     },
     "AMBICAAGAR": {
       "sectorStrength": null,
@@ -1336,9 +1336,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 72.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 24.49,
+      "fundamentalQuality": 75.3,
+      "capexScore": 90
     },
     "AMDIND": {
       "sectorStrength": null,
@@ -1408,17 +1408,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.23,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.31,
+      "fundamentalQuality": 98.49,
+      "capexScore": 50
     },
     "ANANTRAJ": {
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 60.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.0,
+      "fundamentalQuality": 92.25,
+      "capexScore": 50
     },
     "ANAWIL": {
       "sectorStrength": null,
@@ -1464,9 +1464,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 64.37,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.36,
+      "fundamentalQuality": 68.22,
+      "capexScore": 50
     },
     "AISL": {
       "sectorStrength": null,
@@ -1576,9 +1576,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 64.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 35.63,
+      "fundamentalQuality": 98.64,
+      "capexScore": 70
     },
     "AWHCL": {
       "sectorStrength": null,
@@ -1600,9 +1600,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 66.65,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.92,
+      "fundamentalQuality": 70.09,
+      "capexScore": 50
     },
     "ANYA": {
       "sectorStrength": null,
@@ -1616,9 +1616,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 69.73,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.15,
+      "fundamentalQuality": 69.8,
+      "capexScore": 90
     },
     "APCOTEXIND": {
       "sectorStrength": null,
@@ -1656,17 +1656,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.45,
+      "fundamentalQuality": 68.86,
+      "capexScore": 80
     },
     "APOLLOHOSP": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 65.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.1,
+      "fundamentalQuality": 60.29,
+      "capexScore": 90
     },
     "APOLLO": {
       "sectorStrength": null,
@@ -1696,9 +1696,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 76.23,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.57,
+      "fundamentalQuality": 67.06,
+      "capexScore": 80
     },
     "APOORVA": {
       "sectorStrength": null,
@@ -1736,9 +1736,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.23,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.02,
+      "fundamentalQuality": 71.36,
+      "capexScore": 50
     },
     "AQYLON": {
       "sectorStrength": null,
@@ -2016,9 +2016,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 68.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.24,
+      "fundamentalQuality": 69.08,
+      "capexScore": 90
     },
     "ASAHISONG": {
       "sectorStrength": null,
@@ -2080,9 +2080,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.8,
+      "fundamentalQuality": 45.8,
+      "capexScore": 50
     },
     "ASHOKA": {
       "sectorStrength": null,
@@ -2152,9 +2152,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 68.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.52,
+      "fundamentalQuality": 79.22,
+      "capexScore": 70
     },
     "ASTAR": {
       "sectorStrength": null,
@@ -2224,9 +2224,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 66.51,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 39.93,
+      "fundamentalQuality": 68.2,
+      "capexScore": 90
     },
     "ASTRAMICRO": {
       "sectorStrength": null,
@@ -2240,9 +2240,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.59,
+      "fundamentalQuality": 73.78,
+      "capexScore": 80
     },
     "ASTRAZEN": {
       "sectorStrength": null,
@@ -2288,9 +2288,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 72.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 48.91,
+      "capexScore": 90
     },
     "ATLANTAELE": {
       "sectorStrength": null,
@@ -2336,17 +2336,17 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 61.2,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.66,
+      "fundamentalQuality": 81.02,
+      "capexScore": 70
     },
     "AUBANK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 76.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.93,
+      "fundamentalQuality": 93.87,
+      "capexScore": 80
     },
     "AURIONPRO": {
       "sectorStrength": null,
@@ -2368,9 +2368,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 70.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.35,
+      "fundamentalQuality": 75.65,
+      "capexScore": 90
     },
     "AURUM": {
       "sectorStrength": null,
@@ -2416,9 +2416,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 79.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.7,
+      "fundamentalQuality": 95.49,
+      "capexScore": 70
     },
     "AUTOIND": {
       "sectorStrength": null,
@@ -2512,9 +2512,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 62.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.3,
+      "fundamentalQuality": 68.25,
+      "capexScore": 90
     },
     "CCAVENUE": {
       "sectorStrength": null,
@@ -2608,17 +2608,17 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 66.04,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.18,
+      "fundamentalQuality": 64.1,
+      "capexScore": 70
     },
     "AXISBANK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 67.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.76,
+      "fundamentalQuality": 90.01,
+      "capexScore": 50
     },
     "AXISCADES": {
       "sectorStrength": null,
@@ -2760,9 +2760,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 65.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.61,
+      "fundamentalQuality": 76.74,
+      "capexScore": 70
     },
     "BAJAJCON": {
       "sectorStrength": null,
@@ -2784,17 +2784,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.07,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.83,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "BAJAJFINSV": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 71.55,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.91,
+      "fundamentalQuality": 52.65,
+      "capexScore": 50
     },
     "BAJAJHCARE": {
       "sectorStrength": null,
@@ -2816,17 +2816,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 39.7,
+      "fundamentalQuality": 91.85,
+      "capexScore": 50
     },
     "BAJAJHFL": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 56.99,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.03,
+      "fundamentalQuality": 67.25,
+      "capexScore": 50
     },
     "BAJAJST": {
       "sectorStrength": null,
@@ -2888,9 +2888,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 56.78,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 44.05,
+      "fundamentalQuality": 74.9,
+      "capexScore": 90
     },
     "BALKRISHNA": {
       "sectorStrength": null,
@@ -2920,9 +2920,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 49.26,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 46.48,
+      "fundamentalQuality": 55.73,
+      "capexScore": 90
     },
     "BALUFORGE": {
       "sectorStrength": null,
@@ -2952,9 +2952,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.97,
+      "fundamentalQuality": 80.01,
+      "capexScore": 80
     },
     "BANG": {
       "sectorStrength": null,
@@ -2968,25 +2968,25 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 72.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 33.51,
+      "fundamentalQuality": 88.92,
+      "capexScore": 60
     },
     "BANKINDIA": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.1,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.54,
+      "fundamentalQuality": 90.18,
+      "capexScore": 70
     },
     "MAHABANK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.34,
+      "fundamentalQuality": 94.81,
+      "capexScore": 50
     },
     "BANKA": {
       "sectorStrength": null,
@@ -3064,9 +3064,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 56.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.39,
+      "fundamentalQuality": 56.48,
+      "capexScore": 60
     },
     "BATLIBOI": {
       "sectorStrength": null,
@@ -3088,9 +3088,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 58.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 61.28,
+      "fundamentalQuality": 81.93,
+      "capexScore": 60
     },
     "BCLIND": {
       "sectorStrength": null,
@@ -3160,9 +3160,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 62.37,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 58.58,
+      "fundamentalQuality": 66.03,
+      "capexScore": 90
     },
     "BLAL": {
       "sectorStrength": null,
@@ -3176,9 +3176,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 58.62,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.04,
+      "fundamentalQuality": 62.46,
+      "capexScore": 90
     },
     "BENARAS": {
       "sectorStrength": null,
@@ -3200,9 +3200,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 54.53,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.84,
+      "fundamentalQuality": 76.71,
+      "capexScore": 80
     },
     "BESTAGRO": {
       "sectorStrength": null,
@@ -3320,25 +3320,25 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 82.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.9,
+      "fundamentalQuality": 82.47,
+      "capexScore": 80
     },
     "BEL": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 74.3,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.27,
+      "fundamentalQuality": 90.83,
+      "capexScore": 90
     },
     "BHARATFORG": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 68.42,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.86,
+      "fundamentalQuality": 57.77,
+      "capexScore": 90
     },
     "BHARATGEAR": {
       "sectorStrength": null,
@@ -3352,9 +3352,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 67.22,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.87,
+      "fundamentalQuality": 65.39,
+      "capexScore": 60
     },
     "BPLPHARMA": {
       "sectorStrength": null,
@@ -3368,9 +3368,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 71.01,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.91,
+      "fundamentalQuality": 53.26,
+      "capexScore": 80
     },
     "BHARATRAS": {
       "sectorStrength": null,
@@ -3408,17 +3408,17 @@
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 70.55,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.08,
+      "fundamentalQuality": 67.42,
+      "capexScore": 80
     },
     "BHARTIHEXA": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 51.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.67,
+      "fundamentalQuality": 78.63,
+      "capexScore": 80
     },
     "BIL": {
       "sectorStrength": null,
@@ -3448,9 +3448,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 51.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.61,
+      "fundamentalQuality": 71.67,
+      "capexScore": 90
     },
     "BIKEWO": {
       "sectorStrength": null,
@@ -3480,9 +3480,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.84,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.45,
+      "fundamentalQuality": 99.44,
+      "capexScore": 50
     },
     "BIMETAL": {
       "sectorStrength": null,
@@ -3504,9 +3504,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 69.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.62,
+      "fundamentalQuality": 61.66,
+      "capexScore": 90
     },
     "BIOFILCHEM": {
       "sectorStrength": null,
@@ -3560,9 +3560,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 55.16,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.35,
+      "fundamentalQuality": 78.62,
+      "capexScore": 60
     },
     "BBOX": {
       "sectorStrength": null,
@@ -3616,9 +3616,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 57.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.79,
+      "fundamentalQuality": 90.17,
+      "capexScore": 70
     },
     "BLUECHIP": {
       "sectorStrength": null,
@@ -3648,17 +3648,17 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 52.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.45,
+      "fundamentalQuality": 61.66,
+      "capexScore": 80
     },
     "BLUEJET": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 63.03,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 35.86,
+      "fundamentalQuality": 98.78,
+      "capexScore": 90
     },
     "BLUEPEBBLE": {
       "sectorStrength": null,
@@ -3672,9 +3672,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 63.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 47.16,
+      "fundamentalQuality": 63.76,
+      "capexScore": 90
     },
     "BLUEWATER": {
       "sectorStrength": null,
@@ -3816,9 +3816,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 62.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 36.16,
+      "fundamentalQuality": 78.16,
+      "capexScore": 60
     },
     "BOSS": {
       "sectorStrength": null,
@@ -3856,9 +3856,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 60.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.65,
+      "fundamentalQuality": 55.94,
+      "capexScore": 90
     },
     "BCONCEPTS": {
       "sectorStrength": null,
@@ -3880,9 +3880,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 75.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.86,
+      "fundamentalQuality": 74.14,
+      "capexScore": 50
     },
     "BRIGHOTEL": {
       "sectorStrength": null,
@@ -3912,9 +3912,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 55.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.66,
+      "fundamentalQuality": 76.45,
+      "capexScore": 60
     },
     "BROOKS": {
       "sectorStrength": null,
@@ -3928,9 +3928,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.1,
+      "fundamentalQuality": 100.0,
+      "capexScore": 70
     },
     "BSL": {
       "sectorStrength": null,
@@ -3984,9 +3984,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 49.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.56,
+      "fundamentalQuality": 99.86,
+      "capexScore": 80
     },
     "C2C": {
       "sectorStrength": null,
@@ -4048,25 +4048,25 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 54.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.05,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "CANBK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.04,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.76,
+      "fundamentalQuality": 100.0,
+      "capexScore": 70
     },
     "CANHLIFE": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.31,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.59,
+      "fundamentalQuality": 69.53,
+      "capexScore": 50
     },
     "CRAMC": {
       "sectorStrength": null,
@@ -4136,17 +4136,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 64.8,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.35,
+      "fundamentalQuality": 99.98,
+      "capexScore": 80
     },
     "CGCL": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 64.94,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.4,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "CPL": {
       "sectorStrength": null,
@@ -4160,9 +4160,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 78.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.28,
+      "fundamentalQuality": 68.06,
+      "capexScore": 90
     },
     "CARERATING": {
       "sectorStrength": null,
@@ -4192,9 +4192,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 95.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.98,
+      "fundamentalQuality": 96.25,
+      "capexScore": 60
     },
     "CARYSIL": {
       "sectorStrength": null,
@@ -4216,25 +4216,25 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 59.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.26,
+      "fundamentalQuality": 83.6,
+      "capexScore": 60
     },
     "CCL": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 52.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.15,
+      "fundamentalQuality": 67.09,
+      "capexScore": 60
     },
     "CEATLTD": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 55.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 37.22,
+      "fundamentalQuality": 56.34,
+      "capexScore": 90
     },
     "CEDAAR": {
       "sectorStrength": null,
@@ -4296,25 +4296,25 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 59.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 58.63,
+      "fundamentalQuality": 65.46,
+      "capexScore": 90
     },
     "CENTRALBK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 51.4,
+      "fundamentalQuality": 89.11,
+      "capexScore": 70
     },
     "CDSL": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 82.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 39.05,
+      "fundamentalQuality": 90.83,
+      "capexScore": 70
     },
     "CMPDI": {
       "sectorStrength": null,
@@ -4384,17 +4384,17 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 58.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.72,
+      "fundamentalQuality": 45.77,
+      "capexScore": 90
     },
     "CGPOWER": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 62.63,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.67,
+      "fundamentalQuality": 75.84,
+      "capexScore": 90
     },
     "CGVAK": {
       "sectorStrength": null,
@@ -4408,9 +4408,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 62.75,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 14.84,
+      "fundamentalQuality": 84.67,
+      "capexScore": 80
     },
     "CLSEL": {
       "sectorStrength": null,
@@ -4432,9 +4432,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 59.02,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 42.33,
+      "fundamentalQuality": 76.93,
+      "capexScore": 90
     },
     "CHAMUNDA": {
       "sectorStrength": null,
@@ -4512,9 +4512,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 68.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.02,
+      "fundamentalQuality": 66.81,
+      "capexScore": 80
     },
     "CHETANA": {
       "sectorStrength": null,
@@ -4536,33 +4536,33 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.31,
+      "fundamentalQuality": 84.12,
+      "capexScore": 50
     },
     "CHOLAHLDNG": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 55.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.71,
+      "fundamentalQuality": 56.25,
+      "capexScore": 50
     },
     "CHOLAFIN": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.61,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "CIEINDIA": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 55.98,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.57,
+      "fundamentalQuality": 72.64,
+      "capexScore": 80
     },
     "CINELINE": {
       "sectorStrength": null,
@@ -4584,17 +4584,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 65.1,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.75,
+      "fundamentalQuality": 78.54,
+      "capexScore": 90
     },
     "CUB": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 56.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.29,
+      "fundamentalQuality": 100.0,
+      "capexScore": 80
     },
     "CLEDUCATE": {
       "sectorStrength": null,
@@ -4640,9 +4640,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 57.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.68,
+      "fundamentalQuality": 95.97,
+      "capexScore": 90
     },
     "CSSL": {
       "sectorStrength": null,
@@ -4672,9 +4672,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 72.21,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.55,
+      "fundamentalQuality": 85.96,
+      "capexScore": 70
     },
     "COASTCORP": {
       "sectorStrength": null,
@@ -4688,9 +4688,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 40.56,
+      "fundamentalQuality": 75.92,
+      "capexScore": 50
     },
     "COFFEEDAY": {
       "sectorStrength": null,
@@ -4704,25 +4704,25 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 71.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.72,
+      "fundamentalQuality": 77.96,
+      "capexScore": 80
     },
     "COHANCE": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 55.03,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 31.47,
+      "fundamentalQuality": 57.95,
+      "capexScore": 90
     },
     "COLPAL": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 61.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 61.21,
+      "fundamentalQuality": 93.87,
+      "capexScore": 50
     },
     "COMFINTE": {
       "sectorStrength": null,
@@ -4776,17 +4776,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.57,
+      "fundamentalQuality": 99.11,
+      "capexScore": 70
     },
     "CONCORDBIO": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 58.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.97,
+      "fundamentalQuality": 94.85,
+      "capexScore": 80
     },
     "CEWATER": {
       "sectorStrength": null,
@@ -4840,9 +4840,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 59.56,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 53.35,
+      "fundamentalQuality": 79.28,
+      "capexScore": 90
     },
     "CONTI": {
       "sectorStrength": null,
@@ -4888,9 +4888,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 55.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 41.12,
+      "fundamentalQuality": 69.04,
+      "capexScore": 90
     },
     "CORONA": {
       "sectorStrength": null,
@@ -4936,9 +4936,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 60.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.03,
+      "fundamentalQuality": 53.04,
+      "capexScore": 90
     },
     "CRAVATEX": {
       "sectorStrength": null,
@@ -4992,9 +4992,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 54.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.67,
+      "fundamentalQuality": 68.64,
+      "capexScore": 50
     },
     "MUFTI": {
       "sectorStrength": null,
@@ -5024,9 +5024,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.02,
+      "fundamentalQuality": 85.61,
+      "capexScore": 60
     },
     "CRIZAC": {
       "sectorStrength": null,
@@ -5040,9 +5040,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 69.1,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.7,
+      "fundamentalQuality": 65.29,
+      "capexScore": 60
     },
     "CLSL": {
       "sectorStrength": null,
@@ -5096,9 +5096,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 61.44,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.02,
+      "fundamentalQuality": 87.99,
+      "capexScore": 60
     },
     "CUPID": {
       "sectorStrength": null,
@@ -5168,9 +5168,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 60.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 38.92,
+      "fundamentalQuality": 70.66,
+      "capexScore": 60
     },
     "DPWIRES": {
       "sectorStrength": null,
@@ -5216,9 +5216,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 63.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.92,
+      "fundamentalQuality": 80.92,
+      "capexScore": 70
     },
     "DAICHI": {
       "sectorStrength": null,
@@ -5232,9 +5232,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 61.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 30.87,
+      "fundamentalQuality": 66.8,
+      "capexScore": 90
     },
     "DALMIASUG": {
       "sectorStrength": null,
@@ -5288,9 +5288,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 81.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 50.31,
+      "fundamentalQuality": 94.77,
+      "capexScore": 90
     },
     "DATAMATICS": {
       "sectorStrength": null,
@@ -5392,9 +5392,9 @@
       "sectorStrength": 71.43,
       "macroSupport": null,
       "valueMigration": 63.22,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.05,
+      "fundamentalQuality": 66.81,
+      "capexScore": 90
     },
     "DCW": {
       "sectorStrength": null,
@@ -5504,17 +5504,17 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 59.57,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.26,
+      "fundamentalQuality": 68.47,
+      "capexScore": 90
     },
     "DEEPAKNTR": {
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 64.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.25,
+      "fundamentalQuality": 75.4,
+      "capexScore": 90
     },
     "DELAPLEX": {
       "sectorStrength": null,
@@ -5528,9 +5528,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 65.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 44.32,
+      "fundamentalQuality": 60.16,
+      "capexScore": 80
     },
     "DELPHIFX": {
       "sectorStrength": null,
@@ -5608,9 +5608,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 54.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.58,
+      "fundamentalQuality": 32.51,
+      "capexScore": 80
     },
     "DHABRIYA": {
       "sectorStrength": null,
@@ -5896,9 +5896,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 69.16,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.96,
+      "fundamentalQuality": 99.02,
+      "capexScore": 90
     },
     "DIVINEHIRA": {
       "sectorStrength": null,
@@ -5928,9 +5928,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 69.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.78,
+      "fundamentalQuality": 63.75,
+      "capexScore": 90
     },
     "DJML": {
       "sectorStrength": null,
@@ -5944,9 +5944,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 69.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 43.55,
+      "fundamentalQuality": 81.49,
+      "capexScore": 50
     },
     "DMCC": {
       "sectorStrength": null,
@@ -6008,9 +6008,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 51.91,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 43.62,
+      "fundamentalQuality": 72.59,
+      "capexScore": 90
     },
     "DONEAR": {
       "sectorStrength": null,
@@ -6048,17 +6048,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 62.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.64,
+      "fundamentalQuality": 89.67,
+      "capexScore": 70
     },
     "DRREDDY": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 65.8,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 26.22,
+      "fundamentalQuality": 65.18,
+      "capexScore": 90
     },
     "DRCSYSTEMS": {
       "sectorStrength": null,
@@ -6264,9 +6264,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 62.56,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.92,
+      "fundamentalQuality": 83.02,
+      "capexScore": 60
     },
     "ECORECO": {
       "sectorStrength": null,
@@ -6320,17 +6320,17 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 67.01,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.03,
+      "fundamentalQuality": 90.31,
+      "capexScore": 70
     },
     "EIDPARRY": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 58.77,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.74,
+      "fundamentalQuality": 63.17,
+      "capexScore": 90
     },
     "EIHAHOTELS": {
       "sectorStrength": null,
@@ -6344,9 +6344,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 55.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.19,
+      "fundamentalQuality": 89.74,
+      "capexScore": 90
     },
     "EIMCOELECO": {
       "sectorStrength": null,
@@ -6392,9 +6392,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 61.47,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.81,
+      "fundamentalQuality": 76.88,
+      "capexScore": 80
     },
     "EFORCE": {
       "sectorStrength": null,
@@ -6440,9 +6440,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 65.61,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.41,
+      "fundamentalQuality": 73.53,
+      "capexScore": 80
     },
     "ELGIRUBCO": {
       "sectorStrength": null,
@@ -6496,9 +6496,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 56.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 44.69,
+      "fundamentalQuality": 85.65,
+      "capexScore": 60
     },
     "EMAMIPAP": {
       "sectorStrength": null,
@@ -6528,9 +6528,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 58.28,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.68,
+      "fundamentalQuality": 73.96,
+      "capexScore": 90
     },
     "ETML": {
       "sectorStrength": null,
@@ -6576,9 +6576,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 63.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.11,
+      "fundamentalQuality": 94.68,
+      "capexScore": 90
     },
     "EMPIND": {
       "sectorStrength": null,
@@ -6624,9 +6624,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 70.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.54,
+      "fundamentalQuality": 68.29,
+      "capexScore": 90
     },
     "ENERGYDEV": {
       "sectorStrength": null,
@@ -6656,9 +6656,9 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 79.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.28,
+      "fundamentalQuality": 85.25,
+      "capexScore": 60
     },
     "ENKEIWHEL": {
       "sectorStrength": null,
@@ -6776,9 +6776,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 58.12,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.45,
+      "fundamentalQuality": 81.07,
+      "capexScore": 90
     },
     "ESABINDIA": {
       "sectorStrength": null,
@@ -6808,9 +6808,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 59.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 36.56,
+      "fundamentalQuality": 76.04,
+      "capexScore": 70
     },
     "ESPRIT": {
       "sectorStrength": null,
@@ -6848,9 +6848,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 69.93,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 96.28,
+      "fundamentalQuality": 61.19,
+      "capexScore": 90
     },
     "ETHOSLTD": {
       "sectorStrength": null,
@@ -6960,9 +6960,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 62.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.99,
+      "fundamentalQuality": 69.76,
+      "capexScore": 80
     },
     "EXIMROUTES": {
       "sectorStrength": null,
@@ -7080,9 +7080,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 69.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.3,
+      "fundamentalQuality": 33.38,
+      "capexScore": 50
     },
     "FIBERWEB": {
       "sectorStrength": null,
@@ -7168,9 +7168,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 55.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.13,
+      "fundamentalQuality": 77.6,
+      "capexScore": 90
     },
     "FINPIPE": {
       "sectorStrength": null,
@@ -7184,9 +7184,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 69.01,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 61.18,
+      "fundamentalQuality": 62.88,
+      "capexScore": 70
     },
     "FISCHER": {
       "sectorStrength": null,
@@ -7200,9 +7200,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 53.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.82,
+      "fundamentalQuality": 79.48,
+      "capexScore": 50
     },
     "FLAIR": {
       "sectorStrength": null,
@@ -7280,9 +7280,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 63.3,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.9,
+      "fundamentalQuality": 67.84,
+      "capexScore": 80
     },
     "FORGEAUTO": {
       "sectorStrength": null,
@@ -7296,9 +7296,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 61.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 62.27,
+      "fundamentalQuality": 74.21,
+      "capexScore": 90
     },
     "FOSECOIND": {
       "sectorStrength": null,
@@ -7352,9 +7352,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 73.16,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.85,
+      "fundamentalQuality": 52.91,
+      "capexScore": 70
     },
     "UTLSOLAR": {
       "sectorStrength": null,
@@ -7424,9 +7424,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 58.51,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.73,
+      "fundamentalQuality": 68.74,
+      "capexScore": 90
     },
     "GATECH": {
       "sectorStrength": null,
@@ -7448,9 +7448,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 65.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.05,
+      "fundamentalQuality": 71.6,
+      "capexScore": 90
     },
     "GAJANAND": {
       "sectorStrength": null,
@@ -7489,8 +7489,8 @@
       "macroSupport": 85,
       "valueMigration": 55.37,
       "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "fundamentalQuality": 68.55,
+      "capexScore": 90
     },
     "GANDHAR": {
       "sectorStrength": null,
@@ -7584,9 +7584,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.62,
+      "fundamentalQuality": 74.67,
+      "capexScore": 50
     },
     "GARUDA": {
       "sectorStrength": null,
@@ -7664,9 +7664,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 77.56,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.34,
+      "fundamentalQuality": 90.79,
+      "capexScore": 60
     },
     "GEECEE": {
       "sectorStrength": null,
@@ -7696,9 +7696,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 57.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 28.47,
+      "fundamentalQuality": 59.45,
+      "capexScore": 50
     },
     "GENCON": {
       "sectorStrength": null,
@@ -7800,9 +7800,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 58.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.8,
+      "fundamentalQuality": 93.43,
+      "capexScore": 60
     },
     "GINNIFILA": {
       "sectorStrength": null,
@@ -7848,25 +7848,25 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 65.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.24,
+      "fundamentalQuality": 86.62,
+      "capexScore": 80
     },
     "GLAXO": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 48.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.27,
+      "fundamentalQuality": 98.95,
+      "capexScore": 60
     },
     "GLENMARK": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 62.41,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.14,
+      "fundamentalQuality": 78.49,
+      "capexScore": 80
     },
     "GLOBAL": {
       "sectorStrength": null,
@@ -7880,9 +7880,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 61.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.64,
+      "fundamentalQuality": 75.79,
+      "capexScore": 90
     },
     "GLOBALPET": {
       "sectorStrength": null,
@@ -7992,9 +7992,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 63.31,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.62,
+      "fundamentalQuality": 70.58,
+      "capexScore": 90
     },
     "GMRP&UI": {
       "sectorStrength": null,
@@ -8024,9 +8024,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.62,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.21,
+      "fundamentalQuality": 68.03,
+      "capexScore": 50
     },
     "GOCOLORS": {
       "sectorStrength": null,
@@ -8064,17 +8064,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 58.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.08,
+      "fundamentalQuality": 80.92,
+      "capexScore": 90
     },
     "GODFRYPHLP": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 66.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 20.09,
+      "fundamentalQuality": 84.89,
+      "capexScore": 90
     },
     "GODREJAGRO": {
       "sectorStrength": null,
@@ -8088,25 +8088,25 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 61.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.57,
+      "fundamentalQuality": 75.3,
+      "capexScore": 70
     },
     "GODREJIND": {
       "sectorStrength": 71.43,
       "macroSupport": null,
       "valueMigration": 56.72,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.05,
+      "fundamentalQuality": 38.03,
+      "capexScore": 50
     },
     "GODREJPROP": {
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 68.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 36.46,
+      "fundamentalQuality": 51.61,
+      "capexScore": 50
     },
     "GOKEX": {
       "sectorStrength": null,
@@ -8264,9 +8264,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 72.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.59,
+      "fundamentalQuality": 76.26,
+      "capexScore": 90
     },
     "GRAPHISAD": {
       "sectorStrength": null,
@@ -8280,17 +8280,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 60.94,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.1,
+      "fundamentalQuality": 75.5,
+      "capexScore": 90
     },
     "GRASIM": {
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 70.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.46,
+      "fundamentalQuality": 51.92,
+      "capexScore": 50
     },
     "GRAUWEIL": {
       "sectorStrength": null,
@@ -8312,9 +8312,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 72.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.88,
+      "fundamentalQuality": 69.21,
+      "capexScore": 90
     },
     "GREAVESCOT": {
       "sectorStrength": null,
@@ -8512,9 +8512,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 58.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.08,
+      "fundamentalQuality": 77.61,
+      "capexScore": 90
     },
     "GIPCL": {
       "sectorStrength": null,
@@ -8544,9 +8544,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 73.18,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.0,
+      "fundamentalQuality": 91.28,
+      "capexScore": 90
     },
     "GNFC": {
       "sectorStrength": null,
@@ -8784,9 +8784,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 62.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 46.99,
+      "fundamentalQuality": 70.62,
+      "capexScore": 90
     },
     "HAWKINCOOK": {
       "sectorStrength": null,
@@ -8832,9 +8832,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 59.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.3,
+      "fundamentalQuality": 91.0,
+      "capexScore": 70
     },
     "HCL-INSYS": {
       "sectorStrength": null,
@@ -8848,41 +8848,41 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 63.31,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 59.51,
+      "fundamentalQuality": 82.65,
+      "capexScore": 60
     },
     "HDBFS": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 67.02,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.55,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "HDFCAMC": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.1,
+      "fundamentalQuality": 99.57,
+      "capexScore": 50
     },
     "HDFCBANK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 71.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.61,
+      "fundamentalQuality": 89.78,
+      "capexScore": 50
     },
     "HDFCLIFE": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 78.15,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.45,
+      "fundamentalQuality": 62.16,
+      "capexScore": 50
     },
     "HEADSUP": {
       "sectorStrength": null,
@@ -8920,9 +8920,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.35,
+      "fundamentalQuality": 78.24,
+      "capexScore": 90
     },
     "HEIDELBERG": {
       "sectorStrength": null,
@@ -8960,9 +8960,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 68.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 51.24,
+      "fundamentalQuality": 76.8,
+      "capexScore": 60
     },
     "HESTERBIO": {
       "sectorStrength": null,
@@ -8992,17 +8992,17 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 50.61,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 49.26,
+      "fundamentalQuality": 74.92,
+      "capexScore": 60
     },
     "HFCL": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 76.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.27,
+      "fundamentalQuality": 74.05,
+      "capexScore": 50
     },
     "HIGREEN": {
       "sectorStrength": null,
@@ -9048,9 +9048,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 40.22,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.45,
+      "fundamentalQuality": 83.31,
+      "capexScore": 90
     },
     "HIMATSEIDE": {
       "sectorStrength": null,
@@ -9072,9 +9072,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 70.51,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.44,
+      "fundamentalQuality": 61.92,
+      "capexScore": 90
     },
     "HINDCON": {
       "sectorStrength": null,
@@ -9112,9 +9112,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 69.42,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.46,
+      "fundamentalQuality": 91.04,
+      "capexScore": 70
     },
     "HINDCOMPOS": {
       "sectorStrength": null,
@@ -9136,9 +9136,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 79.22,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.69,
+      "fundamentalQuality": 99.39,
+      "capexScore": 80
     },
     "HNDFDS": {
       "sectorStrength": null,
@@ -9168,25 +9168,25 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 67.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.4,
+      "fundamentalQuality": 40.21,
+      "capexScore": 70
     },
     "HINDUNILVR": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 65.47,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 55.44,
+      "fundamentalQuality": 90.31,
+      "capexScore": 60
     },
     "HINDZINC": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 85.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.96,
+      "fundamentalQuality": 92.84,
+      "capexScore": 80
     },
     "HINDWAREAP": {
       "sectorStrength": null,
@@ -9216,9 +9216,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 77.73,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.19,
+      "fundamentalQuality": 80.9,
+      "capexScore": 80
     },
     "HITECHCORP": {
       "sectorStrength": null,
@@ -9280,9 +9280,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.77,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "HOMESFY": {
       "sectorStrength": null,
@@ -9296,9 +9296,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 63.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.96,
+      "fundamentalQuality": 75.99,
+      "capexScore": 60
     },
     "HONDAPOWER": {
       "sectorStrength": null,
@@ -9312,17 +9312,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.83,
+      "fundamentalQuality": 78.61,
+      "capexScore": 60
     },
     "HUDCO": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 60.93,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.82,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "HDIL": {
       "sectorStrength": null,
@@ -9408,9 +9408,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 66.7,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 28.14,
+      "fundamentalQuality": 70.5,
+      "capexScore": 90
     },
     "ISTLTD": {
       "sectorStrength": null,
@@ -9456,33 +9456,33 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 72.11,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.43,
+      "fundamentalQuality": 91.37,
+      "capexScore": 60
     },
     "ICICIGI": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.23,
+      "fundamentalQuality": 51.4,
+      "capexScore": 50
     },
     "ICICIAMC": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 71.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.48,
+      "fundamentalQuality": 99.25,
+      "capexScore": 50
     },
     "ICICIPRULI": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 77.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.29,
+      "fundamentalQuality": 63.18,
+      "capexScore": 50
     },
     "ICRA": {
       "sectorStrength": null,
@@ -9496,9 +9496,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.44,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 19.22,
+      "fundamentalQuality": 81.28,
+      "capexScore": 50
     },
     "IDEAFORGE": {
       "sectorStrength": null,
@@ -9528,9 +9528,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 71.42,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 38.2,
+      "fundamentalQuality": 100.0,
+      "capexScore": 60
     },
     "IFBAGRO": {
       "sectorStrength": null,
@@ -9552,9 +9552,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.5,
+      "fundamentalQuality": 72.5,
+      "capexScore": 70
     },
     "IFGLEXPOR": {
       "sectorStrength": null,
@@ -9592,9 +9592,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 98.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.42,
+      "fundamentalQuality": 64.45,
+      "capexScore": 50
     },
     "IKIO": {
       "sectorStrength": null,
@@ -9680,9 +9680,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 62.72,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.24,
+      "fundamentalQuality": 76.76,
+      "capexScore": 60
     },
     "INDIAGLYCO": {
       "sectorStrength": null,
@@ -9744,17 +9744,17 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 55.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.44,
+      "fundamentalQuality": 89.14,
+      "capexScore": 50
     },
     "INDIANB": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 67.65,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.27,
+      "fundamentalQuality": 91.42,
+      "capexScore": 50
     },
     "INDIANCARD": {
       "sectorStrength": null,
@@ -9776,9 +9776,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.58,
+      "fundamentalQuality": 99.85,
+      "capexScore": 50
     },
     "INDIANHUME": {
       "sectorStrength": null,
@@ -9800,17 +9800,17 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 66.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.94,
+      "fundamentalQuality": 55.15,
+      "capexScore": 80
     },
     "IOB": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 55.75,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.0,
+      "fundamentalQuality": 91.6,
+      "capexScore": 60
     },
     "IPHL": {
       "sectorStrength": null,
@@ -9824,25 +9824,25 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 63.57,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 58.95,
+      "fundamentalQuality": 96.51,
+      "capexScore": 60
     },
     "IRFC": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.88,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "IREDA": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.27,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.62,
+      "fundamentalQuality": 75.0,
+      "capexScore": 50
     },
     "INDTERRAIN": {
       "sectorStrength": null,
@@ -10008,9 +10008,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 56.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 34.91,
+      "fundamentalQuality": 70.61,
+      "capexScore": 90
     },
     "INDRAMEDCO": {
       "sectorStrength": null,
@@ -10024,17 +10024,17 @@
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 75.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 53.5,
+      "fundamentalQuality": 81.64,
+      "capexScore": 90
     },
     "INDUSINDBK": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.22,
+      "fundamentalQuality": 77.22,
+      "capexScore": 90
     },
     "INDPRUD": {
       "sectorStrength": null,
@@ -10072,9 +10072,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 62.94,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.62,
+      "fundamentalQuality": 99.88,
+      "capexScore": 60
     },
     "INFOBEAN": {
       "sectorStrength": null,
@@ -10104,9 +10104,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 66.39,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 53.85,
+      "fundamentalQuality": 83.91,
+      "capexScore": 60
     },
     "INGERRAND": {
       "sectorStrength": null,
@@ -10176,9 +10176,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 62.72,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.4,
+      "fundamentalQuality": 71.69,
+      "capexScore": 50
     },
     "INSECTICID": {
       "sectorStrength": null,
@@ -10240,9 +10240,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 64.18,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.82,
+      "fundamentalQuality": 77.53,
+      "capexScore": 80
     },
     "INTENTECH": {
       "sectorStrength": null,
@@ -10264,9 +10264,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 65.12,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 19.77,
+      "fundamentalQuality": 41.98,
+      "capexScore": 60
     },
     "INM": {
       "sectorStrength": null,
@@ -10288,9 +10288,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 65.8,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.54,
+      "fundamentalQuality": 98.24,
+      "capexScore": 60
     },
     "ISFT": {
       "sectorStrength": null,
@@ -10312,9 +10312,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 59.51,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.08,
+      "fundamentalQuality": 91.12,
+      "capexScore": 60
     },
     "INVPRECQ": {
       "sectorStrength": null,
@@ -10360,25 +10360,25 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 66.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.41,
+      "fundamentalQuality": 82.42,
+      "capexScore": 90
     },
     "IRB": {
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 57.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.15,
+      "fundamentalQuality": 69.62,
+      "capexScore": 80
     },
     "IRCON": {
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 53.15,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 30.16,
+      "fundamentalQuality": 56.29,
+      "capexScore": 50
     },
     "IRISDOREME": {
       "sectorStrength": null,
@@ -10440,25 +10440,25 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 58.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.48,
+      "fundamentalQuality": 88.79,
+      "capexScore": 80
     },
     "ITC": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 65.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 34.3,
+      "fundamentalQuality": 94.94,
+      "capexScore": 60
     },
     "ITI": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 54.6,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 27.95,
+      "fundamentalQuality": 64.7,
+      "capexScore": 50
     },
     "ITL": {
       "sectorStrength": null,
@@ -10568,9 +10568,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 58.01,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.57,
+      "fundamentalQuality": 52.72,
+      "capexScore": 50
     },
     "JAINAM": {
       "sectorStrength": null,
@@ -10592,9 +10592,9 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 65.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.08,
+      "fundamentalQuality": 84.21,
+      "capexScore": 50
     },
     "JAKHARIA": {
       "sectorStrength": null,
@@ -10712,9 +10712,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 99.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.26,
+      "fundamentalQuality": 37.35,
+      "capexScore": 50
     },
     "JSLL": {
       "sectorStrength": null,
@@ -10816,25 +10816,25 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 99.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 33.98,
+      "fundamentalQuality": 61.86,
+      "capexScore": 90
     },
     "JSL": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 52.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 62.1,
+      "fundamentalQuality": 66.84,
+      "capexScore": 90
     },
     "JINDALSTEL": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 70.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 41.7,
+      "fundamentalQuality": 65.27,
+      "capexScore": 90
     },
     "JINDWORLD": {
       "sectorStrength": null,
@@ -10856,9 +10856,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.28,
+      "fundamentalQuality": 97.01,
+      "capexScore": 50
     },
     "JITFINFRA": {
       "sectorStrength": null,
@@ -10880,9 +10880,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 55.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 52.3,
+      "fundamentalQuality": 58.82,
+      "capexScore": 90
     },
     "JKLAKSHMI": {
       "sectorStrength": null,
@@ -10904,17 +10904,17 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 62.15,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.02,
+      "fundamentalQuality": 53.25,
+      "capexScore": 90
     },
     "JMFINANCIL": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 60.05,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 23.95,
+      "fundamentalQuality": 81.22,
+      "capexScore": 60
     },
     "JNKINDIA": {
       "sectorStrength": null,
@@ -10944,25 +10944,25 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 64.27,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.2,
+      "fundamentalQuality": 64.4,
+      "capexScore": 90
     },
     "JSWDULUX": {
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 59.7,
-      "futureGrowth": null,
+      "futureGrowth": 0.0,
       "fundamentalQuality": null,
-      "capexScore": null
+      "capexScore": 90
     },
     "JSWENERGY": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 67.27,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 27.91,
+      "fundamentalQuality": 55.25,
+      "capexScore": 90
     },
     "JSWHL": {
       "sectorStrength": null,
@@ -10976,17 +10976,17 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 72.1,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 53.0,
+      "fundamentalQuality": 88.57,
+      "capexScore": 90
     },
     "JSWSTEEL": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 66.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.82,
+      "fundamentalQuality": 63.74,
+      "capexScore": 90
     },
     "JTEKTINDIA": {
       "sectorStrength": null,
@@ -11016,25 +11016,25 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 64.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 55.91,
+      "fundamentalQuality": 70.61,
+      "capexScore": 90
     },
     "JUBLINGREA": {
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 60.72,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.05,
+      "fundamentalQuality": 69.95,
+      "capexScore": 90
     },
     "JUBLPHARMA": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 66.28,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 37.05,
+      "fundamentalQuality": 59.97,
+      "capexScore": 90
     },
     "JMA": {
       "sectorStrength": null,
@@ -11072,9 +11072,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.9,
+      "fundamentalQuality": 64.91,
+      "capexScore": 90
     },
     "JUSTDIAL": {
       "sectorStrength": null,
@@ -11096,9 +11096,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 85.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 47.43,
+      "fundamentalQuality": 76.38,
+      "capexScore": 90
     },
     "JYOTIGLOBL": {
       "sectorStrength": null,
@@ -11152,9 +11152,9 @@
       "sectorStrength": 23.81,
       "macroSupport": null,
       "valueMigration": 62.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.49,
+      "fundamentalQuality": 80.2,
+      "capexScore": 70
     },
     "K2INFRA": {
       "sectorStrength": null,
@@ -11184,9 +11184,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 54.42,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.68,
+      "fundamentalQuality": 79.05,
+      "capexScore": 70
     },
     "KAKATCEM": {
       "sectorStrength": null,
@@ -11216,17 +11216,17 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 67.12,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.27,
+      "fundamentalQuality": 61.68,
+      "capexScore": 90
     },
     "KALYANKJIL": {
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 74.7,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.07,
+      "fundamentalQuality": 50.94,
+      "capexScore": 80
     },
     "KALYANI": {
       "sectorStrength": null,
@@ -11384,9 +11384,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 64.59,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.17,
+      "fundamentalQuality": 100.0,
+      "capexScore": 50
     },
     "KATARIA": {
       "sectorStrength": null,
@@ -11448,9 +11448,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 77.55,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.4,
+      "fundamentalQuality": 72.74,
+      "capexScore": 50
     },
     "KAYTEX": {
       "sectorStrength": null,
@@ -11496,17 +11496,17 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 79.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 29.2,
+      "fundamentalQuality": 51.76,
+      "capexScore": 50
     },
     "KEI": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.12,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.69,
+      "fundamentalQuality": 74.94,
+      "capexScore": 90
     },
     "KELLTONTEC": {
       "sectorStrength": null,
@@ -11576,9 +11576,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 77.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 62.43,
+      "fundamentalQuality": 94.92,
+      "capexScore": 80
     },
     "KHADIM": {
       "sectorStrength": null,
@@ -11704,9 +11704,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.05,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 43.54,
+      "fundamentalQuality": 47.08,
+      "capexScore": 80
     },
     "KIRLPNU": {
       "sectorStrength": null,
@@ -11840,9 +11840,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 75.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.77,
+      "fundamentalQuality": 100.0,
+      "capexScore": 50
     },
     "KOTIC": {
       "sectorStrength": null,
@@ -11904,9 +11904,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 62.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.73,
+      "fundamentalQuality": 72.25,
+      "capexScore": 60
     },
     "KRBL": {
       "sectorStrength": null,
@@ -11968,9 +11968,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 58.46,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 44.45,
+      "fundamentalQuality": 42.33,
+      "capexScore": 90
     },
     "KRITI": {
       "sectorStrength": null,
@@ -12128,17 +12128,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 70.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.78,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "LTTS": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 64.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.21,
+      "fundamentalQuality": 78.9,
+      "capexScore": 60
     },
     "LAOPALA": {
       "sectorStrength": null,
@@ -12264,9 +12264,9 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 70.77,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.84,
+      "fundamentalQuality": 55.52,
+      "capexScore": 70
     },
     "LASA": {
       "sectorStrength": null,
@@ -12288,9 +12288,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 51.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.79,
+      "fundamentalQuality": 84.2,
+      "capexScore": 60
     },
     "LATTEYS": {
       "sectorStrength": null,
@@ -12304,9 +12304,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 63.38,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.77,
+      "fundamentalQuality": 80.09,
+      "capexScore": 90
     },
     "LAXMICOT": {
       "sectorStrength": null,
@@ -12400,25 +12400,25 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 82.37,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.58,
+      "fundamentalQuality": 94.85,
+      "capexScore": 90
     },
     "LEMONTREE": {
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 64.56,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.77,
+      "fundamentalQuality": 74.56,
+      "capexScore": 70
     },
     "LENSKART": {
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 73.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.98,
+      "fundamentalQuality": 67.73,
+      "capexScore": 80
     },
     "LEXUS": {
       "sectorStrength": null,
@@ -12440,9 +12440,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 64.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.52,
+      "fundamentalQuality": 73.57,
+      "capexScore": 90
     },
     "LIBAS": {
       "sectorStrength": null,
@@ -12464,17 +12464,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 58.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.5,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "LICI": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 72.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.1,
+      "fundamentalQuality": 71.45,
+      "capexScore": 50
     },
     "LIKHITHA": {
       "sectorStrength": null,
@@ -12504,9 +12504,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 55.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.44,
+      "fundamentalQuality": 83.99,
+      "capexScore": 90
     },
     "LKPSEC": {
       "sectorStrength": null,
@@ -12544,9 +12544,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 59.94,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.54,
+      "fundamentalQuality": 69.39,
+      "capexScore": 90
     },
     "LMW": {
       "sectorStrength": null,
@@ -12560,9 +12560,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 68.99,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.02,
+      "fundamentalQuality": 89.05,
+      "capexScore": 70
     },
     "LCL": {
       "sectorStrength": null,
@@ -12632,17 +12632,17 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 58.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.88,
+      "fundamentalQuality": 68.28,
+      "capexScore": 80
     },
     "LTM": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 62.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.75,
+      "fundamentalQuality": 81.31,
+      "capexScore": 70
     },
     "LUMAXTECH": {
       "sectorStrength": null,
@@ -12664,9 +12664,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 68.21,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.24,
+      "fundamentalQuality": 85.46,
+      "capexScore": 70
     },
     "LUXIND": {
       "sectorStrength": null,
@@ -12888,9 +12888,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 52.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 32.46,
+      "fundamentalQuality": 74.2,
+      "capexScore": 90
     },
     "MTNL": {
       "sectorStrength": null,
@@ -12944,17 +12944,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 63.83,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.81,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "M&M": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 68.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.87,
+      "fundamentalQuality": 56.32,
+      "capexScore": 90
     },
     "MAHEPC": {
       "sectorStrength": null,
@@ -13112,9 +13112,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 79.11,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.0,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "MPEL": {
       "sectorStrength": null,
@@ -13232,9 +13232,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 73.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.0,
+      "fundamentalQuality": 46.87,
+      "capexScore": 90
     },
     "MIEL": {
       "sectorStrength": null,
@@ -13264,9 +13264,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 66.11,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.04,
+      "fundamentalQuality": 77.95,
+      "capexScore": 70
     },
     "MVGJL": {
       "sectorStrength": null,
@@ -13336,9 +13336,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 61.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.21,
+      "fundamentalQuality": 81.4,
+      "capexScore": 70
     },
     "MARINE": {
       "sectorStrength": null,
@@ -13392,9 +13392,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 61.59,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 58.14,
+      "fundamentalQuality": 71.06,
+      "capexScore": 90
     },
     "MDL": {
       "sectorStrength": null,
@@ -13488,17 +13488,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.65,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 40.39,
+      "fundamentalQuality": 63.92,
+      "capexScore": 50
     },
     "MAXHEALTH": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 68.21,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.45,
+      "fundamentalQuality": 80.38,
+      "capexScore": 90
     },
     "MAXIND": {
       "sectorStrength": null,
@@ -13544,9 +13544,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.3,
+      "fundamentalQuality": 84.44,
+      "capexScore": 50
     },
     "MAZDA": {
       "sectorStrength": null,
@@ -13648,9 +13648,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 61.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 53.34,
+      "capexScore": 50
     },
     "MEGAFLEX": {
       "sectorStrength": null,
@@ -13824,9 +13824,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 51.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.43,
+      "fundamentalQuality": 62.85,
+      "capexScore": 90
     },
     "MINDPOOL": {
       "sectorStrength": null,
@@ -13896,9 +13896,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 57.27,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.67,
+      "fundamentalQuality": 66.65,
+      "capexScore": 50
     },
     "MOBILISE": {
       "sectorStrength": null,
@@ -14080,17 +14080,17 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 56.65,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.84,
+      "fundamentalQuality": 68.26,
+      "capexScore": 70
     },
     "MOTILALOFS": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 75.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.37,
+      "fundamentalQuality": 66.58,
+      "capexScore": 50
     },
     "MOTISONS": {
       "sectorStrength": null,
@@ -14128,9 +14128,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 65.3,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.73,
+      "fundamentalQuality": 74.06,
+      "capexScore": 70
     },
     "MPSLTD": {
       "sectorStrength": null,
@@ -14144,9 +14144,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 59.76,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 54.33,
+      "fundamentalQuality": 69.46,
+      "capexScore": 80
     },
     "BECTORFOOD": {
       "sectorStrength": null,
@@ -14232,9 +14232,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 77.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.78,
+      "fundamentalQuality": 99.98,
+      "capexScore": 50
     },
     "MUNISH": {
       "sectorStrength": null,
@@ -14288,9 +14288,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 76.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.47,
+      "fundamentalQuality": 79.52,
+      "capexScore": 50
     },
     "MUTHOOTMF": {
       "sectorStrength": null,
@@ -14464,9 +14464,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 67.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.72,
+      "fundamentalQuality": 53.37,
+      "capexScore": 90
     },
     "NARMADA": {
       "sectorStrength": null,
@@ -14480,9 +14480,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 65.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 9.01,
+      "fundamentalQuality": 91.62,
+      "capexScore": 70
     },
     "NATHBIOGEN": {
       "sectorStrength": null,
@@ -14496,9 +14496,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 78.3,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.02,
+      "fundamentalQuality": 99.95,
+      "capexScore": 80
     },
     "NFL": {
       "sectorStrength": null,
@@ -14528,17 +14528,17 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 60.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 40.8,
+      "fundamentalQuality": 89.57,
+      "capexScore": 90
     },
     "NAVINFLUOR": {
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 64.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.8,
+      "fundamentalQuality": 90.05,
+      "capexScore": 90
     },
     "NAVKARCORP": {
       "sectorStrength": null,
@@ -14576,17 +14576,17 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 67.61,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.53,
+      "fundamentalQuality": 72.71,
+      "capexScore": 60
     },
     "NCC": {
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 97.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.43,
+      "fundamentalQuality": 59.9,
+      "capexScore": 50
     },
     "NCLIND": {
       "sectorStrength": null,
@@ -14704,9 +14704,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 74.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.36,
+      "fundamentalQuality": 84.87,
+      "capexScore": 90
     },
     "CBAZAAR": {
       "sectorStrength": null,
@@ -14720,9 +14720,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 84.03,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.96,
+      "fundamentalQuality": 71.19,
+      "capexScore": 60
     },
     "NPST": {
       "sectorStrength": null,
@@ -14752,9 +14752,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 60.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.58,
+      "fundamentalQuality": 76.2,
+      "capexScore": 90
     },
     "NDTV": {
       "sectorStrength": null,
@@ -14768,9 +14768,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 57.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.82,
+      "fundamentalQuality": 83.77,
+      "capexScore": 50
     },
     "NEWJAISA": {
       "sectorStrength": null,
@@ -14816,9 +14816,9 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 64.18,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.81,
+      "fundamentalQuality": 79.26,
+      "capexScore": 90
     },
     "NIBE": {
       "sectorStrength": null,
@@ -14920,9 +14920,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 74.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.82,
+      "fundamentalQuality": 99.7,
+      "capexScore": 60
     },
     "NIRAJ": {
       "sectorStrength": null,
@@ -14992,9 +14992,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 59.73,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.74,
+      "fundamentalQuality": 60.62,
+      "capexScore": 50
     },
     "NKIND": {
       "sectorStrength": null,
@@ -15008,25 +15008,25 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 59.53,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 38.55,
+      "fundamentalQuality": 76.92,
+      "capexScore": 90
     },
     "NMDC": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 71.28,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 52.4,
+      "fundamentalQuality": 93.7,
+      "capexScore": 90
     },
     "NSLNISP": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 63.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 60.28,
+      "capexScore": 70
     },
     "NOCIL": {
       "sectorStrength": null,
@@ -15112,17 +15112,17 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 57.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 95.33,
+      "fundamentalQuality": 63.68,
+      "capexScore": 90
     },
     "NTPC": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 71.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 50.24,
+      "fundamentalQuality": 62.42,
+      "capexScore": 90
     },
     "NUCLEUS": {
       "sectorStrength": null,
@@ -15152,17 +15152,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.06,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.28,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "NUVOCO": {
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 56.28,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.84,
+      "fundamentalQuality": 63.31,
+      "capexScore": 80
     },
     "OBCL": {
       "sectorStrength": null,
@@ -15176,9 +15176,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 61.26,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.9,
+      "fundamentalQuality": 97.11,
+      "capexScore": 80
     },
     "OBSCP": {
       "sectorStrength": null,
@@ -15216,9 +15216,9 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 65.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.36,
+      "fundamentalQuality": 61.41,
+      "capexScore": 80
     },
     "OILCOUNTUB": {
       "sectorStrength": null,
@@ -15232,25 +15232,25 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 59.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.43,
+      "fundamentalQuality": 85.35,
+      "capexScore": 90
     },
     "OLAELEC": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 63.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 0.0,
+      "fundamentalQuality": 18.22,
+      "capexScore": 50
     },
     "OLECTRA": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 75.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.19,
+      "fundamentalQuality": 64.61,
+      "capexScore": 90
     },
     "OMFREIGHT": {
       "sectorStrength": null,
@@ -15320,9 +15320,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 77.23,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.14,
+      "fundamentalQuality": 69.73,
+      "capexScore": 50
     },
     "ONEGLOBAL": {
       "sectorStrength": null,
@@ -15376,9 +15376,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 57.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 63.4,
+      "capexScore": 90
     },
     "ONIDA": {
       "sectorStrength": null,
@@ -15456,9 +15456,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 63.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.86,
+      "fundamentalQuality": 92.81,
+      "capexScore": 50
     },
     "ORBTEXP": {
       "sectorStrength": null,
@@ -15704,9 +15704,9 @@
       "sectorStrength": 23.81,
       "macroSupport": null,
       "valueMigration": 65.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 52.16,
+      "fundamentalQuality": 80.37,
+      "capexScore": 60
     },
     "PAISALO": {
       "sectorStrength": null,
@@ -15800,9 +15800,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 62.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.05,
+      "fundamentalQuality": 53.74,
+      "capexScore": 50
     },
     "PARAGMILK": {
       "sectorStrength": null,
@@ -15944,9 +15944,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 60.07,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.47,
+      "fundamentalQuality": 65.1,
+      "capexScore": 50
     },
     "PATELENG": {
       "sectorStrength": null,
@@ -16016,9 +16016,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 70.37,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 92.67,
+      "fundamentalQuality": 72.38,
+      "capexScore": 90
     },
     "PBMPOLY": {
       "sectorStrength": null,
@@ -16040,9 +16040,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 58.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.13,
+      "fundamentalQuality": 49.69,
+      "capexScore": 80
     },
     "PDSL": {
       "sectorStrength": null,
@@ -16120,9 +16120,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 67.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.71,
+      "fundamentalQuality": 82.46,
+      "capexScore": 60
     },
     "PCCL": {
       "sectorStrength": null,
@@ -16136,25 +16136,25 @@
       "sectorStrength": 61.9,
       "macroSupport": 55,
       "valueMigration": 67.01,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 62.67,
+      "fundamentalQuality": 83.35,
+      "capexScore": 90
     },
     "PFIZER": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 68.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.26,
+      "fundamentalQuality": 99.69,
+      "capexScore": 50
     },
     "PGEL": {
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 64.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.46,
+      "fundamentalQuality": 65.69,
+      "capexScore": 90
     },
     "PHANTOMFX": {
       "sectorStrength": null,
@@ -16184,17 +16184,17 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 61.86,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.27,
+      "fundamentalQuality": 52.43,
+      "capexScore": 80
     },
     "PIIND": {
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 65.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 23.88,
+      "fundamentalQuality": 83.99,
+      "capexScore": 90
     },
     "PICCADIL": {
       "sectorStrength": null,
@@ -16216,9 +16216,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 64.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 82.12,
+      "fundamentalQuality": 88.56,
+      "capexScore": 70
     },
     "PILITA": {
       "sectorStrength": null,
@@ -16240,9 +16240,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.75,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.62,
+      "fundamentalQuality": 66.81,
+      "capexScore": 90
     },
     "PIONEEREMB": {
       "sectorStrength": null,
@@ -16264,17 +16264,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 76.93,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.14,
+      "fundamentalQuality": 57.05,
+      "capexScore": 50
     },
     "PPLPHARMA": {
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 60.95,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.1,
+      "fundamentalQuality": 47.48,
+      "capexScore": 90
     },
     "PITTIENG": {
       "sectorStrength": null,
@@ -16336,9 +16336,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 64.18,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.06,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "PNCINFRA": {
       "sectorStrength": null,
@@ -16384,17 +16384,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 49.04,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 59.32,
+      "fundamentalQuality": 81.94,
+      "capexScore": 90
     },
     "POLYCAB": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 61.57,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.55,
+      "fundamentalQuality": 78.13,
+      "capexScore": 80
     },
     "POLYPLEX": {
       "sectorStrength": null,
@@ -16440,9 +16440,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 60.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 93.61,
+      "fundamentalQuality": 63.44,
+      "capexScore": 50
     },
     "PVSL": {
       "sectorStrength": null,
@@ -16472,17 +16472,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.25,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 53.14,
+      "fundamentalQuality": 75.0,
+      "capexScore": 50
     },
     "POWERGRID": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 81.56,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 49.63,
+      "fundamentalQuality": 72.35,
+      "capexScore": 90
     },
     "POWERMECH": {
       "sectorStrength": null,
@@ -16664,9 +16664,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 74.15,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.97,
+      "fundamentalQuality": 75.75,
+      "capexScore": 90
     },
     "PREMEXPLN": {
       "sectorStrength": null,
@@ -16720,9 +16720,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 79.95,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 46.69,
+      "fundamentalQuality": 63.43,
+      "capexScore": 90
     },
     "PRICOLLTD": {
       "sectorStrength": null,
@@ -16744,9 +16744,9 @@
       "sectorStrength": 47.62,
       "macroSupport": 50,
       "valueMigration": 88.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.58,
+      "fundamentalQuality": 37.36,
+      "capexScore": 90
     },
     "PRIMESECU": {
       "sectorStrength": null,
@@ -16952,9 +16952,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 88.26,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 95.32,
+      "fundamentalQuality": 83.13,
+      "capexScore": 50
     },
     "PTL": {
       "sectorStrength": null,
@@ -17000,9 +17000,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.22,
+      "fundamentalQuality": 90.13,
+      "capexScore": 60
     },
     "PURVA": {
       "sectorStrength": null,
@@ -17048,9 +17048,9 @@
       "sectorStrength": 47.62,
       "macroSupport": 50,
       "valueMigration": 63.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.12,
+      "fundamentalQuality": 58.75,
+      "capexScore": 60
     },
     "PYRAMID": {
       "sectorStrength": null,
@@ -17176,9 +17176,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 69.84,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.58,
+      "fundamentalQuality": 69.47,
+      "capexScore": 90
     },
     "RSYSTEMS": {
       "sectorStrength": null,
@@ -17264,9 +17264,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 61.22,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.74,
+      "fundamentalQuality": 74.31,
+      "capexScore": 80
     },
     "RADIOWALLA": {
       "sectorStrength": null,
@@ -17288,17 +17288,17 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 60.55,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.5,
+      "fundamentalQuality": 59.63,
+      "capexScore": 50
     },
     "RAILTEL": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 75.59,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.88,
+      "fundamentalQuality": 65.46,
+      "capexScore": 90
     },
     "RAIN": {
       "sectorStrength": null,
@@ -17312,9 +17312,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 53.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.3,
+      "fundamentalQuality": 75.77,
+      "capexScore": 90
     },
     "ROML": {
       "sectorStrength": null,
@@ -17504,9 +17504,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 59.27,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 89.52,
+      "fundamentalQuality": 57.16,
+      "capexScore": 90
     },
     "RAMKY": {
       "sectorStrength": null,
@@ -17664,9 +17664,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.39,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.4,
+      "fundamentalQuality": 66.66,
+      "capexScore": 50
     },
     "RBMINFRA": {
       "sectorStrength": null,
@@ -17704,17 +17704,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 65.76,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.23,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "REDINGTON": {
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 71.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.22,
+      "fundamentalQuality": 60.35,
+      "capexScore": 90
     },
     "REDTAPE": {
       "sectorStrength": null,
@@ -17808,9 +17808,9 @@
       "sectorStrength": 52.38,
       "macroSupport": 55,
       "valueMigration": 70.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 46.62,
+      "fundamentalQuality": 68.42,
+      "capexScore": 90
     },
     "RELINFRA": {
       "sectorStrength": null,
@@ -17824,9 +17824,9 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 92.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.23,
+      "fundamentalQuality": 54.55,
+      "capexScore": 50
     },
     "RELIGARE": {
       "sectorStrength": null,
@@ -17944,9 +17944,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.46,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.13,
+      "fundamentalQuality": 60.44,
+      "capexScore": 80
     },
     "RICHA": {
       "sectorStrength": null,
@@ -18000,9 +18000,9 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 55.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 61.87,
+      "fundamentalQuality": 85.67,
+      "capexScore": 70
     },
     "RKEC": {
       "sectorStrength": null,
@@ -18432,9 +18432,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 74.29,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.03,
+      "fundamentalQuality": 79.39,
+      "capexScore": 70
     },
     "SAHAJSOLAR": {
       "sectorStrength": null,
@@ -18480,9 +18480,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 60.52,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.31,
+      "fundamentalQuality": 82.97,
+      "capexScore": 90
     },
     "SAIPARENT": {
       "sectorStrength": null,
@@ -18624,9 +18624,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 66.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 7.48,
+      "fundamentalQuality": 48.33,
+      "capexScore": 50
     },
     "SAMPANN": {
       "sectorStrength": null,
@@ -18640,9 +18640,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 66.95,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.24,
+      "fundamentalQuality": 60.51,
+      "capexScore": 90
     },
     "SANATHAN": {
       "sectorStrength": null,
@@ -18744,9 +18744,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 65.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.05,
+      "fundamentalQuality": 47.15,
+      "capexScore": 90
     },
     "SARTELE": {
       "sectorStrength": null,
@@ -18776,17 +18776,17 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 62.97,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.77,
+      "fundamentalQuality": 88.51,
+      "capexScore": 70
     },
     "SAREGAMA": {
       "sectorStrength": 47.62,
       "macroSupport": 50,
       "valueMigration": 49.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.96,
+      "fundamentalQuality": 92.62,
+      "capexScore": 90
     },
     "SARLAPOLY": {
       "sectorStrength": null,
@@ -18936,17 +18936,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 56.59,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.71,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "SBICARD": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 68.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.62,
+      "fundamentalQuality": 58.14,
+      "capexScore": 60
     },
     "SBIFUNDS": {
       "sectorStrength": null,
@@ -18960,9 +18960,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.73,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.03,
+      "fundamentalQuality": 53.94,
+      "capexScore": 50
     },
     "SCANSTL": {
       "sectorStrength": null,
@@ -18976,17 +18976,17 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 59.98,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.46,
+      "fundamentalQuality": 81.79,
+      "capexScore": 80
     },
     "SCHNEIDER": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 54.77,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 33.52,
+      "fundamentalQuality": 56.87,
+      "capexScore": 80
     },
     "SCODATUBES": {
       "sectorStrength": null,
@@ -19456,9 +19456,9 @@
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 62.58,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.0,
+      "fundamentalQuality": 65.01,
+      "capexScore": 90
     },
     "SHIPROCKET": {
       "sectorStrength": null,
@@ -19584,9 +19584,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 63.62,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 57.95,
+      "fundamentalQuality": 77.19,
+      "capexScore": 90
     },
     "SHREDIGCEM": {
       "sectorStrength": null,
@@ -19808,9 +19808,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 69.53,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.16,
+      "fundamentalQuality": 69.44,
+      "capexScore": 50
     },
     "SHRIRAMPPS": {
       "sectorStrength": null,
@@ -19864,9 +19864,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 51.63,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 77.37,
+      "fundamentalQuality": 71.23,
+      "capexScore": 90
     },
     "SHYAMTEL": {
       "sectorStrength": null,
@@ -19912,17 +19912,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 66.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.08,
+      "fundamentalQuality": 86.19,
+      "capexScore": 60
     },
     "SIEMENS": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 72.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.55,
+      "fundamentalQuality": 80.1,
+      "capexScore": 90
     },
     "SIGACHI": {
       "sectorStrength": null,
@@ -19952,9 +19952,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 58.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 18.08,
+      "fundamentalQuality": 46.56,
+      "capexScore": 70
     },
     "SIGIND": {
       "sectorStrength": null,
@@ -20144,9 +20144,9 @@
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 58.47,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.77,
+      "fundamentalQuality": 56.85,
+      "capexScore": 90
     },
     "SKFINDUS": {
       "sectorStrength": null,
@@ -20288,9 +20288,9 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 53.48,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 94.55,
+      "fundamentalQuality": 63.87,
+      "capexScore": 80
     },
     "SOFTTECH": {
       "sectorStrength": null,
@@ -20304,9 +20304,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 71.18,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.27,
+      "fundamentalQuality": 86.06,
+      "capexScore": 90
     },
     "SOLARA": {
       "sectorStrength": null,
@@ -20376,9 +20376,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 65.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.84,
+      "fundamentalQuality": 81.47,
+      "capexScore": 90
     },
     "SONAMAC": {
       "sectorStrength": null,
@@ -20408,9 +20408,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 58.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 55.34,
+      "fundamentalQuality": 61.78,
+      "capexScore": 70
     },
     "SONUINFRA": {
       "sectorStrength": null,
@@ -20584,9 +20584,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 63.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.88,
+      "fundamentalQuality": 78.48,
+      "capexScore": 90
     },
     "SRGHFL": {
       "sectorStrength": null,
@@ -20696,9 +20696,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 93.48,
+      "fundamentalQuality": 61.03,
+      "capexScore": 50
     },
     "STARPAPER": {
       "sectorStrength": null,
@@ -20720,17 +20720,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 70.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.79,
+      "fundamentalQuality": 87.51,
+      "capexScore": 70
     },
     "SAIL": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 65.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.96,
+      "fundamentalQuality": 62.12,
+      "capexScore": 80
     },
     "STEELCITY": {
       "sectorStrength": null,
@@ -20968,9 +20968,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 46.39,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.87,
+      "fundamentalQuality": 87.09,
+      "capexScore": 60
     },
     "SUMMITSEC": {
       "sectorStrength": null,
@@ -20992,17 +20992,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 68.49,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 76.52,
+      "fundamentalQuality": 89.73,
+      "capexScore": 70
     },
     "SUNTV": {
       "sectorStrength": 47.62,
       "macroSupport": 50,
       "valueMigration": 55.21,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 68.79,
+      "fundamentalQuality": 99.85,
+      "capexScore": 90
     },
     "SUNDRMBRAK": {
       "sectorStrength": null,
@@ -21024,9 +21024,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.02,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "SUNDARAM": {
       "sectorStrength": null,
@@ -21208,9 +21208,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.24,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.78,
+      "fundamentalQuality": 75.23,
+      "capexScore": 90
     },
     "SUPREMEINF": {
       "sectorStrength": null,
@@ -21224,9 +21224,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 50.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.66,
+      "fundamentalQuality": 78.62,
+      "capexScore": 90
     },
     "SUPREMEPWR": {
       "sectorStrength": null,
@@ -21368,9 +21368,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 65.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 52.29,
+      "fundamentalQuality": 87.35,
+      "capexScore": 80
     },
     "SVPGLOB": {
       "sectorStrength": null,
@@ -21384,9 +21384,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 58.66,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 25.4,
+      "fundamentalQuality": 60.37,
+      "capexScore": 50
     },
     "SWANDEF": {
       "sectorStrength": null,
@@ -21440,9 +21440,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 74.4,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 42.4,
+      "capexScore": 50
     },
     "SWISSMLTRY": {
       "sectorStrength": null,
@@ -21488,9 +21488,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 76.53,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 47.83,
+      "fundamentalQuality": 68.03,
+      "capexScore": 80
     },
     "SYNOPTICS": {
       "sectorStrength": null,
@@ -21504,9 +21504,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 65.13,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.26,
+      "fundamentalQuality": 70.69,
+      "capexScore": 90
     },
     "SYSTANGO": {
       "sectorStrength": null,
@@ -21704,105 +21704,105 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.45,
+      "fundamentalQuality": 66.67,
+      "capexScore": 50
     },
     "TATACHEM": {
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 58.46,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.6,
+      "fundamentalQuality": 50.26,
+      "capexScore": 90
     },
     "TATACOMM": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 57.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 37.68,
+      "fundamentalQuality": 36.95,
+      "capexScore": 90
     },
     "TCS": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 70.17,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 60.19,
+      "fundamentalQuality": 87.66,
+      "capexScore": 60
     },
     "TATACONSUM": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 64.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.51,
+      "fundamentalQuality": 72.6,
+      "capexScore": 70
     },
     "TATAELXSI": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 70.6,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.74,
+      "fundamentalQuality": 84.9,
+      "capexScore": 50
     },
     "TATAINVEST": {
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 56.98,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 50.2,
+      "fundamentalQuality": 100.0,
+      "capexScore": 50
     },
     "TMCV": {
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 64.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.37,
+      "fundamentalQuality": 62.57,
+      "capexScore": 70
     },
     "TMPV": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 66.07,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 12.57,
+      "fundamentalQuality": 67.26,
+      "capexScore": 90
     },
     "TATAPOWER": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 66.81,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.12,
+      "fundamentalQuality": 45.26,
+      "capexScore": 90
     },
     "TATASTEEL": {
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 68.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 69.05,
+      "fundamentalQuality": 55.63,
+      "capexScore": 80
     },
     "TATATECH": {
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 63.1,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.3,
+      "fundamentalQuality": 73.17,
+      "capexScore": 50
     },
     "TTML": {
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 59.19,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 59.15,
+      "fundamentalQuality": 75.69,
+      "capexScore": 70
     },
     "TATVA": {
       "sectorStrength": null,
@@ -21832,9 +21832,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 61.36,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.83,
+      "fundamentalQuality": 67.26,
+      "capexScore": 50
     },
     "TCC": {
       "sectorStrength": null,
@@ -21912,9 +21912,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 66.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 81.32,
+      "fundamentalQuality": 76.43,
+      "capexScore": 60
     },
     "TECHD": {
       "sectorStrength": null,
@@ -21936,9 +21936,9 @@
       "sectorStrength": 100.0,
       "macroSupport": 85,
       "valueMigration": 59.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 37.57,
+      "fundamentalQuality": 80.45,
+      "capexScore": 50
     },
     "TIIL": {
       "sectorStrength": null,
@@ -21984,9 +21984,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 54.51,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 94.15,
+      "fundamentalQuality": 67.67,
+      "capexScore": 80
     },
     "TEJA": {
       "sectorStrength": null,
@@ -22008,9 +22008,9 @@
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 64.46,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 7.2,
+      "capexScore": 90
     },
     "TEMBO": {
       "sectorStrength": null,
@@ -22024,9 +22024,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 71.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 47.27,
+      "fundamentalQuality": 78.13,
+      "capexScore": 60
     },
     "TERASOFT": {
       "sectorStrength": null,
@@ -22136,9 +22136,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 51.31,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.75,
+      "fundamentalQuality": 73.9,
+      "capexScore": 60
     },
     "BYKE": {
       "sectorStrength": null,
@@ -22152,17 +22152,17 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 74.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.75,
+      "fundamentalQuality": 100.0,
+      "capexScore": 60
     },
     "GESHIP": {
       "sectorStrength": 57.14,
       "macroSupport": null,
       "valueMigration": 70.34,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.82,
+      "fundamentalQuality": 98.83,
+      "capexScore": 90
     },
     "GROBTEA": {
       "sectorStrength": null,
@@ -22184,17 +22184,17 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 50.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.05,
+      "fundamentalQuality": 67.28,
+      "capexScore": 50
     },
     "INDHOTEL": {
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 61.71,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 73.18,
+      "fundamentalQuality": 88.4,
+      "capexScore": 80
     },
     "IWP": {
       "sectorStrength": null,
@@ -22216,9 +22216,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 62.8,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.62,
+      "fundamentalQuality": 86.29,
+      "capexScore": 50
     },
     "KTKBANK": {
       "sectorStrength": null,
@@ -22240,9 +22240,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 61.65,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 66.32,
+      "fundamentalQuality": 45.0,
+      "capexScore": 50
     },
     "ORISSAMINE": {
       "sectorStrength": null,
@@ -22264,17 +22264,17 @@
       "sectorStrength": 38.1,
       "macroSupport": 65,
       "valueMigration": 65.45,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.95,
+      "fundamentalQuality": 93.18,
+      "capexScore": 90
     },
     "RAMCOCEM": {
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 58.43,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 28.16,
+      "fundamentalQuality": 62.29,
+      "capexScore": 90
     },
     "RUBYMILLS": {
       "sectorStrength": null,
@@ -22352,9 +22352,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.12,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 31.85,
+      "fundamentalQuality": 59.49,
+      "capexScore": 90
     },
     "THESL": {
       "sectorStrength": null,
@@ -22456,9 +22456,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 58.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.55,
+      "fundamentalQuality": 80.44,
+      "capexScore": 90
     },
     "TINNARUBR": {
       "sectorStrength": null,
@@ -22496,17 +22496,17 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 60.57,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 85.59,
+      "fundamentalQuality": 69.0,
+      "capexScore": 90
     },
     "TITAN": {
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 69.69,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.66,
+      "fundamentalQuality": 41.56,
+      "capexScore": 70
     },
     "TOKYOPLAST": {
       "sectorStrength": null,
@@ -22528,17 +22528,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 57.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 64.09,
+      "fundamentalQuality": 69.98,
+      "capexScore": 70
     },
     "TORNTPOWER": {
       "sectorStrength": 90.48,
       "macroSupport": 90,
       "valueMigration": 61.63,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 43.82,
+      "fundamentalQuality": 64.05,
+      "capexScore": 90
     },
     "TOTAL": {
       "sectorStrength": null,
@@ -22600,9 +22600,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 86.8,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 49.86,
+      "fundamentalQuality": 73.73,
+      "capexScore": 50
     },
     "TREL": {
       "sectorStrength": null,
@@ -22672,9 +22672,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 52.5,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 84.19,
+      "fundamentalQuality": 94.57,
+      "capexScore": 60
     },
     "TREEHOUSE": {
       "sectorStrength": null,
@@ -22696,9 +22696,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 61.31,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.58,
+      "fundamentalQuality": 69.98,
+      "capexScore": 90
     },
     "TRF": {
       "sectorStrength": null,
@@ -22720,9 +22720,9 @@
       "sectorStrength": 23.81,
       "macroSupport": null,
       "valueMigration": 52.76,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.4,
+      "fundamentalQuality": 68.2,
+      "capexScore": 80
     },
     "TECHLABS": {
       "sectorStrength": null,
@@ -22768,9 +22768,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 57.63,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 44.61,
+      "fundamentalQuality": 78.51,
+      "capexScore": 90
     },
     "TROM": {
       "sectorStrength": null,
@@ -22840,9 +22840,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 59.32,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 52.82,
+      "fundamentalQuality": 64.49,
+      "capexScore": 90
     },
     "TUNWAL": {
       "sectorStrength": null,
@@ -22904,9 +22904,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 69.35,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 91.2,
+      "fundamentalQuality": 41.68,
+      "capexScore": 90
     },
     "TVSSRICHAK": {
       "sectorStrength": null,
@@ -22960,9 +22960,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 54.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 62.54,
+      "fundamentalQuality": 83.63,
+      "capexScore": 50
     },
     "UDAYJEW": {
       "sectorStrength": null,
@@ -23040,9 +23040,9 @@
       "sectorStrength": 42.86,
       "macroSupport": 85,
       "valueMigration": 67.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 71.84,
+      "fundamentalQuality": 73.42,
+      "capexScore": 90
     },
     "UMA": {
       "sectorStrength": null,
@@ -23120,9 +23120,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 64.62,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 49.86,
+      "fundamentalQuality": 57.9,
+      "capexScore": 50
     },
     "UNIPARTS": {
       "sectorStrength": null,
@@ -23152,9 +23152,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 61.62,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 50.18,
+      "fundamentalQuality": 64.65,
+      "capexScore": 90
     },
     "UNIDT": {
       "sectorStrength": null,
@@ -23192,9 +23192,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 70.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 56.68,
+      "fundamentalQuality": 80.33,
+      "capexScore": 60
     },
     "UNIVASTU": {
       "sectorStrength": null,
@@ -23224,9 +23224,9 @@
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 66.74,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.48,
+      "fundamentalQuality": 64.55,
+      "capexScore": 90
     },
     "UDS": {
       "sectorStrength": null,
@@ -23240,9 +23240,9 @@
       "sectorStrength": 9.52,
       "macroSupport": null,
       "valueMigration": 62.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 67.48,
+      "fundamentalQuality": 59.35,
+      "capexScore": 80
     },
     "USASEEDS": {
       "sectorStrength": null,
@@ -23264,9 +23264,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 99.85,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 36.91,
+      "capexScore": 50
     },
     "URBAN": {
       "sectorStrength": null,
@@ -23304,9 +23304,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 50.54,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.43,
+      "fundamentalQuality": 81.01,
+      "capexScore": 80
     },
     "UCL": {
       "sectorStrength": null,
@@ -23320,9 +23320,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 52.33,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.26,
+      "fundamentalQuality": 98.82,
+      "capexScore": 70
     },
     "UTKAL": {
       "sectorStrength": null,
@@ -23544,9 +23544,9 @@
       "sectorStrength": 23.81,
       "macroSupport": null,
       "valueMigration": 63.03,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 83.22,
+      "fundamentalQuality": 73.38,
+      "capexScore": 90
     },
     "VARROC": {
       "sectorStrength": null,
@@ -23560,9 +23560,9 @@
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 58.96,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 70.95,
+      "fundamentalQuality": 81.37,
+      "capexScore": 90
     },
     "VGL": {
       "sectorStrength": null,
@@ -23648,9 +23648,9 @@
       "sectorStrength": 95.24,
       "macroSupport": 65,
       "valueMigration": 86.92,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 65.12,
+      "fundamentalQuality": 88.33,
+      "capexScore": 90
     },
     "VOGL": {
       "sectorStrength": null,
@@ -23872,9 +23872,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 61.91,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 86.95,
+      "fundamentalQuality": 88.16,
+      "capexScore": 90
     },
     "VIJAYPD": {
       "sectorStrength": null,
@@ -24136,9 +24136,9 @@
       "sectorStrength": 85.71,
       "macroSupport": 60,
       "valueMigration": 71.68,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 78.95,
+      "fundamentalQuality": 68.61,
+      "capexScore": 70
     },
     "VISHNU": {
       "sectorStrength": null,
@@ -24272,9 +24272,9 @@
       "sectorStrength": 80.95,
       "macroSupport": 70,
       "valueMigration": 66.09,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 79.58,
+      "fundamentalQuality": 69.11,
+      "capexScore": 90
     },
     "VOITHPAPR": {
       "sectorStrength": null,
@@ -24304,9 +24304,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 71.08,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 87.87,
+      "fundamentalQuality": 65.62,
+      "capexScore": 90
     },
     "VRAJ": {
       "sectorStrength": null,
@@ -24352,9 +24352,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 67.77,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 75.1,
+      "fundamentalQuality": 76.27,
+      "capexScore": 90
     },
     "WAAREERTL": {
       "sectorStrength": null,
@@ -24456,9 +24456,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 100.0,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 80.77,
+      "fundamentalQuality": 75.99,
+      "capexScore": 90
     },
     "WELENT": {
       "sectorStrength": null,
@@ -24480,9 +24480,9 @@
       "sectorStrength": 23.81,
       "macroSupport": null,
       "valueMigration": 67.79,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 90.77,
+      "fundamentalQuality": 61.75,
+      "capexScore": 80
     },
     "WELSPLSOL": {
       "sectorStrength": null,
@@ -24552,9 +24552,9 @@
       "sectorStrength": 33.33,
       "macroSupport": 60,
       "valueMigration": 57.14,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 36.76,
+      "fundamentalQuality": 65.62,
+      "capexScore": 90
     },
     "WILLAMAGOR": {
       "sectorStrength": null,
@@ -24600,9 +24600,9 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 65.87,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 55.49,
+      "fundamentalQuality": 75.78,
+      "capexScore": 60
     },
     "WTICAB": {
       "sectorStrength": null,
@@ -24616,9 +24616,9 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 79.67,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 88.85,
+      "fundamentalQuality": 71.63,
+      "capexScore": 90
     },
     "WOL3D": {
       "sectorStrength": null,
@@ -24760,9 +24760,9 @@
       "sectorStrength": 66.67,
       "macroSupport": 70,
       "valueMigration": 67.26,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 72.97,
+      "fundamentalQuality": 84.19,
+      "capexScore": 50
     },
     "YOGI": {
       "sectorStrength": null,
@@ -24816,9 +24816,9 @@
       "sectorStrength": 47.62,
       "macroSupport": 50,
       "valueMigration": 66.89,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 34.05,
+      "fundamentalQuality": 65.71,
+      "capexScore": 70
     },
     "ZEELEARN": {
       "sectorStrength": null,
@@ -24840,9 +24840,9 @@
       "sectorStrength": 76.19,
       "macroSupport": 85,
       "valueMigration": 70.82,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 31.35,
+      "fundamentalQuality": 94.13,
+      "capexScore": 70
     },
     "ZENITHDRUG": {
       "sectorStrength": null,
@@ -24872,17 +24872,17 @@
       "sectorStrength": 14.29,
       "macroSupport": 60,
       "valueMigration": 60.9,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 55.2,
+      "fundamentalQuality": 79.59,
+      "capexScore": 60
     },
     "ZFCVINDIA": {
       "sectorStrength": 28.57,
       "macroSupport": 70,
       "valueMigration": 68.99,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 74.76,
+      "fundamentalQuality": 68.45,
+      "capexScore": 70
     },
     "ZFSTEERING": {
       "sectorStrength": null,
@@ -24944,17 +24944,17 @@
       "sectorStrength": 19.05,
       "macroSupport": 70,
       "valueMigration": 71.64,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 34.13,
+      "fundamentalQuality": 75.96,
+      "capexScore": 90
     },
     "ZYDUSWELL": {
       "sectorStrength": 4.76,
       "macroSupport": 60,
       "valueMigration": 47.07,
-      "futureGrowth": null,
-      "fundamentalQuality": null,
-      "capexScore": null
+      "futureGrowth": 63.62,
+      "fundamentalQuality": 63.74,
+      "capexScore": 80
     }
   }
 }
