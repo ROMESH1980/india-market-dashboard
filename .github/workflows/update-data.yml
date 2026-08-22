@@ -30,6 +30,9 @@ jobs:
       - name: Refresh NSE universe
         run: python scripts/refresh_data.py
 
+      - name: Build research scores
+        run: python scripts/build_research_scores.py
+
       - name: Apply research scores
         run: python scripts/apply_research_scores.py
 
