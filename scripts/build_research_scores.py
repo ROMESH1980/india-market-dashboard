@@ -73,12 +73,12 @@ def main():
         []
     )
 
-    old_data = load_json(
-        DATA / "research_scores.json",
+    company_data = load_json(
+        DATA / "company_research.json",
         {}
     )
 
-    old_scores = old_data.get(
+    company_scores = company_data.get(
         "stocks",
         {}
     )
@@ -105,6 +105,7 @@ def main():
     sector_avg = {}
 
     for sector, values in sector_changes.items():
+
         if values:
             sector_avg[sector] = (
                 sum(values) / len(values)
@@ -131,8 +132,11 @@ def main():
     scores = {}
 
     sector_available = 0
-    vm_available = 0
     macro_available = 0
+    vm_available = 0
+    future_available = 0
+    fundamental_available = 0
+    capex_available = 0
 
     for row in stocks:
 
@@ -144,7 +148,10 @@ def main():
         sector = row.get("sector")
         industry = row.get("industry")
 
+        # -------------------------
         # Sector Strength
+        # -------------------------
+
         sector_strength = None
 
         if sector in sector_avg:
@@ -157,7 +164,22 @@ def main():
             if sector_strength is not None:
                 sector_available += 1
 
-        # Value Migration proxy
+        # -------------------------
+        # Macro Support
+        # -------------------------
+
+        macro_support = macro_score(
+            sector,
+            industry
+        )
+
+        if macro_support is not None:
+            macro_available += 1
+
+        # -------------------------
+        # Value Migration
+        # -------------------------
+
         value_migration = None
 
         change = row.get("changePct")
@@ -192,40 +214,69 @@ def main():
             except Exception:
                 pass
 
-        # Macro Support
-        macro_support = macro_score(
-            sector,
-            industry
-        )
+        # -------------------------
+        # Company research data
+        # -------------------------
 
-        if macro_support is not None:
-            macro_available += 1
-
-        previous = old_scores.get(
+        company = company_scores.get(
             symbol,
             {}
         )
 
-        scores[symbol] = {
-            "sectorStrength": sector_strength,
-            "macroSupport": macro_support,
-            "valueMigration": value_migration,
+        future_growth = company.get(
+            "futureGrowth"
+        )
 
-            # Preserve these until reliable source is added
-            "futureGrowth": previous.get("futureGrowth"),
-            "fundamentalQuality": previous.get("fundamentalQuality"),
-            "capexScore": previous.get("capexScore")
+        fundamental_quality = company.get(
+            "fundamentalQuality"
+        )
+
+        capex_score = company.get(
+            "capexScore"
+        )
+
+        if future_growth is not None:
+            future_available += 1
+
+        if fundamental_quality is not None:
+            fundamental_available += 1
+
+        if capex_score is not None:
+            capex_available += 1
+
+        scores[symbol] = {
+
+            "sectorStrength":
+                sector_strength,
+
+            "macroSupport":
+                macro_support,
+
+            "valueMigration":
+                value_migration,
+
+            "futureGrowth":
+                future_growth,
+
+            "fundamentalQuality":
+                fundamental_quality,
+
+            "capexScore":
+                capex_score
         }
 
     output = {
 
         "_meta": {
+
             "description":
                 "India Market Dashboard research scoring inputs",
 
-            "scale": "0-100",
+            "scale":
+                "0-100",
 
             "method": {
+
                 "sectorStrength":
                     "Sector EOD performance percentile",
 
@@ -236,16 +287,17 @@ def main():
                     "60% price momentum + 40% turnover percentile",
 
                 "futureGrowth":
-                    "Pending reliable growth source",
+                    "Company-specific research input",
 
                 "fundamentalQuality":
-                    "Pending financial source",
+                    "Company-specific financial quality input",
 
                 "capexScore":
-                    "Pending filing/capex source"
+                    "Company-specific CAPEX/expansion input"
             },
 
             "weights": {
+
                 "sectorStrength": 10,
                 "macroSupport": 20,
                 "valueMigration": 20,
@@ -255,12 +307,14 @@ def main():
             }
         },
 
-        "stocks": scores
+        "stocks":
+            scores
     }
 
     (
         DATA / "research_scores.json"
     ).write_text(
+
         json.dumps(
             output,
             indent=2,
@@ -269,11 +323,30 @@ def main():
     )
 
     print({
-        "stocksProcessed": len(scores),
-        "sectorStrengthAvailable": sector_available,
-        "macroSupportAvailable": macro_available,
-        "valueMigrationAvailable": vm_available,
-        "classifiedSectors": len(sector_avg)
+
+        "stocksProcessed":
+            len(scores),
+
+        "sectorStrengthAvailable":
+            sector_available,
+
+        "macroSupportAvailable":
+            macro_available,
+
+        "valueMigrationAvailable":
+            vm_available,
+
+        "futureGrowthAvailable":
+            future_available,
+
+        "fundamentalQualityAvailable":
+            fundamental_available,
+
+        "capexAvailable":
+            capex_available,
+
+        "classifiedSectors":
+            len(sector_avg)
     })
 
 
