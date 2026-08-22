@@ -16,6 +16,16 @@ const pct = x =>
     ? '—'
     : `${Number(x).toFixed(2)}%`;
 
+const volumeVal = x =>
+  x === null || x === undefined || x === ''
+    ? '—'
+    : Number(x).toLocaleString();
+
+const ratioVal = x =>
+  x === null || x === undefined || x === ''
+    ? '<span class="pending">—</span>'
+    : `<strong>${Number(x).toFixed(2)}×</strong>`;
+
 function getMin(id) {
   const el = $(id);
 
@@ -25,15 +35,11 @@ function getMin(id) {
 
   const n = Number(el.value);
 
-  return Number.isFinite(n)
-    ? n
-    : null;
+  return Number.isFinite(n) ? n : null;
 }
 
 function scorePass(value, min) {
-  if (min === null) {
-    return true;
-  }
+  if (min === null) return true;
 
   if (
     value === null ||
@@ -91,34 +97,13 @@ function filters() {
       matchesEx &&
       matchesBd &&
       matchesStatus &&
-      scorePass(
-        s.overallScore,
-        minOverall
-      ) &&
-      scorePass(
-        s.macroSupport,
-        minMacro
-      ) &&
-      scorePass(
-        s.valueMigration,
-        minVM
-      ) &&
-      scorePass(
-        s.futureGrowth,
-        minGrowth
-      ) &&
-      scorePass(
-        s.fundamentalQuality,
-        minFundamental
-      ) &&
-      scorePass(
-        s.capexScore,
-        minCapex
-      ) &&
-      scorePass(
-        s.sectorStrength,
-        minSectorStrength
-      )
+      scorePass(s.overallScore, minOverall) &&
+      scorePass(s.macroSupport, minMacro) &&
+      scorePass(s.valueMigration, minVM) &&
+      scorePass(s.futureGrowth, minGrowth) &&
+      scorePass(s.fundamentalQuality, minFundamental) &&
+      scorePass(s.capexScore, minCapex) &&
+      scorePass(s.sectorStrength, minSectorStrength)
     );
   });
 }
@@ -128,32 +113,12 @@ function rankStocks(rows) {
     const ao = a.overallScore;
     const bo = b.overallScore;
 
-    if (
-      ao != null &&
-      bo == null
-    ) {
-      return -1;
-    }
+    if (ao != null && bo == null) return -1;
+    if (ao == null && bo != null) return 1;
 
-    if (
-      ao == null &&
-      bo != null
-    ) {
-      return 1;
-    }
-
-    if (
-      ao != null &&
-      bo != null
-    ) {
-      if (
-        Number(bo) !==
-        Number(ao)
-      ) {
-        return (
-          Number(bo) -
-          Number(ao)
-        );
+    if (ao != null && bo != null) {
+      if (Number(bo) !== Number(ao)) {
+        return Number(bo) - Number(ao);
       }
 
       if (
@@ -239,10 +204,8 @@ function render() {
 
           <div class="sub">
             ${s.symbol}
-            •
-            ${s.isin || '—'}
-            •
-            ${s.board || ''}
+            • ${s.isin || '—'}
+            • ${s.board || ''}
           </div>
         </td>
 
@@ -270,6 +233,24 @@ function render() {
               ? '—'
               : `₹${Number(s.turnoverCr).toFixed(2)} Cr`
           }
+        </td>
+
+        <td>
+          ${volumeVal(
+            s.todayDeliveryVolume
+          )}
+        </td>
+
+        <td>
+          ${volumeVal(
+            s.avg5DayDeliveryVolume
+          )}
+        </td>
+
+        <td>
+          ${ratioVal(
+            s.deliveryVolumeRatio
+          )}
         </td>
 
         <td>
@@ -345,7 +326,6 @@ async function fetchJSON(url) {
 }
 
 async function init() {
-
   [all, meta] =
     await Promise.all([
       fetchJSON(
