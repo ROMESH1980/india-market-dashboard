@@ -3,239 +3,588 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>NSE Research Dashboard</title>
+
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .tablewrap {
+      overflow: auto;
+      max-height: 72vh;
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 2100px;
+    }
+
+    thead .header-row th {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #101b2d;
+    }
+
+    thead .filter-row th {
+      position: sticky;
+      top: 48px;
+      z-index: 19;
+      background: #101b2d;
+      padding: 6px;
+    }
+
+    .filter-row input,
+    .filter-row select {
+      width: 100%;
+      min-width: 75px;
+      box-sizing: border-box;
+      padding: 6px;
+      font-size: 12px;
+    }
+
+    .dual-filter {
+      display: flex;
+      gap: 4px;
+    }
+
+    .dual-filter input {
+      min-width: 58px;
+    }
+
+    .strength-filter {
+      display: grid;
+      gap: 4px;
+    }
+
+    .strength-range {
+      display: flex;
+      gap: 4px;
+    }
+
+    .universe-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .date-info {
+      margin-top: 4px;
+      font-size: 13px;
+      opacity: .8;
+    }
+  </style>
 </head>
 
 <body>
 
 <header class="hero">
-  <div>
-    <div class="eyebrow">NSE MARKET INTELLIGENCE • FREE EOD</div>
 
-    <h1>NSE market research dashboard</h1>
+  <div>
+
+    <div class="eyebrow">
+      NSE MARKET INTELLIGENCE • FREE EOD
+    </div>
+
+    <h1>
+      NSE market research dashboard
+    </h1>
 
     <p>
-      NSE stocks ranked using Sector Strength, Macro Support,
-      Value Migration, Future Growth, Fundamental Quality and CAPEX.
+      NSE stocks ranked using Sector Strength,
+      Stock Strength, Macro Support,
+      Value Migration, Future Growth,
+      Fundamental Quality and CAPEX.
     </p>
+
+    <div class="date-info">
+      <span id="marketDate">
+        Market data date: Loading...
+      </span>
+    </div>
+
   </div>
 
   <div class="livebox">
     <span class="dot"></span>
-    <span id="mode">Loading data...</span>
+    <span id="mode">
+      Loading data...
+    </span>
   </div>
+
 </header>
+
 
 <main>
 
   <section class="notice">
     <b>Research dashboard.</b>
-    Use individual filters to shortlist stocks.
+    Delivery and research signals are based on available NSE/EOD data.
   </section>
 
-  <section class="stats" id="stats"></section>
 
-  <section class="card toolbar">
-
-    <input
-      id="q"
-      placeholder="Search stock, symbol, sector or industry"
-    >
-
-    <select id="exchange">
-      <option value="ALL">All exchanges</option>
-      <option value="NSE">NSE</option>
-    </select>
-
-    <select id="board">
-      <option value="ALL">All boards</option>
-      <option value="MAIN">Mainboard</option>
-      <option value="SME">SME</option>
-    </select>
-
-    <select id="status">
-      <option value="ALL">All score status</option>
-      <option value="READY">Fully scored</option>
-      <option value="PENDING">Pending score</option>
-    </select>
-
+  <section
+    class="stats"
+    id="stats">
   </section>
+
 
   <section class="card">
 
     <div class="sectionhead">
-      <div>
-        <h2>Column Filters</h2>
-        <p>Set Min/Max values for any metric.</p>
-      </div>
 
       <div>
-        <button id="strongSetup">Strong Setup</button>
-        <button id="resetScores">Reset</button>
-      </div>
-    </div>
+        <h2>
+          NSE Stock Universe
+        </h2>
 
-    <div class="scorefilters">
-
-      <label>
-        Price Min
-        <input id="minPrice" type="number" placeholder="Min">
-      </label>
-
-      <label>
-        Price Max
-        <input id="maxPrice" type="number" placeholder="Max">
-      </label>
-
-      <label>
-        Change % Min
-        <input id="minChange" type="number" step="0.01" placeholder="Min">
-      </label>
-
-      <label>
-        Change % Max
-        <input id="maxChange" type="number" step="0.01" placeholder="Max">
-      </label>
-
-      <label>
-        Delivery Ratio Min
-        <input id="minDeliveryRatio" type="number" step="0.01" placeholder="Min">
-      </label>
-
-      <label>
-        Delivery Ratio Max
-        <input id="maxDeliveryRatio" type="number" step="0.01" placeholder="Max">
-      </label>
-
-      <label>
-        Sector
-        <select id="sectorFilter">
-          <option value="ALL">All sectors</option>
-        </select>
-      </label>
-
-      <label>
-        Industry
-        <select id="industryFilter">
-          <option value="ALL">All industries</option>
-        </select>
-      </label>
-
-      <label>
-        Sector Strength Min
-        <input id="minSectorStrength" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Sector Strength Max
-        <input id="maxSectorStrength" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        Macro Min
-        <input id="minMacro" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Macro Max
-        <input id="maxMacro" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        Value Migration Min
-        <input id="minVM" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Value Migration Max
-        <input id="maxVM" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        Future Growth Min
-        <input id="minGrowth" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Future Growth Max
-        <input id="maxGrowth" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        Fundamental Min
-        <input id="minFundamental" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Fundamental Max
-        <input id="maxFundamental" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        CAPEX Min
-        <input id="minCapex" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        CAPEX Max
-        <input id="maxCapex" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-      <label>
-        Overall Min
-        <input id="minOverall" type="number" min="0" max="100" placeholder="Min">
-      </label>
-
-      <label>
-        Overall Max
-        <input id="maxOverall" type="number" min="0" max="100" placeholder="Max">
-      </label>
-
-    </div>
-
-  </section>
-
-  <section class="card">
-
-    <div class="sectionhead">
-      <div>
-        <h2>Stock Universe</h2>
         <p id="resultCount"></p>
       </div>
 
-      <div class="legend">
-        Higher Overall ranks first
+      <div class="universe-actions">
+
+        <button id="strongSetup">
+          Strong Setup
+        </button>
+
+        <button id="resetScores">
+          Reset
+        </button>
+
       </div>
+
     </div>
+
 
     <div class="tablewrap">
 
       <table>
 
         <thead>
-          <tr>
-            <th>Stock</th>
-            <th>Exchange</th>
-            <th>Price</th>
-            <th>Change %</th>
-            <th>Turnover</th>
 
-            <th>Today Delivery Vol</th>
-            <th>5D Avg Delivery Vol</th>
-            <th>Delivery Ratio</th>
+          <!-- COLUMN HEADINGS -->
+
+          <tr class="header-row">
+
+            <th>Stock</th>
+
+            <th>
+              Market Cap
+              Category
+            </th>
+
+            <th>Price</th>
+
+            <th>
+              Change %
+            </th>
+
+            <th>
+              Today Delivery
+              Vol
+            </th>
+
+            <th>
+              5D Avg Delivery
+              Vol
+            </th>
+
+            <th>
+              Delivery
+              Ratio
+            </th>
 
             <th>Sector</th>
+
             <th>Industry</th>
-            <th>Sector Strength</th>
+
+            <th>
+              Sector Strength
+              <br>
+              <small>1 Month</small>
+            </th>
+
+            <th>
+              Stock Strength
+            </th>
+
             <th>Macro</th>
-            <th>Value Migration</th>
-            <th>Future Growth</th>
-            <th>Fundamental</th>
+
+            <th>
+              Value Migration
+            </th>
+
+            <th>
+              Future Growth
+            </th>
+
+            <th>
+              Fundamental
+            </th>
+
             <th>CAPEX</th>
+
             <th>Overall</th>
+
           </tr>
+
+
+          <!-- INDIVIDUAL FILTER ROW -->
+
+          <tr class="filter-row">
+
+            <!-- STOCK -->
+
+            <th>
+              <input
+                id="q"
+                type="text"
+                placeholder="Search stock">
+            </th>
+
+
+            <!-- MARKET CAP -->
+
+            <th>
+              <select id="marketCapFilter">
+
+                <option value="ALL">
+                  All
+                </option>
+
+                <option value="Large Cap">
+                  Large Cap
+                </option>
+
+                <option value="Mid Cap">
+                  Mid Cap
+                </option>
+
+                <option value="Small Cap">
+                  Small Cap
+                </option>
+
+                <option value="Micro Cap">
+                  Micro Cap
+                </option>
+
+              </select>
+            </th>
+
+
+            <!-- PRICE -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minPrice"
+                  type="number"
+                  placeholder="Min">
+
+                <input
+                  id="maxPrice"
+                  type="number"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- CHANGE -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minChange"
+                  type="number"
+                  step="0.01"
+                  placeholder="Min">
+
+                <input
+                  id="maxChange"
+                  type="number"
+                  step="0.01"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- TODAY DELIVERY -->
+
+            <th>
+              <span class="pending">
+                Display
+              </span>
+            </th>
+
+
+            <!-- 5D DELIVERY -->
+
+            <th>
+              <span class="pending">
+                Display
+              </span>
+            </th>
+
+
+            <!-- DELIVERY RATIO -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minDeliveryRatio"
+                  type="number"
+                  step="0.01"
+                  placeholder="Min">
+
+                <input
+                  id="maxDeliveryRatio"
+                  type="number"
+                  step="0.01"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- SECTOR -->
+
+            <th>
+              <select id="sectorFilter">
+                <option value="ALL">
+                  All sectors
+                </option>
+              </select>
+            </th>
+
+
+            <!-- INDUSTRY -->
+
+            <th>
+              <select id="industryFilter">
+                <option value="ALL">
+                  All industries
+                </option>
+              </select>
+            </th>
+
+
+            <!-- SECTOR STRENGTH -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minSectorStrength"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxSectorStrength"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- STOCK STRENGTH -->
+
+            <th>
+
+              <div class="strength-filter">
+
+                <select id="stockStrengthPeriod">
+
+                  <option value="1M">
+                    1 Month
+                  </option>
+
+                  <option
+                    value="3M"
+                    selected>
+                    3 Months
+                  </option>
+
+                  <option value="6M">
+                    6 Months
+                  </option>
+
+                </select>
+
+                <div class="strength-range">
+
+                  <input
+                    id="minStockStrength"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="Min">
+
+                  <input
+                    id="maxStockStrength"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="Max">
+
+                </div>
+
+              </div>
+
+            </th>
+
+
+            <!-- MACRO -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minMacro"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxMacro"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- VALUE MIGRATION -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minVM"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxVM"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- FUTURE GROWTH -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minGrowth"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxGrowth"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- FUNDAMENTAL -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minFundamental"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxFundamental"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- CAPEX -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minCapex"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxCapex"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+
+            <!-- OVERALL -->
+
+            <th>
+              <div class="dual-filter">
+
+                <input
+                  id="minOverall"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Min">
+
+                <input
+                  id="maxOverall"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Max">
+
+              </div>
+            </th>
+
+          </tr>
+
         </thead>
+
 
         <tbody id="rows"></tbody>
 
@@ -243,19 +592,31 @@
 
     </div>
 
+
     <div class="pager">
-      <button id="prev">← Previous</button>
+
+      <button id="prev">
+        ← Previous
+      </button>
+
       <span id="page"></span>
-      <button id="next">Next →</button>
+
+      <button id="next">
+        Next →
+      </button>
+
     </div>
 
   </section>
 
 </main>
 
+
 <footer>
-  Research tool only • EOD data • Verify exchange filings before investment decisions
+  Research tool only • NSE EOD data •
+  Verify exchange filings before investment decisions
 </footer>
+
 
 <script src="app.js"></script>
 
