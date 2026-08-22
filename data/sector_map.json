@@ -6333,5 +6333,4110 @@
     "sector": "Financial Services",
     "industry": "Mortgage Finance",
     "source": "Yahoo Finance"
+  },
+  "IMFA": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "INDIANCARD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "INDIANHUME": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "IBULLSLTD": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "INDIGOPNTS": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "INDTERRAIN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "INDIQUBE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "INDOAMIN": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ICIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "INDOBORAX": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "INDOFARM": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "INDOUS": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "INDOTHAI": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "INDOTECH": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "INDOMIM": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "INDORAMA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NIPPOBATRY": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "INDOCO": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "IGCL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "INDRAMEDCO": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "INDOKEM": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "INDOWIND": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "WAAREEINDO": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "INDOSTAR": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "INDPRUD": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "INFOBEAN": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "IITL": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "INGERRAND": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "INFOMEDIA": {
+    "sector": "Financial Services",
+    "industry": "Shell Companies",
+    "source": "Yahoo Finance"
+  },
+  "INNOVACAP": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "INNOVISION": {
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "source": "Yahoo Finance"
+  },
+  "INNOVANA": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "INOXINDIA": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "INOXGREEN": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "ESSENTIA": {
+    "sector": "Consumer Defensive",
+    "industry": "Food Distribution",
+    "source": "Yahoo Finance"
+  },
+  "INSECTICID": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "INA": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "INSPIRISYS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "INTENTECH": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "INTERARCH": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "INVENTURE": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "INTLCONV": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ISFT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "source": "Yahoo Finance"
+  },
+  "IOLCP": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "INVPRECQ": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "IPRINGLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "IRISDOREME": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "IONEXCHANG": {
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "source": "Yahoo Finance"
+  },
+  "IRMENERGY": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "source": "Yahoo Finance"
+  },
+  "IRIS": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "ISHANCH": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ISGEC": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "IVALUE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ITL": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "IZMO": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "IVP": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "JKIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "JGCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "JAGRAN": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "JAGSNPHARM": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "JAIBALAJI": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "JISLDVREQS": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "JAICORPLTD": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "JISLJALEQS": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "JAMNAAUTO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "JSFB": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "JARO": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "JASH": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "JAYBARMARU": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "JAYAGROGN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "JAYKAY": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "JAYNECOIND": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "JAYSREETEA": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "JSLL": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "JENBURPH": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "JHS": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "JETFREIGHT": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "RETAIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Grocery Stores",
+    "source": "Yahoo Finance"
+  },
+  "JINDRILL": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "JINDALPOLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "JINDALPHOT": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "JKIPL": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "JPOLYINVST": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "JINDWORLD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "JITFINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "JKLAKSHMI": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "JOCIL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "JNKINDIA": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "JKPAPER": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "JTEKTINDIA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "COCKERILL": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "JSWHL": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "JTLIND": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "JUBLCPL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "JMA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "JNPR": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "JUNIPER": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "JYOTHYLAB": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "JUSTDIAL": {
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information",
+    "source": "Yahoo Finance"
+  },
+  "JLHL": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "JYOTIRES": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KMSUGAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "JYOTISTRUC": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KMCSHIL": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "KPEL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "KALPATARU": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "KAKATCEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "KABRAEXTRU": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KSL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KALYANIFRG": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "KICL": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "KALYANI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto & Truck Dealerships",
+    "source": "Yahoo Finance"
+  },
+  "KAMAHOLD": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "KAMATHOTEL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "KAMDHENU": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KANANIIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "KANCHI": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KAMOPAINTS": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KANCOTEA": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "KANPRPLA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "KANORICHEM": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KANSAINER": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KAPSTON": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "KARMAENG": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "KSCL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "KAUSHALYA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "KAYA": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "KAVDEFENCE": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "KCPSUGIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "KCP": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "KDDL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "KELLTONTEC": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "KENNAMET": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "KESORAMIND": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "KERNEX": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "KEYFINSERV": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "KKCL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RUSTOMJEE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "KHANDSE": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "KHAITANLTD": {
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "source": "Yahoo Finance"
+  },
+  "KHADIM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "KHAICHEM": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "KLBRENG-B": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KILITCH": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "KINGFA": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KIRANVYPAR": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "KIRIINDUS": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KIRLOSBROS": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KIOCL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KIRLFER": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "KECL": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KIRLOSIND": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "KIRLPNU": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KJMCFIN": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "KITEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "KNAGRI": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "KNACK": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "KOHINOOR": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "KMEW": {
+    "sector": "Industrials",
+    "industry": "Marine Shipping",
+    "source": "Yahoo Finance"
+  },
+  "KNRCON": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "KOLTEPATIL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "KOKUYOCMLN": {
+    "sector": "Industrials",
+    "industry": "Business Equipment & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "KOTIC": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "KOPRAN": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "KOTHARIPET": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KOTARISUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "KOTHARIPRO": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "KOTYARK": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KRBL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "KREBSBIO": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "KPIGREEN": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "KOVAI": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "KRISHANA": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "KRISHIVAL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "KRISHNADEF": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KRIDHANINF": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KRITINUT": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "KRN": {
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "source": "Yahoo Finance"
+  },
+  "KRITIKA": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "KRITI": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "KRONOX": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "KROSS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "KRSNAA": {
+    "sector": "Healthcare",
+    "industry": "Diagnostics & Research",
+    "source": "Yahoo Finance"
+  },
+  "KRYSTAL": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "KSE": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "KSB": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "KSHITIJPOL": {
+    "sector": "Industrials",
+    "industry": "Business Equipment & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "KSHINTL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "KSOLVES": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "KSR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "KPL": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "KUANTUM": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "KWIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "LAOPALA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "KUSUMGAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LADDERUP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "LAGNAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LFIC": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "LAHOTIOV": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LAKSHMIMIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LAKPRE": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "LAMBODHARA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LANCORHOL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "LANCER": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "LANDMARK": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto & Truck Dealerships",
+    "source": "Yahoo Finance"
+  },
+  "LANDSMILL": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "LPDC": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "LASERPOWER": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "LASA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "LAXMIDENTL": {
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "LATTEYS": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "LAXMICOT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LAXMIINDIA": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "LGHL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "LXCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "LCCINFOTEC": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "LEMERITE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "IXIGO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Travel Services",
+    "source": "Yahoo Finance"
+  },
+  "LEAPIND": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "LEENEE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "LEXUS": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "LIBAS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LGBBROSLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "LIBERTSHOE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "LIKHITHA": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "LINC": {
+    "sector": "Industrials",
+    "industry": "Business Equipment & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "LKPSEC": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "LLOYDSENGG": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "LLOYDSENT": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "LINCOLN": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "LMW": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "LCL": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "LOKESHMACH": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "LORDSCHLO": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "LOTUSCHO": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "LOVABLE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LOTUSEYE": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "LUMAXTECH": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "LOYALTEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "LYKALABS": {
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "Yahoo Finance"
+  },
+  "LUMAXIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "LUXIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MBEL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MKPL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MKEXIM": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "MCL": {
+    "sector": "Basic Materials",
+    "industry": "Copper",
+    "source": "Yahoo Finance"
+  },
+  "MAANALU": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "MACPOWER": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MCCHRLS-B": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "MADHAVIPL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MADHAV": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "MBAPL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "MADHUCON": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MADRASFERT": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "MAHAPEXLTD": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MAGADSUGAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "MCLOUD": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "MFML": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MAGNUM": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "MAHASTEEL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MHLXMIRU": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MAHSCOOTER": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "MAHESHWARI": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "MTNL": {
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "source": "Yahoo Finance"
+  },
+  "MAHSEAMLES": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MAHEPC": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MHRIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Resorts & Casinos",
+    "source": "Yahoo Finance"
+  },
+  "MAHLIFE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MAHLOG": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "MAITHANALL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MAJESAUT": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "MALUPAPER": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "MAKERSL": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "MALLCOM": {
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "source": "Yahoo Finance"
+  },
+  "MAMATA": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MANINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MANINDS": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MANAKALUCO": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "MANAKCOAT": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "MANAKSIA": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "MANALIPETC": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "MANAKSTEEL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MANBA": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MANBRO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "MANCREDIT": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MANGALAM": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "MEIL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "MANGLMCEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "MGEL": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "MANORG": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "MWL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MANIPALHOS": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "MSL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "MANORAMA": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MANOMAY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MVGJL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "MANUGRAPH": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MARALOVER": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MARINE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "MARATHON": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MARKOLINES": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "MARKSANS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "MASFIN": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MASTEK": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "MASKINVEST": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "MASTERTR": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "MATRIMONY": {
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information",
+    "source": "Yahoo Finance"
+  },
+  "MARSONS": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "MAWANASUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "MAXIND": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "MAXESTATES": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MAZDA": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MAYURUNIQ": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MBLINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MCLEODRUSS": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MEDIASSIST": {
+    "sector": "Healthcare",
+    "industry": "Healthcare Plans",
+    "source": "Yahoo Finance"
+  },
+  "MEDICAPQ": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
+  },
+  "MMWL": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "MEDICAMEQ": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "MEDICO": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "MEGASTAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MOL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "MEDPLUS": {
+    "sector": "Healthcare",
+    "industry": "Pharmaceutical Retailers",
+    "source": "Yahoo Finance"
+  },
+  "MIIL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MENONBE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "MENNPIS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "MEP": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "MERCANTILE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "MERCURYEV": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Manufacturers",
+    "source": "Yahoo Finance"
+  },
+  "METROBRAND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "METROGLOBL": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "METROPOLIS": {
+    "sector": "Healthcare",
+    "industry": "Diagnostics & Research",
+    "source": "Yahoo Finance"
+  },
+  "MICEL": {
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "source": "Yahoo Finance"
+  },
+  "MIDWESTLTD": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "MLKFOOD": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MILKYMIST": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MINALIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "MINDTECK": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "MIRZAINT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "MIDHANI": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MITCON": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MITTAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MMFL": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "MODTHREAD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MMP": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "MODINATUR": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MODIS": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MODIRUBBER": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "MOHITIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MODISONLTD": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "MOHITE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MOIL": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "MOKSH": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "MOLDTKPAC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "MOLBIO": {
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "source": "Yahoo Finance"
+  },
+  "MOLDTECH": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "MONARCH": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "MONTECARLO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "MONEYBOXX": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MOREPENLAB": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "MOSCHIP": {
+    "sector": "Technology",
+    "industry": "Semiconductor Equipment & Materials",
+    "source": "Yahoo Finance"
+  },
+  "MPDL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MOTISONS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "BECTORFOOD": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MSPL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MPSLTD": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "MTEDUCARE": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "MSTCLTD": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "MUFIN": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MUKANDLTD": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MUKESHB": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "MTARTECH": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MUKKA": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "MUNJALAU": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "MUKTAARTS": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "MURUDCERA": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "MUTHOOTCAP": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MVELECTRO": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "RADIOCITY": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "MUNJALSHOW": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "MUTHOOTMF": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "MYSORPETRO": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "NACLIND": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "NRAIL": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "NBIFIN": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "NDGL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "NAGREEKCAP": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "NAGREEKEXP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NAHARCAP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "NAHARPOLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "NGIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "NAHARSPING": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NAHARINDUS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NSIL": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "JAIPURKURT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NDL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NARMADA": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "NATHBIOGEN": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "NFL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "NATCAPSUQ": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "NATIONSTD": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "NAVKARURB": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "NAVKARCORP": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "NAVNETEDUL": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "NCLIND": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "NAZARA": {
+    "sector": "Communication Services",
+    "industry": "Electronic Gaming & Multimedia",
+    "source": "Yahoo Finance"
+  },
+  "NDRAUTO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "NDLVENTURE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "NEAGI": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "NECLIFE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "NELCAST": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "NEOGEN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "NELCO": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "NEPHROPLUS": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "NEXTMEDIA": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "NDTV": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "NETWORK18": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "NPST": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "NGLFINE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "NIBE": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "NICCOPAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Leisure",
+    "source": "Yahoo Finance"
+  },
+  "NIITLTD": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "NESCO": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "NILAINFRA": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "NIITMTS": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "NEUEON": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "NILASPACES": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "NILE": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "NILKAMAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "NIRAJ": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "NINSYS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "NIRLON": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "NIRAJISPAT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NITCO": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "NITIRAJ": {
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "source": "Yahoo Finance"
+  },
+  "NITINSPIN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NOCIL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "NKIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "NITTAGELA": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "NORBTEAEXP": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "NECCLTD": {
+    "sector": "Industrials",
+    "industry": "Trucking",
+    "source": "Yahoo Finance"
+  },
+  "NORTHARC": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "NOIDATOLL": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "NOVAAGRI": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "NOVARTIND": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "NIBL": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "NTCIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco",
+    "source": "Yahoo Finance"
+  },
+  "NRBBEARING": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "NRL": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "NURECA": {
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "source": "Yahoo Finance"
+  },
+  "NUCLEUS": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "OCCLLTD": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ODIGMA": {
+    "sector": "Communication Services",
+    "industry": "Advertising Agencies",
+    "source": "Yahoo Finance"
+  },
+  "OBCL": {
+    "sector": "Industrials",
+    "industry": "Trucking",
+    "source": "Yahoo Finance"
+  },
+  "ODYCORP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "OILCOUNTUB": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "OMINFRAL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "OMPOWER": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "OMAXAUTO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "OMFREIGHT": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "OMNI": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ONEGLOBAL": {
+    "sector": "Healthcare",
+    "industry": "Pharmaceutical Retailers",
+    "source": "Yahoo Finance"
+  },
+  "OMAXE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "MOBIKWIK": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "ONEPOINT": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "ONIDA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "ONELIFECAP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "KISSHT": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "ONIXSOLAR": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "ONMOBILE": {
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "source": "Yahoo Finance"
+  },
+  "ONWARDTEC": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "OPTIFIN": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "OPTIEMUS": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "ORBTEXP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ORCHPHARMA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ORCHASP": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "ORICONENT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTBELL": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTCEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "GREENPOWER": {
+    "sector": "Utilities",
+    "industry": "Utilities - Independent Power Producers",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTCER": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTELEC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTPPR": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTTECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "OAL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTHOT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ORIRAIL": {
+    "sector": "Industrials",
+    "industry": "Railroads",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTALTL": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "ORKLAINDIA": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "ORTINGLOBE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "OSIAHYPER": {
+    "sector": "Consumer Cyclical",
+    "industry": "Department Stores",
+    "source": "Yahoo Finance"
+  },
+  "OSWALAGRO": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "OSWALGREEN": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "OSWALPUMPS": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PNGJL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "PAISALO": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "PAKKA": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "PACEDIGITK": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PACIFICI": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "PALREDTEC": {
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "source": "Yahoo Finance"
+  },
+  "PANACHE": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PANACEABIO": {
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "Yahoo Finance"
+  },
+  "PALASHSECU": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "PANAMAPET": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Refining & Marketing",
+    "source": "Yahoo Finance"
+  },
+  "PANCHMAHQ": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "PANSARI": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "PANORAMA": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "PAR": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "PARAGMILK": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "PARACABLES": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PARAS": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "PARASPETRO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PARKHOSPS": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "PARSVNATH": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "PARNAXLAB": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "PASHUPATI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PASUPTAC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PATELENG": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "PATINTLOG": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "PATELRMART": {
+    "sector": "Consumer Cyclical",
+    "industry": "Department Stores",
+    "source": "Yahoo Finance"
+  },
+  "PAUSHAKLTD": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PAVNAIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "PBMPOLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PML": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "PCJEWELLER": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "PGIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PEARLPOLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "PENINLAND": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "PDSL": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "PENIND": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "PERMAGN": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PHOENXINTL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "PICCADIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "PILANIINVS": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "PIONEEREMB": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PIONRINV": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "PIXTRANS": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "PILITA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "PITTIENG": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "PLATIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PLASTIBLEN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PLAZACABLE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PNBGILTS": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "PNGSREVA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "POKARNA": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PNCINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "POEL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PODDARMENT": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "POLYPLEX": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "POLYSPIN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "PONNIERODE": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "POCL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PVSL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto & Truck Dealerships",
+    "source": "Yahoo Finance"
+  },
+  "PIGL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "PPAP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "POWERMECH": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "POWERICA": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "PRABHA": {
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "source": "Yahoo Finance"
+  },
+  "PRADPME": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "PRAENG": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "PPL": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PRAKASH": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "PRAKASHSTL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "DIAMONDYD": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "PRAJIND": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "PRAVEG": {
+    "sector": "Communication Services",
+    "industry": "Advertising Agencies",
+    "source": "Yahoo Finance"
+  },
+  "PRAXIS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Specialty Retail",
+    "source": "Yahoo Finance"
+  },
+  "PRECAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "PRECOT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PREMEXPLN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PRECWIRE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PREMCO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "PREMIER": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "PRICOLLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "PREMIERPOL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PRIMESECU": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "PRIMO": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PRINCEPIPE": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PRSMJOHNSN": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "PRITI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "PRITIKAUTO": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "PNC": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "PRISMX": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "PRIVISCL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PGHL": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "PROSTARM": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PGHH": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "PROZONER": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
+  },
+  "PROTEAN": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "PRUDMOULI": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "PSPPROJECT": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "PFS": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "PRUDENT": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "PTL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "PDMJEPAPER": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "PSB": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "PTC": {
+    "sector": "Utilities",
+    "industry": "Utilities - Independent Power Producers",
+    "source": "Yahoo Finance"
+  },
+  "PVP": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "PURVA": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "PUNJABCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PYRAMID": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "QPOWER": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "QMSMEDI": {
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "QUADFUTURE": {
+    "sector": "Industrials",
+    "industry": "Railroads",
+    "source": "Yahoo Finance"
+  },
+  "QUESS": {
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "source": "Yahoo Finance"
+  },
+  "QUICKHEAL": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "RKSWAMY": {
+    "sector": "Communication Services",
+    "industry": "Advertising Agencies",
+    "source": "Yahoo Finance"
+  },
+  "QUINT": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "RMDRIP": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "RSSOFTWARE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "RSYSTEMS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "RNBDENIMS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RPPINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "RACE": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "RACLGEAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "RADHIKAJWE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "RADIANTCMS": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "RPEL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "RAIN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ROML": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "RADAAN": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "RAJTV": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "RAJRILTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ARENTERP": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "RAJESHEXPO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "RAJOOENG": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "RSL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RAJMET": {
+    "sector": "Basic Materials",
+    "industry": "Copper",
+    "source": "Yahoo Finance"
+  },
+  "RAJRATAN": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RAJSREESUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "RALLIS": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "RPPL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "RAMRAT": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "RAMAPHO": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "RAMASTEEL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RAMCOIND": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "RAMCOSYS": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "RAMKY": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "RANASUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "RML": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "RPTECH": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "RCF": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "RANEHOLDIN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "RATNAVEER": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RATNAMANI": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RTNINDIA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "source": "Yahoo Finance"
+  },
+  "RATEGAIN": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "RTNPOWER": {
+    "sector": "Utilities",
+    "industry": "Utilities - Independent Power Producers",
+    "source": "Yahoo Finance"
+  },
+  "RVHL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "RAYMONDLSL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RKDL": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "RAYMOND": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "RAYMONDREL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "RBZJEWEL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "RELTD": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "RRECL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "REDTAPE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "REFEX": {
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "Yahoo Finance"
+  },
+  "RELAXO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "REGAAL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "RELIABLE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "REGENCERAM": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "RELCHEMQ": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RCOM": {
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "source": "Yahoo Finance"
+  },
+  "RHFL": {
+    "sector": "Financial Services",
+    "industry": "Mortgage Finance",
+    "source": "Yahoo Finance"
+  },
+  "RIIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "RELINFRA": {
+    "sector": "Utilities",
+    "industry": "Utilities - Independent Power Producers",
+    "source": "Yahoo Finance"
+  },
+  "RELIGARE": {
+    "sector": "Financial Services",
+    "industry": "Insurance - Life",
+    "source": "Yahoo Finance"
+  },
+  "REMSONSIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "RGL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "REPRO": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "REPCOHOME": {
+    "sector": "Financial Services",
+    "industry": "Mortgage Finance",
+    "source": "Yahoo Finance"
+  },
+  "RESPONIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "RVTH": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "RBA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Restaurants",
+    "source": "Yahoo Finance"
+  },
+  "RHETAN": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "RICOAUTO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "RISHABH": {
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "source": "Yahoo Finance"
+  },
+  "RITCO": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "RIR": {
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "source": "Yahoo Finance"
+  },
+  "RMC": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "RHL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ROLEXRINGS": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "RKEC": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "ROLLT": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "ROSSARI": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ROSSELLIND": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "ROSSTECH": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "ROUTE": {
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "source": "Yahoo Finance"
+  },
+  "ROTO": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "RPGLIFE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ROHLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "RPSGVENT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "RRIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RTSPOWR": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "RSDFIN": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "RUBFILA": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "RSWM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RUBICON": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "RUCHINFRA": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "RUCHIRA": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "RUDRA": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "REPL": {
+    "sector": "Industrials",
+    "industry": "Consulting Services",
+    "source": "Yahoo Finance"
+  },
+  "RUPA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "RUSHIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "SCHAND": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "SHK": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "S&SPOWER": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "SVGLOBAL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "SPAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SALSTEEL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SJS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SAATVIKGL": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "SADBHAV": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SADBHIN": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SAB": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SADHNANIQ": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SAGCEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "SAFARI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "SAHYADRI": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "SAICAPI": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "SAGARDEEP": {
+    "sector": "Basic Materials",
+    "industry": "Copper",
+    "source": "Yahoo Finance"
+  },
+  "KALAMANDIR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "SAIPARENT": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "SEKURITIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SAKAR": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "SAKSOFT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "SALASAR": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SAKHTISUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "SAKUMA": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "SAMBHAAV": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "SALONA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SALZERELEC": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "SAMPANN": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SAMBHV": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SAMHI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "SANATHAN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SANDHAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SANDUMA": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SANGAMIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SANGHVIMOV": {
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "source": "Yahoo Finance"
+  },
+  "SANOFI": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "SANGINITA": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SANSTAR": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SANSERA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SANWARIA": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "SANOFICONR": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "ZSARACOM": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "SSDL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "SMLT": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "SARLAPOLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SARVESHWAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "SASKEN": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "SATIA": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "SATIN": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "SAURASHCEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "SOTL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SBC": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "SBIFUNDS": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "SAYAJIHOTL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "SAYAJIIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "SCANSTL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SEAMECLTD": {
+    "sector": "Industrials",
+    "industry": "Marine Shipping",
+    "source": "Yahoo Finance"
+  },
+  "SECURKLOUD": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "SCODATUBES": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SECMARK": {
+    "sector": "Industrials",
+    "industry": "Consulting Services",
+    "source": "Yahoo Finance"
+  },
+  "SEJALLTD": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "SELMC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SEDEMAC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SEMAC": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SENORES": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "SENCO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "STYL": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "SERVOTECH": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "SESHAPAPER": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "SETUINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SEPC": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SETCO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SEYAIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SGFIN": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "SGMART": {
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "source": "Yahoo Finance"
+  },
+  "SHAHALLOYS": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SHAILY": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SHADOWFAX": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "SHAH": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SHAKTIPUMP": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "SHALBY": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "SGLRES": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "SAHLIBHFI": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "SRD": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SHANKARA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Home Improvement Retail",
+    "source": "Yahoo Finance"
+  },
+  "SHALPAINTS": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "SHANTIGEAR": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "SEIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "BUILDPRO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Home Improvement Retail",
+    "source": "Yahoo Finance"
+  },
+  "SHANTIGOLD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "SHANTI": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "SHARDAMOTR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "SHARDACROP": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "SHINDL": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "SHARDUL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "SHAREINDIA": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "SHEKHAWATI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SFL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "SCPL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "SHILGRAVQ": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "SHEMAROO": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "SHERVANI": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "SHILPAMED": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "SHILCTECH": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "SCILAL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "SHIPROCKET": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "SHIVAUM": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SHIVAMILLS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SHIVACEM": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "SHIVATEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "SHIVAAGRO": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "SHIVALIK": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "SBCL": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
   }
 }
