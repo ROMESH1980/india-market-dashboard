@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Company-specific research inputs for Future Growth, Fundamental Quality and CAPEX",
+    "scale": "0-100",
+    "rules": {
+      "futureGrowth": "Score only from identifiable growth drivers, guidance, order book, market opportunity or capacity expansion",
+      "fundamentalQuality": "Score from profitability, balance-sheet quality, cash flow, ROCE/ROE and earnings consistency",
+      "capexScore": "Score from announced/ongoing capacity expansion, plant investment, order-backed expansion or major business investment"
+    }
+  },
+  "stocks": {}
+}
