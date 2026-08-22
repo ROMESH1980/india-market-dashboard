@@ -13,6 +13,7 @@ def load_json(path, default):
 
 
 def calc_overall(row):
+
     fields = {
         "macroSupport": 0.20,
         "valueMigration": 0.20,
@@ -22,49 +23,88 @@ def calc_overall(row):
         "sectorStrength": 0.10,
     }
 
-    # Overall तभी बनेगा जब सभी 6 scores available हों
-    if any(row.get(k) is None for k in fields):
+    if any(
+        row.get(k) is None
+        for k in fields
+    ):
         return None
 
     return round(
-        sum(float(row[k]) * w for k, w in fields.items()),
+        sum(
+            float(row[k]) * weight
+            for k, weight
+            in fields.items()
+        ),
         2
     )
 
 
 def main():
-    stocks_path = DATA / "stocks.json"
-    scores_path = DATA / "research_scores.json"
 
-    stocks = load_json(stocks_path, [])
-    score_data = load_json(scores_path, {})
+    stocks_path = (
+        DATA / "stocks.json"
+    )
 
-    manual_scores = score_data.get("stocks", {})
+    scores_path = (
+        DATA / "research_scores.json"
+    )
 
-    updated = 0
+    stocks = load_json(
+        stocks_path,
+        []
+    )
+
+    score_data = load_json(
+        scores_path,
+        {}
+    )
+
+    scores = score_data.get(
+        "stocks",
+        {}
+    )
+
+    fields = [
+        "sectorStrength",
+        "stockStrength1M",
+        "stockStrength3M",
+        "stockStrength6M",
+        "strengthBenchmark",
+        "macroSupport",
+        "valueMigration",
+        "futureGrowth",
+        "fundamentalQuality",
+        "capexScore",
+    ]
+
     fully_scored = 0
 
     for row in stocks:
-        symbol = row.get("symbol", "")
-        score = manual_scores.get(symbol, {})
 
-        for field in [
-            "sectorStrength",
-            "macroSupport",
-            "valueMigration",
-            "futureGrowth",
-            "fundamentalQuality",
-            "capexScore",
-        ]:
+        symbol = row.get(
+            "symbol",
+            ""
+        )
+
+        score = scores.get(
+            symbol,
+            {}
+        )
+
+        for field in fields:
             if field in score:
-                row[field] = score[field]
+                row[field] = (
+                    score[field]
+                )
 
-        row["overallScore"] = calc_overall(row)
+        row["overallScore"] = (
+            calc_overall(row)
+        )
 
-        if score:
-            updated += 1
-
-        if row["overallScore"] is not None:
+        if (
+            row["overallScore"]
+            is not None
+        ):
             fully_scored += 1
 
     stocks_path.write_text(
@@ -76,9 +116,11 @@ def main():
     )
 
     print({
-        "stocks": len(stocks),
-        "researchScoresApplied": updated,
-        "fullyScored": fully_scored
+        "stocks":
+            len(stocks),
+
+        "fullyScored":
+            fully_scored
     })
 
 
