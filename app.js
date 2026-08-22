@@ -26,7 +26,7 @@ const ratioVal = x =>
     ? '<span class="pending">—</span>'
     : `<strong>${Number(x).toFixed(2)}×</strong>`;
 
-function getMin(id) {
+function getNumber(id) {
   const el = $(id);
 
   if (!el || el.value === '') {
@@ -38,8 +38,10 @@ function getMin(id) {
   return Number.isFinite(n) ? n : null;
 }
 
-function scorePass(value, min) {
-  if (min === null) return true;
+function numberPass(value, min, max) {
+  if (min === null && max === null) {
+    return true;
+  }
 
   if (
     value === null ||
@@ -49,7 +51,17 @@ function scorePass(value, min) {
     return false;
   }
 
-  return Number(value) >= min;
+  const n = Number(value);
+
+  if (min !== null && n < min) {
+    return false;
+  }
+
+  if (max !== null && n > max) {
+    return false;
+  }
+
+  return true;
 }
 
 function filters() {
@@ -58,13 +70,38 @@ function filters() {
   const bd = $('board').value;
   const st = $('status').value;
 
-  const minOverall = getMin('minOverall');
-  const minMacro = getMin('minMacro');
-  const minVM = getMin('minVM');
-  const minGrowth = getMin('minGrowth');
-  const minFundamental = getMin('minFundamental');
-  const minCapex = getMin('minCapex');
-  const minSectorStrength = getMin('minSectorStrength');
+  const sectorFilter = $('sectorFilter')?.value || 'ALL';
+  const industryFilter = $('industryFilter')?.value || 'ALL';
+
+  const minPrice = getNumber('minPrice');
+  const maxPrice = getNumber('maxPrice');
+
+  const minChange = getNumber('minChange');
+  const maxChange = getNumber('maxChange');
+
+  const minDeliveryRatio = getNumber('minDeliveryRatio');
+  const maxDeliveryRatio = getNumber('maxDeliveryRatio');
+
+  const minSectorStrength = getNumber('minSectorStrength');
+  const maxSectorStrength = getNumber('maxSectorStrength');
+
+  const minMacro = getNumber('minMacro');
+  const maxMacro = getNumber('maxMacro');
+
+  const minVM = getNumber('minVM');
+  const maxVM = getNumber('maxVM');
+
+  const minGrowth = getNumber('minGrowth');
+  const maxGrowth = getNumber('maxGrowth');
+
+  const minFundamental = getNumber('minFundamental');
+  const maxFundamental = getNumber('maxFundamental');
+
+  const minCapex = getNumber('minCapex');
+  const maxCapex = getNumber('maxCapex');
+
+  const minOverall = getNumber('minOverall');
+  const maxOverall = getNumber('maxOverall');
 
   return all.filter(s => {
     const text =
@@ -92,18 +129,81 @@ function filters() {
             s.overallScore === undefined
       );
 
+    const matchesSector =
+      sectorFilter === 'ALL' ||
+      s.sector === sectorFilter;
+
+    const matchesIndustry =
+      industryFilter === 'ALL' ||
+      s.industry === industryFilter;
+
     return (
       matchesQ &&
       matchesEx &&
       matchesBd &&
       matchesStatus &&
-      scorePass(s.overallScore, minOverall) &&
-      scorePass(s.macroSupport, minMacro) &&
-      scorePass(s.valueMigration, minVM) &&
-      scorePass(s.futureGrowth, minGrowth) &&
-      scorePass(s.fundamentalQuality, minFundamental) &&
-      scorePass(s.capexScore, minCapex) &&
-      scorePass(s.sectorStrength, minSectorStrength)
+      matchesSector &&
+      matchesIndustry &&
+
+      numberPass(
+        s.price,
+        minPrice,
+        maxPrice
+      ) &&
+
+      numberPass(
+        s.changePct,
+        minChange,
+        maxChange
+      ) &&
+
+      numberPass(
+        s.deliveryVolumeRatio,
+        minDeliveryRatio,
+        maxDeliveryRatio
+      ) &&
+
+      numberPass(
+        s.sectorStrength,
+        minSectorStrength,
+        maxSectorStrength
+      ) &&
+
+      numberPass(
+        s.macroSupport,
+        minMacro,
+        maxMacro
+      ) &&
+
+      numberPass(
+        s.valueMigration,
+        minVM,
+        maxVM
+      ) &&
+
+      numberPass(
+        s.futureGrowth,
+        minGrowth,
+        maxGrowth
+      ) &&
+
+      numberPass(
+        s.fundamentalQuality,
+        minFundamental,
+        maxFundamental
+      ) &&
+
+      numberPass(
+        s.capexScore,
+        minCapex,
+        maxCapex
+      ) &&
+
+      numberPass(
+        s.overallScore,
+        minOverall,
+        maxOverall
+      )
     );
   });
 }
@@ -122,6 +222,18 @@ function rankStocks(rows) {
       }
 
       if (
+        a.deliveryVolumeRatio != null &&
+        b.deliveryVolumeRatio != null &&
+        Number(b.deliveryVolumeRatio) !==
+        Number(a.deliveryVolumeRatio)
+      ) {
+        return (
+          Number(b.deliveryVolumeRatio) -
+          Number(a.deliveryVolumeRatio)
+        );
+      }
+
+      if (
         a.valueMigration != null &&
         b.valueMigration != null &&
         Number(b.valueMigration) !==
@@ -132,18 +244,6 @@ function rankStocks(rows) {
           Number(a.valueMigration)
         );
       }
-
-      if (
-        a.futureGrowth != null &&
-        b.futureGrowth != null &&
-        Number(b.futureGrowth) !==
-        Number(a.futureGrowth)
-      ) {
-        return (
-          Number(b.futureGrowth) -
-          Number(a.futureGrowth)
-        );
-      }
     }
 
     return (
@@ -152,6 +252,54 @@ function rankStocks(rows) {
       b.name || ''
     );
   });
+}
+
+function populateDropdowns() {
+  const sectors = [
+    ...new Set(
+      all
+        .map(s => s.sector)
+        .filter(
+          x =>
+            x &&
+            x !== 'Unclassified'
+        )
+    )
+  ].sort();
+
+  const industries = [
+    ...new Set(
+      all
+        .map(s => s.industry)
+        .filter(
+          x =>
+            x &&
+            x !== 'Unclassified'
+        )
+    )
+  ].sort();
+
+  if ($('sectorFilter')) {
+    $('sectorFilter').innerHTML =
+      '<option value="ALL">All sectors</option>' +
+      sectors
+        .map(
+          x =>
+            `<option value="${x}">${x}</option>`
+        )
+        .join('');
+  }
+
+  if ($('industryFilter')) {
+    $('industryFilter').innerHTML =
+      '<option value="ALL">All industries</option>' +
+      industries
+        .map(
+          x =>
+            `<option value="${x}">${x}</option>`
+        )
+        .join('');
+  }
 }
 
 function render() {
@@ -204,8 +352,10 @@ function render() {
 
           <div class="sub">
             ${s.symbol}
-            • ${s.isin || '—'}
-            • ${s.board || ''}
+            •
+            ${s.isin || '—'}
+            •
+            ${s.board || ''}
           </div>
         </td>
 
@@ -398,28 +548,53 @@ async function init() {
     </div>
   `;
 
+  populateDropdowns();
   render();
 }
 
-[
+const filterIds = [
   'q',
   'exchange',
   'board',
   'status',
-  'minOverall',
-  'minMacro',
-  'minVM',
-  'minGrowth',
-  'minFundamental',
-  'minCapex',
-  'minSectorStrength'
-].forEach(id => {
+  'sectorFilter',
+  'industryFilter',
 
+  'minPrice',
+  'maxPrice',
+
+  'minChange',
+  'maxChange',
+
+  'minDeliveryRatio',
+  'maxDeliveryRatio',
+
+  'minSectorStrength',
+  'maxSectorStrength',
+
+  'minMacro',
+  'maxMacro',
+
+  'minVM',
+  'maxVM',
+
+  'minGrowth',
+  'maxGrowth',
+
+  'minFundamental',
+  'maxFundamental',
+
+  'minCapex',
+  'maxCapex',
+
+  'minOverall',
+  'maxOverall'
+];
+
+filterIds.forEach(id => {
   const el = $(id);
 
-  if (!el) {
-    return;
-  }
+  if (!el) return;
 
   el.addEventListener(
     id === 'q'
@@ -437,7 +612,6 @@ const strongBtn =
 
 if (strongBtn) {
   strongBtn.onclick = () => {
-
     $('minOverall').value = 70;
     $('minMacro').value = 70;
     $('minVM').value = 70;
@@ -445,6 +619,7 @@ if (strongBtn) {
     $('minFundamental').value = 60;
     $('minCapex').value = 60;
     $('minSectorStrength').value = 60;
+    $('minDeliveryRatio').value = 1;
 
     page = 1;
     render();
@@ -457,16 +632,18 @@ const resetBtn =
 if (resetBtn) {
   resetBtn.onclick = () => {
 
-    [
-      'minOverall',
-      'minMacro',
-      'minVM',
-      'minGrowth',
-      'minFundamental',
-      'minCapex',
-      'minSectorStrength'
-    ].forEach(id => {
-      $(id).value = '';
+    filterIds.forEach(id => {
+      const el = $(id);
+
+      if (!el) return;
+
+      if (
+        el.tagName === 'SELECT'
+      ) {
+        el.value = 'ALL';
+      } else {
+        el.value = '';
+      }
     });
 
     page = 1;
