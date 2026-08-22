@@ -68,3 +68,13 @@ main{max-width:1450px;margin:auto;padding:0 24px 55px}.notice{border:1px solid #
 .tablewrap {
   scrollbar-gutter: stable;
 }
+
+/* Make dashboard wider */
+main,
+.hero,
+footer {
+  width: 98%;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+}
