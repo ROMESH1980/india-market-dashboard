@@ -17,7 +17,7 @@
 
     <p>
       NSE stocks ranked using Sector Strength, Macro Support,
-      Value Migration, Future Growth, Fundamental Quality and CAPEX framework.
+      Value Migration, Future Growth, Fundamental Quality and CAPEX.
     </p>
   </div>
 
@@ -31,8 +31,7 @@
 
   <section class="notice">
     <b>Research dashboard.</b>
-    Scores are shown only when sufficient source data is available.
-    Missing research data remains Pending.
+    Scores are automated research signals, not investment recommendations.
   </section>
 
   <section class="stats" id="stats"></section>
@@ -41,7 +40,7 @@
 
     <input
       id="q"
-      placeholder="Search company, symbol, ISIN, sector or industry"
+      placeholder="Search company, symbol, sector or industry"
     >
 
     <select id="exchange">
@@ -58,8 +57,68 @@
     <select id="status">
       <option value="ALL">All score status</option>
       <option value="READY">Fully scored</option>
-      <option value="UNIVERSE_ONLY">Pending score</option>
+      <option value="PENDING">Pending score</option>
     </select>
+
+  </section>
+
+  <section class="card">
+
+    <div class="sectionhead">
+      <div>
+        <h2>Strong Setup Scanner</h2>
+        <p>Set minimum score requirements or use the preset.</p>
+      </div>
+
+      <div>
+        <button id="strongSetup">
+          Strong Setup
+        </button>
+
+        <button id="resetScores">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <div class="scorefilters">
+
+      <label>
+        Overall
+        <input id="minOverall" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Macro
+        <input id="minMacro" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Value Migration
+        <input id="minVM" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Future Growth
+        <input id="minGrowth" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Fundamental
+        <input id="minFundamental" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        CAPEX
+        <input id="minCapex" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Sector Strength
+        <input id="minSectorStrength" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+    </div>
 
   </section>
 
@@ -72,7 +131,7 @@
       </div>
 
       <div class="legend">
-        NSE EOD research • Not real-time
+        NSE EOD research • Higher Overall ranks first
       </div>
     </div>
 
@@ -116,6 +175,21 @@
   <section class="grid">
 
     <div class="card">
+      <h2>Strong Setup preset</h2>
+
+      <p>
+        Overall ≥ 70,
+        Macro ≥ 70,
+        Value Migration ≥ 70,
+        Future Growth ≥ 70,
+        Fundamental ≥ 60,
+        CAPEX ≥ 60,
+        Sector Strength ≥ 60.
+      </p>
+    </div>
+
+    <div class="card">
+
       <h2>Overall Score</h2>
 
       <div class="formula">
@@ -126,27 +200,6 @@
         CAPEX 10% +
         Sector Strength 10%
       </div>
-
-      <p>
-        Overall Score is calculated only when all six research inputs are available.
-      </p>
-    </div>
-
-    <div class="card">
-
-      <h2>Research framework</h2>
-
-      <p><b>Sector Strength:</b> Relative strength of the sector.</p>
-
-      <p><b>Macro:</b> Policy, demand and economic tailwinds.</p>
-
-      <p><b>Value Migration:</b> Shift of market share, capital or demand toward the company.</p>
-
-      <p><b>Future Growth:</b> Growth runway and future opportunity.</p>
-
-      <p><b>Fundamental:</b> Business quality and financial strength.</p>
-
-      <p><b>CAPEX:</b> Expansion and capacity-growth support.</p>
 
     </div>
 
