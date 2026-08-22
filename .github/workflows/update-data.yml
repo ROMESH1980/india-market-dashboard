@@ -35,6 +35,9 @@ jobs:
       - name: Build delivery volume
         run: python scripts/build_delivery_volume.py
 
+      - name: Build market cap category
+        run: python scripts/build_market_cap_category.py
+
       - name: Build company research
         run: python scripts/build_company_research.py
 
