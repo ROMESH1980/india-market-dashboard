@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NSE Market Research Dashboard</title>
+  <title>NSE Research Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,8 +16,8 @@
     <h1>NSE market research dashboard</h1>
 
     <p>
-      Daily-updated NSE stock universe with Price, Change %, Volume,
-      Turnover, Sector, Industry and research scoring framework.
+      NSE stocks ranked using Sector Strength, Macro Support,
+      Value Migration, Future Growth, Fundamental Quality and CAPEX framework.
     </p>
   </div>
 
@@ -31,8 +31,8 @@
 
   <section class="notice">
     <b>Research dashboard.</b>
-    EOD market data is updated automatically.
-    Advanced research scores remain Pending until sufficient source data exists.
+    Scores are shown only when sufficient source data is available.
+    Missing research data remains Pending.
   </section>
 
   <section class="stats" id="stats"></section>
@@ -56,9 +56,9 @@
     </select>
 
     <select id="status">
-      <option value="ALL">All data status</option>
-      <option value="READY">EOD Ready</option>
-      <option value="UNIVERSE_ONLY">Pending EOD</option>
+      <option value="ALL">All score status</option>
+      <option value="READY">Fully scored</option>
+      <option value="UNIVERSE_ONLY">Pending score</option>
     </select>
 
   </section>
@@ -86,7 +86,6 @@
             <th>Exchange</th>
             <th>Price</th>
             <th>Change %</th>
-            <th>Volume</th>
             <th>Turnover</th>
             <th>Sector</th>
             <th>Industry</th>
@@ -117,10 +116,9 @@
   <section class="grid">
 
     <div class="card">
-      <h2>Scoring logic</h2>
+      <h2>Overall Score</h2>
 
       <div class="formula">
-        Overall =
         Macro 20% +
         Value Migration 20% +
         Future Growth 20% +
@@ -130,29 +128,25 @@
       </div>
 
       <p>
-        Scores remain blank until sufficient source data is available.
+        Overall Score is calculated only when all six research inputs are available.
       </p>
     </div>
 
     <div class="card">
 
-      <h2>Data pipeline</h2>
+      <h2>Research framework</h2>
 
-      <p>
-        <b>Daily:</b>
-        NSE security master + NSE UDiFF EOD bhavcopy.
-      </p>
+      <p><b>Sector Strength:</b> Relative strength of the sector.</p>
 
-      <p>
-        <b>Sector classification:</b>
-        Nifty 500 sector mapping.
-      </p>
+      <p><b>Macro:</b> Policy, demand and economic tailwinds.</p>
 
-      <p>
-        <b>Next:</b>
-        Sector Strength, Macro Support, Value Migration,
-        Future Growth, Fundamental Quality and CAPEX scoring.
-      </p>
+      <p><b>Value Migration:</b> Shift of market share, capital or demand toward the company.</p>
+
+      <p><b>Future Growth:</b> Growth runway and future opportunity.</p>
+
+      <p><b>Fundamental:</b> Business quality and financial strength.</p>
+
+      <p><b>CAPEX:</b> Expansion and capacity-growth support.</p>
 
     </div>
 
@@ -161,8 +155,7 @@
 </main>
 
 <footer>
-  Research tool only •
-  Verify exchange filings before investment decisions •
+  Research tool only • Verify exchange filings before investment decisions •
   EOD data, not real-time
 </footer>
 
