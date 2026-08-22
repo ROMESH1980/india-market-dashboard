@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Research scores for India Market Dashboard",
+    "scale": "0-100",
+    "weights": {
+      "sectorStrength": 10,
+      "macroSupport": 20,
+      "valueMigration": 20,
+      "futureGrowth": 20,
+      "fundamentalQuality": 20,
+      "capexScore": 10
+    }
+  },
+  "stocks": {}
+}
