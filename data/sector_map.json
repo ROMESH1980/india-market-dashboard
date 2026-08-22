@@ -1,2002 +1,6337 @@
 {
   "RELIANCE": {
-    "sector": "Energy",
-    "industry": "Oil, Gas & Consumable Fuels"
+    "sector": "Oil Gas & Consumable Fuels",
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "HDFCBANK": {
     "sector": "Financial Services",
-    "industry": "Banks"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "TCS": {
     "sector": "Information Technology",
-    "industry": "IT Services"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "360ONE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "3MINDIA": {
     "sector": "Diversified",
-    "industry": "Diversified"
+    "industry": "Diversified",
+    "source": "Nifty Indices"
   },
   "ABB": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ACC": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "ACMESOLAR": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "AIAENG": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "APLAPOLLO": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "AUBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "AWL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "AADHARHFC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "AARTIIND": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "AAVAS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ABBOTINDIA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ACE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ACUTAAS": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ADANIENSOL": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "ADANIENT": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "ADANIGREEN": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "ADANIPORTS": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "ADANIPOWER": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "ATGL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "ABCAPITAL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ABFRL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "ABLBL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "ABREL": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "ABSLAMC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CPPLUS": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "AEGISLOG": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "AEGISVOPAK": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "AFCONS": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "AFFLE": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "AJANTPHARM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ALKEM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ABDL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "ARE&M": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "AMBER": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "AMBUJACEM": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "ANANDRATHI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ANANTRAJ": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "ANGELONE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ANTHEM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ANURAS": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "APARINDS": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "APOLLOHOSP": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "APOLLOTYRE": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "APTUS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ASAHIINDIA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ASHOKLEY": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ASIANPAINT": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "ASTERDM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ASTRAL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ATHERENERG": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ATUL": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "AUROPHARMA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "AIIL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "DMART": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "AXISBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BEML": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "BLS": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "BSE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BAJAJ-AUTO": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "BAJFINANCE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BAJAJFINSV": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BAJAJHLDNG": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BAJAJHFL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BALKRISIND": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "BALRAMCHIN": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "BANDHANBNK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BANKBARODA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BANKINDIA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MAHABANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BATAINDIA": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "BAYERCROP": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "BELRISE": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "BERGEPAINT": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "BDL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "BEL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "BHARATFORG": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "BHEL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "BPCL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "BHARTIARTL": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "BHARTIHEXA": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "BIKAJI": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "GROWW": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "BIOCON": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "BSOFT": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "BLUEDART": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "BLUEJET": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "BLUESTARCO": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "BBTC": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "BOSCHLTD": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "FIRSTCRY": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "BRIGADE": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "BRITANNIA": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "MAPMYINDIA": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "CCL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "CESC": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "CGPOWER": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "CIEINDIA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "CRISIL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CANFINHOME": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CANBK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CANHLIFE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CAPLIPOINT": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "CGCL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CARBORUNIV": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "CARTRADE": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "CASTROLIND": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "CEATLTD": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "CEMPRO": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "CENTRALBK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CDSL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CHALET": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "CHAMBLFERT": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "CHENNPETRO": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "CHOICEIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CHOLAHLDNG": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CHOLAFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CIPLA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "CUB": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CLEAN": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "COALINDIA": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "COCHINSHIP": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "COFORGE": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "COHANCE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "COLPAL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "CAMS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CONCORDBIO": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "CONCOR": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "COROMANDEL": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "CRAFTSMAN": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "CREDITACC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "CROMPTON": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "CUMMINSIND": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "CYIENT": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "DCMSHRIRAM": {
     "sector": "Diversified",
-    "industry": "Diversified"
+    "industry": "Diversified",
+    "source": "Nifty Indices"
   },
   "DLF": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "DOMS": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "DABUR": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "DALBHARAT": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "DATAPATTNS": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "DEEPAKFERT": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "DEEPAKNTR": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "DELHIVERY": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "DEVYANI": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "DIVISLAB": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "DIXON": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "LALPATHLAB": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "DRREDDY": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "EIDPARRY": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "EIHOTEL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "EICHERMOT": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ELECON": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ELGIEQUIP": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "EMAMILTD": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "EMCURE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "EMMVEE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ENDURANCE": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ENGINERSIN": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "ERIS": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ESCORTS": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ETERNAL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "EXIDEIND": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "NYKAA": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "FEDERALBNK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "FACT": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "FINCABLES": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "FSL": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "FIVESTAR": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "FORCEMOT": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "FORTIS": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "GAIL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "GVT&D": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "GMRAIRPORT": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "GABRIEL": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "GALLANTT": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "GRSE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "GICRE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "GILLETTE": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "GLAND": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "GLAXO": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "GLENMARK": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "MEDANTA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "GODIGIT": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "GPIL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "GODFRYPHLP": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "GODREJCP": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "GODREJIND": {
     "sector": "Diversified",
-    "industry": "Diversified"
+    "industry": "Diversified",
+    "source": "Nifty Indices"
   },
   "GODREJPROP": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "GRANULES": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "GRAPHITE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "GRASIM": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "GRAVITA": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "GESHIP": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "FLUOROCHEM": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "GMDCLTD": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "HEG": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "HBLENGINE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "HCLTECH": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "HDBFS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "HDFCAMC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "HDFCLIFE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "HFCL": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "HAVELLS": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "HEROMOTOCO": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "HEXT": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "HSCL": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "HINDALCO": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "HAL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "HINDCOPPER": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "HINDPETRO": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "HINDUNILVR": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "HINDZINC": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "POWERINDIA": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "HOMEFIRST": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "HONASA": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "HONAUT": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "HUDCO": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "HYUNDAI": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ICICIBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ICICIGI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ICICIAMC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ICICIPRULI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IDBI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IDFCFIRSTB": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IFCI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IIFL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IRB": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "IRCON": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "ITCHOTELS": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "ITC": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "ITI": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "INDGN": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "INDIACEM": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "INDIAMART": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "INDIANB": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IEX": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "INDHOTEL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "IOC": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "IOB": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IRCTC": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "IRFC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IREDA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "IGL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "INDUSTOWER": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "INDUSINDBK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "NAUKRI": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "INFY": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "INOXWIND": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "INTELLECT": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "INDIGO": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "IGIL": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "IKS": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "IPCALAB": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "JKCEMENT": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "JBMA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "JKTYRE": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "JMFINANCIL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "JSWCEMENT": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "JSWDULUX": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "JSWENERGY": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "JSWINFRA": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "JSWSTEEL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "JAINREC": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "JPPOWER": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "J&KBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "JINDALSAW": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "JSL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "JINDALSTEL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "JIOFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "JUBLFOOD": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "JUBLINGREA": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "JUBLPHARMA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "JWL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "JYOTICNC": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "KPRMILL": {
     "sector": "Textiles",
-    "industry": "Textiles"
+    "industry": "Textiles",
+    "source": "Nifty Indices"
   },
   "KEI": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "KPITTECH": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "KAJARIACER": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "KPIL": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "KALYANKJIL": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "KARURVYSYA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "KAYNES": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "KEC": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "KFINTECH": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "KIRLOSENG": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "KOTAKBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "KIMS": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "LTF": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "LTTS": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "LGEINDIA": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "LICHSGFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "LTFOODS": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "LTM": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "LT": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "LATENTVIEW": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "LAURUSLABS": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "THELEELA": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "LEMONTREE": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "LENSKART": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "LICI": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "LINDEINDIA": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "LLOYDSME": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "LODHA": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "LUPIN": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "MMTC": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "MRF": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "MGL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "M&MFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "M&M": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "MANAPPURAM": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MRPL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "MANKIND": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "MARICO": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "MARUTI": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "MFSL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MAXHEALTH": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "MAZDOCK": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "MEESHO": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "MINDACORP": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "MSUMI": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "MOTILALOFS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MPHASIS": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "MCX": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MUTHOOTFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "NATCOPHARM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "NBCC": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "NCC": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "NHPC": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "NLCINDIA": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "NMDC": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "NSLNISP": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "NTPCGREEN": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "NTPC": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "NH": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "NATIONALUM": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "NAVA": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "NAVINFLUOR": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "NESTLEIND": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "NETWEB": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "NEULANDLAB": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "NEWGEN": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "NAM-INDIA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "NIVABUPA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "NUVAMA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "NUVOCO": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "OBEROIRLTY": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "ONGC": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "OIL": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "OLAELEC": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "OLECTRA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "PAYTM": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ONESOURCE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "OFSS": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "POLICYBZR": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "PCBL": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "PGEL": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "PIIND": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "PNBHOUSING": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "PTCIL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "PVRINOX": {
     "sector": "Media Entertainment & Publication",
-    "industry": "Media Entertainment & Publication"
+    "industry": "Media Entertainment & Publication",
+    "source": "Nifty Indices"
   },
   "PAGEIND": {
     "sector": "Textiles",
-    "industry": "Textiles"
+    "industry": "Textiles",
+    "source": "Nifty Indices"
   },
   "PARADEEP": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "PATANJALI": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "PERSISTENT": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "PETRONET": {
     "sector": "Oil Gas & Consumable Fuels",
-    "industry": "Oil Gas & Consumable Fuels"
+    "industry": "Oil Gas & Consumable Fuels",
+    "source": "Nifty Indices"
   },
   "PFIZER": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "PHOENIXLTD": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "PWL": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "PIDILITIND": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "PINELABS": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "PIRAMALFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "PPLPHARMA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "POLYMED": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "POLYCAB": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "POONAWALLA": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "PFC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "POWERGRID": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "PREMIERENE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "PRESTIGE": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "PFOCUS": {
     "sector": "Media Entertainment & Publication",
-    "industry": "Media Entertainment & Publication"
+    "industry": "Media Entertainment & Publication",
+    "source": "Nifty Indices"
   },
   "PNB": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "RRKABEL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "RBLBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "RECLTD": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "RHIM": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "RITES": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "RADICO": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "RVNL": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "RAILTEL": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "RAINBOW": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "RKFORGE": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "REDINGTON": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "RPOWER": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "SBFC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SBICARD": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SBILIFE": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SJVN": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "SRF": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "SAGILITY": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "SAILIFE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "SAMMAANCAP": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "MOTHERSON": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "SAPPHIRE": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "SARDAEN": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "SAREGAMA": {
     "sector": "Media Entertainment & Publication",
-    "industry": "Media Entertainment & Publication"
+    "industry": "Media Entertainment & Publication",
+    "source": "Nifty Indices"
   },
   "SCHAEFFLER": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "SCHNEIDER": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "SCI": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
   },
   "SHREECEM": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "SHRIRAMFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SHYAMMETL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ENRIN": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "SIEMENS": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "SIGNATURE": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "SOBHA": {
     "sector": "Realty",
-    "industry": "Realty"
+    "industry": "Realty",
+    "source": "Nifty Indices"
   },
   "SOLARINDS": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "SONACOMS": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "SONATSOFTW": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "STARHEALTH": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SBIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SAIL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "SUMICHEM": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "SUNPHARMA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "SUNTV": {
     "sector": "Media Entertainment & Publication",
-    "industry": "Media Entertainment & Publication"
+    "industry": "Media Entertainment & Publication",
+    "source": "Nifty Indices"
   },
   "SUNDARMFIN": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "SUPREMEIND": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "SPLPETRO": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "SUZLON": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "SWANCORP": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "SWIGGY": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "SYNGENE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "SYRMA": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TBOTEK": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "TVSMOTOR": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "TATACAP": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "TATACHEM": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "TATACOMM": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "TATACONSUM": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "TATAELXSI": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "TATAINVEST": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "TMCV": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TMPV": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "TATAPOWER": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "TATASTEEL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "TATATECH": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "TTML": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "TECHM": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "TECHNOE": {
     "sector": "Construction",
-    "industry": "Construction"
+    "industry": "Construction",
+    "source": "Nifty Indices"
   },
   "TEGA": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TEJASNET": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "TENNIND": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "NIACL": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "RAMCOCEM": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "THERMAX": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TIMKEN": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TITAGARH": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TITAN": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "TORNTPHARM": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "TORNTPOWER": {
     "sector": "Power",
-    "industry": "Power"
+    "industry": "Power",
+    "source": "Nifty Indices"
   },
   "TARIL": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TRAVELFOOD": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "TRENT": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "TRIDENT": {
     "sector": "Textiles",
-    "industry": "Textiles"
+    "industry": "Textiles",
+    "source": "Nifty Indices"
   },
   "TRITURBINE": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "TIINDIA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "UCOBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "UNOMINDA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "UPL": {
     "sector": "Chemicals",
-    "industry": "Chemicals"
+    "industry": "Chemicals",
+    "source": "Nifty Indices"
   },
   "UTIAMC": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ULTRACEMCO": {
     "sector": "Construction Materials",
-    "industry": "Construction Materials"
+    "industry": "Construction Materials",
+    "source": "Nifty Indices"
   },
   "UNIONBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "UBL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "UNITDSPR": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "URBANCO": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "USHAMART": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "VTL": {
     "sector": "Textiles",
-    "industry": "Textiles"
+    "industry": "Textiles",
+    "source": "Nifty Indices"
   },
   "VBL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "VEDL": {
     "sector": "Metals & Mining",
-    "industry": "Metals & Mining"
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
   },
   "VIJAYA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "VMM": {
     "sector": "Consumer Services",
-    "industry": "Consumer Services"
+    "industry": "Consumer Services",
+    "source": "Nifty Indices"
   },
   "IDEA": {
     "sector": "Telecommunication",
-    "industry": "Telecommunication"
+    "industry": "Telecommunication",
+    "source": "Nifty Indices"
   },
   "VOLTAS": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "WAAREEENER": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "WELCORP": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "WELSPUNLIV": {
     "sector": "Textiles",
-    "industry": "Textiles"
+    "industry": "Textiles",
+    "source": "Nifty Indices"
   },
   "WHIRLPOOL": {
     "sector": "Consumer Durables",
-    "industry": "Consumer Durables"
+    "industry": "Consumer Durables",
+    "source": "Nifty Indices"
   },
   "WIPRO": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "WOCKPHARMA": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "YESBANK": {
     "sector": "Financial Services",
-    "industry": "Financial Services"
+    "industry": "Financial Services",
+    "source": "Nifty Indices"
   },
   "ZFCVINDIA": {
     "sector": "Automobile and Auto Components",
-    "industry": "Automobile and Auto Components"
+    "industry": "Automobile and Auto Components",
+    "source": "Nifty Indices"
   },
   "ZEEL": {
     "sector": "Media Entertainment & Publication",
-    "industry": "Media Entertainment & Publication"
+    "industry": "Media Entertainment & Publication",
+    "source": "Nifty Indices"
   },
   "ZENTEC": {
     "sector": "Capital Goods",
-    "industry": "Capital Goods"
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   },
   "ZENSARTECH": {
     "sector": "Information Technology",
-    "industry": "Information Technology"
+    "industry": "Information Technology",
+    "source": "Nifty Indices"
   },
   "ZYDUSLIFE": {
     "sector": "Healthcare",
-    "industry": "Healthcare"
+    "industry": "Healthcare",
+    "source": "Nifty Indices"
   },
   "ZYDUSWELL": {
     "sector": "Fast Moving Consumer Goods",
-    "industry": "Fast Moving Consumer Goods"
+    "industry": "Fast Moving Consumer Goods",
+    "source": "Nifty Indices"
   },
   "ECLERX": {
     "sector": "Services",
-    "industry": "Services"
+    "industry": "Services",
+    "source": "Nifty Indices"
+  },
+  "20MICRONS": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "63MOONS": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "5PAISA": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "3BBLACKBIO": {
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "Yahoo Finance"
+  },
+  "3IINFOLTD": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ABCOTS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ABINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "A2ZINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "AAATECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "AAKASH": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "AAREYDRUGS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "AARON": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "AARTECH": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "AARTIDRUGS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "AARTIPHARM": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "AARTISURF": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AARVI": {
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "source": "Yahoo Finance"
+  },
+  "ABAN": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Drilling",
+    "source": "Yahoo Finance"
+  },
+  "AASTHA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ABANSENT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "AFSL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "21STCENMGM": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ABMINTLLTD": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ABMKNO": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "ACCELYA": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ACEINTEG": {
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "source": "Yahoo Finance"
+  },
+  "ACCURACY": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "ACSTECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ADDIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ADFFOODS": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "BIRLAMONEY": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "AVL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Specialty Retail",
+    "source": "Yahoo Finance"
+  },
+  "ADOR": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ADROITINFO": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ADVAIT": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ADVENZYMES": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ADVANIHOTR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ADVANCE": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "ADVENTHTL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ADVIKCA": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "RAMBHAJO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "AEQUS": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "AEROFLEX": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "AERONEU": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "AEROENTER": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "AETHER": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AFFORDABLE": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "AGI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "AGARIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AGIIL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "AGRITECH": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "AGROPHOS": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "AGSTRA": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "AHLADA": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "AHLUCONT": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GOLDTECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "AIRAN": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "AIROLAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "AJAXENGG": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "AJMERA": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "AKCAPIT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "AJOONI": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "AKASH": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "AKG": {
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "source": "Yahoo Finance"
+  },
+  "AKI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "AFIL": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "AKSHAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "AKSHOPTFBR": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "AKSHARCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AKUMS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ALANKIT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ALBERTDAVD": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "APLLTD": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ALEMBICLTD": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ALFREDHE": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ALGOQUANT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ALICON": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "ALIVUS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ALKYLAMINE": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AGL": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "ALKALI": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ALLTIME": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "ALLCARGO": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "ALLDIGI": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "ATL": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "ADSL": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ALMONDZ": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ALPA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ALOKINDS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ALPHAGEO": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "ALPINETEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ALUFLUOR": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AMAGI": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "AMANTA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "AMAL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AMARJOTHI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "AMBALALSA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "AMBICAAGAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "AMBIKCO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "AMDIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "AEROPLANE": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "AMNPLST": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AMJLAND": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ARSSBL": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "AMRUTANJAN": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ANDHRAPAP": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "ACL": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "ANIKINDS": {
+    "sector": "Consumer Defensive",
+    "industry": "Food Distribution",
+    "source": "Yahoo Finance"
+  },
+  "APCL": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "ANDREWYU": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "ANKITMETAL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "AHCL": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ANMOL": {
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "Yahoo Finance"
+  },
+  "ANNAPURNA": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "ANSALBU": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ANSALAPI": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ANTGRAPHIC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "ANTELOPUS": {
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "source": "Yahoo Finance"
+  },
+  "AWHCL": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "ANUHPHR": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "APCOTEXIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "PARKHOTELS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "APOLLO": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "APOLLOPIPE": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "APOLSINHOT": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "APEX": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "APOORVA": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "APTECHT": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "AQYLON": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "ACI": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ADL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "ARCHIDPLY": {
+    "sector": "Basic Materials",
+    "industry": "Lumber & Wood Production",
+    "source": "Yahoo Finance"
+  },
+  "ARCHIES": {
+    "sector": "Consumer Cyclical",
+    "industry": "Specialty Retail",
+    "source": "Yahoo Finance"
+  },
+  "ARDEE": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "ARCL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ARFIN": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "ARIES": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "ARIHANT": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ARIHANTCAP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ARIHANTSUP": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ARIS": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "ARKADE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ARMANFIN": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "AROGRANITE": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "ARSHIYA": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "AEPL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "ARROWGREEN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "ARTNIRMAN": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ARVEE": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ARVINDFASN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "ARVIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "ARVSMART": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ASAHISONG": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ARYAMAN": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ASHAPURMIN": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "ASHIANA": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ASHIKAG": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "ASHIMASYN": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "ASHOKA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "ASHOKAMET": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "ASIANENE": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "ASIANTILES": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "AHLEAST": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ASIANHOTNR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "AHLWEST": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "ASIANTNE": {
+    "sector": "Consumer Defensive",
+    "industry": "Food Distribution",
+    "source": "Yahoo Finance"
+  },
+  "ASPINWALL": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "ASKAUTOLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ASSAMENT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ASALCBR": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "ASTEC": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "ASTRAMICRO": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "ASTRAZEN": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "ASTRON": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "ATAM": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ATALREAL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "ATLANTAELE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "ATLANTAA": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "ATLASCYCLE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Leisure",
+    "source": "Yahoo Finance"
+  },
+  "AURIONPRO": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "AURUM": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "AURUS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "AUSOMENT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "AUTOIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ATULAUTO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Manufacturers",
+    "source": "Yahoo Finance"
+  },
+  "ACGL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "AUTOAXLES": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ASAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "AVADHSUGAR": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "AVALON": {
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "source": "Yahoo Finance"
+  },
+  "AVANCE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "AVANTIFEED": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "AVANTEL": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "CCAVENUE": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "AVG": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "ASMS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "AVONMORE": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "AVROIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "AVTNPL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "AXISCADES": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "AWFIS": {
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "source": "Yahoo Finance"
+  },
+  "AXITA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "AYE": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "AYMSYNTEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "AXTEL": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "AZAD": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "AZADIND": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BNALTD": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "BBTCL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "BLKASHYAP": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "BAGFILMS": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "STYLEBAAZA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "BAFNAPH": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJCON": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "BAIDFIN": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJELEC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJHCARE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJHIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJST": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "BAJEL": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "source": "Yahoo Finance"
+  },
+  "BALAMINES": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BALPHARMA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BALAJITELE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "BALKRISHNA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "BALMLAWRIE": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "BALAXI": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BLIL": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "BALUFORGE": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "BANARBEADS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "BANG": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BANKA": {
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "source": "Yahoo Finance"
+  },
+  "BANCOINDIA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "BANARISUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "BASML": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BANSALWIRE": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BANSWRAS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BASF": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BVCL": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "BATLIBOI": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "BCLIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "BEARDSELL": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "BCPL": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "BEDMUTHA": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BEEKAY": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BLEL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BELLACASA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BLAL": {
+    "sector": "Financial Services",
+    "industry": "Shell Companies",
+    "source": "Yahoo Finance"
+  },
+  "BENARAS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "BESTAGRO": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "BENGALASM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "BETA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BFINVEST": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "BFUTILITIE": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "BGRENERGY": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "BHAGERIA": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BHAGCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "BHAGYANGR": {
+    "sector": "Basic Materials",
+    "industry": "Copper",
+    "source": "Yahoo Finance"
+  },
+  "BHANDARI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BHARATCOAL": {
+    "sector": "Basic Materials",
+    "industry": "Coking Coal",
+    "source": "Yahoo Finance"
+  },
+  "BBL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "BEPL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BHARATGEAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "BPLPHARMA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BHARATRAS": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "BRNL": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "BHARATSE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "BIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "BTTL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BIGBLOC": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "BHARATWIRE": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BILVYAPAR": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "BIMETAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "BIOFILCHEM": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BIRLACABLE": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "BIRLAPREC": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "BIRLACORPN": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "BIRLANU": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "BBOX": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "BLACKBUCK": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "BLACKROSE": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BLBLIMITED": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "BLISSGVS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BLSE": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "BLUECHIP": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "BLUECLOUDS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "BLUECOAST": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "BLUESTONE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "BLUSPRING": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "BNAGROCHEM": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "BMWVENTLTD": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "BOHRAIND": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "BODALCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BTML": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "BOMDYEING": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BONLON": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "BSHSL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "BORANA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BOROLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "BOSCH-HCIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "BORORENEW": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "BOROSCI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "BPL": {
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "source": "Yahoo Finance"
+  },
+  "BRAHMINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "BCONCEPTS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "BRIGHOTEL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "BRIGHTBR": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "BROOKS": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "BSL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BCG": {
+    "sector": "Communication Services",
+    "industry": "Advertising Agencies",
+    "source": "Yahoo Finance"
+  },
+  "BURNPUR": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "BUTTERFLY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "CMLL": {
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "Yahoo Finance"
+  },
+  "CALSOFT": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "CTE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "CAMLINFINE": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CAMPUS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "CRAMC": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "CANTABIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "CAPACITE": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "CAPILLARY": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "CAPITALSFB": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "CIFL": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "CAPTRUST": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "CPL": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "CARERATING": {
+    "sector": "Financial Services",
+    "industry": "Financial Data & Stock Exchanges",
+    "source": "Yahoo Finance"
+  },
+  "CPEDU": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "CARYSIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "CARRARO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "CEIGALL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "CEINSYS": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "CELEBRITY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "CELLO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "CENTRUM": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "CENTUM": {
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "source": "Yahoo Finance"
+  },
+  "CENTENKA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "CMPDI": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "CENTEXT": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "CERA": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "CENTURYPLY": {
+    "sector": "Basic Materials",
+    "industry": "Lumber & Wood Production",
+    "source": "Yahoo Finance"
+  },
+  "CEREBRAINT": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "CGVAK": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "CLSEL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "CHEMBONDCH": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEMBOND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEMCRUX": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEMCON": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEMFAB": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEMPLASTS": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "CHEVIOT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "CINELINE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "CINEVISTA": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "CLEDUCATE": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "CLCIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "CLEANMAX": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "CMSINFO": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "COASTCORP": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "COFFEEDAY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Restaurants",
+    "source": "Yahoo Finance"
+  },
+  "COMFINTE": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "COMSYN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "COMPEAU": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto & Truck Dealerships",
+    "source": "Yahoo Finance"
+  },
+  "CMRGREEN": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "COMPINFO": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "COMPUSOFT": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "CEWATER": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "source": "Yahoo Finance"
+  },
+  "CONFIPET": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Refining & Marketing",
+    "source": "Yahoo Finance"
+  },
+  "CFEL": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "source": "Yahoo Finance"
+  },
+  "CCCL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "CONSOFINVT": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "CONTROLPR": {
+    "sector": "Industrials",
+    "industry": "Business Equipment & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "CORDSCABLE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "CORALFINAC": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "CORONA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
+  },
+  "COSMOFIRST": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "CCHHL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "COUNCODOS": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "CPCAP": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "CRAVATEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Leisure",
+    "source": "Yahoo Finance"
+  },
+  "CREATIVEYE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "CNL": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "MUFTI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "CRSL": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "CRIZAC": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "CREST": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "CROWN": {
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "source": "Yahoo Finance"
+  },
+  "CSM": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "CSLFINANCE": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "CSBBANK": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "CUPID": {
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products",
+    "source": "Yahoo Finance"
+  },
+  "CURAA": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "CUBEXTUB": {
+    "sector": "Basic Materials",
+    "industry": "Copper",
+    "source": "Yahoo Finance"
+  },
+  "CYBERMEDIA": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "CYIENTDLM": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "DLINKINDIA": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "DPWIRES": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "CYBERTECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "DPABHUSHAN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "DBCORP": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "DAICHI": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DALMIASUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "DAMODARIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DAMCAPITAL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DANGEE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Restaurants",
+    "source": "Yahoo Finance"
+  },
+  "DATAMATICS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "DAVANGERE": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "DBSTOCKBRO": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DCBBANK": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "DCI": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "DCM": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "DCMFINSERV": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "DCMNVL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DCMSRIND": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "DCMSIL": {
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "source": "Yahoo Finance"
+  },
+  "DCW": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DSFCL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DCXINDIA": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "DDEVPLSTIK": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DENORA": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "DECNGOLD": {
+    "sector": "Basic Materials",
+    "industry": "Gold",
+    "source": "Yahoo Finance"
+  },
+  "DECCANCE": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "DEEDEV": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "DEEPINDS": {
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "source": "Yahoo Finance"
+  },
+  "DEEP": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DBEIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "DELPHIFX": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DELTACORP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Resorts & Casinos",
+    "source": "Yahoo Finance"
+  },
+  "DELTAMAGNT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DEN": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "DENTA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "DEVX": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "DEVIT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "DHABRIYA": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "DBOL": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "DHAMPURSUG": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "DHANBANK": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "DHANLAXMI": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "DHANUKA": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "DHARAN": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "DHARMAJ": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "DHOOTTRANS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "DHRUV": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "DHUNINV": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DTIL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "DVL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DICIND": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DIAMINESQ": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DIACABS": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "DIFFNKG": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "DGCONTENT": {
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information",
+    "source": "Yahoo Finance"
+  },
+  "DIGIDRIVE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "source": "Yahoo Finance"
+  },
+  "DIGISPICE": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "DIGJAMLMTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DIGITIDE": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "DBL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "DNAMEDIA": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "DISHTV": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "DCAL": {
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "Yahoo Finance"
+  },
+  "DIVGIITTS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "DMCC": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "DJML": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "DODLA": {
+    "sector": "Consumer Defensive",
+    "industry": "Food Distribution",
+    "source": "Yahoo Finance"
+  },
+  "DOLATALGO": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "DOLLAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DOLPHIN": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "source": "Yahoo Finance"
+  },
+  "DONEAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "DPSCLTD": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "source": "Yahoo Finance"
+  },
+  "DRAGARWQ": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "AGARWALEYE": {
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "DRCSYSTEMS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "DREDGECORP": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "DREAMFOLKS": {
+    "sector": "Industrials",
+    "industry": "Airports & Air Services",
+    "source": "Yahoo Finance"
+  },
+  "DSKULKARNI": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "KEEPLEARN": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "DUCON": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "DSSL": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "DWARKESH": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
+  },
+  "DYNAMATECH": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "DYCL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "DYNPRO": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "EASTWEST": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "EASTSILK": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "EASEMYTRIP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Travel Services",
+    "source": "Yahoo Finance"
+  },
+  "E2E": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "ECORECO": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "EBIX": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "ECOSMOBLTY": {
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "source": "Yahoo Finance"
+  },
+  "EDELWEISS": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "EFCIL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "EIHAHOTELS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "EIMCOELECO": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "EKI": {
+    "sector": "Industrials",
+    "industry": "Consulting Services",
+    "source": "Yahoo Finance"
+  },
+  "ELANTAS": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ELDEHSG": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "EMIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Specialty Retail",
+    "source": "Yahoo Finance"
+  },
+  "ELECTCAST": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "ELECTHERM": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "ELGIRUBCO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ELIN": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "ELITECON": {
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco",
+    "source": "Yahoo Finance"
+  },
+  "ELLEN": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "EMAMIPAP": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "EMAMIREAL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "EMBDL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
+  },
+  "EMKAY": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "EMMBI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "EMSLIMITED": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "EMPIND": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "EMPOWER": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "EMUDHRA": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "ENERGYDEV": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "source": "Yahoo Finance"
+  },
+  "ENKEIWHEL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ENTERO": {
+    "sector": "Healthcare",
+    "industry": "Medical Distribution",
+    "source": "Yahoo Finance"
+  },
+  "ENIL": {
+    "sector": "Communication Services",
+    "industry": "Broadcasting",
+    "source": "Yahoo Finance"
+  },
+  "EIEL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "EPACK": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "EPACKPEB": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "EPIGRAL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "EPL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "EQUIPPP": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "EQUITASBNK": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "ESABINDIA": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "ESAFSFB": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "ESSARSHPNG": {
+    "sector": "Industrials",
+    "industry": "Marine Shipping",
+    "source": "Yahoo Finance"
+  },
+  "ESTER": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "ETHOSLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "EUREKAFORB": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "EIFFL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "EUROBOND": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "EUROPRATIK": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "EUROTEXIND": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "EVEREADY": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "EVERESTIND": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "EKC": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "EXCELINDUS": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "EXICOM": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "EXCELSOFT": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "EXXARO": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "EXPLEOSOL": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "FABTECH": {
+    "sector": "Healthcare",
+    "industry": "Health Information Services",
+    "source": "Yahoo Finance"
+  },
+  "FAIRCHEMOR": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "FCSSOFT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "FAZE3Q": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FEDFINA": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "FEDDERSHOL": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "FMGOETZE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "FDC": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "FIBERWEB": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FERMENTA": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "FIEMIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "FILATFASH": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FILATEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FINEORG": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "FCL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "FINOPB": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "source": "Yahoo Finance"
+  },
+  "FINKURVE": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "FINPIPE": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "FLAIR": {
+    "sector": "Industrials",
+    "industry": "Business Equipment & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "FISCHER": {
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "source": "Yahoo Finance"
+  },
+  "FLEXITUFF": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FOCUS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "FOODSIN": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "FRACTAL": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "FOSECOIND": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "FREDUN": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "FRONTSP": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "FUSION": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "UTLSOLAR": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "FEL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Department Stores",
+    "source": "Yahoo Finance"
+  },
+  "FLFL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "FELDVR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Department Stores",
+    "source": "Yahoo Finance"
+  },
+  "FMNL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "GRINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GTECJAINX": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "GATECHDVR": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "GATECH": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "GALAPREC": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "GALAXYSURF": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GANDHAR": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Refining & Marketing",
+    "source": "Yahoo Finance"
+  },
+  "GANDHITUBE": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "GANESHBE": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GANESHCP": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GANESHHOU": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "GANECOS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GANGAFORGE": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "GANGESSECU": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GARUDA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GRWRHITECH": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GATEWAY": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "GAYAHWS": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "GARFIBRES": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GAUDIUMIVF": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "GAYAPROJ": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GEECEE": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "GVPIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GEEKAYWIRE": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "GEMAROMA": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GENESYS": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "GENSOL": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "GENUSPAPER": {
+    "sector": "Basic Materials",
+    "industry": "Paper & Paper Products",
+    "source": "Yahoo Finance"
+  },
+  "GENUSPOWER": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "GENCON": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GEOJITFSL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "GHCL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GICHSGFIN": {
+    "sector": "Financial Services",
+    "industry": "Mortgage Finance",
+    "source": "Yahoo Finance"
+  },
+  "GFLLIMITED": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "GILLANDERS": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "GINNIFILA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GHCLTEXTIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GKENERGY": {
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "source": "Yahoo Finance"
+  },
+  "GKB": {
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies",
+    "source": "Yahoo Finance"
+  },
+  "GKWLIMITED": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "GLOBAL": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "GSLSU": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "GLOBALVECT": {
+    "sector": "Industrials",
+    "industry": "Airports & Air Services",
+    "source": "Yahoo Finance"
+  },
+  "GLOBECIVIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GLOBALE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GICL": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "GLOBE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GLOSTERLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GLOBUSSPR": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "GLOTTIS": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "GMBREW": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "GMMPFAUDLR": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "GMRP&UI": {
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "Yahoo Finance"
+  },
+  "EBGNG": {
+    "sector": "Technology",
+    "industry": "Computer Hardware",
+    "source": "Yahoo Finance"
+  },
+  "GNA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "GOCLCORP": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GOCOLORS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "GODAVARIB": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GOACARBON": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GODREJAGRO": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GOKEX": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "GOKULAGRO": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GOKUL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GOLDIAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "GOLDENTOBC": {
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco",
+    "source": "Yahoo Finance"
+  },
+  "GOODLUCK": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "GOODYEAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "GOPAL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GULFPETRO": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Refining & Marketing",
+    "source": "Yahoo Finance"
+  },
+  "GOYALALUM": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "GPTINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "GPTHEALTH": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "GRADIENTE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "GRANDOAK": {
+    "sector": "Financial Services",
+    "industry": "Mortgage Finance",
+    "source": "Yahoo Finance"
+  },
+  "GRAUWEIL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GREAVESCOT": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "GRAVISSHO": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "GREENLAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "GREENPANEL": {
+    "sector": "Basic Materials",
+    "industry": "Lumber & Wood Production",
+    "source": "Yahoo Finance"
+  },
+  "GCSL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "GREENPLY": {
+    "sector": "Basic Materials",
+    "industry": "Lumber & Wood Production",
+    "source": "Yahoo Finance"
+  },
+  "GRINDWELL": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "GRMOVER": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GRPLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "GSPCROP": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "GSS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "GTLINFRA": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "GTL": {
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "source": "Yahoo Finance"
+  },
+  "GUJALKALI": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GUFICBIO": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "GTPL": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "GAEL": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GUJAPOLLO": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "GUJENERGY": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "source": "Yahoo Finance"
+  },
+  "GIPCL": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "source": "Yahoo Finance"
+  },
+  "GKSL": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "GLFL": {
+    "sector": "Financial Services",
+    "industry": "Shell Companies",
+    "source": "Yahoo Finance"
+  },
+  "GNFC": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GPPL": {
+    "sector": "Industrials",
+    "industry": "Marine Shipping",
+    "source": "Yahoo Finance"
+  },
+  "GNRL": {
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "source": "Yahoo Finance"
+  },
+  "GSFC": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "GUJTHEM": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "GULFOILLUB": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GULPOLY": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "GVKPIL": {
+    "sector": "Utilities",
+    "industry": "Utilities - Independent Power Producers",
+    "source": "Yahoo Finance"
+  },
+  "GYFTR": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "GVPTECH": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "HGINFRA": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "HALDER": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "HALDYNGL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "HALEOSLABS": {
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "Yahoo Finance"
+  },
+  "HAMPTON": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "HGM": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "HAPPYFORGE": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "HAPPSTMNDS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "HARDWYN": {
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "source": "Yahoo Finance"
+  },
+  "HARIOMPIPE": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "HRYNSHP": {
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "source": "Yahoo Finance"
+  },
+  "HARRMALAYA": {
+    "sector": "Consumer Defensive",
+    "industry": "Farm Products",
+    "source": "Yahoo Finance"
+  },
+  "HATHWAY": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "HATSUN": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "HARSHA": {
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
+  },
+  "HAWKINCOOK": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "HAZOOR": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "HBSL": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "HBPOR": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "HCL-INSYS": {
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "source": "Yahoo Finance"
+  },
+  "HEADSUP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
+  },
+  "HEALTHX": {
+    "sector": "Healthcare",
+    "industry": "Pharmaceutical Retailers",
+    "source": "Yahoo Finance"
+  },
+  "HCG": {
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
+  },
+  "HECPROJECT": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "HEIDELBERG": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "HEMIPROP": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
+  },
+  "HERANBA": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "HERITGFOOD": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "HESTERBIO": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "HEXATRADEX": {
+    "sector": "Financial Services",
+    "industry": "Credit Services",
+    "source": "Yahoo Finance"
+  },
+  "HEXAGON": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "HILINFRA": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "HITECH": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "HIKAL": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "HILTON": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "HIMATSEIDE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "HINDALUMI": {
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
+  },
+  "HINDCON": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "HPIL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "HGS": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "HINDADH": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "HINDCOMPOS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "HCC": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "HMVL": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "HNDFDS": {
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "HINDOILEXP": {
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "source": "Yahoo Finance"
+  },
+  "HINDWAREAP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "HIRECT": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "HITECHCORP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "HISARMETAL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "HLVLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "HMAAGRO": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "HLEGLAS": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "HMT": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "HONDAPOWER": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "HDIL": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
+  },
+  "HPAL": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "HPL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "HTMEDIA": {
+    "sector": "Communication Services",
+    "industry": "Publishing",
+    "source": "Yahoo Finance"
+  },
+  "HUBTOWN": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "HUHTAMAKI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
+  },
+  "HYBRIDFIN": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "ISTLTD": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ICEMAKE": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "ICDSLTD": {
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
+  },
+  "ICRA": {
+    "sector": "Financial Services",
+    "industry": "Financial Data & Stock Exchanges",
+    "source": "Yahoo Finance"
+  },
+  "IDEAFORGE": {
+    "sector": "Technology",
+    "industry": "Computer Hardware",
+    "source": "Yahoo Finance"
+  },
+  "IFBAGRO": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "IFBIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
+  },
+  "IFGLEXPOR": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "IGPL": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "IGARASHI": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "IIFLCAPS": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "IKIO": {
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "source": "Yahoo Finance"
+  },
+  "IVC": {
+    "sector": "Financial Services",
+    "industry": "Financial Conglomerates",
+    "source": "Yahoo Finance"
+  },
+  "IL&FSTRANS": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
+  },
+  "IMAGICAA": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "IL&FSENGG": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "IMPEXFERRO": {
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "Yahoo Finance"
+  },
+  "INCREDIBLE": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "INDSWFTLAB": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "INDBANK": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "BAJAJINDEF": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "INDIAGLYCO": {
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
+  },
+  "IMPAL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "INDNIPPON": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "IPL": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "ITDC": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "INDIASHLTR": {
+    "sector": "Financial Services",
+    "industry": "Mortgage Finance",
+    "source": "Yahoo Finance"
   }
 }

@@ -17,7 +17,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "3MINDIA": {
-      "futureGrowth": 83.93,
+      "futureGrowth": 63.63,
       "fundamentalQuality": 78.15,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
@@ -29,7 +29,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AAVAS": {
-      "futureGrowth": 76.19,
+      "futureGrowth": 59.78,
       "fundamentalQuality": 66.67,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
@@ -143,7 +143,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "CPPLUS": {
-      "futureGrowth": 92.12,
+      "futureGrowth": 68.47,
       "fundamentalQuality": 76.25,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -155,7 +155,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AFFLE": {
-      "futureGrowth": 76.56,
+      "futureGrowth": 76.53,
       "fundamentalQuality": 85.21,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
@@ -955,7 +955,7 @@
     "ENGINERSIN": {
       "futureGrowth": 72.28,
       "fundamentalQuality": 85.25,
-      "capexScore": 60,
+      "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ENDURANCE": {
@@ -3008,6 +3008,240 @@
       "futureGrowth": 63.62,
       "fundamentalQuality": 63.74,
       "capexScore": 80,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "3IINFOLTD": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AFSL": {
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 55.04,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AERONEU": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 80,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AKASH": {
+      "futureGrowth": 33.33,
+      "fundamentalQuality": 46.55,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AKSHAR": {
+      "futureGrowth": 71.45,
+      "fundamentalQuality": 61.37,
+      "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ATL": {
+      "futureGrowth": 24.48,
+      "fundamentalQuality": 40.73,
+      "capexScore": 60,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ALPA": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 80,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AMJLAND": {
+      "futureGrowth": 44.6,
+      "fundamentalQuality": 94.54,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ANSALBU": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ANIKINDS": {
+      "futureGrowth": 10.02,
+      "fundamentalQuality": 65.14,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ACI": {
+      "futureGrowth": 79.72,
+      "fundamentalQuality": null,
+      "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ARVEE": {
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 76.84,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AEPL": {
+      "futureGrowth": 39.65,
+      "fundamentalQuality": 77.6,
+      "capexScore": 60,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ASPINWALL": {
+      "futureGrowth": 88.7,
+      "fundamentalQuality": 58.25,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ASTEC": {
+      "futureGrowth": 37.55,
+      "fundamentalQuality": 23.78,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "AUSOMENT": {
+      "futureGrowth": 100.0,
+      "fundamentalQuality": 63.32,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "ACGL": {
+      "futureGrowth": 15.22,
+      "fundamentalQuality": 69.7,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BANG": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BCPL": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BEPL": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BLUECOAST": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BNAGROCHEM": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "BUTTERFLY": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 60,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "CAPITALSFB": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "CREST": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "DHARAN": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "DIACABS": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "EMAMIPAP": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "FERMENTA": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 80,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GALAXYSURF": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 80,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GAYAHWS": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GMRP&UI": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GREAVESCOT": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GVKPIL": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "GPPL": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "HEALTHX": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "HEXAGON": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 70,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "HNDFDS": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "HUBTOWN": {
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     }
   }
