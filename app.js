@@ -9,12 +9,7 @@ const $ = id => document.getElementById(id);
 const scoreVal = x =>
   x === null || x === undefined || x === ''
     ? '<span class="pending">Pending</span>'
-    : `<span class="score ${x >= 75 ? 'hi' : x >= 60 ? 'mid' : ''}">${Math.round(x)}</span>`;
-
-const num = x =>
-  x === null || x === undefined || x === ''
-    ? '—'
-    : Number(x).toLocaleString();
+    : `<span class="score ${x >= 75 ? 'hi' : x >= 60 ? 'mid' : ''}">${Number(x).toFixed(0)}</span>`;
 
 const pct = x =>
   x === null || x === undefined || x === ''
@@ -36,8 +31,7 @@ function filters() {
 
     const matchesEx =
       ex === 'ALL' ||
-      s.exchange === ex ||
-      (s.exchanges || []).includes(ex);
+      s.exchange === ex;
 
     const matchesBd =
       bd === 'ALL' ||
@@ -46,26 +40,46 @@ function filters() {
     const matchesStatus =
       st === 'ALL' ||
       (st === 'READY'
-        ? s.dataStatus === 'EOD_READY'
-        : s.dataStatus !== 'EOD_READY');
+        ? s.overallScore !== null && s.overallScore !== undefined
+        : s.overallScore === null || s.overallScore === undefined);
 
     return matchesQ && matchesEx && matchesBd && matchesStatus;
   });
 }
 
+function rankStocks(rows) {
+  return [...rows].sort((a, b) => {
+    const ao = a.overallScore;
+    const bo = b.overallScore;
+
+    if (ao != null && bo == null) return -1;
+    if (ao == null && bo != null) return 1;
+
+    if (ao != null && bo != null) {
+      return Number(bo) - Number(ao);
+    }
+
+    return (a.name || '').localeCompare(b.name || '');
+  });
+}
+
 function render() {
-  const f = filters();
-  const pages = Math.max(1, Math.ceil(f.length / PAGE));
+  const filtered = rankStocks(filters());
+
+  const pages = Math.max(
+    1,
+    Math.ceil(filtered.length / PAGE)
+  );
 
   page = Math.min(page, pages);
 
-  const rows = f.slice(
+  const rows = filtered.slice(
     (page - 1) * PAGE,
     page * PAGE
   );
 
   $('resultCount').textContent =
-    `${f.length.toLocaleString()} securities matched`;
+    `${filtered.length.toLocaleString()} securities matched`;
 
   $('page').textContent =
     `Page ${page} / ${pages}`;
@@ -95,8 +109,6 @@ function render() {
       </td>
 
       <td>${pct(s.changePct)}</td>
-
-      <td>${num(s.volume)}</td>
 
       <td>
         ${
@@ -136,8 +148,12 @@ async function init() {
   $('mode').textContent =
     `${meta.mode} • Updated ${meta.lastUpdated}`;
 
-  const eodReady =
-    all.filter(s => s.dataStatus === 'EOD_READY').length;
+  const scored =
+    all.filter(
+      s =>
+        s.overallScore !== null &&
+        s.overallScore !== undefined
+    ).length;
 
   const classified =
     all.filter(
@@ -153,18 +169,18 @@ async function init() {
     </div>
 
     <div class="stat">
-      <b>${Number(meta.nseCount || 0).toLocaleString()}</b>
-      <span>NSE incl. SME</span>
-    </div>
-
-    <div class="stat">
-      <b>${eodReady.toLocaleString()}</b>
+      <b>${Number(meta.matchedPriceCount || 0).toLocaleString()}</b>
       <span>EOD price ready</span>
     </div>
 
     <div class="stat">
       <b>${classified.toLocaleString()}</b>
       <span>Sector classified</span>
+    </div>
+
+    <div class="stat">
+      <b>${scored.toLocaleString()}</b>
+      <span>Fully scored</span>
     </div>
   `;
 
