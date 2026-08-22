@@ -2,8 +2,14 @@ import json
 from pathlib import Path
 from collections import defaultdict
 
+import pandas as pd
+import yfinance as yf
+
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+
+NIFTY500 = "^CRSLDX"
 
 
 def load_json(path, default):
@@ -38,6 +44,31 @@ def percentile(value, values):
     )
 
 
+def sector_index(sector, industry):
+    text = f"{sector or ''} {industry or ''}".lower()
+
+    rules = [
+        (["psu bank"], "^CNXPSUBANK"),
+        (["bank"], "^NSEBANK"),
+        (["financial services", "finance", "nbfc"], "^CNXFINANCE"),
+        (["automobile", "auto component", "auto"], "^CNXAUTO"),
+        (["information technology", "software", "it services"], "^CNXIT"),
+        (["fmcg"], "^CNXFMCG"),
+        (["pharma", "pharmaceutical", "healthcare"], "^CNXPHARMA"),
+        (["metal", "mining"], "^CNXMETAL"),
+        (["realty", "real estate"], "^CNXREALTY"),
+        (["media", "entertainment"], "^CNXMEDIA"),
+        (["energy", "oil", "gas", "power", "renewable", "solar"], "^CNXENERGY"),
+        (["infrastructure", "construction", "capital goods"], "^CNXINFRA"),
+    ]
+
+    for words, ticker in rules:
+        if any(word in text for word in words):
+            return ticker
+
+    return None
+
+
 def macro_score(sector, industry):
     text = f"{sector or ''} {industry or ''}".lower()
 
@@ -66,6 +97,90 @@ def macro_score(sector, industry):
     return None
 
 
+def download_history(tickers):
+    result = {}
+
+    tickers = list(dict.fromkeys(tickers))
+
+    chunk_size = 150
+
+    for start in range(0, len(tickers), chunk_size):
+        chunk = tickers[start:start + chunk_size]
+
+        print(
+            f"Historical prices: "
+            f"{start + 1}-"
+            f"{min(start + chunk_size, len(tickers))}/"
+            f"{len(tickers)}"
+        )
+
+        try:
+            data = yf.download(
+                chunk,
+                period="8mo",
+                interval="1d",
+                auto_adjust=False,
+                progress=False,
+                threads=True,
+                group_by="column"
+            )
+
+            if data is None or len(data) == 0:
+                continue
+
+            close = data["Close"]
+
+            if isinstance(close, pd.Series):
+                close = close.to_frame(
+                    name=chunk[0]
+                )
+
+            for ticker in chunk:
+                try:
+                    series = (
+                        close[ticker]
+                        .dropna()
+                        .astype(float)
+                    )
+
+                    if len(series):
+                        result[ticker] = series
+
+                except Exception:
+                    pass
+
+        except Exception as e:
+            print(
+                f"Historical chunk failed: {e}"
+            )
+
+    return result
+
+
+def period_return(series, trading_days):
+    if series is None:
+        return None
+
+    if len(series) <= trading_days:
+        return None
+
+    try:
+        latest = float(series.iloc[-1])
+        old = float(
+            series.iloc[-(trading_days + 1)]
+        )
+
+        if old == 0:
+            return None
+
+        return (
+            (latest / old) - 1
+        ) * 100
+
+    except Exception:
+        return None
+
+
 def main():
 
     stocks = load_json(
@@ -83,43 +198,202 @@ def main():
         {}
     )
 
-    sector_changes = defaultdict(list)
+    classified = [
+        row
+        for row in stocks
+        if (
+            row.get("symbol")
+            and row.get("sector")
+            and row.get("sector") != "Unclassified"
+        )
+    ]
 
-    for row in stocks:
+    # --------------------------------
+    # Historical stock + index data
+    # --------------------------------
 
-        sector = row.get("sector")
-        change = row.get("changePct")
+    stock_tickers = [
+        f"{row['symbol']}.NS"
+        for row in classified
+    ]
+
+    index_tickers = {
+        NIFTY500
+    }
+
+    for row in classified:
+        idx = sector_index(
+            row.get("sector"),
+            row.get("industry")
+        )
+
+        if idx:
+            index_tickers.add(idx)
+
+    history = download_history(
+        stock_tickers +
+        list(index_tickers)
+    )
+
+    # --------------------------------
+    # Index returns
+    # --------------------------------
+
+    index_returns = {}
+
+    for ticker in index_tickers:
+        series = history.get(ticker)
+
+        index_returns[ticker] = {
+            "1M": period_return(series, 21),
+            "3M": period_return(series, 63),
+            "6M": period_return(series, 126),
+        }
+
+    # --------------------------------
+    # MONTHLY SECTOR STRENGTH
+    # --------------------------------
+
+    sector_index_1m = {}
+
+    for row in classified:
+
+        idx = sector_index(
+            row.get("sector"),
+            row.get("industry")
+        )
+
+        if not idx:
+            continue
+
+        r = (
+            index_returns
+            .get(idx, {})
+            .get("1M")
+        )
+
+        if r is not None:
+            sector_index_1m[idx] = r
+
+    sector_return_values = list(
+        sector_index_1m.values()
+    )
+
+    sector_strength_by_index = {}
+
+    for idx, r in sector_index_1m.items():
+        sector_strength_by_index[idx] = (
+            percentile(
+                r,
+                sector_return_values
+            )
+        )
+
+    # --------------------------------
+    # STOCK STRENGTH RAW EXCESS RETURN
+    # --------------------------------
+
+    raw_1m = {}
+    raw_3m = {}
+    raw_6m = {}
+
+    for row in classified:
+
+        symbol = row["symbol"]
+        stock_ticker = f"{symbol}.NS"
+
+        stock_series = history.get(
+            stock_ticker
+        )
+
+        idx = sector_index(
+            row.get("sector"),
+            row.get("industry")
+        )
+
+        # If exact sector index unavailable,
+        # Stock Strength falls back to Nifty 500.
+        benchmark = idx or NIFTY500
+
+        benchmark_returns = (
+            index_returns.get(
+                benchmark,
+                index_returns.get(NIFTY500, {})
+            )
+        )
+
+        stock_1m = period_return(
+            stock_series,
+            21
+        )
+
+        stock_3m = period_return(
+            stock_series,
+            63
+        )
+
+        stock_6m = period_return(
+            stock_series,
+            126
+        )
+
+        bench_1m = benchmark_returns.get("1M")
+        bench_3m = benchmark_returns.get("3M")
+        bench_6m = benchmark_returns.get("6M")
 
         if (
-            sector
-            and sector != "Unclassified"
-            and change is not None
+            stock_1m is not None
+            and bench_1m is not None
         ):
-            try:
-                sector_changes[sector].append(
-                    float(change)
-                )
-            except Exception:
-                pass
-
-    sector_avg = {}
-
-    for sector, values in sector_changes.items():
-
-        if values:
-            sector_avg[sector] = (
-                sum(values) / len(values)
+            raw_1m[symbol] = (
+                stock_1m - bench_1m
             )
 
-    all_sector_avg = list(
-        sector_avg.values()
-    )
+        if (
+            stock_3m is not None
+            and bench_3m is not None
+        ):
+            raw_3m[symbol] = (
+                stock_3m - bench_3m
+            )
+
+        if (
+            stock_6m is not None
+            and bench_6m is not None
+        ):
+            raw_6m[symbol] = (
+                stock_6m - bench_6m
+            )
+
+    values_1m = list(raw_1m.values())
+    values_3m = list(raw_3m.values())
+    values_6m = list(raw_6m.values())
+
+    stock_strength_1m = {
+        symbol: percentile(v, values_1m)
+        for symbol, v in raw_1m.items()
+    }
+
+    stock_strength_3m = {
+        symbol: percentile(v, values_3m)
+        for symbol, v in raw_3m.items()
+    }
+
+    stock_strength_6m = {
+        symbol: percentile(v, values_6m)
+        for symbol, v in raw_6m.items()
+    }
+
+    # --------------------------------
+    # Existing Value Migration
+    # --------------------------------
 
     all_turnover = []
 
     for row in stocks:
-
-        turnover = row.get("turnoverCr")
+        turnover = row.get(
+            "turnoverCr"
+        )
 
         if turnover is not None:
             try:
@@ -131,13 +405,6 @@ def main():
 
     scores = {}
 
-    sector_available = 0
-    macro_available = 0
-    vm_available = 0
-    future_available = 0
-    fundamental_available = 0
-    capex_available = 0
-
     for row in stocks:
 
         symbol = row.get("symbol")
@@ -148,38 +415,25 @@ def main():
         sector = row.get("sector")
         industry = row.get("industry")
 
-        # -------------------------
-        # Sector Strength
-        # -------------------------
+        idx = sector_index(
+            sector,
+            industry
+        )
 
         sector_strength = None
 
-        if sector in sector_avg:
-
-            sector_strength = percentile(
-                sector_avg[sector],
-                all_sector_avg
+        if idx:
+            sector_strength = (
+                sector_strength_by_index
+                .get(idx)
             )
-
-            if sector_strength is not None:
-                sector_available += 1
-
-        # -------------------------
-        # Macro Support
-        # -------------------------
 
         macro_support = macro_score(
             sector,
             industry
         )
 
-        if macro_support is not None:
-            macro_available += 1
-
-        # -------------------------
         # Value Migration
-        # -------------------------
-
         value_migration = None
 
         change = row.get("changePct")
@@ -188,10 +442,10 @@ def main():
         if (
             change is not None
             and turnover is not None
+            and all_turnover
         ):
 
             try:
-
                 momentum = clamp(
                     50 + float(change) * 7
                 )
@@ -202,52 +456,33 @@ def main():
                 )
 
                 if turnover_score is not None:
-
                     value_migration = round(
-                        momentum * 0.60
-                        + turnover_score * 0.40,
+                        momentum * 0.60 +
+                        turnover_score * 0.40,
                         2
                     )
 
-                    vm_available += 1
-
             except Exception:
                 pass
-
-        # -------------------------
-        # Company research data
-        # -------------------------
 
         company = company_scores.get(
             symbol,
             {}
         )
 
-        future_growth = company.get(
-            "futureGrowth"
-        )
-
-        fundamental_quality = company.get(
-            "fundamentalQuality"
-        )
-
-        capex_score = company.get(
-            "capexScore"
-        )
-
-        if future_growth is not None:
-            future_available += 1
-
-        if fundamental_quality is not None:
-            fundamental_available += 1
-
-        if capex_score is not None:
-            capex_available += 1
-
         scores[symbol] = {
 
             "sectorStrength":
                 sector_strength,
+
+            "stockStrength1M":
+                stock_strength_1m.get(symbol),
+
+            "stockStrength3M":
+                stock_strength_3m.get(symbol),
+
+            "stockStrength6M":
+                stock_strength_6m.get(symbol),
 
             "macroSupport":
                 macro_support,
@@ -256,13 +491,22 @@ def main():
                 value_migration,
 
             "futureGrowth":
-                future_growth,
+                company.get(
+                    "futureGrowth"
+                ),
 
             "fundamentalQuality":
-                fundamental_quality,
+                company.get(
+                    "fundamentalQuality"
+                ),
 
             "capexScore":
-                capex_score
+                company.get(
+                    "capexScore"
+                ),
+
+            "strengthBenchmark":
+                idx or NIFTY500
         }
 
     output = {
@@ -270,7 +514,7 @@ def main():
         "_meta": {
 
             "description":
-                "India Market Dashboard research scoring inputs",
+                "NSE research scoring inputs",
 
             "scale":
                 "0-100",
@@ -278,26 +522,34 @@ def main():
             "method": {
 
                 "sectorStrength":
-                    "Sector EOD performance percentile",
+                    "1-month relevant Nifty sector index return percentile",
+
+                "stockStrength1M":
+                    "1-month stock excess return vs relevant index percentile",
+
+                "stockStrength3M":
+                    "3-month stock excess return vs relevant index percentile",
+
+                "stockStrength6M":
+                    "6-month stock excess return vs relevant index percentile",
 
                 "macroSupport":
-                    "Sector-level macro policy/tailwind heuristic",
+                    "Sector-level macro heuristic",
 
                 "valueMigration":
-                    "60% price momentum + 40% turnover percentile",
+                    "60% daily momentum + 40% turnover percentile",
 
                 "futureGrowth":
-                    "Company-specific research input",
+                    "Company research input",
 
                 "fundamentalQuality":
-                    "Company-specific financial quality input",
+                    "Company financial quality input",
 
                 "capexScore":
-                    "Company-specific CAPEX/expansion input"
+                    "Company CAPEX input"
             },
 
             "weights": {
-
                 "sectorStrength": 10,
                 "macroSupport": 20,
                 "valueMigration": 20,
@@ -307,14 +559,12 @@ def main():
             }
         },
 
-        "stocks":
-            scores
+        "stocks": scores
     }
 
     (
         DATA / "research_scores.json"
     ).write_text(
-
         json.dumps(
             output,
             indent=2,
@@ -323,30 +573,23 @@ def main():
     )
 
     print({
-
         "stocksProcessed":
             len(scores),
 
-        "sectorStrengthAvailable":
-            sector_available,
+        "monthlySectorStrength":
+            sum(
+                1 for x in scores.values()
+                if x.get("sectorStrength") is not None
+            ),
 
-        "macroSupportAvailable":
-            macro_available,
+        "stockStrength1M":
+            len(stock_strength_1m),
 
-        "valueMigrationAvailable":
-            vm_available,
+        "stockStrength3M":
+            len(stock_strength_3m),
 
-        "futureGrowthAvailable":
-            future_available,
-
-        "fundamentalQualityAvailable":
-            fundamental_available,
-
-        "capexAvailable":
-            capex_available,
-
-        "classifiedSectors":
-            len(sector_avg)
+        "stockStrength6M":
+            len(stock_strength_6m)
     })
 
 
