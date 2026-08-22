@@ -6,3 +6,65 @@ main{max-width:1450px;margin:auto;padding:0 24px 55px}.notice{border:1px solid #
 .toolbar{display:flex;gap:10px;position:sticky;top:8px;z-index:5;backdrop-filter:blur(12px)}input,select,button{background:#0a1424;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:11px 13px;font:inherit}input{flex:1;min-width:220px}button{cursor:pointer}.sectionhead{display:flex;justify-content:space-between;align-items:center}.sectionhead h2,.grid h2{margin:0}.sectionhead p,.legend{color:var(--muted);font-size:13px}.tablewrap{overflow:auto}table{width:100%;min-width:1300px;border-collapse:collapse}th,td{padding:12px 9px;border-bottom:1px solid #223149;text-align:left;font-size:13px}th{text-transform:uppercase;letter-spacing:.05em;color:#b2bdca;font-size:11px}.name{font-weight:800}.sub{font-size:11px;color:var(--muted);margin-top:3px}.tag{display:inline-block;border:1px solid var(--line);padding:4px 7px;border-radius:8px}.pending{color:#738197}.score{display:inline-flex;justify-content:center;align-items:center;min-width:38px;height:29px;background:#182941;border-radius:8px;font-weight:800}.score.hi{color:var(--good);background:#123523}.score.mid{color:var(--warn);background:#3d3212}
 .pager{display:flex;justify-content:center;align-items:center;gap:14px;padding-top:16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.formula{padding:14px;border-radius:12px;background:#0a1424;margin:14px 0;color:#d3e9f5}.grid p,footer{color:var(--muted);line-height:1.55}footer{max-width:1450px;margin:auto;padding:0 24px 40px;font-size:12px}
 @media(max-width:850px){.hero{flex-direction:column}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.toolbar{flex-wrap:wrap}.toolbar input{flex-basis:100%}}
+/* =========================================
+   STOCK UNIVERSE - STICKY TABLE IMPROVEMENTS
+   ========================================= */
+
+/* Table scrolling container */
+.tablewrap {
+  position: relative;
+  overflow: auto;
+  max-height: 72vh;
+}
+
+/* Column heading sticky */
+.tablewrap thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #101b2d;
+}
+
+/* Filter row sticky - heading ke niche */
+.tablewrap thead tr:nth-child(2) th {
+  position: sticky;
+  top: 58px;
+  z-index: 21;
+  background: #101b2d;
+}
+
+/* STOCK first column freeze */
+.tablewrap th:first-child,
+.tablewrap td:first-child {
+  position: sticky;
+  left: 0;
+  min-width: 130px;
+  z-index: 15;
+  background: #101b2d;
+}
+
+/* Stock heading highest layer */
+.tablewrap thead th:first-child {
+  z-index: 40;
+}
+
+/* Stock filter cell highest layer */
+.tablewrap thead tr:nth-child(2) th:first-child {
+  z-index: 41;
+}
+
+/* Clear separator after frozen stock column */
+.tablewrap th:first-child,
+.tablewrap td:first-child {
+  border-right: 1px solid #26364d;
+}
+
+/* Prevent frozen stock names becoming transparent */
+.tablewrap tbody td:first-child {
+  background: #101b2d;
+}
+
+/* Better horizontal scrolling */
+.tablewrap {
+  scrollbar-gutter: stable;
+}
