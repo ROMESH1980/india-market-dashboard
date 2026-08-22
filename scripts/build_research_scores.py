@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from collections import defaultdict
 
 import pandas as pd
 import yfinance as yf
@@ -97,15 +96,88 @@ def macro_score(sector, industry):
     return None
 
 
+def extract_close_series(data, ticker, chunk):
+    if data is None or len(data) == 0:
+        return None
+
+    try:
+        if isinstance(data.columns, pd.MultiIndex):
+
+            # Format 1:
+            # level 0 = Price field
+            # level 1 = ticker
+            if "Close" in data.columns.get_level_values(0):
+                close = data["Close"]
+
+                if isinstance(close, pd.Series):
+                    series = close
+                elif ticker in close.columns:
+                    series = close[ticker]
+                elif len(chunk) == 1 and len(close.columns) == 1:
+                    series = close.iloc[:, 0]
+                else:
+                    return None
+
+            # Format 2:
+            # level 0 = ticker
+            # level 1 = Price field
+            elif ticker in data.columns.get_level_values(0):
+                block = data[ticker]
+
+                if "Close" not in block.columns:
+                    return None
+
+                series = block["Close"]
+
+            else:
+                return None
+
+        else:
+            # Single ticker response
+            if "Close" not in data.columns:
+                return None
+
+            series = data["Close"]
+
+        series = (
+            pd.Series(series)
+            .dropna()
+            .astype(float)
+        )
+
+        if len(series) == 0:
+            return None
+
+        return series
+
+    except Exception as e:
+        print(
+            f"Close extraction failed for {ticker}: {e}"
+        )
+        return None
+
+
 def download_history(tickers):
     result = {}
 
-    tickers = list(dict.fromkeys(tickers))
+    tickers = list(
+        dict.fromkeys(
+            ticker
+            for ticker in tickers
+            if ticker
+        )
+    )
 
-    chunk_size = 150
+    chunk_size = 100
 
-    for start in range(0, len(tickers), chunk_size):
-        chunk = tickers[start:start + chunk_size]
+    for start in range(
+        0,
+        len(tickers),
+        chunk_size
+    ):
+        chunk = tickers[
+            start:start + chunk_size
+        ]
 
         print(
             f"Historical prices: "
@@ -116,43 +188,38 @@ def download_history(tickers):
 
         try:
             data = yf.download(
-                chunk,
+                tickers=chunk,
                 period="8mo",
                 interval="1d",
                 auto_adjust=False,
                 progress=False,
                 threads=True,
-                group_by="column"
+                group_by="column",
             )
-
-            if data is None or len(data) == 0:
-                continue
-
-            close = data["Close"]
-
-            if isinstance(close, pd.Series):
-                close = close.to_frame(
-                    name=chunk[0]
-                )
-
-            for ticker in chunk:
-                try:
-                    series = (
-                        close[ticker]
-                        .dropna()
-                        .astype(float)
-                    )
-
-                    if len(series):
-                        result[ticker] = series
-
-                except Exception:
-                    pass
 
         except Exception as e:
             print(
                 f"Historical chunk failed: {e}"
             )
+            continue
+
+        for ticker in chunk:
+            series = extract_close_series(
+                data,
+                ticker,
+                chunk
+            )
+
+            if series is not None:
+                result[ticker] = series
+
+    print({
+        "historyTickersRequested":
+            len(tickers),
+
+        "historyTickersLoaded":
+            len(result)
+    })
 
     return result
 
@@ -165,17 +232,23 @@ def period_return(series, trading_days):
         return None
 
     try:
-        latest = float(series.iloc[-1])
+        latest = float(
+            series.iloc[-1]
+        )
+
         old = float(
-            series.iloc[-(trading_days + 1)]
+            series.iloc[
+                -(trading_days + 1)
+            ]
         )
 
         if old == 0:
             return None
 
-        return (
-            (latest / old) - 1
-        ) * 100
+        return round(
+            ((latest / old) - 1) * 100,
+            4
+        )
 
     except Exception:
         return None
@@ -207,6 +280,14 @@ def main():
             and row.get("sector") != "Unclassified"
         )
     ]
+
+    print({
+        "stocksInUniverse":
+            len(stocks),
+
+        "classifiedStocks":
+            len(classified)
+    })
 
     # --------------------------------
     # Historical stock + index data
@@ -242,13 +323,30 @@ def main():
     index_returns = {}
 
     for ticker in index_tickers:
-        series = history.get(ticker)
+
+        series = history.get(
+            ticker
+        )
 
         index_returns[ticker] = {
-            "1M": period_return(series, 21),
-            "3M": period_return(series, 63),
-            "6M": period_return(series, 126),
+            "1M": period_return(
+                series,
+                21
+            ),
+            "3M": period_return(
+                series,
+                63
+            ),
+            "6M": period_return(
+                series,
+                126
+            ),
         }
+
+    print(
+        "Index returns:",
+        index_returns
+    )
 
     # --------------------------------
     # MONTHLY SECTOR STRENGTH
@@ -282,6 +380,7 @@ def main():
     sector_strength_by_index = {}
 
     for idx, r in sector_index_1m.items():
+
         sector_strength_by_index[idx] = (
             percentile(
                 r,
@@ -290,12 +389,15 @@ def main():
         )
 
     # --------------------------------
-    # STOCK STRENGTH RAW EXCESS RETURN
+    # STOCK STRENGTH
     # --------------------------------
 
     raw_1m = {}
     raw_3m = {}
     raw_6m = {}
+
+    missing_stock_history = 0
+    missing_benchmark_history = 0
 
     for row in classified:
 
@@ -306,21 +408,43 @@ def main():
             stock_ticker
         )
 
+        if stock_series is None:
+            missing_stock_history += 1
+            continue
+
         idx = sector_index(
             row.get("sector"),
             row.get("industry")
         )
 
-        # If exact sector index unavailable,
-        # Stock Strength falls back to Nifty 500.
         benchmark = idx or NIFTY500
 
         benchmark_returns = (
             index_returns.get(
                 benchmark,
-                index_returns.get(NIFTY500, {})
+                {}
             )
         )
+
+        if not any(
+            value is not None
+            for value in
+            benchmark_returns.values()
+        ):
+            benchmark_returns = (
+                index_returns.get(
+                    NIFTY500,
+                    {}
+                )
+            )
+
+        if not any(
+            value is not None
+            for value in
+            benchmark_returns.values()
+        ):
+            missing_benchmark_history += 1
+            continue
 
         stock_1m = period_return(
             stock_series,
@@ -337,16 +461,28 @@ def main():
             126
         )
 
-        bench_1m = benchmark_returns.get("1M")
-        bench_3m = benchmark_returns.get("3M")
-        bench_6m = benchmark_returns.get("6M")
+        bench_1m = (
+            benchmark_returns
+            .get("1M")
+        )
+
+        bench_3m = (
+            benchmark_returns
+            .get("3M")
+        )
+
+        bench_6m = (
+            benchmark_returns
+            .get("6M")
+        )
 
         if (
             stock_1m is not None
             and bench_1m is not None
         ):
             raw_1m[symbol] = (
-                stock_1m - bench_1m
+                stock_1m -
+                bench_1m
             )
 
         if (
@@ -354,7 +490,8 @@ def main():
             and bench_3m is not None
         ):
             raw_3m[symbol] = (
-                stock_3m - bench_3m
+                stock_3m -
+                bench_3m
             )
 
         if (
@@ -362,35 +499,80 @@ def main():
             and bench_6m is not None
         ):
             raw_6m[symbol] = (
-                stock_6m - bench_6m
+                stock_6m -
+                bench_6m
             )
 
-    values_1m = list(raw_1m.values())
-    values_3m = list(raw_3m.values())
-    values_6m = list(raw_6m.values())
+    values_1m = list(
+        raw_1m.values()
+    )
+
+    values_3m = list(
+        raw_3m.values()
+    )
+
+    values_6m = list(
+        raw_6m.values()
+    )
 
     stock_strength_1m = {
-        symbol: percentile(v, values_1m)
-        for symbol, v in raw_1m.items()
+        symbol:
+            percentile(
+                value,
+                values_1m
+            )
+
+        for symbol, value
+        in raw_1m.items()
     }
 
     stock_strength_3m = {
-        symbol: percentile(v, values_3m)
-        for symbol, v in raw_3m.items()
+        symbol:
+            percentile(
+                value,
+                values_3m
+            )
+
+        for symbol, value
+        in raw_3m.items()
     }
 
     stock_strength_6m = {
-        symbol: percentile(v, values_6m)
-        for symbol, v in raw_6m.items()
+        symbol:
+            percentile(
+                value,
+                values_6m
+            )
+
+        for symbol, value
+        in raw_6m.items()
     }
 
+    print({
+        "missingStockHistory":
+            missing_stock_history,
+
+        "missingBenchmarkHistory":
+            missing_benchmark_history,
+
+        "stockStrength1M":
+            len(stock_strength_1m),
+
+        "stockStrength3M":
+            len(stock_strength_3m),
+
+        "stockStrength6M":
+            len(stock_strength_6m)
+    })
+
     # --------------------------------
-    # Existing Value Migration
+    # Value Migration
     # --------------------------------
 
     all_turnover = []
 
     for row in stocks:
+
         turnover = row.get(
             "turnoverCr"
         )
@@ -403,17 +585,28 @@ def main():
             except Exception:
                 pass
 
+    # --------------------------------
+    # Final scores
+    # --------------------------------
+
     scores = {}
 
     for row in stocks:
 
-        symbol = row.get("symbol")
+        symbol = row.get(
+            "symbol"
+        )
 
         if not symbol:
             continue
 
-        sector = row.get("sector")
-        industry = row.get("industry")
+        sector = row.get(
+            "sector"
+        )
+
+        industry = row.get(
+            "industry"
+        )
 
         idx = sector_index(
             sector,
@@ -428,16 +621,22 @@ def main():
                 .get(idx)
             )
 
-        macro_support = macro_score(
-            sector,
-            industry
+        macro_support = (
+            macro_score(
+                sector,
+                industry
+            )
         )
 
-        # Value Migration
         value_migration = None
 
-        change = row.get("changePct")
-        turnover = row.get("turnoverCr")
+        change = row.get(
+            "changePct"
+        )
+
+        turnover = row.get(
+            "turnoverCr"
+        )
 
         if (
             change is not None
@@ -446,16 +645,21 @@ def main():
         ):
 
             try:
+
                 momentum = clamp(
-                    50 + float(change) * 7
+                    50 +
+                    float(change) * 7
                 )
 
-                turnover_score = percentile(
-                    float(turnover),
-                    all_turnover
+                turnover_score = (
+                    percentile(
+                        float(turnover),
+                        all_turnover
+                    )
                 )
 
                 if turnover_score is not None:
+
                     value_migration = round(
                         momentum * 0.60 +
                         turnover_score * 0.40,
@@ -465,9 +669,12 @@ def main():
             except Exception:
                 pass
 
-        company = company_scores.get(
-            symbol,
-            {}
+        company = (
+            company_scores
+            .get(
+                symbol,
+                {}
+            )
         )
 
         scores[symbol] = {
@@ -476,13 +683,16 @@ def main():
                 sector_strength,
 
             "stockStrength1M":
-                stock_strength_1m.get(symbol),
+                stock_strength_1m
+                .get(symbol),
 
             "stockStrength3M":
-                stock_strength_3m.get(symbol),
+                stock_strength_3m
+                .get(symbol),
 
             "stockStrength6M":
-                stock_strength_6m.get(symbol),
+                stock_strength_6m
+                .get(symbol),
 
             "macroSupport":
                 macro_support,
@@ -559,11 +769,13 @@ def main():
             }
         },
 
-        "stocks": scores
+        "stocks":
+            scores
     }
 
     (
-        DATA / "research_scores.json"
+        DATA /
+        "research_scores.json"
     ).write_text(
         json.dumps(
             output,
@@ -578,18 +790,28 @@ def main():
 
         "monthlySectorStrength":
             sum(
-                1 for x in scores.values()
-                if x.get("sectorStrength") is not None
+                1
+                for x in
+                scores.values()
+                if x.get(
+                    "sectorStrength"
+                ) is not None
             ),
 
         "stockStrength1M":
-            len(stock_strength_1m),
+            len(
+                stock_strength_1m
+            ),
 
         "stockStrength3M":
-            len(stock_strength_3m),
+            len(
+                stock_strength_3m
+            ),
 
         "stockStrength6M":
-            len(stock_strength_6m)
+            len(
+                stock_strength_6m
+            )
     })
 
 
