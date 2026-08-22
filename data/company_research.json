@@ -731,7 +731,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "COHANCE": {
-      "futureGrowth": 31.47,
+      "futureGrowth": 31.35,
       "fundamentalQuality": 57.95,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -941,7 +941,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "EIDPARRY": {
-      "futureGrowth": 32.79,
+      "futureGrowth": 32.74,
       "fundamentalQuality": 63.17,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -5123,7 +5123,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "CERA": {
-      "futureGrowth": 56.91,
+      "futureGrowth": 56.93,
       "fundamentalQuality": 74.01,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
@@ -7046,6 +7046,12 @@
       "futureGrowth": 76.62,
       "fundamentalQuality": 82.56,
       "capexScore": 90,
+      "source": "Yahoo Finance financial-data proxy"
+    },
+    "DHANLAXMI": {
+      "futureGrowth": 0.0,
+      "fundamentalQuality": 74.27,
+      "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     }
   }
