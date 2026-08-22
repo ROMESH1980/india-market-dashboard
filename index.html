@@ -31,7 +31,7 @@
 
   <section class="notice">
     <b>Research dashboard.</b>
-    Scores are automated research signals, not investment recommendations.
+    Use individual filters to shortlist stocks.
   </section>
 
   <section class="stats" id="stats"></section>
@@ -40,7 +40,7 @@
 
     <input
       id="q"
-      placeholder="Search company, symbol, sector or industry"
+      placeholder="Search stock, symbol, sector or industry"
     >
 
     <select id="exchange">
@@ -66,56 +66,130 @@
 
     <div class="sectionhead">
       <div>
-        <h2>Strong Setup Scanner</h2>
-        <p>Set minimum score requirements or use the preset.</p>
+        <h2>Column Filters</h2>
+        <p>Set Min/Max values for any metric.</p>
       </div>
 
       <div>
-        <button id="strongSetup">
-          Strong Setup
-        </button>
-
-        <button id="resetScores">
-          Reset
-        </button>
+        <button id="strongSetup">Strong Setup</button>
+        <button id="resetScores">Reset</button>
       </div>
     </div>
 
     <div class="scorefilters">
 
       <label>
-        Overall
-        <input id="minOverall" type="number" min="0" max="100" placeholder="Min">
+        Price Min
+        <input id="minPrice" type="number" placeholder="Min">
       </label>
 
       <label>
-        Macro
+        Price Max
+        <input id="maxPrice" type="number" placeholder="Max">
+      </label>
+
+      <label>
+        Change % Min
+        <input id="minChange" type="number" step="0.01" placeholder="Min">
+      </label>
+
+      <label>
+        Change % Max
+        <input id="maxChange" type="number" step="0.01" placeholder="Max">
+      </label>
+
+      <label>
+        Delivery Ratio Min
+        <input id="minDeliveryRatio" type="number" step="0.01" placeholder="Min">
+      </label>
+
+      <label>
+        Delivery Ratio Max
+        <input id="maxDeliveryRatio" type="number" step="0.01" placeholder="Max">
+      </label>
+
+      <label>
+        Sector
+        <select id="sectorFilter">
+          <option value="ALL">All sectors</option>
+        </select>
+      </label>
+
+      <label>
+        Industry
+        <select id="industryFilter">
+          <option value="ALL">All industries</option>
+        </select>
+      </label>
+
+      <label>
+        Sector Strength Min
+        <input id="minSectorStrength" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Sector Strength Max
+        <input id="maxSectorStrength" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        Macro Min
         <input id="minMacro" type="number" min="0" max="100" placeholder="Min">
       </label>
 
       <label>
-        Value Migration
+        Macro Max
+        <input id="maxMacro" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        Value Migration Min
         <input id="minVM" type="number" min="0" max="100" placeholder="Min">
       </label>
 
       <label>
-        Future Growth
+        Value Migration Max
+        <input id="maxVM" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        Future Growth Min
         <input id="minGrowth" type="number" min="0" max="100" placeholder="Min">
       </label>
 
       <label>
-        Fundamental
+        Future Growth Max
+        <input id="maxGrowth" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        Fundamental Min
         <input id="minFundamental" type="number" min="0" max="100" placeholder="Min">
       </label>
 
       <label>
-        CAPEX
+        Fundamental Max
+        <input id="maxFundamental" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        CAPEX Min
         <input id="minCapex" type="number" min="0" max="100" placeholder="Min">
       </label>
 
       <label>
-        Sector Strength
-        <input id="minSectorStrength" type="number" min="0" max="100" placeholder="Min">
+        CAPEX Max
+        <input id="maxCapex" type="number" min="0" max="100" placeholder="Max">
+      </label>
+
+      <label>
+        Overall Min
+        <input id="minOverall" type="number" min="0" max="100" placeholder="Min">
+      </label>
+
+      <label>
+        Overall Max
+        <input id="maxOverall" type="number" min="0" max="100" placeholder="Max">
       </label>
 
     </div>
@@ -131,7 +205,7 @@
       </div>
 
       <div class="legend">
-        NSE EOD research • Higher Overall ranks first
+        Higher Overall ranks first
       </div>
     </div>
 
@@ -177,44 +251,10 @@
 
   </section>
 
-  <section class="grid">
-
-    <div class="card">
-      <h2>Strong Setup preset</h2>
-
-      <p>
-        Overall ≥ 70,
-        Macro ≥ 70,
-        Value Migration ≥ 70,
-        Future Growth ≥ 70,
-        Fundamental ≥ 60,
-        CAPEX ≥ 60,
-        Sector Strength ≥ 60.
-      </p>
-    </div>
-
-    <div class="card">
-
-      <h2>Overall Score</h2>
-
-      <div class="formula">
-        Macro 20% +
-        Value Migration 20% +
-        Future Growth 20% +
-        Fundamental Quality 20% +
-        CAPEX 10% +
-        Sector Strength 10%
-      </div>
-
-    </div>
-
-  </section>
-
 </main>
 
 <footer>
-  Research tool only • Verify exchange filings before investment decisions •
-  EOD data, not real-time
+  Research tool only • EOD data • Verify exchange filings before investment decisions
 </footer>
 
 <script src="app.js"></script>
