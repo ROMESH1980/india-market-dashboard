@@ -12658,5 +12658,10 @@
     "sector": "Industrials",
     "industry": "Conglomerates",
     "source": "Yahoo Finance"
+  },
+  "SAMBANDAM": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
   }
 }
