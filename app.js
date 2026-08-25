@@ -4,58 +4,133 @@ let all = [];
 let meta = {};
 let page = 1;
 
-const $ = id =>
-  document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 
-const scoreVal = x =>
-  x === null ||
-  x === undefined ||
-  x === ''
-    ? '<span class="pending">Pending</span>'
-    : `<span class="score ${
-        Number(x) >= 75
-          ? 'hi'
-          : Number(x) >= 60
-          ? 'mid'
-          : ''
-      }">${Number(x).toFixed(0)}</span>`;
+// =====================================================
+// BASIC DISPLAY HELPERS
+// =====================================================
+
+function scoreClass(value) {
+  const n = Number(value);
+
+  if (n >= 75) return 'hi';
+  if (n >= 60) return 'mid';
+
+  return '';
+}
 
 
-const pct = x =>
-  x === null ||
-  x === undefined ||
-  x === ''
-    ? '—'
-    : `${Number(x).toFixed(2)}%`;
+function scoreVal(value, row = null, field = null, label = '') {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
+    return '<span class="pending">Pending</span>';
+  }
+
+  const number = Number(value);
+
+  if (!row || !field) {
+    return `
+      <span class="score ${scoreClass(number)}">
+        ${number.toFixed(0)}
+      </span>
+    `;
+  }
+
+  const symbol = encodeURIComponent(
+    row.symbol || ''
+  );
+
+  const safeField = encodeURIComponent(field);
+
+  const safeLabel = encodeURIComponent(
+    label || field
+  );
+
+  return `
+    <button
+      type="button"
+      class="score score-button ${scoreClass(number)}"
+      data-symbol="${symbol}"
+      data-field="${safeField}"
+      data-label="${safeLabel}"
+    >
+      ${number.toFixed(0)}
+      <span class="info-mark">ⓘ</span>
+    </button>
+  `;
+}
 
 
-const volumeVal = x =>
-  x === null ||
-  x === undefined ||
-  x === ''
-    ? '—'
-    : Number(x).toLocaleString();
+function pct(value) {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
+    return '—';
+  }
+
+  return `${Number(value).toFixed(2)}%`;
+}
 
 
-const ratioVal = x =>
-  x === null ||
-  x === undefined ||
-  x === ''
-    ? '<span class="pending">—</span>'
-    : `<strong>${Number(x).toFixed(2)}×</strong>`;
+function volumeVal(value) {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
+    return '—';
+  }
+
+  return Number(value).toLocaleString();
+}
 
 
-const capVal = x =>
-  x === null ||
-  x === undefined ||
-  x === ''
-    ? '<span class="pending">Pending</span>'
-    : x;
+function ratioVal(value) {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
+    return '<span class="pending">—</span>';
+  }
+
+  const n = Number(value);
+
+  return `<strong>${n.toFixed(2)}×</strong>`;
+}
 
 
-function getNumber(id) {
+function textVal(value) {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
+    return '<span class="pending">Pending</span>';
+  }
 
+  return value;
+}
+
+
+// =====================================================
+// FILTER HELPERS
+// =====================================================
+
+function isActive(id) {
+  return Boolean(
+    $(id)?.checked
+  );
+}
+
+
+function numberValue(id) {
   const el = $(id);
 
   if (
@@ -65,8 +140,7 @@ function getNumber(id) {
     return null;
   }
 
-  const n =
-    Number(el.value);
+  const n = Number(el.value);
 
   return Number.isFinite(n)
     ? n
@@ -74,16 +148,19 @@ function getNumber(id) {
 }
 
 
-function numberPass(
-  value,
-  min,
-  max
+function abovePass(
+  activeId,
+  inputId,
+  value
 ) {
+  if (!isActive(activeId)) {
+    return true;
+  }
 
-  if (
-    min === null &&
-    max === null
-  ) {
+  const threshold =
+    numberValue(inputId);
+
+  if (threshold === null) {
     return true;
   }
 
@@ -95,29 +172,35 @@ function numberPass(
     return false;
   }
 
-  const n =
-    Number(value);
-
-  if (
-    min !== null &&
-    n < min
-  ) {
-    return false;
-  }
-
-  if (
-    max !== null &&
-    n > max
-  ) {
-    return false;
-  }
-
-  return true;
+  return Number(value) >= threshold;
 }
 
 
-function selectedStockStrength(row) {
+function selectPass(
+  activeId,
+  selectId,
+  value
+) {
+  if (!isActive(activeId)) {
+    return true;
+  }
 
+  const selected =
+    $(selectId)?.value || 'ALL';
+
+  if (selected === 'ALL') {
+    return true;
+  }
+
+  return value === selected;
+}
+
+
+// =====================================================
+// STOCK STRENGTH
+// =====================================================
+
+function selectedStockStrength(row) {
   const period =
     $('stockStrengthPeriod')
       ?.value || '3M';
@@ -134,416 +217,276 @@ function selectedStockStrength(row) {
 }
 
 
-function filters() {
+// =====================================================
+// FILTER ENGINE
+// =====================================================
 
+function filters() {
   const q =
     $('q')
       ?.value
       .trim()
       .toLowerCase() || '';
 
-
-  const marketCapFilter =
-    $('marketCapFilter')
-      ?.value || 'ALL';
-
-
-  const sectorFilter =
-    $('sectorFilter')
-      ?.value || 'ALL';
-
-
-  const industryFilter =
-    $('industryFilter')
-      ?.value || 'ALL';
-
-
-  const minPrice =
-    getNumber('minPrice');
-
-  const maxPrice =
-    getNumber('maxPrice');
-
-
-  const minChange =
-    getNumber('minChange');
-
-  const maxChange =
-    getNumber('maxChange');
-
-
-  const minDeliveryRatio =
-    getNumber(
-      'minDeliveryRatio'
-    );
-
-  const maxDeliveryRatio =
-    getNumber(
-      'maxDeliveryRatio'
-    );
-
-
-  const minSectorStrength =
-    getNumber(
-      'minSectorStrength'
-    );
-
-  const maxSectorStrength =
-    getNumber(
-      'maxSectorStrength'
-    );
-
-
-  const minStockStrength =
-    getNumber(
-      'minStockStrength'
-    );
-
-  const maxStockStrength =
-    getNumber(
-      'maxStockStrength'
-    );
-
-
-  const minMacro =
-    getNumber('minMacro');
-
-  const maxMacro =
-    getNumber('maxMacro');
-
-
-  const minVM =
-    getNumber('minVM');
-
-  const maxVM =
-    getNumber('maxVM');
-
-
-  const minGrowth =
-    getNumber('minGrowth');
-
-  const maxGrowth =
-    getNumber('maxGrowth');
-
-
-  const minFundamental =
-    getNumber(
-      'minFundamental'
-    );
-
-  const maxFundamental =
-    getNumber(
-      'maxFundamental'
-    );
-
-
-  const minCapex =
-    getNumber('minCapex');
-
-  const maxCapex =
-    getNumber('maxCapex');
-
-
-  const minOverall =
-    getNumber('minOverall');
-
-  const maxOverall =
-    getNumber('maxOverall');
-
-
-  return all.filter(s => {
-
-    const text =
-      `${s.symbol} ${s.name} ${s.isin} ${s.sector} ${s.industry}`
+  return all.filter(row => {
+    const searchable =
+      `${row.symbol || ''} ` +
+      `${row.name || ''} ` +
+      `${row.isin || ''} ` +
+      `${row.sector || ''} ` +
+      `${row.industry || ''}`
         .toLowerCase();
 
-
-    const matchesSearch =
+    const searchPass =
       !q ||
-      text.includes(q);
-
-
-    const matchesMarketCap =
-      marketCapFilter === 'ALL' ||
-      s.marketCapCategory ===
-        marketCapFilter;
-
-
-    const matchesSector =
-      sectorFilter === 'ALL' ||
-      s.sector === sectorFilter;
-
-
-    const matchesIndustry =
-      industryFilter === 'ALL' ||
-      s.industry ===
-        industryFilter;
-
+      searchable.includes(q);
 
     const stockStrength =
-      selectedStockStrength(s);
-
+      selectedStockStrength(row);
 
     return (
+      searchPass &&
 
-      matchesSearch &&
-
-      matchesMarketCap &&
-
-      matchesSector &&
-
-      matchesIndustry &&
-
-
-      numberPass(
-        s.price,
-        minPrice,
-        maxPrice
+      selectPass(
+        'activeMarketCap',
+        'marketCapFilter',
+        row.marketCapCategory
       ) &&
 
-
-      numberPass(
-        s.changePct,
-        minChange,
-        maxChange
+      abovePass(
+        'activePrice',
+        'abovePrice',
+        row.price
       ) &&
 
-
-      numberPass(
-        s.deliveryVolumeRatio,
-        minDeliveryRatio,
-        maxDeliveryRatio
+      abovePass(
+        'activeChange',
+        'aboveChange',
+        row.changePct
       ) &&
 
-
-      numberPass(
-        s.sectorStrength,
-        minSectorStrength,
-        maxSectorStrength
+      abovePass(
+        'activeTodayDelivery',
+        'aboveTodayDelivery',
+        row.todayDeliveryVolume
       ) &&
 
-
-      numberPass(
-        stockStrength,
-        minStockStrength,
-        maxStockStrength
+      abovePass(
+        'active5DDelivery',
+        'above5DDelivery',
+        row.avg5DayDeliveryVolume
       ) &&
 
-
-      numberPass(
-        s.macroSupport,
-        minMacro,
-        maxMacro
+      abovePass(
+        'activeDeliveryRatio',
+        'aboveDeliveryRatio',
+        row.deliveryVolumeRatio
       ) &&
 
-
-      numberPass(
-        s.valueMigration,
-        minVM,
-        maxVM
+      selectPass(
+        'activeSector',
+        'sectorFilter',
+        row.sector
       ) &&
 
-
-      numberPass(
-        s.futureGrowth,
-        minGrowth,
-        maxGrowth
+      selectPass(
+        'activeIndustry',
+        'industryFilter',
+        row.industry
       ) &&
 
-
-      numberPass(
-        s.fundamentalQuality,
-        minFundamental,
-        maxFundamental
+      abovePass(
+        'activeSectorStrength',
+        'aboveSectorStrength',
+        row.sectorStrength
       ) &&
 
-
-      numberPass(
-        s.capexScore,
-        minCapex,
-        maxCapex
+      abovePass(
+        'activeStockStrength',
+        'aboveStockStrength',
+        stockStrength
       ) &&
 
+      abovePass(
+        'activeTailwind',
+        'aboveTailwind',
+        row.tailwindScore
+      ) &&
 
-      numberPass(
-        s.overallScore,
-        minOverall,
-        maxOverall
+      abovePass(
+        'activeMacro',
+        'aboveMacro',
+        row.macroSupport
+      ) &&
+
+      abovePass(
+        'activeVM',
+        'aboveVM',
+        row.valueMigration
+      ) &&
+
+      abovePass(
+        'activeGrowth',
+        'aboveGrowth',
+        row.futureGrowth
+      ) &&
+
+      abovePass(
+        'activeFundamental',
+        'aboveFundamental',
+        row.fundamentalQuality
+      ) &&
+
+      abovePass(
+        'activeCapex',
+        'aboveCapex',
+        row.capexScore
+      ) &&
+
+      abovePass(
+        'activeOverall',
+        'aboveOverall',
+        row.overallScore
       )
     );
   });
 }
 
 
+// =====================================================
+// SORTING
+// =====================================================
+
 function rankStocks(rows) {
+  return [...rows].sort((a, b) => {
+    const ao = a.overallScore;
+    const bo = b.overallScore;
 
-  return [...rows].sort(
-    (a, b) => {
+    if (
+      ao != null &&
+      bo == null
+    ) {
+      return -1;
+    }
 
-      const ao =
-        a.overallScore;
+    if (
+      ao == null &&
+      bo != null
+    ) {
+      return 1;
+    }
 
-      const bo =
-        b.overallScore;
-
-
-      if (
-        ao != null &&
-        bo == null
-      ) {
-        return -1;
-      }
-
-
-      if (
-        ao == null &&
-        bo != null
-      ) {
-        return 1;
-      }
-
-
-      if (
-        ao != null &&
-        bo != null &&
-        Number(bo) !==
-        Number(ao)
-      ) {
-
-        return (
-          Number(bo) -
-          Number(ao)
-        );
-      }
-
-
-      const as =
-        selectedStockStrength(a);
-
-      const bs =
-        selectedStockStrength(b);
-
-
-      if (
-        as != null &&
-        bs != null &&
-        Number(bs) !==
-        Number(as)
-      ) {
-
-        return (
-          Number(bs) -
-          Number(as)
-        );
-      }
-
-
-      if (
-        a.deliveryVolumeRatio != null &&
-        b.deliveryVolumeRatio != null &&
-        Number(
-          b.deliveryVolumeRatio
-        ) !==
-        Number(
-          a.deliveryVolumeRatio
-        )
-      ) {
-
-        return (
-          Number(
-            b.deliveryVolumeRatio
-          ) -
-          Number(
-            a.deliveryVolumeRatio
-          )
-        );
-      }
-
-
+    if (
+      ao != null &&
+      bo != null &&
+      Number(bo) !== Number(ao)
+    ) {
       return (
-        a.name || ''
-      ).localeCompare(
-        b.name || ''
+        Number(bo) -
+        Number(ao)
       );
     }
-  );
+
+    const as =
+      selectedStockStrength(a);
+
+    const bs =
+      selectedStockStrength(b);
+
+    if (
+      as != null &&
+      bs != null &&
+      Number(bs) !== Number(as)
+    ) {
+      return (
+        Number(bs) -
+        Number(as)
+      );
+    }
+
+    if (
+      a.deliveryVolumeRatio != null &&
+      b.deliveryVolumeRatio != null &&
+      Number(b.deliveryVolumeRatio) !==
+      Number(a.deliveryVolumeRatio)
+    ) {
+      return (
+        Number(b.deliveryVolumeRatio) -
+        Number(a.deliveryVolumeRatio)
+      );
+    }
+
+    return (
+      a.name || ''
+    ).localeCompare(
+      b.name || ''
+    );
+  });
 }
 
 
-function populateDropdowns() {
+// =====================================================
+// DROPDOWNS
+// =====================================================
 
+function populateDropdowns() {
   const sectors = [
     ...new Set(
       all
-        .map(
-          s => s.sector
-        )
+        .map(row => row.sector)
         .filter(
-          x =>
-            x &&
-            x !==
-            'Unclassified'
+          value =>
+            value &&
+            value !== 'Unclassified'
         )
     )
   ].sort();
-
 
   const industries = [
     ...new Set(
       all
-        .map(
-          s => s.industry
-        )
+        .map(row => row.industry)
         .filter(
-          x =>
-            x &&
-            x !==
-            'Unclassified'
+          value =>
+            value &&
+            value !== 'Unclassified'
         )
     )
   ].sort();
 
-
   if ($('sectorFilter')) {
-
-    $('sectorFilter')
-      .innerHTML =
-
+    $('sectorFilter').innerHTML =
       '<option value="ALL">All sectors</option>' +
-
       sectors
         .map(
-          x =>
-            `<option value="${x}">${x}</option>`
+          value =>
+            `<option value="${value}">${value}</option>`
         )
         .join('');
   }
 
-
   if ($('industryFilter')) {
-
-    $('industryFilter')
-      .innerHTML =
-
+    $('industryFilter').innerHTML =
       '<option value="ALL">All industries</option>' +
-
       industries
         .map(
-          x =>
-            `<option value="${x}">${x}</option>`
+          value =>
+            `<option value="${value}">${value}</option>`
         )
         .join('');
   }
 }
 
 
-function render() {
+// =====================================================
+// TABLE RENDER
+// =====================================================
 
+function render() {
   const filtered =
     rankStocks(
       filters()
     );
-
 
   const pages =
     Math.max(
@@ -554,13 +497,11 @@ function render() {
       )
     );
 
-
   page =
     Math.min(
       page,
       pages
     );
-
 
   const rows =
     filtered.slice(
@@ -568,307 +509,404 @@ function render() {
       page * PAGE
     );
 
+  $('resultCount').textContent =
+    `${filtered.length.toLocaleString()} matched`;
 
-  $('resultCount')
-    .textContent =
-    `${filtered.length.toLocaleString()} securities matched`;
-
-
-  $('page')
-    .textContent =
+  $('page').textContent =
     `Page ${page} / ${pages}`;
-
 
   $('prev').disabled =
     page <= 1;
 
-
   $('next').disabled =
     page >= pages;
 
-
   $('rows').innerHTML =
-    rows
-      .map(
-        s => {
+    rows.map(row => {
+      const stockStrength =
+        selectedStockStrength(row);
 
-          const stockStrength =
-            selectedStockStrength(s);
+      return `
+        <tr>
 
+          <td class="stock-col">
 
-          return `
-            <tr>
+            <div class="name">
+              ${row.name || row.symbol}
+            </div>
 
-              <td>
+            <div class="sub">
+              ${row.symbol || '—'}
+              •
+              ${row.isin || '—'}
+              •
+              ${row.board || ''}
+            </div>
 
-                <div class="name">
-                  ${s.name}
-                </div>
+          </td>
 
-                <div class="sub">
 
-                  ${s.symbol}
+          <td>
+            ${textVal(
+              row.marketCapCategory
+            )}
+          </td>
 
-                  •
 
-                  ${s.isin || '—'}
+          <td>
+            ${
+              row.price == null
+                ? '<span class="pending">Pending EOD</span>'
+                : `₹${Number(row.price).toFixed(2)}`
+            }
+          </td>
 
-                  •
 
-                  ${s.board || ''}
+          <td>
+            ${pct(
+              row.changePct
+            )}
+          </td>
 
-                </div>
 
-              </td>
+          <td>
+            ${volumeVal(
+              row.todayDeliveryVolume
+            )}
+          </td>
 
 
-              <td>
+          <td>
+            ${volumeVal(
+              row.avg5DayDeliveryVolume
+            )}
+          </td>
 
-                ${capVal(
-                  s.marketCapCategory
-                )}
 
-              </td>
+          <td>
+            ${ratioVal(
+              row.deliveryVolumeRatio
+            )}
+          </td>
 
 
-              <td>
+          <td>
+            ${row.sector || 'Unclassified'}
+          </td>
 
-                ${
-                  s.price == null
 
-                    ? '<span class="pending">Pending EOD</span>'
+          <td>
+            ${row.industry || 'Unclassified'}
+          </td>
 
-                    : `₹${Number(
-                        s.price
-                      ).toFixed(2)}`
-                }
 
-              </td>
+          <td>
+            ${scoreVal(
+              row.sectorStrength
+            )}
+          </td>
 
 
-              <td>
+          <td>
+            ${scoreVal(
+              stockStrength
+            )}
+          </td>
 
-                ${pct(
-                  s.changePct
-                )}
 
-              </td>
+          <td>
+            ${scoreVal(
+              row.tailwindScore,
+              row,
+              'tailwind',
+              'Tailwind'
+            )}
+          </td>
 
 
-              <td>
-
-                ${volumeVal(
-                  s.todayDeliveryVolume
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${volumeVal(
-                  s.avg5DayDeliveryVolume
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${ratioVal(
-                  s.deliveryVolumeRatio
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${
-                  s.sector ||
-                  'Unclassified'
-                }
-
-              </td>
-
-
-              <td>
-
-                ${
-                  s.industry ||
-                  'Unclassified'
-                }
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.sectorStrength
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  stockStrength
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.macroSupport
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.valueMigration
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.futureGrowth
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.fundamentalQuality
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.capexScore
-                )}
-
-              </td>
-
-
-              <td>
-
-                ${scoreVal(
-                  s.overallScore
-                )}
-
-              </td>
-
-            </tr>
-          `;
-        }
-      )
-      .join('');
-
+          <td>
+            ${scoreVal(
+              row.macroSupport,
+              row,
+              'macro',
+              'Macro'
+            )}
+          </td>
+
+
+          <td>
+            ${scoreVal(
+              row.valueMigration,
+              row,
+              'valueMigration',
+              'Value Migration'
+            )}
+          </td>
+
+
+          <td>
+            ${scoreVal(
+              row.futureGrowth,
+              row,
+              'futureGrowth',
+              'Future Growth'
+            )}
+          </td>
+
+
+          <td>
+            ${scoreVal(
+              row.fundamentalQuality,
+              row,
+              'fundamentalQuality',
+              'Fundamental'
+            )}
+          </td>
+
+
+          <td>
+            ${scoreVal(
+              row.capexScore,
+              row,
+              'capex',
+              'CAPEX'
+            )}
+          </td>
+
+
+          <td>
+            ${scoreVal(
+              row.overallScore
+            )}
+          </td>
+
+        </tr>
+      `;
+    }).join('');
+
+  attachScoreButtons();
 
   syncTopScrollbarWidth();
 }
 
 
-async function fetchJSON(url) {
+// =====================================================
+// SCORE REASON / SOURCE
+// =====================================================
 
-  const response =
-    await fetch(
+function getReasonData(
+  row,
+  field
+) {
+  const research =
+    row.researchReasons || {};
 
-      `${url}?v=${Date.now()}`,
+  const direct =
+    research[field] || {};
 
-      {
-        cache: 'no-store'
-      }
-    );
+  let reason =
+    direct.reason ||
+    row[`${field}Reason`] ||
+    '';
 
+  let source =
+    direct.source ||
+    row[`${field}Source`] ||
+    '';
 
-  if (!response.ok) {
+  let sourceDate =
+    direct.sourceDate ||
+    row[`${field}SourceDate`] ||
+    '';
 
-    throw new Error(
-      `Failed to load ${url}: ${response.status}`
-    );
+  if (
+    field === 'valueMigration' &&
+    !reason
+  ) {
+    reason =
+      'Automated score based on current price momentum and turnover percentile.';
   }
 
+  if (
+    field === 'macro' &&
+    !reason
+  ) {
+    reason =
+      'Automated sector-level macro support score based on the current dashboard rule set.';
+  }
 
-  return response.json();
+  if (!reason) {
+    reason =
+      'Detailed reason/source has not yet been added for this stock.';
+  }
+
+  return {
+    reason,
+    source,
+    sourceDate
+  };
 }
 
 
-function updateDates() {
-
-  const updated =
-    meta.lastUpdated || '—';
-
-
-  const deliveryRow =
+function openReasonModal(
+  symbol,
+  field,
+  label
+) {
+  const row =
     all.find(
-      s => s.deliveryDate
+      item =>
+        item.symbol === symbol
     );
 
+  if (!row) {
+    return;
+  }
 
-  const priceRow =
-    all.find(
-      s => s.priceDate
+  let value = null;
+
+  if (field === 'tailwind') {
+    value =
+      row.tailwindScore;
+  }
+  else if (field === 'macro') {
+    value =
+      row.macroSupport;
+  }
+  else if (field === 'valueMigration') {
+    value =
+      row.valueMigration;
+  }
+  else if (field === 'futureGrowth') {
+    value =
+      row.futureGrowth;
+  }
+  else if (field === 'fundamentalQuality') {
+    value =
+      row.fundamentalQuality;
+  }
+  else if (field === 'capex') {
+    value =
+      row.capexScore;
+  }
+
+  const detail =
+    getReasonData(
+      row,
+      field
     );
 
+  $('reasonTitle').textContent =
+    `${row.symbol} • ${label}`;
 
-  const marketDataDate =
-    deliveryRow?.deliveryDate ||
-    priceRow?.priceDate ||
-    '—';
+  $('reasonScore').textContent =
+    value == null
+      ? 'Score: Pending'
+      : `Score: ${Number(value).toFixed(0)} / 100`;
 
+  $('reasonText').textContent =
+    detail.reason;
 
-  if ($('mode')) {
+  $('reasonSourceDate').textContent =
+    detail.sourceDate
+      ? `Source date: ${detail.sourceDate}`
+      : '';
 
-    $('mode')
-      .textContent =
+  const link =
+    $('reasonSourceLink');
 
-      `${meta.mode || 'FREE_EOD'} • Dashboard Updated ${updated}`;
+  if (detail.source) {
+    link.href =
+      detail.source;
+
+    link.style.display =
+      'inline-flex';
+
+    link.textContent =
+      'View Source';
+  }
+  else {
+    link.removeAttribute(
+      'href'
+    );
+
+    link.style.display =
+      'none';
   }
 
+  const modal =
+    $('reasonModal');
 
-  if ($('marketDate')) {
+  modal.classList.add(
+    'open'
+  );
 
-    $('marketDate')
-      .textContent =
-
-      `Market / Delivery Data: ${marketDataDate}`;
-  }
+  modal.setAttribute(
+    'aria-hidden',
+    'false'
+  );
 }
 
+
+function closeReasonModal() {
+  const modal =
+    $('reasonModal');
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove(
+    'open'
+  );
+
+  modal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+}
+
+
+function attachScoreButtons() {
+  document
+    .querySelectorAll(
+      '.score-button'
+    )
+    .forEach(button => {
+      button.onclick = () => {
+        openReasonModal(
+          decodeURIComponent(
+            button.dataset.symbol || ''
+          ),
+          decodeURIComponent(
+            button.dataset.field || ''
+          ),
+          decodeURIComponent(
+            button.dataset.label || ''
+          )
+        );
+      };
+    });
+}
+
+
+// =====================================================
+// TOP SCROLLBAR
+// =====================================================
 
 function syncTopScrollbarWidth() {
-
   const inner =
     $('topScrollInner');
-
 
   const wrap =
     document.querySelector(
       '.tablewrap'
     );
 
-
   const table =
-    wrap?.querySelector(
-      'table'
+    document.getElementById(
+      'stockTable'
     );
-
 
   if (
     !inner ||
@@ -878,23 +916,19 @@ function syncTopScrollbarWidth() {
     return;
   }
 
-
   inner.style.width =
     `${table.scrollWidth}px`;
 }
 
 
 function setupTopScrollbar() {
-
   const top =
     $('topScroll');
-
 
   const wrap =
     document.querySelector(
       '.tablewrap'
     );
-
 
   if (
     !top ||
@@ -903,422 +937,572 @@ function setupTopScrollbar() {
     return;
   }
 
-
-  let syncingFromTop =
-    false;
-
-
-  let syncingFromTable =
-    false;
-
+  let topSync = false;
+  let tableSync = false;
 
   top.addEventListener(
     'scroll',
     () => {
-
-      if (
-        syncingFromTable
-      ) {
+      if (tableSync) {
         return;
       }
 
-
-      syncingFromTop =
-        true;
-
+      topSync = true;
 
       wrap.scrollLeft =
         top.scrollLeft;
 
-
-      syncingFromTop =
-        false;
+      topSync = false;
     }
   );
-
 
   wrap.addEventListener(
     'scroll',
     () => {
-
-      if (
-        syncingFromTop
-      ) {
+      if (topSync) {
         return;
       }
 
-
-      syncingFromTable =
-        true;
-
+      tableSync = true;
 
       top.scrollLeft =
         wrap.scrollLeft;
 
-
-      syncingFromTable =
-        false;
+      tableSync = false;
     }
   );
-
 
   window.addEventListener(
     'resize',
     syncTopScrollbarWidth
   );
-
-
-  syncTopScrollbarWidth();
 }
 
 
-async function init() {
+// =====================================================
+// DATES + STATS
+// =====================================================
 
-  [
-    all,
-    meta
-  ] =
-    await Promise.all([
+function latestMarketDate() {
+  const delivery =
+    all.find(
+      row => row.deliveryDate
+    )?.deliveryDate;
 
-      fetchJSON(
-        'data/stocks.json'
-      ),
+  if (delivery) {
+    return delivery;
+  }
 
-      fetchJSON(
-        'data/meta.json'
-      )
-    ]);
+  return (
+    all.find(
+      row => row.priceDate
+    )?.priceDate ||
+    '—'
+  );
+}
 
 
+function updateDates() {
+  const updated =
+    meta.lastUpdated || '—';
+
+  const marketDate =
+    latestMarketDate();
+
+  if ($('dashboardDate')) {
+    $('dashboardDate').textContent =
+      `Updated: ${updated}`;
+  }
+
+  if ($('marketDate')) {
+    $('marketDate').textContent =
+      `Market / Delivery: ${marketDate}`;
+  }
+
+  if ($('mode')) {
+    $('mode').textContent =
+      meta.mode || 'FREE_EOD';
+  }
+}
+
+
+function renderStats() {
   const scored =
     all.filter(
-      s =>
-        s.overallScore !==
-        null &&
-        s.overallScore !==
-        undefined
+      row =>
+        row.overallScore !== null &&
+        row.overallScore !== undefined
     ).length;
-
 
   const classified =
     all.filter(
-      s =>
-        s.sector &&
-        s.sector !==
-        'Unclassified'
+      row =>
+        row.sector &&
+        row.sector !== 'Unclassified'
     ).length;
 
+  const eodReady =
+    Number(
+      meta.matchedPriceCount ||
+      meta.eodPriceCount ||
+      0
+    );
 
-  $('stats')
-    .innerHTML = `
+  $('stats').innerHTML = `
 
-      <div class="stat">
+    <div class="stat compact-stat">
+      <b>
+        ${Number(
+          meta.uniqueCount ||
+          all.length
+        ).toLocaleString()}
+      </b>
+      <span>
+        Unique securities
+      </span>
+    </div>
 
-        <b>
-          ${Number(
-            meta.uniqueCount ||
-            all.length
-          ).toLocaleString()}
-        </b>
+    <div class="stat compact-stat">
+      <b>
+        ${eodReady.toLocaleString()}
+      </b>
+      <span>
+        EOD price ready
+      </span>
+    </div>
 
-        <span>
-          Unique securities
-        </span>
+    <div class="stat compact-stat">
+      <b>
+        ${classified.toLocaleString()}
+      </b>
+      <span>
+        Sector classified
+      </span>
+    </div>
 
-      </div>
+    <div class="stat compact-stat">
+      <b>
+        ${scored.toLocaleString()}
+      </b>
+      <span>
+        Fully scored
+      </span>
+    </div>
 
-
-      <div class="stat">
-
-        <b>
-          ${Number(
-            meta.matchedPriceCount ||
-            0
-          ).toLocaleString()}
-        </b>
-
-        <span>
-          EOD price ready
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <b>
-          ${classified.toLocaleString()}
-        </b>
-
-        <span>
-          Sector classified
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <b>
-          ${scored.toLocaleString()}
-        </b>
-
-        <span>
-          Fully scored
-        </span>
-
-      </div>
-    `;
-
-
-  populateDropdowns();
-
-  updateDates();
-
-  setupTopScrollbar();
-
-  render();
+  `;
 }
 
+
+// =====================================================
+// FETCH
+// =====================================================
+
+async function fetchJSON(url) {
+  const response =
+    await fetch(
+      `${url}?v=${Date.now()}`,
+      {
+        cache: 'no-store'
+      }
+    );
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to load ${url}: ${response.status}`
+    );
+  }
+
+  return response.json();
+}
+
+
+// =====================================================
+// FILTER EVENTS
+// =====================================================
 
 const filterIds = [
 
   'q',
 
+  'activeMarketCap',
   'marketCapFilter',
 
+  'activePrice',
+  'abovePrice',
+
+  'activeChange',
+  'aboveChange',
+
+  'activeTodayDelivery',
+  'aboveTodayDelivery',
+
+  'active5DDelivery',
+  'above5DDelivery',
+
+  'activeDeliveryRatio',
+  'aboveDeliveryRatio',
+
+  'activeSector',
   'sectorFilter',
 
+  'activeIndustry',
   'industryFilter',
 
-  'minPrice',
+  'activeSectorStrength',
+  'aboveSectorStrength',
 
-  'maxPrice',
-
-  'minChange',
-
-  'maxChange',
-
-  'minDeliveryRatio',
-
-  'maxDeliveryRatio',
-
-  'minSectorStrength',
-
-  'maxSectorStrength',
-
+  'activeStockStrength',
   'stockStrengthPeriod',
+  'aboveStockStrength',
 
-  'minStockStrength',
+  'activeTailwind',
+  'aboveTailwind',
 
-  'maxStockStrength',
+  'activeMacro',
+  'aboveMacro',
 
-  'minMacro',
+  'activeVM',
+  'aboveVM',
 
-  'maxMacro',
+  'activeGrowth',
+  'aboveGrowth',
 
-  'minVM',
+  'activeFundamental',
+  'aboveFundamental',
 
-  'maxVM',
+  'activeCapex',
+  'aboveCapex',
 
-  'minGrowth',
+  'activeOverall',
+  'aboveOverall'
 
-  'maxGrowth',
-
-  'minFundamental',
-
-  'maxFundamental',
-
-  'minCapex',
-
-  'maxCapex',
-
-  'minOverall',
-
-  'maxOverall'
 ];
 
 
-filterIds.forEach(
-  id => {
-
-    const el =
-      $(id);
-
+function setupFilterEvents() {
+  filterIds.forEach(id => {
+    const el = $(id);
 
     if (!el) {
       return;
     }
 
-
     const eventType =
-
-      id === 'q'
-
-        ? 'input'
-
-        : (
-            el.tagName ===
-            'SELECT'
-
-              ? 'change'
-
-              : 'input'
-          );
-
+      el.type === 'checkbox' ||
+      el.tagName === 'SELECT'
+        ? 'change'
+        : 'input';
 
     el.addEventListener(
       eventType,
       () => {
-
         page = 1;
-
         render();
       }
     );
+  });
+}
+
+
+// =====================================================
+// STRONG SETUP PRESET
+// =====================================================
+
+function setCheckbox(
+  id,
+  checked
+) {
+  if ($(id)) {
+    $(id).checked =
+      checked;
   }
-);
-
-
-const strongBtn =
-  $('strongSetup');
-
-
-if (strongBtn) {
-
-  strongBtn.onclick =
-    () => {
-
-      $('stockStrengthPeriod')
-        .value =
-        '3M';
-
-
-      $('minStockStrength')
-        .value =
-        70;
-
-
-      $('minSectorStrength')
-        .value =
-        60;
-
-
-      $('minMacro')
-        .value =
-        70;
-
-
-      $('minVM')
-        .value =
-        70;
-
-
-      $('minGrowth')
-        .value =
-        70;
-
-
-      $('minFundamental')
-        .value =
-        60;
-
-
-      $('minCapex')
-        .value =
-        60;
-
-
-      $('minOverall')
-        .value =
-        70;
-
-
-      $('minDeliveryRatio')
-        .value =
-        1;
-
-
-      page = 1;
-
-      render();
-    };
 }
 
 
-const resetBtn =
-  $('resetScores');
+function setValue(
+  id,
+  value
+) {
+  if ($(id)) {
+    $(id).value =
+      value;
+  }
+}
 
 
-if (resetBtn) {
+function applyStrongSetup() {
+  setCheckbox(
+    'activeDeliveryRatio',
+    true
+  );
 
-  resetBtn.onclick =
-    () => {
-
-      filterIds.forEach(
-        id => {
-
-          const el =
-            $(id);
+  setValue(
+    'aboveDeliveryRatio',
+    1
+  );
 
 
-          if (!el) {
-            return;
+  setCheckbox(
+    'activeSectorStrength',
+    true
+  );
+
+  setValue(
+    'aboveSectorStrength',
+    60
+  );
+
+
+  setCheckbox(
+    'activeStockStrength',
+    true
+  );
+
+  setValue(
+    'stockStrengthPeriod',
+    '3M'
+  );
+
+  setValue(
+    'aboveStockStrength',
+    70
+  );
+
+
+  setCheckbox(
+    'activeTailwind',
+    true
+  );
+
+  setValue(
+    'aboveTailwind',
+    70
+  );
+
+
+  setCheckbox(
+    'activeMacro',
+    true
+  );
+
+  setValue(
+    'aboveMacro',
+    70
+  );
+
+
+  setCheckbox(
+    'activeVM',
+    true
+  );
+
+  setValue(
+    'aboveVM',
+    70
+  );
+
+
+  setCheckbox(
+    'activeGrowth',
+    true
+  );
+
+  setValue(
+    'aboveGrowth',
+    70
+  );
+
+
+  setCheckbox(
+    'activeFundamental',
+    true
+  );
+
+  setValue(
+    'aboveFundamental',
+    60
+  );
+
+
+  setCheckbox(
+    'activeCapex',
+    true
+  );
+
+  setValue(
+    'aboveCapex',
+    60
+  );
+
+
+  setCheckbox(
+    'activeOverall',
+    true
+  );
+
+  setValue(
+    'aboveOverall',
+    70
+  );
+
+
+  page = 1;
+
+  render();
+}
+
+
+// =====================================================
+// RESET
+// =====================================================
+
+function resetFilters() {
+  filterIds.forEach(id => {
+    const el = $(id);
+
+    if (!el) {
+      return;
+    }
+
+    if (
+      el.type === 'checkbox'
+    ) {
+      el.checked = false;
+    }
+    else if (
+      id ===
+      'stockStrengthPeriod'
+    ) {
+      el.value = '3M';
+    }
+    else if (
+      el.tagName === 'SELECT'
+    ) {
+      el.value = 'ALL';
+    }
+    else {
+      el.value = '';
+    }
+  });
+
+  page = 1;
+
+  render();
+}
+
+
+// =====================================================
+// INIT
+// =====================================================
+
+async function init() {
+  try {
+    [
+      all,
+      meta
+    ] =
+      await Promise.all([
+        fetchJSON(
+          'data/stocks.json'
+        ),
+        fetchJSON(
+          'data/meta.json'
+        )
+      ]);
+
+    populateDropdowns();
+
+    renderStats();
+
+    updateDates();
+
+    setupTopScrollbar();
+
+    setupFilterEvents();
+
+    render();
+
+
+    if ($('strongSetup')) {
+      $('strongSetup').onclick =
+        applyStrongSetup;
+    }
+
+
+    if ($('resetScores')) {
+      $('resetScores').onclick =
+        resetFilters;
+    }
+
+
+    if ($('prev')) {
+      $('prev').onclick =
+        () => {
+          page--;
+
+          render();
+        };
+    }
+
+
+    if ($('next')) {
+      $('next').onclick =
+        () => {
+          page++;
+
+          render();
+        };
+    }
+
+
+    if ($('closeReasonModal')) {
+      $('closeReasonModal').onclick =
+        closeReasonModal;
+    }
+
+
+    if ($('reasonModal')) {
+      $('reasonModal')
+        .addEventListener(
+          'click',
+          event => {
+            if (
+              event.target ===
+              $('reasonModal')
+            ) {
+              closeReasonModal();
+            }
           }
+        );
+    }
 
 
-          if (
-            id ===
-            'stockStrengthPeriod'
-          ) {
-
-            el.value =
-              '3M';
-
-          }
-
-          else if (
-            el.tagName ===
-            'SELECT'
-          ) {
-
-            el.value =
-              'ALL';
-
-          }
-
-          else {
-
-            el.value =
-              '';
-          }
+    document.addEventListener(
+      'keydown',
+      event => {
+        if (
+          event.key === 'Escape'
+        ) {
+          closeReasonModal();
         }
-      );
+      }
+    );
 
 
-      page = 1;
+    syncTopScrollbarWidth();
 
-      render();
-    };
+  }
+  catch (error) {
+    console.error(
+      error
+    );
+
+    if ($('resultCount')) {
+      $('resultCount').textContent =
+        'Dashboard data failed to load';
+    }
+  }
 }
-
-
-$('prev').onclick =
-  () => {
-
-    page--;
-
-    render();
-  };
-
-
-$('next').onclick =
-  () => {
-
-    page++;
-
-    render();
-  };
 
 
 init();
