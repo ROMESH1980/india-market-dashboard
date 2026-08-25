@@ -11,6 +11,10 @@ DATA = ROOT / "data"
 NIFTY500 = "^CRSLDX"
 
 
+# =========================================================
+# BASIC HELPERS
+# =========================================================
+
 def load_json(path, default):
     try:
         return json.loads(path.read_text())
@@ -20,6 +24,17 @@ def load_json(path, default):
 
 def clamp(x, lo=0, hi=100):
     return max(lo, min(hi, x))
+
+
+def safe_float(value):
+    try:
+        if value is None:
+            return None
+
+        return float(value)
+
+    except Exception:
+        return None
 
 
 def percentile(value, values):
@@ -45,10 +60,93 @@ def percentile(value, values):
 
 
 # =========================================================
-# SECTOR / INDEX MAPPING
+# VERIFIED EVIDENCE
 # =========================================================
 
-def sector_index(sector, industry):
+def verified_evidence(
+    evidence_stocks,
+    symbol,
+    field
+):
+    stock = (
+        evidence_stocks.get(
+            symbol,
+            {}
+        )
+        or {}
+    )
+
+    block = (
+        stock.get(
+            field,
+            {}
+        )
+        or {}
+    )
+
+    if not isinstance(
+        block,
+        dict
+    ):
+        return None
+
+    score = safe_float(
+        block.get("score")
+    )
+
+    reason = str(
+        block.get("reason")
+        or ""
+    ).strip()
+
+    source = str(
+        block.get("source")
+        or ""
+    ).strip()
+
+    source_date = str(
+        block.get("sourceDate")
+        or ""
+    ).strip()
+
+    # Verified tabhi jab
+    # score + reason + source tino hon.
+    if (
+        score is None
+        or not reason
+        or not source
+    ):
+        return None
+
+    return {
+        "score":
+            round(
+                clamp(score),
+                2
+            ),
+
+        "reason":
+            reason,
+
+        "source":
+            source,
+
+        "sourceDate":
+            source_date,
+
+        "mode":
+            "VERIFIED",
+    }
+
+
+# =========================================================
+# SECTOR INDEX MAPPING
+# =========================================================
+
+def sector_index(
+    sector,
+    industry
+):
     text = (
         f"{sector or ''} "
         f"{industry or ''}"
@@ -59,10 +157,12 @@ def sector_index(sector, industry):
             ["psu bank"],
             "^CNXPSUBANK"
         ),
+
         (
             ["bank"],
             "^NSEBANK"
         ),
+
         (
             [
                 "financial services",
@@ -71,6 +171,7 @@ def sector_index(sector, industry):
             ],
             "^CNXFINANCE"
         ),
+
         (
             [
                 "automobile",
@@ -79,6 +180,7 @@ def sector_index(sector, industry):
             ],
             "^CNXAUTO"
         ),
+
         (
             [
                 "information technology",
@@ -87,10 +189,12 @@ def sector_index(sector, industry):
             ],
             "^CNXIT"
         ),
+
         (
             ["fmcg"],
             "^CNXFMCG"
         ),
+
         (
             [
                 "pharma",
@@ -99,6 +203,7 @@ def sector_index(sector, industry):
             ],
             "^CNXPHARMA"
         ),
+
         (
             [
                 "metal",
@@ -106,6 +211,7 @@ def sector_index(sector, industry):
             ],
             "^CNXMETAL"
         ),
+
         (
             [
                 "realty",
@@ -113,6 +219,7 @@ def sector_index(sector, industry):
             ],
             "^CNXREALTY"
         ),
+
         (
             [
                 "media",
@@ -120,6 +227,7 @@ def sector_index(sector, industry):
             ],
             "^CNXMEDIA"
         ),
+
         (
             [
                 "energy",
@@ -131,6 +239,7 @@ def sector_index(sector, industry):
             ],
             "^CNXENERGY"
         ),
+
         (
             [
                 "infrastructure",
@@ -152,10 +261,13 @@ def sector_index(sector, industry):
 
 
 # =========================================================
-# MACRO SUPPORT
+# MACRO
 # =========================================================
 
-def macro_score(sector, industry):
+def macro_score(
+    sector,
+    industry
+):
     text = (
         f"{sector or ''} "
         f"{industry or ''}"
@@ -166,10 +278,12 @@ def macro_score(sector, industry):
             ["renewable", "solar", "power"],
             90,
             (
-                "Strong macro support from power demand, "
-                "energy transition and related investment."
+                "Automated macro screening proxy: "
+                "power demand, energy transition and "
+                "related investment provide strong support."
             )
         ),
+
         (
             [
                 "capital goods",
@@ -178,10 +292,12 @@ def macro_score(sector, industry):
             ],
             85,
             (
-                "Support from infrastructure spending, "
-                "manufacturing and the domestic capex cycle."
+                "Automated macro screening proxy: "
+                "infrastructure spending and the domestic "
+                "capex cycle provide sector support."
             )
         ),
+
         (
             [
                 "electrical equipment",
@@ -190,104 +306,129 @@ def macro_score(sector, industry):
             ],
             85,
             (
-                "Support from electrification, localisation "
-                "and domestic manufacturing."
+                "Automated macro screening proxy: "
+                "electrification, localisation and domestic "
+                "manufacturing provide support."
             )
         ),
+
         (
             ["industrial manufacturing"],
             80,
             (
-                "Domestic manufacturing and investment-cycle "
-                "support remain favourable."
+                "Automated macro screening proxy: "
+                "manufacturing and investment-cycle conditions "
+                "are supportive."
             )
         ),
+
         (
             ["defence", "aerospace"],
             80,
             (
-                "Defence localisation and domestic procurement "
-                "provide macro support."
+                "Automated macro screening proxy: "
+                "domestic procurement and localisation "
+                "support the sector."
             )
         ),
+
         (
             ["financial services", "bank"],
             70,
             (
-                "Financialisation and credit penetration "
-                "provide structural support."
+                "Automated macro screening proxy: "
+                "financialisation and credit penetration "
+                "support sector growth."
             )
         ),
+
         (
             ["automobile", "auto components"],
             70,
             (
-                "Auto demand, premiumisation and localisation "
-                "support the sector."
+                "Automated macro screening proxy: "
+                "vehicle demand, premiumisation and localisation "
+                "provide support."
             )
         ),
+
         (
             ["healthcare", "pharma"],
             70,
             (
-                "Healthcare demand and export opportunities "
-                "provide positive support."
+                "Automated macro screening proxy: "
+                "healthcare demand and exports provide "
+                "positive sector support."
             )
         ),
+
         (
             ["telecom"],
             70,
             (
-                "Data consumption and digital adoption "
+                "Automated macro screening proxy: "
+                "data consumption and digital adoption "
                 "support telecom demand."
             )
         ),
+
         (
             ["metals", "mining"],
             65,
             (
-                "Infrastructure demand supports the sector, "
-                "but commodity cyclicality remains important."
+                "Automated macro screening proxy: "
+                "infrastructure demand provides support, "
+                "while commodity cyclicality remains important."
             )
         ),
+
         (
             ["realty"],
             65,
             (
-                "Urbanisation and property demand provide "
-                "moderate macro support."
+                "Automated macro screening proxy: "
+                "urbanisation and property demand provide "
+                "moderate support."
             )
         ),
+
         (
             ["consumer"],
             60,
             (
-                "Consumption growth and premiumisation "
+                "Automated macro screening proxy: "
+                "consumption growth and premiumisation "
                 "provide moderate support."
             )
         ),
+
         (
             ["information technology"],
             60,
             (
-                "Digital transformation and technology spending "
-                "provide moderate support."
+                "Automated macro screening proxy: "
+                "digital transformation and technology spending "
+                "provide support."
             )
         ),
+
         (
             ["oil", "gas"],
             55,
             (
-                "Energy demand remains supportive, "
-                "but commodity cycles reduce visibility."
+                "Automated macro screening proxy: "
+                "energy demand remains supportive, but "
+                "commodity cycles reduce visibility."
             )
         ),
+
         (
             ["media"],
             50,
             (
-                "Digital consumption provides support, "
-                "but industry economics are mixed."
+                "Automated macro screening proxy: "
+                "digital consumption provides some support, "
+                "while industry economics remain mixed."
             )
         ),
     ]
@@ -300,8 +441,8 @@ def macro_score(sector, industry):
             return score, reason
 
     return None, (
-        "No reliable automated macro-support rule "
-        "is mapped to this sector/industry."
+        "No mapped automated macro-support rule "
+        "for this sector/industry."
     )
 
 
@@ -393,13 +534,7 @@ def extract_close_series(
 
         return series
 
-    except Exception as e:
-
-        print(
-            f"Close extraction failed "
-            f"for {ticker}: {e}"
-        )
-
+    except Exception:
         return None
 
 
@@ -422,12 +557,10 @@ def download_history(tickers):
         chunk_size
     ):
 
-        chunk = (
-            tickers[
-                start:
-                start + chunk_size
-            ]
-        )
+        chunk = tickers[
+            start:
+            start + chunk_size
+        ]
 
         print(
             f"Historical prices: "
@@ -449,12 +582,9 @@ def download_history(tickers):
             )
 
         except Exception as e:
-
             print(
-                f"Historical chunk failed: "
-                f"{e}"
+                f"Historical chunk failed: {e}"
             )
-
             continue
 
         for ticker in chunk:
@@ -475,7 +605,7 @@ def download_history(tickers):
             len(tickers),
 
         "historyTickersLoaded":
-            len(result)
+            len(result),
     })
 
     return result
@@ -511,8 +641,7 @@ def period_return(
 
         return round(
             (
-                (latest / old)
-                - 1
+                (latest / old) - 1
             ) * 100,
             4
         )
@@ -542,7 +671,22 @@ def main():
             "stocks",
             {}
         )
+        or {}
     )
+
+    evidence_data = load_json(
+        DATA / "company_evidence.json",
+        {}
+    )
+
+    evidence_stocks = (
+        evidence_data.get(
+            "stocks",
+            {}
+        )
+        or {}
+    )
+
 
     classified = [
         row
@@ -554,14 +698,6 @@ def main():
             != "Unclassified"
         )
     ]
-
-    print({
-        "stocksInUniverse":
-            len(stocks),
-
-        "classifiedStocks":
-            len(classified)
-    })
 
 
     # =====================================================
@@ -586,6 +722,7 @@ def main():
 
         if idx:
             index_tickers.add(idx)
+
 
     history = download_history(
         stock_tickers
@@ -628,7 +765,7 @@ def main():
 
 
     # =====================================================
-    # MONTHLY SECTOR STRENGTH
+    # SECTOR STRENGTH 1M
     # =====================================================
 
     sector_index_1m = {}
@@ -656,6 +793,7 @@ def main():
             sector_index_1m[
                 idx
             ] = value
+
 
     sector_return_values = list(
         sector_index_1m.values()
@@ -687,12 +825,8 @@ def main():
 
         symbol = row["symbol"]
 
-        stock_ticker = (
-            f"{symbol}.NS"
-        )
-
         stock_series = history.get(
-            stock_ticker
+            f"{symbol}.NS"
         )
 
         if stock_series is None:
@@ -720,7 +854,6 @@ def main():
             for value in
             benchmark_returns.values()
         ):
-
             benchmark_returns = (
                 index_returns.get(
                     NIFTY500,
@@ -765,31 +898,29 @@ def main():
             stock_1m is not None
             and bench_1m is not None
         ):
-
             raw_1m[symbol] = (
-                stock_1m
-                - bench_1m
+                stock_1m -
+                bench_1m
             )
 
         if (
             stock_3m is not None
             and bench_3m is not None
         ):
-
             raw_3m[symbol] = (
-                stock_3m
-                - bench_3m
+                stock_3m -
+                bench_3m
             )
 
         if (
             stock_6m is not None
             and bench_6m is not None
         ):
-
             raw_6m[symbol] = (
-                stock_6m
-                - bench_6m
+                stock_6m -
+                bench_6m
             )
+
 
     values_1m = list(
         raw_1m.values()
@@ -803,13 +934,13 @@ def main():
         raw_6m.values()
     )
 
+
     stock_strength_1m = {
         symbol:
             percentile(
                 value,
                 values_1m
             )
-
         for symbol, value
         in raw_1m.items()
     }
@@ -820,7 +951,6 @@ def main():
                 value,
                 values_3m
             )
-
         for symbol, value
         in raw_3m.items()
     }
@@ -831,14 +961,13 @@ def main():
                 value,
                 values_6m
             )
-
         for symbol, value
         in raw_6m.items()
     }
 
 
     # =====================================================
-    # TURNOVER FOR VALUE MIGRATION
+    # TURNOVER DISTRIBUTION
     # =====================================================
 
     all_turnover = []
@@ -850,7 +979,6 @@ def main():
         )
 
         if turnover is not None:
-
             try:
                 all_turnover.append(
                     float(turnover)
@@ -861,14 +989,13 @@ def main():
 
 
     # =====================================================
-    # BUILD FINAL SCORE INPUTS
+    # FINAL SCORES
     # =====================================================
 
     scores = {}
 
-    tailwind_available = 0
-    macro_available = 0
-    vm_available = 0
+    verified_vm_count = 0
+    automated_vm_count = 0
 
     for row in stocks:
 
@@ -900,7 +1027,6 @@ def main():
         sector_strength = None
 
         if idx:
-
             sector_strength = (
                 sector_strength_by_index
                 .get(idx)
@@ -918,87 +1044,18 @@ def main():
             )
         )
 
-        if macro_support is not None:
-            macro_available += 1
-
-
-        # -------------------------------------------------
-        # VALUE MIGRATION
-        # -------------------------------------------------
-
-        value_migration = None
-
-        vm_reason = (
-            "Value Migration score is unavailable "
-            "because required price/turnover data is missing."
-        )
-
-        change = row.get(
-            "changePct"
-        )
-
-        turnover = row.get(
-            "turnoverCr"
-        )
-
-        if (
-            change is not None
-            and turnover is not None
-            and all_turnover
-        ):
-
-            try:
-
-                momentum = clamp(
-                    50
-                    + float(change) * 7
-                )
-
-                turnover_score = percentile(
-                    float(turnover),
-                    all_turnover
-                )
-
-                if turnover_score is not None:
-
-                    value_migration = round(
-                        momentum * 0.60
-                        + turnover_score * 0.40,
-                        2
-                    )
-
-                    vm_available += 1
-
-                    vm_reason = (
-                        "Automated Value Migration score: "
-                        f"60% daily price momentum "
-                        f"(component {momentum:.1f}) + "
-                        f"40% turnover percentile "
-                        f"(component {turnover_score:.1f})."
-                    )
-
-            except Exception:
-                pass
-
 
         # -------------------------------------------------
         # COMPANY RESEARCH
         # -------------------------------------------------
 
         company = (
-            company_scores
-            .get(
+            company_scores.get(
                 symbol,
                 {}
             )
+            or {}
         )
-
-        tailwind = company.get(
-            "tailwindScore"
-        )
-
-        if tailwind is not None:
-            tailwind_available += 1
 
         company_reasons = (
             company.get(
@@ -1010,7 +1067,142 @@ def main():
 
 
         # -------------------------------------------------
-        # COMBINED REASON STRUCTURE
+        # VALUE MIGRATION
+        # VERIFIED FIRST
+        # -------------------------------------------------
+
+        vm_verified = (
+            verified_evidence(
+                evidence_stocks,
+                symbol,
+                "valueMigration"
+            )
+        )
+
+        value_migration = None
+
+        vm_reason = {
+            "reason":
+                (
+                    "Value Migration evidence is not available."
+                ),
+
+            "source":
+                "",
+
+            "sourceDate":
+                "",
+
+            "mode":
+                "PENDING",
+        }
+
+
+        if vm_verified:
+
+            value_migration = (
+                vm_verified[
+                    "score"
+                ]
+            )
+
+            vm_reason = {
+                "reason":
+                    vm_verified[
+                        "reason"
+                    ],
+
+                "source":
+                    vm_verified[
+                        "source"
+                    ],
+
+                "sourceDate":
+                    vm_verified[
+                        "sourceDate"
+                    ],
+
+                "mode":
+                    "VERIFIED",
+            }
+
+            verified_vm_count += 1
+
+
+        else:
+
+            # Existing price/turnover metric
+            # sirf SCREENING PROXY hai.
+            change = row.get(
+                "changePct"
+            )
+
+            turnover = row.get(
+                "turnoverCr"
+            )
+
+            if (
+                change is not None
+                and turnover is not None
+                and all_turnover
+            ):
+
+                try:
+
+                    momentum = clamp(
+                        50 +
+                        float(change) * 7
+                    )
+
+                    turnover_score = (
+                        percentile(
+                            float(turnover),
+                            all_turnover
+                        )
+                    )
+
+                    if (
+                        turnover_score
+                        is not None
+                    ):
+
+                        value_migration = round(
+                            momentum * 0.60
+                            +
+                            turnover_score * 0.40,
+                            2
+                        )
+
+                        vm_reason = {
+
+                            "reason":
+                                (
+                                    "Automated screening proxy only — "
+                                    "NOT verified business Value Migration. "
+                                    "The score currently reflects 60% short-term "
+                                    "price momentum and 40% turnover percentile. "
+                                    "A verified Value Migration rating requires "
+                                    "company/business evidence in company_evidence.json."
+                                ),
+
+                            "source":
+                                "",
+
+                            "sourceDate":
+                                "",
+
+                            "mode":
+                                "AUTOMATED_PROXY",
+                        }
+
+                        automated_vm_count += 1
+
+                except Exception:
+                    pass
+
+
+        # -------------------------------------------------
+        # REASONS
         # -------------------------------------------------
 
         research_reasons = {
@@ -1030,18 +1222,13 @@ def main():
 
                 "sourceDate":
                     "",
+
+                "mode":
+                    "AUTOMATED",
             },
 
-            "valueMigration": {
-                "reason":
-                    vm_reason,
-
-                "source":
-                    "",
-
-                "sourceDate":
-                    "",
-            },
+            "valueMigration":
+                vm_reason,
 
             "futureGrowth":
                 company_reasons.get(
@@ -1084,7 +1271,9 @@ def main():
                 idx or NIFTY500,
 
             "tailwindScore":
-                tailwind,
+                company.get(
+                    "tailwindScore"
+                ),
 
             "macroSupport":
                 macro_support,
@@ -1121,7 +1310,10 @@ def main():
         "_meta": {
 
             "description":
-                "NSE research scoring inputs",
+                (
+                    "MY MARKET RESEARCH "
+                    "research scoring inputs"
+                ),
 
             "scale":
                 "0-100",
@@ -1137,47 +1329,47 @@ def main():
                 "stockStrength1M":
                     (
                         "1-month stock excess return "
-                        "vs relevant index percentile"
+                        "vs relevant benchmark percentile"
                     ),
 
                 "stockStrength3M":
                     (
                         "3-month stock excess return "
-                        "vs relevant index percentile"
+                        "vs relevant benchmark percentile"
                     ),
 
                 "stockStrength6M":
                     (
                         "6-month stock excess return "
-                        "vs relevant index percentile"
+                        "vs relevant benchmark percentile"
                     ),
 
                 "tailwindScore":
                     (
-                        "Sector/industry structural "
-                        "tailwind heuristic"
+                        "Company research / "
+                        "sector structural-tailwind score"
                     ),
 
                 "macroSupport":
                     (
-                        "Sector-level macro-support "
-                        "heuristic"
+                        "Sector-level macro "
+                        "screening heuristic"
                     ),
 
                 "valueMigration":
                     (
-                        "60% daily momentum + "
-                        "40% turnover percentile"
+                        "Verified evidence overrides the "
+                        "automated price/turnover screening proxy"
                     ),
 
                 "futureGrowth":
-                    "Company research input",
+                    "Company research score",
 
                 "fundamentalQuality":
-                    "Company financial-quality input",
+                    "Company financial-quality score",
 
                 "capexScore":
-                    "Company CAPEX input",
+                    "Company CAPEX score",
             },
 
             "weights": {
@@ -1203,9 +1395,9 @@ def main():
 
             "note":
                 (
-                    "Tailwind and Stock Strength "
-                    "remain separate screening metrics "
-                    "and are not included in Overall Score."
+                    "Stock Strength and Tailwind remain "
+                    "separate filters and are not currently "
+                    "included in Overall Score."
                 ),
         },
 
@@ -1231,11 +1423,11 @@ def main():
         "stocksProcessed":
             len(scores),
 
-        "monthlySectorStrength":
+        "sectorStrengthAvailable":
             sum(
                 1
-                for x in scores.values()
-                if x.get(
+                for value in scores.values()
+                if value.get(
                     "sectorStrength"
                 ) is not None
             ),
@@ -1255,14 +1447,11 @@ def main():
                 stock_strength_6m
             ),
 
-        "tailwindAvailable":
-            tailwind_available,
+        "verifiedValueMigration":
+            verified_vm_count,
 
-        "macroAvailable":
-            macro_available,
-
-        "valueMigrationAvailable":
-            vm_available,
+        "automatedValueMigrationProxy":
+            automated_vm_count,
     })
 
 
