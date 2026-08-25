@@ -11,7 +11,7 @@
   },
   "stocks": {
     "AARTIIND": {
-      "futureGrowth": 90.23,
+      "futureGrowth": 90.0,
       "fundamentalQuality": 57.31,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -23,37 +23,37 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "360ONE": {
-      "futureGrowth": 74.68,
+      "futureGrowth": 74.76,
       "fundamentalQuality": 69.61,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AAVAS": {
-      "futureGrowth": 76.15,
+      "futureGrowth": 76.2,
       "fundamentalQuality": 66.67,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABB": {
-      "futureGrowth": 59.59,
+      "futureGrowth": 59.64,
       "fundamentalQuality": 82.84,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ACMESOLAR": {
-      "futureGrowth": 93.61,
+      "futureGrowth": 93.54,
       "fundamentalQuality": 62.43,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABBOTINDIA": {
-      "futureGrowth": 66.06,
+      "futureGrowth": 65.96,
       "fundamentalQuality": 94.67,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ACUTAAS": {
-      "futureGrowth": 92.59,
+      "futureGrowth": 92.65,
       "fundamentalQuality": 98.9,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -65,43 +65,43 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ACC": {
-      "futureGrowth": 23.31,
+      "futureGrowth": 23.26,
       "fundamentalQuality": 70.02,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADANIGREEN": {
-      "futureGrowth": 76.6,
+      "futureGrowth": 76.64,
       "fundamentalQuality": 57.06,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADANIENT": {
-      "futureGrowth": 77.93,
+      "futureGrowth": 77.91,
       "fundamentalQuality": 51.41,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADANIPOWER": {
-      "futureGrowth": 88.18,
+      "futureGrowth": 88.19,
       "fundamentalQuality": 82.67,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AADHARHFC": {
-      "futureGrowth": 74.22,
+      "futureGrowth": 74.47,
       "fundamentalQuality": 66.67,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADANIPORTS": {
-      "futureGrowth": 63.82,
+      "futureGrowth": 63.84,
       "fundamentalQuality": 88.26,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADANIENSOL": {
-      "futureGrowth": 90.78,
+      "futureGrowth": 90.8,
       "fundamentalQuality": 51.36,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -119,7 +119,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABSLAMC": {
-      "futureGrowth": 64.62,
+      "futureGrowth": 64.7,
       "fundamentalQuality": 99.71,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
@@ -131,7 +131,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABCAPITAL": {
-      "futureGrowth": 90.74,
+      "futureGrowth": 90.69,
       "fundamentalQuality": 48.68,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
@@ -143,7 +143,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "CPPLUS": {
-      "futureGrowth": 92.12,
+      "futureGrowth": 92.11,
       "fundamentalQuality": 76.25,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -155,37 +155,37 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AFFLE": {
-      "futureGrowth": 76.53,
+      "futureGrowth": 76.67,
       "fundamentalQuality": 85.21,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AEGISLOG": {
-      "futureGrowth": 89.04,
+      "futureGrowth": 89.49,
       "fundamentalQuality": 80.79,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALKEM": {
-      "futureGrowth": 39.74,
+      "futureGrowth": 39.81,
       "fundamentalQuality": 80.94,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AJANTPHARM": {
-      "futureGrowth": 84.62,
+      "futureGrowth": 84.66,
       "fundamentalQuality": 90.47,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABDL": {
-      "futureGrowth": 47.47,
+      "futureGrowth": 47.35,
       "fundamentalQuality": 60.2,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AIAENG": {
-      "futureGrowth": 54.67,
+      "futureGrowth": 54.69,
       "fundamentalQuality": 95.97,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -197,13 +197,13 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ANANDRATHI": {
-      "futureGrowth": 89.37,
+      "futureGrowth": 89.31,
       "fundamentalQuality": 98.49,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AMBER": {
-      "futureGrowth": 38.37,
+      "futureGrowth": 38.36,
       "fundamentalQuality": 58.45,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -215,25 +215,25 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ANANTRAJ": {
-      "futureGrowth": 69.0,
+      "futureGrowth": 69.01,
       "fundamentalQuality": 92.25,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AMBUJACEM": {
-      "futureGrowth": 24.49,
+      "futureGrowth": 24.65,
       "fundamentalQuality": 75.3,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ANGELONE": {
-      "futureGrowth": 87.36,
+      "futureGrowth": 87.44,
       "fundamentalQuality": 68.22,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ANTHEM": {
-      "futureGrowth": 35.63,
+      "futureGrowth": 35.56,
       "fundamentalQuality": 98.64,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -263,7 +263,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "APTUS": {
-      "futureGrowth": 73.02,
+      "futureGrowth": 72.93,
       "fundamentalQuality": 71.36,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
@@ -275,13 +275,13 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ASHOKLEY": {
-      "futureGrowth": 57.8,
+      "futureGrowth": 57.79,
       "fundamentalQuality": 45.8,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "APARINDS": {
-      "futureGrowth": 88.15,
+      "futureGrowth": 88.09,
       "fundamentalQuality": 69.8,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3029,8 +3029,8 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AKASH": {
-      "futureGrowth": 33.33,
-      "fundamentalQuality": 46.55,
+      "futureGrowth": 82.17,
+      "fundamentalQuality": 45.75,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
@@ -3047,7 +3047,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALPA": {
-      "futureGrowth": 40.65,
+      "futureGrowth": 40.61,
       "fundamentalQuality": 53.9,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
@@ -3071,7 +3071,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ACI": {
-      "futureGrowth": 44.13,
+      "futureGrowth": 44.04,
       "fundamentalQuality": 72.81,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3281,7 +3281,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "5PAISA": {
-      "futureGrowth": 45.56,
+      "futureGrowth": 45.49,
       "fundamentalQuality": 74.17,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
@@ -3311,7 +3311,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AARTIDRUGS": {
-      "futureGrowth": 54.45,
+      "futureGrowth": 54.41,
       "fundamentalQuality": 68.14,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3335,7 +3335,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AARTIPHARM": {
-      "futureGrowth": 88.52,
+      "futureGrowth": 88.37,
       "fundamentalQuality": 74.91,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3359,15 +3359,15 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABMINTLLTD": {
-      "futureGrowth": 21.95,
-      "fundamentalQuality": 55.35,
+      "futureGrowth": 9.65,
+      "fundamentalQuality": 51.76,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABAN": {
       "futureGrowth": null,
       "fundamentalQuality": 38.21,
-      "capexScore": 50,
+      "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ABMKNO": {
@@ -3377,7 +3377,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ACCELYA": {
-      "futureGrowth": 40.75,
+      "futureGrowth": 40.76,
       "fundamentalQuality": 89.63,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -3419,7 +3419,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AVL": {
-      "futureGrowth": 88.39,
+      "futureGrowth": 88.5,
       "fundamentalQuality": 56.89,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
@@ -3497,13 +3497,13 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AETHER": {
-      "futureGrowth": 89.08,
+      "futureGrowth": 89.11,
       "fundamentalQuality": 87.61,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AEROFLEX": {
-      "futureGrowth": 92.6,
+      "futureGrowth": 92.31,
       "fundamentalQuality": 82.46,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3515,7 +3515,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AGI": {
-      "futureGrowth": 68.4,
+      "futureGrowth": 68.31,
       "fundamentalQuality": 80.16,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3545,7 +3545,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AHLUCONT": {
-      "futureGrowth": 32.71,
+      "futureGrowth": 32.49,
       "fundamentalQuality": 66.74,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3575,20 +3575,20 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AJAXENGG": {
-      "futureGrowth": 57.78,
+      "futureGrowth": 57.79,
       "fundamentalQuality": 77.63,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AJMERA": {
-      "futureGrowth": 73.87,
+      "futureGrowth": 73.88,
       "fundamentalQuality": 80.69,
       "capexScore": 80,
       "source": "Yahoo Finance financial-data proxy"
     },
     "AJOONI": {
-      "futureGrowth": 33.33,
-      "fundamentalQuality": 56.47,
+      "futureGrowth": 50.0,
+      "fundamentalQuality": 67.46,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
     },
@@ -3647,37 +3647,37 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AKUMS": {
-      "futureGrowth": 84.61,
+      "futureGrowth": 84.48,
       "fundamentalQuality": 73.47,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
     },
     "APLLTD": {
-      "futureGrowth": 71.44,
+      "futureGrowth": 71.41,
       "fundamentalQuality": 71.18,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALEMBICLTD": {
-      "futureGrowth": 60.78,
+      "futureGrowth": 60.75,
       "fundamentalQuality": 96.33,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALGOQUANT": {
       "futureGrowth": 100.0,
-      "fundamentalQuality": 85.03,
+      "fundamentalQuality": 88.7,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALKYLAMINE": {
-      "futureGrowth": 46.17,
+      "futureGrowth": 46.3,
       "fundamentalQuality": 69.35,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALIVUS": {
-      "futureGrowth": 78.06,
+      "futureGrowth": 78.17,
       "fundamentalQuality": 96.45,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
@@ -3689,13 +3689,13 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALICON": {
-      "futureGrowth": 87.03,
+      "futureGrowth": 87.11,
       "fundamentalQuality": 57.21,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "ALLCARGO": {
-      "futureGrowth": 41.0,
+      "futureGrowth": 41.4,
       "fundamentalQuality": 44.37,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
@@ -3725,7 +3725,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ADSL": {
-      "futureGrowth": 51.48,
+      "futureGrowth": 51.54,
       "fundamentalQuality": 65.4,
       "capexScore": 50,
       "source": "Yahoo Finance financial-data proxy"
@@ -3785,7 +3785,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "AMBIKCO": {
-      "futureGrowth": 86.28,
+      "futureGrowth": 86.08,
       "fundamentalQuality": 66.53,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -3905,19 +3905,19 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "PARKHOTELS": {
-      "futureGrowth": 47.69,
+      "futureGrowth": 47.37,
       "fundamentalQuality": 73.42,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },
     "APEX": {
-      "futureGrowth": 61.74,
+      "futureGrowth": 61.91,
       "fundamentalQuality": 66.56,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
     },
     "APCOTEXIND": {
-      "futureGrowth": 86.61,
+      "futureGrowth": 86.41,
       "fundamentalQuality": 79.11,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -3941,7 +3941,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "APTECHT": {
-      "futureGrowth": 66.67,
+      "futureGrowth": 66.61,
       "fundamentalQuality": 68.64,
       "capexScore": 60,
       "source": "Yahoo Finance financial-data proxy"
@@ -4061,7 +4061,7 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ARVINDFASN": {
-      "futureGrowth": 43.05,
+      "futureGrowth": 43.11,
       "fundamentalQuality": 47.48,
       "capexScore": 70,
       "source": "Yahoo Finance financial-data proxy"
@@ -4073,8 +4073,8 @@
       "source": "Yahoo Finance financial-data proxy"
     },
     "ARVIND": {
-      "futureGrowth": 63.81,
-      "fundamentalQuality": 65.94,
+      "futureGrowth": 63.43,
+      "fundamentalQuality": 62.33,
       "capexScore": 90,
       "source": "Yahoo Finance financial-data proxy"
     },

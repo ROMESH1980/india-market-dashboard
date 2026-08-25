@@ -12663,5 +12663,80 @@
     "sector": "Consumer Cyclical",
     "industry": "Textile Manufacturing",
     "source": "Yahoo Finance"
+  },
+  "BGLOBAL": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
+  },
+  "CMICABLES": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "DIL": {
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "source": "Yahoo Finance"
+  },
+  "EDUCOMP": {
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "FCONSUMER": {
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
+  },
+  "GFSTEELS": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "HORIZONIND": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "LALITHAA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "MORARJEE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "NAGAFERT": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "ORTEL": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
+  },
+  "RAJVIR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "QUINTEGRA": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "SKIL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "UNIVAFOODS": {
+    "sector": "Financial Services",
+    "industry": "Shell Companies",
+    "source": "Yahoo Finance"
   }
 }
