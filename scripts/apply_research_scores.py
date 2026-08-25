@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
@@ -13,7 +14,6 @@ def load_json(path, default):
 
 
 def calc_overall(row):
-
     fields = {
         "macroSupport": 0.20,
         "valueMigration": 0.20,
@@ -23,16 +23,20 @@ def calc_overall(row):
         "sectorStrength": 0.10,
     }
 
+    # Overall tabhi calculate hoga
+    # jab existing 6 core scores available hon.
+    # Tailwind aur Stock Strength फिलहाल
+    # Overall me include nahi hain.
     if any(
-        row.get(k) is None
-        for k in fields
+        row.get(field) is None
+        for field in fields
     ):
         return None
 
     return round(
         sum(
-            float(row[k]) * weight
-            for k, weight
+            float(row[field]) * weight
+            for field, weight
             in fields.items()
         ),
         2
@@ -40,14 +44,8 @@ def calc_overall(row):
 
 
 def main():
-
-    stocks_path = (
-        DATA / "stocks.json"
-    )
-
-    scores_path = (
-        DATA / "research_scores.json"
-    )
+    stocks_path = DATA / "stocks.json"
+    scores_path = DATA / "research_scores.json"
 
     stocks = load_json(
         stocks_path,
@@ -64,38 +62,57 @@ def main():
         {}
     )
 
+    # Ye saare fields research_scores.json
+    # se stocks.json me copy honge.
     fields = [
         "sectorStrength",
+
         "stockStrength1M",
         "stockStrength3M",
         "stockStrength6M",
+
         "strengthBenchmark",
+
+        "tailwindScore",
+
         "macroSupport",
         "valueMigration",
         "futureGrowth",
         "fundamentalQuality",
         "capexScore",
+
+        "researchReasons",
     ]
 
+    updated = 0
     fully_scored = 0
 
-    for row in stocks:
+    tailwind_available = 0
+    stock_strength_1m_available = 0
+    stock_strength_3m_available = 0
+    stock_strength_6m_available = 0
+    reasons_available = 0
 
+    for row in stocks:
         symbol = row.get(
             "symbol",
             ""
         )
+
+        if not symbol:
+            continue
 
         score = scores.get(
             symbol,
             {}
         )
 
+        if score:
+            updated += 1
+
         for field in fields:
             if field in score:
-                row[field] = (
-                    score[field]
-                )
+                row[field] = score[field]
 
         row["overallScore"] = (
             calc_overall(row)
@@ -106,6 +123,40 @@ def main():
             is not None
         ):
             fully_scored += 1
+
+        if (
+            row.get("tailwindScore")
+            is not None
+        ):
+            tailwind_available += 1
+
+        if (
+            row.get("stockStrength1M")
+            is not None
+        ):
+            stock_strength_1m_available += 1
+
+        if (
+            row.get("stockStrength3M")
+            is not None
+        ):
+            stock_strength_3m_available += 1
+
+        if (
+            row.get("stockStrength6M")
+            is not None
+        ):
+            stock_strength_6m_available += 1
+
+        reasons = row.get(
+            "researchReasons"
+        )
+
+        if (
+            isinstance(reasons, dict)
+            and any(reasons.values())
+        ):
+            reasons_available += 1
 
     stocks_path.write_text(
         json.dumps(
@@ -119,8 +170,26 @@ def main():
         "stocks":
             len(stocks),
 
+        "researchScoresApplied":
+            updated,
+
         "fullyScored":
-            fully_scored
+            fully_scored,
+
+        "tailwindAvailable":
+            tailwind_available,
+
+        "stockStrength1M":
+            stock_strength_1m_available,
+
+        "stockStrength3M":
+            stock_strength_3m_available,
+
+        "stockStrength6M":
+            stock_strength_6m_available,
+
+        "researchReasonsAvailable":
+            reasons_available,
     })
 
 
