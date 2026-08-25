@@ -1,14 +1,16 @@
 :root {
-  --bg: #0b1220;
-  --panel: #111a2b;
-  --panel-2: #162238;
-  --line: #25344d;
+  --bg: #07101f;
+  --panel: #0d1728;
+  --panel-2: #14223a;
+  --line: #263852;
   --text: #e8eef8;
-  --muted: #93a4bd;
-  --accent: #2b8cff;
-  --good: #25c26e;
-  --mid: #e0a100;
-  --danger: #e45b5b;
+  --muted: #8fa3bd;
+  --accent: #1687ff;
+
+  --green: #159447;
+  --yellow: #d99a00;
+  --red: #c94b4b;
+  --blue: #1769aa;
 }
 
 * {
@@ -23,6 +25,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
+
   font-family:
     Inter,
     ui-sans-serif,
@@ -43,141 +46,172 @@ button {
   cursor: pointer;
 }
 
+
+/* =====================================================
+   PAGE WIDTH
+   ===================================================== */
+
 main,
 .hero,
 footer {
-  width: calc(100% - 16px);
-  max-width: 2100px;
+  width: calc(100% - 12px);
+  max-width: 2300px;
+
   margin-left: auto;
   margin-right: auto;
 }
 
-/* =========================
+
+/* =====================================================
    COMPACT HERO
-   ========================= */
+   ===================================================== */
 
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
 
-  padding: 12px 4px 8px;
+  gap: 12px;
+
+  padding: 8px 2px 5px;
 }
 
 .compact-hero h1 {
-  margin: 3px 0 2px;
-  font-size: 24px;
-  line-height: 1.1;
+  margin: 2px 0;
+
+  font-size: 21px;
+  line-height: 1.08;
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: .12em;
+  font-size: 10px;
+  letter-spacing: .1em;
   color: var(--muted);
 }
 
 .hero-desc {
   margin: 2px 0 0;
-  font-size: 12px;
+
+  font-size: 11px;
   color: var(--muted);
 }
 
 .livebox {
   display: flex;
   align-items: center;
-  gap: 8px;
 
-  padding: 7px 10px;
+  gap: 6px;
+
+  padding: 5px 8px;
 
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
 
   background: var(--panel);
-  color: var(--muted);
 
-  font-size: 12px;
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
+
   border-radius: 50%;
-  background: var(--good);
+
+  background: var(--green);
 }
 
-/* =========================
+
+/* =====================================================
    COMPACT STATS
-   ========================= */
+   ===================================================== */
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin: 6px 0 8px;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 5px;
+
+  margin: 4px 0 6px;
 }
 
 .stat {
   border: 1px solid var(--line);
   background: var(--panel);
-  border-radius: 10px;
-  padding: 8px 10px;
+
+  border-radius: 8px;
+
+  padding: 5px 8px;
 }
 
 .compact-stat {
-  min-height: 54px;
+  min-height: 42px;
 }
 
 .stat b {
-  display: block;
-  font-size: 20px;
+  display: inline-block;
+
+  margin-right: 7px;
+
+  font-size: 18px;
   line-height: 1;
-  margin-bottom: 5px;
 }
 
 .stat span {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--muted);
 }
 
-/* =========================
-   CARD
-   ========================= */
+
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
 
 .card {
   width: 100%;
+
   background: var(--panel);
+
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+
+  padding: 7px;
+
+  margin-bottom: 8px;
 }
 
 .universe-card {
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
 .sectionhead {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+
+  gap: 8px;
 }
 
 .universe-head {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .universe-title-wrap {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 7px;
+
+  gap: 5px;
 }
 
 .universe-title-wrap h2 {
   margin: 0;
-  font-size: 17px;
+
+  font-size: 15px;
 }
 
 .date-badge,
@@ -185,60 +219,69 @@ footer {
   display: inline-flex;
   align-items: center;
 
-  padding: 3px 7px;
+  padding: 2px 6px;
 
   border: 1px solid var(--line);
   border-radius: 999px;
 
-  color: var(--muted);
   background: var(--panel-2);
+  color: var(--muted);
 
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .universe-actions {
   display: flex;
-  gap: 7px;
   align-items: center;
+
+  gap: 5px;
 }
 
 .primary-btn,
 .secondary-btn,
 .pager button {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
 
-  padding: 7px 10px;
+  padding: 5px 8px;
 
-  color: var(--text);
   background: var(--panel-2);
+  color: var(--text);
+
+  font-size: 11px;
 }
 
 .primary-btn {
   background: var(--accent);
   border-color: var(--accent);
+
   color: white;
 }
 
-/* =========================
-   TOP SCROLLBAR
-   ========================= */
+
+/* =====================================================
+   TOP HORIZONTAL SCROLL
+   ===================================================== */
 
 .topscroll {
   width: 100%;
+
   overflow-x: auto;
   overflow-y: hidden;
-  height: 18px;
-  margin: 3px 0 5px;
+
+  height: 17px;
+
+  margin: 2px 0 3px;
 }
 
 #topScrollInner {
   height: 1px;
 }
 
-/* =========================
-   TABLE WRAP
-   ========================= */
+
+/* =====================================================
+   TABLE
+   ===================================================== */
 
 .tablewrap {
   position: relative;
@@ -248,14 +291,15 @@ footer {
   overflow-x: auto;
   overflow-y: auto;
 
-  max-height: 72vh;
+  max-height: 73vh;
 
   scrollbar-gutter: stable;
 }
 
 #stockTable {
   width: max-content;
-  min-width: 2050px;
+
+  min-width: 1700px;
 
   border-collapse: separate;
   border-spacing: 0;
@@ -264,59 +308,83 @@ footer {
 #stockTable th,
 #stockTable td {
   border-bottom: 1px solid var(--line);
-  border-right: 1px solid rgba(37, 52, 77, .45);
+  border-right: 1px solid rgba(38, 56, 82, .45);
 
-  padding: 8px 8px;
+  padding: 5px 5px;
 
   vertical-align: middle;
 
   background: var(--panel);
+
+  font-size: 11px;
 }
 
-/* =========================
+
+/* =====================================================
    STICKY HEADER
-   ========================= */
+   ===================================================== */
 
 .header-row th {
   position: sticky;
+
   top: 0;
+
   z-index: 30;
 
   background: #101b2d !important;
 
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
 
-  white-space: nowrap;
+  line-height: 1.15;
+
+  white-space: normal;
+
+  text-align: center;
 }
+
+.header-row th small {
+  font-size: 9px;
+  color: var(--muted);
+}
+
+
+/* =====================================================
+   STICKY FILTER ROW
+   ===================================================== */
 
 .filter-row th {
   position: sticky;
-  top: 47px;
+
+  top: 37px;
+
   z-index: 29;
 
   background: #101b2d !important;
 
-  padding: 5px 6px !important;
+  padding: 3px !important;
 }
 
-/* =========================
-   FREEZE STOCK COLUMN
-   ========================= */
+
+/* =====================================================
+   FROZEN STOCK COLUMN
+   ===================================================== */
 
 .stock-col,
 #stockTable th:first-child,
 #stockTable td:first-child {
   position: sticky;
+
   left: 0;
 
-  min-width: 165px;
-  width: 165px;
-  max-width: 165px;
+  min-width: 155px;
+  width: 155px;
+  max-width: 155px;
 
   background: #101b2d !important;
 
-  border-right: 1px solid #34445f !important;
+  border-right:
+    2px solid #354b69 !important;
 }
 
 #stockTable tbody td:first-child {
@@ -331,52 +399,61 @@ footer {
   z-index: 61;
 }
 
-/* =========================
-   STOCK CELL
-   ========================= */
+
+/* =====================================================
+   STOCK NAME
+   ===================================================== */
 
 .name {
+  font-size: 11px;
+  line-height: 1.18;
+
   font-weight: 700;
-  font-size: 12px;
-  line-height: 1.25;
 }
 
 .sub {
-  margin-top: 3px;
+  margin-top: 2px;
 
-  font-size: 10px;
-  line-height: 1.2;
+  font-size: 9px;
+  line-height: 1.15;
 
   color: var(--muted);
 
   white-space: normal;
 }
 
-/* =========================
-   FILTER CONTROLS
-   ========================= */
+
+/* =====================================================
+   FILTERS
+   ===================================================== */
 
 .filter-box {
   display: grid;
-  gap: 4px;
 
-  min-width: 92px;
+  gap: 2px;
+
+  width: 100%;
 }
 
 .filter-toggle {
   display: flex;
-  align-items: center;
-  gap: 4px;
 
-  font-size: 10px;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2px;
+
+  font-size: 8px;
+
   color: var(--muted);
 
   white-space: nowrap;
 }
 
 .filter-toggle input[type="checkbox"] {
-  width: 13px;
-  height: 13px;
+  width: 11px;
+  height: 11px;
+
   margin: 0;
 }
 
@@ -385,15 +462,17 @@ footer {
 .stock-search {
   width: 100%;
 
+  min-width: 0;
+
   border: 1px solid #34445f;
-  border-radius: 6px;
+  border-radius: 4px;
 
-  padding: 5px 6px;
+  padding: 3px 3px;
 
-  background: #0d1727;
+  background: #091526;
   color: var(--text);
 
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .filter-box > input:focus,
@@ -404,151 +483,383 @@ footer {
 }
 
 .stock-search {
-  min-width: 145px;
-}
-
-.stock-strength-filter {
-  min-width: 125px;
-}
-
-/* Active filter highlight */
-.filter-box:has(input[type="checkbox"]:checked) {
-  border-radius: 7px;
-  box-shadow: inset 0 0 0 1px rgba(43, 140, 255, .45);
-  padding: 3px;
-}
-
-/* =========================
-   COLUMN WIDTHS
-   ========================= */
-
-#stockTable th:nth-child(2),
-#stockTable td:nth-child(2) {
-  min-width: 100px;
-}
-
-#stockTable th:nth-child(3),
-#stockTable td:nth-child(3) {
-  min-width: 100px;
-}
-
-#stockTable th:nth-child(4),
-#stockTable td:nth-child(4) {
-  min-width: 95px;
-}
-
-#stockTable th:nth-child(5),
-#stockTable td:nth-child(5),
-#stockTable th:nth-child(6),
-#stockTable td:nth-child(6) {
-  min-width: 115px;
-}
-
-#stockTable th:nth-child(7),
-#stockTable td:nth-child(7) {
-  min-width: 105px;
-}
-
-#stockTable th:nth-child(8),
-#stockTable td:nth-child(8) {
-  min-width: 120px;
-}
-
-#stockTable th:nth-child(9),
-#stockTable td:nth-child(9) {
   min-width: 135px;
 }
 
+.stock-strength-filter {
+  min-width: 78px;
+}
+
+.filter-box:has(
+  input[type="checkbox"]:checked
+) {
+  padding: 2px;
+
+  border-radius: 5px;
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(22, 135, 255, .55);
+}
+
+
+/* =====================================================
+   VERY COMPACT COLUMN WIDTHS
+   ===================================================== */
+
+/* MARKET CAP */
+
+#stockTable th:nth-child(2),
+#stockTable td:nth-child(2) {
+  min-width: 68px;
+  width: 68px;
+  max-width: 68px;
+
+  white-space: normal;
+  text-align: center;
+}
+
+
+/* PRICE */
+
+#stockTable th:nth-child(3),
+#stockTable td:nth-child(3) {
+  min-width: 68px;
+  width: 68px;
+  max-width: 68px;
+
+  text-align: center;
+}
+
+
+/* CHANGE */
+
+#stockTable th:nth-child(4),
+#stockTable td:nth-child(4) {
+  min-width: 58px;
+  width: 58px;
+  max-width: 58px;
+
+  text-align: center;
+}
+
+
+/* TODAY DELIVERY */
+
+#stockTable th:nth-child(5),
+#stockTable td:nth-child(5) {
+  min-width: 70px;
+  width: 70px;
+  max-width: 70px;
+
+  text-align: center;
+}
+
+
+/* 5 DAY AVG DELIVERY */
+
+#stockTable th:nth-child(6),
+#stockTable td:nth-child(6) {
+  min-width: 70px;
+  width: 70px;
+  max-width: 70px;
+
+  text-align: center;
+}
+
+
+/* DELIVERY RATIO */
+
+#stockTable th:nth-child(7),
+#stockTable td:nth-child(7) {
+  min-width: 60px;
+  width: 60px;
+  max-width: 60px;
+
+  text-align: center;
+}
+
+
+/* SECTOR */
+
+#stockTable th:nth-child(8),
+#stockTable td:nth-child(8) {
+  min-width: 82px;
+  width: 82px;
+  max-width: 82px;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+
+/* INDUSTRY */
+
+#stockTable th:nth-child(9),
+#stockTable td:nth-child(9) {
+  min-width: 90px;
+  width: 90px;
+  max-width: 90px;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   SCORE COLUMNS - COMPACT
+   ===================================================== */
+
+/* Sector Strength */
+
 #stockTable th:nth-child(10),
-#stockTable td:nth-child(10),
+#stockTable td:nth-child(10) {
+  min-width: 74px;
+  width: 74px;
+  max-width: 74px;
+
+  text-align: center;
+}
+
+
+/* Stock Strength */
+
 #stockTable th:nth-child(11),
 #stockTable td:nth-child(11) {
-  min-width: 125px;
+  min-width: 80px;
+  width: 80px;
+  max-width: 80px;
+
+  text-align: center;
 }
 
-#stockTable th:nth-child(n+12),
-#stockTable td:nth-child(n+12) {
-  min-width: 105px;
+
+/* Tailwind */
+
+#stockTable th:nth-child(12),
+#stockTable td:nth-child(12) {
+  min-width: 68px;
+  width: 68px;
+  max-width: 68px;
+
+  text-align: center;
 }
 
-/* =========================
-   SCORES
-   ========================= */
+
+/* Macro */
+
+#stockTable th:nth-child(13),
+#stockTable td:nth-child(13) {
+  min-width: 62px;
+  width: 62px;
+  max-width: 62px;
+
+  text-align: center;
+}
+
+
+/* Value Migration */
+
+#stockTable th:nth-child(14),
+#stockTable td:nth-child(14) {
+  min-width: 78px;
+  width: 78px;
+  max-width: 78px;
+
+  text-align: center;
+}
+
+
+/* Future Growth */
+
+#stockTable th:nth-child(15),
+#stockTable td:nth-child(15) {
+  min-width: 74px;
+  width: 74px;
+  max-width: 74px;
+
+  text-align: center;
+}
+
+
+/* Fundamental */
+
+#stockTable th:nth-child(16),
+#stockTable td:nth-child(16) {
+  min-width: 74px;
+  width: 74px;
+  max-width: 74px;
+
+  text-align: center;
+}
+
+
+/* CAPEX */
+
+#stockTable th:nth-child(17),
+#stockTable td:nth-child(17) {
+  min-width: 62px;
+  width: 62px;
+  max-width: 62px;
+
+  text-align: center;
+}
+
+
+/* OVERALL */
+
+#stockTable th:nth-child(18),
+#stockTable td:nth-child(18) {
+  min-width: 62px;
+  width: 62px;
+  max-width: 62px;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   FULL COLOUR SCORE BADGES
+   ===================================================== */
 
 .score {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
-  gap: 3px;
 
-  min-width: 36px;
+  gap: 2px;
 
-  padding: 3px 7px;
+  min-width: 34px;
 
-  border: 1px solid var(--line);
-  border-radius: 999px;
+  padding: 4px 6px;
 
-  background: #1a273d;
-  color: var(--text);
+  border: none;
 
-  font-weight: 700;
+  border-radius: 6px;
+
+  background: var(--red);
+
+  color: #ffffff;
+
   font-size: 11px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  box-shadow:
+    0 1px 2px
+    rgba(0, 0, 0, .28);
 }
 
-.score.hi {
-  background: rgba(37, 194, 110, .15);
-  border-color: rgba(37, 194, 110, .45);
-}
+
+/* 60 - 74 */
 
 .score.mid {
-  background: rgba(224, 161, 0, .13);
-  border-color: rgba(224, 161, 0, .4);
+  background: var(--yellow);
+
+  color: #111;
 }
+
+
+/* 75+ */
+
+.score.hi {
+  background: var(--green);
+
+  color: #fff;
+}
+
+
+/* Clickable score */
 
 .score-button {
   cursor: pointer;
+
+  transition:
+    transform .08s ease,
+    filter .08s ease;
+}
+
+.score-button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
 }
 
 .info-mark {
-  font-size: 9px;
-  opacity: .8;
+  font-size: 8px;
+  line-height: 1;
+
+  opacity: .9;
 }
+
+
+/* PENDING */
 
 .pending {
   color: var(--muted);
-  font-size: 11px;
+
+  font-size: 9px;
+
+  white-space: nowrap;
 }
 
-/* =========================
-   PAGINATION
-   ========================= */
+
+/* =====================================================
+   DELIVERY RATIO
+   ===================================================== */
+
+#stockTable td:nth-child(7) strong {
+  display: inline-block;
+
+  padding: 3px 4px;
+
+  border-radius: 4px;
+
+  background: #17375a;
+
+  color: #dcecff;
+
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   PAGER
+   ===================================================== */
 
 .pager {
   display: flex;
+
   justify-content: center;
   align-items: center;
-  gap: 10px;
 
-  padding-top: 9px;
+  gap: 8px;
 
-  font-size: 12px;
+  padding-top: 6px;
+
+  font-size: 10px;
 }
 
-/* =========================
+
+/* =====================================================
    REASON / SOURCE MODAL
-   ========================= */
+   ===================================================== */
 
 .reason-modal {
   position: fixed;
+
   inset: 0;
 
   display: none;
+
   align-items: center;
   justify-content: center;
 
   padding: 20px;
 
-  background: rgba(3, 8, 16, .72);
+  background:
+    rgba(3, 8, 16, .76);
 
   z-index: 1000;
 }
@@ -562,90 +873,101 @@ footer {
 
   width: min(520px, 100%);
 
-  background: var(--panel);
-  color: var(--text);
+  padding: 17px;
 
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 12px;
 
-  padding: 18px;
+  background: var(--panel);
+  color: var(--text);
 }
 
 .reason-modal-card h3 {
-  margin: 0 36px 10px 0;
-  font-size: 18px;
+  margin: 0 36px 9px 0;
+
+  font-size: 17px;
 }
 
 .reason-close {
   position: absolute;
-  right: 10px;
-  top: 8px;
 
-  width: 32px;
-  height: 32px;
+  right: 8px;
+  top: 7px;
+
+  width: 30px;
+  height: 30px;
 
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
 
   background: transparent;
   color: var(--text);
 
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .reason-score {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 
   font-weight: 800;
+
   color: var(--accent);
 }
 
 .reason-text {
-  line-height: 1.55;
+  line-height: 1.5;
+
   color: #d6dfec;
 }
 
 .reason-source-date {
-  margin: 8px 0;
+  margin: 7px 0;
 
-  font-size: 12px;
+  font-size: 11px;
+
   color: var(--muted);
 }
 
 .reason-source-link {
   display: inline-flex;
 
-  padding: 7px 10px;
+  padding: 6px 9px;
 
-  border-radius: 8px;
+  border-radius: 6px;
 
   background: var(--accent);
+
   color: white;
 
   text-decoration: none;
-  font-size: 12px;
+
+  font-size: 11px;
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-   ========================= */
+   ===================================================== */
 
 footer {
-  padding: 10px 2px 18px;
+  padding: 8px 2px 14px;
 
   text-align: center;
 
-  font-size: 11px;
+  font-size: 10px;
+
   color: var(--muted);
 }
 
-/* =========================
+
+/* =====================================================
    RESPONSIVE
-   ========================= */
+   ===================================================== */
 
 @media (max-width: 1000px) {
-  .hero {
-    align-items: flex-start;
+
+  .compact-hero h1 {
+    font-size: 19px;
   }
 
   .stats {
@@ -653,24 +975,24 @@ footer {
       repeat(2, minmax(0, 1fr));
   }
 
-  .compact-hero h1 {
-    font-size: 21px;
-  }
-
   .universe-head {
     align-items: flex-start;
   }
+
 }
 
+
 @media (max-width: 700px) {
+
   main,
   .hero,
   footer {
-    width: calc(100% - 8px);
+    width: calc(100% - 6px);
   }
 
   .hero {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .stats {
@@ -679,7 +1001,7 @@ footer {
   }
 
   .stat b {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .universe-head {
@@ -689,12 +1011,9 @@ footer {
   .stock-col,
   #stockTable th:first-child,
   #stockTable td:first-child {
-    min-width: 140px;
-    width: 140px;
-    max-width: 140px;
+    min-width: 135px;
+    width: 135px;
+    max-width: 135px;
   }
 
-  #stockTable {
-    min-width: 2100px;
-  }
 }
