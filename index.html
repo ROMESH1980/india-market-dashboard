@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
 
   <meta
@@ -8,129 +10,24 @@
     content="width=device-width, initial-scale=1"
   >
 
-  <title>NSE Research Dashboard</title>
+  <title>
+    NSE Research Dashboard
+  </title>
 
   <link
     rel="stylesheet"
     href="styles.css"
   >
 
-  <style>
-    /* ===============================
-       FINAL STOCK TABLE LAYOUT
-       =============================== */
-
-    .topscroll {
-      overflow-x: auto;
-      overflow-y: hidden;
-      height: 18px;
-      margin: 4px 0 6px;
-    }
-
-    #topScrollInner {
-      height: 1px;
-    }
-
-    .tablewrap {
-      position: relative;
-      overflow: auto;
-      max-height: 72vh;
-      scrollbar-gutter: stable;
-    }
-
-    .tablewrap table {
-      border-collapse: separate;
-      border-spacing: 0;
-      min-width: 2050px;
-    }
-
-    /* Main heading row sticky */
-    .tablewrap thead .header-row th {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: #101b2d;
-    }
-
-    /* Filter row sticky */
-    .tablewrap thead .filter-row th {
-      position: sticky;
-      top: 58px;
-      z-index: 29;
-      background: #101b2d;
-      padding: 6px;
-    }
-
-    /* First STOCK column frozen */
-    .tablewrap th:first-child,
-    .tablewrap td:first-child {
-      position: sticky;
-      left: 0;
-      min-width: 130px;
-      background: #101b2d;
-      border-right: 1px solid #26364d;
-    }
-
-    .tablewrap tbody td:first-child {
-      z-index: 15;
-    }
-
-    .tablewrap thead .header-row th:first-child {
-      z-index: 50;
-    }
-
-    .tablewrap thead .filter-row th:first-child {
-      z-index: 51;
-    }
-
-    .filter-row input,
-    .filter-row select {
-      width: 100%;
-      box-sizing: border-box;
-      min-width: 70px;
-      padding: 6px;
-      font-size: 12px;
-    }
-
-    .dual-filter {
-      display: flex;
-      gap: 4px;
-    }
-
-    .dual-filter input {
-      min-width: 56px;
-    }
-
-    .strength-filter {
-      display: grid;
-      gap: 4px;
-    }
-
-    .strength-range {
-      display: flex;
-      gap: 4px;
-    }
-
-    .universe-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .date-info {
-      margin-top: 5px;
-      font-size: 13px;
-      opacity: .8;
-    }
-  </style>
 </head>
 
 
 <body>
 
-<header class="hero">
 
-  <div>
+<header class="hero compact-hero">
+
+  <div class="hero-main">
 
     <div class="eyebrow">
       NSE MARKET INTELLIGENCE • FREE EOD
@@ -140,17 +37,10 @@
       NSE market research dashboard
     </h1>
 
-    <p>
-      NSE stocks ranked using Sector Strength,
-      Stock Strength, Macro Support, Value Migration,
-      Future Growth, Fundamental Quality and CAPEX.
+    <p class="hero-desc">
+      Sector Strength • Stock Strength • Tailwind • Macro •
+      Value Migration • Future Growth • Fundamental • CAPEX
     </p>
-
-    <div class="date-info">
-      <span id="marketDate">
-        Market / Delivery Data: Loading...
-      </span>
-    </div>
 
   </div>
 
@@ -160,7 +50,7 @@
     <span class="dot"></span>
 
     <span id="mode">
-      Loading data...
+      Loading...
     </span>
 
   </div>
@@ -170,44 +60,60 @@
 
 <main>
 
-  <section class="notice">
 
-    <b>Research dashboard.</b>
-
-    Delivery and research signals are based on
-    available NSE/EOD data.
-
-  </section>
-
+  <!-- COMPACT STATS -->
 
   <section
-    class="stats"
+    class="stats compact-stats"
     id="stats">
   </section>
 
 
-  <section class="card">
 
-    <div class="sectionhead">
+  <!-- NSE STOCK UNIVERSE -->
 
-      <div>
+  <section class="card universe-card">
+
+
+    <div class="sectionhead universe-head">
+
+      <div class="universe-title-wrap">
 
         <h2>
           NSE Stock Universe
         </h2>
 
-        <p id="resultCount"></p>
+        <span
+          class="date-badge"
+          id="dashboardDate">
+          Updated: —
+        </span>
+
+        <span
+          class="date-badge"
+          id="marketDate">
+          Market / Delivery: —
+        </span>
+
+        <span
+          class="result-count"
+          id="resultCount">
+        </span>
 
       </div>
 
 
       <div class="universe-actions">
 
-        <button id="strongSetup">
+        <button
+          id="strongSetup"
+          class="primary-btn">
           Strong Setup
         </button>
 
-        <button id="resetScores">
+        <button
+          id="resetScores"
+          class="secondary-btn">
           Reset
         </button>
 
@@ -216,7 +122,8 @@
     </div>
 
 
-    <!-- TOP HORIZONTAL SCROLLBAR -->
+
+    <!-- TOP HORIZONTAL SCROLL -->
 
     <div
       class="topscroll"
@@ -227,152 +134,224 @@
     </div>
 
 
-    <!-- MAIN TABLE -->
+
+    <!-- TABLE -->
 
     <div class="tablewrap">
 
-      <table>
+
+      <table id="stockTable">
+
 
         <thead>
 
-          <!-- HEADINGS -->
+
+          <!-- ================================
+               COLUMN HEADINGS
+               ================================ -->
 
           <tr class="header-row">
 
-            <th>
+
+            <th class="stock-col">
               Stock
             </th>
 
+
             <th>
               Market Cap
-              Category
             </th>
+
 
             <th>
               Price
             </th>
 
+
             <th>
               Change %
             </th>
 
+
             <th>
               Today Delivery
+              <br>
               Vol
             </th>
+
 
             <th>
               5D Avg Delivery
+              <br>
               Vol
             </th>
 
+
             <th>
-              Delivery Ratio
+              Delivery
+              <br>
+              Ratio
             </th>
+
 
             <th>
               Sector
             </th>
 
+
             <th>
               Industry
             </th>
 
+
             <th>
               Sector Strength
               <br>
-              <small>1 Month</small>
+              <small>1M</small>
             </th>
+
 
             <th>
               Stock Strength
             </th>
 
+
+            <th>
+              Tailwind
+            </th>
+
+
             <th>
               Macro
             </th>
+
 
             <th>
               Value Migration
             </th>
 
+
             <th>
               Future Growth
             </th>
+
 
             <th>
               Fundamental
             </th>
 
+
             <th>
               CAPEX
             </th>
+
 
             <th>
               Overall
             </th>
 
+
           </tr>
 
 
-          <!-- FILTERS -->
+
+          <!-- ================================
+               FILTER ROW
+               ACTIVE / INACTIVE + ABOVE
+               ================================ -->
 
           <tr class="filter-row">
+
+
+            <!-- STOCK SEARCH -->
 
             <th>
 
               <input
                 id="q"
+                class="stock-search"
                 type="text"
-                placeholder="Search stock"
+                placeholder="Search"
               >
 
             </th>
 
 
+
+            <!-- MARKET CAP -->
+
             <th>
 
-              <select id="marketCapFilter">
+              <div class="filter-box">
 
-                <option value="ALL">
-                  All
-                </option>
+                <label class="filter-toggle">
 
-                <option value="Large Cap">
-                  Large Cap
-                </option>
+                  <input
+                    id="activeMarketCap"
+                    type="checkbox"
+                  >
 
-                <option value="Mid Cap">
-                  Mid Cap
-                </option>
+                  <span>
+                    Active
+                  </span>
 
-                <option value="Small Cap">
-                  Small Cap
-                </option>
+                </label>
 
-                <option value="Micro Cap">
-                  Micro Cap
-                </option>
 
-              </select>
+                <select id="marketCapFilter">
+
+                  <option value="ALL">
+                    All
+                  </option>
+
+                  <option value="Large Cap">
+                    Large Cap
+                  </option>
+
+                  <option value="Mid Cap">
+                    Mid Cap
+                  </option>
+
+                  <option value="Small Cap">
+                    Small Cap
+                  </option>
+
+                  <option value="Micro Cap">
+                    Micro Cap
+                  </option>
+
+                </select>
+
+              </div>
 
             </th>
 
 
+
+            <!-- PRICE -->
+
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activePrice"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minPrice"
+                  id="abovePrice"
                   type="number"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxPrice"
-                  type="number"
-                  placeholder="Max"
+                  step="0.01"
+                  placeholder="Above"
                 >
 
               </div>
@@ -380,59 +359,31 @@
             </th>
 
 
-            <th>
 
-              <div class="dual-filter">
-
-                <input
-                  id="minChange"
-                  type="number"
-                  step="0.01"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxChange"
-                  type="number"
-                  step="0.01"
-                  placeholder="Max"
-                >
-
-              </div>
-
-            </th>
-
-
-            <th>
-              <span class="pending">
-                Display
-              </span>
-            </th>
-
-
-            <th>
-              <span class="pending">
-                Display
-              </span>
-            </th>
-
+            <!-- CHANGE -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeChange"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minDeliveryRatio"
+                  id="aboveChange"
                   type="number"
                   step="0.01"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxDeliveryRatio"
-                  type="number"
-                  step="0.01"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
@@ -440,50 +391,192 @@
             </th>
 
 
-            <th>
 
-              <select id="sectorFilter">
-
-                <option value="ALL">
-                  All sectors
-                </option>
-
-              </select>
-
-            </th>
-
+            <!-- TODAY DELIVERY -->
 
             <th>
 
-              <select id="industryFilter">
+              <div class="filter-box">
 
-                <option value="ALL">
-                  All industries
-                </option>
+                <label class="filter-toggle">
 
-              </select>
+                  <input
+                    id="activeTodayDelivery"
+                    type="checkbox"
+                  >
 
-            </th>
+                  <span>
+                    Active
+                  </span>
 
-
-            <th>
-
-              <div class="dual-filter">
+                </label>
 
                 <input
-                  id="minSectorStrength"
+                  id="aboveTodayDelivery"
+                  type="number"
+                  placeholder="Above"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- 5D DELIVERY -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="active5DDelivery"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <input
+                  id="above5DDelivery"
+                  type="number"
+                  placeholder="Above"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- DELIVERY RATIO -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeDeliveryRatio"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <input
+                  id="aboveDeliveryRatio"
+                  type="number"
+                  step="0.01"
+                  placeholder="Above"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- SECTOR -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeSector"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <select id="sectorFilter">
+
+                  <option value="ALL">
+                    All sectors
+                  </option>
+
+                </select>
+
+              </div>
+
+            </th>
+
+
+
+            <!-- INDUSTRY -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeIndustry"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <select id="industryFilter">
+
+                  <option value="ALL">
+                    All industries
+                  </option>
+
+                </select>
+
+              </div>
+
+            </th>
+
+
+
+            <!-- SECTOR STRENGTH -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeSectorStrength"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <input
+                  id="aboveSectorStrength"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxSectorStrength"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
@@ -491,9 +584,27 @@
             </th>
 
 
+
+            <!-- STOCK STRENGTH -->
+
             <th>
 
-              <div class="strength-filter">
+              <div class="filter-box stock-strength-filter">
+
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeStockStrength"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
 
                 <select id="stockStrengthPeriod">
 
@@ -514,191 +625,269 @@
                 </select>
 
 
-                <div class="strength-range">
+                <input
+                  id="aboveStockStrength"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Above"
+                >
+
+
+              </div>
+
+            </th>
+
+
+
+            <!-- TAILWIND -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
 
                   <input
-                    id="minStockStrength"
-                    type="number"
-                    min="0"
-                    max="100"
-                    placeholder="Min"
+                    id="activeTailwind"
+                    type="checkbox"
                   >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <input
+                  id="aboveTailwind"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Above"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- MACRO -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
 
                   <input
-                    id="maxStockStrength"
-                    type="number"
-                    min="0"
-                    max="100"
-                    placeholder="Max"
+                    id="activeMacro"
+                    type="checkbox"
                   >
 
-                </div>
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+                <input
+                  id="aboveMacro"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="Above"
+                >
 
               </div>
 
             </th>
 
+
+
+            <!-- VALUE MIGRATION -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeVM"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minMacro"
+                  id="aboveVM"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxMacro"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
 
             </th>
 
+
+
+            <!-- FUTURE GROWTH -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeGrowth"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minVM"
+                  id="aboveGrowth"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxVM"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
 
             </th>
 
+
+
+            <!-- FUNDAMENTAL -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeFundamental"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minGrowth"
+                  id="aboveFundamental"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxGrowth"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
 
             </th>
 
+
+
+            <!-- CAPEX -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeCapex"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minFundamental"
+                  id="aboveCapex"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxFundamental"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
 
             </th>
 
+
+
+            <!-- OVERALL -->
 
             <th>
 
-              <div class="dual-filter">
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeOverall"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
 
                 <input
-                  id="minCapex"
+                  id="aboveOverall"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxCapex"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
-                >
-
-              </div>
-
-            </th>
-
-
-            <th>
-
-              <div class="dual-filter">
-
-                <input
-                  id="minOverall"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Min"
-                >
-
-                <input
-                  id="maxOverall"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Max"
+                  placeholder="Above"
                 >
 
               </div>
 
             </th>
+
 
           </tr>
+
 
         </thead>
 
 
+
         <tbody id="rows"></tbody>
+
 
       </table>
 
+
     </div>
 
+
+
+    <!-- PAGINATION -->
 
     <div class="pager">
 
@@ -714,9 +903,12 @@
 
     </div>
 
+
   </section>
 
+
 </main>
+
 
 
 <footer>
@@ -727,7 +919,72 @@
 </footer>
 
 
+
+<!-- ==========================================
+     SCORE REASON / SOURCE MODAL
+     ========================================== -->
+
+<div
+  id="reasonModal"
+  class="reason-modal"
+  aria-hidden="true"
+>
+
+
+  <div class="reason-modal-card">
+
+
+    <button
+      id="closeReasonModal"
+      class="reason-close"
+      type="button">
+      ×
+    </button>
+
+
+    <h3 id="reasonTitle">
+      Score Details
+    </h3>
+
+
+    <div
+      id="reasonScore"
+      class="reason-score">
+    </div>
+
+
+    <p
+      id="reasonText"
+      class="reason-text">
+    </p>
+
+
+    <div
+      id="reasonSourceDate"
+      class="reason-source-date">
+    </div>
+
+
+    <a
+      id="reasonSourceLink"
+      class="reason-source-link"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer">
+      View Source
+    </a>
+
+
+  </div>
+
+
+</div>
+
+
+
 <script src="app.js"></script>
 
+
 </body>
+
 </html>
