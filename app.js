@@ -230,25 +230,6 @@ function selectedStockStrength(row) {
 }
 
 
-function selectedStockStrengthPeriod() {
-  return (
-    $("stockStrengthPeriod")
-      ?.value || "3M"
-  );
-}
-
-
-function stockStrengthPeriodLabel(period) {
-  const labels = {
-    "1M": "1 Month",
-    "3M": "3 Months",
-    "6M": "6 Months"
-  };
-
-  return labels[period] || period;
-}
-
-
 // =====================================================
 // FILTER ENGINE
 // =====================================================
@@ -395,6 +376,10 @@ function rankStocks(rows) {
   return [...rows].sort(
     (a, b) => {
 
+      // ---------------------------------------------
+      // 1. OVERALL SCORE FIRST
+      // ---------------------------------------------
+
       const ao =
         a.overallScore;
 
@@ -427,36 +412,81 @@ function rankStocks(rows) {
       }
 
 
-      const as =
-        selectedStockStrength(a);
-
-      const bs =
-        selectedStockStrength(b);
+      // ---------------------------------------------
+      // 2. STOCK STRENGTH ONLY WHEN USER ACTIVATES IT
+      // ---------------------------------------------
 
       if (
-        as != null &&
-        bs != null &&
-        Number(bs) !== Number(as)
+        isActive(
+          "activeStockStrength"
+        )
       ) {
-        return (
-          Number(bs) -
-          Number(as)
-        );
+
+        const as =
+          selectedStockStrength(a);
+
+        const bs =
+          selectedStockStrength(b);
+
+        if (
+          as != null &&
+          bs != null &&
+          Number(bs) !== Number(as)
+        ) {
+          return (
+            Number(bs) -
+            Number(as)
+          );
+        }
+
+        if (
+          as != null &&
+          bs == null
+        ) {
+          return -1;
+        }
+
+        if (
+          as == null &&
+          bs != null
+        ) {
+          return 1;
+        }
       }
 
 
+      // ---------------------------------------------
+      // 3. DELIVERY RATIO ONLY IF USER ACTIVATES IT
+      // ---------------------------------------------
+
       if (
-        a.deliveryVolumeRatio != null &&
-        b.deliveryVolumeRatio != null &&
-        Number(b.deliveryVolumeRatio) !==
-        Number(a.deliveryVolumeRatio)
+        isActive(
+          "activeDeliveryRatio"
+        )
       ) {
-        return (
-          Number(b.deliveryVolumeRatio) -
-          Number(a.deliveryVolumeRatio)
-        );
+
+        const ad =
+          a.deliveryVolumeRatio;
+
+        const bd =
+          b.deliveryVolumeRatio;
+
+        if (
+          ad != null &&
+          bd != null &&
+          Number(bd) !== Number(ad)
+        ) {
+          return (
+            Number(bd) -
+            Number(ad)
+          );
+        }
       }
 
+
+      // ---------------------------------------------
+      // 4. NAME
+      // ---------------------------------------------
 
       return (
         a.name || ""
@@ -551,7 +581,9 @@ function totalPagesFor(rows) {
 }
 
 
-function updatePageControls(pages) {
+function updatePageControls(
+  pages
+) {
 
   if ($("page")) {
     $("page").textContent =
@@ -587,7 +619,9 @@ function goToPage(value) {
     getFilteredData();
 
   const pages =
-    totalPagesFor(filtered);
+    totalPagesFor(
+      filtered
+    );
 
   let target =
     Number(value);
@@ -635,7 +669,9 @@ function render() {
     getFilteredData();
 
   const pages =
-    totalPagesFor(filtered);
+    totalPagesFor(
+      filtered
+    );
 
   if (page > pages) {
     page = pages;
@@ -644,6 +680,7 @@ function render() {
   if (page < 1) {
     page = 1;
   }
+
 
   const rows =
     filtered.slice(
@@ -927,15 +964,21 @@ function openReasonModal(
   let value = null;
 
 
-  if (field === "tailwind") {
+  if (
+    field === "tailwind"
+  ) {
     value =
       row.tailwindScore;
   }
 
-  else if (field === "macro") {
+
+  else if (
+    field === "macro"
+  ) {
     value =
       row.macroSupport;
   }
+
 
   else if (
     field === "valueMigration"
@@ -944,6 +987,7 @@ function openReasonModal(
       row.valueMigration;
   }
 
+
   else if (
     field === "futureGrowth"
   ) {
@@ -951,12 +995,14 @@ function openReasonModal(
       row.futureGrowth;
   }
 
+
   else if (
     field === "fundamentalQuality"
   ) {
     value =
       row.fundamentalQuality;
   }
+
 
   else if (
     field === "capex"
@@ -984,19 +1030,23 @@ function openReasonModal(
     let modeText = "";
 
     if (
-      detail.mode === "VERIFIED"
+      detail.mode ===
+      "VERIFIED"
     ) {
       modeText =
         " • VERIFIED";
     }
 
     else if (
-      detail.mode === "AUTOMATED_PROXY" ||
-      detail.mode === "AUTOMATED"
+      detail.mode ===
+      "AUTOMATED_PROXY" ||
+      detail.mode ===
+      "AUTOMATED"
     ) {
       modeText =
         " • Automated";
     }
+
 
     $("reasonScore").textContent =
       value == null
@@ -1056,6 +1106,7 @@ function openReasonModal(
     return;
   }
 
+
   modal.classList.add(
     "open"
   );
@@ -1075,6 +1126,7 @@ function closeReasonModal() {
   if (!modal) {
     return;
   }
+
 
   modal.classList.remove(
     "open"
@@ -1099,15 +1151,19 @@ function attachScoreButtons() {
         () => {
 
           openReasonModal(
+
             decodeURIComponent(
               button.dataset.symbol || ""
             ),
+
             decodeURIComponent(
               button.dataset.field || ""
             ),
+
             decodeURIComponent(
               button.dataset.label || ""
             )
+
           );
         };
     });
@@ -1370,7 +1426,6 @@ async function fetchJSON(url) {
 
 
   if (!response.ok) {
-
     throw new Error(
       `Failed to load ${url}: ${response.status}`
     );
@@ -1476,87 +1531,6 @@ function setupFilterEvents() {
 
 
 // =====================================================
-// STRONG SETUP TOAST
-// =====================================================
-
-function showStrongSetupToast(period) {
-
-  const timeframe =
-    stockStrengthPeriodLabel(
-      period
-    );
-
-
-  const oldToast =
-    document.querySelector(
-      ".strong-toast"
-    );
-
-
-  if (oldToast) {
-    oldToast.remove();
-  }
-
-
-  const toast =
-    document.createElement(
-      "div"
-    );
-
-
-  toast.className =
-    "strong-toast";
-
-
-  toast.innerHTML = `
-
-    <div class="strong-toast-title">
-      Strong Setup Applied ✓
-    </div>
-
-    <div class="strong-toast-timeframe">
-      Stock Strength IN TIME FRAME : ${timeframe}
-    </div>
-
-  `;
-
-
-  document.body.appendChild(
-    toast
-  );
-
-
-  requestAnimationFrame(
-    () => {
-      toast.classList.add(
-        "show"
-      );
-    }
-  );
-
-
-  setTimeout(
-    () => {
-
-      toast.classList.remove(
-        "show"
-      );
-
-
-      setTimeout(
-        () => {
-          toast.remove();
-        },
-        250
-      );
-
-    },
-    4000
-  );
-}
-
-
-// =====================================================
 // SET FILTER HELPERS
 // =====================================================
 
@@ -1585,153 +1559,27 @@ function setValue(
 
 
 // =====================================================
-// RESET
-// =====================================================
-
-function resetFilters(
-  preserveStockStrengthPeriod = false
-) {
-
-  const currentPeriod =
-    selectedStockStrengthPeriod();
-
-
-  filterIds.forEach(id => {
-
-    const el =
-      $(id);
-
-    if (!el) {
-      return;
-    }
-
-
-    if (
-      el.type ===
-      "checkbox"
-    ) {
-
-      el.checked =
-        false;
-    }
-
-
-    else if (
-      id ===
-      "stockStrengthPeriod"
-    ) {
-
-      el.value =
-        preserveStockStrengthPeriod
-          ? currentPeriod
-          : "3M";
-    }
-
-
-    else if (
-      el.tagName ===
-      "SELECT"
-    ) {
-
-      el.value =
-        "ALL";
-    }
-
-
-    else {
-
-      el.value =
-        "";
-    }
-
-  });
-
-
-  page = 1;
-
-
-  if (
-    !preserveStockStrengthPeriod
-  ) {
-    render();
-  }
-}
-
-
-// =====================================================
 // STRONG SETUP
 // =====================================================
 
 function applyStrongSetup() {
 
   /*
-    User ne jo Stock Strength timeframe
-    select kiya hai wahi Strong Setup use karega.
-
-    1 Month
-    3 Months
-    6 Months
-  */
-
-  const selectedPeriod =
-    selectedStockStrengthPeriod();
-
-
-  /*
-    Purane manually selected filters clear honge,
-    lekin Stock Strength timeframe preserve hoga.
-  */
-
-  resetFilters(true);
-
-
-  // Delivery Ratio >= 1.00x
-
-  setCheckbox(
-    "activeDeliveryRatio",
-    true
-  );
-
-  setValue(
-    "aboveDeliveryRatio",
-    1
-  );
-
-
-  // Sector Strength >= 70
-
-  setCheckbox(
-    "activeSectorStrength",
-    true
-  );
-
-  setValue(
-    "aboveSectorStrength",
-    70
-  );
-
-
-  // Stock Strength >= 70
-
-  setCheckbox(
-    "activeStockStrength",
-    true
-  );
-
-  /*
     IMPORTANT:
-    Yahan period ko 3M force NAHI karna.
+
+    Strong Setup ONLY rating columns use karega:
+
+    Tailwind
+    Macro
+    Value Migration
+    Future Growth
+    Fundamental
+    CAPEX
+    Overall
+
+    Baaki filters user-controlled / optional hain.
+    Strong Setup unko change nahi karega.
   */
-
-  setValue(
-    "stockStrengthPeriod",
-    selectedPeriod
-  );
-
-  setValue(
-    "aboveStockStrength",
-    70
-  );
 
 
   // Tailwind >= 70
@@ -1827,13 +1675,64 @@ function applyStrongSetup() {
 
   page = 1;
 
+  render();
+}
+
+
+// =====================================================
+// RESET
+// =====================================================
+
+function resetFilters() {
+
+  filterIds.forEach(id => {
+
+    const el =
+      $(id);
+
+    if (!el) {
+      return;
+    }
+
+
+    if (
+      el.type ===
+      "checkbox"
+    ) {
+      el.checked =
+        false;
+    }
+
+
+    else if (
+      id ===
+      "stockStrengthPeriod"
+    ) {
+      el.value =
+        "3M";
+    }
+
+
+    else if (
+      el.tagName ===
+      "SELECT"
+    ) {
+      el.value =
+        "ALL";
+    }
+
+
+    else {
+      el.value =
+        "";
+    }
+
+  });
+
+
+  page = 1;
 
   render();
-
-
-  showStrongSetupToast(
-    selectedPeriod
-  );
 }
 
 
@@ -1889,9 +1788,7 @@ async function init() {
     if ($("resetScores")) {
 
       $("resetScores").onclick =
-        () => {
-          resetFilters(false);
-        };
+        resetFilters;
     }
 
 
