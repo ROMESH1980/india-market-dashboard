@@ -2,7 +2,21 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score without a supporting reason and source.",
-    "updated": ""
+    "updated": "2026-08-25"
   },
-  "stocks": {}
+
+  "stocks": {
+
+    "ACUTAAS": {
+
+      "valueMigration": {
+        "score": 85,
+        "reason": "Verified business Value Migration: Acutaas is expanding from pharmaceutical intermediates into higher-value CDMO, semiconductor chemicals and battery chemicals. The company states that it is India's only manufacturer of semiconductor-grade photoresist chemicals and the first company in India outside China to develop electrolyte additives on a commercial scale. This indicates localisation/import-substitution and a shift toward higher-value new-age specialty chemistry.",
+        "source": "https://acutaas.com/products",
+        "sourceDate": "2026-08-25"
+      }
+
+    }
+
+  }
 }
