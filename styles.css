@@ -893,3 +893,58 @@ footer {
   }
 
 }
+/* =========================================
+   STRONG SETUP TOAST
+   ========================================= */
+
+.strong-toast {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+
+  z-index: 2000;
+
+  min-width: 280px;
+  max-width: 360px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #3b4f69;
+  border-radius: 8px;
+
+  background: #101b2d;
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  transform: translateY(-10px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.strong-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.strong-toast-title {
+  font-size: 13px;
+  font-weight: 800;
+
+  color: #23c35d;
+
+  margin-bottom: 4px;
+}
+
+.strong-toast-timeframe {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #ffffff;
+}
