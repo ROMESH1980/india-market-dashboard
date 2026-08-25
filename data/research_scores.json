@@ -4,6 +4,7 @@
     "scale": "0-100",
     "updated": "2026-08-25",
     "methodologyPage": "methodology.html",
+    "historyFallback": "Previous valid Sector Strength and Stock Strength values are preserved when current historical-price data is unavailable.",
     "method": {
       "sectorStrength": "1-month relevant Nifty sector-index return percentile",
       "stockStrength1M": "1-month stock excess return versus relevant benchmark percentile",
@@ -24,7 +25,7 @@
       "fundamentalQuality": 20,
       "capexScore": 10
     },
-    "note": "Stock Strength and Tailwind remain separate screening metrics and are not currently included in Overall Score. Automated Value Migration is a screening proxy and not verified business migration."
+    "note": "Stock Strength and Tailwind remain separate screening metrics. Automated Value Migration is a screening proxy and not verified business migration."
   },
   "stocks": {
     "20MICRONS": {
@@ -181,7 +182,7 @@
       }
     },
     "3BBLACKBIO": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -866,7 +867,7 @@
       }
     },
     "AAREYDRUGS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -1050,7 +1051,7 @@
       }
     },
     "AARTIDRUGS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -1152,7 +1153,7 @@
       }
     },
     "AARTIPHARM": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -1642,7 +1643,7 @@
       }
     },
     "ABBOTINDIA": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -2235,7 +2236,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -2400,7 +2401,7 @@
       }
     },
     "ACUTAAS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -2470,7 +2471,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -2572,7 +2573,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -2674,7 +2675,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -4430,7 +4431,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 42.17,
-      "futureGrowth": 11.93,
+      "futureGrowth": 0,
       "fundamentalQuality": 58.3,
       "capexScore": 90.0,
       "researchReasons": {
@@ -4453,7 +4454,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy based on revenue growth -27.0%, earnings growth -20.6%, quarterly earnings growth -20.6%.",
+          "reason": "Automated screening proxy based on available historical and forward financial data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -4512,7 +4513,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 54.9,
-      "futureGrowth": 68.31,
+      "futureGrowth": 66.39,
       "fundamentalQuality": 80.16,
       "capexScore": 90.0,
       "researchReasons": {
@@ -4535,7 +4536,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy based on revenue growth 14.2%, earnings growth 11.9%, quarterly earnings growth 11.8%.",
+          "reason": "Automated screening proxy based on available historical and forward financial data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -5158,7 +5159,7 @@
       }
     },
     "AJANTPHARM": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -5832,7 +5833,7 @@
       }
     },
     "AKUMS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -5934,10 +5935,10 @@
       }
     },
     "ALBERTDAVD": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 92.11,
+      "stockStrength3M": 73.03,
+      "stockStrength6M": 55.1,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -6067,10 +6068,10 @@
       }
     },
     "APLLTD": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 43.42,
+      "stockStrength3M": 51.32,
+      "stockStrength6M": 34.01,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -6271,10 +6272,10 @@
       }
     },
     "ALIVUS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 86.18,
+      "stockStrength3M": 78.95,
+      "stockStrength6M": 80.27,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -6373,10 +6374,10 @@
       }
     },
     "ALKEM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 30.26,
+      "stockStrength3M": 32.24,
+      "stockStrength6M": 23.81,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -6616,7 +6617,7 @@
       "tailwindScore": 80.0,
       "macroSupport": null,
       "valueMigration": 35.56,
-      "futureGrowth": 41.4,
+      "futureGrowth": 41.0,
       "fundamentalQuality": 44.37,
       "capexScore": 60.0,
       "researchReasons": {
@@ -6965,10 +6966,10 @@
       }
     },
     "ALPA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 17.11,
+      "stockStrength3M": 11.18,
+      "stockStrength6M": 14.97,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -7333,10 +7334,10 @@
       }
     },
     "AMANTA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 89.47,
+      "stockStrength3M": 92.76,
+      "stockStrength6M": 93.2,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -7517,9 +7518,9 @@
       }
     },
     "AMBALALSA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 98.03,
+      "stockStrength3M": 79.61,
       "stockStrength6M": null,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
@@ -8069,10 +8070,10 @@
       }
     },
     "AMRUTANJAN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 53.29,
+      "stockStrength3M": 21.71,
+      "stockStrength6M": 6.8,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -8723,10 +8724,10 @@
       }
     },
     "AHCL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 28.95,
+      "stockStrength3M": 49.34,
+      "stockStrength6M": 63.27,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -9142,10 +9143,10 @@
       }
     },
     "ANTHEM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 78.95,
+      "stockStrength3M": 68.42,
+      "stockStrength6M": 60.54,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -9244,10 +9245,10 @@
       }
     },
     "ANUHPHR": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 31.58,
+      "stockStrength3M": 40.13,
+      "stockStrength6M": 31.97,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -9663,10 +9664,10 @@
       }
     },
     "APOLLOHOSP": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 48.68,
+      "stockStrength3M": 53.95,
+      "stockStrength6M": 46.26,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -10039,7 +10040,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 42.86,
-      "futureGrowth": 66.61,
+      "futureGrowth": 66.67,
       "fundamentalQuality": 68.64,
       "capexScore": 60.0,
       "researchReasons": {
@@ -12913,10 +12914,10 @@
       }
     },
     "ASTERDM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 28.29,
+      "stockStrength3M": 42.11,
+      "stockStrength6M": 53.06,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -13066,10 +13067,10 @@
       }
     },
     "ASTRAZEN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 4.61,
+      "stockStrength3M": 5.92,
+      "stockStrength6M": 4.08,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -13771,10 +13772,10 @@
       }
     },
     "AUROPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 62.5,
+      "stockStrength3M": 65.13,
+      "stockStrength6M": 72.79,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -15917,10 +15918,10 @@
       }
     },
     "BAFNAPH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 77.63,
+      "stockStrength3M": 98.68,
+      "stockStrength6M": 97.96,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -16305,10 +16306,10 @@
       }
     },
     "BAJAJHCARE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 46.71,
+      "stockStrength3M": 45.39,
+      "stockStrength6M": 14.29,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -16611,10 +16612,10 @@
       }
     },
     "BALPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 34.21,
+      "stockStrength3M": 13.82,
+      "stockStrength6M": 38.78,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -16795,10 +16796,10 @@
       }
     },
     "BALAXI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 19.74,
+      "stockStrength3M": 17.76,
+      "stockStrength6M": 43.54,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -18857,10 +18858,10 @@
       }
     },
     "BETA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 56.58,
+      "stockStrength3M": 94.08,
+      "stockStrength6M": 94.56,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -19735,7 +19736,7 @@
       }
     },
     "BPLPHARMA": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -20613,10 +20614,10 @@
       }
     },
     "BIOCON": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 29.61,
+      "stockStrength3M": 28.29,
+      "stockStrength6M": 36.73,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -20664,10 +20665,10 @@
       }
     },
     "BIOFILCHEM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 38.82,
+      "stockStrength3M": 15.13,
+      "stockStrength6M": 18.37,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -21205,10 +21206,10 @@
       }
     },
     "BLISSGVS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 90.13,
+      "stockStrength3M": 92.11,
+      "stockStrength6M": 99.32,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -21562,10 +21563,10 @@
       }
     },
     "BLUEJET": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 54.61,
+      "stockStrength3M": 78.29,
+      "stockStrength6M": 81.63,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -22388,7 +22389,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -23125,10 +23126,10 @@
       }
     },
     "BROOKS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 35.53,
+      "stockStrength3M": 36.84,
+      "stockStrength6M": 6.12,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -24382,10 +24383,10 @@
       }
     },
     "CAPLIPOINT": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 23.03,
+      "stockStrength3M": 75.0,
+      "stockStrength6M": 77.55,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -25902,7 +25903,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -27058,10 +27059,10 @@
       }
     },
     "CIPLA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 49.34,
+      "stockStrength3M": 38.82,
+      "stockStrength6M": 36.05,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -27343,7 +27344,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -27814,10 +27815,10 @@
       }
     },
     "COHANCE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 60.53,
+      "stockStrength3M": 43.42,
+      "stockStrength6M": 74.83,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -28253,10 +28254,10 @@
       }
     },
     "CONCORDBIO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 90.79,
+      "stockStrength3M": 91.45,
+      "stockStrength6M": 73.47,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -28907,10 +28908,10 @@
       }
     },
     "CORONA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 46.05,
+      "stockStrength3M": 77.63,
+      "stockStrength6M": 70.07,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -34680,10 +34681,10 @@
       }
     },
     "DCAL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 15.79,
+      "stockStrength3M": 9.87,
+      "stockStrength6M": 17.69,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -34782,10 +34783,10 @@
       }
     },
     "DIVISLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 85.53,
+      "stockStrength3M": 82.24,
+      "stockStrength6M": 71.43,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -35549,7 +35550,7 @@
       }
     },
     "DRAGARWQ": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -35600,10 +35601,10 @@
       }
     },
     "AGARWALEYE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 64.47,
+      "stockStrength3M": 46.05,
+      "stockStrength6M": 40.14,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -35651,10 +35652,10 @@
       }
     },
     "LALPATHLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 63.16,
+      "stockStrength3M": 71.71,
+      "stockStrength6M": 69.39,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -35702,10 +35703,10 @@
       }
     },
     "DRREDDY": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 59.87,
+      "stockStrength3M": 16.45,
+      "stockStrength6M": 12.24,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -38391,10 +38392,10 @@
       }
     },
     "EMCURE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 33.55,
+      "stockStrength3M": 51.97,
+      "stockStrength6M": 62.59,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -39220,10 +39221,10 @@
       }
     },
     "ENTERO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 94.08,
+      "stockStrength3M": 90.79,
+      "stockStrength6M": 82.31,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -39772,10 +39773,10 @@
       }
     },
     "ERIS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 17.76,
+      "stockStrength3M": 28.95,
+      "stockStrength6M": 23.13,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -41049,10 +41050,10 @@
       }
     },
     "FABTECH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 44.74,
+      "stockStrength3M": 20.39,
+      "stockStrength6M": 19.05,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -41315,10 +41316,10 @@
       }
     },
     "FDC": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 2.63,
+      "stockStrength3M": 3.95,
+      "stockStrength6M": 15.65,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -41550,7 +41551,7 @@
       }
     },
     "FERMENTA": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -42275,10 +42276,10 @@
       }
     },
     "FISCHER": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 40.13,
+      "stockStrength3M": 33.55,
+      "stockStrength6M": 9.52,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -42818,10 +42819,10 @@
       }
     },
     "FORTIS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 40.79,
+      "stockStrength3M": 27.63,
+      "stockStrength6M": 26.53,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -42971,7 +42972,7 @@
       }
     },
     "FREDUN": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -43205,7 +43206,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -44769,9 +44770,9 @@
       }
     },
     "GAUDIUMIVF": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 0.66,
+      "stockStrength3M": 35.53,
       "stockStrength6M": null,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
@@ -45380,7 +45381,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -46003,7 +46004,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -46035,7 +46036,7 @@
       }
     },
     "GKB": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -46137,10 +46138,10 @@
       }
     },
     "GLAND": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 84.87,
+      "stockStrength3M": 74.34,
+      "stockStrength6M": 86.39,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -46188,10 +46189,10 @@
       }
     },
     "GLAXO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 84.21,
+      "stockStrength3M": 83.55,
+      "stockStrength6M": 40.82,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -46239,10 +46240,10 @@
       }
     },
     "GLENMARK": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 75.66,
+      "stockStrength3M": 39.47,
+      "stockStrength6M": 51.02,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -46341,10 +46342,10 @@
       }
     },
     "MEDANTA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 45.39,
+      "stockStrength3M": 69.74,
+      "stockStrength6M": 59.18,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -48414,10 +48415,10 @@
       }
     },
     "GPTHEALTH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 9.21,
+      "stockStrength3M": 52.63,
+      "stockStrength6M": 51.7,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -48649,10 +48650,10 @@
       }
     },
     "GRANULES": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 47.37,
+      "stockStrength3M": 54.61,
+      "stockStrength6M": 74.15,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -49835,10 +49836,10 @@
       }
     },
     "GUFICBIO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 73.03,
+      "stockStrength3M": 80.26,
+      "stockStrength6M": 76.87,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -50192,10 +50193,10 @@
       }
     },
     "GKSL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 86.84,
+      "stockStrength3M": 62.5,
+      "stockStrength6M": 68.03,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -50580,10 +50581,10 @@
       }
     },
     "GUJTHEM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 80.26,
+      "stockStrength3M": 22.37,
+      "stockStrength6M": 56.46,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -50783,7 +50784,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -51070,10 +51071,10 @@
       }
     },
     "HALEOSLABS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 39.47,
+      "stockStrength3M": 18.42,
+      "stockStrength6M": 45.58,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -52438,10 +52439,10 @@
       }
     },
     "HEALTHX": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 26.32,
+      "stockStrength3M": 25.66,
+      "stockStrength6M": 33.33,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -52489,10 +52490,10 @@
       }
     },
     "HCG": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 69.74,
+      "stockStrength3M": 58.55,
+      "stockStrength6M": 57.82,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -52897,10 +52898,10 @@
       }
     },
     "HESTERBIO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 32.24,
+      "stockStrength3M": 73.68,
+      "stockStrength6M": 83.67,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -53285,10 +53286,10 @@
       }
     },
     "HIKAL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 21.71,
+      "stockStrength3M": 23.68,
+      "stockStrength6M": 29.25,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -57114,10 +57115,10 @@
       }
     },
     "INDSWFTLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 97.37,
+      "stockStrength3M": 100.0,
+      "stockStrength6M": 96.6,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -57267,10 +57268,10 @@
       }
     },
     "INDGN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 79.61,
+      "stockStrength3M": 55.26,
+      "stockStrength6M": 47.62,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -58992,10 +58993,10 @@
       }
     },
     "INDOCO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 10.53,
+      "stockStrength3M": 59.21,
+      "stockStrength6M": 41.5,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -59164,7 +59165,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -59266,7 +59267,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -59349,10 +59350,10 @@
       }
     },
     "INDRAMEDCO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 50.66,
+      "stockStrength3M": 25.0,
+      "stockStrength6M": 11.56,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -59983,10 +59984,10 @@
       }
     },
     "INNOVACAP": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 71.05,
+      "stockStrength3M": 76.97,
+      "stockStrength6M": 85.03,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -60186,7 +60187,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -60390,7 +60391,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -61189,10 +61190,10 @@
       }
     },
     "IOLCP": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 82.24,
+      "stockStrength3M": 84.87,
+      "stockStrength6M": 97.28,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -61342,10 +61343,10 @@
       }
     },
     "IPCALAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 73.68,
+      "stockStrength3M": 76.32,
+      "stockStrength6M": 63.95,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -62353,10 +62354,10 @@
       }
     },
     "JAGSNPHARM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 65.79,
+      "stockStrength3M": 67.76,
+      "stockStrength6M": 70.75,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -62740,7 +62741,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -63437,10 +63438,10 @@
       }
     },
     "JSLL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 13.16,
+      "stockStrength3M": 5.26,
+      "stockStrength6M": 2.04,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -63488,7 +63489,7 @@
       }
     },
     "JENBURPH": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -64906,7 +64907,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -65346,10 +65347,10 @@
       }
     },
     "JUBLPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 14.47,
+      "stockStrength3M": 15.79,
+      "stockStrength6M": 31.29,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -65467,7 +65468,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -65550,10 +65551,10 @@
       }
     },
     "JLHL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 13.82,
+      "stockStrength3M": 64.47,
+      "stockStrength6M": 57.14,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -65938,7 +65939,7 @@
       }
     },
     "KMCSHIL": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -67387,7 +67388,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -68891,10 +68892,10 @@
       }
     },
     "KILITCH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 24.34,
+      "stockStrength3M": 23.03,
+      "stockStrength6M": 38.1,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -70035,10 +70036,10 @@
       }
     },
     "KOPRAN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 30.92,
+      "stockStrength3M": 37.5,
+      "stockStrength6M": 79.59,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -70423,9 +70424,9 @@
       }
     },
     "KOVAI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 55.92,
+      "stockStrength3M": 59.87,
       "stockStrength6M": null,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
@@ -70493,7 +70494,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -70627,10 +70628,10 @@
       }
     },
     "KREBSBIO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 36.18,
+      "stockStrength3M": 2.63,
+      "stockStrength6M": 13.61,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -70913,10 +70914,10 @@
       }
     },
     "KIMS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 34.87,
+      "stockStrength3M": 32.89,
+      "stockStrength6M": 37.41,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -71301,10 +71302,10 @@
       }
     },
     "KRSNAA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 61.18,
+      "stockStrength3M": 47.37,
+      "stockStrength6M": 8.16,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -71811,7 +71812,7 @@
       }
     },
     "KPL": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -72842,10 +72843,10 @@
       }
     },
     "LASA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 59.21,
+      "stockStrength3M": 7.24,
+      "stockStrength6M": 10.2,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -73046,10 +73047,10 @@
       }
     },
     "LAURUSLABS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 75.0,
+      "stockStrength3M": 87.5,
+      "stockStrength6M": 91.84,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -73148,10 +73149,10 @@
       }
     },
     "LAXMIDENTL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 5.92,
+      "stockStrength3M": 3.29,
+      "stockStrength6M": 25.85,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -74250,10 +74251,10 @@
       }
     },
     "LINCOLN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 67.11,
+      "stockStrength3M": 4.61,
+      "stockStrength6M": 25.17,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -74944,10 +74945,10 @@
       }
     },
     "LOTUSEYE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 32.89,
+      "stockStrength3M": 48.68,
+      "stockStrength6M": 21.77,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -75301,10 +75302,10 @@
       }
     },
     "LUPIN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 8.55,
+      "stockStrength3M": 26.32,
+      "stockStrength6M": 22.45,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -75403,10 +75404,10 @@
       }
     },
     "LYKALABS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 82.89,
+      "stockStrength3M": 81.58,
+      "stockStrength6M": 49.66,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -77365,7 +77366,7 @@
       }
     },
     "MAKERSL": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -78387,10 +78388,10 @@
       }
     },
     "MANGALAM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 87.5,
+      "stockStrength3M": 65.79,
+      "stockStrength6M": 34.69,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -78755,7 +78756,7 @@
       }
     },
     "MANIPALHOS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -78806,10 +78807,10 @@
       }
     },
     "MANKIND": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 16.45,
+      "stockStrength3M": 29.61,
+      "stockStrength6M": 48.98,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -79409,10 +79410,10 @@
       }
     },
     "MARKSANS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 88.82,
+      "stockStrength3M": 80.92,
+      "stockStrength6M": 89.12,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80125,10 +80126,10 @@
       }
     },
     "MAXHEALTH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 12.5,
+      "stockStrength3M": 40.79,
+      "stockStrength6M": 16.33,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80176,10 +80177,10 @@
       }
     },
     "MAXIND": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 1.97,
+      "stockStrength3M": 10.53,
+      "stockStrength6M": 17.01,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80606,10 +80607,10 @@
       }
     },
     "MEDIASSIST": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 50.0,
+      "stockStrength3M": 26.97,
+      "stockStrength6M": 7.48,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80759,10 +80760,10 @@
       }
     },
     "MEDICAMEQ": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 44.08,
+      "stockStrength3M": 6.58,
+      "stockStrength6M": 3.4,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80841,10 +80842,10 @@
       }
     },
     "MEDICO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 57.89,
+      "stockStrength3M": 9.21,
+      "stockStrength6M": 12.93,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -80923,10 +80924,10 @@
       }
     },
     "MEDPLUS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 25.66,
+      "stockStrength3M": 1.97,
+      "stockStrength6M": 4.76,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -81628,10 +81629,10 @@
       }
     },
     "METROPOLIS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 41.45,
+      "stockStrength3M": 50.0,
+      "stockStrength6M": 48.3,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -83007,7 +83008,7 @@
       }
     },
     "MOLBIO": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -83375,10 +83376,10 @@
       }
     },
     "MOREPENLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 99.34,
+      "stockStrength3M": 99.34,
+      "stockStrength6M": 93.88,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -85816,10 +85817,10 @@
       }
     },
     "NH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 15.13,
+      "stockStrength3M": 31.58,
+      "stockStrength6M": 27.89,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -85918,10 +85919,10 @@
       }
     },
     "NATCOPHARM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 19.08,
+      "stockStrength3M": 1.32,
+      "stockStrength6M": 21.77,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -86173,10 +86174,10 @@
       }
     },
     "NATCAPSUQ": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 80.92,
+      "stockStrength3M": 36.18,
+      "stockStrength6M": 35.37,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -86243,7 +86244,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -86785,10 +86786,10 @@
       }
     },
     "NECLIFE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 74.34,
+      "stockStrength3M": 17.11,
+      "stockStrength6M": 8.84,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -87133,10 +87134,10 @@
       }
     },
     "NEPHROPLUS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 55.26,
+      "stockStrength3M": 67.11,
+      "stockStrength6M": 59.86,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -87552,10 +87553,10 @@
       }
     },
     "NEULANDLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 88.16,
+      "stockStrength3M": 89.47,
+      "stockStrength6M": 87.07,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -87849,10 +87850,10 @@
       }
     },
     "NGLFINE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 3.95,
+      "stockStrength3M": 44.08,
+      "stockStrength6M": 58.5,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -87919,7 +87920,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -89063,7 +89064,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -89503,9 +89504,9 @@
       }
     },
     "NOVARTIND": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 11.84,
+      "stockStrength3M": 38.16,
       "stockStrength6M": null,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
@@ -89726,7 +89727,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -89777,7 +89778,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -89911,10 +89912,10 @@
       }
     },
     "NURECA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 22.37,
+      "stockStrength3M": 57.24,
+      "stockStrength6M": 28.57,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -91024,7 +91025,7 @@
       }
     },
     "ONEGLOBAL": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -91310,10 +91311,10 @@
       }
     },
     "ONESOURCE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 7.24,
+      "stockStrength3M": 7.89,
+      "stockStrength6M": 44.9,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -91431,7 +91432,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -91913,10 +91914,10 @@
       }
     },
     "ORCHPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 65.13,
+      "stockStrength3M": 88.82,
+      "stockStrength6M": 85.71,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -92269,7 +92270,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -92709,10 +92710,10 @@
       }
     },
     "ORTINGLOBE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 61.84,
+      "stockStrength3M": 19.74,
+      "stockStrength6M": 1.36,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -93496,10 +93497,10 @@
       }
     },
     "PANACEABIO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 21.05,
+      "stockStrength3M": 30.92,
+      "stockStrength6M": 54.42,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -93802,10 +93803,10 @@
       }
     },
     "PAR": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 67.76,
+      "stockStrength3M": 61.18,
+      "stockStrength6M": 30.61,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -94294,10 +94295,10 @@
       }
     },
     "PARKHOSPS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 51.97,
+      "stockStrength3M": 34.21,
+      "stockStrength6M": 76.19,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -94345,7 +94346,7 @@
       }
     },
     "PARNAXLAB": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -95766,10 +95767,10 @@
       }
     },
     "PFIZER": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 51.32,
+      "stockStrength3M": 41.45,
+      "stockStrength6M": 20.41,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -96522,10 +96523,10 @@
       }
     },
     "PPLPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 72.37,
+      "stockStrength3M": 72.37,
+      "stockStrength6M": 61.9,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -97216,10 +97217,10 @@
       }
     },
     "POLYMED": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 57.24,
+      "stockStrength3M": 84.21,
+      "stockStrength6M": 68.71,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -97807,7 +97808,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -99894,10 +99895,10 @@
       }
     },
     "PGHL": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 3.29,
+      "stockStrength3M": 21.05,
+      "stockStrength6M": 46.94,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -100465,7 +100466,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -101162,10 +101163,10 @@
       }
     },
     "QMSMEDI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 96.05,
+      "stockStrength3M": 97.37,
+      "stockStrength6M": 87.76,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -102552,10 +102553,10 @@
       }
     },
     "RAINBOW": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 37.5,
+      "stockStrength3M": 48.03,
+      "stockStrength6M": 53.74,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -104298,7 +104299,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -104451,7 +104452,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -105564,7 +105565,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -105615,7 +105616,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -107314,10 +107315,10 @@
       }
     },
     "RPGLIFE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 5.26,
+      "stockStrength3M": 69.08,
+      "stockStrength6M": 67.35,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -107671,10 +107672,10 @@
       }
     },
     "RUBICON": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 76.97,
+      "stockStrength3M": 98.03,
+      "stockStrength6M": 95.92,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -108559,7 +108560,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -109318,10 +109319,10 @@
       }
     },
     "SAILIFE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 81.58,
+      "stockStrength3M": 82.89,
+      "stockStrength6M": 80.95,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -109369,9 +109370,9 @@
       }
     },
     "SAIPARENT": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 23.68,
+      "stockStrength3M": 56.58,
       "stockStrength6M": null,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
@@ -109553,10 +109554,10 @@
       }
     },
     "SAKAR": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 68.42,
+      "stockStrength3M": 63.16,
+      "stockStrength6M": 88.44,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -110666,10 +110667,10 @@
       }
     },
     "SANOFICONR": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 6.58,
+      "stockStrength3M": 19.08,
+      "stockStrength6M": 29.93,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -110717,10 +110718,10 @@
       }
     },
     "SANOFI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 27.63,
+      "stockStrength3M": 34.87,
+      "stockStrength6M": 2.72,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -112832,10 +112833,10 @@
       }
     },
     "SENORES": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 63.82,
+      "stockStrength3M": 86.18,
+      "stockStrength6M": 92.52,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -113710,10 +113711,10 @@
       }
     },
     "SHALBY": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 26.97,
+      "stockStrength3M": 14.47,
+      "stockStrength6M": 27.21,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -115069,10 +115070,10 @@
       }
     },
     "SHILPAMED": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 98.68,
+      "stockStrength3M": 96.71,
+      "stockStrength6M": 100.0,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -116049,7 +116050,7 @@
       }
     },
     "SGRL": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -117339,7 +117340,7 @@
       }
     },
     "SHUKRAPHAR": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -117840,10 +117841,10 @@
       }
     },
     "SIGACHI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 94.74,
+      "stockStrength3M": 95.39,
+      "stockStrength6M": 84.35,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -119136,7 +119137,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -119751,10 +119752,10 @@
       }
     },
     "SMSPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 11.18,
+      "stockStrength3M": 24.34,
+      "stockStrength6M": 19.73,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -120068,10 +120069,10 @@
       }
     },
     "SOLARA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 91.45,
+      "stockStrength3M": 66.45,
+      "stockStrength6M": 65.31,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -120138,7 +120139,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -120189,7 +120190,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -122856,7 +122857,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -123174,10 +123175,10 @@
       }
     },
     "STAR": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 25.0,
+      "stockStrength3M": 8.55,
+      "stockStrength6M": 42.18,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -123644,10 +123645,10 @@
       }
     },
     "SUDEEPPHRM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 95.39,
+      "stockStrength3M": 96.05,
+      "stockStrength6M": 89.8,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -124052,10 +124053,10 @@
       }
     },
     "SPARC": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 9.87,
+      "stockStrength3M": 11.84,
+      "stockStrength6M": 82.99,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -124103,10 +124104,10 @@
       }
     },
     "SUNPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 36.84,
+      "stockStrength3M": 44.74,
+      "stockStrength6M": 39.46,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -124624,7 +124625,7 @@
       }
     },
     "SUNLOC": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -125575,10 +125576,10 @@
       }
     },
     "SUPRIYA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 20.39,
+      "stockStrength3M": 30.26,
+      "stockStrength6M": 52.38,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -125728,10 +125729,10 @@
       }
     },
     "SURAKSHA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 93.42,
+      "stockStrength3M": 57.89,
+      "stockStrength6M": 42.86,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -125798,7 +125799,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -125849,7 +125850,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -126218,10 +126219,10 @@
       }
     },
     "SUVEN": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 83.55,
+      "stockStrength3M": 86.84,
+      "stockStrength6M": 98.64,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -126778,7 +126779,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -126994,10 +126995,10 @@
       }
     },
     "SYNCOMF": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 96.71,
+      "stockStrength3M": 63.82,
+      "stockStrength6M": 64.63,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -127096,10 +127097,10 @@
       }
     },
     "SYNGENE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 42.11,
+      "stockStrength3M": 13.16,
+      "stockStrength6M": 10.88,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -127546,10 +127547,10 @@
       }
     },
     "TAKE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 7.89,
+      "stockStrength3M": 0.66,
+      "stockStrength6M": 0.68,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -128251,10 +128252,10 @@
       }
     },
     "TARSONS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 71.71,
+      "stockStrength3M": 94.74,
+      "stockStrength6M": 90.48,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -128831,7 +128832,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -132233,10 +132234,10 @@
       }
     },
     "THEMISMED": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 78.29,
+      "stockStrength3M": 46.71,
+      "stockStrength6M": 65.99,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -132519,10 +132520,10 @@
       }
     },
     "THYROCARE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 53.95,
+      "stockStrength3M": 70.39,
+      "stockStrength6M": 75.51,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -133366,10 +133367,10 @@
       }
     },
     "TORNTPHARM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 42.76,
+      "stockStrength3M": 55.92,
+      "stockStrength6M": 44.22,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -133436,7 +133437,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -135113,10 +135114,10 @@
       }
     },
     "TTKHLTCARE": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 48.03,
+      "stockStrength3M": 75.66,
+      "stockStrength6M": 50.34,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -136285,7 +136286,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -136634,10 +136635,10 @@
       }
     },
     "UNICHEMLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 38.16,
+      "stockStrength3M": 93.42,
+      "stockStrength6M": 78.91,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -137492,10 +137493,10 @@
       }
     },
     "UNIVPHOTO": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 18.42,
+      "stockStrength3M": 50.66,
+      "stockStrength6M": 55.78,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -137879,7 +137880,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -138853,10 +138854,10 @@
       }
     },
     "VAISHALI": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 58.55,
+      "stockStrength3M": 61.84,
+      "stockStrength6M": 32.65,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -138955,10 +138956,10 @@
       }
     },
     "VALIANTLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 100.0,
+      "stockStrength3M": 85.53,
+      "stockStrength6M": 91.16,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -140067,7 +140068,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -140467,10 +140468,10 @@
       }
     },
     "VENUSREM": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 66.45,
+      "stockStrength3M": 88.16,
+      "stockStrength6M": 95.24,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -141194,10 +141195,10 @@
       }
     },
     "VIJAYA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 76.32,
+      "stockStrength3M": 71.05,
+      "stockStrength6M": 78.23,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -141448,7 +141449,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -141593,10 +141594,10 @@
       }
     },
     "VIMTALABS": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 69.08,
+      "stockStrength3M": 90.13,
+      "stockStrength6M": 66.67,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -143127,10 +143128,10 @@
       }
     },
     "VIVIMEDLAB": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 92.76,
+      "stockStrength3M": 42.76,
+      "stockStrength6M": 5.44,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -143178,7 +143179,7 @@
       }
     },
     "VIVOBIOT": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -143260,10 +143261,10 @@
       }
     },
     "VIYASH": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 70.39,
+      "stockStrength3M": 60.53,
+      "stockStrength6M": 61.22,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -144189,10 +144190,10 @@
       }
     },
     "WANBURY": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 1.32,
+      "stockStrength3M": 12.5,
+      "stockStrength6M": 24.49,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -144514,7 +144515,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong sector support.",
+          "reason": "Automated Macro screening proxy: power demand, energy transition, grid investment and related capital expenditure provide strong support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-08-25",
           "mode": "AUTOMATED"
@@ -145311,7 +145312,7 @@
       }
     },
     "WINDLAS": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -145557,10 +145558,10 @@
       }
     },
     "WOCKPHARMA": {
-      "sectorStrength": null,
-      "stockStrength1M": null,
-      "stockStrength3M": null,
-      "stockStrength6M": null,
+      "sectorStrength": 100.0,
+      "stockStrength1M": 52.63,
+      "stockStrength3M": 53.29,
+      "stockStrength6M": 72.11,
       "strengthBenchmark": "^CNXPHARMA",
       "tailwindScore": 82.0,
       "macroSupport": 70,
@@ -146273,7 +146274,7 @@
       }
     },
     "YATHARTH": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -147162,7 +147163,7 @@
       }
     },
     "ZIMLAB": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -147295,7 +147296,7 @@
       }
     },
     "ZOTA": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
@@ -147448,7 +147449,7 @@
       }
     },
     "ZYDUSLIFE": {
-      "sectorStrength": null,
+      "sectorStrength": 100.0,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
