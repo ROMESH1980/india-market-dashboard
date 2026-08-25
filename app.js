@@ -4,11 +4,12 @@ let all = [];
 let meta = {};
 let page = 1;
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+  document.getElementById(id);
 
 
 // =====================================================
-// BASIC DISPLAY HELPERS
+// DISPLAY HELPERS
 // =====================================================
 
 function scoreClass(value) {
@@ -21,7 +22,12 @@ function scoreClass(value) {
 }
 
 
-function scoreVal(value, row = null, field = null, label = '') {
+function scoreVal(
+  value,
+  row = null,
+  field = null,
+  label = ''
+) {
   if (
     value === null ||
     value === undefined ||
@@ -30,7 +36,8 @@ function scoreVal(value, row = null, field = null, label = '') {
     return '<span class="pending">Pending</span>';
   }
 
-  const number = Number(value);
+  const number =
+    Number(value);
 
   if (!row || !field) {
     return `
@@ -40,15 +47,18 @@ function scoreVal(value, row = null, field = null, label = '') {
     `;
   }
 
-  const symbol = encodeURIComponent(
-    row.symbol || ''
-  );
+  const symbol =
+    encodeURIComponent(
+      row.symbol || ''
+    );
 
-  const safeField = encodeURIComponent(field);
+  const safeField =
+    encodeURIComponent(field);
 
-  const safeLabel = encodeURIComponent(
-    label || field
-  );
+  const safeLabel =
+    encodeURIComponent(
+      label || field
+    );
 
   return `
     <button
@@ -87,7 +97,8 @@ function volumeVal(value) {
     return '—';
   }
 
-  return Number(value).toLocaleString();
+  return Number(value)
+    .toLocaleString();
 }
 
 
@@ -100,9 +111,11 @@ function ratioVal(value) {
     return '<span class="pending">—</span>';
   }
 
-  const n = Number(value);
-
-  return `<strong>${n.toFixed(2)}×</strong>`;
+  return `
+    <strong>
+      ${Number(value).toFixed(2)}×
+    </strong>
+  `;
 }
 
 
@@ -140,10 +153,11 @@ function numberValue(id) {
     return null;
   }
 
-  const n = Number(el.value);
+  const value =
+    Number(el.value);
 
-  return Number.isFinite(n)
-    ? n
+  return Number.isFinite(value)
+    ? value
     : null;
 }
 
@@ -230,12 +244,13 @@ function filters() {
 
   return all.filter(row => {
     const searchable =
-      `${row.symbol || ''} ` +
-      `${row.name || ''} ` +
-      `${row.isin || ''} ` +
-      `${row.sector || ''} ` +
-      `${row.industry || ''}`
-        .toLowerCase();
+      (
+        `${row.symbol || ''} ` +
+        `${row.name || ''} ` +
+        `${row.isin || ''} ` +
+        `${row.sector || ''} ` +
+        `${row.industry || ''}`
+      ).toLowerCase();
 
     const searchPass =
       !q ||
@@ -358,70 +373,75 @@ function filters() {
 // =====================================================
 
 function rankStocks(rows) {
-  return [...rows].sort((a, b) => {
-    const ao = a.overallScore;
-    const bo = b.overallScore;
+  return [...rows].sort(
+    (a, b) => {
+      const ao =
+        a.overallScore;
 
-    if (
-      ao != null &&
-      bo == null
-    ) {
-      return -1;
-    }
+      const bo =
+        b.overallScore;
 
-    if (
-      ao == null &&
-      bo != null
-    ) {
-      return 1;
-    }
+      if (
+        ao != null &&
+        bo == null
+      ) {
+        return -1;
+      }
 
-    if (
-      ao != null &&
-      bo != null &&
-      Number(bo) !== Number(ao)
-    ) {
-      return (
-        Number(bo) -
-        Number(ao)
-      );
-    }
+      if (
+        ao == null &&
+        bo != null
+      ) {
+        return 1;
+      }
 
-    const as =
-      selectedStockStrength(a);
+      if (
+        ao != null &&
+        bo != null &&
+        Number(bo) !== Number(ao)
+      ) {
+        return (
+          Number(bo) -
+          Number(ao)
+        );
+      }
 
-    const bs =
-      selectedStockStrength(b);
+      const as =
+        selectedStockStrength(a);
 
-    if (
-      as != null &&
-      bs != null &&
-      Number(bs) !== Number(as)
-    ) {
-      return (
-        Number(bs) -
-        Number(as)
-      );
-    }
+      const bs =
+        selectedStockStrength(b);
 
-    if (
-      a.deliveryVolumeRatio != null &&
-      b.deliveryVolumeRatio != null &&
-      Number(b.deliveryVolumeRatio) !==
-      Number(a.deliveryVolumeRatio)
-    ) {
-      return (
-        Number(b.deliveryVolumeRatio) -
+      if (
+        as != null &&
+        bs != null &&
+        Number(bs) !== Number(as)
+      ) {
+        return (
+          Number(bs) -
+          Number(as)
+        );
+      }
+
+      if (
+        a.deliveryVolumeRatio != null &&
+        b.deliveryVolumeRatio != null &&
+        Number(b.deliveryVolumeRatio) !==
         Number(a.deliveryVolumeRatio)
+      ) {
+        return (
+          Number(b.deliveryVolumeRatio) -
+          Number(a.deliveryVolumeRatio)
+        );
+      }
+
+      return (
+        a.name || ''
+      ).localeCompare(
+        b.name || ''
       );
     }
-
-    return (
-      a.name || ''
-    ).localeCompare(
-      b.name || ''
-    );
-  });
+  );
 }
 
 
@@ -433,7 +453,9 @@ function populateDropdowns() {
   const sectors = [
     ...new Set(
       all
-        .map(row => row.sector)
+        .map(
+          row => row.sector
+        )
         .filter(
           value =>
             value &&
@@ -445,7 +467,9 @@ function populateDropdowns() {
   const industries = [
     ...new Set(
       all
-        .map(row => row.industry)
+        .map(
+          row => row.industry
+        )
         .filter(
           value =>
             value &&
@@ -453,6 +477,7 @@ function populateDropdowns() {
         )
     )
   ].sort();
+
 
   if ($('sectorFilter')) {
     $('sectorFilter').innerHTML =
@@ -464,6 +489,7 @@ function populateDropdowns() {
         )
         .join('');
   }
+
 
   if ($('industryFilter')) {
     $('industryFilter').innerHTML =
@@ -479,29 +505,120 @@ function populateDropdowns() {
 
 
 // =====================================================
+// PAGINATION
+// =====================================================
+
+function getFilteredData() {
+  return rankStocks(
+    filters()
+  );
+}
+
+
+function totalPagesFor(rows) {
+  return Math.max(
+    1,
+    Math.ceil(
+      rows.length /
+      PAGE
+    )
+  );
+}
+
+
+function updatePageControls(
+  pages
+) {
+  if ($('page')) {
+    $('page').textContent =
+      `Page ${page} / ${pages}`;
+  }
+
+  if ($('prev')) {
+    $('prev').disabled =
+      page <= 1;
+  }
+
+  if ($('next')) {
+    $('next').disabled =
+      page >= pages;
+  }
+
+  if ($('gotoPage')) {
+    $('gotoPage').max =
+      pages;
+
+    $('gotoPage').value =
+      page;
+  }
+}
+
+
+function goToPage(value) {
+  const filtered =
+    getFilteredData();
+
+  const pages =
+    totalPagesFor(
+      filtered
+    );
+
+  let target =
+    Number(value);
+
+  if (
+    !Number.isFinite(target)
+  ) {
+    target = 1;
+  }
+
+  target =
+    Math.round(target);
+
+  if (target < 1) {
+    target = 1;
+  }
+
+  if (target > pages) {
+    target = pages;
+  }
+
+  page =
+    target;
+
+  render();
+
+  const wrap =
+    document.querySelector(
+      '.tablewrap'
+    );
+
+  if (wrap) {
+    wrap.scrollTop = 0;
+  }
+}
+
+
+// =====================================================
 // TABLE RENDER
 // =====================================================
 
 function render() {
   const filtered =
-    rankStocks(
-      filters()
-    );
+    getFilteredData();
 
   const pages =
-    Math.max(
-      1,
-      Math.ceil(
-        filtered.length /
-        PAGE
-      )
+    totalPagesFor(
+      filtered
     );
 
-  page =
-    Math.min(
-      page,
-      pages
-    );
+  if (page > pages) {
+    page = pages;
+  }
+
+  if (page < 1) {
+    page = 1;
+  }
 
   const rows =
     filtered.slice(
@@ -509,17 +626,17 @@ function render() {
       page * PAGE
     );
 
-  $('resultCount').textContent =
-    `${filtered.length.toLocaleString()} matched`;
 
-  $('page').textContent =
-    `Page ${page} / ${pages}`;
+  if ($('resultCount')) {
+    $('resultCount').textContent =
+      `${filtered.length.toLocaleString()} matched`;
+  }
 
-  $('prev').disabled =
-    page <= 1;
 
-  $('next').disabled =
-    page >= pages;
+  updatePageControls(
+    pages
+  );
+
 
   $('rows').innerHTML =
     rows.map(row => {
@@ -684,6 +801,7 @@ function render() {
       `;
     }).join('');
 
+
   attachScoreButtons();
 
   syncTopScrollbarWidth();
@@ -719,6 +837,7 @@ function getReasonData(
     row[`${field}SourceDate`] ||
     '';
 
+
   if (
     field === 'valueMigration' &&
     !reason
@@ -727,18 +846,21 @@ function getReasonData(
       'Automated score based on current price momentum and turnover percentile.';
   }
 
+
   if (
     field === 'macro' &&
     !reason
   ) {
     reason =
-      'Automated sector-level macro support score based on the current dashboard rule set.';
+      'Automated sector-level macro support score based on the dashboard rule set.';
   }
+
 
   if (!reason) {
     reason =
       'Detailed reason/source has not yet been added for this stock.';
   }
+
 
   return {
     reason,
@@ -769,26 +891,40 @@ function openReasonModal(
     value =
       row.tailwindScore;
   }
+
   else if (field === 'macro') {
     value =
       row.macroSupport;
   }
-  else if (field === 'valueMigration') {
+
+  else if (
+    field === 'valueMigration'
+  ) {
     value =
       row.valueMigration;
   }
-  else if (field === 'futureGrowth') {
+
+  else if (
+    field === 'futureGrowth'
+  ) {
     value =
       row.futureGrowth;
   }
-  else if (field === 'fundamentalQuality') {
+
+  else if (
+    field === 'fundamentalQuality'
+  ) {
     value =
       row.fundamentalQuality;
   }
-  else if (field === 'capex') {
+
+  else if (
+    field === 'capex'
+  ) {
     value =
       row.capexScore;
   }
+
 
   const detail =
     getReasonData(
@@ -796,24 +932,30 @@ function openReasonModal(
       field
     );
 
+
   $('reasonTitle').textContent =
     `${row.symbol} • ${label}`;
+
 
   $('reasonScore').textContent =
     value == null
       ? 'Score: Pending'
       : `Score: ${Number(value).toFixed(0)} / 100`;
 
+
   $('reasonText').textContent =
     detail.reason;
+
 
   $('reasonSourceDate').textContent =
     detail.sourceDate
       ? `Source date: ${detail.sourceDate}`
       : '';
 
+
   const link =
     $('reasonSourceLink');
+
 
   if (detail.source) {
     link.href =
@@ -833,6 +975,7 @@ function openReasonModal(
     link.style.display =
       'none';
   }
+
 
   const modal =
     $('reasonModal');
@@ -873,19 +1016,20 @@ function attachScoreButtons() {
       '.score-button'
     )
     .forEach(button => {
-      button.onclick = () => {
-        openReasonModal(
-          decodeURIComponent(
-            button.dataset.symbol || ''
-          ),
-          decodeURIComponent(
-            button.dataset.field || ''
-          ),
-          decodeURIComponent(
-            button.dataset.label || ''
-          )
-        );
-      };
+      button.onclick =
+        () => {
+          openReasonModal(
+            decodeURIComponent(
+              button.dataset.symbol || ''
+            ),
+            decodeURIComponent(
+              button.dataset.field || ''
+            ),
+            decodeURIComponent(
+              button.dataset.label || ''
+            )
+          );
+        };
     });
 }
 
@@ -904,9 +1048,7 @@ function syncTopScrollbarWidth() {
     );
 
   const table =
-    document.getElementById(
-      'stockTable'
-    );
+    $('stockTable');
 
   if (
     !inner ||
@@ -940,6 +1082,7 @@ function setupTopScrollbar() {
   let topSync = false;
   let tableSync = false;
 
+
   top.addEventListener(
     'scroll',
     () => {
@@ -955,6 +1098,7 @@ function setupTopScrollbar() {
       topSync = false;
     }
   );
+
 
   wrap.addEventListener(
     'scroll',
@@ -972,6 +1116,7 @@ function setupTopScrollbar() {
     }
   );
 
+
   window.addEventListener(
     'resize',
     syncTopScrollbarWidth
@@ -986,7 +1131,8 @@ function setupTopScrollbar() {
 function latestMarketDate() {
   const delivery =
     all.find(
-      row => row.deliveryDate
+      row =>
+        row.deliveryDate
     )?.deliveryDate;
 
   if (delivery) {
@@ -995,7 +1141,8 @@ function latestMarketDate() {
 
   return (
     all.find(
-      row => row.priceDate
+      row =>
+        row.priceDate
     )?.priceDate ||
     '—'
   );
@@ -1009,19 +1156,18 @@ function updateDates() {
   const marketDate =
     latestMarketDate();
 
+
   if ($('dashboardDate')) {
-    $('dashboardDate').textContent =
+    $('dashboardDate')
+      .textContent =
       `Updated: ${updated}`;
   }
 
-  if ($('marketDate')) {
-    $('marketDate').textContent =
-      `Market / Delivery: ${marketDate}`;
-  }
 
-  if ($('mode')) {
-    $('mode').textContent =
-      meta.mode || 'FREE_EOD';
+  if ($('marketDate')) {
+    $('marketDate')
+      .textContent =
+      `Market / Delivery: ${marketDate}`;
   }
 }
 
@@ -1034,12 +1180,15 @@ function renderStats() {
         row.overallScore !== undefined
     ).length;
 
+
   const classified =
     all.filter(
       row =>
         row.sector &&
-        row.sector !== 'Unclassified'
+        row.sector !==
+        'Unclassified'
     ).length;
+
 
   const eodReady =
     Number(
@@ -1047,6 +1196,7 @@ function renderStats() {
       meta.eodPriceCount ||
       0
     );
+
 
   $('stats').innerHTML = `
 
@@ -1057,33 +1207,40 @@ function renderStats() {
           all.length
         ).toLocaleString()}
       </b>
+
       <span>
         Unique securities
       </span>
     </div>
 
+
     <div class="stat compact-stat">
       <b>
         ${eodReady.toLocaleString()}
       </b>
+
       <span>
         EOD price ready
       </span>
     </div>
 
+
     <div class="stat compact-stat">
       <b>
         ${classified.toLocaleString()}
       </b>
+
       <span>
         Sector classified
       </span>
     </div>
 
+
     <div class="stat compact-stat">
       <b>
         ${scored.toLocaleString()}
       </b>
+
       <span>
         Fully scored
       </span>
@@ -1094,7 +1251,7 @@ function renderStats() {
 
 
 // =====================================================
-// FETCH
+// DATA
 // =====================================================
 
 async function fetchJSON(url) {
@@ -1175,7 +1332,6 @@ const filterIds = [
 
   'activeOverall',
   'aboveOverall'
-
 ];
 
 
@@ -1197,6 +1353,7 @@ function setupFilterEvents() {
       eventType,
       () => {
         page = 1;
+
         render();
       }
     );
@@ -1205,7 +1362,7 @@ function setupFilterEvents() {
 
 
 // =====================================================
-// STRONG SETUP PRESET
+// STRONG SETUP
 // =====================================================
 
 function setCheckbox(
@@ -1367,23 +1524,32 @@ function resetFilters() {
     if (
       el.type === 'checkbox'
     ) {
-      el.checked = false;
+      el.checked =
+        false;
     }
+
     else if (
       id ===
       'stockStrengthPeriod'
     ) {
-      el.value = '3M';
+      el.value =
+        '3M';
     }
+
     else if (
-      el.tagName === 'SELECT'
+      el.tagName ===
+      'SELECT'
     ) {
-      el.value = 'ALL';
+      el.value =
+        'ALL';
     }
+
     else {
-      el.value = '';
+      el.value =
+        '';
     }
   });
+
 
   page = 1;
 
@@ -1409,6 +1575,7 @@ async function init() {
           'data/meta.json'
         )
       ]);
+
 
     populateDropdowns();
 
@@ -1438,9 +1605,9 @@ async function init() {
     if ($('prev')) {
       $('prev').onclick =
         () => {
-          page--;
-
-          render();
+          goToPage(
+            page - 1
+          );
         };
     }
 
@@ -1448,10 +1615,39 @@ async function init() {
     if ($('next')) {
       $('next').onclick =
         () => {
-          page++;
-
-          render();
+          goToPage(
+            page + 1
+          );
         };
+    }
+
+
+    if ($('gotoPage')) {
+      $('gotoPage')
+        .addEventListener(
+          'keydown',
+          event => {
+            if (
+              event.key ===
+              'Enter'
+            ) {
+              goToPage(
+                $('gotoPage').value
+              );
+            }
+          }
+        );
+
+
+      $('gotoPage')
+        .addEventListener(
+          'change',
+          () => {
+            goToPage(
+              $('gotoPage').value
+            );
+          }
+        );
     }
 
 
@@ -1481,7 +1677,8 @@ async function init() {
       'keydown',
       event => {
         if (
-          event.key === 'Escape'
+          event.key ===
+          'Escape'
         ) {
           closeReasonModal();
         }
@@ -1492,10 +1689,9 @@ async function init() {
     syncTopScrollbarWidth();
 
   }
+
   catch (error) {
-    console.error(
-      error
-    );
+    console.error(error);
 
     if ($('resultCount')) {
       $('resultCount').textContent =
