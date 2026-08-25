@@ -33,7 +33,8 @@ def percentile(value, values):
         return None
 
     count = sum(
-        1 for v in clean
+        1
+        for v in clean
         if v <= float(value)
     )
 
@@ -43,88 +44,327 @@ def percentile(value, values):
     )
 
 
+# =========================================================
+# SECTOR / INDEX MAPPING
+# =========================================================
+
 def sector_index(sector, industry):
-    text = f"{sector or ''} {industry or ''}".lower()
+    text = (
+        f"{sector or ''} "
+        f"{industry or ''}"
+    ).lower()
 
     rules = [
-        (["psu bank"], "^CNXPSUBANK"),
-        (["bank"], "^NSEBANK"),
-        (["financial services", "finance", "nbfc"], "^CNXFINANCE"),
-        (["automobile", "auto component", "auto"], "^CNXAUTO"),
-        (["information technology", "software", "it services"], "^CNXIT"),
-        (["fmcg"], "^CNXFMCG"),
-        (["pharma", "pharmaceutical", "healthcare"], "^CNXPHARMA"),
-        (["metal", "mining"], "^CNXMETAL"),
-        (["realty", "real estate"], "^CNXREALTY"),
-        (["media", "entertainment"], "^CNXMEDIA"),
-        (["energy", "oil", "gas", "power", "renewable", "solar"], "^CNXENERGY"),
-        (["infrastructure", "construction", "capital goods"], "^CNXINFRA"),
+        (
+            ["psu bank"],
+            "^CNXPSUBANK"
+        ),
+        (
+            ["bank"],
+            "^NSEBANK"
+        ),
+        (
+            [
+                "financial services",
+                "finance",
+                "nbfc"
+            ],
+            "^CNXFINANCE"
+        ),
+        (
+            [
+                "automobile",
+                "auto component",
+                "auto"
+            ],
+            "^CNXAUTO"
+        ),
+        (
+            [
+                "information technology",
+                "software",
+                "it services"
+            ],
+            "^CNXIT"
+        ),
+        (
+            ["fmcg"],
+            "^CNXFMCG"
+        ),
+        (
+            [
+                "pharma",
+                "pharmaceutical",
+                "healthcare"
+            ],
+            "^CNXPHARMA"
+        ),
+        (
+            [
+                "metal",
+                "mining"
+            ],
+            "^CNXMETAL"
+        ),
+        (
+            [
+                "realty",
+                "real estate"
+            ],
+            "^CNXREALTY"
+        ),
+        (
+            [
+                "media",
+                "entertainment"
+            ],
+            "^CNXMEDIA"
+        ),
+        (
+            [
+                "energy",
+                "oil",
+                "gas",
+                "power",
+                "renewable",
+                "solar"
+            ],
+            "^CNXENERGY"
+        ),
+        (
+            [
+                "infrastructure",
+                "construction",
+                "capital goods"
+            ],
+            "^CNXINFRA"
+        ),
     ]
 
     for words, ticker in rules:
-        if any(word in text for word in words):
+        if any(
+            word in text
+            for word in words
+        ):
             return ticker
 
     return None
 
 
+# =========================================================
+# MACRO SUPPORT
+# =========================================================
+
 def macro_score(sector, industry):
-    text = f"{sector or ''} {industry or ''}".lower()
+    text = (
+        f"{sector or ''} "
+        f"{industry or ''}"
+    ).lower()
 
     rules = [
-        (["renewable", "solar", "power"], 90),
-        (["capital goods", "construction", "infrastructure"], 85),
-        (["electrical equipment", "electronics", "semiconductor"], 85),
-        (["industrial manufacturing"], 80),
-        (["defence", "aerospace"], 80),
-        (["financial services", "bank"], 70),
-        (["automobile", "auto components"], 70),
-        (["healthcare", "pharma"], 70),
-        (["telecom"], 70),
-        (["metals", "mining"], 65),
-        (["realty"], 65),
-        (["consumer"], 60),
-        (["information technology"], 60),
-        (["oil", "gas"], 55),
-        (["media"], 50),
+        (
+            ["renewable", "solar", "power"],
+            90,
+            (
+                "Strong macro support from power demand, "
+                "energy transition and related investment."
+            )
+        ),
+        (
+            [
+                "capital goods",
+                "construction",
+                "infrastructure"
+            ],
+            85,
+            (
+                "Support from infrastructure spending, "
+                "manufacturing and the domestic capex cycle."
+            )
+        ),
+        (
+            [
+                "electrical equipment",
+                "electronics",
+                "semiconductor"
+            ],
+            85,
+            (
+                "Support from electrification, localisation "
+                "and domestic manufacturing."
+            )
+        ),
+        (
+            ["industrial manufacturing"],
+            80,
+            (
+                "Domestic manufacturing and investment-cycle "
+                "support remain favourable."
+            )
+        ),
+        (
+            ["defence", "aerospace"],
+            80,
+            (
+                "Defence localisation and domestic procurement "
+                "provide macro support."
+            )
+        ),
+        (
+            ["financial services", "bank"],
+            70,
+            (
+                "Financialisation and credit penetration "
+                "provide structural support."
+            )
+        ),
+        (
+            ["automobile", "auto components"],
+            70,
+            (
+                "Auto demand, premiumisation and localisation "
+                "support the sector."
+            )
+        ),
+        (
+            ["healthcare", "pharma"],
+            70,
+            (
+                "Healthcare demand and export opportunities "
+                "provide positive support."
+            )
+        ),
+        (
+            ["telecom"],
+            70,
+            (
+                "Data consumption and digital adoption "
+                "support telecom demand."
+            )
+        ),
+        (
+            ["metals", "mining"],
+            65,
+            (
+                "Infrastructure demand supports the sector, "
+                "but commodity cyclicality remains important."
+            )
+        ),
+        (
+            ["realty"],
+            65,
+            (
+                "Urbanisation and property demand provide "
+                "moderate macro support."
+            )
+        ),
+        (
+            ["consumer"],
+            60,
+            (
+                "Consumption growth and premiumisation "
+                "provide moderate support."
+            )
+        ),
+        (
+            ["information technology"],
+            60,
+            (
+                "Digital transformation and technology spending "
+                "provide moderate support."
+            )
+        ),
+        (
+            ["oil", "gas"],
+            55,
+            (
+                "Energy demand remains supportive, "
+                "but commodity cycles reduce visibility."
+            )
+        ),
+        (
+            ["media"],
+            50,
+            (
+                "Digital consumption provides support, "
+                "but industry economics are mixed."
+            )
+        ),
     ]
 
-    for keywords, score in rules:
-        if any(k in text for k in keywords):
-            return score
+    for keywords, score, reason in rules:
+        if any(
+            keyword in text
+            for keyword in keywords
+        ):
+            return score, reason
 
-    return None
+    return None, (
+        "No reliable automated macro-support rule "
+        "is mapped to this sector/industry."
+    )
 
 
-def extract_close_series(data, ticker, chunk):
-    if data is None or len(data) == 0:
+# =========================================================
+# YFINANCE HISTORY
+# =========================================================
+
+def extract_close_series(
+    data,
+    ticker,
+    chunk
+):
+    if (
+        data is None
+        or len(data) == 0
+    ):
         return None
 
     try:
-        if isinstance(data.columns, pd.MultiIndex):
 
-            # Format 1:
-            # level 0 = Price field
-            # level 1 = ticker
-            if "Close" in data.columns.get_level_values(0):
+        if isinstance(
+            data.columns,
+            pd.MultiIndex
+        ):
+
+            if (
+                "Close"
+                in data.columns
+                .get_level_values(0)
+            ):
+
                 close = data["Close"]
 
-                if isinstance(close, pd.Series):
+                if isinstance(
+                    close,
+                    pd.Series
+                ):
                     series = close
+
                 elif ticker in close.columns:
                     series = close[ticker]
-                elif len(chunk) == 1 and len(close.columns) == 1:
+
+                elif (
+                    len(chunk) == 1
+                    and len(close.columns) == 1
+                ):
                     series = close.iloc[:, 0]
+
                 else:
                     return None
 
-            # Format 2:
-            # level 0 = ticker
-            # level 1 = Price field
-            elif ticker in data.columns.get_level_values(0):
+            elif (
+                ticker
+                in data.columns
+                .get_level_values(0)
+            ):
+
                 block = data[ticker]
 
-                if "Close" not in block.columns:
+                if (
+                    "Close"
+                    not in block.columns
+                ):
                     return None
 
                 series = block["Close"]
@@ -133,8 +373,11 @@ def extract_close_series(data, ticker, chunk):
                 return None
 
         else:
-            # Single ticker response
-            if "Close" not in data.columns:
+
+            if (
+                "Close"
+                not in data.columns
+            ):
                 return None
 
             series = data["Close"]
@@ -151,9 +394,12 @@ def extract_close_series(data, ticker, chunk):
         return series
 
     except Exception as e:
+
         print(
-            f"Close extraction failed for {ticker}: {e}"
+            f"Close extraction failed "
+            f"for {ticker}: {e}"
         )
+
         return None
 
 
@@ -175,9 +421,13 @@ def download_history(tickers):
         len(tickers),
         chunk_size
     ):
-        chunk = tickers[
-            start:start + chunk_size
-        ]
+
+        chunk = (
+            tickers[
+                start:
+                start + chunk_size
+            ]
+        )
 
         print(
             f"Historical prices: "
@@ -187,6 +437,7 @@ def download_history(tickers):
         )
 
         try:
+
             data = yf.download(
                 tickers=chunk,
                 period="8mo",
@@ -198,16 +449,22 @@ def download_history(tickers):
             )
 
         except Exception as e:
+
             print(
-                f"Historical chunk failed: {e}"
+                f"Historical chunk failed: "
+                f"{e}"
             )
+
             continue
 
         for ticker in chunk:
-            series = extract_close_series(
-                data,
-                ticker,
-                chunk
+
+            series = (
+                extract_close_series(
+                    data,
+                    ticker,
+                    chunk
+                )
             )
 
             if series is not None:
@@ -224,14 +481,21 @@ def download_history(tickers):
     return result
 
 
-def period_return(series, trading_days):
+def period_return(
+    series,
+    trading_days
+):
     if series is None:
         return None
 
-    if len(series) <= trading_days:
+    if (
+        len(series)
+        <= trading_days
+    ):
         return None
 
     try:
+
         latest = float(
             series.iloc[-1]
         )
@@ -246,13 +510,20 @@ def period_return(series, trading_days):
             return None
 
         return round(
-            ((latest / old) - 1) * 100,
+            (
+                (latest / old)
+                - 1
+            ) * 100,
             4
         )
 
     except Exception:
         return None
 
+
+# =========================================================
+# MAIN
+# =========================================================
 
 def main():
 
@@ -266,9 +537,11 @@ def main():
         {}
     )
 
-    company_scores = company_data.get(
-        "stocks",
-        {}
+    company_scores = (
+        company_data.get(
+            "stocks",
+            {}
+        )
     )
 
     classified = [
@@ -277,7 +550,8 @@ def main():
         if (
             row.get("symbol")
             and row.get("sector")
-            and row.get("sector") != "Unclassified"
+            and row.get("sector")
+            != "Unclassified"
         )
     ]
 
@@ -289,9 +563,10 @@ def main():
             len(classified)
     })
 
-    # --------------------------------
-    # Historical stock + index data
-    # --------------------------------
+
+    # =====================================================
+    # HISTORICAL STOCK + INDEX DATA
+    # =====================================================
 
     stock_tickers = [
         f"{row['symbol']}.NS"
@@ -303,6 +578,7 @@ def main():
     }
 
     for row in classified:
+
         idx = sector_index(
             row.get("sector"),
             row.get("industry")
@@ -312,13 +588,14 @@ def main():
             index_tickers.add(idx)
 
     history = download_history(
-        stock_tickers +
-        list(index_tickers)
+        stock_tickers
+        + list(index_tickers)
     )
 
-    # --------------------------------
-    # Index returns
-    # --------------------------------
+
+    # =====================================================
+    # INDEX RETURNS
+    # =====================================================
 
     index_returns = {}
 
@@ -329,28 +606,30 @@ def main():
         )
 
         index_returns[ticker] = {
-            "1M": period_return(
-                series,
-                21
-            ),
-            "3M": period_return(
-                series,
-                63
-            ),
-            "6M": period_return(
-                series,
-                126
-            ),
+
+            "1M":
+                period_return(
+                    series,
+                    21
+                ),
+
+            "3M":
+                period_return(
+                    series,
+                    63
+                ),
+
+            "6M":
+                period_return(
+                    series,
+                    126
+                ),
         }
 
-    print(
-        "Index returns:",
-        index_returns
-    )
 
-    # --------------------------------
+    # =====================================================
     # MONTHLY SECTOR STRENGTH
-    # --------------------------------
+    # =====================================================
 
     sector_index_1m = {}
 
@@ -364,14 +643,19 @@ def main():
         if not idx:
             continue
 
-        r = (
+        value = (
             index_returns
-            .get(idx, {})
+            .get(
+                idx,
+                {}
+            )
             .get("1M")
         )
 
-        if r is not None:
-            sector_index_1m[idx] = r
+        if value is not None:
+            sector_index_1m[
+                idx
+            ] = value
 
     sector_return_values = list(
         sector_index_1m.values()
@@ -379,37 +663,39 @@ def main():
 
     sector_strength_by_index = {}
 
-    for idx, r in sector_index_1m.items():
+    for idx, value in (
+        sector_index_1m.items()
+    ):
 
-        sector_strength_by_index[idx] = (
-            percentile(
-                r,
-                sector_return_values
-            )
+        sector_strength_by_index[
+            idx
+        ] = percentile(
+            value,
+            sector_return_values
         )
 
-    # --------------------------------
+
+    # =====================================================
     # STOCK STRENGTH
-    # --------------------------------
+    # =====================================================
 
     raw_1m = {}
     raw_3m = {}
     raw_6m = {}
 
-    missing_stock_history = 0
-    missing_benchmark_history = 0
-
     for row in classified:
 
         symbol = row["symbol"]
-        stock_ticker = f"{symbol}.NS"
+
+        stock_ticker = (
+            f"{symbol}.NS"
+        )
 
         stock_series = history.get(
             stock_ticker
         )
 
         if stock_series is None:
-            missing_stock_history += 1
             continue
 
         idx = sector_index(
@@ -417,7 +703,10 @@ def main():
             row.get("industry")
         )
 
-        benchmark = idx or NIFTY500
+        benchmark = (
+            idx
+            or NIFTY500
+        )
 
         benchmark_returns = (
             index_returns.get(
@@ -431,20 +720,13 @@ def main():
             for value in
             benchmark_returns.values()
         ):
+
             benchmark_returns = (
                 index_returns.get(
                     NIFTY500,
                     {}
                 )
             )
-
-        if not any(
-            value is not None
-            for value in
-            benchmark_returns.values()
-        ):
-            missing_benchmark_history += 1
-            continue
 
         stock_1m = period_return(
             stock_series,
@@ -462,45 +744,51 @@ def main():
         )
 
         bench_1m = (
-            benchmark_returns
-            .get("1M")
+            benchmark_returns.get(
+                "1M"
+            )
         )
 
         bench_3m = (
-            benchmark_returns
-            .get("3M")
+            benchmark_returns.get(
+                "3M"
+            )
         )
 
         bench_6m = (
-            benchmark_returns
-            .get("6M")
+            benchmark_returns.get(
+                "6M"
+            )
         )
 
         if (
             stock_1m is not None
             and bench_1m is not None
         ):
+
             raw_1m[symbol] = (
-                stock_1m -
-                bench_1m
+                stock_1m
+                - bench_1m
             )
 
         if (
             stock_3m is not None
             and bench_3m is not None
         ):
+
             raw_3m[symbol] = (
-                stock_3m -
-                bench_3m
+                stock_3m
+                - bench_3m
             )
 
         if (
             stock_6m is not None
             and bench_6m is not None
         ):
+
             raw_6m[symbol] = (
-                stock_6m -
-                bench_6m
+                stock_6m
+                - bench_6m
             )
 
     values_1m = list(
@@ -548,26 +836,10 @@ def main():
         in raw_6m.items()
     }
 
-    print({
-        "missingStockHistory":
-            missing_stock_history,
 
-        "missingBenchmarkHistory":
-            missing_benchmark_history,
-
-        "stockStrength1M":
-            len(stock_strength_1m),
-
-        "stockStrength3M":
-            len(stock_strength_3m),
-
-        "stockStrength6M":
-            len(stock_strength_6m)
-    })
-
-    # --------------------------------
-    # Value Migration
-    # --------------------------------
+    # =====================================================
+    # TURNOVER FOR VALUE MIGRATION
+    # =====================================================
 
     all_turnover = []
 
@@ -578,18 +850,25 @@ def main():
         )
 
         if turnover is not None:
+
             try:
                 all_turnover.append(
                     float(turnover)
                 )
+
             except Exception:
                 pass
 
-    # --------------------------------
-    # Final scores
-    # --------------------------------
+
+    # =====================================================
+    # BUILD FINAL SCORE INPUTS
+    # =====================================================
 
     scores = {}
+
+    tailwind_available = 0
+    macro_available = 0
+    vm_available = 0
 
     for row in stocks:
 
@@ -613,22 +892,46 @@ def main():
             industry
         )
 
+
+        # -------------------------------------------------
+        # SECTOR STRENGTH
+        # -------------------------------------------------
+
         sector_strength = None
 
         if idx:
+
             sector_strength = (
                 sector_strength_by_index
                 .get(idx)
             )
 
-        macro_support = (
+
+        # -------------------------------------------------
+        # MACRO
+        # -------------------------------------------------
+
+        macro_support, macro_reason = (
             macro_score(
                 sector,
                 industry
             )
         )
 
+        if macro_support is not None:
+            macro_available += 1
+
+
+        # -------------------------------------------------
+        # VALUE MIGRATION
+        # -------------------------------------------------
+
         value_migration = None
+
+        vm_reason = (
+            "Value Migration score is unavailable "
+            "because required price/turnover data is missing."
+        )
 
         change = row.get(
             "changePct"
@@ -647,27 +950,40 @@ def main():
             try:
 
                 momentum = clamp(
-                    50 +
-                    float(change) * 7
+                    50
+                    + float(change) * 7
                 )
 
-                turnover_score = (
-                    percentile(
-                        float(turnover),
-                        all_turnover
-                    )
+                turnover_score = percentile(
+                    float(turnover),
+                    all_turnover
                 )
 
                 if turnover_score is not None:
 
                     value_migration = round(
-                        momentum * 0.60 +
-                        turnover_score * 0.40,
+                        momentum * 0.60
+                        + turnover_score * 0.40,
                         2
+                    )
+
+                    vm_available += 1
+
+                    vm_reason = (
+                        "Automated Value Migration score: "
+                        f"60% daily price momentum "
+                        f"(component {momentum:.1f}) + "
+                        f"40% turnover percentile "
+                        f"(component {turnover_score:.1f})."
                     )
 
             except Exception:
                 pass
+
+
+        # -------------------------------------------------
+        # COMPANY RESEARCH
+        # -------------------------------------------------
 
         company = (
             company_scores
@@ -676,6 +992,76 @@ def main():
                 {}
             )
         )
+
+        tailwind = company.get(
+            "tailwindScore"
+        )
+
+        if tailwind is not None:
+            tailwind_available += 1
+
+        company_reasons = (
+            company.get(
+                "researchReasons",
+                {}
+            )
+            or {}
+        )
+
+
+        # -------------------------------------------------
+        # COMBINED REASON STRUCTURE
+        # -------------------------------------------------
+
+        research_reasons = {
+
+            "tailwind":
+                company_reasons.get(
+                    "tailwind",
+                    {}
+                ),
+
+            "macro": {
+                "reason":
+                    macro_reason,
+
+                "source":
+                    "",
+
+                "sourceDate":
+                    "",
+            },
+
+            "valueMigration": {
+                "reason":
+                    vm_reason,
+
+                "source":
+                    "",
+
+                "sourceDate":
+                    "",
+            },
+
+            "futureGrowth":
+                company_reasons.get(
+                    "futureGrowth",
+                    {}
+                ),
+
+            "fundamentalQuality":
+                company_reasons.get(
+                    "fundamentalQuality",
+                    {}
+                ),
+
+            "capex":
+                company_reasons.get(
+                    "capex",
+                    {}
+                ),
+        }
+
 
         scores[symbol] = {
 
@@ -693,6 +1079,12 @@ def main():
             "stockStrength6M":
                 stock_strength_6m
                 .get(symbol),
+
+            "strengthBenchmark":
+                idx or NIFTY500,
+
+            "tailwindScore":
+                tailwind,
 
             "macroSupport":
                 macro_support,
@@ -715,9 +1107,14 @@ def main():
                     "capexScore"
                 ),
 
-            "strengthBenchmark":
-                idx or NIFTY500
+            "researchReasons":
+                research_reasons,
         }
+
+
+    # =====================================================
+    # OUTPUT
+    # =====================================================
 
     output = {
 
@@ -732,46 +1129,90 @@ def main():
             "method": {
 
                 "sectorStrength":
-                    "1-month relevant Nifty sector index return percentile",
+                    (
+                        "1-month relevant Nifty "
+                        "sector-index return percentile"
+                    ),
 
                 "stockStrength1M":
-                    "1-month stock excess return vs relevant index percentile",
+                    (
+                        "1-month stock excess return "
+                        "vs relevant index percentile"
+                    ),
 
                 "stockStrength3M":
-                    "3-month stock excess return vs relevant index percentile",
+                    (
+                        "3-month stock excess return "
+                        "vs relevant index percentile"
+                    ),
 
                 "stockStrength6M":
-                    "6-month stock excess return vs relevant index percentile",
+                    (
+                        "6-month stock excess return "
+                        "vs relevant index percentile"
+                    ),
+
+                "tailwindScore":
+                    (
+                        "Sector/industry structural "
+                        "tailwind heuristic"
+                    ),
 
                 "macroSupport":
-                    "Sector-level macro heuristic",
+                    (
+                        "Sector-level macro-support "
+                        "heuristic"
+                    ),
 
                 "valueMigration":
-                    "60% daily momentum + 40% turnover percentile",
+                    (
+                        "60% daily momentum + "
+                        "40% turnover percentile"
+                    ),
 
                 "futureGrowth":
                     "Company research input",
 
                 "fundamentalQuality":
-                    "Company financial quality input",
+                    "Company financial-quality input",
 
                 "capexScore":
-                    "Company CAPEX input"
+                    "Company CAPEX input",
             },
 
             "weights": {
-                "sectorStrength": 10,
-                "macroSupport": 20,
-                "valueMigration": 20,
-                "futureGrowth": 20,
-                "fundamentalQuality": 20,
-                "capexScore": 10
-            }
+
+                "sectorStrength":
+                    10,
+
+                "macroSupport":
+                    20,
+
+                "valueMigration":
+                    20,
+
+                "futureGrowth":
+                    20,
+
+                "fundamentalQuality":
+                    20,
+
+                "capexScore":
+                    10,
+            },
+
+            "note":
+                (
+                    "Tailwind and Stock Strength "
+                    "remain separate screening metrics "
+                    "and are not included in Overall Score."
+                ),
         },
 
         "stocks":
-            scores
+            scores,
     }
+
 
     (
         DATA /
@@ -784,15 +1225,16 @@ def main():
         )
     )
 
+
     print({
+
         "stocksProcessed":
             len(scores),
 
         "monthlySectorStrength":
             sum(
                 1
-                for x in
-                scores.values()
+                for x in scores.values()
                 if x.get(
                     "sectorStrength"
                 ) is not None
@@ -811,7 +1253,16 @@ def main():
         "stockStrength6M":
             len(
                 stock_strength_6m
-            )
+            ),
+
+        "tailwindAvailable":
+            tailwind_available,
+
+        "macroAvailable":
+            macro_available,
+
+        "valueMigrationAvailable":
+            vm_available,
     })
 
 
