@@ -18,11 +18,8 @@ RUN_DATE = (
 )
 
 METHODOLOGY = {
-    "macro":
-        "methodology.html#macro",
-
-    "valueMigration":
-        "methodology.html#value-migration",
+    "macro": "methodology.html#macro",
+    "valueMigration": "methodology.html#value-migration",
 }
 
 
@@ -32,18 +29,13 @@ METHODOLOGY = {
 
 def load_json(path, default):
     try:
-        return json.loads(
-            path.read_text()
-        )
+        return json.loads(path.read_text())
     except Exception:
         return default
 
 
 def clamp(x, lo=0, hi=100):
-    return max(
-        lo,
-        min(hi, x)
-    )
+    return max(lo, min(hi, x))
 
 
 def safe_float(value):
@@ -51,17 +43,27 @@ def safe_float(value):
         if value is None:
             return None
 
-        return float(value)
+        value = float(value)
+
+        if pd.isna(value):
+            return None
+
+        return value
 
     except Exception:
         return None
 
 
 def percentile(value, values):
+    value = safe_float(value)
+
+    if value is None:
+        return None
+
     clean = sorted(
         float(v)
         for v in values
-        if v is not None
+        if safe_float(v) is not None
     )
 
     if not clean:
@@ -70,15 +72,39 @@ def percentile(value, values):
     count = sum(
         1
         for v in clean
-        if v <= float(value)
+        if v <= value
     )
 
     return round(
-        count /
-        len(clean) *
-        100,
+        count / len(clean) * 100,
         2
     )
+
+
+def fallback_value(
+    new_value,
+    previous,
+    field
+):
+    """
+    IMPORTANT:
+    New calculation unavailable ho to
+    previous valid score preserve karo.
+    """
+
+    if new_value is not None:
+        return new_value
+
+    old_value = (
+        previous.get(field)
+        if isinstance(previous, dict)
+        else None
+    )
+
+    if old_value is None:
+        return None
+
+    return old_value
 
 
 # =========================================================
@@ -113,34 +139,23 @@ def verified_evidence(
         return None
 
     score = safe_float(
-        block.get(
-            "score"
-        )
+        block.get("score")
     )
 
     reason = str(
-        block.get(
-            "reason"
-        )
+        block.get("reason")
         or ""
     ).strip()
 
     source = str(
-        block.get(
-            "source"
-        )
+        block.get("source")
         or ""
     ).strip()
 
     source_date = str(
-        block.get(
-            "sourceDate"
-        )
+        block.get("sourceDate")
         or ""
     ).strip()
-
-    # VERIFIED tabhi jab
-    # Score + Reason + Source tino available hon.
 
     if (
         score is None
@@ -150,23 +165,14 @@ def verified_evidence(
         return None
 
     return {
-        "score":
-            round(
-                clamp(score),
-                2
-            ),
-
-        "reason":
-            reason,
-
-        "source":
-            source,
-
-        "sourceDate":
-            source_date,
-
-        "mode":
-            "VERIFIED",
+        "score": round(
+            clamp(score),
+            2
+        ),
+        "reason": reason,
+        "source": source,
+        "sourceDate": source_date,
+        "mode": "VERIFIED",
     }
 
 
@@ -184,17 +190,14 @@ def sector_index(
     ).lower()
 
     rules = [
-
         (
             ["psu bank"],
             "^CNXPSUBANK"
         ),
-
         (
             ["bank"],
             "^NSEBANK"
         ),
-
         (
             [
                 "financial services",
@@ -203,7 +206,6 @@ def sector_index(
             ],
             "^CNXFINANCE"
         ),
-
         (
             [
                 "automobile",
@@ -212,7 +214,6 @@ def sector_index(
             ],
             "^CNXAUTO"
         ),
-
         (
             [
                 "information technology",
@@ -221,12 +222,10 @@ def sector_index(
             ],
             "^CNXIT"
         ),
-
         (
             ["fmcg"],
             "^CNXFMCG"
         ),
-
         (
             [
                 "pharma",
@@ -235,7 +234,6 @@ def sector_index(
             ],
             "^CNXPHARMA"
         ),
-
         (
             [
                 "metal",
@@ -243,7 +241,6 @@ def sector_index(
             ],
             "^CNXMETAL"
         ),
-
         (
             [
                 "realty",
@@ -251,7 +248,6 @@ def sector_index(
             ],
             "^CNXREALTY"
         ),
-
         (
             [
                 "media",
@@ -259,7 +255,6 @@ def sector_index(
             ],
             "^CNXMEDIA"
         ),
-
         (
             [
                 "energy",
@@ -271,7 +266,6 @@ def sector_index(
             ],
             "^CNXENERGY"
         ),
-
         (
             [
                 "infrastructure",
@@ -283,7 +277,6 @@ def sector_index(
     ]
 
     for words, ticker in rules:
-
         if any(
             word in text
             for word in words
@@ -307,19 +300,13 @@ def macro_score(
     ).lower()
 
     rules = [
-
         (
-            [
-                "renewable",
-                "solar",
-                "power"
-            ],
+            ["renewable", "solar", "power"],
             90,
             (
                 "Automated Macro screening proxy: "
-                "power demand, energy transition, "
-                "grid investment and related capital "
-                "expenditure provide strong sector support."
+                "power demand, energy transition, grid investment "
+                "and related capital expenditure provide strong support."
             )
         ),
 
@@ -352,9 +339,7 @@ def macro_score(
         ),
 
         (
-            [
-                "industrial manufacturing"
-            ],
+            ["industrial manufacturing"],
             80,
             (
                 "Automated Macro screening proxy: "
@@ -364,10 +349,7 @@ def macro_score(
         ),
 
         (
-            [
-                "defence",
-                "aerospace"
-            ],
+            ["defence", "aerospace"],
             80,
             (
                 "Automated Macro screening proxy: "
@@ -433,9 +415,8 @@ def macro_score(
             65,
             (
                 "Automated Macro screening proxy: "
-                "infrastructure and manufacturing demand "
-                "provide support, although commodity cyclicality "
-                "remains important."
+                "infrastructure and manufacturing demand provide support, "
+                "although commodity cyclicality remains important."
             )
         ),
 
@@ -444,8 +425,8 @@ def macro_score(
             65,
             (
                 "Automated Macro screening proxy: "
-                "urbanisation, housing demand and commercial "
-                "activity provide moderate support."
+                "urbanisation, housing demand and commercial activity "
+                "provide moderate support."
             )
         ),
 
@@ -460,9 +441,7 @@ def macro_score(
         ),
 
         (
-            [
-                "information technology"
-            ],
+            ["information technology"],
             60,
             (
                 "Automated Macro screening proxy: "
@@ -472,10 +451,7 @@ def macro_score(
         ),
 
         (
-            [
-                "oil",
-                "gas"
-            ],
+            ["oil", "gas"],
             55,
             (
                 "Automated Macro screening proxy: "
@@ -495,20 +471,12 @@ def macro_score(
         ),
     ]
 
-    for (
-        keywords,
-        score,
-        reason
-    ) in rules:
-
+    for keywords, score, reason in rules:
         if any(
             keyword in text
             for keyword in keywords
         ):
-            return (
-                score,
-                reason
-            )
+            return score, reason
 
     return (
         None,
@@ -547,9 +515,7 @@ def extract_close_series(
                 .get_level_values(0)
             ):
 
-                close = data[
-                    "Close"
-                ]
+                close = data["Close"]
 
                 if isinstance(
                     close,
@@ -558,20 +524,13 @@ def extract_close_series(
                     series = close
 
                 elif ticker in close.columns:
-                    series = close[
-                        ticker
-                    ]
+                    series = close[ticker]
 
                 elif (
                     len(chunk) == 1
                     and len(close.columns) == 1
                 ):
-                    series = (
-                        close.iloc[
-                            :,
-                            0
-                        ]
-                    )
+                    series = close.iloc[:, 0]
 
                 else:
                     return None
@@ -582,39 +541,26 @@ def extract_close_series(
                 .get_level_values(0)
             ):
 
-                block = data[
-                    ticker
-                ]
+                block = data[ticker]
 
-                if (
-                    "Close"
-                    not in block.columns
-                ):
+                if "Close" not in block.columns:
                     return None
 
-                series = block[
-                    "Close"
-                ]
+                series = block["Close"]
 
             else:
                 return None
 
         else:
 
-            if (
-                "Close"
-                not in data.columns
-            ):
+            if "Close" not in data.columns:
                 return None
 
-            series = data[
-                "Close"
-            ]
+            series = data["Close"]
+
 
         series = (
-            pd.Series(
-                series
-            )
+            pd.Series(series)
             .dropna()
             .astype(float)
         )
@@ -674,27 +620,23 @@ def download_history(tickers):
         except Exception as e:
 
             print(
-                "Historical chunk failed:",
-                e
+                f"Historical chunk failed: {e}"
             )
 
             continue
 
+
         for ticker in chunk:
 
-            series = (
-                extract_close_series(
-                    data,
-                    ticker,
-                    chunk
-                )
+            series = extract_close_series(
+                data,
+                ticker,
+                chunk
             )
 
             if series is not None:
+                result[ticker] = series
 
-                result[
-                    ticker
-                ] = series
 
     print({
         "historyTickersRequested":
@@ -714,18 +656,13 @@ def period_return(
     if series is None:
         return None
 
-    if (
-        len(series)
-        <= trading_days
-    ):
+    if len(series) <= trading_days:
         return None
 
     try:
 
         latest = float(
-            series.iloc[
-                -1
-            ]
+            series.iloc[-1]
         )
 
         old = float(
@@ -739,10 +676,8 @@ def period_return(
 
         return round(
             (
-                (latest / old)
-                - 1
-            )
-            * 100,
+                (latest / old) - 1
+            ) * 100,
             4
         )
 
@@ -757,14 +692,13 @@ def period_return(
 def main():
 
     stocks = load_json(
-        DATA /
-        "stocks.json",
+        DATA / "stocks.json",
         []
     )
 
+
     company_data = load_json(
-        DATA /
-        "company_research.json",
+        DATA / "company_research.json",
         {}
     )
 
@@ -776,14 +710,34 @@ def main():
         or {}
     )
 
+
     evidence_data = load_json(
-        DATA /
-        "company_evidence.json",
+        DATA / "company_evidence.json",
         {}
     )
 
     evidence_stocks = (
         evidence_data.get(
+            "stocks",
+            {}
+        )
+        or {}
+    )
+
+
+    # -----------------------------------------------------
+    # IMPORTANT:
+    # Previous research scores load karo.
+    # Yahoo/history failure par ye fallback banega.
+    # -----------------------------------------------------
+
+    previous_data = load_json(
+        DATA / "research_scores.json",
+        {}
+    )
+
+    previous_scores = (
+        previous_data.get(
             "stocks",
             {}
         )
@@ -799,22 +753,16 @@ def main():
         row
         for row in stocks
         if (
-            row.get(
-                "symbol"
-            )
-            and row.get(
-                "sector"
-            )
-            and row.get(
-                "sector"
-            )
+            row.get("symbol")
+            and row.get("sector")
+            and row.get("sector")
             != "Unclassified"
         )
     ]
 
 
     # =====================================================
-    # HISTORICAL STOCK + INDEX DATA
+    # HISTORY
     # =====================================================
 
     stock_tickers = [
@@ -826,29 +774,22 @@ def main():
         NIFTY500
     }
 
+
     for row in classified:
 
         idx = sector_index(
-            row.get(
-                "sector"
-            ),
-            row.get(
-                "industry"
-            )
+            row.get("sector"),
+            row.get("industry")
         )
 
         if idx:
-            index_tickers.add(
-                idx
-            )
+            index_tickers.add(idx)
 
 
     history = download_history(
         stock_tickers
         +
-        list(
-            index_tickers
-        )
+        list(index_tickers)
     )
 
 
@@ -864,9 +805,7 @@ def main():
             ticker
         )
 
-        index_returns[
-            ticker
-        ] = {
+        index_returns[ticker] = {
 
             "1M":
                 period_return(
@@ -889,7 +828,7 @@ def main():
 
 
     # =====================================================
-    # SECTOR STRENGTH - 1 MONTH
+    # SECTOR STRENGTH
     # =====================================================
 
     sector_index_1m = {}
@@ -897,12 +836,8 @@ def main():
     for row in classified:
 
         idx = sector_index(
-            row.get(
-                "sector"
-            ),
-            row.get(
-                "industry"
-            )
+            row.get("sector"),
+            row.get("industry")
         )
 
         if not idx:
@@ -910,20 +845,12 @@ def main():
 
         value = (
             index_returns
-            .get(
-                idx,
-                {}
-            )
-            .get(
-                "1M"
-            )
+            .get(idx, {})
+            .get("1M")
         )
 
         if value is not None:
-
-            sector_index_1m[
-                idx
-            ] = value
+            sector_index_1m[idx] = value
 
 
     sector_return_values = list(
@@ -933,10 +860,9 @@ def main():
 
     sector_strength_by_index = {}
 
-    for (
-        idx,
-        value
-    ) in sector_index_1m.items():
+    for idx, value in (
+        sector_index_1m.items()
+    ):
 
         sector_strength_by_index[
             idx
@@ -947,7 +873,7 @@ def main():
 
 
     # =====================================================
-    # STOCK STRENGTH
+    # STOCK STRENGTH RAW
     # =====================================================
 
     raw_1m = {}
@@ -957,9 +883,7 @@ def main():
 
     for row in classified:
 
-        symbol = row[
-            "symbol"
-        ]
+        symbol = row["symbol"]
 
         stock_series = history.get(
             f"{symbol}.NS"
@@ -970,12 +894,8 @@ def main():
 
 
         idx = sector_index(
-            row.get(
-                "sector"
-            ),
-            row.get(
-                "industry"
-            )
+            row.get("sector"),
+            row.get("industry")
         )
 
 
@@ -1024,21 +944,15 @@ def main():
 
 
         bench_1m = (
-            benchmark_returns.get(
-                "1M"
-            )
+            benchmark_returns.get("1M")
         )
 
         bench_3m = (
-            benchmark_returns.get(
-                "3M"
-            )
+            benchmark_returns.get("3M")
         )
 
         bench_6m = (
-            benchmark_returns.get(
-                "6M"
-            )
+            benchmark_returns.get("6M")
         )
 
 
@@ -1046,10 +960,7 @@ def main():
             stock_1m is not None
             and bench_1m is not None
         ):
-
-            raw_1m[
-                symbol
-            ] = (
+            raw_1m[symbol] = (
                 stock_1m -
                 bench_1m
             )
@@ -1059,10 +970,7 @@ def main():
             stock_3m is not None
             and bench_3m is not None
         ):
-
-            raw_3m[
-                symbol
-            ] = (
+            raw_3m[symbol] = (
                 stock_3m -
                 bench_3m
             )
@@ -1072,14 +980,15 @@ def main():
             stock_6m is not None
             and bench_6m is not None
         ):
-
-            raw_6m[
-                symbol
-            ] = (
+            raw_6m[symbol] = (
                 stock_6m -
                 bench_6m
             )
 
+
+    # =====================================================
+    # STOCK STRENGTH PERCENTILES
+    # =====================================================
 
     values_1m = list(
         raw_1m.values()
@@ -1100,11 +1009,7 @@ def main():
                 value,
                 values_1m
             )
-
-        for (
-            symbol,
-            value
-        )
+        for symbol, value
         in raw_1m.items()
     }
 
@@ -1115,11 +1020,7 @@ def main():
                 value,
                 values_3m
             )
-
-        for (
-            symbol,
-            value
-        )
+        for symbol, value
         in raw_3m.items()
     }
 
@@ -1130,17 +1031,13 @@ def main():
                 value,
                 values_6m
             )
-
-        for (
-            symbol,
-            value
-        )
+        for symbol, value
         in raw_6m.items()
     }
 
 
     # =====================================================
-    # TURNOVER DISTRIBUTION
+    # TURNOVER
     # =====================================================
 
     all_turnover = []
@@ -1154,11 +1051,8 @@ def main():
         if turnover is not None:
 
             try:
-
                 all_turnover.append(
-                    float(
-                        turnover
-                    )
+                    float(turnover)
                 )
 
             except Exception:
@@ -1170,6 +1064,11 @@ def main():
     # =====================================================
 
     scores = {}
+
+    sector_fallback_count = 0
+    strength_1m_fallback_count = 0
+    strength_3m_fallback_count = 0
+    strength_6m_fallback_count = 0
 
     verified_macro_count = 0
     automated_macro_count = 0
@@ -1188,6 +1087,15 @@ def main():
             continue
 
 
+        previous = (
+            previous_scores.get(
+                symbol,
+                {}
+            )
+            or {}
+        )
+
+
         sector = row.get(
             "sector"
         )
@@ -1204,19 +1112,93 @@ def main():
 
 
         # -------------------------------------------------
-        # SECTOR STRENGTH
+        # SECTOR STRENGTH WITH FALLBACK
         # -------------------------------------------------
 
-        sector_strength = None
+        new_sector_strength = None
 
         if idx:
 
-            sector_strength = (
+            new_sector_strength = (
                 sector_strength_by_index
-                .get(
-                    idx
-                )
+                .get(idx)
             )
+
+
+        sector_strength = (
+            fallback_value(
+                new_sector_strength,
+                previous,
+                "sectorStrength"
+            )
+        )
+
+
+        if (
+            new_sector_strength is None
+            and sector_strength is not None
+        ):
+            sector_fallback_count += 1
+
+
+        # -------------------------------------------------
+        # STOCK STRENGTH WITH FALLBACK
+        # -------------------------------------------------
+
+        new_1m = (
+            stock_strength_1m
+            .get(symbol)
+        )
+
+        new_3m = (
+            stock_strength_3m
+            .get(symbol)
+        )
+
+        new_6m = (
+            stock_strength_6m
+            .get(symbol)
+        )
+
+
+        strength_1m = fallback_value(
+            new_1m,
+            previous,
+            "stockStrength1M"
+        )
+
+        strength_3m = fallback_value(
+            new_3m,
+            previous,
+            "stockStrength3M"
+        )
+
+        strength_6m = fallback_value(
+            new_6m,
+            previous,
+            "stockStrength6M"
+        )
+
+
+        if (
+            new_1m is None
+            and strength_1m is not None
+        ):
+            strength_1m_fallback_count += 1
+
+
+        if (
+            new_3m is None
+            and strength_3m is not None
+        ):
+            strength_3m_fallback_count += 1
+
+
+        if (
+            new_6m is None
+            and strength_6m is not None
+        ):
+            strength_6m_fallback_count += 1
 
 
         # -------------------------------------------------
@@ -1243,7 +1225,6 @@ def main():
 
         # -------------------------------------------------
         # MACRO
-        # VERIFIED FIRST
         # -------------------------------------------------
 
         macro_verified = (
@@ -1258,27 +1239,18 @@ def main():
         if macro_verified:
 
             macro_support = (
-                macro_verified[
-                    "score"
-                ]
+                macro_verified["score"]
             )
 
             macro_detail = {
-
                 "reason":
-                    macro_verified[
-                        "reason"
-                    ],
+                    macro_verified["reason"],
 
                 "source":
-                    macro_verified[
-                        "source"
-                    ],
+                    macro_verified["source"],
 
                 "sourceDate":
-                    macro_verified[
-                        "sourceDate"
-                    ],
+                    macro_verified["sourceDate"],
 
                 "mode":
                     "VERIFIED",
@@ -1298,15 +1270,22 @@ def main():
             )
 
 
-            macro_detail = {
+            # Macro mapping unavailable ho to
+            # previous Macro score preserve karo.
 
+            macro_support = fallback_value(
+                macro_support,
+                previous,
+                "macroSupport"
+            )
+
+
+            macro_detail = {
                 "reason":
                     macro_reason,
 
                 "source":
-                    METHODOLOGY[
-                        "macro"
-                    ],
+                    METHODOLOGY["macro"],
 
                 "sourceDate":
                     RUN_DATE,
@@ -1321,17 +1300,12 @@ def main():
             }
 
 
-            if (
-                macro_support
-                is not None
-            ):
-
+            if macro_support is not None:
                 automated_macro_count += 1
 
 
         # -------------------------------------------------
         # VALUE MIGRATION
-        # VERIFIED FIRST
         # -------------------------------------------------
 
         vm_verified = (
@@ -1349,27 +1323,19 @@ def main():
         if vm_verified:
 
             value_migration = (
-                vm_verified[
-                    "score"
-                ]
+                vm_verified["score"]
             )
 
-            vm_detail = {
 
+            vm_detail = {
                 "reason":
-                    vm_verified[
-                        "reason"
-                    ],
+                    vm_verified["reason"],
 
                 "source":
-                    vm_verified[
-                        "source"
-                    ],
+                    vm_verified["source"],
 
                 "sourceDate":
-                    vm_verified[
-                        "sourceDate"
-                    ],
+                    vm_verified["sourceDate"],
 
                 "mode":
                     "VERIFIED",
@@ -1391,7 +1357,6 @@ def main():
 
 
             vm_detail = {
-
                 "reason":
                     (
                         "Automated Value Migration screening proxy "
@@ -1423,38 +1388,27 @@ def main():
 
                     momentum = clamp(
                         50 +
-                        float(change) *
-                        7
+                        float(change) * 7
                     )
 
 
-                    turnover_score = (
-                        percentile(
-                            float(
-                                turnover
-                            ),
-                            all_turnover
-                        )
+                    turnover_score = percentile(
+                        float(turnover),
+                        all_turnover
                     )
 
 
-                    if (
-                        turnover_score
-                        is not None
-                    ):
+                    if turnover_score is not None:
 
                         value_migration = round(
-                            momentum *
-                            0.60
+                            momentum * 0.60
                             +
-                            turnover_score *
-                            0.40,
+                            turnover_score * 0.40,
                             2
                         )
 
 
                         vm_detail = {
-
                             "reason":
                                 (
                                     "AUTOMATED screening proxy only — "
@@ -1464,8 +1418,8 @@ def main():
                                     "and 40% turnover-percentile component "
                                     f"({turnover_score:.1f}). "
                                     "Verified Value Migration requires "
-                                    "company/business evidence showing a structural "
-                                    "shift such as market-share migration, "
+                                    "company/business evidence showing a "
+                                    "structural shift such as market-share migration, "
                                     "import substitution, organised-market gains, "
                                     "technology transition or movement toward "
                                     "higher-value products."
@@ -1491,16 +1445,106 @@ def main():
                     pass
 
 
+            # EOD data unavailable ho to
+            # previous valid VM score preserve karo.
+
+            if value_migration is None:
+
+                old_vm = previous.get(
+                    "valueMigration"
+                )
+
+                if old_vm is not None:
+
+                    value_migration = old_vm
+
+                    old_reasons = (
+                        previous.get(
+                            "researchReasons",
+                            {}
+                        )
+                        or {}
+                    )
+
+                    old_vm_detail = (
+                        old_reasons.get(
+                            "valueMigration",
+                            {}
+                        )
+                        or {}
+                    )
+
+                    if old_vm_detail:
+                        vm_detail = (
+                            old_vm_detail
+                        )
+
+
+        # -------------------------------------------------
+        # COMPANY SCORE FALLBACKS
+        # -------------------------------------------------
+
+        tailwind_score = fallback_value(
+            company.get(
+                "tailwindScore"
+            ),
+            previous,
+            "tailwindScore"
+        )
+
+
+        future_growth = fallback_value(
+            company.get(
+                "futureGrowth"
+            ),
+            previous,
+            "futureGrowth"
+        )
+
+
+        fundamental_quality = fallback_value(
+            company.get(
+                "fundamentalQuality"
+            ),
+            previous,
+            "fundamentalQuality"
+        )
+
+
+        capex_score_value = fallback_value(
+            company.get(
+                "capexScore"
+            ),
+            previous,
+            "capexScore"
+        )
+
+
         # -------------------------------------------------
         # RESEARCH REASONS
         # -------------------------------------------------
 
+        previous_reasons = (
+            previous.get(
+                "researchReasons",
+                {}
+            )
+            or {}
+        )
+
+
         research_reasons = {
 
             "tailwind":
-                company_reasons.get(
-                    "tailwind",
-                    {}
+                (
+                    company_reasons.get(
+                        "tailwind"
+                    )
+                    or
+                    previous_reasons.get(
+                        "tailwind",
+                        {}
+                    )
                 ),
 
             "macro":
@@ -1510,61 +1554,74 @@ def main():
                 vm_detail,
 
             "futureGrowth":
-                company_reasons.get(
-                    "futureGrowth",
-                    {}
+                (
+                    company_reasons.get(
+                        "futureGrowth"
+                    )
+                    or
+                    previous_reasons.get(
+                        "futureGrowth",
+                        {}
+                    )
                 ),
 
             "fundamentalQuality":
-                company_reasons.get(
-                    "fundamentalQuality",
-                    {}
+                (
+                    company_reasons.get(
+                        "fundamentalQuality"
+                    )
+                    or
+                    previous_reasons.get(
+                        "fundamentalQuality",
+                        {}
+                    )
                 ),
 
             "capex":
-                company_reasons.get(
-                    "capex",
-                    {}
+                (
+                    company_reasons.get(
+                        "capex"
+                    )
+                    or
+                    previous_reasons.get(
+                        "capex",
+                        {}
+                    )
                 ),
         }
 
 
         # -------------------------------------------------
-        # FINAL STOCK RECORD
+        # FINAL RECORD
         # -------------------------------------------------
 
-        scores[
-            symbol
-        ] = {
+        scores[symbol] = {
 
             "sectorStrength":
                 sector_strength,
 
             "stockStrength1M":
-                stock_strength_1m
-                .get(
-                    symbol
-                ),
+                strength_1m,
 
             "stockStrength3M":
-                stock_strength_3m
-                .get(
-                    symbol
-                ),
+                strength_3m,
 
             "stockStrength6M":
-                stock_strength_6m
-                .get(
-                    symbol
-                ),
+                strength_6m,
 
             "strengthBenchmark":
-                idx or NIFTY500,
+                (
+                    idx
+                    or
+                    previous.get(
+                        "strengthBenchmark"
+                    )
+                    or
+                    NIFTY500
+                ),
 
             "tailwindScore":
-                company.get(
-                    "tailwindScore"
-                ),
+                tailwind_score,
 
             "macroSupport":
                 macro_support,
@@ -1573,19 +1630,13 @@ def main():
                 value_migration,
 
             "futureGrowth":
-                company.get(
-                    "futureGrowth"
-                ),
+                future_growth,
 
             "fundamentalQuality":
-                company.get(
-                    "fundamentalQuality"
-                ),
+                fundamental_quality,
 
             "capexScore":
-                company.get(
-                    "capexScore"
-                ),
+                capex_score_value,
 
             "researchReasons":
                 research_reasons,
@@ -1614,6 +1665,14 @@ def main():
 
             "methodologyPage":
                 "methodology.html",
+
+            "historyFallback":
+                (
+                    "Previous valid Sector Strength and "
+                    "Stock Strength values are preserved "
+                    "when current historical-price data "
+                    "is unavailable."
+                ),
 
             "method": {
 
@@ -1695,9 +1754,9 @@ def main():
             "note":
                 (
                     "Stock Strength and Tailwind remain separate "
-                    "screening metrics and are not currently included "
-                    "in Overall Score. Automated Value Migration is a "
-                    "screening proxy and not verified business migration."
+                    "screening metrics. Automated Value Migration "
+                    "is a screening proxy and not verified "
+                    "business migration."
                 ),
         },
 
@@ -1736,20 +1795,50 @@ def main():
                 is not None
             ),
 
-        "stockStrength1M":
-            len(
-                stock_strength_1m
+        "stockStrength1MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockStrength1M"
+                )
+                is not None
             ),
 
-        "stockStrength3M":
-            len(
-                stock_strength_3m
+        "stockStrength3MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockStrength3M"
+                )
+                is not None
             ),
 
-        "stockStrength6M":
-            len(
-                stock_strength_6m
+        "stockStrength6MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockStrength6M"
+                )
+                is not None
             ),
+
+        "sectorFallbackUsed":
+            sector_fallback_count,
+
+        "stockStrength1MFallbackUsed":
+            strength_1m_fallback_count,
+
+        "stockStrength3MFallbackUsed":
+            strength_3m_fallback_count,
+
+        "stockStrength6MFallbackUsed":
+            strength_6m_fallback_count,
 
         "verifiedMacro":
             verified_macro_count,
