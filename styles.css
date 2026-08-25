@@ -1,26 +1,24 @@
 :root {
-  --bg: #07101f;
-  --panel: #0d1728;
-  --panel-2: #14223a;
-  --line: #263852;
-  --text: #e8eef8;
-  --muted: #8fa3bd;
-  --accent: #1687ff;
+  --bg: #666666;
+  --panel: #707070;
+  --panel-2: #787878;
+  --header: #6c6c6c;
+  --line: #a8a8a8;
 
-  --green: #159447;
-  --yellow: #d99a00;
-  --red: #c94b4b;
-  --blue: #1769aa;
+  --text: #111111;
+  --muted: #2f2f2f;
+
+  --blue: #0057d9;
+  --green: #0a8f28;
+  --orange: #e07b00;
+  --red: #d81f1f;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  background: var(--bg);
-}
-
+html,
 body {
   margin: 0;
   background: var(--bg);
@@ -48,7 +46,7 @@ button {
 
 
 /* =====================================================
-   PAGE WIDTH
+   PAGE
    ===================================================== */
 
 main,
@@ -63,7 +61,7 @@ footer {
 
 
 /* =====================================================
-   COMPACT HERO
+   HERO
    ===================================================== */
 
 .hero {
@@ -71,60 +69,29 @@ footer {
   justify-content: space-between;
   align-items: center;
 
-  gap: 12px;
-
-  padding: 8px 2px 5px;
+  padding: 8px 3px 5px;
 }
 
 .compact-hero h1 {
-  margin: 2px 0;
+  margin: 0;
 
-  font-size: 21px;
-  line-height: 1.08;
-}
+  font-size: 22px;
+  line-height: 1.1;
 
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: .1em;
-  color: var(--muted);
+  color: #111;
 }
 
 .hero-desc {
-  margin: 2px 0 0;
+  margin: 3px 0 0;
 
   font-size: 11px;
-  color: var(--muted);
-}
 
-.livebox {
-  display: flex;
-  align-items: center;
-
-  gap: 6px;
-
-  padding: 5px 8px;
-
-  border: 1px solid var(--line);
-  border-radius: 8px;
-
-  background: var(--panel);
-
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: var(--green);
+  color: #222;
 }
 
 
 /* =====================================================
-   COMPACT STATS
+   STATS
    ===================================================== */
 
 .stats {
@@ -135,39 +102,41 @@ footer {
 
   gap: 5px;
 
-  margin: 4px 0 6px;
+  margin: 5px 0 7px;
 }
 
 .stat {
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 6px 9px;
+
   border: 1px solid var(--line);
+  border-radius: 7px;
+
   background: var(--panel);
-
-  border-radius: 8px;
-
-  padding: 5px 8px;
-}
-
-.compact-stat {
-  min-height: 42px;
 }
 
 .stat b {
-  display: inline-block;
-
-  margin-right: 7px;
-
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
+
+  color: var(--blue);
 }
 
 .stat span {
   font-size: 10px;
-  color: var(--muted);
+
+  color: #202020;
 }
 
 
 /* =====================================================
-   MAIN CARD
+   CARD
    ===================================================== */
 
 .card {
@@ -176,7 +145,7 @@ footer {
   background: var(--panel);
 
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
 
   padding: 7px;
 
@@ -187,9 +156,13 @@ footer {
   padding-top: 6px;
 }
 
+
+/* =====================================================
+   NSE STOCK UNIVERSE TOP ROW
+   ===================================================== */
+
 .sectionhead {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
 
@@ -197,7 +170,7 @@ footer {
 }
 
 .universe-head {
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .universe-title-wrap {
@@ -205,62 +178,107 @@ footer {
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 5px;
+  gap: 12px;
 }
 
 .universe-title-wrap h2 {
   margin: 0;
 
-  font-size: 15px;
+  font-size: 17px;
+
+  color: #111;
 }
 
-.date-badge,
-.result-count {
-  display: inline-flex;
-  align-items: center;
+.date-text {
+  font-size: 16px;
+  font-weight: 700;
 
-  padding: 2px 6px;
-
-  border: 1px solid var(--line);
-  border-radius: 999px;
-
-  background: var(--panel-2);
-  color: var(--muted);
-
-  font-size: 10px;
+  color: #161616;
 }
+
+#dashboardDate,
+#marketDate,
+#resultCount {
+  color: #111;
+}
+
+#dashboardDate::first-line,
+#marketDate::first-line {
+  color: #111;
+}
+
+
+/* =====================================================
+   TOP ACTIONS + PAGINATION
+   ===================================================== */
 
 .universe-actions {
   display: flex;
   align-items: center;
 
-  gap: 5px;
+  gap: 6px;
+
+  flex-wrap: wrap;
 }
 
 .primary-btn,
-.secondary-btn,
-.pager button {
-  border: 1px solid var(--line);
-  border-radius: 6px;
+.secondary-btn {
+  border: 1px solid #8f8f8f;
+  border-radius: 5px;
 
-  padding: 5px 8px;
+  padding: 5px 9px;
 
-  background: var(--panel-2);
-  color: var(--text);
+  background: #dedede;
+  color: #111;
 
   font-size: 11px;
+  font-weight: 600;
 }
 
 .primary-btn {
-  background: var(--accent);
-  border-color: var(--accent);
-
+  background: #0b7cff;
   color: white;
+  border-color: #0b7cff;
+}
+
+.page-info {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #111;
+
+  padding: 0 4px;
+}
+
+.goto-wrap {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  color: #111;
+}
+
+.goto-wrap input {
+  width: 52px;
+
+  padding: 4px 5px;
+
+  border: 1px solid #999;
+  border-radius: 4px;
+
+  background: #dedede;
+  color: #111;
+
+  text-align: center;
 }
 
 
 /* =====================================================
-   TOP HORIZONTAL SCROLL
+   TOP SCROLLBAR
    ===================================================== */
 
 .topscroll {
@@ -299,7 +317,7 @@ footer {
 #stockTable {
   width: max-content;
 
-  min-width: 1700px;
+  min-width: 1680px;
 
   border-collapse: separate;
   border-spacing: 0;
@@ -307,21 +325,23 @@ footer {
 
 #stockTable th,
 #stockTable td {
+  background: var(--panel);
+
   border-bottom: 1px solid var(--line);
-  border-right: 1px solid rgba(38, 56, 82, .45);
+  border-right: 1px solid var(--line);
 
   padding: 5px 5px;
 
   vertical-align: middle;
 
-  background: var(--panel);
+  color: #111;
 
   font-size: 11px;
 }
 
 
 /* =====================================================
-   STICKY HEADER
+   HEADER
    ===================================================== */
 
 .header-row th {
@@ -331,36 +351,39 @@ footer {
 
   z-index: 30;
 
-  background: #101b2d !important;
+  background: var(--header) !important;
+
+  color: #111;
 
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
 
   line-height: 1.15;
 
-  white-space: normal;
-
   text-align: center;
+
+  white-space: normal;
 }
 
 .header-row th small {
   font-size: 9px;
-  color: var(--muted);
+
+  color: #202020;
 }
 
 
 /* =====================================================
-   STICKY FILTER ROW
+   FILTER ROW
    ===================================================== */
 
 .filter-row th {
   position: sticky;
 
-  top: 37px;
+  top: 38px;
 
   z-index: 29;
 
-  background: #101b2d !important;
+  background: var(--header) !important;
 
   padding: 3px !important;
 }
@@ -381,10 +404,9 @@ footer {
   width: 155px;
   max-width: 155px;
 
-  background: #101b2d !important;
+  background: var(--header) !important;
 
-  border-right:
-    2px solid #354b69 !important;
+  border-right: 2px solid #929292 !important;
 }
 
 #stockTable tbody td:first-child {
@@ -406,9 +428,12 @@ footer {
 
 .name {
   font-size: 11px;
+
   line-height: 1.18;
 
-  font-weight: 700;
+  font-weight: 800;
+
+  color: #111;
 }
 
 .sub {
@@ -417,14 +442,14 @@ footer {
   font-size: 9px;
   line-height: 1.15;
 
-  color: var(--muted);
+  color: #2c2c2c;
 
   white-space: normal;
 }
 
 
 /* =====================================================
-   FILTERS
+   FILTER CONTROLS
    ===================================================== */
 
 .filter-box {
@@ -443,9 +468,10 @@ footer {
 
   gap: 2px;
 
-  font-size: 8px;
+  color: #111;
 
-  color: var(--muted);
+  font-size: 8px;
+  font-weight: 600;
 
   white-space: nowrap;
 }
@@ -464,22 +490,15 @@ footer {
 
   min-width: 0;
 
-  border: 1px solid #34445f;
+  border: 1px solid #8e8e8e;
   border-radius: 4px;
 
-  padding: 3px 3px;
+  padding: 3px;
 
-  background: #091526;
-  color: var(--text);
+  background: #d5d5d5;
+  color: #111;
 
   font-size: 9px;
-}
-
-.filter-box > input:focus,
-.filter-box select:focus,
-.stock-search:focus {
-  outline: 1px solid var(--accent);
-  border-color: var(--accent);
 }
 
 .stock-search {
@@ -497,221 +516,151 @@ footer {
 
   border-radius: 5px;
 
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(22, 135, 255, .55);
+  outline: 1px solid #3478d4;
 }
 
 
 /* =====================================================
-   VERY COMPACT COLUMN WIDTHS
+   COMPACT COLUMN WIDTHS
    ===================================================== */
-
-/* MARKET CAP */
 
 #stockTable th:nth-child(2),
 #stockTable td:nth-child(2) {
-  min-width: 68px;
   width: 68px;
+  min-width: 68px;
   max-width: 68px;
 
-  white-space: normal;
   text-align: center;
 }
-
-
-/* PRICE */
 
 #stockTable th:nth-child(3),
 #stockTable td:nth-child(3) {
-  min-width: 68px;
   width: 68px;
+  min-width: 68px;
   max-width: 68px;
 
   text-align: center;
 }
 
-
-/* CHANGE */
-
 #stockTable th:nth-child(4),
 #stockTable td:nth-child(4) {
-  min-width: 58px;
   width: 58px;
+  min-width: 58px;
   max-width: 58px;
 
   text-align: center;
 }
 
-
-/* TODAY DELIVERY */
-
 #stockTable th:nth-child(5),
 #stockTable td:nth-child(5) {
-  min-width: 70px;
   width: 70px;
+  min-width: 70px;
   max-width: 70px;
 
   text-align: center;
 }
-
-
-/* 5 DAY AVG DELIVERY */
 
 #stockTable th:nth-child(6),
 #stockTable td:nth-child(6) {
-  min-width: 70px;
   width: 70px;
+  min-width: 70px;
   max-width: 70px;
 
   text-align: center;
 }
 
-
-/* DELIVERY RATIO */
-
 #stockTable th:nth-child(7),
 #stockTable td:nth-child(7) {
-  min-width: 60px;
   width: 60px;
+  min-width: 60px;
   max-width: 60px;
 
   text-align: center;
 }
 
-
-/* SECTOR */
-
 #stockTable th:nth-child(8),
 #stockTable td:nth-child(8) {
-  min-width: 82px;
   width: 82px;
+  min-width: 82px;
   max-width: 82px;
 
   white-space: normal;
-  overflow-wrap: anywhere;
 }
-
-
-/* INDUSTRY */
 
 #stockTable th:nth-child(9),
 #stockTable td:nth-child(9) {
-  min-width: 90px;
   width: 90px;
+  min-width: 90px;
   max-width: 90px;
 
   white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 
-/* =====================================================
-   SCORE COLUMNS - COMPACT
-   ===================================================== */
-
-/* Sector Strength */
+/* score columns */
 
 #stockTable th:nth-child(10),
 #stockTable td:nth-child(10) {
-  min-width: 74px;
   width: 74px;
+  min-width: 74px;
   max-width: 74px;
 
   text-align: center;
 }
 
-
-/* Stock Strength */
-
 #stockTable th:nth-child(11),
 #stockTable td:nth-child(11) {
-  min-width: 80px;
   width: 80px;
+  min-width: 80px;
   max-width: 80px;
 
   text-align: center;
 }
 
-
-/* Tailwind */
-
 #stockTable th:nth-child(12),
 #stockTable td:nth-child(12) {
-  min-width: 68px;
-  width: 68px;
-  max-width: 68px;
+  width: 66px;
+  min-width: 66px;
+  max-width: 66px;
 
   text-align: center;
 }
-
-
-/* Macro */
 
 #stockTable th:nth-child(13),
 #stockTable td:nth-child(13) {
-  min-width: 62px;
-  width: 62px;
-  max-width: 62px;
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
 
   text-align: center;
 }
 
-
-/* Value Migration */
-
 #stockTable th:nth-child(14),
 #stockTable td:nth-child(14) {
-  min-width: 78px;
   width: 78px;
+  min-width: 78px;
   max-width: 78px;
 
   text-align: center;
 }
 
-
-/* Future Growth */
-
 #stockTable th:nth-child(15),
-#stockTable td:nth-child(15) {
-  min-width: 74px;
-  width: 74px;
-  max-width: 74px;
-
-  text-align: center;
-}
-
-
-/* Fundamental */
-
+#stockTable td:nth-child(15),
 #stockTable th:nth-child(16),
 #stockTable td:nth-child(16) {
-  min-width: 74px;
   width: 74px;
+  min-width: 74px;
   max-width: 74px;
 
   text-align: center;
 }
 
-
-/* CAPEX */
-
 #stockTable th:nth-child(17),
-#stockTable td:nth-child(17) {
-  min-width: 62px;
-  width: 62px;
-  max-width: 62px;
-
-  text-align: center;
-}
-
-
-/* OVERALL */
-
+#stockTable td:nth-child(17),
 #stockTable th:nth-child(18),
 #stockTable td:nth-child(18) {
-  min-width: 62px;
   width: 62px;
+  min-width: 62px;
   max-width: 62px;
 
   text-align: center;
@@ -719,89 +668,73 @@ footer {
 
 
 /* =====================================================
-   FULL COLOUR SCORE BADGES
+   RATINGS - ONLY NUMBER COLORED
+   NO BACKGROUND BOX
    ===================================================== */
 
 .score {
-  display: inline-flex;
+  display: inline;
 
-  align-items: center;
-  justify-content: center;
+  min-width: 0;
 
-  gap: 2px;
+  padding: 0;
 
-  min-width: 34px;
+  border: none;
+  border-radius: 0;
 
-  padding: 4px 6px;
+  background: transparent !important;
+
+  color: var(--red);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+.score.mid {
+  color: var(--orange);
+}
+
+.score.hi {
+  color: var(--green);
+}
+
+.score-button {
+  padding: 0;
 
   border: none;
 
-  border-radius: 6px;
+  background: transparent !important;
 
-  background: var(--red);
-
-  color: #ffffff;
-
-  font-size: 11px;
-  font-weight: 800;
-
-  line-height: 1;
-
-  box-shadow:
-    0 1px 2px
-    rgba(0, 0, 0, .28);
-}
-
-
-/* 60 - 74 */
-
-.score.mid {
-  background: var(--yellow);
-
-  color: #111;
-}
-
-
-/* 75+ */
-
-.score.hi {
-  background: var(--green);
-
-  color: #fff;
-}
-
-
-/* Clickable score */
-
-.score-button {
   cursor: pointer;
-
-  transition:
-    transform .08s ease,
-    filter .08s ease;
 }
 
 .score-button:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
+  text-decoration: underline;
 }
 
 .info-mark {
-  font-size: 8px;
-  line-height: 1;
+  margin-left: 2px;
 
-  opacity: .9;
+  font-size: 8px;
+
+  color: inherit;
+}
+
+.pending {
+  color: #333;
+
+  font-size: 9px;
 }
 
 
-/* PENDING */
+/* =====================================================
+   CHANGE % COLORS
+   ===================================================== */
 
-.pending {
-  color: var(--muted);
-
-  font-size: 9px;
-
-  white-space: nowrap;
+#stockTable td:nth-child(4) {
+  font-weight: 700;
 }
 
 
@@ -810,40 +743,14 @@ footer {
    ===================================================== */
 
 #stockTable td:nth-child(7) strong {
-  display: inline-block;
+  color: var(--blue);
 
-  padding: 3px 4px;
-
-  border-radius: 4px;
-
-  background: #17375a;
-
-  color: #dcecff;
-
-  font-size: 10px;
+  font-weight: 800;
 }
 
 
 /* =====================================================
-   PAGER
-   ===================================================== */
-
-.pager {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 8px;
-
-  padding-top: 6px;
-
-  font-size: 10px;
-}
-
-
-/* =====================================================
-   REASON / SOURCE MODAL
+   MODAL
    ===================================================== */
 
 .reason-modal {
@@ -858,8 +765,7 @@ footer {
 
   padding: 20px;
 
-  background:
-    rgba(3, 8, 16, .76);
+  background: rgba(0, 0, 0, .45);
 
   z-index: 1000;
 }
@@ -875,11 +781,11 @@ footer {
 
   padding: 17px;
 
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  border: 1px solid #888;
+  border-radius: 10px;
 
-  background: var(--panel);
-  color: var(--text);
+  background: #c7c7c7;
+  color: #111;
 }
 
 .reason-modal-card h3 {
@@ -897,11 +803,11 @@ footer {
   width: 30px;
   height: 30px;
 
-  border: 0;
-  border-radius: 6px;
+  border: none;
 
   background: transparent;
-  color: var(--text);
+
+  color: #111;
 
   font-size: 23px;
 }
@@ -909,15 +815,15 @@ footer {
 .reason-score {
   margin-bottom: 9px;
 
-  font-weight: 800;
+  color: #111;
 
-  color: var(--accent);
+  font-weight: 800;
 }
 
 .reason-text {
-  line-height: 1.5;
+  color: #111;
 
-  color: #d6dfec;
+  line-height: 1.5;
 }
 
 .reason-source-date {
@@ -925,7 +831,7 @@ footer {
 
   font-size: 11px;
 
-  color: var(--muted);
+  color: #333;
 }
 
 .reason-source-link {
@@ -933,10 +839,9 @@ footer {
 
   padding: 6px 9px;
 
-  border-radius: 6px;
+  border-radius: 5px;
 
-  background: var(--accent);
-
+  background: #0b7cff;
   color: white;
 
   text-decoration: none;
@@ -956,7 +861,7 @@ footer {
 
   font-size: 10px;
 
-  color: var(--muted);
+  color: #222;
 }
 
 
@@ -966,10 +871,6 @@ footer {
 
 @media (max-width: 1000px) {
 
-  .compact-hero h1 {
-    font-size: 19px;
-  }
-
   .stats {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
@@ -977,6 +878,10 @@ footer {
 
   .universe-head {
     align-items: flex-start;
+  }
+
+  .date-text {
+    font-size: 13px;
   }
 
 }
@@ -990,18 +895,9 @@ footer {
     width: calc(100% - 6px);
   }
 
-  .hero {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .stats {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
-  }
-
-  .stat b {
-    font-size: 16px;
   }
 
   .universe-head {
