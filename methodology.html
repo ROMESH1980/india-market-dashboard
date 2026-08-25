@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MY MARKET RESEARCH - Methodology</title>
+
+  <style>
+    :root {
+      --bg: #07101d;
+      --panel: #0d1828;
+      --panel-2: #111d30;
+      --line: #2b3b53;
+
+      --text: #f4f7fb;
+      --muted: #9aa9bd;
+
+      --blue: #2c8cff;
+      --green: #23c35d;
+      --orange: #ffae1a;
+      --red: #ff4d4d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 22px 0 50px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+
+      margin-bottom: 18px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .title p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      padding: 8px 11px;
+
+      border: 1px solid var(--line);
+      border-radius: 7px;
+
+      background: var(--panel);
+      color: var(--text);
+
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .notice {
+      margin-bottom: 18px;
+
+      padding: 14px 16px;
+
+      border: 1px solid var(--line);
+      border-radius: 9px;
+
+      background: var(--panel);
+    }
+
+    .notice strong {
+      color: var(--orange);
+    }
+
+    .notice p {
+      margin: 6px 0 0;
+
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+
+      margin-bottom: 18px;
+    }
+
+    .nav a {
+      padding: 7px 10px;
+
+      border: 1px solid var(--line);
+      border-radius: 6px;
+
+      background: var(--panel);
+      color: var(--text);
+
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .section {
+      scroll-margin-top: 15px;
+
+      margin-bottom: 16px;
+
+      padding: 18px;
+
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
+      background: var(--panel);
+    }
+
+    .section h2 {
+      margin: 0 0 6px;
+
+      font-size: 20px;
+    }
+
+    .section .type {
+      margin-bottom: 12px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .section p {
+      margin: 8px 0;
+
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .section ul {
+      margin: 9px 0 0;
+      padding-left: 21px;
+    }
+
+    .section li {
+      margin: 7px 0;
+
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .formula {
+      margin: 12px 0;
+
+      padding: 12px;
+
+      border: 1px solid var(--line);
+      border-radius: 7px;
+
+      background: var(--panel-2);
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Consolas,
+        monospace;
+
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      padding: 3px 7px;
+
+      border-radius: 999px;
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .verified {
+      color: var(--green);
+      border: 1px solid rgba(35, 195, 93, 0.45);
+    }
+
+    .automated {
+      color: var(--orange);
+      border: 1px solid rgba(255, 174, 26, 0.45);
+    }
+
+    .pending {
+      color: var(--red);
+      border: 1px solid rgba(255, 77, 77, 0.45);
+    }
+
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+
+      margin-top: 12px;
+    }
+
+    .scale div {
+      padding: 10px;
+
+      border: 1px solid var(--line);
+      border-radius: 7px;
+
+      background: var(--panel-2);
+
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .good {
+      color: var(--green);
+    }
+
+    .mid {
+      color: var(--orange);
+    }
+
+    .weak {
+      color: var(--red);
+    }
+
+    footer {
+      margin-top: 25px;
+
+      color: var(--muted);
+
+      text-align: center;
+      font-size: 11px;
+    }
+
+    @media (max-width: 700px) {
+      .scale {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="topbar">
+
+      <div class="title">
+        <h1>MY MARKET RESEARCH</h1>
+
+        <p>
+          Research Rating Methodology
+        </p>
+      </div>
+
+      <a
+        class="back-link"
+        href="index.html"
+      >
+        ← Back to Dashboard
+      </a>
+
+    </div>
+
+
+    <div class="notice">
+
+      <strong>
+        Important
+      </strong>
+
+      <p>
+        Dashboard ratings are research-screening scores, not exchange,
+        company, broker or credit-rating agency ratings.
+        VERIFIED ratings require company/business evidence with a supporting
+        source. AUTOMATED ratings are quantitative or rule-based screening
+        proxies and should be confirmed from exchange filings, annual reports,
+        investor presentations and management commentary.
+      </p>
+
+    </div>
+
+
+    <nav class="nav">
+
+      <a href="#tailwind">
+        Tailwind
+      </a>
+
+      <a href="#macro">
+        Macro
+      </a>
+
+      <a href="#value-migration">
+        Value Migration
+      </a>
+
+      <a href="#future-growth">
+        Future Growth
+      </a>
+
+      <a href="#fundamental">
+        Fundamental
+      </a>
+
+      <a href="#capex">
+        CAPEX
+      </a>
+
+      <a href="#status">
+        Evidence Status
+      </a>
+
+    </nav>
+
+
+    <!-- ================================================= -->
+    <!-- TAILWIND -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="tailwind"
+    >
+
+      <h2>
+        Tailwind
+      </h2>
+
+      <div class="type">
+        Structural sector / industry support
+      </div>
+
+      <p>
+        Tailwind measures whether the company's sector or industry is
+        benefiting from a durable structural trend rather than only a
+        short-term price move.
+      </p>
+
+      <p>
+        Automated Tailwind scores are based on sector and industry
+        classification rules. Examples of positive structural drivers include:
+      </p>
+
+      <ul>
+        <li>Renewable-energy capacity additions and energy transition</li>
+        <li>Grid expansion and electrification</li>
+        <li>Defence localisation and domestic procurement</li>
+        <li>Infrastructure and capital-expenditure cycles</li>
+        <li>Electronics and semiconductor localisation</li>
+        <li>Import substitution</li>
+        <li>Healthcare penetration and export demand</li>
+        <li>Financialisation and formalisation</li>
+        <li>Cloud, AI and data-centre growth</li>
+        <li>Premiumisation and long-term consumption growth</li>
+      </ul>
+
+      <p>
+        When company-specific verified evidence is available, it can override
+        the automated sector-level score.
+      </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- MACRO -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="macro"
+    >
+
+      <h2>
+        Macro
+      </h2>
+
+      <div class="type">
+        Macro-economic and policy support
+      </div>
+
+      <p>
+        Macro Support measures how favourable the current broader economic,
+        policy and investment environment is for a company's sector.
+      </p>
+
+      <p>
+        Automated Macro scores are sector-level screening heuristics.
+        Factors can include:
+      </p>
+
+      <ul>
+        <li>Government infrastructure spending</li>
+        <li>Domestic manufacturing policies</li>
+        <li>Energy-transition investment</li>
+        <li>Credit penetration and financialisation</li>
+        <li>Defence procurement and localisation</li>
+        <li>Electrification and grid investment</li>
+        <li>Healthcare and export demand</li>
+        <li>Consumption and premiumisation</li>
+        <li>Commodity-cycle sensitivity</li>
+        <li>Technology and digital-transformation spending</li>
+      </ul>
+
+      <p>
+        Macro score is a screening aid and does not mean that every company
+        in the sector will perform equally.
+      </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- VALUE MIGRATION -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="value-migration"
+    >
+
+      <h2>
+        Value Migration
+      </h2>
+
+      <div class="type">
+        Business value shifting toward the company
+      </div>
+
+      <p>
+        Verified Value Migration attempts to identify whether industry value,
+        market share, customer spending or economic profit is structurally
+        shifting toward a company or business model.
+      </p>
+
+      <p>
+        Examples include:
+      </p>
+
+      <ul>
+        <li>Unorganised market shifting toward organised players</li>
+        <li>Imports shifting toward domestic manufacturing</li>
+        <li>Legacy technology shifting toward newer technology</li>
+        <li>Offline activity shifting toward digital platforms</li>
+        <li>Market share shifting from weaker players to stronger players</li>
+        <li>Commodity products shifting toward higher-value specialty products</li>
+        <li>Traditional energy shifting toward renewable / clean energy</li>
+        <li>Customer spending shifting toward a new distribution model</li>
+      </ul>
+
+      <p>
+        A VERIFIED Value Migration score requires business/company evidence.
+      </p>
+
+      <p>
+        When verified evidence is not available, the dashboard may display an
+        AUTOMATED screening proxy based on short-term price momentum and
+        turnover. That proxy is <strong>not</strong> treated as verified
+        business Value Migration.
+      </p>
+
+      <div class="formula">
+        Current automated screening proxy:
+        <br><br>
+        60% short-term price momentum
+        +
+        40% turnover percentile
+      </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- FUTURE GROWTH -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="future-growth"
+    >
+
+      <h2>
+        Future Growth
+      </h2>
+
+      <div class="type">
+        Growth potential screening score
+      </div>
+
+      <p>
+        Future Growth attempts to measure the company's ability to grow
+        revenue and earnings in coming periods.
+      </p>
+
+      <p>
+        Automated scoring currently uses available financial-data proxies such
+        as:
+      </p>
+
+      <ul>
+        <li>Revenue growth</li>
+        <li>Earnings growth</li>
+        <li>Quarterly earnings growth</li>
+        <li>Available forward versus trailing valuation data</li>
+      </ul>
+
+      <p>
+        A verified company-level Future Growth assessment can additionally
+        consider:
+      </p>
+
+      <ul>
+        <li>Order book</li>
+        <li>Capacity expansion</li>
+        <li>Management guidance</li>
+        <li>New products</li>
+        <li>New customers</li>
+        <li>New geographies</li>
+        <li>Market-share gains</li>
+        <li>Industry growth outlook</li>
+      </ul>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- FUNDAMENTAL -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="fundamental"
+    >
+
+      <h2>
+        Fundamental
+      </h2>
+
+      <div class="type">
+        Financial quality screening score
+      </div>
+
+      <p>
+        Fundamental Quality measures the financial strength and quality of the
+        business using available quantitative financial indicators.
+      </p>
+
+      <p>
+        Automated scoring can include:
+      </p>
+
+      <ul>
+        <li>Return on Equity (ROE)</li>
+        <li>Profit margin</li>
+        <li>Operating margin</li>
+        <li>Debt-to-equity</li>
+        <li>Current ratio</li>
+        <li>Free cash flow</li>
+        <li>Operating cash flow</li>
+      </ul>
+
+      <p>
+        A higher score generally indicates stronger profitability,
+        balance-sheet quality, liquidity and cash-generation characteristics
+        based on the available data.
+      </p>
+
+      <p>
+        Automated data can occasionally be unavailable or rate-limited.
+        In those cases, the score should be treated cautiously and verified
+        against company filings.
+      </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- CAPEX -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="capex"
+    >
+
+      <h2>
+        CAPEX
+      </h2>
+
+      <div class="type">
+        Capital expenditure / expansion screening score
+      </div>
+
+      <p>
+        CAPEX score attempts to identify whether the company is actively
+        investing in productive capacity, plant, equipment or expansion.
+      </p>
+
+      <p>
+        The automated screening proxy compares available capital expenditure
+        with operating cash flow.
+      </p>
+
+      <div class="formula">
+        Automated CAPEX proxy:
+        <br><br>
+
+        CAPEX / Operating Cash Flow
+        <br><br>
+
+        ≥ 0.50 → 90
+        <br>
+        ≥ 0.30 → 80
+        <br>
+        ≥ 0.15 → 70
+        <br>
+        ≥ 0.05 → 60
+        <br>
+        &gt; 0 → 50
+      </div>
+
+      <p>
+        A verified CAPEX assessment can additionally use:
+      </p>
+
+      <ul>
+        <li>Company-announced CAPEX plans</li>
+        <li>Capacity additions</li>
+        <li>New plant commissioning</li>
+        <li>Expansion timeline</li>
+        <li>Expected revenue contribution</li>
+        <li>Management commentary</li>
+        <li>NSE / company filings</li>
+      </ul>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- EVIDENCE STATUS -->
+    <!-- ================================================= -->
+
+    <section
+      class="section"
+      id="status"
+    >
+
+      <h2>
+        Evidence Status
+      </h2>
+
+      <p>
+        Each rating popup can show an evidence status.
+      </p>
+
+
+      <p>
+        <span class="badge verified">
+          VERIFIED
+        </span>
+      </p>
+
+      <p>
+        Company/business evidence is available with a supporting reason and
+        source. Verified evidence can override an automated screening proxy.
+      </p>
+
+
+      <p>
+        <span class="badge automated">
+          AUTOMATED
+        </span>
+      </p>
+
+      <p>
+        Score is generated using the dashboard's quantitative or rule-based
+        screening methodology. It is not a manually verified company-specific
+        conclusion.
+      </p>
+
+
+      <p>
+        <span class="badge pending">
+          PENDING
+        </span>
+      </p>
+
+      <p>
+        Reliable data or evidence is currently insufficient to calculate or
+        verify the rating.
+      </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- SCORE SCALE -->
+    <!-- ================================================= -->
+
+    <section class="section">
+
+      <h2>
+        General Score Interpretation
+      </h2>
+
+      <p>
+        Scores are expressed on a 0–100 research-screening scale.
+      </p>
+
+      <div class="scale">
+
+        <div class="good">
+          75–100
+          <br>
+          Strong
+        </div>
+
+        <div class="mid">
+          60–74
+          <br>
+          Moderate
+        </div>
+
+        <div class="weak">
+          0–59
+          <br>
+          Weak / Caution
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <footer>
+      MY MARKET RESEARCH • Research screening tool only •
+      Verify company and exchange filings before investment decisions.
+    </footer>
+
+  </main>
+
+</body>
+</html>
