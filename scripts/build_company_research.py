@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 
+# =========================================================
+# BASIC HELPERS
+# =========================================================
+
 def load_json(path, default):
     try:
         return json.loads(path.read_text())
@@ -26,138 +30,397 @@ def safe_float(x):
         if x is None:
             return None
 
-        x = float(x)
+        value = float(x)
 
-        if math.isnan(x) or math.isinf(x):
+        if math.isnan(value) or math.isinf(value):
             return None
 
-        return x
+        return value
+
     except Exception:
         return None
 
 
+def clean_text(value):
+    if value is None:
+        return ""
+
+    return str(value).strip()
+
+
+def valid_score(value):
+    value = safe_float(value)
+
+    if value is None:
+        return None
+
+    return round(
+        clamp(value),
+        2
+    )
+
+
 # =========================================================
-# TAILWIND
+# VERIFIED EVIDENCE HELPERS
 # =========================================================
 
-def tailwind_score(sector, industry):
-    text = f"{sector or ''} {industry or ''}".lower()
+def evidence_block(
+    evidence_stock,
+    key
+):
+    if not isinstance(
+        evidence_stock,
+        dict
+    ):
+        return {}
+
+    block = evidence_stock.get(
+        key,
+        {}
+    )
+
+    if not isinstance(
+        block,
+        dict
+    ):
+        return {}
+
+    return block
+
+
+def verified_override(
+    evidence_stock,
+    key
+):
+    block = evidence_block(
+        evidence_stock,
+        key
+    )
+
+    score = valid_score(
+        block.get("score")
+    )
+
+    reason = clean_text(
+        block.get("reason")
+    )
+
+    source = clean_text(
+        block.get("source")
+    )
+
+    source_date = clean_text(
+        block.get("sourceDate")
+    )
+
+    # Verified override tabhi valid hoga
+    # jab score + reason + source available ho.
+    if (
+        score is None
+        or not reason
+        or not source
+    ):
+        return None
+
+    return {
+        "score":
+            score,
+
+        "reason":
+            reason,
+
+        "source":
+            source,
+
+        "sourceDate":
+            source_date,
+
+        "mode":
+            "VERIFIED"
+    }
+
+
+# =========================================================
+# TAILWIND AUTOMATED BASE
+# =========================================================
+
+def tailwind_score(
+    sector,
+    industry
+):
+    text = (
+        f"{sector or ''} "
+        f"{industry or ''}"
+    ).lower()
 
     rules = [
         (
             ["renewable", "solar"],
             95,
-            "Structural tailwind from renewable-energy capacity additions, energy transition and related investment."
+            (
+                "Automated screening proxy: renewable-energy "
+                "capacity additions, energy transition and "
+                "related investment provide a strong structural tailwind."
+            )
         ),
+
         (
-            ["power", "electric utility", "electrical equipment"],
+            [
+                "power",
+                "electric utility",
+                "electrical equipment"
+            ],
             90,
-            "Power demand, grid expansion, transmission investment and electrification provide structural support."
+            (
+                "Automated screening proxy: power demand, "
+                "grid expansion, transmission investment and "
+                "electrification support the industry."
+            )
         ),
+
         (
             ["defence", "aerospace"],
             92,
-            "Defence indigenisation, localisation and domestic procurement create a strong structural tailwind."
+            (
+                "Automated screening proxy: defence localisation, "
+                "indigenisation and domestic procurement support growth."
+            )
         ),
+
         (
-            ["capital goods", "industrial machinery", "construction equipment"],
+            [
+                "capital goods",
+                "industrial machinery",
+                "construction equipment"
+            ],
             88,
-            "Domestic manufacturing and investment-cycle expansion support capital-goods demand."
+            (
+                "Automated screening proxy: domestic manufacturing "
+                "and the capex cycle support capital-goods demand."
+            )
         ),
+
         (
-            ["infrastructure", "construction"],
+            [
+                "infrastructure",
+                "construction"
+            ],
             87,
-            "Infrastructure investment and public/private capex provide a favourable demand environment."
+            (
+                "Automated screening proxy: infrastructure investment "
+                "and public/private capex provide sector support."
+            )
         ),
+
         (
-            ["electronics", "semiconductor", "electronic components"],
+            [
+                "electronics",
+                "semiconductor",
+                "electronic components"
+            ],
             92,
-            "Electronics localisation, import substitution and domestic manufacturing expansion support growth."
+            (
+                "Automated screening proxy: localisation, "
+                "import substitution and domestic electronics "
+                "manufacturing provide structural support."
+            )
         ),
+
         (
             ["railway", "rail"],
             90,
-            "Railway modernisation and infrastructure spending provide a structural demand tailwind."
+            (
+                "Automated screening proxy: railway modernisation "
+                "and infrastructure spending support demand."
+            )
         ),
+
         (
-            ["pharma", "pharmaceutical", "healthcare", "hospital"],
+            [
+                "pharma",
+                "pharmaceutical",
+                "healthcare",
+                "hospital"
+            ],
             82,
-            "Healthcare demand, exports and rising healthcare penetration provide long-duration support."
+            (
+                "Automated screening proxy: healthcare demand, "
+                "exports and rising healthcare penetration "
+                "provide long-duration support."
+            )
         ),
+
         (
-            ["auto component", "automobile", "automotive"],
+            [
+                "auto component",
+                "automobile",
+                "automotive"
+            ],
             80,
-            "Vehicle premiumisation, localisation and technology transition provide sector support."
+            (
+                "Automated screening proxy: vehicle premiumisation, "
+                "localisation and technology transition support the sector."
+            )
         ),
+
         (
-            ["bank", "financial services", "nbfc", "insurance", "asset management"],
+            [
+                "bank",
+                "financial services",
+                "nbfc",
+                "insurance",
+                "asset management"
+            ],
             78,
-            "Financialisation, credit penetration and formalisation support long-term sector growth."
+            (
+                "Automated screening proxy: financialisation, "
+                "credit penetration and formalisation support growth."
+            )
         ),
+
         (
-            ["telecom", "communication"],
+            [
+                "telecom",
+                "communication"
+            ],
             80,
-            "Data consumption, network investment and digital adoption provide structural demand support."
+            (
+                "Automated screening proxy: data consumption, "
+                "network investment and digital adoption support demand."
+            )
         ),
+
         (
-            ["data center", "cloud"],
+            [
+                "data center",
+                "data centre",
+                "cloud"
+            ],
             95,
-            "Cloud adoption, AI infrastructure and data-centre capacity expansion create a strong demand tailwind."
+            (
+                "Automated screening proxy: cloud adoption, AI "
+                "infrastructure and data-centre capacity expansion "
+                "provide a strong tailwind."
+            )
         ),
+
         (
-            ["logistics", "warehousing"],
+            [
+                "logistics",
+                "warehousing"
+            ],
             80,
-            "Formalisation, organised logistics and e-commerce penetration support structural growth."
+            (
+                "Automated screening proxy: formalisation, "
+                "organised logistics and e-commerce penetration "
+                "support structural growth."
+            )
         ),
+
         (
-            ["real estate", "realty"],
+            [
+                "real estate",
+                "realty"
+            ],
             72,
-            "Urbanisation and housing/commercial demand provide a positive but cyclical tailwind."
+            (
+                "Automated screening proxy: urbanisation and "
+                "housing/commercial demand provide positive support."
+            )
         ),
+
         (
-            ["consumer", "fmcg"],
+            [
+                "consumer",
+                "fmcg"
+            ],
             70,
-            "Income growth, premiumisation and consumption expansion provide long-term support."
+            (
+                "Automated screening proxy: income growth, "
+                "premiumisation and consumption expansion "
+                "provide long-term support."
+            )
         ),
+
         (
-            ["information technology", "software", "it services"],
+            [
+                "information technology",
+                "software",
+                "it services"
+            ],
             75,
-            "Digital transformation, cloud and AI spending provide structural technology demand."
+            (
+                "Automated screening proxy: digital transformation, "
+                "cloud and AI spending support technology demand."
+            )
         ),
+
         (
-            ["chemical", "specialty chemical"],
+            [
+                "chemical",
+                "specialty chemical"
+            ],
             76,
-            "Import substitution, supply-chain diversification and specialty-product demand can support growth."
+            (
+                "Automated screening proxy: import substitution, "
+                "supply-chain diversification and specialty-product "
+                "demand may support growth."
+            )
         ),
+
         (
-            ["metal", "mining"],
+            [
+                "metal",
+                "mining"
+            ],
             62,
-            "Infrastructure and manufacturing demand provide support, but the sector remains commodity-cycle sensitive."
+            (
+                "Automated screening proxy: infrastructure and "
+                "manufacturing demand provide support, though "
+                "commodity cyclicality remains important."
+            )
         ),
+
         (
-            ["oil", "gas"],
+            [
+                "oil",
+                "gas"
+            ],
             58,
-            "Energy demand remains supportive, although commodity cycles and energy transition limit the structural score."
+            (
+                "Automated screening proxy: energy demand is supportive, "
+                "but commodity cycles and energy transition reduce visibility."
+            )
         ),
+
         (
-            ["media", "entertainment"],
+            [
+                "media",
+                "entertainment"
+            ],
             55,
-            "Digital consumption offers support, but industry economics remain mixed."
+            (
+                "Automated screening proxy: digital consumption "
+                "provides support, but industry economics remain mixed."
+            )
         ),
     ]
 
     for keywords, score, reason in rules:
-        if any(word in text for word in keywords):
+        if any(
+            word in text
+            for word in keywords
+        ):
             return score, reason
 
     return None, (
-        "No sufficiently reliable automated structural-tailwind rule "
-        "is currently mapped to this sector/industry."
+        "Automated screening proxy unavailable: "
+        "no mapped structural-tailwind rule for this sector/industry."
     )
 
 
 # =========================================================
-# FUTURE GROWTH
+# FUTURE GROWTH AUTOMATED BASE
 # =========================================================
 
 def growth_component(x):
@@ -182,14 +445,14 @@ def future_growth_score(info):
     )
 
     if revenue_growth is not None:
-        score = growth_component(
-            revenue_growth
+        parts.append(
+            growth_component(
+                revenue_growth
+            )
         )
 
-        parts.append(score)
-
         details.append(
-            f"Revenue growth {revenue_growth * 100:.1f}%"
+            f"revenue growth {revenue_growth * 100:.1f}%"
         )
 
     earnings_growth = safe_float(
@@ -197,29 +460,34 @@ def future_growth_score(info):
     )
 
     if earnings_growth is not None:
-        score = growth_component(
-            earnings_growth
+        parts.append(
+            growth_component(
+                earnings_growth
+            )
         )
 
-        parts.append(score)
-
         details.append(
-            f"Earnings growth {earnings_growth * 100:.1f}%"
+            f"earnings growth {earnings_growth * 100:.1f}%"
         )
 
     quarterly_growth = safe_float(
-        info.get("earningsQuarterlyGrowth")
+        info.get(
+            "earningsQuarterlyGrowth"
+        )
     )
 
     if quarterly_growth is not None:
-        score = growth_component(
-            quarterly_growth
+        parts.append(
+            growth_component(
+                quarterly_growth
+            )
         )
 
-        parts.append(score)
-
         details.append(
-            f"Quarterly earnings growth {quarterly_growth * 100:.1f}%"
+            (
+                "quarterly earnings growth "
+                f"{quarterly_growth * 100:.1f}%"
+            )
         )
 
     forward_pe = safe_float(
@@ -236,37 +504,47 @@ def future_growth_score(info):
         and trailing_pe > 0
     ):
         improvement = (
-            trailing_pe - forward_pe
+            trailing_pe -
+            forward_pe
         ) / trailing_pe
 
         parts.append(
             clamp(
-                50 + improvement * 40
+                50 +
+                improvement * 40
             )
         )
 
     if not parts:
         return None, (
-            "Insufficient automated growth data available."
+            "Automated screening proxy unavailable: "
+            "insufficient growth data."
         )
 
     score = round(
-        sum(parts) / len(parts),
+        sum(parts) /
+        len(parts),
         2
     )
 
-    reason = (
-        "Automated growth proxy based on "
-        + ", ".join(details)
-        if details
-        else "Automated growth proxy based on available forward and historical financial data."
-    )
+    if details:
+        reason = (
+            "Automated screening proxy based on "
+            + ", ".join(details)
+            + "."
+        )
+
+    else:
+        reason = (
+            "Automated screening proxy based on "
+            "available historical and forward financial data."
+        )
 
     return score, reason
 
 
 # =========================================================
-# FUNDAMENTAL QUALITY
+# FUNDAMENTAL AUTOMATED BASE
 # =========================================================
 
 def fundamental_score(info):
@@ -274,13 +552,16 @@ def fundamental_score(info):
     details = []
 
     roe = safe_float(
-        info.get("returnOnEquity")
+        info.get(
+            "returnOnEquity"
+        )
     )
 
     if roe is not None:
         parts.append(
             clamp(
-                50 + roe * 100 * 1.5
+                50 +
+                roe * 100 * 1.5
             )
         )
 
@@ -289,142 +570,182 @@ def fundamental_score(info):
         )
 
     profit_margin = safe_float(
-        info.get("profitMargins")
+        info.get(
+            "profitMargins"
+        )
     )
 
     if profit_margin is not None:
         parts.append(
             clamp(
-                45 + profit_margin * 100 * 2
+                45 +
+                profit_margin *
+                100 * 2
             )
         )
 
         details.append(
-            f"Profit margin {profit_margin * 100:.1f}%"
+            (
+                "profit margin "
+                f"{profit_margin * 100:.1f}%"
+            )
         )
 
     operating_margin = safe_float(
-        info.get("operatingMargins")
+        info.get(
+            "operatingMargins"
+        )
     )
 
     if operating_margin is not None:
         parts.append(
             clamp(
                 45 +
-                operating_margin * 100 * 1.8
+                operating_margin *
+                100 * 1.8
             )
         )
 
         details.append(
-            f"Operating margin {operating_margin * 100:.1f}%"
+            (
+                "operating margin "
+                f"{operating_margin * 100:.1f}%"
+            )
         )
 
     debt_equity = safe_float(
-        info.get("debtToEquity")
+        info.get(
+            "debtToEquity"
+        )
     )
 
     if debt_equity is not None:
         parts.append(
             clamp(
                 100 -
-                debt_equity * 0.55
+                debt_equity *
+                0.55
             )
         )
 
         details.append(
-            f"Debt/equity {debt_equity:.1f}"
+            (
+                "debt/equity "
+                f"{debt_equity:.1f}"
+            )
         )
 
     current_ratio = safe_float(
-        info.get("currentRatio")
+        info.get(
+            "currentRatio"
+        )
     )
 
     if current_ratio is not None:
         parts.append(
             clamp(
-                current_ratio * 45
+                current_ratio *
+                45
             )
         )
 
         details.append(
-            f"Current ratio {current_ratio:.2f}"
+            (
+                "current ratio "
+                f"{current_ratio:.2f}"
+            )
         )
 
     free_cashflow = safe_float(
-        info.get("freeCashflow")
+        info.get(
+            "freeCashflow"
+        )
     )
 
     if free_cashflow is not None:
         parts.append(
-            75 if free_cashflow > 0 else 25
+            75
+            if free_cashflow > 0
+            else 25
         )
 
         details.append(
-            "Positive free cash flow"
+            "positive free cash flow"
             if free_cashflow > 0
-            else "Negative free cash flow"
+            else "negative free cash flow"
         )
 
     operating_cf = safe_float(
-        info.get("operatingCashflow")
+        info.get(
+            "operatingCashflow"
+        )
     )
 
     if operating_cf is not None:
         parts.append(
-            75 if operating_cf > 0 else 25
+            75
+            if operating_cf > 0
+            else 25
         )
 
         details.append(
-            "Positive operating cash flow"
+            "positive operating cash flow"
             if operating_cf > 0
-            else "Negative operating cash flow"
+            else "negative operating cash flow"
         )
 
     if len(parts) < 2:
         return None, (
-            "Insufficient automated fundamental data available."
+            "Automated screening proxy unavailable: "
+            "insufficient fundamental data."
         )
 
     score = round(
-        sum(parts) / len(parts),
+        sum(parts) /
+        len(parts),
         2
     )
 
     reason = (
-        "Automated fundamental-quality proxy: "
+        "Automated screening proxy based on "
         + ", ".join(details)
+        + "."
     )
 
     return score, reason
 
 
 # =========================================================
-# CAPEX
+# CAPEX AUTOMATED BASE
 # =========================================================
 
 def capex_score(ticker):
     try:
         cf = ticker.cashflow
 
-        if cf is None or cf.empty:
+        if (
+            cf is None
+            or cf.empty
+        ):
             return None, (
-                "Cash-flow statement unavailable for automated CAPEX analysis."
+                "Automated screening proxy unavailable: "
+                "cash-flow statement not available."
             )
 
         capex = None
         operating_cf = None
 
-        possible_capex = [
+        capex_names = [
             "Capital Expenditure",
             "Capital Expenditures",
         ]
 
-        possible_ocf = [
+        ocf_names = [
             "Operating Cash Flow",
             "Total Cash From Operating Activities",
         ]
 
-        for name in possible_capex:
+        for name in capex_names:
             if name in cf.index:
                 values = (
                     cf.loc[name]
@@ -437,7 +758,7 @@ def capex_score(ticker):
                     )
                     break
 
-        for name in possible_ocf:
+        for name in ocf_names:
             if name in cf.index:
                 values = (
                     cf.loc[name]
@@ -452,23 +773,27 @@ def capex_score(ticker):
 
         if capex is None:
             return None, (
-                "Capital expenditure data unavailable."
+                "Automated screening proxy unavailable: "
+                "capital expenditure data not available."
             )
 
-        capex_abs = abs(capex)
+        capex_abs = abs(
+            capex
+        )
 
         if (
             operating_cf is None
             or operating_cf <= 0
         ):
-            score = (
-                50
-                if capex_abs > 0
-                else None
-            )
+            if capex_abs > 0:
+                return 50, (
+                    "Automated screening proxy: CAPEX detected, "
+                    "but positive operating cash flow was unavailable "
+                    "for comparison."
+                )
 
-            return score, (
-                "CAPEX detected, but positive operating cash flow was not available for comparison."
+            return None, (
+                "Automated screening proxy unavailable."
             )
 
         ratio = (
@@ -495,7 +820,8 @@ def capex_score(ticker):
             score = 35
 
         reason = (
-            f"Automated CAPEX proxy: capital expenditure is "
+            "Automated screening proxy: "
+            "capital expenditure is "
             f"{ratio:.2f}× operating cash flow."
         )
 
@@ -503,16 +829,86 @@ def capex_score(ticker):
 
     except Exception as e:
         return None, (
-            f"CAPEX calculation unavailable: {e}"
+            "Automated screening proxy unavailable: "
+            f"{e}"
         )
 
 
 # =========================================================
-# STOCK ANALYSIS
+# BUILD ONE SCORE FIELD
 # =========================================================
 
-def analyze_stock(row):
-    symbol = row.get("symbol")
+def build_field(
+    automated_score,
+    automated_reason,
+    automated_source,
+    verified
+):
+    if verified:
+        return (
+            verified["score"],
+            {
+                "reason":
+                    verified["reason"],
+
+                "source":
+                    verified["source"],
+
+                "sourceDate":
+                    verified["sourceDate"],
+
+                "mode":
+                    "VERIFIED"
+            }
+        )
+
+    if automated_score is None:
+        return (
+            None,
+            {
+                "reason":
+                    automated_reason,
+
+                "source":
+                    automated_source,
+
+                "sourceDate":
+                    "",
+
+                "mode":
+                    "AUTOMATED"
+            }
+        )
+
+    return (
+        automated_score,
+        {
+            "reason":
+                automated_reason,
+
+            "source":
+                automated_source,
+
+            "sourceDate":
+                "",
+
+            "mode":
+                "AUTOMATED"
+        }
+    )
+
+
+# =========================================================
+# ANALYZE STOCK
+# =========================================================
+
+def analyze_stock(
+    row,
+    evidence_stocks
+):
+    symbol = row.get(
+        "symbol"
+    )
 
     if not symbol:
         return None, None
@@ -521,18 +917,60 @@ def analyze_stock(row):
         f"{symbol}.NS"
     )
 
-    sector = row.get("sector")
-    industry = row.get("industry")
+    yahoo_url = (
+        "https://finance.yahoo.com/"
+        f"quote/{yahoo_symbol}/"
+    )
 
-    tailwind, tailwind_reason = (
+    sector = row.get(
+        "sector"
+    )
+
+    industry = row.get(
+        "industry"
+    )
+
+    evidence_stock = (
+        evidence_stocks.get(
+            symbol,
+            {}
+        )
+        or {}
+    )
+
+    tailwind_auto, tailwind_reason = (
         tailwind_score(
             sector,
             industry
         )
     )
 
-    yahoo_url = (
-        f"https://finance.yahoo.com/quote/{yahoo_symbol}/"
+    verified_tailwind = (
+        verified_override(
+            evidence_stock,
+            "tailwind"
+        )
+    )
+
+    verified_growth = (
+        verified_override(
+            evidence_stock,
+            "futureGrowth"
+        )
+    )
+
+    verified_fundamental = (
+        verified_override(
+            evidence_stock,
+            "fundamentalQuality"
+        )
+    )
+
+    verified_capex = (
+        verified_override(
+            evidence_stock,
+            "capex"
+        )
     )
 
     try:
@@ -540,159 +978,139 @@ def analyze_stock(row):
             yahoo_symbol
         )
 
-        info = ticker.info or {}
+        info = (
+            ticker.info
+            or {}
+        )
 
-        future_growth, growth_reason = (
+        growth_auto, growth_reason = (
             future_growth_score(
                 info
             )
         )
 
-        fundamental, fundamental_reason = (
+        fundamental_auto, fundamental_reason = (
             fundamental_score(
                 info
             )
         )
 
-        capex, capex_reason = (
+        capex_auto, capex_reason = (
             capex_score(
                 ticker
             )
         )
 
-        return symbol, {
-
-            "tailwindScore":
-                tailwind,
-
-            "futureGrowth":
-                future_growth,
-
-            "fundamentalQuality":
-                fundamental,
-
-            "capexScore":
-                capex,
-
-            "researchReasons": {
-
-                "tailwind": {
-                    "reason":
-                        tailwind_reason,
-
-                    "source":
-                        "",
-
-                    "sourceDate":
-                        "",
-                },
-
-                "futureGrowth": {
-                    "reason":
-                        growth_reason,
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-                "fundamentalQuality": {
-                    "reason":
-                        fundamental_reason,
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-                "capex": {
-                    "reason":
-                        capex_reason,
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-            },
-
-            "source":
-                "Yahoo Finance automated financial-data proxy",
-        }
-
     except Exception as e:
+        growth_auto = None
 
-        return symbol, {
+        growth_reason = (
+            "Automated screening proxy unavailable: "
+            f"{e}"
+        )
 
-            "tailwindScore":
-                tailwind,
+        fundamental_auto = None
+
+        fundamental_reason = (
+            "Automated screening proxy unavailable: "
+            f"{e}"
+        )
+
+        capex_auto = None
+
+        capex_reason = (
+            "Automated screening proxy unavailable: "
+            f"{e}"
+        )
+
+    tailwind, tailwind_detail = (
+        build_field(
+            tailwind_auto,
+            tailwind_reason,
+            "",
+            verified_tailwind
+        )
+    )
+
+    future_growth, growth_detail = (
+        build_field(
+            growth_auto,
+            growth_reason,
+            yahoo_url,
+            verified_growth
+        )
+    )
+
+    fundamental, fundamental_detail = (
+        build_field(
+            fundamental_auto,
+            fundamental_reason,
+            yahoo_url,
+            verified_fundamental
+        )
+    )
+
+    capex, capex_detail = (
+        build_field(
+            capex_auto,
+            capex_reason,
+            yahoo_url,
+            verified_capex
+        )
+    )
+
+    return symbol, {
+
+        "tailwindScore":
+            tailwind,
+
+        "futureGrowth":
+            future_growth,
+
+        "fundamentalQuality":
+            fundamental,
+
+        "capexScore":
+            capex,
+
+        "researchReasons": {
+
+            "tailwind":
+                tailwind_detail,
 
             "futureGrowth":
-                None,
+                growth_detail,
 
             "fundamentalQuality":
-                None,
+                fundamental_detail,
 
-            "capexScore":
-                None,
+            "capex":
+                capex_detail,
+        },
 
-            "researchReasons": {
+        "researchMode": {
 
-                "tailwind": {
-                    "reason":
-                        tailwind_reason,
+            "tailwind":
+                tailwind_detail.get(
+                    "mode"
+                ),
 
-                    "source":
-                        "",
+            "futureGrowth":
+                growth_detail.get(
+                    "mode"
+                ),
 
-                    "sourceDate":
-                        "",
-                },
+            "fundamentalQuality":
+                fundamental_detail.get(
+                    "mode"
+                ),
 
-                "futureGrowth": {
-                    "reason":
-                        f"Automated financial data unavailable: {e}",
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-                "fundamentalQuality": {
-                    "reason":
-                        f"Automated financial data unavailable: {e}",
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-                "capex": {
-                    "reason":
-                        f"Automated financial data unavailable: {e}",
-
-                    "source":
-                        yahoo_url,
-
-                    "sourceDate":
-                        "",
-                },
-
-            },
-
-            "source":
-                "Yahoo Finance automated financial-data proxy",
+            "capex":
+                capex_detail.get(
+                    "mode"
+                ),
         }
+    }
 
 
 # =========================================================
@@ -700,14 +1118,20 @@ def analyze_stock(row):
 # =========================================================
 
 def main():
-
     stocks = load_json(
         DATA / "stocks.json",
         []
     )
 
     existing = load_json(
-        DATA / "company_research.json",
+        DATA /
+        "company_research.json",
+        {}
+    )
+
+    evidence = load_json(
+        DATA /
+        "company_evidence.json",
         {}
     )
 
@@ -716,6 +1140,15 @@ def main():
             "stocks",
             {}
         )
+        or {}
+    )
+
+    evidence_stocks = (
+        evidence.get(
+            "stocks",
+            {}
+        )
+        or {}
     )
 
     rows = [
@@ -734,10 +1167,16 @@ def main():
     )
 
     processed = 0
+
     tailwind_available = 0
     future_available = 0
     fundamental_available = 0
     capex_available = 0
+
+    verified_tailwind = 0
+    verified_growth = 0
+    verified_fundamental = 0
+    verified_capex = 0
 
     with ThreadPoolExecutor(
         max_workers=6
@@ -746,8 +1185,10 @@ def main():
         futures = {
             executor.submit(
                 analyze_stock,
-                row
-            ): row.get("symbol")
+                row,
+                evidence_stocks
+            ):
+                row.get("symbol")
 
             for row in rows
         }
@@ -755,12 +1196,19 @@ def main():
         for future in as_completed(
             futures
         ):
-
-            symbol, data = (
-                future.result()
-            )
-
             processed += 1
+
+            try:
+                symbol, data = (
+                    future.result()
+                )
+
+            except Exception as e:
+                print(
+                    "Stock analysis failed:",
+                    e
+                )
+                continue
 
             if (
                 not symbol
@@ -773,38 +1221,18 @@ def main():
                     symbol,
                     {}
                 )
-            )
-
-            tailwind = (
-                data.get(
-                    "tailwindScore"
-                )
-            )
-
-            future_growth = (
-                data.get(
-                    "futureGrowth"
-                )
-            )
-
-            fundamental = (
-                data.get(
-                    "fundamentalQuality"
-                )
-            )
-
-            capex = (
-                data.get(
-                    "capexScore"
-                )
+                or {}
             )
 
             result[symbol] = {
-
                 "tailwindScore":
                     (
-                        tailwind
-                        if tailwind is not None
+                        data.get(
+                            "tailwindScore"
+                        )
+                        if data.get(
+                            "tailwindScore"
+                        ) is not None
                         else previous.get(
                             "tailwindScore"
                         )
@@ -812,8 +1240,12 @@ def main():
 
                 "futureGrowth":
                     (
-                        future_growth
-                        if future_growth is not None
+                        data.get(
+                            "futureGrowth"
+                        )
+                        if data.get(
+                            "futureGrowth"
+                        ) is not None
                         else previous.get(
                             "futureGrowth"
                         )
@@ -821,8 +1253,12 @@ def main():
 
                 "fundamentalQuality":
                     (
-                        fundamental
-                        if fundamental is not None
+                        data.get(
+                            "fundamentalQuality"
+                        )
+                        if data.get(
+                            "fundamentalQuality"
+                        ) is not None
                         else previous.get(
                             "fundamentalQuality"
                         )
@@ -830,49 +1266,115 @@ def main():
 
                 "capexScore":
                     (
-                        capex
-                        if capex is not None
+                        data.get(
+                            "capexScore"
+                        )
+                        if data.get(
+                            "capexScore"
+                        ) is not None
                         else previous.get(
                             "capexScore"
                         )
                     ),
 
                 "researchReasons":
-                    data.get(
-                        "researchReasons"
-                    )
-                    or previous.get(
-                        "researchReasons",
-                        {}
+                    (
+                        data.get(
+                            "researchReasons"
+                        )
+                        or previous.get(
+                            "researchReasons",
+                            {}
+                        )
                     ),
 
-                "source":
-                    data.get(
-                        "source"
+                "researchMode":
+                    (
+                        data.get(
+                            "researchMode"
+                        )
+                        or previous.get(
+                            "researchMode",
+                            {}
+                        )
                     ),
             }
 
-            final = result[symbol]
+            final = result[
+                symbol
+            ]
 
-            if final.get(
-                "tailwindScore"
-            ) is not None:
+            if (
+                final.get(
+                    "tailwindScore"
+                )
+                is not None
+            ):
                 tailwind_available += 1
 
-            if final.get(
-                "futureGrowth"
-            ) is not None:
+            if (
+                final.get(
+                    "futureGrowth"
+                )
+                is not None
+            ):
                 future_available += 1
 
-            if final.get(
-                "fundamentalQuality"
-            ) is not None:
+            if (
+                final.get(
+                    "fundamentalQuality"
+                )
+                is not None
+            ):
                 fundamental_available += 1
 
-            if final.get(
-                "capexScore"
-            ) is not None:
+            if (
+                final.get(
+                    "capexScore"
+                )
+                is not None
+            ):
                 capex_available += 1
+
+            modes = (
+                final.get(
+                    "researchMode",
+                    {}
+                )
+                or {}
+            )
+
+            if (
+                modes.get(
+                    "tailwind"
+                )
+                == "VERIFIED"
+            ):
+                verified_tailwind += 1
+
+            if (
+                modes.get(
+                    "futureGrowth"
+                )
+                == "VERIFIED"
+            ):
+                verified_growth += 1
+
+            if (
+                modes.get(
+                    "fundamentalQuality"
+                )
+                == "VERIFIED"
+            ):
+                verified_fundamental += 1
+
+            if (
+                modes.get(
+                    "capex"
+                )
+                == "VERIFIED"
+            ):
+                verified_capex += 1
 
             if (
                 processed % 25
@@ -889,7 +1391,10 @@ def main():
         "_meta": {
 
             "description":
-                "Company research inputs for NSE dashboard",
+                (
+                    "Company research inputs "
+                    "for MY MARKET RESEARCH"
+                ),
 
             "scale":
                 "0-100",
@@ -897,22 +1402,37 @@ def main():
             "method": {
 
                 "tailwindScore":
-                    "Sector/industry structural-tailwind heuristic",
+                    (
+                        "Verified evidence override when available; "
+                        "otherwise automated sector/industry screening proxy."
+                    ),
 
                 "futureGrowth":
-                    "Revenue and earnings growth proxy",
+                    (
+                        "Verified evidence override when available; "
+                        "otherwise automated growth screening proxy."
+                    ),
 
                 "fundamentalQuality":
-                    "ROE, margins, debt, liquidity and cash-flow proxy",
+                    (
+                        "Verified evidence override when available; "
+                        "otherwise automated financial-quality proxy."
+                    ),
 
                 "capexScore":
-                    "Capital expenditure relative to operating cash-flow proxy",
+                    (
+                        "Verified evidence override when available; "
+                        "otherwise automated CAPEX proxy."
+                    ),
             },
+
+            "verifiedEvidenceFile":
+                "data/company_evidence.json",
 
             "warning":
                 (
-                    "Automated research proxies are screening tools, "
-                    "not substitutes for exchange filings or management commentary."
+                    "AUTOMATED scores are screening proxies. "
+                    "VERIFIED scores require reason + source evidence."
                 ),
         },
 
@@ -932,7 +1452,6 @@ def main():
     )
 
     print({
-
         "classifiedStocks":
             len(rows),
 
@@ -950,6 +1469,18 @@ def main():
 
         "capexAvailable":
             capex_available,
+
+        "verifiedTailwind":
+            verified_tailwind,
+
+        "verifiedFutureGrowth":
+            verified_growth,
+
+        "verifiedFundamental":
+            verified_fundamental,
+
+        "verifiedCapex":
+            verified_capex,
     })
 
 
