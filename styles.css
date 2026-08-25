@@ -1,17 +1,18 @@
 :root {
-  --bg: #666666;
-  --panel: #707070;
-  --panel-2: #787878;
-  --header: #6c6c6c;
-  --line: #a8a8a8;
+  --bg: #07101d;
+  --panel: #0d1828;
+  --panel-2: #132239;
+  --header: #101c2f;
 
-  --text: #111111;
-  --muted: #2f2f2f;
+  --line: #2b3b53;
 
-  --blue: #0057d9;
-  --green: #0a8f28;
-  --orange: #e07b00;
-  --red: #d81f1f;
+  --text: #f2f5f8;
+  --muted: #9aa9bd;
+
+  --blue: #2c8cff;
+  --green: #23c35d;
+  --orange: #ffae1a;
+  --red: #ff4d4d;
 }
 
 * {
@@ -78,7 +79,7 @@ footer {
   font-size: 22px;
   line-height: 1.1;
 
-  color: #111;
+  color: #ffffff;
 }
 
 .hero-desc {
@@ -86,7 +87,7 @@ footer {
 
   font-size: 11px;
 
-  color: #222;
+  color: var(--muted);
 }
 
 
@@ -131,7 +132,7 @@ footer {
 .stat span {
   font-size: 10px;
 
-  color: #202020;
+  color: var(--muted);
 }
 
 
@@ -186,25 +187,14 @@ footer {
 
   font-size: 17px;
 
-  color: #111;
+  color: #ffffff;
 }
 
 .date-text {
   font-size: 16px;
   font-weight: 700;
 
-  color: #161616;
-}
-
-#dashboardDate,
-#marketDate,
-#resultCount {
-  color: #111;
-}
-
-#dashboardDate::first-line,
-#marketDate::first-line {
-  color: #111;
+  color: #f2f5f8;
 }
 
 
@@ -223,13 +213,13 @@ footer {
 
 .primary-btn,
 .secondary-btn {
-  border: 1px solid #8f8f8f;
+  border: 1px solid #344761;
   border-radius: 5px;
 
   padding: 5px 9px;
 
-  background: #dedede;
-  color: #111;
+  background: var(--panel-2);
+  color: #ffffff;
 
   font-size: 11px;
   font-weight: 600;
@@ -245,7 +235,7 @@ footer {
   font-size: 12px;
   font-weight: 700;
 
-  color: #111;
+  color: #ffffff;
 
   padding: 0 4px;
 }
@@ -259,7 +249,7 @@ footer {
   font-size: 11px;
   font-weight: 600;
 
-  color: #111;
+  color: #ffffff;
 }
 
 .goto-wrap input {
@@ -267,11 +257,11 @@ footer {
 
   padding: 4px 5px;
 
-  border: 1px solid #999;
+  border: 1px solid #3e506a;
   border-radius: 4px;
 
-  background: #dedede;
-  color: #111;
+  background: #101b2d;
+  color: #ffffff;
 
   text-align: center;
 }
@@ -334,7 +324,7 @@ footer {
 
   vertical-align: middle;
 
-  color: #111;
+  color: var(--text);
 
   font-size: 11px;
 }
@@ -353,7 +343,7 @@ footer {
 
   background: var(--header) !important;
 
-  color: #111;
+  color: #ffffff;
 
   font-size: 10px;
   font-weight: 800;
@@ -368,7 +358,7 @@ footer {
 .header-row th small {
   font-size: 9px;
 
-  color: #202020;
+  color: var(--muted);
 }
 
 
@@ -406,7 +396,7 @@ footer {
 
   background: var(--header) !important;
 
-  border-right: 2px solid #929292 !important;
+  border-right: 2px solid #3f526e !important;
 }
 
 #stockTable tbody td:first-child {
@@ -433,7 +423,7 @@ footer {
 
   font-weight: 800;
 
-  color: #111;
+  color: #ffffff;
 }
 
 .sub {
@@ -442,7 +432,7 @@ footer {
   font-size: 9px;
   line-height: 1.15;
 
-  color: #2c2c2c;
+  color: var(--muted);
 
   white-space: normal;
 }
@@ -468,7 +458,7 @@ footer {
 
   gap: 2px;
 
-  color: #111;
+  color: #d7dfeb;
 
   font-size: 8px;
   font-weight: 600;
@@ -490,13 +480,13 @@ footer {
 
   min-width: 0;
 
-  border: 1px solid #8e8e8e;
+  border: 1px solid #3a4d67;
   border-radius: 4px;
 
   padding: 3px;
 
-  background: #d5d5d5;
-  color: #111;
+  background: #0b1627;
+  color: #ffffff;
 
   font-size: 9px;
 }
@@ -597,7 +587,7 @@ footer {
 }
 
 
-/* score columns */
+/* SCORE COLUMNS */
 
 #stockTable th:nth-child(10),
 #stockTable td:nth-child(10) {
@@ -669,7 +659,6 @@ footer {
 
 /* =====================================================
    RATINGS - ONLY NUMBER COLORED
-   NO BACKGROUND BOX
    ===================================================== */
 
 .score {
@@ -723,18 +712,9 @@ footer {
 }
 
 .pending {
-  color: #333;
+  color: #8897aa;
 
   font-size: 9px;
-}
-
-
-/* =====================================================
-   CHANGE % COLORS
-   ===================================================== */
-
-#stockTable td:nth-child(4) {
-  font-weight: 700;
 }
 
 
@@ -765,7 +745,7 @@ footer {
 
   padding: 20px;
 
-  background: rgba(0, 0, 0, .45);
+  background: rgba(0, 0, 0, .65);
 
   z-index: 1000;
 }
@@ -781,11 +761,11 @@ footer {
 
   padding: 17px;
 
-  border: 1px solid #888;
+  border: 1px solid #3b4d67;
   border-radius: 10px;
 
-  background: #c7c7c7;
-  color: #111;
+  background: #111d30;
+  color: #ffffff;
 }
 
 .reason-modal-card h3 {
@@ -807,7 +787,7 @@ footer {
 
   background: transparent;
 
-  color: #111;
+  color: #ffffff;
 
   font-size: 23px;
 }
@@ -815,13 +795,13 @@ footer {
 .reason-score {
   margin-bottom: 9px;
 
-  color: #111;
+  color: #ffffff;
 
   font-weight: 800;
 }
 
 .reason-text {
-  color: #111;
+  color: #e6edf5;
 
   line-height: 1.5;
 }
@@ -831,7 +811,7 @@ footer {
 
   font-size: 11px;
 
-  color: #333;
+  color: var(--muted);
 }
 
 .reason-source-link {
@@ -861,7 +841,7 @@ footer {
 
   font-size: 10px;
 
-  color: #222;
+  color: var(--muted);
 }
 
 
