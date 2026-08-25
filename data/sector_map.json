@@ -12738,5 +12738,15 @@
     "sector": "Financial Services",
     "industry": "Shell Companies",
     "source": "Yahoo Finance"
+  },
+  "SHANKESH": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "SUNSHINE": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
   }
 }
