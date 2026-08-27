@@ -200,13 +200,17 @@
             <th>
               T + M + VM
               <br>
-              <small>Tailwind + Macro + Value Migration</small>
+              <small>
+                Tailwind + Macro + Value Migration
+              </small>
             </th>
 
             <th>
               G + F + C
               <br>
-              <small>Growth + Fundamental + CAPEX</small>
+              <small>
+                Growth + Fundamental + CAPEX
+              </small>
             </th>
 
             <th>
@@ -217,6 +221,8 @@
 
 
           <tr class="filter-row">
+
+            <!-- STOCK SEARCH -->
 
             <th>
 
@@ -229,6 +235,8 @@
 
             </th>
 
+
+            <!-- MARKET CAP ₹ CR -->
 
             <th>
 
@@ -245,35 +253,20 @@
 
                 </label>
 
-
-                <select id="marketCapFilter">
-
-                  <option value="ALL">
-                    All
-                  </option>
-
-                  <option value="Large Cap">
-                    Large Cap
-                  </option>
-
-                  <option value="Mid Cap">
-                    Mid Cap
-                  </option>
-
-                  <option value="Small Cap">
-                    Small Cap
-                  </option>
-
-                  <option value="Micro Cap">
-                    Micro Cap
-                  </option>
-
-                </select>
+                <input
+                  id="aboveMarketCap"
+                  type="number"
+                  min="0"
+                  step="100"
+                  placeholder="Above ₹ Cr"
+                >
 
               </div>
 
             </th>
 
+
+            <!-- PRICE -->
 
             <th>
 
@@ -302,6 +295,8 @@
             </th>
 
 
+            <!-- CHANGE -->
+
             <th>
 
               <div class="filter-box">
@@ -329,6 +324,8 @@
             </th>
 
 
+            <!-- TODAY DELIVERY -->
+
             <th>
 
               <div class="filter-box">
@@ -354,6 +351,8 @@
 
             </th>
 
+
+            <!-- 5D AVG DELIVERY -->
 
             <th>
 
@@ -381,6 +380,8 @@
             </th>
 
 
+            <!-- DELIVERY TIMES -->
+
             <th>
 
               <div class="filter-box">
@@ -407,6 +408,8 @@
 
             </th>
 
+
+            <!-- SECTOR -->
 
             <th>
 
@@ -436,6 +439,8 @@
             </th>
 
 
+            <!-- INDUSTRY -->
+
             <th>
 
               <div class="filter-box">
@@ -464,6 +469,8 @@
             </th>
 
 
+            <!-- SECTOR GROWTH -->
+
             <th>
 
               <div class="filter-box">
@@ -490,6 +497,8 @@
 
             </th>
 
+
+            <!-- STOCK GROWTH -->
 
             <th>
 
@@ -536,6 +545,8 @@
             </th>
 
 
+            <!-- T + M + VM -->
+
             <th>
 
               <div class="filter-box">
@@ -564,6 +575,8 @@
             </th>
 
 
+            <!-- G + F + C -->
+
             <th>
 
               <div class="filter-box">
@@ -591,6 +604,8 @@
 
             </th>
 
+
+            <!-- OVERALL -->
 
             <th>
 
@@ -640,6 +655,8 @@
   Verify exchange filings before investment decisions
 </footer>
 
+
+<!-- REASON / SOURCE MODAL -->
 
 <div
   id="reasonModal"
