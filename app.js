@@ -129,19 +129,6 @@ function ratioVal(value) {
 }
 
 
-function textVal(value) {
-  if (
-    value === null ||
-    value === undefined ||
-    value === ""
-  ) {
-    return '<span class="pending">Pending</span>';
-  }
-
-  return value;
-}
-
-
 function marketCapVal(row) {
 
   const category =
@@ -164,10 +151,8 @@ function marketCapVal(row) {
 
   if (category) {
     html += `
-      <div>
-        <strong>
-          ${category}
-        </strong>
+      <div class="market-cap-category">
+        ${category}
       </div>
     `;
   }
@@ -177,9 +162,8 @@ function marketCapVal(row) {
     marketCap !== undefined &&
     marketCap !== ""
   ) {
-
     html += `
-      <div class="sub">
+      <div class="market-cap-value">
         ₹${Number(marketCap).toLocaleString(
           "en-IN",
           {
@@ -325,13 +309,19 @@ function filters() {
       selectedStockGrowth(row);
 
     return (
+
       searchPass &&
 
-      selectPass(
+      // MARKET CAP ₹ CR
+
+      abovePass(
         "activeMarketCap",
-        "marketCapFilter",
-        row.marketCapCategory
+        "aboveMarketCap",
+        row.marketCapCr
       ) &&
+
+
+      // PRICE
 
       abovePass(
         "activePrice",
@@ -339,11 +329,17 @@ function filters() {
         row.price
       ) &&
 
+
+      // CHANGE %
+
       abovePass(
         "activeChange",
         "aboveChange",
         row.changePct
       ) &&
+
+
+      // TODAY DELIVERY
 
       abovePass(
         "activeTodayDelivery",
@@ -351,11 +347,17 @@ function filters() {
         row.todayDeliveryVolume
       ) &&
 
+
+      // 5 DAY DELIVERY
+
       abovePass(
         "active5DDelivery",
         "above5DDelivery",
         row.avg5DayDeliveryVolume
       ) &&
+
+
+      // DELIVERY TIMES
 
       abovePass(
         "activeDeliveryRatio",
@@ -363,11 +365,17 @@ function filters() {
         row.deliveryVolumeRatio
       ) &&
 
+
+      // SECTOR
+
       selectPass(
         "activeSector",
         "sectorFilter",
         row.sector
       ) &&
+
+
+      // INDUSTRY
 
       selectPass(
         "activeIndustry",
@@ -375,11 +383,17 @@ function filters() {
         row.industry
       ) &&
 
+
+      // SECTOR GROWTH
+
       abovePass(
         "activeSectorGrowth",
         "aboveSectorGrowth",
         row.sectorGrowth1M
       ) &&
+
+
+      // STOCK GROWTH
 
       abovePass(
         "activeStockGrowth",
@@ -387,17 +401,26 @@ function filters() {
         stockGrowth
       ) &&
 
+
+      // T + M + VM
+
       abovePass(
         "activeTMV",
         "aboveTMV",
         row.tmvScore
       ) &&
 
+
+      // G + F + C
+
       abovePass(
         "activeGFC",
         "aboveGFC",
         row.gfcScore
       ) &&
+
+
+      // OVERALL
 
       abovePass(
         "activeOverall",
@@ -455,7 +478,50 @@ function rankStocks(rows) {
 
 
       // ---------------------------------------------
-      // 2. STOCK GROWTH IF USER ACTIVATES IT
+      // 2. MARKET CAP IF ACTIVE
+      // ---------------------------------------------
+
+      if (
+        isActive(
+          "activeMarketCap"
+        )
+      ) {
+
+        const am =
+          a.marketCapCr;
+
+        const bm =
+          b.marketCapCr;
+
+        if (
+          am != null &&
+          bm != null &&
+          Number(bm) !== Number(am)
+        ) {
+          return (
+            Number(bm) -
+            Number(am)
+          );
+        }
+
+        if (
+          am != null &&
+          bm == null
+        ) {
+          return -1;
+        }
+
+        if (
+          am == null &&
+          bm != null
+        ) {
+          return 1;
+        }
+      }
+
+
+      // ---------------------------------------------
+      // 3. STOCK GROWTH IF ACTIVE
       // ---------------------------------------------
 
       if (
@@ -498,7 +564,7 @@ function rankStocks(rows) {
 
 
       // ---------------------------------------------
-      // 3. DELIVERY TIMES IF USER ACTIVATES IT
+      // 4. DELIVERY TIMES IF ACTIVE
       // ---------------------------------------------
 
       if (
@@ -527,7 +593,7 @@ function rankStocks(rows) {
 
 
       // ---------------------------------------------
-      // 4. NAME
+      // 5. NAME
       // ---------------------------------------------
 
       return (
@@ -577,6 +643,7 @@ function populateDropdowns() {
 
 
   if ($("sectorFilter")) {
+
     $("sectorFilter").innerHTML =
       '<option value="ALL">All sectors</option>' +
       sectors
@@ -589,6 +656,7 @@ function populateDropdowns() {
 
 
   if ($("industryFilter")) {
+
     $("industryFilter").innerHTML =
       '<option value="ALL">All industries</option>' +
       industries
@@ -613,6 +681,7 @@ function getFilteredData() {
 
 
 function totalPagesFor(rows) {
+
   return Math.max(
     1,
     Math.ceil(
@@ -628,24 +697,28 @@ function updatePageControls(
 ) {
 
   if ($("page")) {
+
     $("page").textContent =
       `Page ${page} / ${pages}`;
   }
 
 
   if ($("prev")) {
+
     $("prev").disabled =
       page <= 1;
   }
 
 
   if ($("next")) {
+
     $("next").disabled =
       page >= pages;
   }
 
 
   if ($("gotoPage")) {
+
     $("gotoPage").max =
       pages;
 
@@ -668,32 +741,40 @@ function goToPage(value) {
   let target =
     Number(value);
 
+
   if (
     !Number.isFinite(target)
   ) {
     target = 1;
   }
 
+
   target =
     Math.round(target);
+
 
   if (target < 1) {
     target = 1;
   }
 
+
   if (target > pages) {
     target = pages;
   }
 
+
   page =
     target;
 
+
   render();
+
 
   const wrap =
     document.querySelector(
       ".tablewrap"
     );
+
 
   if (wrap) {
     wrap.scrollTop = 0;
@@ -710,14 +791,17 @@ function render() {
   const filtered =
     getFilteredData();
 
+
   const pages =
     totalPagesFor(
       filtered
     );
 
+
   if (page > pages) {
     page = pages;
   }
+
 
   if (page < 1) {
     page = 1;
@@ -732,6 +816,7 @@ function render() {
 
 
   if ($("resultCount")) {
+
     $("resultCount").textContent =
       `${filtered.length.toLocaleString()} matched`;
   }
@@ -752,6 +837,7 @@ function render() {
 
       const stockGrowth =
         selectedStockGrowth(row);
+
 
       return `
         <tr>
@@ -886,6 +972,7 @@ function safeDetail(detail) {
     !detail ||
     typeof detail !== "object"
   ) {
+
     return {
       score: null,
       reason: "",
@@ -895,7 +982,9 @@ function safeDetail(detail) {
     };
   }
 
+
   return {
+
     score:
       detail.score ?? null,
 
@@ -910,6 +999,7 @@ function safeDetail(detail) {
 
     mode:
       detail.mode || ""
+
   };
 }
 
@@ -920,12 +1010,14 @@ function modeText(mode) {
     return "VERIFIED";
   }
 
+
   if (
     mode === "AUTOMATED" ||
     mode === "AUTOMATED_PROXY"
   ) {
     return "Automated";
   }
+
 
   return "";
 }
@@ -939,24 +1031,29 @@ function combinedBlock(
   const d =
     safeDetail(detail);
 
+
   const scoreText =
     d.score == null
       ? "Pending"
       : `${Number(d.score).toFixed(0)} / 100`;
+
 
   const mode =
     modeText(
       d.mode
     );
 
+
   const reason =
     d.reason ||
     "Detailed reason/source has not yet been added.";
+
 
   const sourceDate =
     d.sourceDate
       ? `Source date: ${d.sourceDate}`
       : "";
+
 
   const source =
     d.source
@@ -972,14 +1069,15 @@ function combinedBlock(
       `
       : "";
 
+
   return `
     <div style="
       padding:12px 0;
-      border-bottom:1px solid #e5e7eb;
+      border-bottom:1px solid rgba(255,255,255,.10);
     ">
 
       <div style="
-        font-weight:700;
+        font-weight:800;
         margin-bottom:6px;
       ">
         ${title}
@@ -992,6 +1090,7 @@ function combinedBlock(
         <strong>
           ${scoreText}
         </strong>
+
         ${
           mode
             ? ` • ${mode}`
@@ -1018,7 +1117,7 @@ function combinedBlock(
 
 
 // =====================================================
-// COMBINED MODAL
+// COMBINED SCORE MODAL
 // =====================================================
 
 function openCombinedModal(
@@ -1028,6 +1127,7 @@ function openCombinedModal(
 ) {
 
   if ($("reasonTitle")) {
+
     $("reasonTitle").textContent =
       `${row.symbol} • ${label}`;
   }
@@ -1040,13 +1140,21 @@ function openCombinedModal(
   let blocks = "";
 
 
-  if (field === "tmv") {
+  // ---------------------------------------------------
+  // T + M + VM
+  // ---------------------------------------------------
+
+  if (
+    field === "tmv"
+  ) {
 
     score =
       row.tmvScore;
 
+
     details =
       row.tmvDetails || {};
+
 
     blocks =
 
@@ -1071,6 +1179,10 @@ function openCombinedModal(
   }
 
 
+  // ---------------------------------------------------
+  // G + F + C
+  // ---------------------------------------------------
+
   else if (
     field === "gfc"
   ) {
@@ -1078,8 +1190,10 @@ function openCombinedModal(
     score =
       row.gfcScore;
 
+
     details =
       row.gfcDetails || {};
+
 
     blocks =
 
@@ -1107,6 +1221,7 @@ function openCombinedModal(
   if ($("reasonScore")) {
 
     $("reasonScore").textContent =
+
       score == null
         ? "Combined Score: Pending"
         : `Combined Score: ${Number(score).toFixed(0)} / 100`;
@@ -1138,6 +1253,7 @@ function openCombinedModal(
   const modal =
     $("reasonModal");
 
+
   if (!modal) {
     return;
   }
@@ -1147,6 +1263,7 @@ function openCombinedModal(
     "open"
   );
 
+
   modal.setAttribute(
     "aria-hidden",
     "false"
@@ -1155,7 +1272,7 @@ function openCombinedModal(
 
 
 // =====================================================
-// OPEN MODAL
+// OPEN REASON MODAL
 // =====================================================
 
 function openReasonModal(
@@ -1169,6 +1286,7 @@ function openReasonModal(
       item =>
         item.symbol === symbol
     );
+
 
   if (!row) {
     return;
@@ -1192,13 +1310,14 @@ function openReasonModal(
 
 
 // =====================================================
-// CLOSE MODAL
+// CLOSE REASON MODAL
 // =====================================================
 
 function closeReasonModal() {
 
   const modal =
     $("reasonModal");
+
 
   if (!modal) {
     return;
@@ -1208,6 +1327,7 @@ function closeReasonModal() {
   modal.classList.remove(
     "open"
   );
+
 
   modal.setAttribute(
     "aria-hidden",
@@ -1299,6 +1419,7 @@ function setupTopScrollbar() {
 
 
   let topSync = false;
+
   let tableSync = false;
 
 
@@ -1310,10 +1431,13 @@ function setupTopScrollbar() {
         return;
       }
 
+
       topSync = true;
+
 
       wrap.scrollLeft =
         top.scrollLeft;
+
 
       topSync = false;
     }
@@ -1328,10 +1452,13 @@ function setupTopScrollbar() {
         return;
       }
 
+
       tableSync = true;
+
 
       top.scrollLeft =
         wrap.scrollLeft;
+
 
       tableSync = false;
     }
@@ -1378,17 +1505,20 @@ function updateDates() {
   const updated =
     meta.lastUpdated || "—";
 
+
   const marketDate =
     latestMarketDate();
 
 
   if ($("dashboardDate")) {
+
     $("dashboardDate").textContent =
       `Updated: ${updated}`;
   }
 
 
   if ($("marketDate")) {
+
     $("marketDate").textContent =
       `Market / Delivery: ${marketDate}`;
   }
@@ -1503,6 +1633,7 @@ async function fetchJSON(url) {
 
 
   if (!response.ok) {
+
     throw new Error(
       `Failed to load ${url}: ${response.status}`
     );
@@ -1522,7 +1653,7 @@ const filterIds = [
   "q",
 
   "activeMarketCap",
-  "marketCapFilter",
+  "aboveMarketCap",
 
   "activePrice",
   "abovePrice",
@@ -1570,6 +1701,7 @@ function setupFilterEvents() {
     const el =
       $(id);
 
+
     if (!el) {
       return;
     }
@@ -1605,6 +1737,7 @@ function setCheckbox(
 ) {
 
   if ($(id)) {
+
     $(id).checked =
       checked;
   }
@@ -1617,6 +1750,7 @@ function setValue(
 ) {
 
   if ($(id)) {
+
     $(id).value =
       value;
   }
@@ -1635,7 +1769,8 @@ function applyStrongSetup() {
     G+F+C >= 70
     Overall >= 70
 
-    Baaki filters optional / user-controlled.
+    Market Cap, Price, Growth,
+    Delivery etc. user-controlled hain.
   */
 
 
@@ -1689,6 +1824,7 @@ function resetFilters() {
     const el =
       $(id);
 
+
     if (!el) {
       return;
     }
@@ -1698,6 +1834,7 @@ function resetFilters() {
       el.type ===
       "checkbox"
     ) {
+
       el.checked =
         false;
     }
@@ -1707,6 +1844,7 @@ function resetFilters() {
       id ===
       "stockGrowthPeriod"
     ) {
+
       el.value =
         "3M";
     }
@@ -1716,12 +1854,14 @@ function resetFilters() {
       el.tagName ===
       "SELECT"
     ) {
+
       el.value =
         "ALL";
     }
 
 
     else {
+
       el.value =
         "";
     }
