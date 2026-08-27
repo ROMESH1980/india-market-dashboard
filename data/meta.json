@@ -2,9 +2,9 @@
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
   "nseCount": 3124,
   "uniqueCount": 3124,
-  "eodPriceCount": 3653,
-  "matchedPriceCount": 3006,
-  "lastUpdated": "2026-08-26",
+  "eodPriceCount": 3624,
+  "matchedPriceCount": 3004,
+  "lastUpdated": "2026-08-27",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard."
 }
