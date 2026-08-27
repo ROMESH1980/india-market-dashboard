@@ -83,7 +83,18 @@ function pct(value) {
     return "—";
   }
 
-  return `${Number(value).toFixed(2)}%`;
+  const n = Number(value);
+
+  if (!Number.isFinite(n)) {
+    return "—";
+  }
+
+  const sign =
+    n > 0
+      ? "+"
+      : "";
+
+  return `${sign}${n.toFixed(2)}%`;
 }
 
 
@@ -128,6 +139,58 @@ function textVal(value) {
   }
 
   return value;
+}
+
+
+function marketCapVal(row) {
+
+  const category =
+    row.marketCapCategory;
+
+  const marketCap =
+    row.marketCapCr;
+
+  if (
+    !category &&
+    (
+      marketCap === null ||
+      marketCap === undefined
+    )
+  ) {
+    return '<span class="pending">Pending</span>';
+  }
+
+  let html = "";
+
+  if (category) {
+    html += `
+      <div>
+        <strong>
+          ${category}
+        </strong>
+      </div>
+    `;
+  }
+
+  if (
+    marketCap !== null &&
+    marketCap !== undefined &&
+    marketCap !== ""
+  ) {
+
+    html += `
+      <div class="sub">
+        ₹${Number(marketCap).toLocaleString(
+          "en-IN",
+          {
+            maximumFractionDigits: 0
+          }
+        )} Cr
+      </div>
+    `;
+  }
+
+  return html;
 }
 
 
@@ -210,23 +273,24 @@ function selectPass(
 
 
 // =====================================================
-// STOCK STRENGTH
+// STOCK GROWTH
 // =====================================================
 
-function selectedStockStrength(row) {
+function selectedStockGrowth(row) {
+
   const period =
-    $("stockStrengthPeriod")
+    $("stockGrowthPeriod")
       ?.value || "3M";
 
   if (period === "1M") {
-    return row.stockStrength1M;
+    return row.stockGrowth1M;
   }
 
   if (period === "6M") {
-    return row.stockStrength6M;
+    return row.stockGrowth6M;
   }
 
-  return row.stockStrength3M;
+  return row.stockGrowth3M;
 }
 
 
@@ -235,6 +299,7 @@ function selectedStockStrength(row) {
 // =====================================================
 
 function filters() {
+
   const q =
     $("q")
       ?.value
@@ -256,8 +321,8 @@ function filters() {
       !q ||
       searchable.includes(q);
 
-    const stockStrength =
-      selectedStockStrength(row);
+    const stockGrowth =
+      selectedStockGrowth(row);
 
     return (
       searchPass &&
@@ -311,51 +376,27 @@ function filters() {
       ) &&
 
       abovePass(
-        "activeSectorStrength",
-        "aboveSectorStrength",
-        row.sectorStrength
+        "activeSectorGrowth",
+        "aboveSectorGrowth",
+        row.sectorGrowth1M
       ) &&
 
       abovePass(
-        "activeStockStrength",
-        "aboveStockStrength",
-        stockStrength
+        "activeStockGrowth",
+        "aboveStockGrowth",
+        stockGrowth
       ) &&
 
       abovePass(
-        "activeTailwind",
-        "aboveTailwind",
-        row.tailwindScore
+        "activeTMV",
+        "aboveTMV",
+        row.tmvScore
       ) &&
 
       abovePass(
-        "activeMacro",
-        "aboveMacro",
-        row.macroSupport
-      ) &&
-
-      abovePass(
-        "activeVM",
-        "aboveVM",
-        row.valueMigration
-      ) &&
-
-      abovePass(
-        "activeGrowth",
-        "aboveGrowth",
-        row.futureGrowth
-      ) &&
-
-      abovePass(
-        "activeFundamental",
-        "aboveFundamental",
-        row.fundamentalQuality
-      ) &&
-
-      abovePass(
-        "activeCapex",
-        "aboveCapex",
-        row.capexScore
+        "activeGFC",
+        "aboveGFC",
+        row.gfcScore
       ) &&
 
       abovePass(
@@ -373,6 +414,7 @@ function filters() {
 // =====================================================
 
 function rankStocks(rows) {
+
   return [...rows].sort(
     (a, b) => {
 
@@ -413,20 +455,20 @@ function rankStocks(rows) {
 
 
       // ---------------------------------------------
-      // 2. STOCK STRENGTH ONLY WHEN USER ACTIVATES IT
+      // 2. STOCK GROWTH IF USER ACTIVATES IT
       // ---------------------------------------------
 
       if (
         isActive(
-          "activeStockStrength"
+          "activeStockGrowth"
         )
       ) {
 
         const as =
-          selectedStockStrength(a);
+          selectedStockGrowth(a);
 
         const bs =
-          selectedStockStrength(b);
+          selectedStockGrowth(b);
 
         if (
           as != null &&
@@ -456,7 +498,7 @@ function rankStocks(rows) {
 
 
       // ---------------------------------------------
-      // 3. DELIVERY RATIO ONLY IF USER ACTIVATES IT
+      // 3. DELIVERY TIMES IF USER ACTIVATES IT
       // ---------------------------------------------
 
       if (
@@ -708,8 +750,8 @@ function render() {
   $("rows").innerHTML =
     rows.map(row => {
 
-      const stockStrength =
-        selectedStockStrength(row);
+      const stockGrowth =
+        selectedStockGrowth(row);
 
       return `
         <tr>
@@ -732,9 +774,7 @@ function render() {
 
 
           <td>
-            ${textVal(
-              row.marketCapCategory
-            )}
+            ${marketCapVal(row)}
           </td>
 
 
@@ -786,75 +826,35 @@ function render() {
 
 
           <td>
-            ${scoreVal(
-              row.sectorStrength
+            ${pct(
+              row.sectorGrowth1M
+            )}
+          </td>
+
+
+          <td>
+            ${pct(
+              stockGrowth
             )}
           </td>
 
 
           <td>
             ${scoreVal(
-              stockStrength
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.tailwindScore,
+              row.tmvScore,
               row,
-              "tailwind",
-              "Tailwind"
+              "tmv",
+              "T + M + VM"
             )}
           </td>
 
 
           <td>
             ${scoreVal(
-              row.macroSupport,
+              row.gfcScore,
               row,
-              "macro",
-              "Macro"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.valueMigration,
-              row,
-              "valueMigration",
-              "Value Migration"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.futureGrowth,
-              row,
-              "futureGrowth",
-              "Future Growth"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.fundamentalQuality,
-              row,
-              "fundamentalQuality",
-              "Fundamental"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.capexScore,
-              row,
-              "capex",
-              "CAPEX"
+              "gfc",
+              "G + F + C"
             )}
           </td>
 
@@ -877,147 +877,155 @@ function render() {
 
 
 // =====================================================
-// SCORE REASON / SOURCE
+// REASON HELPERS
 // =====================================================
 
-function getReasonData(
-  row,
-  field
-) {
-
-  const research =
-    row.researchReasons || {};
-
-  const direct =
-    research[field] || {};
-
-
-  let reason =
-    direct.reason ||
-    row[`${field}Reason`] ||
-    "";
-
-
-  let source =
-    direct.source ||
-    row[`${field}Source`] ||
-    "";
-
-
-  let sourceDate =
-    direct.sourceDate ||
-    row[`${field}SourceDate`] ||
-    "";
-
+function safeDetail(detail) {
 
   if (
-    field === "valueMigration" &&
-    !reason
+    !detail ||
+    typeof detail !== "object"
   ) {
-    reason =
-      "Verified business Value Migration reason is not available for this stock.";
+    return {
+      score: null,
+      reason: "",
+      source: "",
+      sourceDate: "",
+      mode: ""
+    };
   }
-
-
-  if (
-    field === "macro" &&
-    !reason
-  ) {
-    reason =
-      "Automated sector-level Macro Support screening score.";
-  }
-
-
-  if (!reason) {
-    reason =
-      "Detailed reason/source has not yet been added for this stock.";
-  }
-
 
   return {
-    reason,
-    source,
-    sourceDate,
+    score:
+      detail.score ?? null,
+
+    reason:
+      detail.reason || "",
+
+    source:
+      detail.source || "",
+
+    sourceDate:
+      detail.sourceDate || "",
+
     mode:
-      direct.mode || ""
+      detail.mode || ""
   };
 }
 
 
-function openReasonModal(
-  symbol,
+function modeText(mode) {
+
+  if (mode === "VERIFIED") {
+    return "VERIFIED";
+  }
+
+  if (
+    mode === "AUTOMATED" ||
+    mode === "AUTOMATED_PROXY"
+  ) {
+    return "Automated";
+  }
+
+  return "";
+}
+
+
+function combinedBlock(
+  title,
+  detail
+) {
+
+  const d =
+    safeDetail(detail);
+
+  const scoreText =
+    d.score == null
+      ? "Pending"
+      : `${Number(d.score).toFixed(0)} / 100`;
+
+  const mode =
+    modeText(
+      d.mode
+    );
+
+  const reason =
+    d.reason ||
+    "Detailed reason/source has not yet been added.";
+
+  const sourceDate =
+    d.sourceDate
+      ? `Source date: ${d.sourceDate}`
+      : "";
+
+  const source =
+    d.source
+      ? `
+        <a
+          href="${d.source}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="reason-source-link"
+        >
+          View Source
+        </a>
+      `
+      : "";
+
+  return `
+    <div style="
+      padding:12px 0;
+      border-bottom:1px solid #e5e7eb;
+    ">
+
+      <div style="
+        font-weight:700;
+        margin-bottom:6px;
+      ">
+        ${title}
+      </div>
+
+      <div style="
+        margin-bottom:6px;
+      ">
+        Score:
+        <strong>
+          ${scoreText}
+        </strong>
+        ${
+          mode
+            ? ` • ${mode}`
+            : ""
+        }
+      </div>
+
+      <div style="
+        margin-bottom:6px;
+        line-height:1.5;
+      ">
+        ${reason}
+      </div>
+
+      <div class="reason-source-date">
+        ${sourceDate}
+      </div>
+
+      ${source}
+
+    </div>
+  `;
+}
+
+
+// =====================================================
+// COMBINED MODAL
+// =====================================================
+
+function openCombinedModal(
+  row,
   field,
   label
 ) {
-
-  const row =
-    all.find(
-      item =>
-        item.symbol === symbol
-    );
-
-  if (!row) {
-    return;
-  }
-
-
-  let value = null;
-
-
-  if (
-    field === "tailwind"
-  ) {
-    value =
-      row.tailwindScore;
-  }
-
-
-  else if (
-    field === "macro"
-  ) {
-    value =
-      row.macroSupport;
-  }
-
-
-  else if (
-    field === "valueMigration"
-  ) {
-    value =
-      row.valueMigration;
-  }
-
-
-  else if (
-    field === "futureGrowth"
-  ) {
-    value =
-      row.futureGrowth;
-  }
-
-
-  else if (
-    field === "fundamentalQuality"
-  ) {
-    value =
-      row.fundamentalQuality;
-  }
-
-
-  else if (
-    field === "capex"
-  ) {
-    value =
-      row.capexScore;
-  }
-
-
-  const detail =
-    getReasonData(
-      row,
-      field
-    );
-
 
   if ($("reasonTitle")) {
     $("reasonTitle").textContent =
@@ -1025,77 +1033,105 @@ function openReasonModal(
   }
 
 
+  let score = null;
+
+  let details = null;
+
+  let blocks = "";
+
+
+  if (field === "tmv") {
+
+    score =
+      row.tmvScore;
+
+    details =
+      row.tmvDetails || {};
+
+    blocks =
+
+      combinedBlock(
+        "Tailwind",
+        details.tailwind
+      )
+
+      +
+
+      combinedBlock(
+        "Macro",
+        details.macro
+      )
+
+      +
+
+      combinedBlock(
+        "Value Migration",
+        details.valueMigration
+      );
+  }
+
+
+  else if (
+    field === "gfc"
+  ) {
+
+    score =
+      row.gfcScore;
+
+    details =
+      row.gfcDetails || {};
+
+    blocks =
+
+      combinedBlock(
+        "Future Growth",
+        details.futureGrowth
+      )
+
+      +
+
+      combinedBlock(
+        "Fundamental Quality",
+        details.fundamentalQuality
+      )
+
+      +
+
+      combinedBlock(
+        "CAPEX",
+        details.capex
+      );
+  }
+
+
   if ($("reasonScore")) {
 
-    let modeText = "";
-
-    if (
-      detail.mode ===
-      "VERIFIED"
-    ) {
-      modeText =
-        " • VERIFIED";
-    }
-
-    else if (
-      detail.mode ===
-      "AUTOMATED_PROXY" ||
-      detail.mode ===
-      "AUTOMATED"
-    ) {
-      modeText =
-        " • Automated";
-    }
-
-
     $("reasonScore").textContent =
-      value == null
-        ? "Score: Pending"
-        : `Score: ${Number(value).toFixed(0)} / 100${modeText}`;
+      score == null
+        ? "Combined Score: Pending"
+        : `Combined Score: ${Number(score).toFixed(0)} / 100`;
   }
 
 
   if ($("reasonText")) {
-    $("reasonText").textContent =
-      detail.reason;
+
+    $("reasonText").innerHTML =
+      blocks;
   }
 
 
   if ($("reasonSourceDate")) {
+
     $("reasonSourceDate").textContent =
-      detail.sourceDate
-        ? `Source date: ${detail.sourceDate}`
-        : "";
+      "";
   }
 
 
-  const link =
-    $("reasonSourceLink");
+  if ($("reasonSourceLink")) {
 
-
-  if (link) {
-
-    if (detail.source) {
-
-      link.href =
-        detail.source;
-
-      link.style.display =
-        "inline-flex";
-
-      link.textContent =
-        "View Source";
-    }
-
-    else {
-
-      link.removeAttribute(
-        "href"
-      );
-
-      link.style.display =
+    $("reasonSourceLink")
+      .style.display =
         "none";
-    }
   }
 
 
@@ -1117,6 +1153,47 @@ function openReasonModal(
   );
 }
 
+
+// =====================================================
+// OPEN MODAL
+// =====================================================
+
+function openReasonModal(
+  symbol,
+  field,
+  label
+) {
+
+  const row =
+    all.find(
+      item =>
+        item.symbol === symbol
+    );
+
+  if (!row) {
+    return;
+  }
+
+
+  if (
+    field === "tmv" ||
+    field === "gfc"
+  ) {
+
+    openCombinedModal(
+      row,
+      field,
+      label
+    );
+
+    return;
+  }
+}
+
+
+// =====================================================
+// CLOSE MODAL
+// =====================================================
 
 function closeReasonModal() {
 
@@ -1468,30 +1545,18 @@ const filterIds = [
   "activeIndustry",
   "industryFilter",
 
-  "activeSectorStrength",
-  "aboveSectorStrength",
+  "activeSectorGrowth",
+  "aboveSectorGrowth",
 
-  "activeStockStrength",
-  "stockStrengthPeriod",
-  "aboveStockStrength",
+  "activeStockGrowth",
+  "stockGrowthPeriod",
+  "aboveStockGrowth",
 
-  "activeTailwind",
-  "aboveTailwind",
+  "activeTMV",
+  "aboveTMV",
 
-  "activeMacro",
-  "aboveMacro",
-
-  "activeVM",
-  "aboveVM",
-
-  "activeGrowth",
-  "aboveGrowth",
-
-  "activeFundamental",
-  "aboveFundamental",
-
-  "activeCapex",
-  "aboveCapex",
+  "activeGFC",
+  "aboveGFC",
 
   "activeOverall",
   "aboveOverall"
@@ -1565,102 +1630,36 @@ function setValue(
 function applyStrongSetup() {
 
   /*
-    IMPORTANT:
+    Strong Setup:
+    T+M+VM >= 70
+    G+F+C >= 70
+    Overall >= 70
 
-    Strong Setup ONLY rating columns use karega:
-
-    Tailwind
-    Macro
-    Value Migration
-    Future Growth
-    Fundamental
-    CAPEX
-    Overall
-
-    Baaki filters user-controlled / optional hain.
-    Strong Setup unko change nahi karega.
+    Baaki filters optional / user-controlled.
   */
 
 
-  // Tailwind >= 70
-
   setCheckbox(
-    "activeTailwind",
+    "activeTMV",
     true
   );
 
   setValue(
-    "aboveTailwind",
+    "aboveTMV",
     70
   );
 
 
-  // Macro >= 70
-
   setCheckbox(
-    "activeMacro",
+    "activeGFC",
     true
   );
 
   setValue(
-    "aboveMacro",
+    "aboveGFC",
     70
   );
 
-
-  // Value Migration >= 70
-
-  setCheckbox(
-    "activeVM",
-    true
-  );
-
-  setValue(
-    "aboveVM",
-    70
-  );
-
-
-  // Future Growth >= 70
-
-  setCheckbox(
-    "activeGrowth",
-    true
-  );
-
-  setValue(
-    "aboveGrowth",
-    70
-  );
-
-
-  // Fundamental >= 70
-
-  setCheckbox(
-    "activeFundamental",
-    true
-  );
-
-  setValue(
-    "aboveFundamental",
-    70
-  );
-
-
-  // CAPEX >= 60
-
-  setCheckbox(
-    "activeCapex",
-    true
-  );
-
-  setValue(
-    "aboveCapex",
-    60
-  );
-
-
-  // Overall >= 70
 
   setCheckbox(
     "activeOverall",
@@ -1706,7 +1705,7 @@ function resetFilters() {
 
     else if (
       id ===
-      "stockStrengthPeriod"
+      "stockGrowthPeriod"
     ) {
       el.value =
         "3M";
@@ -1855,7 +1854,7 @@ async function init() {
     }
 
 
-    // CLOSE REASON MODAL
+    // CLOSE MODAL
 
     if ($("closeReasonModal")) {
 
@@ -1885,7 +1884,7 @@ async function init() {
     }
 
 
-    // ESCAPE CLOSE MODAL
+    // ESCAPE CLOSE
 
     document.addEventListener(
       "keydown",
