@@ -87,9 +87,8 @@ def fallback_value(
     field
 ):
     """
-    IMPORTANT:
     New calculation unavailable ho to
-    previous valid score preserve karo.
+    previous valid value preserve karo.
     """
 
     if new_value is not None:
@@ -558,7 +557,6 @@ def extract_close_series(
 
             series = data["Close"]
 
-
         series = (
             pd.Series(series)
             .dropna()
@@ -625,7 +623,6 @@ def download_history(tickers):
 
             continue
 
-
         for ticker in chunk:
 
             series = extract_close_series(
@@ -636,7 +633,6 @@ def download_history(tickers):
 
             if series is not None:
                 result[ticker] = series
-
 
     print({
         "historyTickersRequested":
@@ -696,7 +692,6 @@ def main():
         []
     )
 
-
     company_data = load_json(
         DATA / "company_research.json",
         {}
@@ -709,7 +704,6 @@ def main():
         )
         or {}
     )
-
 
     evidence_data = load_json(
         DATA / "company_evidence.json",
@@ -724,11 +718,8 @@ def main():
         or {}
     )
 
-
     # -----------------------------------------------------
-    # IMPORTANT:
-    # Previous research scores load karo.
-    # Yahoo/history failure par ye fallback banega.
+    # Previous research scores
     # -----------------------------------------------------
 
     previous_data = load_json(
@@ -743,7 +734,6 @@ def main():
         )
         or {}
     )
-
 
     # =====================================================
     # CLASSIFIED STOCKS
@@ -760,7 +750,6 @@ def main():
         )
     ]
 
-
     # =====================================================
     # HISTORY
     # =====================================================
@@ -774,7 +763,6 @@ def main():
         NIFTY500
     }
 
-
     for row in classified:
 
         idx = sector_index(
@@ -785,13 +773,11 @@ def main():
         if idx:
             index_tickers.add(idx)
 
-
     history = download_history(
         stock_tickers
         +
         list(index_tickers)
     )
-
 
     # =====================================================
     # INDEX RETURNS
@@ -826,9 +812,8 @@ def main():
                 ),
         }
 
-
     # =====================================================
-    # SECTOR STRENGTH
+    # SECTOR STRENGTH + ACTUAL SECTOR GROWTH
     # =====================================================
 
     sector_index_1m = {}
@@ -852,11 +837,9 @@ def main():
         if value is not None:
             sector_index_1m[idx] = value
 
-
     sector_return_values = list(
         sector_index_1m.values()
     )
-
 
     sector_strength_by_index = {}
 
@@ -871,15 +854,17 @@ def main():
             sector_return_values
         )
 
+    # =====================================================
+    # STOCK GROWTH + STOCK STRENGTH RAW
+    # =====================================================
 
-    # =====================================================
-    # STOCK STRENGTH RAW
-    # =====================================================
+    stock_growth_1m = {}
+    stock_growth_3m = {}
+    stock_growth_6m = {}
 
     raw_1m = {}
     raw_3m = {}
     raw_6m = {}
-
 
     for row in classified:
 
@@ -892,18 +877,15 @@ def main():
         if stock_series is None:
             continue
 
-
         idx = sector_index(
             row.get("sector"),
             row.get("industry")
         )
 
-
         benchmark = (
             idx
             or NIFTY500
         )
-
 
         benchmark_returns = (
             index_returns.get(
@@ -911,7 +893,6 @@ def main():
                 {}
             )
         )
-
 
         if not any(
             value is not None
@@ -925,7 +906,6 @@ def main():
                     {}
                 )
             )
-
 
         stock_1m = period_return(
             stock_series,
@@ -942,6 +922,28 @@ def main():
             126
         )
 
+        # -------------------------------------------------
+        # ACTUAL STOCK GROWTH %
+        # -------------------------------------------------
+
+        if stock_1m is not None:
+            stock_growth_1m[
+                symbol
+            ] = stock_1m
+
+        if stock_3m is not None:
+            stock_growth_3m[
+                symbol
+            ] = stock_3m
+
+        if stock_6m is not None:
+            stock_growth_6m[
+                symbol
+            ] = stock_6m
+
+        # -------------------------------------------------
+        # BENCHMARK RETURNS
+        # -------------------------------------------------
 
         bench_1m = (
             benchmark_returns.get("1M")
@@ -955,6 +957,9 @@ def main():
             benchmark_returns.get("6M")
         )
 
+        # -------------------------------------------------
+        # EXCESS RETURNS FOR STRENGTH
+        # -------------------------------------------------
 
         if (
             stock_1m is not None
@@ -965,7 +970,6 @@ def main():
                 bench_1m
             )
 
-
         if (
             stock_3m is not None
             and bench_3m is not None
@@ -975,7 +979,6 @@ def main():
                 bench_3m
             )
 
-
         if (
             stock_6m is not None
             and bench_6m is not None
@@ -984,7 +987,6 @@ def main():
                 stock_6m -
                 bench_6m
             )
-
 
     # =====================================================
     # STOCK STRENGTH PERCENTILES
@@ -1002,7 +1004,6 @@ def main():
         raw_6m.values()
     )
 
-
     stock_strength_1m = {
         symbol:
             percentile(
@@ -1012,7 +1013,6 @@ def main():
         for symbol, value
         in raw_1m.items()
     }
-
 
     stock_strength_3m = {
         symbol:
@@ -1024,7 +1024,6 @@ def main():
         in raw_3m.items()
     }
 
-
     stock_strength_6m = {
         symbol:
             percentile(
@@ -1034,7 +1033,6 @@ def main():
         for symbol, value
         in raw_6m.items()
     }
-
 
     # =====================================================
     # TURNOVER
@@ -1058,7 +1056,6 @@ def main():
             except Exception:
                 pass
 
-
     # =====================================================
     # FINAL SCORES
     # =====================================================
@@ -1070,12 +1067,16 @@ def main():
     strength_3m_fallback_count = 0
     strength_6m_fallback_count = 0
 
+    sector_growth_fallback_count = 0
+    stock_growth_1m_fallback_count = 0
+    stock_growth_3m_fallback_count = 0
+    stock_growth_6m_fallback_count = 0
+
     verified_macro_count = 0
     automated_macro_count = 0
 
     verified_vm_count = 0
     automated_vm_count = 0
-
 
     for row in stocks:
 
@@ -1086,7 +1087,6 @@ def main():
         if not symbol:
             continue
 
-
         previous = (
             previous_scores.get(
                 symbol,
@@ -1094,7 +1094,6 @@ def main():
             )
             or {}
         )
-
 
         sector = row.get(
             "sector"
@@ -1104,12 +1103,38 @@ def main():
             "industry"
         )
 
-
         idx = sector_index(
             sector,
             industry
         )
 
+        # -------------------------------------------------
+        # ACTUAL SECTOR GROWTH %
+        # -------------------------------------------------
+
+        new_sector_growth_1m = None
+
+        if idx:
+
+            new_sector_growth_1m = (
+                index_returns
+                .get(idx, {})
+                .get("1M")
+            )
+
+        sector_growth_1m = (
+            fallback_value(
+                new_sector_growth_1m,
+                previous,
+                "sectorGrowth1M"
+            )
+        )
+
+        if (
+            new_sector_growth_1m is None
+            and sector_growth_1m is not None
+        ):
+            sector_growth_fallback_count += 1
 
         # -------------------------------------------------
         # SECTOR STRENGTH WITH FALLBACK
@@ -1124,7 +1149,6 @@ def main():
                 .get(idx)
             )
 
-
         sector_strength = (
             fallback_value(
                 new_sector_strength,
@@ -1133,13 +1157,75 @@ def main():
             )
         )
 
-
         if (
             new_sector_strength is None
             and sector_strength is not None
         ):
             sector_fallback_count += 1
 
+        # -------------------------------------------------
+        # ACTUAL STOCK GROWTH % WITH FALLBACK
+        # -------------------------------------------------
+
+        new_stock_growth_1m = (
+            stock_growth_1m.get(
+                symbol
+            )
+        )
+
+        new_stock_growth_3m = (
+            stock_growth_3m.get(
+                symbol
+            )
+        )
+
+        new_stock_growth_6m = (
+            stock_growth_6m.get(
+                symbol
+            )
+        )
+
+        stock_growth_value_1m = (
+            fallback_value(
+                new_stock_growth_1m,
+                previous,
+                "stockGrowth1M"
+            )
+        )
+
+        stock_growth_value_3m = (
+            fallback_value(
+                new_stock_growth_3m,
+                previous,
+                "stockGrowth3M"
+            )
+        )
+
+        stock_growth_value_6m = (
+            fallback_value(
+                new_stock_growth_6m,
+                previous,
+                "stockGrowth6M"
+            )
+        )
+
+        if (
+            new_stock_growth_1m is None
+            and stock_growth_value_1m is not None
+        ):
+            stock_growth_1m_fallback_count += 1
+
+        if (
+            new_stock_growth_3m is None
+            and stock_growth_value_3m is not None
+        ):
+            stock_growth_3m_fallback_count += 1
+
+        if (
+            new_stock_growth_6m is None
+            and stock_growth_value_6m is not None
+        ):
+            stock_growth_6m_fallback_count += 1
 
         # -------------------------------------------------
         # STOCK STRENGTH WITH FALLBACK
@@ -1160,7 +1246,6 @@ def main():
             .get(symbol)
         )
 
-
         strength_1m = fallback_value(
             new_1m,
             previous,
@@ -1179,13 +1264,11 @@ def main():
             "stockStrength6M"
         )
 
-
         if (
             new_1m is None
             and strength_1m is not None
         ):
             strength_1m_fallback_count += 1
-
 
         if (
             new_3m is None
@@ -1193,13 +1276,11 @@ def main():
         ):
             strength_3m_fallback_count += 1
 
-
         if (
             new_6m is None
             and strength_6m is not None
         ):
             strength_6m_fallback_count += 1
-
 
         # -------------------------------------------------
         # COMPANY RESEARCH
@@ -1213,7 +1294,6 @@ def main():
             or {}
         )
 
-
         company_reasons = (
             company.get(
                 "researchReasons",
@@ -1221,7 +1301,6 @@ def main():
             )
             or {}
         )
-
 
         # -------------------------------------------------
         # MACRO
@@ -1234,7 +1313,6 @@ def main():
                 "macro"
             )
         )
-
 
         if macro_verified:
 
@@ -1258,7 +1336,6 @@ def main():
 
             verified_macro_count += 1
 
-
         else:
 
             (
@@ -1269,16 +1346,11 @@ def main():
                 industry
             )
 
-
-            # Macro mapping unavailable ho to
-            # previous Macro score preserve karo.
-
             macro_support = fallback_value(
                 macro_support,
                 previous,
                 "macroSupport"
             )
-
 
             macro_detail = {
                 "reason":
@@ -1299,10 +1371,8 @@ def main():
                     ),
             }
 
-
             if macro_support is not None:
                 automated_macro_count += 1
-
 
         # -------------------------------------------------
         # VALUE MIGRATION
@@ -1316,16 +1386,13 @@ def main():
             )
         )
 
-
         value_migration = None
-
 
         if vm_verified:
 
             value_migration = (
                 vm_verified["score"]
             )
-
 
             vm_detail = {
                 "reason":
@@ -1341,9 +1408,7 @@ def main():
                     "VERIFIED",
             }
 
-
             verified_vm_count += 1
-
 
         else:
 
@@ -1354,7 +1419,6 @@ def main():
             turnover = row.get(
                 "turnoverCr"
             )
-
 
             vm_detail = {
                 "reason":
@@ -1377,7 +1441,6 @@ def main():
                     "PENDING",
             }
 
-
             if (
                 change is not None
                 and turnover is not None
@@ -1391,12 +1454,10 @@ def main():
                         float(change) * 7
                     )
 
-
                     turnover_score = percentile(
                         float(turnover),
                         all_turnover
                     )
-
 
                     if turnover_score is not None:
 
@@ -1406,7 +1467,6 @@ def main():
                             turnover_score * 0.40,
                             2
                         )
-
 
                         vm_detail = {
                             "reason":
@@ -1437,16 +1497,12 @@ def main():
                                 "AUTOMATED_PROXY",
                         }
 
-
                         automated_vm_count += 1
-
 
                 except Exception:
                     pass
 
-
-            # EOD data unavailable ho to
-            # previous valid VM score preserve karo.
+            # Previous VM fallback
 
             if value_migration is None:
 
@@ -1479,7 +1535,6 @@ def main():
                             old_vm_detail
                         )
 
-
         # -------------------------------------------------
         # COMPANY SCORE FALLBACKS
         # -------------------------------------------------
@@ -1492,7 +1547,6 @@ def main():
             "tailwindScore"
         )
 
-
         future_growth = fallback_value(
             company.get(
                 "futureGrowth"
@@ -1500,7 +1554,6 @@ def main():
             previous,
             "futureGrowth"
         )
-
 
         fundamental_quality = fallback_value(
             company.get(
@@ -1510,7 +1563,6 @@ def main():
             "fundamentalQuality"
         )
 
-
         capex_score_value = fallback_value(
             company.get(
                 "capexScore"
@@ -1518,7 +1570,6 @@ def main():
             previous,
             "capexScore"
         )
-
 
         # -------------------------------------------------
         # RESEARCH REASONS
@@ -1531,7 +1582,6 @@ def main():
             )
             or {}
         )
-
 
         research_reasons = {
 
@@ -1590,12 +1640,31 @@ def main():
                 ),
         }
 
-
         # -------------------------------------------------
         # FINAL RECORD
         # -------------------------------------------------
 
         scores[symbol] = {
+
+            # =============================================
+            # ACTUAL GROWTH %
+            # =============================================
+
+            "sectorGrowth1M":
+                sector_growth_1m,
+
+            "stockGrowth1M":
+                stock_growth_value_1m,
+
+            "stockGrowth3M":
+                stock_growth_value_3m,
+
+            "stockGrowth6M":
+                stock_growth_value_6m,
+
+            # =============================================
+            # EXISTING STRENGTH SCORES
+            # =============================================
 
             "sectorStrength":
                 sector_strength,
@@ -1620,6 +1689,10 @@ def main():
                     NIFTY500
                 ),
 
+            # =============================================
+            # RESEARCH SCORES
+            # =============================================
+
             "tailwindScore":
                 tailwind_score,
 
@@ -1641,7 +1714,6 @@ def main():
             "researchReasons":
                 research_reasons,
         }
-
 
     # =====================================================
     # OUTPUT
@@ -1668,13 +1740,28 @@ def main():
 
             "historyFallback":
                 (
-                    "Previous valid Sector Strength and "
-                    "Stock Strength values are preserved "
-                    "when current historical-price data "
-                    "is unavailable."
+                    "Previous valid Sector Growth, Stock Growth, "
+                    "Sector Strength and Stock Strength values "
+                    "are preserved when current historical-price "
+                    "data is unavailable."
                 ),
 
             "method": {
+
+                "sectorGrowth1M":
+                    (
+                        "Actual 1-month return of relevant "
+                        "Nifty sector index"
+                    ),
+
+                "stockGrowth1M":
+                    "Actual 1-month stock price return",
+
+                "stockGrowth3M":
+                    "Actual 3-month stock price return",
+
+                "stockGrowth6M":
+                    "Actual 6-month stock price return",
 
                 "sectorStrength":
                     (
@@ -1728,7 +1815,6 @@ def main():
                     "Company CAPEX score",
             },
 
-
             "weights": {
 
                 "sectorStrength":
@@ -1750,21 +1836,19 @@ def main():
                     10,
             },
 
-
             "note":
                 (
-                    "Stock Strength and Tailwind remain separate "
-                    "screening metrics. Automated Value Migration "
-                    "is a screening proxy and not verified "
-                    "business migration."
+                    "Sector Growth and Stock Growth are actual "
+                    "price-return percentages. Sector Strength and "
+                    "Stock Strength remain 0-100 percentile screening "
+                    "metrics. Automated Value Migration is a screening "
+                    "proxy and not verified business migration."
                 ),
         },
-
 
         "stocks":
             scores,
     }
-
 
     (
         DATA /
@@ -1778,11 +1862,58 @@ def main():
         )
     )
 
+    # =====================================================
+    # LOG
+    # =====================================================
 
     print({
 
         "stocksProcessed":
             len(scores),
+
+        "sectorGrowth1MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "sectorGrowth1M"
+                )
+                is not None
+            ),
+
+        "stockGrowth1MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockGrowth1M"
+                )
+                is not None
+            ),
+
+        "stockGrowth3MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockGrowth3M"
+                )
+                is not None
+            ),
+
+        "stockGrowth6MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockGrowth6M"
+                )
+                is not None
+            ),
 
         "sectorStrengthAvailable":
             sum(
@@ -1827,6 +1958,18 @@ def main():
                 )
                 is not None
             ),
+
+        "sectorGrowthFallbackUsed":
+            sector_growth_fallback_count,
+
+        "stockGrowth1MFallbackUsed":
+            stock_growth_1m_fallback_count,
+
+        "stockGrowth3MFallbackUsed":
+            stock_growth_3m_fallback_count,
+
+        "stockGrowth6MFallbackUsed":
+            stock_growth_6m_fallback_count,
 
         "sectorFallbackUsed":
             sector_fallback_count,
