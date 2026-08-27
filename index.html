@@ -29,8 +29,8 @@
     </h1>
 
     <p class="hero-desc">
-      Sector Strength • Stock Strength • Tailwind • Macro •
-      Value Migration • Future Growth • Fundamental • CAPEX
+      Market Cap • Delivery Times • Sector Growth • Stock Growth •
+      T+M+VM • G+F+C • Overall
     </p>
 
   </div>
@@ -40,15 +40,11 @@
 
 <main>
 
-  <!-- COMPACT STATS -->
-
   <section
     class="stats compact-stats"
     id="stats">
   </section>
 
-
-  <!-- NSE STOCK UNIVERSE -->
 
   <section class="card universe-card">
 
@@ -94,20 +90,17 @@
           Reset
         </button>
 
-
         <button
           id="prev"
           class="secondary-btn">
           ← Prev
         </button>
 
-
         <span
           id="page"
           class="page-info">
           Page 1 / 1
         </span>
-
 
         <label class="goto-wrap">
 
@@ -124,7 +117,6 @@
 
         </label>
 
-
         <button
           id="next"
           class="secondary-btn">
@@ -136,8 +128,6 @@
     </div>
 
 
-    <!-- TOP HORIZONTAL SCROLL -->
-
     <div
       class="topscroll"
       id="topScroll">
@@ -147,15 +137,11 @@
     </div>
 
 
-    <!-- TABLE -->
-
     <div class="tablewrap">
 
       <table id="stockTable">
 
         <thead>
-
-          <!-- COLUMN HEADINGS -->
 
           <tr class="header-row">
 
@@ -190,7 +176,7 @@
             <th>
               Delivery
               <br>
-              Ratio
+              Times
             </th>
 
             <th>
@@ -202,37 +188,25 @@
             </th>
 
             <th>
-              Sector Strength
+              Sector Growth
               <br>
-              <small>1M</small>
+              <small>1M %</small>
             </th>
 
             <th>
-              Stock Strength
+              Stock Growth
             </th>
 
             <th>
-              Tailwind
+              T + M + VM
+              <br>
+              <small>Tailwind + Macro + Value Migration</small>
             </th>
 
             <th>
-              Macro
-            </th>
-
-            <th>
-              Value Migration
-            </th>
-
-            <th>
-              Future Growth
-            </th>
-
-            <th>
-              Fundamental
-            </th>
-
-            <th>
-              CAPEX
+              G + F + C
+              <br>
+              <small>Growth + Fundamental + CAPEX</small>
             </th>
 
             <th>
@@ -242,11 +216,7 @@
           </tr>
 
 
-          <!-- FILTER ROW -->
-
           <tr class="filter-row">
-
-            <!-- STOCK SEARCH -->
 
             <th>
 
@@ -259,8 +229,6 @@
 
             </th>
 
-
-            <!-- MARKET CAP -->
 
             <th>
 
@@ -307,8 +275,6 @@
             </th>
 
 
-            <!-- PRICE -->
-
             <th>
 
               <div class="filter-box">
@@ -335,8 +301,6 @@
 
             </th>
 
-
-            <!-- CHANGE -->
 
             <th>
 
@@ -365,8 +329,6 @@
             </th>
 
 
-            <!-- TODAY DELIVERY -->
-
             <th>
 
               <div class="filter-box">
@@ -392,8 +354,6 @@
 
             </th>
 
-
-            <!-- 5D AVG DELIVERY -->
 
             <th>
 
@@ -421,8 +381,6 @@
             </th>
 
 
-            <!-- DELIVERY RATIO -->
-
             <th>
 
               <div class="filter-box">
@@ -449,8 +407,6 @@
 
             </th>
 
-
-            <!-- SECTOR -->
 
             <th>
 
@@ -480,8 +436,6 @@
             </th>
 
 
-            <!-- INDUSTRY -->
-
             <th>
 
               <div class="filter-box">
@@ -510,8 +464,6 @@
             </th>
 
 
-            <!-- SECTOR STRENGTH -->
-
             <th>
 
               <div class="filter-box">
@@ -519,7 +471,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeSectorStrength"
+                    id="activeSectorGrowth"
                     type="checkbox"
                   >
 
@@ -528,19 +480,16 @@
                 </label>
 
                 <input
-                  id="aboveSectorStrength"
+                  id="aboveSectorGrowth"
                   type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
+                  step="0.01"
+                  placeholder="Above %"
                 >
 
               </div>
 
             </th>
 
-
-            <!-- STOCK STRENGTH -->
 
             <th>
 
@@ -549,7 +498,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeStockStrength"
+                    id="activeStockGrowth"
                     type="checkbox"
                   >
 
@@ -557,7 +506,7 @@
 
                 </label>
 
-                <select id="stockStrengthPeriod">
+                <select id="stockGrowthPeriod">
 
                   <option value="1M">
                     1 Month
@@ -576,19 +525,16 @@
                 </select>
 
                 <input
-                  id="aboveStockStrength"
+                  id="aboveStockGrowth"
                   type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
+                  step="0.01"
+                  placeholder="Above %"
                 >
 
               </div>
 
             </th>
 
-
-            <!-- TAILWIND -->
 
             <th>
 
@@ -597,7 +543,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeTailwind"
+                    id="activeTMV"
                     type="checkbox"
                   >
 
@@ -606,7 +552,7 @@
                 </label>
 
                 <input
-                  id="aboveTailwind"
+                  id="aboveTMV"
                   type="number"
                   min="0"
                   max="100"
@@ -617,8 +563,6 @@
 
             </th>
 
-
-            <!-- MACRO -->
 
             <th>
 
@@ -627,7 +571,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeMacro"
+                    id="activeGFC"
                     type="checkbox"
                   >
 
@@ -636,7 +580,7 @@
                 </label>
 
                 <input
-                  id="aboveMacro"
+                  id="aboveGFC"
                   type="number"
                   min="0"
                   max="100"
@@ -647,128 +591,6 @@
 
             </th>
 
-
-            <!-- VALUE MIGRATION -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeVM"
-                    type="checkbox"
-                  >
-
-                  <span>Active</span>
-
-                </label>
-
-                <input
-                  id="aboveVM"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-            <!-- FUTURE GROWTH -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeGrowth"
-                    type="checkbox"
-                  >
-
-                  <span>Active</span>
-
-                </label>
-
-                <input
-                  id="aboveGrowth"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-            <!-- FUNDAMENTAL -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeFundamental"
-                    type="checkbox"
-                  >
-
-                  <span>Active</span>
-
-                </label>
-
-                <input
-                  id="aboveFundamental"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-            <!-- CAPEX -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeCapex"
-                    type="checkbox"
-                  >
-
-                  <span>Active</span>
-
-                </label>
-
-                <input
-                  id="aboveCapex"
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-            <!-- OVERALL -->
 
             <th>
 
@@ -819,8 +641,6 @@
 </footer>
 
 
-<!-- REASON / SOURCE MODAL -->
-
 <div
   id="reasonModal"
   class="reason-modal"
@@ -845,10 +665,10 @@
       class="reason-score">
     </div>
 
-    <p
+    <div
       id="reasonText"
       class="reason-text">
-    </p>
+    </div>
 
     <div
       id="reasonSourceDate"
