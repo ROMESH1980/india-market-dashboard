@@ -4,6 +4,12 @@ let all = [];
 let meta = {};
 let page = 1;
 
+/*
+  Last activated / changed numeric column
+  primary sorting column banega.
+*/
+let activeSortField = null;
+
 const $ = id =>
   document.getElementById(id);
 
@@ -279,6 +285,63 @@ function selectedStockGrowth(row) {
 
 
 // =====================================================
+// SORT VALUE
+// =====================================================
+
+function sortValue(
+  row,
+  field
+) {
+
+  if (field === "marketCapCr") {
+    return row.marketCapCr;
+  }
+
+  if (field === "price") {
+    return row.price;
+  }
+
+  if (field === "changePct") {
+    return row.changePct;
+  }
+
+  if (field === "todayDeliveryVolume") {
+    return row.todayDeliveryVolume;
+  }
+
+  if (field === "avg5DayDeliveryVolume") {
+    return row.avg5DayDeliveryVolume;
+  }
+
+  if (field === "deliveryVolumeRatio") {
+    return row.deliveryVolumeRatio;
+  }
+
+  if (field === "sectorGrowth1M") {
+    return row.sectorGrowth1M;
+  }
+
+  if (field === "stockGrowth") {
+    return selectedStockGrowth(row);
+  }
+
+  if (field === "tmvScore") {
+    return row.tmvScore;
+  }
+
+  if (field === "gfcScore") {
+    return row.gfcScore;
+  }
+
+  if (field === "overallScore") {
+    return row.overallScore;
+  }
+
+  return null;
+}
+
+
+// =====================================================
 // FILTER ENGINE
 // =====================================================
 
@@ -312,16 +375,11 @@ function filters() {
 
       searchPass &&
 
-      // MARKET CAP ₹ CR
-
       abovePass(
         "activeMarketCap",
         "aboveMarketCap",
         row.marketCapCr
       ) &&
-
-
-      // PRICE
 
       abovePass(
         "activePrice",
@@ -329,17 +387,11 @@ function filters() {
         row.price
       ) &&
 
-
-      // CHANGE %
-
       abovePass(
         "activeChange",
         "aboveChange",
         row.changePct
       ) &&
-
-
-      // TODAY DELIVERY
 
       abovePass(
         "activeTodayDelivery",
@@ -347,17 +399,11 @@ function filters() {
         row.todayDeliveryVolume
       ) &&
 
-
-      // 5 DAY DELIVERY
-
       abovePass(
         "active5DDelivery",
         "above5DDelivery",
         row.avg5DayDeliveryVolume
       ) &&
-
-
-      // DELIVERY TIMES
 
       abovePass(
         "activeDeliveryRatio",
@@ -365,17 +411,11 @@ function filters() {
         row.deliveryVolumeRatio
       ) &&
 
-
-      // SECTOR
-
       selectPass(
         "activeSector",
         "sectorFilter",
         row.sector
       ) &&
-
-
-      // INDUSTRY
 
       selectPass(
         "activeIndustry",
@@ -383,17 +423,11 @@ function filters() {
         row.industry
       ) &&
 
-
-      // SECTOR GROWTH
-
       abovePass(
         "activeSectorGrowth",
         "aboveSectorGrowth",
         row.sectorGrowth1M
       ) &&
-
-
-      // STOCK GROWTH
 
       abovePass(
         "activeStockGrowth",
@@ -401,26 +435,17 @@ function filters() {
         stockGrowth
       ) &&
 
-
-      // T + M + VM
-
       abovePass(
         "activeTMV",
         "aboveTMV",
         row.tmvScore
       ) &&
 
-
-      // G + F + C
-
       abovePass(
         "activeGFC",
         "aboveGFC",
         row.gfcScore
       ) &&
-
-
-      // OVERALL
 
       abovePass(
         "activeOverall",
@@ -436,165 +461,131 @@ function filters() {
 // SORTING
 // =====================================================
 
+function compareNumericDesc(
+  a,
+  b,
+  field
+) {
+
+  const av =
+    sortValue(
+      a,
+      field
+    );
+
+  const bv =
+    sortValue(
+      b,
+      field
+    );
+
+  const aValid =
+    av !== null &&
+    av !== undefined &&
+    av !== "" &&
+    Number.isFinite(
+      Number(av)
+    );
+
+  const bValid =
+    bv !== null &&
+    bv !== undefined &&
+    bv !== "" &&
+    Number.isFinite(
+      Number(bv)
+    );
+
+
+  // Both valid
+  if (
+    aValid &&
+    bValid
+  ) {
+
+    const diff =
+      Number(bv) -
+      Number(av);
+
+    if (diff !== 0) {
+      return diff;
+    }
+  }
+
+
+  // A valid, B pending
+  if (
+    aValid &&
+    !bValid
+  ) {
+    return -1;
+  }
+
+
+  // B valid, A pending
+  if (
+    !aValid &&
+    bValid
+  ) {
+    return 1;
+  }
+
+
+  return 0;
+}
+
+
 function rankStocks(rows) {
 
   return [...rows].sort(
     (a, b) => {
 
-      // ---------------------------------------------
-      // 1. OVERALL SCORE FIRST
-      // ---------------------------------------------
+      // =================================================
+      // PRIMARY SORT:
+      // LAST ACTIVATED / CHANGED NUMERIC FILTER
+      // =================================================
 
-      const ao =
-        a.overallScore;
+      if (activeSortField) {
 
-      const bo =
-        b.overallScore;
-
-      if (
-        ao != null &&
-        bo == null
-      ) {
-        return -1;
-      }
-
-      if (
-        ao == null &&
-        bo != null
-      ) {
-        return 1;
-      }
-
-      if (
-        ao != null &&
-        bo != null &&
-        Number(bo) !== Number(ao)
-      ) {
-        return (
-          Number(bo) -
-          Number(ao)
-        );
-      }
-
-
-      // ---------------------------------------------
-      // 2. MARKET CAP IF ACTIVE
-      // ---------------------------------------------
-
-      if (
-        isActive(
-          "activeMarketCap"
-        )
-      ) {
-
-        const am =
-          a.marketCapCr;
-
-        const bm =
-          b.marketCapCr;
-
-        if (
-          am != null &&
-          bm != null &&
-          Number(bm) !== Number(am)
-        ) {
-          return (
-            Number(bm) -
-            Number(am)
+        const primary =
+          compareNumericDesc(
+            a,
+            b,
+            activeSortField
           );
-        }
 
-        if (
-          am != null &&
-          bm == null
-        ) {
-          return -1;
-        }
-
-        if (
-          am == null &&
-          bm != null
-        ) {
-          return 1;
+        if (primary !== 0) {
+          return primary;
         }
       }
 
 
-      // ---------------------------------------------
-      // 3. STOCK GROWTH IF ACTIVE
-      // ---------------------------------------------
+      // =================================================
+      // SECONDARY SORT:
+      // OVERALL SCORE HIGH TO LOW
+      // =================================================
 
       if (
-        isActive(
-          "activeStockGrowth"
-        )
+        activeSortField !==
+        "overallScore"
       ) {
 
-        const as =
-          selectedStockGrowth(a);
-
-        const bs =
-          selectedStockGrowth(b);
-
-        if (
-          as != null &&
-          bs != null &&
-          Number(bs) !== Number(as)
-        ) {
-          return (
-            Number(bs) -
-            Number(as)
+        const overall =
+          compareNumericDesc(
+            a,
+            b,
+            "overallScore"
           );
-        }
 
-        if (
-          as != null &&
-          bs == null
-        ) {
-          return -1;
-        }
-
-        if (
-          as == null &&
-          bs != null
-        ) {
-          return 1;
+        if (overall !== 0) {
+          return overall;
         }
       }
 
 
-      // ---------------------------------------------
-      // 4. DELIVERY TIMES IF ACTIVE
-      // ---------------------------------------------
-
-      if (
-        isActive(
-          "activeDeliveryRatio"
-        )
-      ) {
-
-        const ad =
-          a.deliveryVolumeRatio;
-
-        const bd =
-          b.deliveryVolumeRatio;
-
-        if (
-          ad != null &&
-          bd != null &&
-          Number(bd) !== Number(ad)
-        ) {
-          return (
-            Number(bd) -
-            Number(ad)
-          );
-        }
-      }
-
-
-      // ---------------------------------------------
-      // 5. NAME
-      // ---------------------------------------------
+      // =================================================
+      // FINAL TIE BREAK:
+      // COMPANY NAME
+      // =================================================
 
       return (
         a.name || ""
@@ -697,25 +688,19 @@ function updatePageControls(
 ) {
 
   if ($("page")) {
-
     $("page").textContent =
       `Page ${page} / ${pages}`;
   }
 
-
   if ($("prev")) {
-
     $("prev").disabled =
       page <= 1;
   }
 
-
   if ($("next")) {
-
     $("next").disabled =
       page >= pages;
   }
-
 
   if ($("gotoPage")) {
 
@@ -741,40 +726,32 @@ function goToPage(value) {
   let target =
     Number(value);
 
-
   if (
     !Number.isFinite(target)
   ) {
     target = 1;
   }
 
-
   target =
     Math.round(target);
-
 
   if (target < 1) {
     target = 1;
   }
 
-
   if (target > pages) {
     target = pages;
   }
 
-
   page =
     target;
 
-
   render();
-
 
   const wrap =
     document.querySelector(
       ".tablewrap"
     );
-
 
   if (wrap) {
     wrap.scrollTop = 0;
@@ -791,17 +768,14 @@ function render() {
   const filtered =
     getFilteredData();
 
-
   const pages =
     totalPagesFor(
       filtered
     );
 
-
   if (page > pages) {
     page = pages;
   }
-
 
   if (page < 1) {
     page = 1;
@@ -837,7 +811,6 @@ function render() {
 
       const stockGrowth =
         selectedStockGrowth(row);
-
 
       return `
         <tr>
@@ -982,7 +955,6 @@ function safeDetail(detail) {
     };
   }
 
-
   return {
 
     score:
@@ -999,7 +971,6 @@ function safeDetail(detail) {
 
     mode:
       detail.mode || ""
-
   };
 }
 
@@ -1010,14 +981,12 @@ function modeText(mode) {
     return "VERIFIED";
   }
 
-
   if (
     mode === "AUTOMATED" ||
     mode === "AUTOMATED_PROXY"
   ) {
     return "Automated";
   }
-
 
   return "";
 }
@@ -1140,10 +1109,6 @@ function openCombinedModal(
   let blocks = "";
 
 
-  // ---------------------------------------------------
-  // T + M + VM
-  // ---------------------------------------------------
-
   if (
     field === "tmv"
   ) {
@@ -1151,10 +1116,8 @@ function openCombinedModal(
     score =
       row.tmvScore;
 
-
     details =
       row.tmvDetails || {};
-
 
     blocks =
 
@@ -1179,10 +1142,6 @@ function openCombinedModal(
   }
 
 
-  // ---------------------------------------------------
-  // G + F + C
-  // ---------------------------------------------------
-
   else if (
     field === "gfc"
   ) {
@@ -1190,10 +1149,8 @@ function openCombinedModal(
     score =
       row.gfcScore;
 
-
     details =
       row.gfcDetails || {};
-
 
     blocks =
 
@@ -1310,7 +1267,7 @@ function openReasonModal(
 
 
 // =====================================================
-// CLOSE REASON MODAL
+// CLOSE MODAL
 // =====================================================
 
 function closeReasonModal() {
@@ -1419,7 +1376,6 @@ function setupTopScrollbar() {
 
 
   let topSync = false;
-
   let tableSync = false;
 
 
@@ -1431,13 +1387,10 @@ function setupTopScrollbar() {
         return;
       }
 
-
       topSync = true;
-
 
       wrap.scrollLeft =
         top.scrollLeft;
-
 
       topSync = false;
     }
@@ -1452,13 +1405,10 @@ function setupTopScrollbar() {
         return;
       }
 
-
       tableSync = true;
-
 
       top.scrollLeft =
         wrap.scrollLeft;
-
 
       tableSync = false;
     }
@@ -1645,7 +1595,7 @@ async function fetchJSON(url) {
 
 
 // =====================================================
-// FILTER EVENTS
+// FILTER / SORT MAPPING
 // =====================================================
 
 const filterIds = [
@@ -1694,6 +1644,93 @@ const filterIds = [
 ];
 
 
+const sortFieldByElement = {
+
+  activeMarketCap:
+    "marketCapCr",
+
+  aboveMarketCap:
+    "marketCapCr",
+
+
+  activePrice:
+    "price",
+
+  abovePrice:
+    "price",
+
+
+  activeChange:
+    "changePct",
+
+  aboveChange:
+    "changePct",
+
+
+  activeTodayDelivery:
+    "todayDeliveryVolume",
+
+  aboveTodayDelivery:
+    "todayDeliveryVolume",
+
+
+  active5DDelivery:
+    "avg5DayDeliveryVolume",
+
+  above5DDelivery:
+    "avg5DayDeliveryVolume",
+
+
+  activeDeliveryRatio:
+    "deliveryVolumeRatio",
+
+  aboveDeliveryRatio:
+    "deliveryVolumeRatio",
+
+
+  activeSectorGrowth:
+    "sectorGrowth1M",
+
+  aboveSectorGrowth:
+    "sectorGrowth1M",
+
+
+  activeStockGrowth:
+    "stockGrowth",
+
+  stockGrowthPeriod:
+    "stockGrowth",
+
+  aboveStockGrowth:
+    "stockGrowth",
+
+
+  activeTMV:
+    "tmvScore",
+
+  aboveTMV:
+    "tmvScore",
+
+
+  activeGFC:
+    "gfcScore",
+
+  aboveGFC:
+    "gfcScore",
+
+
+  activeOverall:
+    "overallScore",
+
+  aboveOverall:
+    "overallScore"
+};
+
+
+// =====================================================
+// FILTER EVENTS
+// =====================================================
+
 function setupFilterEvents() {
 
   filterIds.forEach(id => {
@@ -1717,6 +1754,46 @@ function setupFilterEvents() {
     el.addEventListener(
       eventType,
       () => {
+
+        /*
+          Agar numeric filter se interaction hua,
+          usi column ko sorting priority do.
+        */
+
+        const mappedField =
+          sortFieldByElement[id];
+
+
+        if (mappedField) {
+
+          /*
+            Checkbox OFF kiya ho aur wahi
+            current sort field ho to default
+            Overall ranking par wapas jao.
+          */
+
+          if (
+            el.type === "checkbox" &&
+            !el.checked
+          ) {
+
+            if (
+              activeSortField ===
+              mappedField
+            ) {
+
+              activeSortField =
+                null;
+            }
+          }
+
+          else {
+
+            activeSortField =
+              mappedField;
+          }
+        }
+
 
         page = 1;
 
@@ -1765,12 +1842,12 @@ function applyStrongSetup() {
 
   /*
     Strong Setup:
-    T+M+VM >= 70
-    G+F+C >= 70
+    T + M + VM >= 70
+    G + F + C >= 70
     Overall >= 70
 
-    Market Cap, Price, Growth,
-    Delivery etc. user-controlled hain.
+    Strong Setup ranking =
+    Overall High -> Low
   */
 
 
@@ -1805,6 +1882,10 @@ function applyStrongSetup() {
     "aboveOverall",
     70
   );
+
+
+  activeSortField =
+    "overallScore";
 
 
   page = 1;
@@ -1869,6 +1950,10 @@ function resetFilters() {
   });
 
 
+  activeSortField =
+    null;
+
+
   page = 1;
 
   render();
@@ -1913,8 +1998,6 @@ async function init() {
     render();
 
 
-    // STRONG SETUP
-
     if ($("strongSetup")) {
 
       $("strongSetup").onclick =
@@ -1922,16 +2005,12 @@ async function init() {
     }
 
 
-    // RESET
-
     if ($("resetScores")) {
 
       $("resetScores").onclick =
         resetFilters;
     }
 
-
-    // PREVIOUS PAGE
 
     if ($("prev")) {
 
@@ -1945,8 +2024,6 @@ async function init() {
     }
 
 
-    // NEXT PAGE
-
     if ($("next")) {
 
       $("next").onclick =
@@ -1958,8 +2035,6 @@ async function init() {
         };
     }
 
-
-    // GO TO PAGE
 
     if ($("gotoPage")) {
 
@@ -1994,16 +2069,12 @@ async function init() {
     }
 
 
-    // CLOSE MODAL
-
     if ($("closeReasonModal")) {
 
       $("closeReasonModal").onclick =
         closeReasonModal;
     }
 
-
-    // CLICK OUTSIDE MODAL
 
     if ($("reasonModal")) {
 
@@ -2023,8 +2094,6 @@ async function init() {
         );
     }
 
-
-    // ESCAPE CLOSE
 
     document.addEventListener(
       "keydown",
