@@ -12753,5 +12753,10 @@
     "sector": "Financial Services",
     "industry": "Asset Management",
     "source": "Yahoo Finance"
+  },
+  "TEMPSENS": {
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "source": "Yahoo Finance"
   }
 }
