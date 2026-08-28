@@ -1137,3 +1137,49 @@ button {
   }
 
 }
+/* =====================================================
+   COMPACT SECTOR / GROWTH COLUMNS
+   ===================================================== */
+
+/* 11 - Sector */
+.table-wrap th:nth-child(11),
+.table-wrap td:nth-child(11) {
+  width: 125px;
+  min-width: 125px;
+  max-width: 125px;
+
+  white-space: normal;
+}
+
+
+/* 12 - Industry */
+.table-wrap th:nth-child(12),
+.table-wrap td:nth-child(12) {
+  width: 145px;
+  min-width: 145px;
+  max-width: 145px;
+
+  white-space: normal;
+}
+
+
+/* 13 - Sector Growth */
+.table-wrap th:nth-child(13),
+.table-wrap td:nth-child(13) {
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+
+  text-align: center;
+}
+
+
+/* 14 - Stock Growth */
+.table-wrap th:nth-child(14),
+.table-wrap td:nth-child(14) {
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
+
+  text-align: center;
+}
