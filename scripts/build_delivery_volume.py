@@ -48,7 +48,7 @@ def to_float(value):
 
 
 # =========================================================
-# FETCH NSE MTO DELIVERY FILE
+# FETCH NSE MTO FILE
 # =========================================================
 
 def fetch_mto_for_date(d):
@@ -68,11 +68,9 @@ def fetch_mto_for_date(d):
 
     r.raise_for_status()
 
-    text = r.text
-
     delivery = {}
 
-    for line in text.splitlines():
+    for line in r.text.splitlines():
 
         line = line.strip()
 
@@ -84,8 +82,7 @@ def fetch_mto_for_date(d):
             for p in line.split(",")
         ]
 
-        # NSE MTO expected format:
-        #
+        # NSE MTO:
         # 20,
         # Sr No,
         # Symbol,
@@ -96,7 +93,6 @@ def fetch_mto_for_date(d):
 
         if len(parts) < 7:
             continue
-
 
         symbol = parts[2]
         series = parts[3]
@@ -113,10 +109,8 @@ def fetch_mto_for_date(d):
             parts[6]
         )
 
-
         if not symbol:
             continue
-
 
         delivery[
             (
@@ -147,7 +141,7 @@ def fetch_mto_for_date(d):
 
 
 # =========================================================
-# GET LAST 6 VALID TRADING SESSIONS
+# LAST VALID TRADING SESSIONS
 # =========================================================
 
 def get_last_trading_sessions(
@@ -161,9 +155,8 @@ def get_last_trading_sessions(
 
     sessions = []
 
-
-    # Enough range to handle
-    # weekends + NSE holidays.
+    # Enough range for weekends
+    # and exchange holidays.
 
     for back in range(0, 20):
 
@@ -173,7 +166,6 @@ def get_last_trading_sessions(
 
         if d.weekday() >= 5:
             continue
-
 
         try:
 
@@ -190,19 +182,13 @@ def get_last_trading_sessions(
                     data,
             })
 
-
             print(
                 f"Delivery session loaded: "
                 f"{d} ({len(data)} rows)"
             )
 
-
-            if (
-                len(sessions) >=
-                required
-            ):
+            if len(sessions) >= required:
                 break
-
 
         except Exception as e:
 
@@ -224,7 +210,7 @@ def get_last_trading_sessions(
 
 
 # =========================================================
-# FIND SYMBOL IN MTO
+# FIND SYMBOL
 # =========================================================
 
 def find_delivery_record(
@@ -240,7 +226,6 @@ def find_delivery_record(
         )
     )
 
-
     # Main-board fallback
 
     if record is None:
@@ -251,7 +236,6 @@ def find_delivery_record(
                 "EQ",
             )
         )
-
 
     return record
 
@@ -280,7 +264,7 @@ def main():
 
 
     # Today + previous 5
-    # valid NSE trading sessions
+    # valid trading sessions
 
     sessions = (
         get_last_trading_sessions(
@@ -304,20 +288,20 @@ def main():
         sessions[1:6]
     )
 
-
     today_date = (
         today_session["date"]
         .isoformat()
     )
 
 
+    updated_today_volume = 0
+    updated_delivery_volume = 0
     updated_ratio = 0
     updated_delivery_pct = 0
-    updated_delivery_volume = 0
 
 
     # =====================================================
-    # PROCESS EACH STOCK
+    # PROCESS STOCKS
     # =====================================================
 
     for row in stocks:
@@ -331,13 +315,12 @@ def main():
             or ""
         )
 
-
         if not symbol:
             continue
 
 
         # -------------------------------------------------
-        # TODAY'S MTO RECORD
+        # TODAY MTO
         # -------------------------------------------------
 
         today_record = (
@@ -349,25 +332,25 @@ def main():
         )
 
 
+        today_volume = None
         today_delivery = None
-        mto_traded_qty = None
         official_delivery_pct = None
 
 
         if today_record:
 
-            today_delivery = (
+            today_volume = (
                 to_float(
                     today_record.get(
-                        "deliverableQty"
+                        "tradedQty"
                     )
                 )
             )
 
-            mto_traded_qty = (
+            today_delivery = (
                 to_float(
                     today_record.get(
-                        "tradedQty"
+                        "deliverableQty"
                     )
                 )
             )
@@ -382,7 +365,7 @@ def main():
 
 
         # -------------------------------------------------
-        # PREVIOUS 5-DAY DELIVERY VALUES
+        # PREVIOUS 5 DELIVERY SESSIONS
         # -------------------------------------------------
 
         previous_values = []
@@ -398,17 +381,14 @@ def main():
                 )
             )
 
-
             if not record:
                 continue
-
 
             value = to_float(
                 record.get(
                     "deliverableQty"
                 )
             )
-
 
             if value is not None:
 
@@ -418,11 +398,10 @@ def main():
 
 
         # -------------------------------------------------
-        # 5-DAY AVERAGE DELIVERY
+        # 5D AVG DELIVERY
         # -------------------------------------------------
 
         avg_5d = None
-
 
         if previous_values:
 
@@ -435,10 +414,12 @@ def main():
 
         # -------------------------------------------------
         # DELIVERY TIMES
+        #
+        # Today Delivery /
+        # Previous 5-session Avg Delivery
         # -------------------------------------------------
 
         ratio = None
-
 
         if (
             today_delivery is not None
@@ -454,38 +435,6 @@ def main():
 
 
         # -------------------------------------------------
-        # TODAY TOTAL VOLUME
-        # -------------------------------------------------
-
-        today_volume = to_float(
-            row.get(
-                "todayVolume"
-            )
-        )
-
-
-        # Old compatibility field
-
-        if today_volume is None:
-
-            today_volume = to_float(
-                row.get(
-                    "volume"
-                )
-            )
-
-
-        # If bhavcopy volume unavailable,
-        # use MTO traded quantity.
-
-        if today_volume is None:
-
-            today_volume = (
-                mto_traded_qty
-            )
-
-
-        # -------------------------------------------------
         # DELIVERY %
         # -------------------------------------------------
 
@@ -493,20 +442,16 @@ def main():
 
 
         # First preference:
-        # Official NSE MTO Delivery %
+        # Official NSE MTO %
 
-        if (
-            official_delivery_pct
-            is not None
-        ):
+        if official_delivery_pct is not None:
 
             delivery_pct = (
                 official_delivery_pct
             )
 
 
-        # Fallback:
-        # Deliverable Qty / Total Volume * 100
+        # Safety fallback
 
         elif (
             today_delivery is not None
@@ -523,16 +468,59 @@ def main():
             )
 
 
-        # -------------------------------------------------
-        # SAVE FIELDS
-        # -------------------------------------------------
+        # =================================================
+        # SAVE TODAY TOTAL VOLUME
+        # =================================================
+        #
+        # IMPORTANT:
+        # NSE MTO Quantity Traded is now
+        # authoritative for website Today Volume.
+        #
+
+        row["todayVolume"] = (
+
+            round(today_volume)
+
+            if today_volume is not None
+
+            else None
+        )
+
+
+        # Keep old "volume" field synchronized
+        # for frontend/backward compatibility.
+
+        row["volume"] = (
+
+            round(today_volume)
+
+            if today_volume is not None
+
+            else None
+        )
+
+
+        # Helpful source cross-check
+
+        row["mtoTradedVolume"] = (
+
+            round(today_volume)
+
+            if today_volume is not None
+
+            else None
+        )
+
+
+        # =================================================
+        # SAVE DELIVERY DATA
+        # =================================================
 
         row["todayDeliveryVolume"] = (
 
             round(today_delivery)
 
-            if today_delivery
-            is not None
+            if today_delivery is not None
 
             else None
         )
@@ -545,8 +533,7 @@ def main():
                 2,
             )
 
-            if avg_5d
-            is not None
+            if avg_5d is not None
 
             else None
         )
@@ -559,15 +546,11 @@ def main():
                 2,
             )
 
-            if ratio
-            is not None
+            if ratio is not None
 
             else None
         )
 
-
-        # New field used directly
-        # by app.js
 
         row["deliveryPct"] = (
 
@@ -576,23 +559,7 @@ def main():
                 2,
             )
 
-            if delivery_pct
-            is not None
-
-            else None
-        )
-
-
-        # Helpful cross-check field
-
-        row["mtoTradedVolume"] = (
-
-            round(
-                mto_traded_qty
-            )
-
-            if mto_traded_qty
-            is not None
+            if delivery_pct is not None
 
             else None
         )
@@ -603,10 +570,16 @@ def main():
         )
 
 
-        if (
-            today_delivery
-            is not None
-        ):
+        # =================================================
+        # COUNTS
+        # =================================================
+
+        if today_volume is not None:
+
+            updated_today_volume += 1
+
+
+        if today_delivery is not None:
 
             updated_delivery_volume += 1
 
@@ -649,33 +622,42 @@ def main():
         today_date
     )
 
-    meta[
-        "deliverySessionsUsed"
-    ] = [
+
+    meta["deliverySessionsUsed"] = [
 
         x["date"].isoformat()
         for x in sessions
     ]
 
 
-    meta[
-        "deliveryVolumeCount"
-    ] = (
+    meta["todayVolumeCount"] = (
+        updated_today_volume
+    )
+
+
+    meta["deliveryVolumeCount"] = (
         updated_delivery_volume
     )
 
-    meta[
-        "deliveryRatioCount"
-    ] = (
+
+    meta["deliveryRatioCount"] = (
         updated_ratio
     )
 
-    meta[
-        "deliveryPctCount"
-    ] = (
+
+    meta["deliveryPctCount"] = (
         updated_delivery_pct
     )
 
+
+    meta["volumeSource"] = (
+        "Official NSE MTO Quantity Traded"
+    )
+
+
+    # =====================================================
+    # WRITE META.JSON
+    # =====================================================
 
     meta_path.write_text(
 
@@ -701,6 +683,9 @@ def main():
             for x in sessions
         ],
 
+        "todayVolumesCalculated":
+            updated_today_volume,
+
         "deliveryVolumesCalculated":
             updated_delivery_volume,
 
@@ -709,6 +694,9 @@ def main():
 
         "deliveryPctCalculated":
             updated_delivery_pct,
+
+        "volumeSource":
+            "NSE MTO Quantity Traded",
     })
 
 
