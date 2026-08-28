@@ -103,6 +103,17 @@ def load_eod_prices():
                     )
                 )
 
+                # =================================================
+                # DIAGNOSTIC:
+                # PRINT ACTUAL NSE UDiFF COLUMN HEADERS
+                # =================================================
+
+                if rows:
+                    print(
+                        "UDiFF HEADERS:",
+                        list(rows[0].keys())
+                    )
+
                 prices = {}
 
                 for x in rows:
@@ -460,7 +471,6 @@ def merge(
                 None,
             ),
 
-            # New explicit field
             (
                 "todayVolume",
                 None,
@@ -518,7 +528,6 @@ def merge(
 
 
         y["exchange"] = "NSE"
-
 
         y.pop(
             "exchanges",
@@ -662,22 +671,17 @@ def main():
                 )
             )
 
-
-            # OLD COMPATIBILITY FIELD
             row["volume"] = (
                 p.get(
                     "volume"
                 )
             )
 
-
-            # NEW EXPLICIT TODAY VOLUME
             row["todayVolume"] = (
                 p.get(
                     "todayVolume"
                 )
             )
-
 
             row["turnoverCr"] = (
                 p.get(
@@ -694,7 +698,6 @@ def main():
             row["dataStatus"] = (
                 "EOD_READY"
             )
-
 
             matched_prices += 1
 
@@ -760,7 +763,6 @@ def main():
         "matchedPriceCount":
             matched_prices,
 
-        # Actual NSE bhavcopy date
         "marketDate":
             market_date,
 
