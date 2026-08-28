@@ -103,17 +103,6 @@ def load_eod_prices():
                     )
                 )
 
-                # =================================================
-                # DIAGNOSTIC:
-                # PRINT ACTUAL NSE UDiFF COLUMN HEADERS
-                # =================================================
-
-                if rows:
-                    print(
-                        "UDiFF HEADERS:",
-                        list(rows[0].keys())
-                    )
-
                 prices = {}
 
                 for x in rows:
@@ -162,9 +151,17 @@ def load_eod_prices():
                     # =========================
                     # TOTAL TRADED VOLUME
                     # =========================
+                    #
+                    # Current NSE UDiFF field:
+                    # TtlTradgVol
+                    #
+                    # After uppercase normalization:
+                    # TTLTRADGVOL
+                    #
 
                     volume = (
-                        clean.get("TTLTRADGQTY")
+                        clean.get("TTLTRADGVOL")
+                        or clean.get("TTLTRADGQTY")
                         or clean.get("TOTTRDQTY")
                         or clean.get(
                             "TOTAL_TRADED_QUANTITY"
@@ -246,11 +243,11 @@ def load_eod_prices():
                         "changePct":
                             change_pct,
 
-                        # Keep old field
+                        # Old compatibility field
                         "volume":
                             volume,
 
-                        # New explicit field
+                        # Explicit field used by frontend
                         "todayVolume":
                             volume,
 
@@ -538,7 +535,6 @@ def merge(
             "bseCode",
             None,
         )
-
 
         merged[key] = y
 
