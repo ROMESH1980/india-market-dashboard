@@ -17,7 +17,9 @@
     "2026-08-24",
     "2026-08-21"
   ],
+  "todayVolumeCount": 2731,
   "deliveryVolumeCount": 2731,
   "deliveryRatioCount": 2724,
-  "deliveryPctCount": 2731
+  "deliveryPctCount": 2731,
+  "volumeSource": "Official NSE MTO Quantity Traded"
 }
