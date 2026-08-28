@@ -16,13 +16,26 @@ H = {
     "Accept": "text/csv,*/*",
 }
 
-NSE_EQ = "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv"
-NSE_SME = "https://nsearchives.nseindia.com/emerge/corporates/content/SME_EQUITY_L.csv"
+NSE_EQ = (
+    "https://nsearchives.nseindia.com/"
+    "content/equities/EQUITY_L.csv"
+)
+
+NSE_SME = (
+    "https://nsearchives.nseindia.com/"
+    "emerge/corporates/content/SME_EQUITY_L.csv"
+)
 
 
 def get(url, timeout=45):
-    r = requests.get(url, headers=H, timeout=timeout)
+    r = requests.get(
+        url,
+        headers=H,
+        timeout=timeout,
+    )
+
     r.raise_for_status()
+
     return r
 
 
@@ -36,12 +49,22 @@ def parse_csv(text):
     )
 
 
+# =========================================================
+# LOAD NSE EOD BHAVCOPY
+# =========================================================
+
 def load_eod_prices():
-    today = datetime.now(timezone.utc).date()
+
+    today = (
+        datetime.now(timezone.utc)
+        .date()
+    )
 
     for back in range(0, 7):
+
         d = today - timedelta(days=back)
 
+        # Saturday / Sunday skip
         if d.weekday() >= 5:
             continue
 
@@ -53,9 +76,13 @@ def load_eod_prices():
         )
 
         try:
+
             r = get(url)
 
-            with zipfile.ZipFile(io.BytesIO(r.content)) as z:
+            with zipfile.ZipFile(
+                io.BytesIO(r.content)
+            ) as z:
+
                 names = z.namelist()
 
                 if not names:
@@ -63,9 +90,11 @@ def load_eod_prices():
 
                 target = names[0]
 
-                text = z.read(target).decode(
+                text = z.read(
+                    target
+                ).decode(
                     "utf-8-sig",
-                    errors="ignore"
+                    errors="ignore",
                 )
 
                 rows = list(
@@ -77,9 +106,13 @@ def load_eod_prices():
                 prices = {}
 
                 for x in rows:
+
                     clean = {
-                        str(k).strip().upper(): str(v).strip()
-                        for k, v in x.items()
+                        str(k).strip().upper():
+                        str(v).strip()
+
+                        for k, v
+                        in x.items()
                     }
 
                     symbol = (
@@ -97,6 +130,11 @@ def load_eod_prices():
                     if not symbol:
                         continue
 
+
+                    # =========================
+                    # PRICE
+                    # =========================
+
                     close = (
                         clean.get("CLSPRIC")
                         or clean.get("CLOSE")
@@ -109,17 +147,36 @@ def load_eod_prices():
                         or clean.get("PREV_CLOSE")
                     )
 
+
+                    # =========================
+                    # TOTAL TRADED VOLUME
+                    # =========================
+
                     volume = (
                         clean.get("TTLTRADGQTY")
                         or clean.get("TOTTRDQTY")
-                        or clean.get("TOTAL_TRADED_QUANTITY")
+                        or clean.get(
+                            "TOTAL_TRADED_QUANTITY"
+                        )
                     )
+
+
+                    # =========================
+                    # TOTAL TRADED VALUE
+                    # =========================
 
                     value = (
                         clean.get("TTLTRFVAL")
                         or clean.get("TOTTRDVAL")
-                        or clean.get("TOTAL_TRADED_VALUE")
+                        or clean.get(
+                            "TOTAL_TRADED_VALUE"
+                        )
                     )
+
+
+                    # =========================
+                    # CONVERT TO NUMBERS
+                    # =========================
 
                     try:
                         close = float(close)
@@ -141,50 +198,117 @@ def load_eod_prices():
                     except Exception:
                         value = None
 
+
+                    # =========================
+                    # CHANGE %
+                    # =========================
+
                     change_pct = None
 
-                    if close is not None and prev not in (None, 0):
-                        change_pct = ((close - prev) / prev) * 100
+                    if (
+                        close is not None
+                        and prev not in (None, 0)
+                    ):
 
-                    prices[(symbol, series)] = {
-                        "price": close,
-                        "changePct": change_pct,
-                        "volume": volume,
+                        change_pct = (
+                            (
+                                close - prev
+                            )
+                            / prev
+                        ) * 100
+
+
+                    # =========================
+                    # SAVE EOD DATA
+                    # =========================
+
+                    prices[
+                        (
+                            symbol,
+                            series,
+                        )
+                    ] = {
+
+                        "price":
+                            close,
+
+                        "changePct":
+                            change_pct,
+
+                        # Keep old field
+                        "volume":
+                            volume,
+
+                        # New explicit field
+                        "todayVolume":
+                            volume,
+
                         "turnoverCr": (
                             value / 10000000
                             if value is not None
                             else None
                         ),
-                        "priceDate": d.isoformat(),
+
+                        "priceDate":
+                            d.isoformat(),
                     }
+
 
                 print(
                     f"UDiFF EOD file loaded for {d}: "
                     f"{len(prices)} securities"
                 )
 
-                return prices
+                return (
+                    prices,
+                    d.isoformat(),
+                )
+
 
         except Exception as e:
+
             print(
                 f"UDiFF EOD unavailable for {d}: {e}"
             )
 
-    print("No recent NSE UDiFF EOD file found")
-    return {}
 
+    print(
+        "No recent NSE UDiFF EOD file found"
+    )
+
+    return {}, None
+
+
+# =========================================================
+# LOAD NSE SECURITY MASTER
+# =========================================================
 
 def load_nse():
+
     out = []
 
     for url, board in [
-        (NSE_EQ, "MAIN"),
-        (NSE_SME, "SME"),
+
+        (
+            NSE_EQ,
+            "MAIN",
+        ),
+
+        (
+            NSE_SME,
+            "SME",
+        ),
+
     ]:
-        for x in parse_csv(get(url).text):
+
+        for x in parse_csv(
+            get(url).text
+        ):
+
             clean = {
                 str(k).strip(): v
-                for k, v in x.items()
+                for k, v
+                in x.items()
             }
 
             sym = (
@@ -195,47 +319,90 @@ def load_nse():
             if not sym:
                 continue
 
+
             out.append({
-                "symbol": sym,
+
+                "symbol":
+                    sym,
+
                 "name": (
-                    clean.get("NAME OF COMPANY")
-                    or clean.get("NAME_OF_COMPANY")
+                    clean.get(
+                        "NAME OF COMPANY"
+                    )
+                    or clean.get(
+                        "NAME_OF_COMPANY"
+                    )
                     or sym
                 ).strip(),
+
                 "isin": (
-                    clean.get("ISIN NUMBER")
-                    or clean.get("ISIN_NUMBER")
+                    clean.get(
+                        "ISIN NUMBER"
+                    )
+                    or clean.get(
+                        "ISIN_NUMBER"
+                    )
                     or ""
                 ).strip(),
+
                 "series": (
                     clean.get("SERIES")
                     or ""
                 ).strip(),
+
                 "listingDate": (
-                    clean.get("DATE OF LISTING")
-                    or clean.get("DATE_OF_LISTING")
+                    clean.get(
+                        "DATE OF LISTING"
+                    )
+                    or clean.get(
+                        "DATE_OF_LISTING"
+                    )
                     or ""
                 ).strip(),
-                "exchange": "NSE",
-                "board": board,
+
+                "exchange":
+                    "NSE",
+
+                "board":
+                    board,
             })
 
     return out
 
 
+# =========================================================
+# LOAD OLD STOCKS.JSON
+# =========================================================
+
 def old_rows():
+
     try:
+
         return json.loads(
-            (DATA / "stocks.json").read_text()
+            (
+                DATA /
+                "stocks.json"
+            ).read_text()
         )
+
     except Exception:
+
         return []
 
 
-def merge(nse, old):
+# =========================================================
+# MERGE OLD + NEW UNIVERSE
+# =========================================================
+
+def merge(
+    nse,
+    old,
+):
+
     oldmap = {}
 
     for x in old:
+
         key = (
             x.get("isin")
             or x.get("symbol")
@@ -244,80 +411,206 @@ def merge(nse, old):
         if key:
             oldmap[key] = x
 
+
     merged = {}
 
+
     for x in nse:
+
         key = (
             x.get("isin")
             or x.get("symbol")
         )
 
-        prev = oldmap.get(key, {})
+        prev = oldmap.get(
+            key,
+            {},
+        )
 
         y = {
             **prev,
             **x,
         }
 
+
         for field, default in [
-            ("sector", "Unclassified"),
-            ("industry", "Unclassified"),
-            ("price", None),
-            ("changePct", None),
-            ("volume", None),
-            ("turnoverCr", None),
-            ("sectorStrength", None),
-            ("macroSupport", None),
-            ("valueMigration", None),
-            ("futureGrowth", None),
-            ("fundamentalQuality", None),
-            ("capexScore", None),
-            ("overallScore", None),
-            ("dataStatus", "UNIVERSE_ONLY"),
+
+            (
+                "sector",
+                "Unclassified",
+            ),
+
+            (
+                "industry",
+                "Unclassified",
+            ),
+
+            (
+                "price",
+                None,
+            ),
+
+            (
+                "changePct",
+                None,
+            ),
+
+            (
+                "volume",
+                None,
+            ),
+
+            # New explicit field
+            (
+                "todayVolume",
+                None,
+            ),
+
+            (
+                "turnoverCr",
+                None,
+            ),
+
+            (
+                "sectorStrength",
+                None,
+            ),
+
+            (
+                "macroSupport",
+                None,
+            ),
+
+            (
+                "valueMigration",
+                None,
+            ),
+
+            (
+                "futureGrowth",
+                None,
+            ),
+
+            (
+                "fundamentalQuality",
+                None,
+            ),
+
+            (
+                "capexScore",
+                None,
+            ),
+
+            (
+                "overallScore",
+                None,
+            ),
+
+            (
+                "dataStatus",
+                "UNIVERSE_ONLY",
+            ),
+
         ]:
+
             if field not in y:
                 y[field] = default
 
+
         y["exchange"] = "NSE"
 
-        y.pop("exchanges", None)
-        y.pop("bseCode", None)
+
+        y.pop(
+            "exchanges",
+            None,
+        )
+
+        y.pop(
+            "bseCode",
+            None,
+        )
+
 
         merged[key] = y
 
+
     return sorted(
+
         merged.values(),
+
         key=lambda x: (
             x.get("name")
             or ""
         ).upper(),
+
     )
 
 
+# =========================================================
+# MAIN
+# =========================================================
+
 def main():
+
     rows = merge(
         load_nse(),
         old_rows(),
     )
 
-    prices = load_eod_prices()
+
+    prices, market_date = (
+        load_eod_prices()
+    )
+
+
+    # =========================
+    # SECTOR MAP
+    # =========================
 
     try:
+
         sector_map = json.loads(
-            (DATA / "sector_map.json").read_text()
+            (
+                DATA /
+                "sector_map.json"
+            ).read_text()
         )
+
     except Exception:
+
         sector_map = {}
+
 
     matched_prices = 0
 
-    for row in rows:
-        symbol = row.get("symbol")
-        series = row.get("series") or ""
 
-        s = sector_map.get(symbol, {})
+    # =========================
+    # APPLY EOD DATA
+    # =========================
+
+    for row in rows:
+
+        symbol = row.get(
+            "symbol"
+        )
+
+        series = (
+            row.get("series")
+            or ""
+        )
+
+
+        # -------------------------
+        # Sector / Industry
+        # -------------------------
+
+        s = sector_map.get(
+            symbol,
+            {},
+        )
 
         if s:
+
             row["sector"] = s.get(
                 "sector",
                 row.get(
@@ -334,67 +627,165 @@ def main():
                 ),
             )
 
+
+        # -------------------------
+        # EOD Price Data
+        # -------------------------
+
         p = prices.get(
-            (symbol, series)
+            (
+                symbol,
+                series,
+            )
         )
 
+
         if p is None:
+
             p = prices.get(
-                (symbol, "")
+                (
+                    symbol,
+                    "",
+                )
             )
 
+
         if p:
-            row["price"] = p.get("price")
-            row["changePct"] = p.get("changePct")
-            row["volume"] = p.get("volume")
-            row["turnoverCr"] = p.get("turnoverCr")
-            row["priceDate"] = p.get("priceDate")
-            row["dataStatus"] = "EOD_READY"
+
+            row["price"] = (
+                p.get("price")
+            )
+
+            row["changePct"] = (
+                p.get(
+                    "changePct"
+                )
+            )
+
+
+            # OLD COMPATIBILITY FIELD
+            row["volume"] = (
+                p.get(
+                    "volume"
+                )
+            )
+
+
+            # NEW EXPLICIT TODAY VOLUME
+            row["todayVolume"] = (
+                p.get(
+                    "todayVolume"
+                )
+            )
+
+
+            row["turnoverCr"] = (
+                p.get(
+                    "turnoverCr"
+                )
+            )
+
+            row["priceDate"] = (
+                p.get(
+                    "priceDate"
+                )
+            )
+
+            row["dataStatus"] = (
+                "EOD_READY"
+            )
+
 
             matched_prices += 1
+
+
+    # =========================
+    # WRITE STOCKS.JSON
+    # =========================
 
     DATA.mkdir(
         exist_ok=True
     )
 
+
     today = (
-        datetime.now(timezone.utc)
+        datetime.now(
+            timezone.utc
+        )
         .date()
         .isoformat()
     )
 
+
     (
-        DATA / "stocks.json"
+        DATA /
+        "stocks.json"
     ).write_text(
+
         json.dumps(
+
             rows,
+
             ensure_ascii=False,
-            separators=(",", ":"),
+
+            separators=(
+                ",",
+                ":",
+            ),
+
         )
     )
 
+
+    # =========================
+    # META.JSON
+    # =========================
+
     meta = {
+
         "generatedFrom": (
             "Official NSE Equity + SME security master "
             "+ NSE UDiFF EOD bhavcopy"
         ),
-        "nseCount": len(rows),
-        "uniqueCount": len(rows),
-        "eodPriceCount": len(prices),
-        "matchedPriceCount": matched_prices,
-        "lastUpdated": today,
-        "mode": "FREE_EOD",
-        "note": "NSE-only dashboard.",
+
+        "nseCount":
+            len(rows),
+
+        "uniqueCount":
+            len(rows),
+
+        "eodPriceCount":
+            len(prices),
+
+        "matchedPriceCount":
+            matched_prices,
+
+        # Actual NSE bhavcopy date
+        "marketDate":
+            market_date,
+
+        "lastUpdated":
+            today,
+
+        "mode":
+            "FREE_EOD",
+
+        "note":
+            "NSE-only dashboard.",
     }
 
+
     (
-        DATA / "meta.json"
+        DATA /
+        "meta.json"
     ).write_text(
+
         json.dumps(
             meta,
             indent=2,
         )
     )
+
 
     print(meta)
 
