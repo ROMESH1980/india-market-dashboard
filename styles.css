@@ -15,6 +15,11 @@
   --red: #ff4d4d;
 }
 
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -22,6 +27,7 @@
 html,
 body {
   margin: 0;
+
   background: var(--bg);
   color: var(--text);
 
@@ -33,6 +39,10 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 button,
@@ -47,17 +57,15 @@ button {
 
 
 /* =====================================================
-   PAGE
+   MAIN APP
    ===================================================== */
 
-main,
-.hero,
-footer {
-  width: calc(100% - 12px);
-  max-width: 2300px;
+.app-shell {
+  width: 100%;
 
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+
+  padding: 10px 2px 18px;
 }
 
 
@@ -66,28 +74,76 @@ footer {
    ===================================================== */
 
 .hero {
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 8px 3px 5px;
+  gap: 20px;
+
+  padding: 10px 10px 12px;
 }
 
-.compact-hero h1 {
+.hero h1 {
   margin: 0;
 
-  font-size: 22px;
+  font-size: 30px;
   line-height: 1.1;
+
+  font-weight: 900;
+
+  letter-spacing: 0.3px;
 
   color: #ffffff;
 }
 
-.hero-desc {
-  margin: 3px 0 0;
+.hero p {
+  margin: 18px 0 0;
 
-  font-size: 11px;
+  font-size: 15px;
+  font-weight: 500;
 
-  color: var(--muted);
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   MARKET DATE
+   ===================================================== */
+
+.market-date-box {
+  flex-shrink: 0;
+
+  min-width: 170px;
+
+  text-align: right;
+
+  padding-right: 4px;
+
+  color: #ffffff;
+}
+
+.market-date-box div {
+  font-size: 15px;
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.market-date-box strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 30px;
+  line-height: 1.05;
+
+  font-weight: 900;
+
+  color: #ffffff;
+
+  letter-spacing: 0.3px;
 }
 
 
@@ -96,190 +152,122 @@ footer {
    ===================================================== */
 
 .stats {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
+  gap: 8px;
+
+  margin: 8px 0 5px;
+
+  padding: 0 2px;
+}
+
+.stat-card {
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
   gap: 5px;
 
-  margin: 5px 0 7px;
-}
+  padding: 7px 0;
 
-.stat {
-  min-height: 44px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 6px 9px;
-
-  border: 1px solid var(--line);
-  border-radius: 7px;
-
-  background: var(--panel);
-}
-
-.stat b {
-  font-size: 20px;
-  line-height: 1;
-
-  color: var(--blue);
-}
-
-.stat span {
-  font-size: 10px;
-
-  color: var(--muted);
-}
-
-
-/* =====================================================
-   CARD
-   ===================================================== */
-
-.card {
-  width: 100%;
-
-  background: var(--panel);
-
-  border: 1px solid var(--line);
-  border-radius: 8px;
-
-  padding: 7px;
-
-  margin-bottom: 8px;
-}
-
-.universe-card {
-  padding-top: 6px;
-}
-
-
-/* =====================================================
-   NSE STOCK UNIVERSE TOP ROW
-   ===================================================== */
-
-.sectionhead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 8px;
-}
-
-.universe-head {
-  margin-bottom: 4px;
-}
-
-.universe-title-wrap {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 12px;
-}
-
-.universe-title-wrap h2 {
-  margin: 0;
-
-  font-size: 17px;
+  background: transparent;
 
   color: #ffffff;
 }
 
-.date-text {
-  font-size: 16px;
-  font-weight: 700;
+.stat-card span {
+  font-size: 14px;
+  font-weight: 500;
 
-  color: #f2f5f8;
+  color: #ffffff;
+}
+
+.stat-card strong {
+  font-size: 16px;
+  font-weight: 900;
+
+  color: #ffffff;
 }
 
 
 /* =====================================================
-   TOP ACTIONS + PAGINATION
+   TOOLBAR
    ===================================================== */
 
-.universe-actions {
+.toolbar {
   display: flex;
   align-items: center;
 
   gap: 6px;
 
-  flex-wrap: wrap;
+  margin: 0 0 3px;
+
+  padding: 0 2px;
 }
 
-.primary-btn,
-.secondary-btn {
-  border: 1px solid #344761;
-  border-radius: 5px;
+.toolbar input {
+  width: 280px;
+  max-width: 65vw;
 
+  padding: 5px 7px;
+
+  border: 1px solid #3a4d67;
+  border-radius: 3px;
+
+  background: #ffffff;
+  color: #111111;
+
+  font-size: 13px;
+}
+
+.toolbar button {
   padding: 5px 9px;
 
-  background: var(--panel-2);
-  color: #ffffff;
+  border: 1px solid #a8b2c0;
+  border-radius: 3px;
 
-  font-size: 11px;
-  font-weight: 600;
-}
+  background: #f1f1f1;
+  color: #111111;
 
-.primary-btn {
-  background: #0b7cff;
-  color: white;
-  border-color: #0b7cff;
-}
-
-.page-info {
   font-size: 12px;
-  font-weight: 700;
-
-  color: #ffffff;
-
-  padding: 0 4px;
-}
-
-.goto-wrap {
-  display: flex;
-  align-items: center;
-
-  gap: 4px;
-
-  font-size: 11px;
   font-weight: 600;
-
-  color: #ffffff;
-}
-
-.goto-wrap input {
-  width: 52px;
-
-  padding: 4px 5px;
-
-  border: 1px solid #3e506a;
-  border-radius: 4px;
-
-  background: #101b2d;
-  color: #ffffff;
-
-  text-align: center;
 }
 
 
 /* =====================================================
-   TOP SCROLLBAR
+   RESULT BAR
    ===================================================== */
 
-.topscroll {
+.result-bar {
+  padding: 0 2px 8px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   TOP HORIZONTAL SCROLL
+   ===================================================== */
+
+.top-scroll {
   width: 100%;
+
+  height: 18px;
 
   overflow-x: auto;
   overflow-y: hidden;
 
-  height: 17px;
-
-  margin: 2px 0 3px;
+  margin-bottom: 2px;
 }
 
 #topScrollInner {
@@ -288,77 +276,114 @@ footer {
 
 
 /* =====================================================
-   TABLE
+   TABLE CONTAINER
    ===================================================== */
 
-.tablewrap {
+.table-wrap {
   position: relative;
 
   width: 100%;
 
+  max-height: 72vh;
+
   overflow-x: auto;
   overflow-y: auto;
-
-  max-height: 73vh;
 
   scrollbar-gutter: stable;
 }
 
-#stockTable {
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.table-wrap table {
   width: max-content;
 
-  min-width: 1680px;
+  min-width: 2050px;
 
   border-collapse: separate;
   border-spacing: 0;
+
+  background: var(--panel);
 }
 
-#stockTable th,
-#stockTable td {
-  background: var(--panel);
+.table-wrap th,
+.table-wrap td {
+  padding: 6px 5px;
 
-  border-bottom: 1px solid var(--line);
   border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 
-  padding: 5px 5px;
-
-  vertical-align: middle;
+  background: var(--panel);
 
   color: var(--text);
 
-  font-size: 11px;
+  font-size: 12px;
+
+  vertical-align: middle;
 }
 
 
 /* =====================================================
-   HEADER
+   FREEZE ENTIRE TABLE HEADER
    ===================================================== */
 
-.header-row th {
+/*
+   IMPORTANT:
+   Entire THEAD stays frozen.
+
+   Isse first heading row aur filter row
+   dono ek saath sticky rahenge.
+*/
+
+.table-wrap thead {
   position: sticky;
 
   top: 0;
 
-  z-index: 30;
+  z-index: 50;
+}
 
+.table-wrap thead th {
   background: var(--header) !important;
 
   color: #ffffff;
 
-  font-size: 10px;
+  text-align: center;
+
   font-weight: 800;
 
-  line-height: 1.15;
-
-  text-align: center;
+  line-height: 1.2;
 
   white-space: normal;
 }
 
-.header-row th small {
-  font-size: 9px;
 
-  color: var(--muted);
+/* =====================================================
+   MAIN COLUMN HEADING ROW
+   ===================================================== */
+
+.table-wrap thead tr:first-child th {
+  padding-top: 9px;
+  padding-bottom: 9px;
+
+  font-size: 12px;
+
+  vertical-align: middle;
+
+  border-bottom: 1px solid #40526c;
+}
+
+.table-wrap thead tr:first-child th small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 9px;
+  line-height: 1.2;
+
+  color: #ffffff;
 }
 
 
@@ -367,87 +392,89 @@ footer {
    ===================================================== */
 
 .filter-row th {
-  position: sticky;
+  padding: 5px 4px !important;
 
-  top: 38px;
+  background: #132239 !important;
 
-  z-index: 29;
-
-  background: var(--header) !important;
-
-  padding: 3px !important;
+  vertical-align: top;
 }
 
 
 /* =====================================================
-   FROZEN STOCK COLUMN
+   FREEZE FIRST STOCK COLUMN
    ===================================================== */
 
-.stock-col,
-#stockTable th:first-child,
-#stockTable td:first-child {
+.table-wrap th:first-child,
+.table-wrap td:first-child {
   position: sticky;
 
   left: 0;
 
-  min-width: 155px;
-  width: 155px;
-  max-width: 155px;
+  width: 210px;
+  min-width: 210px;
+  max-width: 210px;
+
+  background: var(--panel) !important;
+
+  border-right: 2px solid #435673 !important;
+}
+
+.table-wrap tbody td:first-child {
+  z-index: 20;
+}
+
+.table-wrap thead th:first-child {
+  z-index: 80;
 
   background: var(--header) !important;
-
-  border-right: 2px solid #3f526e !important;
 }
 
-#stockTable tbody td:first-child {
-  z-index: 15;
-}
-
-#stockTable .header-row th:first-child {
-  z-index: 60;
-}
-
-#stockTable .filter-row th:first-child {
-  z-index: 61;
+.table-wrap .filter-row th:first-child {
+  background: #132239 !important;
 }
 
 
 /* =====================================================
-   STOCK NAME
+   STOCK CELL
    ===================================================== */
 
-.name {
-  font-size: 11px;
+.stock-cell {
+  display: flex;
+  flex-direction: column;
 
-  line-height: 1.18;
-
-  font-weight: 800;
-
-  color: #ffffff;
+  gap: 2px;
 }
 
-.sub {
-  margin-top: 2px;
+.stock-cell strong {
+  font-size: 13px;
+  line-height: 1.2;
 
-  font-size: 9px;
-  line-height: 1.15;
+  font-weight: 900;
 
-  color: var(--muted);
+  color: #ffffff;
 
   white-space: normal;
 }
 
+.stock-cell small {
+  font-size: 10px;
+
+  color: #d7dfeb;
+}
+
 
 /* =====================================================
-   FILTER CONTROLS
+   FILTER BOX
    ===================================================== */
 
 .filter-box {
   display: grid;
 
-  gap: 2px;
+  gap: 3px;
 
   width: 100%;
+
+  align-items: center;
 }
 
 .filter-toggle {
@@ -456,34 +483,33 @@ footer {
   justify-content: center;
   align-items: center;
 
-  gap: 2px;
+  gap: 3px;
 
-  color: #d7dfeb;
-
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
+
+  color: #ffffff;
 
   white-space: nowrap;
 }
 
 .filter-toggle input[type="checkbox"] {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
 
   margin: 0;
 }
 
 .filter-box > input,
-.filter-box select,
-.stock-search {
+.filter-box select {
   width: 100%;
 
   min-width: 0;
 
-  border: 1px solid #3a4d67;
-  border-radius: 4px;
+  padding: 4px 3px;
 
-  padding: 3px;
+  border: 1px solid #41546d;
+  border-radius: 4px;
 
   background: #0b1627;
   color: #ffffff;
@@ -491,12 +517,8 @@ footer {
   font-size: 9px;
 }
 
-.stock-search {
-  min-width: 135px;
-}
-
-.stock-strength-filter {
-  min-width: 78px;
+.filter-box > input::placeholder {
+  color: #98a6b7;
 }
 
 .filter-box:has(
@@ -506,231 +528,392 @@ footer {
 
   border-radius: 5px;
 
-  outline: 1px solid #3478d4;
+  outline: 1px solid var(--blue);
 }
 
+.filter-note {
+  font-size: 11px;
+  font-weight: 800;
 
-/* =====================================================
-   COMPACT COLUMN WIDTHS
-   ===================================================== */
+  line-height: 1.25;
 
-#stockTable th:nth-child(2),
-#stockTable td:nth-child(2) {
-  width: 68px;
-  min-width: 68px;
-  max-width: 68px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(3),
-#stockTable td:nth-child(3) {
-  width: 68px;
-  min-width: 68px;
-  max-width: 68px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(4),
-#stockTable td:nth-child(4) {
-  width: 58px;
-  min-width: 58px;
-  max-width: 58px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(5),
-#stockTable td:nth-child(5) {
-  width: 70px;
-  min-width: 70px;
-  max-width: 70px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(6),
-#stockTable td:nth-child(6) {
-  width: 70px;
-  min-width: 70px;
-  max-width: 70px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(7),
-#stockTable td:nth-child(7) {
-  width: 60px;
-  min-width: 60px;
-  max-width: 60px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(8),
-#stockTable td:nth-child(8) {
-  width: 82px;
-  min-width: 82px;
-  max-width: 82px;
-
-  white-space: normal;
-}
-
-#stockTable th:nth-child(9),
-#stockTable td:nth-child(9) {
-  width: 90px;
-  min-width: 90px;
-  max-width: 90px;
-
-  white-space: normal;
-}
-
-
-/* SCORE COLUMNS */
-
-#stockTable th:nth-child(10),
-#stockTable td:nth-child(10) {
-  width: 74px;
-  min-width: 74px;
-  max-width: 74px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(11),
-#stockTable td:nth-child(11) {
-  width: 80px;
-  min-width: 80px;
-  max-width: 80px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(12),
-#stockTable td:nth-child(12) {
-  width: 66px;
-  min-width: 66px;
-  max-width: 66px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(13),
-#stockTable td:nth-child(13) {
-  width: 60px;
-  min-width: 60px;
-  max-width: 60px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(14),
-#stockTable td:nth-child(14) {
-  width: 78px;
-  min-width: 78px;
-  max-width: 78px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(15),
-#stockTable td:nth-child(15),
-#stockTable th:nth-child(16),
-#stockTable td:nth-child(16) {
-  width: 74px;
-  min-width: 74px;
-  max-width: 74px;
-
-  text-align: center;
-}
-
-#stockTable th:nth-child(17),
-#stockTable td:nth-child(17),
-#stockTable th:nth-child(18),
-#stockTable td:nth-child(18) {
-  width: 62px;
-  min-width: 62px;
-  max-width: 62px;
+  color: #ffffff;
 
   text-align: center;
 }
 
 
 /* =====================================================
-   RATINGS - ONLY NUMBER COLORED
+   MARKET CAP
    ===================================================== */
 
-.score {
-  display: inline;
+.market-cap-category {
+  color: #ffffff;
 
-  min-width: 0;
+  font-size: 13px;
+  line-height: 1.15;
 
-  padding: 0;
-
-  border: none;
-  border-radius: 0;
-
-  background: transparent !important;
-
-  color: var(--red);
-
-  font-size: 12px;
   font-weight: 900;
 
-  line-height: 1;
+  text-align: left;
 }
 
-.score.mid {
-  color: var(--orange);
+.market-cap-value {
+  margin-top: 3px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  line-height: 1.1;
+
+  font-weight: 900;
+
+  text-align: left;
 }
 
-.score.hi {
-  color: var(--green);
+
+/* =====================================================
+   POSITIVE / NEGATIVE
+   ===================================================== */
+
+.positive {
+  color: #ffffff;
+
+  font-weight: 700;
 }
 
-.score-button {
-  padding: 0;
+.negative {
+  color: #ff6666;
 
-  border: none;
-
-  background: transparent !important;
-
-  cursor: pointer;
+  font-weight: 700;
 }
 
-.score-button:hover {
-  text-decoration: underline;
-}
 
-.info-mark {
-  margin-left: 2px;
-
-  font-size: 8px;
-
-  color: inherit;
-}
+/* =====================================================
+   PENDING
+   ===================================================== */
 
 .pending {
-  color: #8897aa;
+  color: #8998aa;
 
   font-size: 9px;
 }
 
 
 /* =====================================================
-   DELIVERY RATIO
+   5L VOLUME + 5% MOVE
    ===================================================== */
 
-#stockTable td:nth-child(7) strong {
-  color: var(--blue);
+.setup-yes {
+  display: inline-block;
 
-  font-weight: 800;
+  padding: 3px 6px;
+
+  border-radius: 4px;
+
+  color: #ffffff;
+  background: #17733a;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.setup-no {
+  color: #7f8d9e;
+
+  font-size: 10px;
+  font-weight: 600;
 }
 
 
 /* =====================================================
-   MODAL
+   RESEARCH SCORE BUTTONS
+   ===================================================== */
+
+.score-info-button {
+  padding: 3px 5px;
+
+  border: 1px solid #a8a8a8;
+  border-radius: 2px;
+
+  background: #f3f3f3;
+
+  color: #111111;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.score-info-button:hover {
+  background: #ffffff;
+}
+
+.info-icon {
+  margin-left: 2px;
+
+  font-size: 10px;
+
+  color: #111111;
+}
+
+
+/* =====================================================
+   OVERALL
+   ===================================================== */
+
+.overall-score {
+  font-size: 13px;
+  font-weight: 900;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   COLUMN WIDTHS
+   ===================================================== */
+
+
+/* 1 Stock */
+.table-wrap th:nth-child(1),
+.table-wrap td:nth-child(1) {
+  width: 210px;
+  min-width: 210px;
+  max-width: 210px;
+}
+
+
+/* 2 Market Cap */
+.table-wrap th:nth-child(2),
+.table-wrap td:nth-child(2) {
+  width: 105px;
+  min-width: 105px;
+  max-width: 105px;
+}
+
+
+/* 3 Price */
+.table-wrap th:nth-child(3),
+.table-wrap td:nth-child(3) {
+  width: 95px;
+  min-width: 95px;
+  max-width: 95px;
+
+  text-align: center;
+}
+
+
+/* 4 Change */
+.table-wrap th:nth-child(4),
+.table-wrap td:nth-child(4) {
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
+
+  text-align: center;
+}
+
+
+/* 5 Today Volume */
+.table-wrap th:nth-child(5),
+.table-wrap td:nth-child(5) {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+
+  text-align: center;
+}
+
+
+/* 6 Today Delivery */
+.table-wrap th:nth-child(6),
+.table-wrap td:nth-child(6) {
+  width: 115px;
+  min-width: 115px;
+  max-width: 115px;
+
+  text-align: center;
+}
+
+
+/* 7 5D Avg Delivery */
+.table-wrap th:nth-child(7),
+.table-wrap td:nth-child(7) {
+  width: 110px;
+  min-width: 110px;
+  max-width: 110px;
+
+  text-align: center;
+}
+
+
+/* 8 Delivery Times */
+.table-wrap th:nth-child(8),
+.table-wrap td:nth-child(8) {
+  width: 95px;
+  min-width: 95px;
+  max-width: 95px;
+
+  text-align: center;
+}
+
+
+/* 9 Delivery % */
+.table-wrap th:nth-child(9),
+.table-wrap td:nth-child(9) {
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
+
+  text-align: center;
+}
+
+
+/* 10 5L Vol + 5% Move */
+.table-wrap th:nth-child(10),
+.table-wrap td:nth-child(10) {
+  width: 95px;
+  min-width: 95px;
+  max-width: 95px;
+
+  text-align: center;
+}
+
+
+/* 11 Sector */
+.table-wrap th:nth-child(11),
+.table-wrap td:nth-child(11) {
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+}
+
+
+/* 12 Industry */
+.table-wrap th:nth-child(12),
+.table-wrap td:nth-child(12) {
+  width: 190px;
+  min-width: 190px;
+  max-width: 190px;
+}
+
+
+/* 13 Sector Growth */
+.table-wrap th:nth-child(13),
+.table-wrap td:nth-child(13) {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+
+  text-align: center;
+}
+
+
+/* 14 Stock Growth */
+.table-wrap th:nth-child(14),
+.table-wrap td:nth-child(14) {
+  width: 105px;
+  min-width: 105px;
+  max-width: 105px;
+
+  text-align: center;
+}
+
+
+/* 15 TMV */
+.table-wrap th:nth-child(15),
+.table-wrap td:nth-child(15) {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+
+  text-align: center;
+}
+
+
+/* 16 GFC */
+.table-wrap th:nth-child(16),
+.table-wrap td:nth-child(16) {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+
+  text-align: center;
+}
+
+
+/* 17 Overall */
+.table-wrap th:nth-child(17),
+.table-wrap td:nth-child(17) {
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   PAGINATION
+   ===================================================== */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 12px 4px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+
+  border: 1px solid #41546d;
+  border-radius: 4px;
+
+  background: var(--panel-2);
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+
+  cursor: default;
+}
+
+.pagination span {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.pagination input {
+  width: 65px;
+
+  padding: 5px;
+
+  border: 1px solid #41546d;
+  border-radius: 4px;
+
+  background: #0b1627;
+  color: #ffffff;
+
+  text-align: center;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   REASON MODAL
    ===================================================== */
 
 .reason-modal {
@@ -745,9 +928,9 @@ footer {
 
   padding: 20px;
 
-  background: rgba(0, 0, 0, .65);
+  background: rgba(0, 0, 0, 0.72);
 
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .reason-modal.open {
@@ -757,31 +940,43 @@ footer {
 .reason-modal-card {
   position: relative;
 
-  width: min(520px, 100%);
+  width: min(620px, 95vw);
 
-  padding: 17px;
+  max-height: 85vh;
 
-  border: 1px solid #3b4d67;
+  overflow-y: auto;
+
+  padding: 18px;
+
+  border: 1px solid #41546d;
   border-radius: 10px;
 
   background: #111d30;
   color: #ffffff;
 }
 
-.reason-modal-card h3 {
-  margin: 0 36px 9px 0;
+.reason-modal-card h2 {
+  margin: 0 40px 10px 0;
 
-  font-size: 17px;
+  font-size: 20px;
+}
+
+.reason-modal-card h3 {
+  margin: 12px 0 5px;
+
+  font-size: 15px;
+
+  color: #ffffff;
 }
 
 .reason-close {
   position: absolute;
 
-  right: 8px;
-  top: 7px;
+  top: 8px;
+  right: 9px;
 
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 
   border: none;
 
@@ -789,21 +984,34 @@ footer {
 
   color: #ffffff;
 
-  font-size: 23px;
+  font-size: 26px;
+  line-height: 1;
 }
 
 .reason-score {
-  margin-bottom: 9px;
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  font-weight: 900;
 
   color: #ffffff;
-
-  font-weight: 800;
 }
 
 .reason-text {
   color: #e6edf5;
 
+  font-size: 13px;
   line-height: 1.5;
+}
+
+.reason-section {
+  padding: 10px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.reason-section:last-child {
+  border-bottom: 0;
 }
 
 .reason-source-date {
@@ -822,7 +1030,7 @@ footer {
   border-radius: 5px;
 
   background: #0b7cff;
-  color: white;
+  color: #ffffff;
 
   text-decoration: none;
 
@@ -831,17 +1039,40 @@ footer {
 
 
 /* =====================================================
-   FOOTER
+   ERROR
    ===================================================== */
 
-footer {
-  padding: 8px 2px 14px;
+.error-cell {
+  padding: 30px !important;
 
   text-align: center;
 
-  font-size: 10px;
+  color: #ff7777 !important;
 
-  color: var(--muted);
+  font-size: 14px !important;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+
+.table-wrap::-webkit-scrollbar,
+.top-scroll::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+
+.table-wrap::-webkit-scrollbar-track,
+.top-scroll::-webkit-scrollbar-track {
+  background: #07101d;
+}
+
+.table-wrap::-webkit-scrollbar-thumb,
+.top-scroll::-webkit-scrollbar-thumb {
+  background: #435673;
+
+  border-radius: 6px;
 }
 
 
@@ -851,17 +1082,17 @@ footer {
 
 @media (max-width: 1000px) {
 
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  .market-date-box strong {
+    font-size: 25px;
+  }
+
   .stats {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
-  }
-
-  .universe-head {
-    align-items: flex-start;
-  }
-
-  .date-text {
-    font-size: 13px;
   }
 
 }
@@ -869,10 +1100,28 @@ footer {
 
 @media (max-width: 700px) {
 
-  main,
-  .hero,
-  footer {
-    width: calc(100% - 6px);
+  .hero {
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 21px;
+  }
+
+  .hero p {
+    font-size: 11px;
+  }
+
+  .market-date-box {
+    min-width: 130px;
+  }
+
+  .market-date-box div {
+    font-size: 11px;
+  }
+
+  .market-date-box strong {
+    font-size: 20px;
   }
 
   .stats {
@@ -880,71 +1129,11 @@ footer {
       repeat(2, minmax(0, 1fr));
   }
 
-  .universe-head {
-    flex-direction: column;
+  .table-wrap th:first-child,
+  .table-wrap td:first-child {
+    width: 170px;
+    min-width: 170px;
+    max-width: 170px;
   }
 
-  .stock-col,
-  #stockTable th:first-child,
-  #stockTable td:first-child {
-    min-width: 135px;
-    width: 135px;
-    max-width: 135px;
-  }
-
-}
-/* =========================================
-   STRONG SETUP TOAST
-   ========================================= */
-
-.strong-toast {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-
-  z-index: 2000;
-
-  min-width: 280px;
-  max-width: 360px;
-
-  padding: 12px 14px;
-
-  border: 1px solid #3b4f69;
-  border-radius: 8px;
-
-  background: #101b2d;
-  color: #ffffff;
-
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.35);
-
-  opacity: 0;
-  transform: translateY(-10px);
-
-  pointer-events: none;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.strong-toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.strong-toast-title {
-  font-size: 13px;
-  font-weight: 800;
-
-  color: #23c35d;
-
-  margin-bottom: 4px;
-}
-
-.strong-toast-timeframe {
-  font-size: 12px;
-  font-weight: 700;
-
-  color: #ffffff;
 }
