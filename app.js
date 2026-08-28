@@ -1,21 +1,39 @@
 const PAGE_SIZE = 100;
 
+/*
+=========================================================
+PERMANENT MARKET CAP RULE
+=========================================================
+
+Known Market Cap below ₹100 Cr:
+REMOVE from dashboard.
+
+Pending / unknown Market Cap:
+KEEP in dashboard.
+
+When Market Cap filter is Active:
+Pending gets excluded because numerical
+Market Cap is required.
+*/
+
+const MIN_MARKET_CAP_CR = 100;
+
+
 let allStocks = [];
 let filteredStocks = [];
 let currentPage = 1;
+
 
 /*
 =========================================================
 DEFAULT SORT
 =========================================================
 
-null = normal condition
-
-Normal condition:
+Normal:
 Change % Highest -> Lowest
 
-When a numeric column becomes ACTIVE:
-that column becomes primary sort.
+If numeric column is ACTIVE:
+Active column Highest -> Lowest
 */
 
 let activeSortField = null;
@@ -33,6 +51,7 @@ function el(id) {
 
 
 function num(value) {
+
   if (
     value === null ||
     value === undefined ||
@@ -62,16 +81,37 @@ function escapeHtml(value) {
 
 /*
 =========================================================
-DATA FIELD HELPERS
+PERMANENT DASHBOARD UNIVERSE RULE
 =========================================================
 */
 
+function passesPermanentUniverseRule(row) {
+
+  const marketCap =
+    num(row.marketCapCr);
+
+  /*
+  Pending Market Cap:
+  retain the stock.
+  */
+
+  if (marketCap === null) {
+    return true;
+  }
+
+  /*
+  Known Market Cap:
+  only ₹100 Cr and above.
+  */
+
+  return marketCap >= MIN_MARKET_CAP_CR;
+}
+
 
 /*
-Today TOTAL traded volume.
-
-Different backend/data-source names are supported
-so the frontend keeps working while backend is updated.
+=========================================================
+TOTAL VOLUME
+=========================================================
 */
 
 function totalVolume(row) {
@@ -81,6 +121,7 @@ function totalVolume(row) {
     row.todayVolume,
     row.totalVolume,
     row.volume,
+    row.mtoTradedVolume,
     row.tradedVolume,
     row.totalTradedVolume,
     row.totalTradedQty,
@@ -104,7 +145,9 @@ function totalVolume(row) {
 
 
 /*
-Today Delivery Quantity
+=========================================================
+TODAY DELIVERY VOLUME
+=========================================================
 */
 
 function todayDeliveryVolume(row) {
@@ -134,7 +177,9 @@ function todayDeliveryVolume(row) {
 
 
 /*
-5-Day Average Delivery Volume
+=========================================================
+5 DAY AVG DELIVERY
+=========================================================
 */
 
 function avg5DayDelivery(row) {
@@ -162,10 +207,9 @@ function avg5DayDelivery(row) {
 
 
 /*
-Delivery Times
-
-Today Delivery Volume /
-5-Day Average Delivery Volume
+=========================================================
+DELIVERY TIMES
+=========================================================
 */
 
 function deliveryTimes(row) {
@@ -179,8 +223,11 @@ function deliveryTimes(row) {
     return direct;
   }
 
-  const today = todayDeliveryVolume(row);
-  const avg = avg5DayDelivery(row);
+  const today =
+    todayDeliveryVolume(row);
+
+  const avg =
+    avg5DayDelivery(row);
 
   if (
     today === null ||
@@ -195,10 +242,9 @@ function deliveryTimes(row) {
 
 
 /*
-Delivery %
-
-Delivery Quantity /
-Total Traded Quantity * 100
+=========================================================
+DELIVERY %
+=========================================================
 */
 
 function deliveryPercentage(row) {
@@ -219,14 +265,10 @@ function deliveryPercentage(row) {
 
     if (n !== null) {
 
-      /*
-      Some sources may store percentage as 0.65
-      instead of 65.
-
-      Convert only if value is between 0 and 1.
-      */
-
-      if (n > 0 && n <= 1) {
+      if (
+        n > 0 &&
+        n <= 1
+      ) {
         return n * 100;
       }
 
@@ -234,8 +276,11 @@ function deliveryPercentage(row) {
     }
   }
 
-  const delivery = todayDeliveryVolume(row);
-  const volume = totalVolume(row);
+  const delivery =
+    todayDeliveryVolume(row);
+
+  const volume =
+    totalVolume(row);
 
   if (
     delivery === null ||
@@ -253,13 +298,18 @@ function deliveryPercentage(row) {
 
 
 /*
-5 Lakh Volume + Absolute 5% Move
+=========================================================
+5 LAKH VOLUME + 5% MOVE
+=========================================================
 */
 
 function qualifiesHighVolumeMove(row) {
 
-  const volume = totalVolume(row);
-  const change = num(row.changePct);
+  const volume =
+    totalVolume(row);
+
+  const change =
+    num(row.changePct);
 
   if (
     volume === null ||
@@ -327,7 +377,12 @@ function formatPrice(value) {
   const n = num(value);
 
   if (n === null) {
-    return '<span class="pending">Pending EOD</span>';
+
+    return `
+      <span class="pending">
+        Pending EOD
+      </span>
+    `;
   }
 
   return `₹${n.toLocaleString(
@@ -345,7 +400,12 @@ function formatPct(value) {
   const n = num(value);
 
   if (n === null) {
-    return '<span class="pending">—</span>';
+
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
   }
 
   const sign =
@@ -373,7 +433,12 @@ function formatPlainPct(value) {
   const n = num(value);
 
   if (n === null) {
-    return '<span class="pending">—</span>';
+
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
   }
 
   return `${n.toFixed(2)}%`;
@@ -385,7 +450,12 @@ function formatTimes(value) {
   const n = num(value);
 
   if (n === null) {
-    return '<span class="pending">—</span>';
+
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
   }
 
   return `${n.toFixed(2)}x`;
@@ -397,7 +467,12 @@ function formatScore(value) {
   const n = num(value);
 
   if (n === null) {
-    return '<span class="pending">Pending</span>';
+
+    return `
+      <span class="pending">
+        Pending
+      </span>
+    `;
   }
 
   return Math.round(n);
@@ -406,7 +481,7 @@ function formatScore(value) {
 
 /*
 =========================================================
-MARKET CAP
+MARKET CAP DISPLAY
 =========================================================
 */
 
@@ -467,8 +542,11 @@ function marketCapVal(row) {
 
 function highVolumeMoveVal(row) {
 
-  const volume = totalVolume(row);
-  const change = num(row.changePct);
+  const volume =
+    totalVolume(row);
+
+  const change =
+    num(row.changePct);
 
   if (
     volume === null ||
@@ -482,7 +560,9 @@ function highVolumeMoveVal(row) {
     `;
   }
 
-  if (qualifiesHighVolumeMove(row)) {
+  if (
+    qualifiesHighVolumeMove(row)
+  ) {
 
     return `
       <span class="setup-yes">
@@ -501,7 +581,7 @@ function highVolumeMoveVal(row) {
 
 /*
 =========================================================
-REASON DETAILS
+RESEARCH REASON DETAILS
 =========================================================
 */
 
@@ -530,20 +610,26 @@ function normalizeDetailItem(
   }
 
   return {
+
     title,
+
     score:
       item.score ??
       item.value ??
       "",
+
     reason:
       item.reason ??
       "",
+
     source:
       item.source ??
       "",
+
     sourceDate:
       item.sourceDate ??
       "",
+
     mode:
       item.mode ??
       ""
@@ -564,7 +650,9 @@ function buildCombinedReasonHtml(details) {
 
   const items = [];
 
-  if (Array.isArray(details)) {
+  if (
+    Array.isArray(details)
+  ) {
 
     for (const item of details) {
 
@@ -610,6 +698,7 @@ function buildCombinedReasonHtml(details) {
         "CAPEX"
     };
 
+
     for (
       const [key, title]
       of Object.entries(keyMap)
@@ -626,9 +715,6 @@ function buildCombinedReasonHtml(details) {
       }
     }
 
-    /*
-    Support object with arbitrary labels
-    */
 
     if (!items.length) {
 
@@ -653,8 +739,10 @@ function buildCombinedReasonHtml(details) {
     }
   }
 
+
   const validItems =
     items.filter(Boolean);
+
 
   if (!validItems.length) {
 
@@ -664,6 +752,7 @@ function buildCombinedReasonHtml(details) {
       </div>
     `;
   }
+
 
   return validItems
     .map(item => {
@@ -679,6 +768,7 @@ function buildCombinedReasonHtml(details) {
           ? escapeHtml(item.score)
           : "—";
 
+
       const mode =
         item.mode
           ? `
@@ -688,6 +778,7 @@ function buildCombinedReasonHtml(details) {
             </div>
           `
           : "";
+
 
       const sourceDate =
         item.sourceDate
@@ -699,6 +790,7 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
+
       const source =
         item.source
           ? `
@@ -708,6 +800,7 @@ function buildCombinedReasonHtml(details) {
             </div>
           `
           : "";
+
 
       return `
 
@@ -748,8 +841,10 @@ function openReasonModal(
     return;
   }
 
+
   el("reasonTitle").textContent =
     title;
+
 
   el("reasonScore").textContent =
     score !== null &&
@@ -757,20 +852,22 @@ function openReasonModal(
       ? `Score: ${Math.round(Number(score))}`
       : "Score: Pending";
 
+
   el("reasonText").innerHTML =
     buildCombinedReasonHtml(details);
 
+
   el("reasonSourceDate").textContent =
     "";
+
 
   const sourceLink =
     el("reasonSourceLink");
 
   if (sourceLink) {
-
-    sourceLink.style.display =
-      "none";
+    sourceLink.style.display = "none";
   }
+
 
   modal.classList.add("open");
 
@@ -822,6 +919,7 @@ function researchScoreButton(
     `;
   }
 
+
   return `
     <button
       type="button"
@@ -829,10 +927,13 @@ function researchScoreButton(
       data-row-index="${rowIndex}"
       data-reason-type="${type}"
     >
+
       ${Math.round(n)}
+
       <span class="info-icon">
         ⓘ
       </span>
+
     </button>
   `;
 }
@@ -840,7 +941,7 @@ function researchScoreButton(
 
 /*
 =========================================================
-FILTER VALUES
+FILTER HELPERS
 =========================================================
 */
 
@@ -880,6 +981,17 @@ FILTERING
 function passesFilters(row) {
 
   /*
+  PERMANENT MARKET CAP RULE
+  */
+
+  if (
+    !passesPermanentUniverseRule(row)
+  ) {
+    return false;
+  }
+
+
+  /*
   SEARCH
   */
 
@@ -890,6 +1002,7 @@ function passesFilters(row) {
     )
     .trim()
     .toLowerCase();
+
 
   if (q) {
 
@@ -907,6 +1020,7 @@ function passesFilters(row) {
     .join(" ")
     .toLowerCase();
 
+
     if (
       !haystack.includes(q)
     ) {
@@ -916,20 +1030,38 @@ function passesFilters(row) {
 
 
   /*
+  =====================================================
   MARKET CAP
+  =====================================================
+
+  When Active:
+
+  1. Pending market cap removed.
+  2. Minimum threshold cannot go below ₹100 Cr.
+  3. User value e.g. 500 means >= ₹500 Cr.
   */
 
   if (
     checked("activeMarketCap")
   ) {
 
-    const threshold =
+    const enteredThreshold =
       inputNumber(
         "aboveMarketCap"
       );
 
+    const threshold =
+      enteredThreshold === null
+        ? MIN_MARKET_CAP_CR
+        : Math.max(
+            MIN_MARKET_CAP_CR,
+            enteredThreshold
+          );
+
+
     const value =
       num(row.marketCapCr);
+
 
     if (
       value === null
@@ -937,8 +1069,8 @@ function passesFilters(row) {
       return false;
     }
 
+
     if (
-      threshold !== null &&
       value < threshold
     ) {
       return false;
@@ -1009,7 +1141,7 @@ function passesFilters(row) {
 
 
   /*
-  TODAY TOTAL VOLUME
+  TODAY VOLUME
   */
 
   if (
@@ -1071,7 +1203,7 @@ function passesFilters(row) {
 
 
   /*
-  5D AVG DELIVERY
+  5 DAY AVG DELIVERY
   */
 
   if (
@@ -1164,18 +1296,14 @@ function passesFilters(row) {
 
 
   /*
-  5L VOLUME + 5% MOVE
+  5L VOL + 5% MOVE
   */
 
   if (
-    checked("activeHighVolMove")
+    checked("activeHighVolMove") &&
+    !qualifiesHighVolumeMove(row)
   ) {
-
-    if (
-      !qualifiesHighVolumeMove(row)
-    ) {
-      return false;
-    }
+    return false;
   }
 
 
@@ -1382,7 +1510,7 @@ function passesFilters(row) {
 
 /*
 =========================================================
-SORTING
+SORT VALUE
 =========================================================
 */
 
@@ -1396,43 +1524,28 @@ function sortValue(
     case "marketCapCr":
       return num(row.marketCapCr);
 
-
     case "price":
       return num(row.price);
-
 
     case "changePct":
       return num(row.changePct);
 
-
     case "todayVolume":
       return totalVolume(row);
-
 
     case "todayDeliveryVolume":
       return todayDeliveryVolume(row);
 
-
     case "avg5DayDeliveryVolume":
       return avg5DayDelivery(row);
-
 
     case "deliveryVolumeRatio":
       return deliveryTimes(row);
 
-
     case "deliveryPct":
       return deliveryPercentage(row);
 
-
     case "highVolMove":
-
-      /*
-      Qualifying stocks first.
-
-      Within qualifying stocks,
-      absolute Change % higher first.
-      */
 
       if (
         !qualifiesHighVolumeMove(row)
@@ -1444,32 +1557,32 @@ function sortValue(
         num(row.changePct) || 0
       );
 
-
     case "sectorGrowth1M":
       return num(row.sectorGrowth1M);
-
 
     case "stockGrowth":
       return selectedStockGrowth(row);
 
-
     case "tmvScore":
       return num(row.tmvScore);
-
 
     case "gfcScore":
       return num(row.gfcScore);
 
-
     case "overallScore":
       return num(row.overallScore);
-
 
     default:
       return null;
   }
 }
 
+
+/*
+=========================================================
+NUMERIC DESCENDING SORT
+=========================================================
+*/
 
 function compareNumericDesc(
   a,
@@ -1490,10 +1603,6 @@ function compareNumericDesc(
     );
 
 
-  /*
-  Both missing
-  */
-
   if (
     av === null &&
     bv === null
@@ -1502,20 +1611,12 @@ function compareNumericDesc(
   }
 
 
-  /*
-  A missing => move A down
-  */
-
   if (
     av === null
   ) {
     return 1;
   }
 
-
-  /*
-  B missing => move B down
-  */
 
   if (
     bv === null
@@ -1524,19 +1625,22 @@ function compareNumericDesc(
   }
 
 
-  /*
-  Highest -> Lowest
-  */
-
   if (
     bv !== av
   ) {
     return bv - av;
   }
 
+
   return 0;
 }
 
+
+/*
+=========================================================
+RANK STOCKS
+=========================================================
+*/
 
 function rankStocks(rows) {
 
@@ -1547,13 +1651,10 @@ function rankStocks(rows) {
         b
       ) => {
 
-        /*
-        =================================================
-        PRIMARY SORT
 
-        If a numeric column is ACTIVE:
-        Active column High -> Low
-        =================================================
+        /*
+        PRIMARY SORT:
+        ACTIVE NUMERIC COLUMN
         */
 
         if (
@@ -1576,14 +1677,8 @@ function rankStocks(rows) {
 
 
         /*
-        =================================================
-        NORMAL / SECONDARY SORT
-
-        Change % Highest -> Lowest
-
-        This is also fallback when active-column values
-        are equal.
-        =================================================
+        NORMAL / SECONDARY:
+        CHANGE % HIGH -> LOW
         */
 
         if (
@@ -1607,7 +1702,7 @@ function rankStocks(rows) {
 
 
         /*
-        FINAL TIE BREAK
+        NAME TIE BREAK
         */
 
         const nameA =
@@ -1619,6 +1714,7 @@ function rankStocks(rows) {
           )
           .toLowerCase();
 
+
         const nameB =
           (
             b.name ||
@@ -1627,6 +1723,7 @@ function rankStocks(rows) {
             ""
           )
           .toLowerCase();
+
 
         return nameA.localeCompare(
           nameB
@@ -1638,7 +1735,7 @@ function rankStocks(rows) {
 
 /*
 =========================================================
-ACTIVE SORT FIELD
+ACTIVE SORT MAPPING
 =========================================================
 */
 
@@ -1685,17 +1782,8 @@ const sortFieldByActiveCheckbox = {
 
   activeOverall:
     "overallScore"
-
 };
 
-
-/*
-Find most recently active numeric checkbox.
-
-Only an ACTIVE checkbox changes sorting.
-Typing into a box without activating it
-will NOT change sorting.
-*/
 
 function updateActiveSortFromCheckbox(
   checkboxId
@@ -1709,12 +1797,14 @@ function updateActiveSortFromCheckbox(
       checkboxId
     ];
 
+
   if (
     !checkbox ||
     !field
   ) {
     return;
   }
+
 
   if (
     checkbox.checked
@@ -1775,15 +1865,18 @@ function fillSelectOptions(
     return;
   }
 
+
   const current =
     select.value;
+
 
   const unique =
     [...new Set(
       values
         .filter(Boolean)
-        .map(v =>
-          String(v).trim()
+        .map(
+          value =>
+            String(value).trim()
         )
         .filter(Boolean)
     )]
@@ -1795,12 +1888,14 @@ function fillSelectOptions(
         a.localeCompare(b)
     );
 
+
   select.innerHTML =
     `
       <option value="">
         All
       </option>
     `;
+
 
   for (
     const value
@@ -1823,6 +1918,7 @@ function fillSelectOptions(
     );
   }
 
+
   if (
     unique.includes(current)
   ) {
@@ -1842,6 +1938,7 @@ function populateDropdowns() {
         row.sector
     )
   );
+
 
   fillSelectOptions(
     "industryFilter",
@@ -1868,6 +1965,7 @@ function renderRows() {
     return;
   }
 
+
   filteredStocks =
     rankStocks(
       allStocks.filter(
@@ -1875,8 +1973,10 @@ function renderRows() {
       )
     );
 
+
   const total =
     filteredStocks.length;
+
 
   const totalPages =
     Math.max(
@@ -1887,22 +1987,21 @@ function renderRows() {
       )
     );
 
+
   if (
     currentPage >
     totalPages
   ) {
-
-    currentPage =
-      totalPages;
+    currentPage = totalPages;
   }
+
 
   if (
     currentPage < 1
   ) {
-
-    currentPage =
-      1;
+    currentPage = 1;
   }
+
 
   const start =
     (
@@ -1910,6 +2009,7 @@ function renderRows() {
       1
     ) *
     PAGE_SIZE;
+
 
   const pageRows =
     filteredStocks.slice(
@@ -1920,256 +2020,230 @@ function renderRows() {
 
   tbody.innerHTML =
     pageRows
-      .map(
-        (
-          row,
-          localIndex
-        ) => {
+      .map(row => {
 
-          const globalIndex =
-            allStocks.indexOf(row);
 
-          const companyName =
-            escapeHtml(
-              row.name ||
-              row.companyName ||
-              row.symbol ||
-              "—"
-            );
+        const globalIndex =
+          allStocks.indexOf(row);
 
-          const symbol =
-            escapeHtml(
-              row.symbol ||
-              ""
-            );
 
-          const sector =
-            escapeHtml(
-              row.sector ||
-              "—"
-            );
+        const companyName =
+          escapeHtml(
+            row.name ||
+            row.companyName ||
+            row.symbol ||
+            "—"
+          );
 
-          const industry =
-            escapeHtml(
-              row.industry ||
-              "—"
-            );
 
-          const stockGrowth =
-            selectedStockGrowth(row);
+        const symbol =
+          escapeHtml(
+            row.symbol ||
+            ""
+          );
 
-          const deliveryPct =
-            deliveryPercentage(row);
 
-          const volume =
-            totalVolume(row);
+        const sector =
+          escapeHtml(
+            row.sector ||
+            "—"
+          );
 
-          return `
 
-            <tr>
+        const industry =
+          escapeHtml(
+            row.industry ||
+            "—"
+          );
 
-              <!-- STOCK -->
 
-              <td>
+        const stockGrowth =
+          selectedStockGrowth(row);
 
-                <div class="stock-cell">
 
-                  <strong>
-                    ${companyName}
-                  </strong>
+        const deliveryPct =
+          deliveryPercentage(row);
 
-                  ${
-                    symbol
-                      ? `
-                        <small>
-                          ${symbol}
-                        </small>
-                      `
-                      : ""
-                  }
 
-                </div>
+        const volume =
+          totalVolume(row);
 
-              </td>
 
+        return `
 
-              <!-- MARKET CAP -->
+          <tr>
 
-              <td>
-                ${marketCapVal(row)}
-              </td>
 
+            <td>
 
-              <!-- PRICE -->
+              <div class="stock-cell">
 
-              <td>
-                ${formatPrice(row.price)}
-              </td>
-
-
-              <!-- CHANGE -->
-
-              <td>
-                ${formatPct(row.changePct)}
-              </td>
-
-
-              <!-- TODAY TOTAL VOLUME -->
-
-              <td>
-                ${
-                  volume === null
-                    ? `
-                      <span class="pending">
-                        —
-                      </span>
-                    `
-                    : formatNumber(volume)
-                }
-              </td>
-
-
-              <!-- TODAY DELIVERY -->
-
-              <td>
-                ${
-                  todayDeliveryVolume(row) === null
-                    ? `
-                      <span class="pending">
-                        —
-                      </span>
-                    `
-                    : formatNumber(
-                        todayDeliveryVolume(row)
-                      )
-                }
-              </td>
-
-
-              <!-- 5D AVG DELIVERY -->
-
-              <td>
-                ${
-                  avg5DayDelivery(row) === null
-                    ? `
-                      <span class="pending">
-                        —
-                      </span>
-                    `
-                    : formatNumber(
-                        avg5DayDelivery(row)
-                      )
-                }
-              </td>
-
-
-              <!-- DELIVERY TIMES -->
-
-              <td>
-                ${formatTimes(
-                  deliveryTimes(row)
-                )}
-              </td>
-
-
-              <!-- DELIVERY % -->
-
-              <td>
-                ${formatPlainPct(
-                  deliveryPct
-                )}
-              </td>
-
-
-              <!-- 5L VOL + 5% MOVE -->
-
-              <td>
-                ${highVolumeMoveVal(row)}
-              </td>
-
-
-              <!-- SECTOR -->
-
-              <td>
-                ${sector}
-              </td>
-
-
-              <!-- INDUSTRY -->
-
-              <td>
-                ${industry}
-              </td>
-
-
-              <!-- SECTOR GROWTH -->
-
-              <td>
-                ${formatPct(
-                  row.sectorGrowth1M
-                )}
-              </td>
-
-
-              <!-- STOCK GROWTH -->
-
-              <td>
-                ${formatPct(
-                  stockGrowth
-                )}
-              </td>
-
-
-              <!-- TMV -->
-
-              <td>
-
-                ${researchScoreButton(
-                  globalIndex,
-                  "tmv",
-                  row.tmvScore
-                )}
-
-              </td>
-
-
-              <!-- GFC -->
-
-              <td>
-
-                ${researchScoreButton(
-                  globalIndex,
-                  "gfc",
-                  row.gfcScore
-                )}
-
-              </td>
-
-
-              <!-- OVERALL -->
-
-              <td>
-
-                <strong class="overall-score">
-
-                  ${formatScore(
-                    row.overallScore
-                  )}
-
+                <strong>
+                  ${companyName}
                 </strong>
 
-              </td>
+                ${
+                  symbol
+                    ? `
+                      <small>
+                        ${symbol}
+                      </small>
+                    `
+                    : ""
+                }
 
-            </tr>
-          `;
-        }
-      )
+              </div>
+
+            </td>
+
+
+            <td>
+              ${marketCapVal(row)}
+            </td>
+
+
+            <td>
+              ${formatPrice(row.price)}
+            </td>
+
+
+            <td>
+              ${formatPct(row.changePct)}
+            </td>
+
+
+            <td>
+
+              ${
+                volume === null
+                  ? `
+                    <span class="pending">
+                      —
+                    </span>
+                  `
+                  : formatNumber(volume)
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                todayDeliveryVolume(row) === null
+                  ? `
+                    <span class="pending">
+                      —
+                    </span>
+                  `
+                  : formatNumber(
+                      todayDeliveryVolume(row)
+                    )
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                avg5DayDelivery(row) === null
+                  ? `
+                    <span class="pending">
+                      —
+                    </span>
+                  `
+                  : formatNumber(
+                      avg5DayDelivery(row)
+                    )
+              }
+
+            </td>
+
+
+            <td>
+              ${formatTimes(
+                deliveryTimes(row)
+              )}
+            </td>
+
+
+            <td>
+              ${formatPlainPct(
+                deliveryPct
+              )}
+            </td>
+
+
+            <td>
+              ${highVolumeMoveVal(row)}
+            </td>
+
+
+            <td>
+              ${sector}
+            </td>
+
+
+            <td>
+              ${industry}
+            </td>
+
+
+            <td>
+              ${formatPct(
+                row.sectorGrowth1M
+              )}
+            </td>
+
+
+            <td>
+              ${formatPct(
+                stockGrowth
+              )}
+            </td>
+
+
+            <td>
+
+              ${researchScoreButton(
+                globalIndex,
+                "tmv",
+                row.tmvScore
+              )}
+
+            </td>
+
+
+            <td>
+
+              ${researchScoreButton(
+                globalIndex,
+                "gfc",
+                row.gfcScore
+              )}
+
+            </td>
+
+
+            <td>
+
+              <strong class="overall-score">
+
+                ${formatScore(
+                  row.overallScore
+                )}
+
+              </strong>
+
+            </td>
+
+
+          </tr>
+        `;
+      })
       .join("");
 
-
-  /*
-  Result count
-  */
 
   if (
     el("resultCount")
@@ -2182,10 +2256,6 @@ function renderRows() {
   }
 
 
-  /*
-  Page text
-  */
-
   if (
     el("page")
   ) {
@@ -2195,10 +2265,6 @@ function renderRows() {
   }
 
 
-  /*
-  Pagination buttons
-  */
-
   if (
     el("prev")
   ) {
@@ -2206,6 +2272,7 @@ function renderRows() {
     el("prev").disabled =
       currentPage <= 1;
   }
+
 
   if (
     el("next")
@@ -2216,16 +2283,7 @@ function renderRows() {
   }
 
 
-  /*
-  Top scrollbar width
-  */
-
   syncTopScrollbar();
-
-
-  /*
-  Score detail buttons
-  */
 
   setupReasonButtons();
 }
@@ -2265,6 +2323,7 @@ function setupReasonButtons() {
               return;
             }
 
+
             if (
               type === "tmv"
             ) {
@@ -2281,6 +2340,7 @@ function setupReasonButtons() {
 
               return;
             }
+
 
             if (
               type === "gfc"
@@ -2305,7 +2365,7 @@ function setupReasonButtons() {
 
 /*
 =========================================================
-FILTER EVENT SETUP
+FILTER EVENTS
 =========================================================
 */
 
@@ -2319,23 +2379,20 @@ function applyFilterChange() {
 
 function setupFilterEvents() {
 
-  /*
-  Search
-  */
+  el("q")
+    ?.addEventListener(
+      "input",
+      () => {
 
-  el("q")?.addEventListener(
-    "input",
-    () => {
+        currentPage = 1;
 
-      currentPage = 1;
-
-      renderRows();
-    }
-  );
+        renderRows();
+      }
+    );
 
 
   /*
-  Numeric Active checkboxes
+  ACTIVE NUMERIC FILTERS
   */
 
   for (
@@ -2361,11 +2418,7 @@ function setupFilterEvents() {
 
 
   /*
-  Numeric inputs
-
-  IMPORTANT:
-  Input alone does NOT change sort.
-  Sort only follows its ACTIVE checkbox.
+  FILTER INPUTS
   */
 
   const numericInputs = [
@@ -2390,19 +2443,21 @@ function setupFilterEvents() {
 
   ];
 
+
   numericInputs.forEach(
     id => {
 
-      el(id)?.addEventListener(
-        "input",
-        applyFilterChange
-      );
+      el(id)
+        ?.addEventListener(
+          "input",
+          applyFilterChange
+        );
     }
   );
 
 
   /*
-  Sector / Industry
+  SECTOR
   */
 
   el("activeSector")
@@ -2411,6 +2466,7 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
+
   el("sectorFilter")
     ?.addEventListener(
       "change",
@@ -2418,11 +2474,16 @@ function setupFilterEvents() {
     );
 
 
+  /*
+  INDUSTRY
+  */
+
   el("activeIndustry")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
+
 
   el("industryFilter")
     ?.addEventListener(
@@ -2432,18 +2493,13 @@ function setupFilterEvents() {
 
 
   /*
-  Stock Growth Period
+  STOCK GROWTH PERIOD
   */
 
   el("stockGrowthPeriod")
     ?.addEventListener(
       "change",
       () => {
-
-        /*
-        Only use Stock Growth as sort
-        if Stock Growth is ACTIVE.
-        */
 
         if (
           checked(
@@ -2463,15 +2519,11 @@ function setupFilterEvents() {
 
 /*
 =========================================================
-RESET
+RESET FILTERS
 =========================================================
 */
 
 function resetFilters() {
-
-  /*
-  Search
-  */
 
   if (
     el("q")
@@ -2480,14 +2532,11 @@ function resetFilters() {
   }
 
 
-  /*
-  Checkboxes
-  */
-
   const checkboxes =
     document.querySelectorAll(
       '.filter-row input[type="checkbox"]'
     );
+
 
   checkboxes.forEach(
     checkbox => {
@@ -2498,14 +2547,11 @@ function resetFilters() {
   );
 
 
-  /*
-  Number/text inputs
-  */
-
   const inputs =
     document.querySelectorAll(
       '.filter-row input:not([type="checkbox"])'
     );
+
 
   inputs.forEach(
     input => {
@@ -2516,10 +2562,6 @@ function resetFilters() {
   );
 
 
-  /*
-  Selects
-  */
-
   if (
     el("sectorFilter")
   ) {
@@ -2528,6 +2570,7 @@ function resetFilters() {
       "";
   }
 
+
   if (
     el("industryFilter")
   ) {
@@ -2535,6 +2578,7 @@ function resetFilters() {
     el("industryFilter").value =
       "";
   }
+
 
   if (
     el("stockGrowthPeriod")
@@ -2546,15 +2590,16 @@ function resetFilters() {
 
 
   /*
-  Back to NORMAL sorting:
-  Change % Highest -> Lowest
+  NORMAL SORT
   */
 
   activeSortField =
     null;
 
+
   currentPage =
     1;
+
 
   renderRows();
 }
@@ -2601,6 +2646,7 @@ function setupPagination() {
             )
           );
 
+
         if (
           currentPage <
           totalPages
@@ -2626,6 +2672,7 @@ function setupPagination() {
             el("gotoPage").value
           );
 
+
         const totalPages =
           Math.max(
             1,
@@ -2634,6 +2681,7 @@ function setupPagination() {
               PAGE_SIZE
             )
           );
+
 
         if (
           Number.isFinite(requested)
@@ -2647,6 +2695,7 @@ function setupPagination() {
               ),
               totalPages
             );
+
 
           renderRows();
 
@@ -2662,12 +2711,8 @@ function scrollTableTop() {
   const wrap =
     el("tableWrap");
 
-  if (
-    wrap
-  ) {
-
-    wrap.scrollTop =
-      0;
+  if (wrap) {
+    wrap.scrollTop = 0;
   }
 }
 
@@ -2694,6 +2739,7 @@ function syncTopScrollbar() {
       "table"
     );
 
+
   if (
     !topScroll ||
     !topInner ||
@@ -2702,6 +2748,7 @@ function syncTopScrollbar() {
   ) {
     return;
   }
+
 
   topInner.style.width =
     `${table.scrollWidth}px`;
@@ -2716,6 +2763,7 @@ function setupScrollSync() {
   const tableWrap =
     el("tableWrap");
 
+
   if (
     !topScroll ||
     !tableWrap
@@ -2723,8 +2771,9 @@ function setupScrollSync() {
     return;
   }
 
-  let syncing =
-    false;
+
+  let syncing = false;
+
 
   topScroll.addEventListener(
     "scroll",
@@ -2734,14 +2783,12 @@ function setupScrollSync() {
         return;
       }
 
-      syncing =
-        true;
+      syncing = true;
 
       tableWrap.scrollLeft =
         topScroll.scrollLeft;
 
-      syncing =
-        false;
+      syncing = false;
     }
   );
 
@@ -2754,14 +2801,12 @@ function setupScrollSync() {
         return;
       }
 
-      syncing =
-        true;
+      syncing = true;
 
       topScroll.scrollLeft =
         tableWrap.scrollLeft;
 
-      syncing =
-        false;
+      syncing = false;
     }
   );
 
@@ -2784,6 +2829,11 @@ function updateStats(
   meta
 ) {
 
+  /*
+  Stocks passed here are already
+  permanent-universe filtered.
+  */
+
   if (
     el("totalStocks")
   ) {
@@ -2802,6 +2852,7 @@ function updateStats(
     )
     .length;
 
+
   if (
     el("eodReady")
   ) {
@@ -2816,10 +2867,10 @@ function updateStats(
   const marketCapReady =
     stocks.filter(
       row =>
-        row.marketCapCategory ||
         num(row.marketCapCr) !== null
     )
     .length;
+
 
   if (
     el("marketCapReady")
@@ -2839,6 +2890,7 @@ function updateStats(
     )
     .length;
 
+
   if (
     el("fullyScored")
   ) {
@@ -2849,10 +2901,6 @@ function updateStats(
       );
   }
 
-
-  /*
-  Market date
-  */
 
   const dateCandidates = [
 
@@ -2873,17 +2921,17 @@ function updateStats(
 
   ];
 
+
   let marketDate =
     null;
+
 
   for (
     const value
     of dateCandidates
   ) {
 
-    if (
-      value
-    ) {
+    if (value) {
 
       marketDate =
         value;
@@ -2891,6 +2939,7 @@ function updateStats(
       break;
     }
   }
+
 
   if (
     el("marketDate")
@@ -2956,17 +3005,17 @@ LOAD JSON
 =========================================================
 */
 
-async function fetchJson(
-  path
-) {
+async function fetchJson(path) {
 
   const separator =
     path.includes("?")
       ? "&"
       : "?";
 
+
   const url =
     `${path}${separator}t=${Date.now()}`;
+
 
   const response =
     await fetch(
@@ -2976,6 +3025,7 @@ async function fetchJson(
       }
     );
 
+
   if (
     !response.ok
   ) {
@@ -2984,6 +3034,7 @@ async function fetchJson(
       `Unable to load ${path}: ${response.status}`
     );
   }
+
 
   return response.json();
 }
@@ -3019,23 +3070,14 @@ async function init() {
       ]);
 
 
-    /*
-    Support either:
+    let loadedStocks = [];
 
-    stocks.json = [ ... ]
-
-    OR
-
-    {
-      "stocks": [ ... ]
-    }
-    */
 
     if (
       Array.isArray(stockData)
     ) {
 
-      allStocks =
+      loadedStocks =
         stockData;
 
     } else if (
@@ -3044,24 +3086,37 @@ async function init() {
       )
     ) {
 
-      allStocks =
+      loadedStocks =
         stockData.stocks;
-
-    } else {
-
-      allStocks =
-        [];
     }
 
 
+    /*
+    =====================================================
+    PERMANENT MARKET CAP SCREEN
+    =====================================================
+
+    Known < ₹100 Cr:
+    removed.
+
+    Pending Market Cap:
+    retained.
+    */
+
+    allStocks =
+      loadedStocks.filter(
+        passesPermanentUniverseRule
+      );
+
+
     populateDropdowns();
+
 
     updateStats(
       allStocks,
       metaData
     );
 
-    renderRows();
 
     setupFilterEvents();
 
@@ -3080,19 +3135,25 @@ async function init() {
 
 
     /*
-    Initial / normal sorting:
-    Change % High -> Low
+    NORMAL:
+    CHANGE % HIGH -> LOW
     */
 
     activeSortField =
       null;
 
+
     renderRows();
 
 
     console.log(
-      `MY MARKET RESEARCH loaded: ${allStocks.length} stocks`
+      `MY MARKET RESEARCH loaded: `
+      +
+      `${allStocks.length} stocks `
+      +
+      `(Known Market Cap >= ₹${MIN_MARKET_CAP_CR} Cr + Pending)`
     );
+
 
   } catch (error) {
 
@@ -3100,6 +3161,7 @@ async function init() {
       "Dashboard load error:",
       error
     );
+
 
     if (
       el("rows")
