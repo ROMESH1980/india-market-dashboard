@@ -1,5 +1,3 @@
-import csv
-import io
 import json
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -16,14 +14,45 @@ HEADERS = {
 }
 
 
+# =========================================================
+# JSON HELPER
+# =========================================================
+
 def load_json(path, default):
     try:
-        return json.loads(path.read_text())
+        return json.loads(
+            path.read_text()
+        )
     except Exception:
         return default
 
 
+# =========================================================
+# SAFE NUMBER
+# =========================================================
+
+def to_float(value):
+    try:
+        if value is None:
+            return None
+
+        value = str(value).strip()
+
+        if value == "":
+            return None
+
+        return float(value)
+
+    except Exception:
+        return None
+
+
+# =========================================================
+# FETCH NSE MTO DELIVERY FILE
+# =========================================================
+
 def fetch_mto_for_date(d):
+
     ddmmyyyy = d.strftime("%d%m%Y")
 
     url = (
@@ -34,7 +63,7 @@ def fetch_mto_for_date(d):
     r = requests.get(
         url,
         headers=HEADERS,
-        timeout=45
+        timeout=45,
     )
 
     r.raise_for_status()
@@ -44,6 +73,7 @@ def fetch_mto_for_date(d):
     delivery = {}
 
     for line in text.splitlines():
+
         line = line.strip()
 
         if not line.startswith("20,"):
@@ -54,35 +84,76 @@ def fetch_mto_for_date(d):
             for p in line.split(",")
         ]
 
-        # Expected structure:
-        # 20, SrNo, Symbol, Series,
-        # QtyTraded, DeliverableQty, Delivery%
+        # NSE MTO expected format:
+        #
+        # 20,
+        # Sr No,
+        # Symbol,
+        # Series,
+        # Quantity Traded,
+        # Deliverable Quantity,
+        # Delivery %
+
         if len(parts) < 7:
             continue
+
 
         symbol = parts[2]
         series = parts[3]
 
-        try:
-            deliverable_qty = float(
-                parts[5]
-            )
-        except Exception:
-            continue
-
-        delivery[(symbol, series)] = (
-            deliverable_qty
+        traded_qty = to_float(
+            parts[4]
         )
 
+        deliverable_qty = to_float(
+            parts[5]
+        )
+
+        delivery_pct = to_float(
+            parts[6]
+        )
+
+
+        if not symbol:
+            continue
+
+
+        delivery[
+            (
+                symbol,
+                series,
+            )
+        ] = {
+
+            "tradedQty":
+                traded_qty,
+
+            "deliverableQty":
+                deliverable_qty,
+
+            "deliveryPct":
+                delivery_pct,
+        }
+
+
     if not delivery:
+
         raise ValueError(
             f"No delivery rows found for {d}"
         )
 
+
     return delivery
 
 
-def get_last_trading_sessions(required=6):
+# =========================================================
+# GET LAST 6 VALID TRADING SESSIONS
+# =========================================================
+
+def get_last_trading_sessions(
+    required=6
+):
+
     today = (
         datetime.now(timezone.utc)
         .date()
@@ -90,174 +161,554 @@ def get_last_trading_sessions(required=6):
 
     sessions = []
 
-    # Search far enough back to safely skip
-    # weekends + exchange holidays.
+
+    # Enough range to handle
+    # weekends + NSE holidays.
+
     for back in range(0, 20):
-        d = today - timedelta(days=back)
+
+        d = today - timedelta(
+            days=back
+        )
 
         if d.weekday() >= 5:
             continue
 
-        try:
-            data = fetch_mto_for_date(d)
 
-            sessions.append(
-                {
-                    "date": d,
-                    "data": data
-                }
+        try:
+
+            data = fetch_mto_for_date(
+                d
             )
+
+            sessions.append({
+
+                "date":
+                    d,
+
+                "data":
+                    data,
+            })
+
 
             print(
                 f"Delivery session loaded: "
                 f"{d} ({len(data)} rows)"
             )
 
-            if len(sessions) >= required:
+
+            if (
+                len(sessions) >=
+                required
+            ):
                 break
 
+
         except Exception as e:
+
             print(
                 f"Skipping {d}: {e}"
             )
 
+
     if len(sessions) < required:
+
         print(
             f"Warning: only "
             f"{len(sessions)} valid trading "
             f"sessions found"
         )
 
+
     return sessions
 
 
+# =========================================================
+# FIND SYMBOL IN MTO
+# =========================================================
+
+def find_delivery_record(
+    session_data,
+    symbol,
+    series,
+):
+
+    record = session_data.get(
+        (
+            symbol,
+            series,
+        )
+    )
+
+
+    # Main-board fallback
+
+    if record is None:
+
+        record = session_data.get(
+            (
+                symbol,
+                "EQ",
+            )
+        )
+
+
+    return record
+
+
+# =========================================================
+# MAIN
+# =========================================================
+
 def main():
-    stocks_path = DATA / "stocks.json"
+
+    stocks_path = (
+        DATA /
+        "stocks.json"
+    )
+
+    meta_path = (
+        DATA /
+        "meta.json"
+    )
+
 
     stocks = load_json(
         stocks_path,
-        []
+        [],
     )
 
-    # Today + previous 5 valid trading sessions
-    sessions = get_last_trading_sessions(
-        required=6
+
+    # Today + previous 5
+    # valid NSE trading sessions
+
+    sessions = (
+        get_last_trading_sessions(
+            required=6
+        )
     )
+
 
     if not sessions:
+
         raise RuntimeError(
             "No valid NSE delivery sessions found"
         )
 
-    today_session = sessions[0]
-    previous_sessions = sessions[1:6]
+
+    today_session = (
+        sessions[0]
+    )
+
+    previous_sessions = (
+        sessions[1:6]
+    )
+
 
     today_date = (
         today_session["date"]
         .isoformat()
     )
 
-    updated = 0
+
+    updated_ratio = 0
+    updated_delivery_pct = 0
+    updated_delivery_volume = 0
+
+
+    # =====================================================
+    # PROCESS EACH STOCK
+    # =====================================================
 
     for row in stocks:
-        symbol = row.get("symbol")
-        series = row.get("series") or ""
+
+        symbol = row.get(
+            "symbol"
+        )
+
+        series = (
+            row.get("series")
+            or ""
+        )
+
 
         if not symbol:
             continue
 
-        today_delivery = (
-            today_session["data"]
-            .get((symbol, series))
+
+        # -------------------------------------------------
+        # TODAY'S MTO RECORD
+        # -------------------------------------------------
+
+        today_record = (
+            find_delivery_record(
+                today_session["data"],
+                symbol,
+                series,
+            )
         )
 
-        if today_delivery is None:
+
+        today_delivery = None
+        mto_traded_qty = None
+        official_delivery_pct = None
+
+
+        if today_record:
+
             today_delivery = (
-                today_session["data"]
-                .get((symbol, "EQ"))
+                to_float(
+                    today_record.get(
+                        "deliverableQty"
+                    )
+                )
             )
+
+            mto_traded_qty = (
+                to_float(
+                    today_record.get(
+                        "tradedQty"
+                    )
+                )
+            )
+
+            official_delivery_pct = (
+                to_float(
+                    today_record.get(
+                        "deliveryPct"
+                    )
+                )
+            )
+
+
+        # -------------------------------------------------
+        # PREVIOUS 5-DAY DELIVERY VALUES
+        # -------------------------------------------------
 
         previous_values = []
 
+
         for session in previous_sessions:
-            value = (
-                session["data"]
-                .get((symbol, series))
+
+            record = (
+                find_delivery_record(
+                    session["data"],
+                    symbol,
+                    series,
+                )
             )
 
-            if value is None:
-                value = (
-                    session["data"]
-                    .get((symbol, "EQ"))
+
+            if not record:
+                continue
+
+
+            value = to_float(
+                record.get(
+                    "deliverableQty"
                 )
+            )
+
 
             if value is not None:
+
                 previous_values.append(
-                    float(value)
+                    value
                 )
 
+
+        # -------------------------------------------------
+        # 5-DAY AVERAGE DELIVERY
+        # -------------------------------------------------
+
         avg_5d = None
-        ratio = None
+
 
         if previous_values:
+
             avg_5d = (
                 sum(previous_values)
-                / len(previous_values)
+                /
+                len(previous_values)
             )
+
+
+        # -------------------------------------------------
+        # DELIVERY TIMES
+        # -------------------------------------------------
+
+        ratio = None
+
 
         if (
             today_delivery is not None
             and avg_5d is not None
             and avg_5d > 0
         ):
+
             ratio = (
-                float(today_delivery)
-                / float(avg_5d)
+                today_delivery
+                /
+                avg_5d
             )
 
+
+        # -------------------------------------------------
+        # TODAY TOTAL VOLUME
+        # -------------------------------------------------
+
+        today_volume = to_float(
+            row.get(
+                "todayVolume"
+            )
+        )
+
+
+        # Old compatibility field
+
+        if today_volume is None:
+
+            today_volume = to_float(
+                row.get(
+                    "volume"
+                )
+            )
+
+
+        # If bhavcopy volume unavailable,
+        # use MTO traded quantity.
+
+        if today_volume is None:
+
+            today_volume = (
+                mto_traded_qty
+            )
+
+
+        # -------------------------------------------------
+        # DELIVERY %
+        # -------------------------------------------------
+
+        delivery_pct = None
+
+
+        # First preference:
+        # Official NSE MTO Delivery %
+
+        if (
+            official_delivery_pct
+            is not None
+        ):
+
+            delivery_pct = (
+                official_delivery_pct
+            )
+
+
+        # Fallback:
+        # Deliverable Qty / Total Volume * 100
+
+        elif (
+            today_delivery is not None
+            and today_volume is not None
+            and today_volume > 0
+        ):
+
+            delivery_pct = (
+                today_delivery
+                /
+                today_volume
+                *
+                100
+            )
+
+
+        # -------------------------------------------------
+        # SAVE FIELDS
+        # -------------------------------------------------
+
         row["todayDeliveryVolume"] = (
+
             round(today_delivery)
-            if today_delivery is not None
+
+            if today_delivery
+            is not None
+
             else None
         )
+
 
         row["avg5DayDeliveryVolume"] = (
-            round(avg_5d, 2)
-            if avg_5d is not None
+
+            round(
+                avg_5d,
+                2,
+            )
+
+            if avg_5d
+            is not None
+
             else None
         )
+
 
         row["deliveryVolumeRatio"] = (
-            round(ratio, 2)
-            if ratio is not None
+
+            round(
+                ratio,
+                2,
+            )
+
+            if ratio
+            is not None
+
             else None
         )
 
-        row["deliveryDate"] = today_date
+
+        # New field used directly
+        # by app.js
+
+        row["deliveryPct"] = (
+
+            round(
+                delivery_pct,
+                2,
+            )
+
+            if delivery_pct
+            is not None
+
+            else None
+        )
+
+
+        # Helpful cross-check field
+
+        row["mtoTradedVolume"] = (
+
+            round(
+                mto_traded_qty
+            )
+
+            if mto_traded_qty
+            is not None
+
+            else None
+        )
+
+
+        row["deliveryDate"] = (
+            today_date
+        )
+
+
+        if (
+            today_delivery
+            is not None
+        ):
+
+            updated_delivery_volume += 1
+
 
         if ratio is not None:
-            updated += 1
+
+            updated_ratio += 1
+
+
+        if delivery_pct is not None:
+
+            updated_delivery_pct += 1
+
+
+    # =====================================================
+    # WRITE STOCKS.JSON
+    # =====================================================
 
     stocks_path.write_text(
+
         json.dumps(
             stocks,
             ensure_ascii=False,
-            separators=(",", ":")
+            separators=(",", ":"),
         )
     )
 
+
+    # =====================================================
+    # UPDATE META.JSON
+    # =====================================================
+
+    meta = load_json(
+        meta_path,
+        {},
+    )
+
+
+    meta["deliveryDate"] = (
+        today_date
+    )
+
+    meta[
+        "deliverySessionsUsed"
+    ] = [
+
+        x["date"].isoformat()
+        for x in sessions
+    ]
+
+
+    meta[
+        "deliveryVolumeCount"
+    ] = (
+        updated_delivery_volume
+    )
+
+    meta[
+        "deliveryRatioCount"
+    ] = (
+        updated_ratio
+    )
+
+    meta[
+        "deliveryPctCount"
+    ] = (
+        updated_delivery_pct
+    )
+
+
+    meta_path.write_text(
+
+        json.dumps(
+            meta,
+            indent=2,
+        )
+    )
+
+
+    # =====================================================
+    # LOG
+    # =====================================================
+
     print({
+
         "todayTradingDate":
             today_date,
 
-        "validSessionsUsed":
-            [
-                x["date"].isoformat()
-                for x in sessions
-            ],
+        "validSessionsUsed": [
+
+            x["date"].isoformat()
+            for x in sessions
+        ],
+
+        "deliveryVolumesCalculated":
+            updated_delivery_volume,
 
         "deliveryRatiosCalculated":
-            updated
+            updated_ratio,
+
+        "deliveryPctCalculated":
+            updated_delivery_pct,
     })
 
 
