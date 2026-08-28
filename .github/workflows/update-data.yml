@@ -4,18 +4,31 @@ on:
   workflow_dispatch:
 
   schedule:
-    # Monday-Friday
-    # 12:17 UTC = 5:47 PM IST
-    - cron: "17 12 * * 1-5"
+    # 4:00 PM IST - First automatic update
+    - cron: "30 10 * * 1-5"
+
+    # 5:00 PM IST - Safety / second automatic update
+    - cron: "30 11 * * 1-5"
+
+
+# Ek hi workflow ko ek time par run hone dega.
+# Agar previous run chal raha ho to naya run queue/cancel conflict
+# create nahi karega.
+concurrency:
+  group: nse-market-data-update
+  cancel-in-progress: false
+
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+
 jobs:
 
   update:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -31,9 +44,7 @@ jobs:
 
 
       - name: Install requirements
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
 
       - name: Build sector map
@@ -48,7 +59,7 @@ jobs:
         run: python scripts/build_delivery_volume.py
 
 
-      - name: Build market cap
+      - name: Build market cap category
         run: python scripts/build_market_cap_category.py
 
 
@@ -71,12 +82,9 @@ jobs:
 
           git add data/
 
-          if git diff --cached --quiet; then
-            echo "No data changes to commit."
-          else
-            git commit -m "Daily NSE data refresh"
-            git push
-          fi
+          git diff --cached --quiet || git commit -m "Daily NSE data refresh"
+
+          git push
 
 
       - name: Upload GitHub Pages artifact
@@ -86,7 +94,9 @@ jobs:
 
 
   deploy:
+
     needs: update
+
     runs-on: ubuntu-latest
 
     environment:
