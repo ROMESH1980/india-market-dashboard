@@ -1,98 +1,351 @@
-const PAGE = 100;
+const PAGE_SIZE = 100;
 
-let all = [];
-let meta = {};
-let page = 1;
+let allStocks = [];
+let filteredStocks = [];
+let currentPage = 1;
 
 /*
-  Last activated / changed numeric column
-  primary sorting column banega.
+=========================================================
+DEFAULT SORT
+=========================================================
+
+null = normal condition
+
+Normal condition:
+Change % Highest -> Lowest
+
+When a numeric column becomes ACTIVE:
+that column becomes primary sort.
 */
+
 let activeSortField = null;
 
-const $ = id =>
-  document.getElementById(id);
 
+/*
+=========================================================
+DOM HELPERS
+=========================================================
+*/
 
-// =====================================================
-// DISPLAY HELPERS
-// =====================================================
-
-function scoreClass(value) {
-  const n = Number(value);
-
-  if (n >= 75) return "hi";
-  if (n >= 60) return "mid";
-
-  return "";
+function el(id) {
+  return document.getElementById(id);
 }
 
 
-function scoreVal(
-  value,
-  row = null,
-  field = null,
-  label = ""
-) {
+function num(value) {
   if (
     value === null ||
     value === undefined ||
     value === ""
   ) {
-    return '<span class="pending">Pending</span>';
-  }
-
-  const number = Number(value);
-
-  if (!row || !field) {
-    return `
-      <span class="score ${scoreClass(number)}">
-        ${number.toFixed(0)}
-      </span>
-    `;
-  }
-
-  const symbol =
-    encodeURIComponent(
-      row.symbol || ""
-    );
-
-  const safeField =
-    encodeURIComponent(field);
-
-  const safeLabel =
-    encodeURIComponent(
-      label || field
-    );
-
-  return `
-    <button
-      type="button"
-      class="score score-button ${scoreClass(number)}"
-      data-symbol="${symbol}"
-      data-field="${safeField}"
-      data-label="${safeLabel}"
-    >
-      ${number.toFixed(0)}
-      <span class="info-mark">ⓘ</span>
-    </button>
-  `;
-}
-
-
-function pct(value) {
-  if (
-    value === null ||
-    value === undefined ||
-    value === ""
-  ) {
-    return "—";
+    return null;
   }
 
   const n = Number(value);
 
-  if (!Number.isFinite(n)) {
+  return Number.isFinite(n)
+    ? n
+    : null;
+}
+
+
+function escapeHtml(value) {
+
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+/*
+=========================================================
+DATA FIELD HELPERS
+=========================================================
+*/
+
+
+/*
+Today TOTAL traded volume.
+
+Different backend/data-source names are supported
+so the frontend keeps working while backend is updated.
+*/
+
+function totalVolume(row) {
+
+  const candidates = [
+
+    row.todayVolume,
+    row.totalVolume,
+    row.volume,
+    row.tradedVolume,
+    row.totalTradedVolume,
+    row.totalTradedQty,
+    row.totalTradedQuantity,
+    row.totalTradeQuantity,
+    row.ttq
+
+  ];
+
+  for (const value of candidates) {
+
+    const n = num(value);
+
+    if (n !== null) {
+      return n;
+    }
+  }
+
+  return null;
+}
+
+
+/*
+Today Delivery Quantity
+*/
+
+function todayDeliveryVolume(row) {
+
+  const candidates = [
+
+    row.todayDeliveryVolume,
+    row.deliveryVolume,
+    row.deliveryQty,
+    row.deliveryQuantity,
+    row.deliverableQty,
+    row.deliverableQuantity
+
+  ];
+
+  for (const value of candidates) {
+
+    const n = num(value);
+
+    if (n !== null) {
+      return n;
+    }
+  }
+
+  return null;
+}
+
+
+/*
+5-Day Average Delivery Volume
+*/
+
+function avg5DayDelivery(row) {
+
+  const candidates = [
+
+    row.avg5DayDeliveryVolume,
+    row.avg5DDeliveryVolume,
+    row.fiveDayAvgDeliveryVolume,
+    row.delivery5DayAvg
+
+  ];
+
+  for (const value of candidates) {
+
+    const n = num(value);
+
+    if (n !== null) {
+      return n;
+    }
+  }
+
+  return null;
+}
+
+
+/*
+Delivery Times
+
+Today Delivery Volume /
+5-Day Average Delivery Volume
+*/
+
+function deliveryTimes(row) {
+
+  const direct = num(
+    row.deliveryVolumeRatio ??
+    row.deliveryTimes
+  );
+
+  if (direct !== null) {
+    return direct;
+  }
+
+  const today = todayDeliveryVolume(row);
+  const avg = avg5DayDelivery(row);
+
+  if (
+    today === null ||
+    avg === null ||
+    avg <= 0
+  ) {
+    return null;
+  }
+
+  return today / avg;
+}
+
+
+/*
+Delivery %
+
+Delivery Quantity /
+Total Traded Quantity * 100
+*/
+
+function deliveryPercentage(row) {
+
+  const directCandidates = [
+
+    row.deliveryPct,
+    row.deliveryPercent,
+    row.deliveryPercentage,
+    row.deliverablePct,
+    row.deliverablePercentage
+
+  ];
+
+  for (const value of directCandidates) {
+
+    const n = num(value);
+
+    if (n !== null) {
+
+      /*
+      Some sources may store percentage as 0.65
+      instead of 65.
+
+      Convert only if value is between 0 and 1.
+      */
+
+      if (n > 0 && n <= 1) {
+        return n * 100;
+      }
+
+      return n;
+    }
+  }
+
+  const delivery = todayDeliveryVolume(row);
+  const volume = totalVolume(row);
+
+  if (
+    delivery === null ||
+    volume === null ||
+    volume <= 0
+  ) {
+    return null;
+  }
+
+  return (
+    delivery /
+    volume
+  ) * 100;
+}
+
+
+/*
+5 Lakh Volume + Absolute 5% Move
+*/
+
+function qualifiesHighVolumeMove(row) {
+
+  const volume = totalVolume(row);
+  const change = num(row.changePct);
+
+  if (
+    volume === null ||
+    change === null
+  ) {
+    return false;
+  }
+
+  return (
+    volume >= 500000 &&
+    Math.abs(change) >= 5
+  );
+}
+
+
+/*
+=========================================================
+STOCK GROWTH
+=========================================================
+*/
+
+function selectedStockGrowth(row) {
+
+  const period =
+    el("stockGrowthPeriod")?.value ||
+    "3M";
+
+  if (period === "1M") {
+    return num(row.stockGrowth1M);
+  }
+
+  if (period === "6M") {
+    return num(row.stockGrowth6M);
+  }
+
+  return num(row.stockGrowth3M);
+}
+
+
+/*
+=========================================================
+FORMATTERS
+=========================================================
+*/
+
+function formatNumber(value) {
+
+  const n = num(value);
+
+  if (n === null) {
     return "—";
+  }
+
+  return n.toLocaleString(
+    "en-IN",
+    {
+      maximumFractionDigits: 0
+    }
+  );
+}
+
+
+function formatPrice(value) {
+
+  const n = num(value);
+
+  if (n === null) {
+    return '<span class="pending">Pending EOD</span>';
+  }
+
+  return `₹${n.toLocaleString(
+    "en-IN",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  )}`;
+}
+
+
+function formatPct(value) {
+
+  const n = num(value);
+
+  if (n === null) {
+    return '<span class="pending">—</span>';
   }
 
   const sign =
@@ -100,40 +353,62 @@ function pct(value) {
       ? "+"
       : "";
 
-  return `${sign}${n.toFixed(2)}%`;
-}
-
-
-function volumeVal(value) {
-  if (
-    value === null ||
-    value === undefined ||
-    value === ""
-  ) {
-    return "—";
-  }
-
-  return Number(value)
-    .toLocaleString();
-}
-
-
-function ratioVal(value) {
-  if (
-    value === null ||
-    value === undefined ||
-    value === ""
-  ) {
-    return '<span class="pending">—</span>';
-  }
+  const cls =
+    n > 0
+      ? "positive"
+      : n < 0
+        ? "negative"
+        : "";
 
   return `
-    <strong>
-      ${Number(value).toFixed(2)}×
-    </strong>
+    <span class="${cls}">
+      ${sign}${n.toFixed(2)}%
+    </span>
   `;
 }
 
+
+function formatPlainPct(value) {
+
+  const n = num(value);
+
+  if (n === null) {
+    return '<span class="pending">—</span>';
+  }
+
+  return `${n.toFixed(2)}%`;
+}
+
+
+function formatTimes(value) {
+
+  const n = num(value);
+
+  if (n === null) {
+    return '<span class="pending">—</span>';
+  }
+
+  return `${n.toFixed(2)}x`;
+}
+
+
+function formatScore(value) {
+
+  const n = num(value);
+
+  if (n === null) {
+    return '<span class="pending">Pending</span>';
+  }
+
+  return Math.round(n);
+}
+
+
+/*
+=========================================================
+MARKET CAP
+=========================================================
+*/
 
 function marketCapVal(row) {
 
@@ -141,36 +416,36 @@ function marketCapVal(row) {
     row.marketCapCategory;
 
   const marketCap =
-    row.marketCapCr;
+    num(row.marketCapCr);
 
   if (
     !category &&
-    (
-      marketCap === null ||
-      marketCap === undefined
-    )
+    marketCap === null
   ) {
-    return '<span class="pending">Pending</span>';
+
+    return `
+      <span class="pending">
+        Pending
+      </span>
+    `;
   }
 
   let html = "";
 
   if (category) {
+
     html += `
       <div class="market-cap-category">
-        ${category}
+        ${escapeHtml(category)}
       </div>
     `;
   }
 
-  if (
-    marketCap !== null &&
-    marketCap !== undefined &&
-    marketCap !== ""
-  ) {
+  if (marketCap !== null) {
+
     html += `
       <div class="market-cap-value">
-        ₹${Number(marketCap).toLocaleString(
+        ₹${marketCap.toLocaleString(
           "en-IN",
           {
             maximumFractionDigits: 0
@@ -184,282 +459,1017 @@ function marketCapVal(row) {
 }
 
 
-// =====================================================
-// FILTER HELPERS
-// =====================================================
+/*
+=========================================================
+5L + 5% STATUS
+=========================================================
+*/
 
-function isActive(id) {
-  return Boolean(
-    $(id)?.checked
+function highVolumeMoveVal(row) {
+
+  const volume = totalVolume(row);
+  const change = num(row.changePct);
+
+  if (
+    volume === null ||
+    change === null
+  ) {
+
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
+  }
+
+  if (qualifiesHighVolumeMove(row)) {
+
+    return `
+      <span class="setup-yes">
+        YES
+      </span>
+    `;
+  }
+
+  return `
+    <span class="setup-no">
+      NO
+    </span>
+  `;
+}
+
+
+/*
+=========================================================
+REASON DETAILS
+=========================================================
+*/
+
+function normalizeDetailItem(
+  title,
+  item
+) {
+
+  if (!item) {
+    return null;
+  }
+
+  if (
+    typeof item === "number" ||
+    typeof item === "string"
+  ) {
+
+    return {
+      title,
+      score: item,
+      reason: "",
+      source: "",
+      sourceDate: "",
+      mode: ""
+    };
+  }
+
+  return {
+    title,
+    score:
+      item.score ??
+      item.value ??
+      "",
+    reason:
+      item.reason ??
+      "",
+    source:
+      item.source ??
+      "",
+    sourceDate:
+      item.sourceDate ??
+      "",
+    mode:
+      item.mode ??
+      ""
+  };
+}
+
+
+function buildCombinedReasonHtml(details) {
+
+  if (!details) {
+
+    return `
+      <div class="pending">
+        Details not available.
+      </div>
+    `;
+  }
+
+  const items = [];
+
+  if (Array.isArray(details)) {
+
+    for (const item of details) {
+
+      items.push(
+        normalizeDetailItem(
+          item.title ||
+          item.name ||
+          "Research",
+          item
+        )
+      );
+    }
+
+  } else {
+
+    const keyMap = {
+
+      tailwind:
+        "Tailwind",
+
+      macro:
+        "Macro",
+
+      macroSupport:
+        "Macro",
+
+      valueMigration:
+        "Value Migration",
+
+      futureGrowth:
+        "Future Growth",
+
+      fundamental:
+        "Fundamental",
+
+      fundamentalQuality:
+        "Fundamental",
+
+      capex:
+        "CAPEX",
+
+      capexScore:
+        "CAPEX"
+    };
+
+    for (
+      const [key, title]
+      of Object.entries(keyMap)
+    ) {
+
+      if (details[key]) {
+
+        items.push(
+          normalizeDetailItem(
+            title,
+            details[key]
+          )
+        );
+      }
+    }
+
+    /*
+    Support object with arbitrary labels
+    */
+
+    if (!items.length) {
+
+      for (
+        const [key, value]
+        of Object.entries(details)
+      ) {
+
+        if (
+          value &&
+          typeof value === "object"
+        ) {
+
+          items.push(
+            normalizeDetailItem(
+              key,
+              value
+            )
+          );
+        }
+      }
+    }
+  }
+
+  const validItems =
+    items.filter(Boolean);
+
+  if (!validItems.length) {
+
+    return `
+      <div class="pending">
+        Details not available.
+      </div>
+    `;
+  }
+
+  return validItems
+    .map(item => {
+
+      const reason =
+        escapeHtml(
+          item.reason ||
+          "No reason available."
+        );
+
+      const score =
+        item.score !== ""
+          ? escapeHtml(item.score)
+          : "—";
+
+      const mode =
+        item.mode
+          ? `
+            <div>
+              <strong>Mode:</strong>
+              ${escapeHtml(item.mode)}
+            </div>
+          `
+          : "";
+
+      const sourceDate =
+        item.sourceDate
+          ? `
+            <div>
+              <strong>Date:</strong>
+              ${escapeHtml(item.sourceDate)}
+            </div>
+          `
+          : "";
+
+      const source =
+        item.source
+          ? `
+            <div class="detail-source">
+              <strong>Source:</strong>
+              ${escapeHtml(item.source)}
+            </div>
+          `
+          : "";
+
+      return `
+
+        <div class="reason-section">
+
+          <h3>
+            ${escapeHtml(item.title)}
+            — ${score}
+          </h3>
+
+          <p>
+            ${reason}
+          </p>
+
+          ${mode}
+
+          ${sourceDate}
+
+          ${source}
+
+        </div>
+      `;
+    })
+    .join("");
+}
+
+
+function openReasonModal(
+  title,
+  score,
+  details
+) {
+
+  const modal =
+    el("reasonModal");
+
+  if (!modal) {
+    return;
+  }
+
+  el("reasonTitle").textContent =
+    title;
+
+  el("reasonScore").textContent =
+    score !== null &&
+    score !== undefined
+      ? `Score: ${Math.round(Number(score))}`
+      : "Score: Pending";
+
+  el("reasonText").innerHTML =
+    buildCombinedReasonHtml(details);
+
+  el("reasonSourceDate").textContent =
+    "";
+
+  const sourceLink =
+    el("reasonSourceLink");
+
+  if (sourceLink) {
+
+    sourceLink.style.display =
+      "none";
+  }
+
+  modal.classList.add("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
   );
 }
 
 
-function numberValue(id) {
-  const el = $(id);
+function closeReasonModal() {
+
+  const modal =
+    el("reasonModal");
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+}
+
+
+/*
+=========================================================
+SCORE BUTTON
+=========================================================
+*/
+
+function researchScoreButton(
+  rowIndex,
+  type,
+  score
+) {
+
+  const n = num(score);
+
+  if (n === null) {
+
+    return `
+      <span class="pending">
+        Pending
+      </span>
+    `;
+  }
+
+  return `
+    <button
+      type="button"
+      class="score-info-button"
+      data-row-index="${rowIndex}"
+      data-reason-type="${type}"
+    >
+      ${Math.round(n)}
+      <span class="info-icon">
+        ⓘ
+      </span>
+    </button>
+  `;
+}
+
+
+/*
+=========================================================
+FILTER VALUES
+=========================================================
+*/
+
+function inputNumber(id) {
+
+  const element =
+    el(id);
+
+  if (!element) {
+    return null;
+  }
 
   if (
-    !el ||
-    el.value === ""
+    element.value === ""
   ) {
     return null;
   }
 
-  const value =
-    Number(el.value);
-
-  return Number.isFinite(value)
-    ? value
-    : null;
+  return num(element.value);
 }
 
 
-function abovePass(
-  activeId,
-  inputId,
-  value
-) {
-  if (!isActive(activeId)) {
-    return true;
+function checked(id) {
+
+  return Boolean(
+    el(id)?.checked
+  );
+}
+
+
+/*
+=========================================================
+FILTERING
+=========================================================
+*/
+
+function passesFilters(row) {
+
+  /*
+  SEARCH
+  */
+
+  const q =
+    (
+      el("q")?.value ||
+      ""
+    )
+    .trim()
+    .toLowerCase();
+
+  if (q) {
+
+    const haystack = [
+
+      row.symbol,
+      row.name,
+      row.companyName,
+      row.isin,
+      row.sector,
+      row.industry
+
+    ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+    if (
+      !haystack.includes(q)
+    ) {
+      return false;
+    }
   }
 
-  const threshold =
-    numberValue(inputId);
 
-  if (threshold === null) {
-    return true;
-  }
+  /*
+  MARKET CAP
+  */
 
   if (
-    value === null ||
-    value === undefined ||
-    value === ""
+    checked("activeMarketCap")
   ) {
-    return false;
+
+    const threshold =
+      inputNumber(
+        "aboveMarketCap"
+      );
+
+    const value =
+      num(row.marketCapCr);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
   }
 
-  return Number(value) >= threshold;
+
+  /*
+  PRICE
+  */
+
+  if (
+    checked("activePrice")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "abovePrice"
+      );
+
+    const value =
+      num(row.price);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  CHANGE %
+  */
+
+  if (
+    checked("activeChange")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveChange"
+      );
+
+    const value =
+      num(row.changePct);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  TODAY TOTAL VOLUME
+  */
+
+  if (
+    checked("activeTodayVolume")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveTodayVolume"
+      );
+
+    const value =
+      totalVolume(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  TODAY DELIVERY
+  */
+
+  if (
+    checked("activeTodayDelivery")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveTodayDelivery"
+      );
+
+    const value =
+      todayDeliveryVolume(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  5D AVG DELIVERY
+  */
+
+  if (
+    checked("active5DDelivery")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "above5DDelivery"
+      );
+
+    const value =
+      avg5DayDelivery(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  DELIVERY TIMES
+  */
+
+  if (
+    checked("activeDeliveryRatio")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveDeliveryRatio"
+      );
+
+    const value =
+      deliveryTimes(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  DELIVERY %
+  */
+
+  if (
+    checked("activeDeliveryPct")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveDeliveryPct"
+      );
+
+    const value =
+      deliveryPercentage(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  5L VOLUME + 5% MOVE
+  */
+
+  if (
+    checked("activeHighVolMove")
+  ) {
+
+    if (
+      !qualifiesHighVolumeMove(row)
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  SECTOR
+  */
+
+  if (
+    checked("activeSector")
+  ) {
+
+    const value =
+      el("sectorFilter")?.value ||
+      "";
+
+    if (
+      value &&
+      row.sector !== value
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  INDUSTRY
+  */
+
+  if (
+    checked("activeIndustry")
+  ) {
+
+    const value =
+      el("industryFilter")?.value ||
+      "";
+
+    if (
+      value &&
+      row.industry !== value
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  SECTOR GROWTH
+  */
+
+  if (
+    checked("activeSectorGrowth")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveSectorGrowth"
+      );
+
+    const value =
+      num(row.sectorGrowth1M);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  STOCK GROWTH
+  */
+
+  if (
+    checked("activeStockGrowth")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveStockGrowth"
+      );
+
+    const value =
+      selectedStockGrowth(row);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  TMV
+  */
+
+  if (
+    checked("activeTMV")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveTMV"
+      );
+
+    const value =
+      num(row.tmvScore);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  GFC
+  */
+
+  if (
+    checked("activeGFC")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveGFC"
+      );
+
+    const value =
+      num(row.gfcScore);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  /*
+  OVERALL
+  */
+
+  if (
+    checked("activeOverall")
+  ) {
+
+    const threshold =
+      inputNumber(
+        "aboveOverall"
+      );
+
+    const value =
+      num(row.overallScore);
+
+    if (
+      value === null
+    ) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
+  return true;
 }
 
 
-function selectPass(
-  activeId,
-  selectId,
-  value
-) {
-  if (!isActive(activeId)) {
-    return true;
-  }
-
-  const selected =
-    $(selectId)?.value || "ALL";
-
-  if (selected === "ALL") {
-    return true;
-  }
-
-  return value === selected;
-}
-
-
-// =====================================================
-// STOCK GROWTH
-// =====================================================
-
-function selectedStockGrowth(row) {
-
-  const period =
-    $("stockGrowthPeriod")
-      ?.value || "3M";
-
-  if (period === "1M") {
-    return row.stockGrowth1M;
-  }
-
-  if (period === "6M") {
-    return row.stockGrowth6M;
-  }
-
-  return row.stockGrowth3M;
-}
-
-
-// =====================================================
-// SORT VALUE
-// =====================================================
+/*
+=========================================================
+SORTING
+=========================================================
+*/
 
 function sortValue(
   row,
   field
 ) {
 
-  if (field === "marketCapCr") {
-    return row.marketCapCr;
-  }
+  switch (field) {
 
-  if (field === "price") {
-    return row.price;
-  }
+    case "marketCapCr":
+      return num(row.marketCapCr);
 
-  if (field === "changePct") {
-    return row.changePct;
-  }
 
-  if (field === "todayDeliveryVolume") {
-    return row.todayDeliveryVolume;
-  }
+    case "price":
+      return num(row.price);
 
-  if (field === "avg5DayDeliveryVolume") {
-    return row.avg5DayDeliveryVolume;
-  }
 
-  if (field === "deliveryVolumeRatio") {
-    return row.deliveryVolumeRatio;
-  }
+    case "changePct":
+      return num(row.changePct);
 
-  if (field === "sectorGrowth1M") {
-    return row.sectorGrowth1M;
-  }
 
-  if (field === "stockGrowth") {
-    return selectedStockGrowth(row);
-  }
+    case "todayVolume":
+      return totalVolume(row);
 
-  if (field === "tmvScore") {
-    return row.tmvScore;
-  }
 
-  if (field === "gfcScore") {
-    return row.gfcScore;
-  }
+    case "todayDeliveryVolume":
+      return todayDeliveryVolume(row);
 
-  if (field === "overallScore") {
-    return row.overallScore;
-  }
 
-  return null;
+    case "avg5DayDeliveryVolume":
+      return avg5DayDelivery(row);
+
+
+    case "deliveryVolumeRatio":
+      return deliveryTimes(row);
+
+
+    case "deliveryPct":
+      return deliveryPercentage(row);
+
+
+    case "highVolMove":
+
+      /*
+      Qualifying stocks first.
+
+      Within qualifying stocks,
+      absolute Change % higher first.
+      */
+
+      if (
+        !qualifiesHighVolumeMove(row)
+      ) {
+        return null;
+      }
+
+      return Math.abs(
+        num(row.changePct) || 0
+      );
+
+
+    case "sectorGrowth1M":
+      return num(row.sectorGrowth1M);
+
+
+    case "stockGrowth":
+      return selectedStockGrowth(row);
+
+
+    case "tmvScore":
+      return num(row.tmvScore);
+
+
+    case "gfcScore":
+      return num(row.gfcScore);
+
+
+    case "overallScore":
+      return num(row.overallScore);
+
+
+    default:
+      return null;
+  }
 }
 
-
-// =====================================================
-// FILTER ENGINE
-// =====================================================
-
-function filters() {
-
-  const q =
-    $("q")
-      ?.value
-      .trim()
-      .toLowerCase() || "";
-
-  return all.filter(row => {
-
-    const searchable =
-      (
-        `${row.symbol || ""} ` +
-        `${row.name || ""} ` +
-        `${row.isin || ""} ` +
-        `${row.sector || ""} ` +
-        `${row.industry || ""}`
-      ).toLowerCase();
-
-    const searchPass =
-      !q ||
-      searchable.includes(q);
-
-    const stockGrowth =
-      selectedStockGrowth(row);
-
-    return (
-
-      searchPass &&
-
-      abovePass(
-        "activeMarketCap",
-        "aboveMarketCap",
-        row.marketCapCr
-      ) &&
-
-      abovePass(
-        "activePrice",
-        "abovePrice",
-        row.price
-      ) &&
-
-      abovePass(
-        "activeChange",
-        "aboveChange",
-        row.changePct
-      ) &&
-
-      abovePass(
-        "activeTodayDelivery",
-        "aboveTodayDelivery",
-        row.todayDeliveryVolume
-      ) &&
-
-      abovePass(
-        "active5DDelivery",
-        "above5DDelivery",
-        row.avg5DayDeliveryVolume
-      ) &&
-
-      abovePass(
-        "activeDeliveryRatio",
-        "aboveDeliveryRatio",
-        row.deliveryVolumeRatio
-      ) &&
-
-      selectPass(
-        "activeSector",
-        "sectorFilter",
-        row.sector
-      ) &&
-
-      selectPass(
-        "activeIndustry",
-        "industryFilter",
-        row.industry
-      ) &&
-
-      abovePass(
-        "activeSectorGrowth",
-        "aboveSectorGrowth",
-        row.sectorGrowth1M
-      ) &&
-
-      abovePass(
-        "activeStockGrowth",
-        "aboveStockGrowth",
-        stockGrowth
-      ) &&
-
-      abovePass(
-        "activeTMV",
-        "aboveTMV",
-        row.tmvScore
-      ) &&
-
-      abovePass(
-        "activeGFC",
-        "aboveGFC",
-        row.gfcScore
-      ) &&
-
-      abovePass(
-        "activeOverall",
-        "aboveOverall",
-        row.overallScore
-      )
-    );
-  });
-}
-
-
-// =====================================================
-// SORTING
-// =====================================================
 
 function compareNumericDesc(
   a,
@@ -479,56 +1489,50 @@ function compareNumericDesc(
       field
     );
 
-  const aValid =
-    av !== null &&
-    av !== undefined &&
-    av !== "" &&
-    Number.isFinite(
-      Number(av)
-    );
 
-  const bValid =
-    bv !== null &&
-    bv !== undefined &&
-    bv !== "" &&
-    Number.isFinite(
-      Number(bv)
-    );
+  /*
+  Both missing
+  */
 
-
-  // Both valid
   if (
-    aValid &&
-    bValid
+    av === null &&
+    bv === null
   ) {
-
-    const diff =
-      Number(bv) -
-      Number(av);
-
-    if (diff !== 0) {
-      return diff;
-    }
+    return 0;
   }
 
 
-  // A valid, B pending
+  /*
+  A missing => move A down
+  */
+
   if (
-    aValid &&
-    !bValid
+    av === null
+  ) {
+    return 1;
+  }
+
+
+  /*
+  B missing => move B down
+  */
+
+  if (
+    bv === null
   ) {
     return -1;
   }
 
 
-  // B valid, A pending
-  if (
-    !aValid &&
-    bValid
-  ) {
-    return 1;
-  }
+  /*
+  Highest -> Lowest
+  */
 
+  if (
+    bv !== av
+  ) {
+    return bv - av;
+  }
 
   return 0;
 }
@@ -536,1572 +1540,1392 @@ function compareNumericDesc(
 
 function rankStocks(rows) {
 
-  return [...rows].sort(
-    (a, b) => {
+  return [...rows]
+    .sort(
+      (
+        a,
+        b
+      ) => {
 
-      // =================================================
-      // PRIMARY SORT:
-      // LAST ACTIVATED / CHANGED NUMERIC FILTER
-      // =================================================
+        /*
+        =================================================
+        PRIMARY SORT
 
-      if (activeSortField) {
+        If a numeric column is ACTIVE:
+        Active column High -> Low
+        =================================================
+        */
 
-        const primary =
-          compareNumericDesc(
-            a,
-            b,
-            activeSortField
-          );
+        if (
+          activeSortField
+        ) {
 
-        if (primary !== 0) {
-          return primary;
+          const primary =
+            compareNumericDesc(
+              a,
+              b,
+              activeSortField
+            );
+
+          if (
+            primary !== 0
+          ) {
+            return primary;
+          }
         }
-      }
 
 
-      // =================================================
-      // SECONDARY SORT:
-      // OVERALL SCORE HIGH TO LOW
-      // =================================================
+        /*
+        =================================================
+        NORMAL / SECONDARY SORT
 
-      if (
-        activeSortField !==
-        "overallScore"
-      ) {
+        Change % Highest -> Lowest
 
-        const overall =
-          compareNumericDesc(
-            a,
-            b,
-            "overallScore"
-          );
+        This is also fallback when active-column values
+        are equal.
+        =================================================
+        */
 
-        if (overall !== 0) {
-          return overall;
+        if (
+          activeSortField !==
+          "changePct"
+        ) {
+
+          const changeSort =
+            compareNumericDesc(
+              a,
+              b,
+              "changePct"
+            );
+
+          if (
+            changeSort !== 0
+          ) {
+            return changeSort;
+          }
         }
+
+
+        /*
+        FINAL TIE BREAK
+        */
+
+        const nameA =
+          (
+            a.name ||
+            a.companyName ||
+            a.symbol ||
+            ""
+          )
+          .toLowerCase();
+
+        const nameB =
+          (
+            b.name ||
+            b.companyName ||
+            b.symbol ||
+            ""
+          )
+          .toLowerCase();
+
+        return nameA.localeCompare(
+          nameB
+        );
       }
-
-
-      // =================================================
-      // FINAL TIE BREAK:
-      // COMPANY NAME
-      // =================================================
-
-      return (
-        a.name || ""
-      ).localeCompare(
-        b.name || ""
-      );
-    }
-  );
+    );
 }
 
 
-// =====================================================
-// DROPDOWNS
-// =====================================================
+/*
+=========================================================
+ACTIVE SORT FIELD
+=========================================================
+*/
+
+const sortFieldByActiveCheckbox = {
+
+  activeMarketCap:
+    "marketCapCr",
+
+  activePrice:
+    "price",
+
+  activeChange:
+    "changePct",
+
+  activeTodayVolume:
+    "todayVolume",
+
+  activeTodayDelivery:
+    "todayDeliveryVolume",
+
+  active5DDelivery:
+    "avg5DayDeliveryVolume",
+
+  activeDeliveryRatio:
+    "deliveryVolumeRatio",
+
+  activeDeliveryPct:
+    "deliveryPct",
+
+  activeHighVolMove:
+    "highVolMove",
+
+  activeSectorGrowth:
+    "sectorGrowth1M",
+
+  activeStockGrowth:
+    "stockGrowth",
+
+  activeTMV:
+    "tmvScore",
+
+  activeGFC:
+    "gfcScore",
+
+  activeOverall:
+    "overallScore"
+
+};
+
+
+/*
+Find most recently active numeric checkbox.
+
+Only an ACTIVE checkbox changes sorting.
+Typing into a box without activating it
+will NOT change sorting.
+*/
+
+function updateActiveSortFromCheckbox(
+  checkboxId
+) {
+
+  const checkbox =
+    el(checkboxId);
+
+  const field =
+    sortFieldByActiveCheckbox[
+      checkboxId
+    ];
+
+  if (
+    !checkbox ||
+    !field
+  ) {
+    return;
+  }
+
+  if (
+    checkbox.checked
+  ) {
+
+    activeSortField =
+      field;
+
+  } else if (
+    activeSortField === field
+  ) {
+
+    activeSortField =
+      findAnotherActiveSortField();
+  }
+}
+
+
+function findAnotherActiveSortField() {
+
+  for (
+    const [
+      checkboxId,
+      field
+    ]
+    of Object.entries(
+      sortFieldByActiveCheckbox
+    )
+  ) {
+
+    if (
+      el(checkboxId)?.checked
+    ) {
+
+      return field;
+    }
+  }
+
+  return null;
+}
+
+
+/*
+=========================================================
+SECTOR / INDUSTRY OPTIONS
+=========================================================
+*/
+
+function fillSelectOptions(
+  id,
+  values
+) {
+
+  const select =
+    el(id);
+
+  if (!select) {
+    return;
+  }
+
+  const current =
+    select.value;
+
+  const unique =
+    [...new Set(
+      values
+        .filter(Boolean)
+        .map(v =>
+          String(v).trim()
+        )
+        .filter(Boolean)
+    )]
+    .sort(
+      (
+        a,
+        b
+      ) =>
+        a.localeCompare(b)
+    );
+
+  select.innerHTML =
+    `
+      <option value="">
+        All
+      </option>
+    `;
+
+  for (
+    const value
+    of unique
+  ) {
+
+    const option =
+      document.createElement(
+        "option"
+      );
+
+    option.value =
+      value;
+
+    option.textContent =
+      value;
+
+    select.appendChild(
+      option
+    );
+  }
+
+  if (
+    unique.includes(current)
+  ) {
+
+    select.value =
+      current;
+  }
+}
+
 
 function populateDropdowns() {
 
-  const sectors = [
-    ...new Set(
-      all
-        .map(
-          row => row.sector
-        )
-        .filter(
-          value =>
-            value &&
-            value !== "Unclassified"
-        )
+  fillSelectOptions(
+    "sectorFilter",
+    allStocks.map(
+      row =>
+        row.sector
     )
-  ].sort();
-
-
-  const industries = [
-    ...new Set(
-      all
-        .map(
-          row => row.industry
-        )
-        .filter(
-          value =>
-            value &&
-            value !== "Unclassified"
-        )
-    )
-  ].sort();
-
-
-  if ($("sectorFilter")) {
-
-    $("sectorFilter").innerHTML =
-      '<option value="ALL">All sectors</option>' +
-      sectors
-        .map(
-          value =>
-            `<option value="${value}">${value}</option>`
-        )
-        .join("");
-  }
-
-
-  if ($("industryFilter")) {
-
-    $("industryFilter").innerHTML =
-      '<option value="ALL">All industries</option>' +
-      industries
-        .map(
-          value =>
-            `<option value="${value}">${value}</option>`
-        )
-        .join("");
-  }
-}
-
-
-// =====================================================
-// PAGINATION
-// =====================================================
-
-function getFilteredData() {
-  return rankStocks(
-    filters()
   );
-}
 
-
-function totalPagesFor(rows) {
-
-  return Math.max(
-    1,
-    Math.ceil(
-      rows.length /
-      PAGE
+  fillSelectOptions(
+    "industryFilter",
+    allStocks.map(
+      row =>
+        row.industry
     )
   );
 }
 
 
-function updatePageControls(
-  pages
-) {
+/*
+=========================================================
+RENDER TABLE
+=========================================================
+*/
 
-  if ($("page")) {
-    $("page").textContent =
-      `Page ${page} / ${pages}`;
-  }
+function renderRows() {
 
-  if ($("prev")) {
-    $("prev").disabled =
-      page <= 1;
-  }
+  const tbody =
+    el("rows");
 
-  if ($("next")) {
-    $("next").disabled =
-      page >= pages;
-  }
-
-  if ($("gotoPage")) {
-
-    $("gotoPage").max =
-      pages;
-
-    $("gotoPage").value =
-      page;
-  }
-}
-
-
-function goToPage(value) {
-
-  const filtered =
-    getFilteredData();
-
-  const pages =
-    totalPagesFor(
-      filtered
-    );
-
-  let target =
-    Number(value);
-
-  if (
-    !Number.isFinite(target)
-  ) {
-    target = 1;
-  }
-
-  target =
-    Math.round(target);
-
-  if (target < 1) {
-    target = 1;
-  }
-
-  if (target > pages) {
-    target = pages;
-  }
-
-  page =
-    target;
-
-  render();
-
-  const wrap =
-    document.querySelector(
-      ".tablewrap"
-    );
-
-  if (wrap) {
-    wrap.scrollTop = 0;
-  }
-}
-
-
-// =====================================================
-// TABLE RENDER
-// =====================================================
-
-function render() {
-
-  const filtered =
-    getFilteredData();
-
-  const pages =
-    totalPagesFor(
-      filtered
-    );
-
-  if (page > pages) {
-    page = pages;
-  }
-
-  if (page < 1) {
-    page = 1;
-  }
-
-
-  const rows =
-    filtered.slice(
-      (page - 1) * PAGE,
-      page * PAGE
-    );
-
-
-  if ($("resultCount")) {
-
-    $("resultCount").textContent =
-      `${filtered.length.toLocaleString()} matched`;
-  }
-
-
-  updatePageControls(
-    pages
-  );
-
-
-  if (!$("rows")) {
+  if (!tbody) {
     return;
   }
 
+  filteredStocks =
+    rankStocks(
+      allStocks.filter(
+        passesFilters
+      )
+    );
 
-  $("rows").innerHTML =
-    rows.map(row => {
+  const total =
+    filteredStocks.length;
 
-      const stockGrowth =
-        selectedStockGrowth(row);
-
-      return `
-        <tr>
-
-          <td class="stock-col">
-
-            <div class="name">
-              ${row.name || row.symbol}
-            </div>
-
-            <div class="sub">
-              ${row.symbol || "—"}
-              •
-              ${row.isin || "—"}
-              •
-              ${row.board || ""}
-            </div>
-
-          </td>
-
-
-          <td>
-            ${marketCapVal(row)}
-          </td>
-
-
-          <td>
-            ${
-              row.price == null
-                ? '<span class="pending">Pending EOD</span>'
-                : `₹${Number(row.price).toFixed(2)}`
-            }
-          </td>
-
-
-          <td>
-            ${pct(
-              row.changePct
-            )}
-          </td>
-
-
-          <td>
-            ${volumeVal(
-              row.todayDeliveryVolume
-            )}
-          </td>
-
-
-          <td>
-            ${volumeVal(
-              row.avg5DayDeliveryVolume
-            )}
-          </td>
-
-
-          <td>
-            ${ratioVal(
-              row.deliveryVolumeRatio
-            )}
-          </td>
-
-
-          <td>
-            ${row.sector || "Unclassified"}
-          </td>
-
-
-          <td>
-            ${row.industry || "Unclassified"}
-          </td>
-
-
-          <td>
-            ${pct(
-              row.sectorGrowth1M
-            )}
-          </td>
-
-
-          <td>
-            ${pct(
-              stockGrowth
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.tmvScore,
-              row,
-              "tmv",
-              "T + M + VM"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.gfcScore,
-              row,
-              "gfc",
-              "G + F + C"
-            )}
-          </td>
-
-
-          <td>
-            ${scoreVal(
-              row.overallScore
-            )}
-          </td>
-
-        </tr>
-      `;
-    }).join("");
-
-
-  attachScoreButtons();
-
-  syncTopScrollbarWidth();
-}
-
-
-// =====================================================
-// REASON HELPERS
-// =====================================================
-
-function safeDetail(detail) {
+  const totalPages =
+    Math.max(
+      1,
+      Math.ceil(
+        total /
+        PAGE_SIZE
+      )
+    );
 
   if (
-    !detail ||
-    typeof detail !== "object"
+    currentPage >
+    totalPages
   ) {
 
-    return {
-      score: null,
-      reason: "",
-      source: "",
-      sourceDate: "",
-      mode: ""
-    };
-  }
-
-  return {
-
-    score:
-      detail.score ?? null,
-
-    reason:
-      detail.reason || "",
-
-    source:
-      detail.source || "",
-
-    sourceDate:
-      detail.sourceDate || "",
-
-    mode:
-      detail.mode || ""
-  };
-}
-
-
-function modeText(mode) {
-
-  if (mode === "VERIFIED") {
-    return "VERIFIED";
+    currentPage =
+      totalPages;
   }
 
   if (
-    mode === "AUTOMATED" ||
-    mode === "AUTOMATED_PROXY"
+    currentPage < 1
   ) {
-    return "Automated";
+
+    currentPage =
+      1;
   }
 
-  return "";
-}
+  const start =
+    (
+      currentPage -
+      1
+    ) *
+    PAGE_SIZE;
 
-
-function combinedBlock(
-  title,
-  detail
-) {
-
-  const d =
-    safeDetail(detail);
-
-
-  const scoreText =
-    d.score == null
-      ? "Pending"
-      : `${Number(d.score).toFixed(0)} / 100`;
-
-
-  const mode =
-    modeText(
-      d.mode
+  const pageRows =
+    filteredStocks.slice(
+      start,
+      start + PAGE_SIZE
     );
 
 
-  const reason =
-    d.reason ||
-    "Detailed reason/source has not yet been added.";
+  tbody.innerHTML =
+    pageRows
+      .map(
+        (
+          row,
+          localIndex
+        ) => {
+
+          const globalIndex =
+            allStocks.indexOf(row);
+
+          const companyName =
+            escapeHtml(
+              row.name ||
+              row.companyName ||
+              row.symbol ||
+              "—"
+            );
+
+          const symbol =
+            escapeHtml(
+              row.symbol ||
+              ""
+            );
+
+          const sector =
+            escapeHtml(
+              row.sector ||
+              "—"
+            );
+
+          const industry =
+            escapeHtml(
+              row.industry ||
+              "—"
+            );
+
+          const stockGrowth =
+            selectedStockGrowth(row);
+
+          const deliveryPct =
+            deliveryPercentage(row);
+
+          const volume =
+            totalVolume(row);
+
+          return `
+
+            <tr>
+
+              <!-- STOCK -->
+
+              <td>
+
+                <div class="stock-cell">
+
+                  <strong>
+                    ${companyName}
+                  </strong>
+
+                  ${
+                    symbol
+                      ? `
+                        <small>
+                          ${symbol}
+                        </small>
+                      `
+                      : ""
+                  }
+
+                </div>
+
+              </td>
 
 
-  const sourceDate =
-    d.sourceDate
-      ? `Source date: ${d.sourceDate}`
-      : "";
+              <!-- MARKET CAP -->
+
+              <td>
+                ${marketCapVal(row)}
+              </td>
 
 
-  const source =
-    d.source
-      ? `
-        <a
-          href="${d.source}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="reason-source-link"
-        >
-          View Source
-        </a>
-      `
-      : "";
+              <!-- PRICE -->
+
+              <td>
+                ${formatPrice(row.price)}
+              </td>
 
 
-  return `
-    <div style="
-      padding:12px 0;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    ">
+              <!-- CHANGE -->
 
-      <div style="
-        font-weight:800;
-        margin-bottom:6px;
-      ">
-        ${title}
-      </div>
+              <td>
+                ${formatPct(row.changePct)}
+              </td>
 
-      <div style="
-        margin-bottom:6px;
-      ">
-        Score:
-        <strong>
-          ${scoreText}
-        </strong>
 
-        ${
-          mode
-            ? ` • ${mode}`
-            : ""
+              <!-- TODAY TOTAL VOLUME -->
+
+              <td>
+                ${
+                  volume === null
+                    ? `
+                      <span class="pending">
+                        —
+                      </span>
+                    `
+                    : formatNumber(volume)
+                }
+              </td>
+
+
+              <!-- TODAY DELIVERY -->
+
+              <td>
+                ${
+                  todayDeliveryVolume(row) === null
+                    ? `
+                      <span class="pending">
+                        —
+                      </span>
+                    `
+                    : formatNumber(
+                        todayDeliveryVolume(row)
+                      )
+                }
+              </td>
+
+
+              <!-- 5D AVG DELIVERY -->
+
+              <td>
+                ${
+                  avg5DayDelivery(row) === null
+                    ? `
+                      <span class="pending">
+                        —
+                      </span>
+                    `
+                    : formatNumber(
+                        avg5DayDelivery(row)
+                      )
+                }
+              </td>
+
+
+              <!-- DELIVERY TIMES -->
+
+              <td>
+                ${formatTimes(
+                  deliveryTimes(row)
+                )}
+              </td>
+
+
+              <!-- DELIVERY % -->
+
+              <td>
+                ${formatPlainPct(
+                  deliveryPct
+                )}
+              </td>
+
+
+              <!-- 5L VOL + 5% MOVE -->
+
+              <td>
+                ${highVolumeMoveVal(row)}
+              </td>
+
+
+              <!-- SECTOR -->
+
+              <td>
+                ${sector}
+              </td>
+
+
+              <!-- INDUSTRY -->
+
+              <td>
+                ${industry}
+              </td>
+
+
+              <!-- SECTOR GROWTH -->
+
+              <td>
+                ${formatPct(
+                  row.sectorGrowth1M
+                )}
+              </td>
+
+
+              <!-- STOCK GROWTH -->
+
+              <td>
+                ${formatPct(
+                  stockGrowth
+                )}
+              </td>
+
+
+              <!-- TMV -->
+
+              <td>
+
+                ${researchScoreButton(
+                  globalIndex,
+                  "tmv",
+                  row.tmvScore
+                )}
+
+              </td>
+
+
+              <!-- GFC -->
+
+              <td>
+
+                ${researchScoreButton(
+                  globalIndex,
+                  "gfc",
+                  row.gfcScore
+                )}
+
+              </td>
+
+
+              <!-- OVERALL -->
+
+              <td>
+
+                <strong class="overall-score">
+
+                  ${formatScore(
+                    row.overallScore
+                  )}
+
+                </strong>
+
+              </td>
+
+            </tr>
+          `;
         }
-      </div>
-
-      <div style="
-        margin-bottom:6px;
-        line-height:1.5;
-      ">
-        ${reason}
-      </div>
-
-      <div class="reason-source-date">
-        ${sourceDate}
-      </div>
-
-      ${source}
-
-    </div>
-  `;
-}
+      )
+      .join("");
 
 
-// =====================================================
-// COMBINED SCORE MODAL
-// =====================================================
-
-function openCombinedModal(
-  row,
-  field,
-  label
-) {
-
-  if ($("reasonTitle")) {
-
-    $("reasonTitle").textContent =
-      `${row.symbol} • ${label}`;
-  }
-
-
-  let score = null;
-
-  let details = null;
-
-  let blocks = "";
-
+  /*
+  Result count
+  */
 
   if (
-    field === "tmv"
+    el("resultCount")
   ) {
 
-    score =
-      row.tmvScore;
-
-    details =
-      row.tmvDetails || {};
-
-    blocks =
-
-      combinedBlock(
-        "Tailwind",
-        details.tailwind
-      )
-
-      +
-
-      combinedBlock(
-        "Macro",
-        details.macro
-      )
-
-      +
-
-      combinedBlock(
-        "Value Migration",
-        details.valueMigration
-      );
+    el("resultCount").textContent =
+      `${total.toLocaleString(
+        "en-IN"
+      )} matched`;
   }
 
 
-  else if (
-    field === "gfc"
-  ) {
-
-    score =
-      row.gfcScore;
-
-    details =
-      row.gfcDetails || {};
-
-    blocks =
-
-      combinedBlock(
-        "Future Growth",
-        details.futureGrowth
-      )
-
-      +
-
-      combinedBlock(
-        "Fundamental Quality",
-        details.fundamentalQuality
-      )
-
-      +
-
-      combinedBlock(
-        "CAPEX",
-        details.capex
-      );
-  }
-
-
-  if ($("reasonScore")) {
-
-    $("reasonScore").textContent =
-
-      score == null
-        ? "Combined Score: Pending"
-        : `Combined Score: ${Number(score).toFixed(0)} / 100`;
-  }
-
-
-  if ($("reasonText")) {
-
-    $("reasonText").innerHTML =
-      blocks;
-  }
-
-
-  if ($("reasonSourceDate")) {
-
-    $("reasonSourceDate").textContent =
-      "";
-  }
-
-
-  if ($("reasonSourceLink")) {
-
-    $("reasonSourceLink")
-      .style.display =
-        "none";
-  }
-
-
-  const modal =
-    $("reasonModal");
-
-
-  if (!modal) {
-    return;
-  }
-
-
-  modal.classList.add(
-    "open"
-  );
-
-
-  modal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-}
-
-
-// =====================================================
-// OPEN REASON MODAL
-// =====================================================
-
-function openReasonModal(
-  symbol,
-  field,
-  label
-) {
-
-  const row =
-    all.find(
-      item =>
-        item.symbol === symbol
-    );
-
-
-  if (!row) {
-    return;
-  }
-
+  /*
+  Page text
+  */
 
   if (
-    field === "tmv" ||
-    field === "gfc"
+    el("page")
   ) {
 
-    openCombinedModal(
-      row,
-      field,
-      label
-    );
-
-    return;
-  }
-}
-
-
-// =====================================================
-// CLOSE MODAL
-// =====================================================
-
-function closeReasonModal() {
-
-  const modal =
-    $("reasonModal");
-
-
-  if (!modal) {
-    return;
+    el("page").textContent =
+      `Page ${currentPage} of ${totalPages}`;
   }
 
 
-  modal.classList.remove(
-    "open"
-  );
+  /*
+  Pagination buttons
+  */
+
+  if (
+    el("prev")
+  ) {
+
+    el("prev").disabled =
+      currentPage <= 1;
+  }
+
+  if (
+    el("next")
+  ) {
+
+    el("next").disabled =
+      currentPage >= totalPages;
+  }
 
 
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+  /*
+  Top scrollbar width
+  */
+
+  syncTopScrollbar();
+
+
+  /*
+  Score detail buttons
+  */
+
+  setupReasonButtons();
 }
 
 
-function attachScoreButtons() {
+/*
+=========================================================
+REASON BUTTON EVENTS
+=========================================================
+*/
+
+function setupReasonButtons() {
 
   document
     .querySelectorAll(
-      ".score-button"
+      ".score-info-button"
     )
-    .forEach(button => {
+    .forEach(
+      button => {
 
-      button.onclick =
-        () => {
+        button.addEventListener(
+          "click",
+          () => {
 
-          openReasonModal(
+            const index =
+              Number(
+                button.dataset.rowIndex
+              );
 
-            decodeURIComponent(
-              button.dataset.symbol || ""
-            ),
+            const type =
+              button.dataset.reasonType;
 
-            decodeURIComponent(
-              button.dataset.field || ""
-            ),
+            const row =
+              allStocks[index];
 
-            decodeURIComponent(
-              button.dataset.label || ""
-            )
+            if (!row) {
+              return;
+            }
 
-          );
-        };
-    });
+            if (
+              type === "tmv"
+            ) {
+
+              openReasonModal(
+                `${
+                  row.symbol ||
+                  row.name ||
+                  "Stock"
+                } — T + M + VM`,
+                row.tmvScore,
+                row.tmvDetails
+              );
+
+              return;
+            }
+
+            if (
+              type === "gfc"
+            ) {
+
+              openReasonModal(
+                `${
+                  row.symbol ||
+                  row.name ||
+                  "Stock"
+                } — G + F + C`,
+                row.gfcScore,
+                row.gfcDetails
+              );
+            }
+          }
+        );
+      }
+    );
 }
 
 
-// =====================================================
-// TOP SCROLLBAR
-// =====================================================
+/*
+=========================================================
+FILTER EVENT SETUP
+=========================================================
+*/
 
-function syncTopScrollbarWidth() {
+function applyFilterChange() {
 
-  const inner =
-    $("topScrollInner");
+  currentPage = 1;
 
-  const wrap =
-    document.querySelector(
-      ".tablewrap"
+  renderRows();
+}
+
+
+function setupFilterEvents() {
+
+  /*
+  Search
+  */
+
+  el("q")?.addEventListener(
+    "input",
+    () => {
+
+      currentPage = 1;
+
+      renderRows();
+    }
+  );
+
+
+  /*
+  Numeric Active checkboxes
+  */
+
+  for (
+    const checkboxId
+    of Object.keys(
+      sortFieldByActiveCheckbox
+    )
+  ) {
+
+    el(checkboxId)
+      ?.addEventListener(
+        "change",
+        () => {
+
+          updateActiveSortFromCheckbox(
+            checkboxId
+          );
+
+          applyFilterChange();
+        }
+      );
+  }
+
+
+  /*
+  Numeric inputs
+
+  IMPORTANT:
+  Input alone does NOT change sort.
+  Sort only follows its ACTIVE checkbox.
+  */
+
+  const numericInputs = [
+
+    "aboveMarketCap",
+    "abovePrice",
+    "aboveChange",
+
+    "aboveTodayVolume",
+    "aboveTodayDelivery",
+    "above5DDelivery",
+
+    "aboveDeliveryRatio",
+    "aboveDeliveryPct",
+
+    "aboveSectorGrowth",
+    "aboveStockGrowth",
+
+    "aboveTMV",
+    "aboveGFC",
+    "aboveOverall"
+
+  ];
+
+  numericInputs.forEach(
+    id => {
+
+      el(id)?.addEventListener(
+        "input",
+        applyFilterChange
+      );
+    }
+  );
+
+
+  /*
+  Sector / Industry
+  */
+
+  el("activeSector")
+    ?.addEventListener(
+      "change",
+      applyFilterChange
     );
 
-  const table =
-    $("stockTable");
+  el("sectorFilter")
+    ?.addEventListener(
+      "change",
+      applyFilterChange
+    );
 
+
+  el("activeIndustry")
+    ?.addEventListener(
+      "change",
+      applyFilterChange
+    );
+
+  el("industryFilter")
+    ?.addEventListener(
+      "change",
+      applyFilterChange
+    );
+
+
+  /*
+  Stock Growth Period
+  */
+
+  el("stockGrowthPeriod")
+    ?.addEventListener(
+      "change",
+      () => {
+
+        /*
+        Only use Stock Growth as sort
+        if Stock Growth is ACTIVE.
+        */
+
+        if (
+          checked(
+            "activeStockGrowth"
+          )
+        ) {
+
+          activeSortField =
+            "stockGrowth";
+        }
+
+        applyFilterChange();
+      }
+    );
+}
+
+
+/*
+=========================================================
+RESET
+=========================================================
+*/
+
+function resetFilters() {
+
+  /*
+  Search
+  */
 
   if (
-    !inner ||
-    !wrap ||
+    el("q")
+  ) {
+    el("q").value = "";
+  }
+
+
+  /*
+  Checkboxes
+  */
+
+  const checkboxes =
+    document.querySelectorAll(
+      '.filter-row input[type="checkbox"]'
+    );
+
+  checkboxes.forEach(
+    checkbox => {
+
+      checkbox.checked =
+        false;
+    }
+  );
+
+
+  /*
+  Number/text inputs
+  */
+
+  const inputs =
+    document.querySelectorAll(
+      '.filter-row input:not([type="checkbox"])'
+    );
+
+  inputs.forEach(
+    input => {
+
+      input.value =
+        "";
+    }
+  );
+
+
+  /*
+  Selects
+  */
+
+  if (
+    el("sectorFilter")
+  ) {
+
+    el("sectorFilter").value =
+      "";
+  }
+
+  if (
+    el("industryFilter")
+  ) {
+
+    el("industryFilter").value =
+      "";
+  }
+
+  if (
+    el("stockGrowthPeriod")
+  ) {
+
+    el("stockGrowthPeriod").value =
+      "3M";
+  }
+
+
+  /*
+  Back to NORMAL sorting:
+  Change % Highest -> Lowest
+  */
+
+  activeSortField =
+    null;
+
+  currentPage =
+    1;
+
+  renderRows();
+}
+
+
+/*
+=========================================================
+PAGINATION
+=========================================================
+*/
+
+function setupPagination() {
+
+  el("prev")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        if (
+          currentPage > 1
+        ) {
+
+          currentPage--;
+
+          renderRows();
+
+          scrollTableTop();
+        }
+      }
+    );
+
+
+  el("next")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const totalPages =
+          Math.max(
+            1,
+            Math.ceil(
+              filteredStocks.length /
+              PAGE_SIZE
+            )
+          );
+
+        if (
+          currentPage <
+          totalPages
+        ) {
+
+          currentPage++;
+
+          renderRows();
+
+          scrollTableTop();
+        }
+      }
+    );
+
+
+  el("gotoPage")
+    ?.addEventListener(
+      "change",
+      () => {
+
+        const requested =
+          Number(
+            el("gotoPage").value
+          );
+
+        const totalPages =
+          Math.max(
+            1,
+            Math.ceil(
+              filteredStocks.length /
+              PAGE_SIZE
+            )
+          );
+
+        if (
+          Number.isFinite(requested)
+        ) {
+
+          currentPage =
+            Math.min(
+              Math.max(
+                1,
+                Math.floor(requested)
+              ),
+              totalPages
+            );
+
+          renderRows();
+
+          scrollTableTop();
+        }
+      }
+    );
+}
+
+
+function scrollTableTop() {
+
+  const wrap =
+    el("tableWrap");
+
+  if (
+    wrap
+  ) {
+
+    wrap.scrollTop =
+      0;
+  }
+}
+
+
+/*
+=========================================================
+TOP SCROLLBAR
+=========================================================
+*/
+
+function syncTopScrollbar() {
+
+  const topScroll =
+    el("topScroll");
+
+  const topInner =
+    el("topScrollInner");
+
+  const tableWrap =
+    el("tableWrap");
+
+  const table =
+    tableWrap?.querySelector(
+      "table"
+    );
+
+  if (
+    !topScroll ||
+    !topInner ||
+    !tableWrap ||
     !table
   ) {
     return;
   }
 
-
-  inner.style.width =
+  topInner.style.width =
     `${table.scrollWidth}px`;
 }
 
 
-function setupTopScrollbar() {
+function setupScrollSync() {
 
-  const top =
-    $("topScroll");
+  const topScroll =
+    el("topScroll");
 
-  const wrap =
-    document.querySelector(
-      ".tablewrap"
-    );
-
+  const tableWrap =
+    el("tableWrap");
 
   if (
-    !top ||
-    !wrap
+    !topScroll ||
+    !tableWrap
   ) {
     return;
   }
 
+  let syncing =
+    false;
 
-  let topSync = false;
-  let tableSync = false;
-
-
-  top.addEventListener(
+  topScroll.addEventListener(
     "scroll",
     () => {
 
-      if (tableSync) {
+      if (syncing) {
         return;
       }
 
-      topSync = true;
+      syncing =
+        true;
 
-      wrap.scrollLeft =
-        top.scrollLeft;
+      tableWrap.scrollLeft =
+        topScroll.scrollLeft;
 
-      topSync = false;
+      syncing =
+        false;
     }
   );
 
 
-  wrap.addEventListener(
+  tableWrap.addEventListener(
     "scroll",
     () => {
 
-      if (topSync) {
+      if (syncing) {
         return;
       }
 
-      tableSync = true;
+      syncing =
+        true;
 
-      top.scrollLeft =
-        wrap.scrollLeft;
+      topScroll.scrollLeft =
+        tableWrap.scrollLeft;
 
-      tableSync = false;
+      syncing =
+        false;
     }
   );
 
 
   window.addEventListener(
     "resize",
-    syncTopScrollbarWidth
+    syncTopScrollbar
   );
 }
 
 
-// =====================================================
-// DATES + STATS
-// =====================================================
+/*
+=========================================================
+STATS
+=========================================================
+*/
 
-function latestMarketDate() {
+function updateStats(
+  stocks,
+  meta
+) {
 
-  const delivery =
-    all.find(
-      row =>
-        row.deliveryDate
-    )?.deliveryDate;
+  if (
+    el("totalStocks")
+  ) {
 
-
-  if (delivery) {
-    return delivery;
+    el("totalStocks").textContent =
+      stocks.length.toLocaleString(
+        "en-IN"
+      );
   }
-
-
-  return (
-    all.find(
-      row =>
-        row.priceDate
-    )?.priceDate ||
-    "—"
-  );
-}
-
-
-function updateDates() {
-
-  const updated =
-    meta.lastUpdated || "—";
-
-
-  const marketDate =
-    latestMarketDate();
-
-
-  if ($("dashboardDate")) {
-
-    $("dashboardDate").textContent =
-      `Updated: ${updated}`;
-  }
-
-
-  if ($("marketDate")) {
-
-    $("marketDate").textContent =
-      `Market / Delivery: ${marketDate}`;
-  }
-}
-
-
-function renderStats() {
-
-  const scored =
-    all.filter(
-      row =>
-        row.overallScore !== null &&
-        row.overallScore !== undefined
-    ).length;
-
-
-  const classified =
-    all.filter(
-      row =>
-        row.sector &&
-        row.sector !==
-        "Unclassified"
-    ).length;
 
 
   const eodReady =
-    Number(
-      meta.matchedPriceCount ||
-      meta.eodPriceCount ||
-      0
-    );
+    stocks.filter(
+      row =>
+        num(row.price) !== null
+    )
+    .length;
 
+  if (
+    el("eodReady")
+  ) {
 
-  if (!$("stats")) {
-    return;
+    el("eodReady").textContent =
+      eodReady.toLocaleString(
+        "en-IN"
+      );
   }
 
 
-  $("stats").innerHTML = `
+  const marketCapReady =
+    stocks.filter(
+      row =>
+        row.marketCapCategory ||
+        num(row.marketCapCr) !== null
+    )
+    .length;
 
-    <div class="stat compact-stat">
+  if (
+    el("marketCapReady")
+  ) {
 
-      <b>
-        ${Number(
-          meta.uniqueCount ||
-          all.length
-        ).toLocaleString()}
-      </b>
-
-      <span>
-        Unique securities
-      </span>
-
-    </div>
-
-
-    <div class="stat compact-stat">
-
-      <b>
-        ${eodReady.toLocaleString()}
-      </b>
-
-      <span>
-        EOD price ready
-      </span>
-
-    </div>
-
-
-    <div class="stat compact-stat">
-
-      <b>
-        ${classified.toLocaleString()}
-      </b>
-
-      <span>
-        Sector classified
-      </span>
-
-    </div>
-
-
-    <div class="stat compact-stat">
-
-      <b>
-        ${scored.toLocaleString()}
-      </b>
-
-      <span>
-        Fully scored
-      </span>
-
-    </div>
-
-  `;
-}
-
-
-// =====================================================
-// DATA
-// =====================================================
-
-async function fetchJSON(url) {
-
-  const response =
-    await fetch(
-      `${url}?v=${Date.now()}`,
-      {
-        cache: "no-store"
-      }
-    );
-
-
-  if (!response.ok) {
-
-    throw new Error(
-      `Failed to load ${url}: ${response.status}`
-    );
+    el("marketCapReady").textContent =
+      marketCapReady.toLocaleString(
+        "en-IN"
+      );
   }
 
 
-  return response.json();
-}
-
-
-// =====================================================
-// FILTER / SORT MAPPING
-// =====================================================
-
-const filterIds = [
-
-  "q",
-
-  "activeMarketCap",
-  "aboveMarketCap",
-
-  "activePrice",
-  "abovePrice",
-
-  "activeChange",
-  "aboveChange",
-
-  "activeTodayDelivery",
-  "aboveTodayDelivery",
-
-  "active5DDelivery",
-  "above5DDelivery",
-
-  "activeDeliveryRatio",
-  "aboveDeliveryRatio",
-
-  "activeSector",
-  "sectorFilter",
-
-  "activeIndustry",
-  "industryFilter",
-
-  "activeSectorGrowth",
-  "aboveSectorGrowth",
-
-  "activeStockGrowth",
-  "stockGrowthPeriod",
-  "aboveStockGrowth",
-
-  "activeTMV",
-  "aboveTMV",
-
-  "activeGFC",
-  "aboveGFC",
-
-  "activeOverall",
-  "aboveOverall"
-];
-
-
-const sortFieldByElement = {
-
-  activeMarketCap:
-    "marketCapCr",
-
-  aboveMarketCap:
-    "marketCapCr",
-
-
-  activePrice:
-    "price",
-
-  abovePrice:
-    "price",
-
-
-  activeChange:
-    "changePct",
-
-  aboveChange:
-    "changePct",
-
-
-  activeTodayDelivery:
-    "todayDeliveryVolume",
-
-  aboveTodayDelivery:
-    "todayDeliveryVolume",
-
-
-  active5DDelivery:
-    "avg5DayDeliveryVolume",
-
-  above5DDelivery:
-    "avg5DayDeliveryVolume",
-
-
-  activeDeliveryRatio:
-    "deliveryVolumeRatio",
-
-  aboveDeliveryRatio:
-    "deliveryVolumeRatio",
-
-
-  activeSectorGrowth:
-    "sectorGrowth1M",
-
-  aboveSectorGrowth:
-    "sectorGrowth1M",
-
-
-  activeStockGrowth:
-    "stockGrowth",
-
-  stockGrowthPeriod:
-    "stockGrowth",
-
-  aboveStockGrowth:
-    "stockGrowth",
-
-
-  activeTMV:
-    "tmvScore",
-
-  aboveTMV:
-    "tmvScore",
-
-
-  activeGFC:
-    "gfcScore",
-
-  aboveGFC:
-    "gfcScore",
-
-
-  activeOverall:
-    "overallScore",
-
-  aboveOverall:
-    "overallScore"
-};
-
-
-// =====================================================
-// FILTER EVENTS
-// =====================================================
-
-function setupFilterEvents() {
-
-  filterIds.forEach(id => {
-
-    const el =
-      $(id);
-
-
-    if (!el) {
-      return;
-    }
-
-
-    const eventType =
-      el.type === "checkbox" ||
-      el.tagName === "SELECT"
-        ? "change"
-        : "input";
-
-
-    el.addEventListener(
-      eventType,
-      () => {
-
-        /*
-          Agar numeric filter se interaction hua,
-          usi column ko sorting priority do.
-        */
-
-        const mappedField =
-          sortFieldByElement[id];
-
-
-        if (mappedField) {
-
-          /*
-            Checkbox OFF kiya ho aur wahi
-            current sort field ho to default
-            Overall ranking par wapas jao.
-          */
-
-          if (
-            el.type === "checkbox" &&
-            !el.checked
-          ) {
-
-            if (
-              activeSortField ===
-              mappedField
-            ) {
-
-              activeSortField =
-                null;
-            }
-          }
-
-          else {
-
-            activeSortField =
-              mappedField;
-          }
-        }
-
-
-        page = 1;
-
-        render();
-      }
-    );
-  });
-}
-
-
-// =====================================================
-// SET FILTER HELPERS
-// =====================================================
-
-function setCheckbox(
-  id,
-  checked
-) {
-
-  if ($(id)) {
-
-    $(id).checked =
-      checked;
+  const fullyScored =
+    stocks.filter(
+      row =>
+        num(row.overallScore) !== null
+    )
+    .length;
+
+  if (
+    el("fullyScored")
+  ) {
+
+    el("fullyScored").textContent =
+      fullyScored.toLocaleString(
+        "en-IN"
+      );
   }
-}
 
-
-function setValue(
-  id,
-  value
-) {
-
-  if ($(id)) {
-
-    $(id).value =
-      value;
-  }
-}
-
-
-// =====================================================
-// STRONG SETUP
-// =====================================================
-
-function applyStrongSetup() {
 
   /*
-    Strong Setup:
-    T + M + VM >= 70
-    G + F + C >= 70
-    Overall >= 70
-
-    Strong Setup ranking =
-    Overall High -> Low
+  Market date
   */
 
+  const dateCandidates = [
 
-  setCheckbox(
-    "activeTMV",
-    true
-  );
+    meta?.marketDate,
+    meta?.deliveryDate,
+    meta?.date,
+    meta?.asOfDate,
 
-  setValue(
-    "aboveTMV",
-    70
-  );
+    stocks.find(
+      row =>
+        row.marketDate
+    )?.marketDate,
 
+    stocks.find(
+      row =>
+        row.date
+    )?.date
 
-  setCheckbox(
-    "activeGFC",
-    true
-  );
+  ];
 
-  setValue(
-    "aboveGFC",
-    70
-  );
-
-
-  setCheckbox(
-    "activeOverall",
-    true
-  );
-
-  setValue(
-    "aboveOverall",
-    70
-  );
-
-
-  activeSortField =
-    "overallScore";
-
-
-  page = 1;
-
-  render();
-}
-
-
-// =====================================================
-// RESET
-// =====================================================
-
-function resetFilters() {
-
-  filterIds.forEach(id => {
-
-    const el =
-      $(id);
-
-
-    if (!el) {
-      return;
-    }
-
-
-    if (
-      el.type ===
-      "checkbox"
-    ) {
-
-      el.checked =
-        false;
-    }
-
-
-    else if (
-      id ===
-      "stockGrowthPeriod"
-    ) {
-
-      el.value =
-        "3M";
-    }
-
-
-    else if (
-      el.tagName ===
-      "SELECT"
-    ) {
-
-      el.value =
-        "ALL";
-    }
-
-
-    else {
-
-      el.value =
-        "";
-    }
-
-  });
-
-
-  activeSortField =
+  let marketDate =
     null;
 
+  for (
+    const value
+    of dateCandidates
+  ) {
 
-  page = 1;
+    if (
+      value
+    ) {
 
-  render();
+      marketDate =
+        value;
+
+      break;
+    }
+  }
+
+  if (
+    el("marketDate")
+  ) {
+
+    el("marketDate").textContent =
+      marketDate ||
+      "—";
+  }
 }
 
 
-// =====================================================
-// INIT
-// =====================================================
+/*
+=========================================================
+MODAL EVENTS
+=========================================================
+*/
 
-async function init() {
+function setupModalEvents() {
 
-  try {
-
-    [
-      all,
-      meta
-    ] =
-      await Promise.all([
-
-        fetchJSON(
-          "data/stocks.json"
-        ),
-
-        fetchJSON(
-          "data/meta.json"
-        )
-
-      ]);
+  el("closeReasonModal")
+    ?.addEventListener(
+      "click",
+      closeReasonModal
+    );
 
 
-    populateDropdowns();
-
-    renderStats();
-
-    updateDates();
-
-    setupTopScrollbar();
-
-    setupFilterEvents();
-
-    render();
-
-
-    if ($("strongSetup")) {
-
-      $("strongSetup").onclick =
-        applyStrongSetup;
-    }
-
-
-    if ($("resetScores")) {
-
-      $("resetScores").onclick =
-        resetFilters;
-    }
-
-
-    if ($("prev")) {
-
-      $("prev").onclick =
-        () => {
-
-          goToPage(
-            page - 1
-          );
-        };
-    }
-
-
-    if ($("next")) {
-
-      $("next").onclick =
-        () => {
-
-          goToPage(
-            page + 1
-          );
-        };
-    }
-
-
-    if ($("gotoPage")) {
-
-      $("gotoPage")
-        .addEventListener(
-          "keydown",
-          event => {
-
-            if (
-              event.key ===
-              "Enter"
-            ) {
-
-              goToPage(
-                $("gotoPage").value
-              );
-            }
-          }
-        );
-
-
-      $("gotoPage")
-        .addEventListener(
-          "change",
-          () => {
-
-            goToPage(
-              $("gotoPage").value
-            );
-          }
-        );
-    }
-
-
-    if ($("closeReasonModal")) {
-
-      $("closeReasonModal").onclick =
-        closeReasonModal;
-    }
-
-
-    if ($("reasonModal")) {
-
-      $("reasonModal")
-        .addEventListener(
-          "click",
-          event => {
-
-            if (
-              event.target ===
-              $("reasonModal")
-            ) {
-
-              closeReasonModal();
-            }
-          }
-        );
-    }
-
-
-    document.addEventListener(
-      "keydown",
+  el("reasonModal")
+    ?.addEventListener(
+      "click",
       event => {
 
         if (
-          event.key ===
-          "Escape"
+          event.target ===
+          el("reasonModal")
         ) {
 
           closeReasonModal();
@@ -2110,24 +2934,207 @@ async function init() {
     );
 
 
-    syncTopScrollbarWidth();
+  document.addEventListener(
+    "keydown",
+    event => {
 
+      if (
+        event.key ===
+        "Escape"
+      ) {
+
+        closeReasonModal();
+      }
+    }
+  );
+}
+
+
+/*
+=========================================================
+LOAD JSON
+=========================================================
+*/
+
+async function fetchJson(
+  path
+) {
+
+  const separator =
+    path.includes("?")
+      ? "&"
+      : "?";
+
+  const url =
+    `${path}${separator}t=${Date.now()}`;
+
+  const response =
+    await fetch(
+      url,
+      {
+        cache: "no-store"
+      }
+    );
+
+  if (
+    !response.ok
+  ) {
+
+    throw new Error(
+      `Unable to load ${path}: ${response.status}`
+    );
   }
 
-  catch (error) {
+  return response.json();
+}
+
+
+/*
+=========================================================
+INITIALIZE
+=========================================================
+*/
+
+async function init() {
+
+  try {
+
+    const [
+      stockData,
+      metaData
+    ] =
+      await Promise.all([
+
+        fetchJson(
+          "data/stocks.json"
+        ),
+
+        fetchJson(
+          "data/meta.json"
+        )
+        .catch(
+          () => ({})
+        )
+
+      ]);
+
+
+    /*
+    Support either:
+
+    stocks.json = [ ... ]
+
+    OR
+
+    {
+      "stocks": [ ... ]
+    }
+    */
+
+    if (
+      Array.isArray(stockData)
+    ) {
+
+      allStocks =
+        stockData;
+
+    } else if (
+      Array.isArray(
+        stockData?.stocks
+      )
+    ) {
+
+      allStocks =
+        stockData.stocks;
+
+    } else {
+
+      allStocks =
+        [];
+    }
+
+
+    populateDropdowns();
+
+    updateStats(
+      allStocks,
+      metaData
+    );
+
+    renderRows();
+
+    setupFilterEvents();
+
+    setupPagination();
+
+    setupScrollSync();
+
+    setupModalEvents();
+
+
+    el("resetScores")
+      ?.addEventListener(
+        "click",
+        resetFilters
+      );
+
+
+    /*
+    Initial / normal sorting:
+    Change % High -> Low
+    */
+
+    activeSortField =
+      null;
+
+    renderRows();
+
+
+    console.log(
+      `MY MARKET RESEARCH loaded: ${allStocks.length} stocks`
+    );
+
+  } catch (error) {
 
     console.error(
+      "Dashboard load error:",
       error
     );
 
+    if (
+      el("rows")
+    ) {
 
-    if ($("resultCount")) {
+      el("rows").innerHTML =
+        `
+          <tr>
 
-      $("resultCount").textContent =
-        "Dashboard data failed to load";
+            <td
+              colspan="17"
+              class="error-cell"
+            >
+
+              Data load failed.
+
+              Please refresh the page
+              or check data/stocks.json.
+
+            </td>
+
+          </tr>
+        `;
     }
   }
 }
 
 
-init();
+/*
+=========================================================
+START
+=========================================================
+*/
+
+document.addEventListener(
+  "DOMContentLoaded",
+  init
+);
