@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1.0"
   >
 
   <title>MY MARKET RESEARCH</title>
@@ -20,182 +20,252 @@
 
 <body>
 
-<header class="hero compact-hero">
+  <div class="app-shell">
 
-  <div class="hero-main">
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <h1>
-      MY MARKET RESEARCH
-    </h1>
+    <header class="hero">
 
-    <p class="hero-desc">
-      Market Cap • Delivery Times • Sector Growth • Stock Growth •
-      T+M+VM • G+F+C • Overall
-    </p>
+      <div>
 
-  </div>
+        <h1>
+          MY MARKET RESEARCH
+        </h1>
 
-</header>
-
-
-<main>
-
-  <section
-    class="stats compact-stats"
-    id="stats">
-  </section>
-
-
-  <section class="card universe-card">
-
-    <div class="sectionhead universe-head">
-
-      <div class="universe-title-wrap">
-
-        <h2>
-          NSE Stock Universe
-        </h2>
-
-        <span
-          class="date-text"
-          id="dashboardDate">
-          Updated: —
-        </span>
-
-        <span
-          class="date-text"
-          id="marketDate">
-          Market / Delivery: —
-        </span>
-
-        <span
-          class="date-text"
-          id="resultCount">
-        </span>
+        <p>
+          Market Cap • Delivery • Sector Growth •
+          Stock Growth • T+M+VM • G+F+C • Overall
+        </p>
 
       </div>
 
 
-      <div class="universe-actions">
+      <div class="market-date-box">
 
-        <button
-          id="strongSetup"
-          class="primary-btn">
-          Strong Setup
-        </button>
+        <div>
+          Market / Delivery
+        </div>
 
-        <button
-          id="resetScores"
-          class="secondary-btn">
-          Reset
-        </button>
-
-        <button
-          id="prev"
-          class="secondary-btn">
-          ← Prev
-        </button>
-
-        <span
-          id="page"
-          class="page-info">
-          Page 1 / 1
-        </span>
-
-        <label class="goto-wrap">
-
-          <span>
-            Go to
-          </span>
-
-          <input
-            id="gotoPage"
-            type="number"
-            min="1"
-            value="1"
-          >
-
-        </label>
-
-        <button
-          id="next"
-          class="secondary-btn">
-          Next →
-        </button>
+        <strong id="marketDate">
+          —
+        </strong>
 
       </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <section class="stats">
+
+      <div class="stat-card">
+
+        <span>
+          Securities
+        </span>
+
+        <strong id="totalStocks">
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>
+          EOD Ready
+        </span>
+
+        <strong id="eodReady">
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>
+          Market Cap Classified
+        </span>
+
+        <strong id="marketCapReady">
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>
+          Fully Scored
+        </span>
+
+        <strong id="fullyScored">
+          —
+        </strong>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SEARCH + RESET
+    ========================== -->
+
+    <section class="toolbar">
+
+      <input
+        id="q"
+        type="search"
+        placeholder="Search stock / sector / industry..."
+        autocomplete="off"
+      >
+
+
+      <button
+        id="resetScores"
+        type="button"
+      >
+        Reset
+      </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESULT COUNT
+    ========================== -->
+
+    <div class="result-bar">
+
+      <span id="resultCount">
+        0 matched
+      </span>
 
     </div>
 
+
+
+    <!-- =========================
+         TOP SCROLLBAR
+    ========================== -->
 
     <div
-      class="topscroll"
-      id="topScroll">
+      id="topScroll"
+      class="top-scroll"
+    >
 
-      <div id="topScrollInner"></div>
+      <div id="topScrollInner">
+      </div>
 
     </div>
 
 
-    <div class="tablewrap">
 
-      <table id="stockTable">
+    <!-- =========================
+         TABLE
+    ========================== -->
+
+    <div
+      id="tableWrap"
+      class="table-wrap"
+    >
+
+      <table>
 
         <thead>
 
-          <tr class="header-row">
+          <!-- =====================
+               COLUMN NAMES
+          ====================== -->
 
-            <th class="stock-col">
+          <tr>
+
+            <th>
               Stock
             </th>
+
 
             <th>
               Market Cap
             </th>
 
+
             <th>
               Price
             </th>
+
 
             <th>
               Change %
             </th>
 
-            <th>
-              Today Delivery
-              <br>
-              Vol
-            </th>
 
             <th>
-              5D Avg Delivery
-              <br>
-              Vol
+              Today Volume
             </th>
 
+
             <th>
-              Delivery
-              <br>
-              Times
+              Today Delivery Vol
             </th>
+
+
+            <th>
+              5D Avg Delivery Vol
+            </th>
+
+
+            <th>
+              Delivery Times
+            </th>
+
+
+            <th>
+              Delivery %
+            </th>
+
+
+            <th>
+              5L Vol +
+              <br>
+              5% Move
+            </th>
+
 
             <th>
               Sector
             </th>
 
+
             <th>
               Industry
             </th>
 
+
             <th>
               Sector Growth
               <br>
-              <small>1M %</small>
+              1M %
             </th>
+
 
             <th>
               Stock Growth
             </th>
+
 
             <th>
               T + M + VM
@@ -205,6 +275,7 @@
               </small>
             </th>
 
+
             <th>
               G + F + C
               <br>
@@ -213,6 +284,7 @@
               </small>
             </th>
 
+
             <th>
               Overall
             </th>
@@ -220,23 +292,23 @@
           </tr>
 
 
+
+          <!-- =====================
+               FILTERS
+          ====================== -->
+
           <tr class="filter-row">
 
-            <!-- STOCK SEARCH -->
+
+            <!-- STOCK -->
 
             <th>
-
-              <input
-                id="q"
-                class="stock-search"
-                type="text"
-                placeholder="Search"
-              >
-
+              —
             </th>
 
 
-            <!-- MARKET CAP ₹ CR -->
+
+            <!-- MARKET CAP -->
 
             <th>
 
@@ -249,9 +321,12 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveMarketCap"
@@ -264,6 +339,7 @@
               </div>
 
             </th>
+
 
 
             <!-- PRICE -->
@@ -279,15 +355,18 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="abovePrice"
                   type="number"
                   step="0.01"
-                  placeholder="Above"
+                  placeholder="Above ₹"
                 >
 
               </div>
@@ -295,7 +374,8 @@
             </th>
 
 
-            <!-- CHANGE -->
+
+            <!-- CHANGE % -->
 
             <th>
 
@@ -308,15 +388,18 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveChange"
                   type="number"
-                  step="0.01"
-                  placeholder="Above"
+                  step="0.1"
+                  placeholder="Above %"
                 >
 
               </div>
@@ -324,7 +407,42 @@
             </th>
 
 
-            <!-- TODAY DELIVERY -->
+
+            <!-- TODAY TOTAL VOLUME -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeTodayVolume"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveTodayVolume"
+                  type="number"
+                  min="0"
+                  step="100000"
+                  placeholder="Above Vol"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- TODAY DELIVERY VOLUME -->
 
             <th>
 
@@ -337,14 +455,19 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveTodayDelivery"
                   type="number"
-                  placeholder="Above"
+                  min="0"
+                  step="100000"
+                  placeholder="Above Vol"
                 >
 
               </div>
@@ -352,7 +475,8 @@
             </th>
 
 
-            <!-- 5D AVG DELIVERY -->
+
+            <!-- 5 DAY AVG DELIVERY -->
 
             <th>
 
@@ -365,19 +489,25 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="above5DDelivery"
                   type="number"
-                  placeholder="Above"
+                  min="0"
+                  step="100000"
+                  placeholder="Above Vol"
                 >
 
               </div>
 
             </th>
+
 
 
             <!-- DELIVERY TIMES -->
@@ -393,20 +523,92 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveDeliveryRatio"
                   type="number"
-                  step="0.01"
-                  placeholder="Above"
+                  min="0"
+                  step="0.1"
+                  placeholder="Above x"
                 >
 
               </div>
 
             </th>
+
+
+
+            <!-- DELIVERY % -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeDeliveryPct"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveDeliveryPct"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="1"
+                  placeholder="Above %"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- 5 LAKH VOLUME + 5% MOVE -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeHighVolMove"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <div class="filter-note">
+                  Vol ≥ 5L
+                  <br>
+                  |Move| ≥ 5%
+                </div>
+
+              </div>
+
+            </th>
+
 
 
             <!-- SECTOR -->
@@ -422,14 +624,17 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
 
+
                 <select id="sectorFilter">
 
-                  <option value="ALL">
-                    All sectors
+                  <option value="">
+                    All
                   </option>
 
                 </select>
@@ -437,6 +642,7 @@
               </div>
 
             </th>
+
 
 
             <!-- INDUSTRY -->
@@ -452,14 +658,17 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
 
+
                 <select id="industryFilter">
 
-                  <option value="ALL">
-                    All industries
+                  <option value="">
+                    All
                   </option>
 
                 </select>
@@ -467,6 +676,7 @@
               </div>
 
             </th>
+
 
 
             <!-- SECTOR GROWTH -->
@@ -482,14 +692,17 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveSectorGrowth"
                   type="number"
-                  step="0.01"
+                  step="0.1"
                   placeholder="Above %"
                 >
 
@@ -498,11 +711,12 @@
             </th>
 
 
+
             <!-- STOCK GROWTH -->
 
             <th>
 
-              <div class="filter-box stock-strength-filter">
+              <div class="filter-box">
 
                 <label class="filter-toggle">
 
@@ -511,32 +725,37 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <select id="stockGrowthPeriod">
 
                   <option value="1M">
-                    1 Month
+                    1M
                   </option>
 
                   <option
                     value="3M"
-                    selected>
-                    3 Months
+                    selected
+                  >
+                    3M
                   </option>
 
                   <option value="6M">
-                    6 Months
+                    6M
                   </option>
 
                 </select>
 
+
                 <input
                   id="aboveStockGrowth"
                   type="number"
-                  step="0.01"
+                  step="0.1"
                   placeholder="Above %"
                 >
 
@@ -545,7 +764,8 @@
             </th>
 
 
-            <!-- T + M + VM -->
+
+            <!-- TMV -->
 
             <th>
 
@@ -558,15 +778,19 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveTMV"
                   type="number"
                   min="0"
                   max="100"
+                  step="1"
                   placeholder="Above"
                 >
 
@@ -575,7 +799,8 @@
             </th>
 
 
-            <!-- G + F + C -->
+
+            <!-- GFC -->
 
             <th>
 
@@ -588,21 +813,26 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveGFC"
                   type="number"
                   min="0"
                   max="100"
+                  step="1"
                   placeholder="Above"
                 >
 
               </div>
 
             </th>
+
 
 
             <!-- OVERALL -->
@@ -618,15 +848,19 @@
                     type="checkbox"
                   >
 
-                  <span>Active</span>
+                  <span>
+                    Active
+                  </span>
 
                 </label>
+
 
                 <input
                   id="aboveOverall"
                   type="number"
                   min="0"
                   max="100"
+                  step="1"
                   placeholder="Above"
                 >
 
@@ -639,74 +873,121 @@
         </thead>
 
 
-        <tbody id="rows"></tbody>
+
+        <tbody id="rows">
+
+        </tbody>
 
       </table>
 
     </div>
 
-  </section>
-
-</main>
 
 
-<footer>
-  Research tool only • NSE EOD data •
-  Verify exchange filings before investment decisions
-</footer>
+    <!-- =========================
+         PAGINATION
+    ========================== -->
+
+    <div class="pagination">
+
+      <button
+        id="prev"
+        type="button"
+      >
+        Previous
+      </button>
 
 
-<!-- REASON / SOURCE MODAL -->
+      <span id="page">
+        Page 1
+      </span>
 
-<div
-  id="reasonModal"
-  class="reason-modal"
-  aria-hidden="true"
->
 
-  <div class="reason-modal-card">
+      <input
+        id="gotoPage"
+        type="number"
+        min="1"
+        placeholder="Page"
+      >
 
-    <button
-      id="closeReasonModal"
-      class="reason-close"
-      type="button">
-      ×
-    </button>
 
-    <h3 id="reasonTitle">
-      Score Details
-    </h3>
+      <button
+        id="next"
+        type="button"
+      >
+        Next
+      </button>
 
-    <div
-      id="reasonScore"
-      class="reason-score">
     </div>
-
-    <div
-      id="reasonText"
-      class="reason-text">
-    </div>
-
-    <div
-      id="reasonSourceDate"
-      class="reason-source-date">
-    </div>
-
-    <a
-      id="reasonSourceLink"
-      class="reason-source-link"
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer">
-      View Source
-    </a>
 
   </div>
 
-</div>
 
 
-<script src="app.js"></script>
+  <!-- =========================
+       REASON MODAL
+  ========================== -->
+
+  <div
+    id="reasonModal"
+    class="reason-modal"
+    aria-hidden="true"
+  >
+
+    <div class="reason-modal-card">
+
+      <button
+        id="closeReasonModal"
+        class="reason-close"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <h2 id="reasonTitle">
+        Research Details
+      </h2>
+
+
+      <div
+        id="reasonScore"
+        class="reason-score"
+      >
+      </div>
+
+
+      <div
+        id="reasonText"
+        class="reason-text"
+      >
+      </div>
+
+
+      <div
+        id="reasonSourceDate"
+        class="reason-source-date"
+      >
+      </div>
+
+
+      <a
+        id="reasonSourceLink"
+        class="reason-source-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Source
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="app.js"></script>
 
 </body>
 
