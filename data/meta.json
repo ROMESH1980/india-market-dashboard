@@ -15,7 +15,13 @@
     "2026-08-26",
     "2026-08-25",
     "2026-08-24",
-    "2026-08-21"
+    "2026-08-21",
+    "2026-08-20",
+    "2026-08-19",
+    "2026-08-18",
+    "2026-08-17",
+    "2026-08-14",
+    "2026-08-13"
   ],
   "todayVolumeCount": 2731,
   "deliveryVolumeCount": 2731,
@@ -23,6 +29,6 @@
   "deliveryPctCount": 2731,
   "full5DayDeliveryAverageCount": 2589,
   "incomplete5DayDeliveryCount": 535,
-  "deliveryAverageRule": "Strict previous 5 trading sessions required",
+  "deliveryAverageRule": "Strict previous 5 global NSE sessions required",
   "volumeSource": "Official NSE MTO Quantity Traded"
 }
