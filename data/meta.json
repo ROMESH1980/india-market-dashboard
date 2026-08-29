@@ -5,7 +5,7 @@
   "eodPriceCount": 3612,
   "matchedPriceCount": 3002,
   "marketDate": "2026-08-28",
-  "lastUpdated": "2026-08-28",
+  "lastUpdated": "2026-08-29",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-08-28",
@@ -19,7 +19,10 @@
   ],
   "todayVolumeCount": 2731,
   "deliveryVolumeCount": 2731,
-  "deliveryRatioCount": 2724,
+  "deliveryRatioCount": 2565,
   "deliveryPctCount": 2731,
+  "full5DayDeliveryAverageCount": 2589,
+  "incomplete5DayDeliveryCount": 535,
+  "deliveryAverageRule": "Strict previous 5 trading sessions required",
   "volumeSource": "Official NSE MTO Quantity Traded"
 }
