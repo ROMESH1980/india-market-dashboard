@@ -14,15 +14,22 @@ HEADERS = {
 }
 
 # =========================================================
-# DEBUG ONLY
+# SETTINGS
 # =========================================================
 
-DEBUG_SYMBOLS = {
-    "NIRAJISPAT",
-    "SECMARK",
-}
+# We need enough historical NSE sessions so that
+# illiquid stocks can still find their previous
+# 5 AVAILABLE delivery records.
+HISTORY_SESSION_COUNT = 20
 
-DEBUG_SESSION_COUNT = 12
+# Search calendar range.
+# 45 days is enough for weekends, holidays and
+# moderately illiquid stocks.
+MAX_CALENDAR_LOOKBACK = 45
+
+# Number of previous AVAILABLE stock records
+# required for the average.
+REQUIRED_PREVIOUS_RECORDS = 5
 
 
 # =========================================================
@@ -91,23 +98,51 @@ def fetch_mto_for_date(d):
             for p in line.split(",")
         ]
 
+        # NSE MTO structure:
+        #
+        # 20,
+        # Sr No,
+        # Symbol,
+        # Series,
+        # Quantity Traded,
+        # Deliverable Quantity,
+        # Delivery %
+
         if len(parts) < 7:
             continue
 
         symbol = parts[2]
         series = parts[3]
 
-        traded_qty = to_float(parts[4])
-        deliverable_qty = to_float(parts[5])
-        delivery_pct = to_float(parts[6])
+        traded_qty = to_float(
+            parts[4]
+        )
+
+        deliverable_qty = to_float(
+            parts[5]
+        )
+
+        delivery_pct = to_float(
+            parts[6]
+        )
 
         if not symbol:
             continue
 
-        delivery[(symbol, series)] = {
-            "tradedQty": traded_qty,
-            "deliverableQty": deliverable_qty,
-            "deliveryPct": delivery_pct,
+        delivery[
+            (
+                symbol,
+                series,
+            )
+        ] = {
+            "tradedQty":
+                traded_qty,
+
+            "deliverableQty":
+                deliverable_qty,
+
+            "deliveryPct":
+                delivery_pct,
         }
 
     if not delivery:
@@ -119,27 +154,38 @@ def fetch_mto_for_date(d):
 
 
 # =========================================================
-# GET VALID NSE TRADING SESSIONS
+# LOAD HISTORICAL NSE SESSIONS
 # =========================================================
 
-def get_last_trading_sessions(required=12):
+def get_last_trading_sessions(
+    required=HISTORY_SESSION_COUNT
+):
 
-    today = datetime.now(timezone.utc).date()
+    today = (
+        datetime.now(timezone.utc)
+        .date()
+    )
 
     sessions = []
 
-    # Search deeper because debug needs
-    # historical records beyond only 5 sessions.
-    for back in range(0, 35):
+    for back in range(
+        0,
+        MAX_CALENDAR_LOOKBACK
+    ):
 
-        d = today - timedelta(days=back)
+        d = today - timedelta(
+            days=back
+        )
 
+        # Skip Saturday / Sunday
         if d.weekday() >= 5:
             continue
 
         try:
 
-            data = fetch_mto_for_date(d)
+            data = fetch_mto_for_date(
+                d
+            )
 
             sessions.append({
                 "date": d,
@@ -160,18 +206,22 @@ def get_last_trading_sessions(required=12):
                 f"Skipping {d}: {e}"
             )
 
-    if len(sessions) < required:
+    if not sessions:
 
-        print(
-            f"Warning: only {len(sessions)} "
-            f"valid trading sessions found"
+        raise RuntimeError(
+            "No valid NSE delivery sessions found"
         )
+
+    print(
+        f"Total historical NSE delivery "
+        f"sessions loaded: {len(sessions)}"
+    )
 
     return sessions
 
 
 # =========================================================
-# FIND SYMBOL / SERIES
+# FIND SYMBOL RECORD
 # =========================================================
 
 def find_delivery_record(
@@ -180,40 +230,55 @@ def find_delivery_record(
     series,
 ):
 
+    # First try exact symbol + series
+
     record = session_data.get(
-        (symbol, series)
+        (
+            symbol,
+            series,
+        )
     )
+
+    # Main-board fallback
 
     if record is None:
 
         record = session_data.get(
-            (symbol, "EQ")
+            (
+                symbol,
+                "EQ",
+            )
         )
 
     return record
 
 
 # =========================================================
-# DEBUG PRINT
+# GET PREVIOUS 5 AVAILABLE STOCK RECORDS
 # =========================================================
 
-def print_symbol_debug(
+def get_previous_available_delivery_records(
+    sessions,
     symbol,
     series,
-    sessions,
 ):
 
-    print("\n")
-    print("=" * 70)
-    print(f"DEBUG DELIVERY HISTORY: {symbol}")
-    print(f"Series requested: {series}")
-    print("=" * 70)
+    values = []
+    dates = []
 
-    available_delivery_values = []
+    # sessions[0] = TODAY
+    #
+    # Therefore start from sessions[1].
+    #
+    # We do NOT require the stock to appear
+    # on every global NSE trading date.
+    #
+    # Missing stock-specific dates are skipped.
+    #
+    # We continue backwards until we collect
+    # exactly 5 AVAILABLE delivery records.
 
-    for session in sessions:
-
-        d = session["date"]
+    for session in sessions[1:]:
 
         record = find_delivery_record(
             session["data"],
@@ -222,53 +287,29 @@ def print_symbol_debug(
         )
 
         if record is None:
-
-            print(
-                f"{d} | MISSING"
-            )
-
             continue
 
-        traded = to_float(
-            record.get("tradedQty")
+        value = to_float(
+            record.get(
+                "deliverableQty"
+            )
         )
 
-        delivered = to_float(
-            record.get("deliverableQty")
+        if value is None:
+            continue
+
+        values.append(
+            value
         )
 
-        pct = to_float(
-            record.get("deliveryPct")
+        dates.append(
+            session["date"].isoformat()
         )
 
-        print(
-            f"{d}"
-            f" | Traded={traded}"
-            f" | Delivery={delivered}"
-            f" | Delivery%={pct}"
-        )
+        if len(values) >= REQUIRED_PREVIOUS_RECORDS:
+            break
 
-        if delivered is not None:
-
-            available_delivery_values.append({
-                "date": d.isoformat(),
-                "value": delivered,
-            })
-
-    print("-" * 70)
-
-    print(
-        "Available delivery records:"
-    )
-
-    for x in available_delivery_values:
-
-        print(
-            f"{x['date']} = {x['value']}"
-        )
-
-    print("=" * 70)
-    print("\n")
+    return values, dates
 
 
 # =========================================================
@@ -277,48 +318,49 @@ def print_symbol_debug(
 
 def main():
 
-    stocks_path = DATA / "stocks.json"
-    meta_path = DATA / "meta.json"
+    stocks_path = (
+        DATA /
+        "stocks.json"
+    )
+
+    meta_path = (
+        DATA /
+        "meta.json"
+    )
 
     stocks = load_json(
         stocks_path,
         [],
     )
 
-    # Load more sessions for debugging
-    sessions = get_last_trading_sessions(
-        required=DEBUG_SESSION_COUNT
+    # =====================================================
+    # LOAD NSE DELIVERY HISTORY
+    # =====================================================
+
+    sessions = (
+        get_last_trading_sessions(
+            required=HISTORY_SESSION_COUNT
+        )
     )
 
-    if not sessions:
-
-        raise RuntimeError(
-            "No valid NSE delivery sessions found"
-        )
-
-    today_session = sessions[0]
-
-    # Existing website calculation:
-    # previous 5 GLOBAL NSE sessions.
-    previous_sessions = sessions[1:6]
+    latest_session = (
+        sessions[0]
+    )
 
     today_date = (
-        today_session["date"].isoformat()
+        latest_session["date"]
+        .isoformat()
     )
 
-    print("\n")
-    print("==================================================")
-    print("GLOBAL SESSIONS USED FOR CURRENT 5D CALCULATION")
-    print("==================================================")
+    print(
+        f"Latest NSE delivery date: "
+        f"{today_date}"
+    )
 
-    for session in previous_sessions:
-        print(
-            session["date"].isoformat()
-        )
 
-    print("==================================================")
-    print("\n")
-
+    # =====================================================
+    # COUNTERS
+    # =====================================================
 
     updated_today_volume = 0
     updated_delivery_volume = 0
@@ -335,7 +377,9 @@ def main():
 
     for row in stocks:
 
-        symbol = row.get("symbol")
+        symbol = row.get(
+            "symbol"
+        )
 
         series = (
             row.get("series")
@@ -346,96 +390,79 @@ def main():
             continue
 
 
-        # -------------------------------------------------
-        # PRINT DEBUG HISTORY
-        # -------------------------------------------------
+        # =================================================
+        # TODAY'S RECORD
+        # =================================================
 
-        if symbol in DEBUG_SYMBOLS:
-
-            print_symbol_debug(
+        today_record = (
+            find_delivery_record(
+                latest_session["data"],
                 symbol,
                 series,
-                sessions,
             )
-
-
-        # -------------------------------------------------
-        # TODAY
-        # -------------------------------------------------
-
-        today_record = find_delivery_record(
-            today_session["data"],
-            symbol,
-            series,
         )
 
         today_volume = None
         today_delivery = None
         official_delivery_pct = None
 
+
         if today_record:
 
-            today_volume = to_float(
-                today_record.get(
-                    "tradedQty"
+            today_volume = (
+                to_float(
+                    today_record.get(
+                        "tradedQty"
+                    )
                 )
             )
 
-            today_delivery = to_float(
-                today_record.get(
-                    "deliverableQty"
+            today_delivery = (
+                to_float(
+                    today_record.get(
+                        "deliverableQty"
+                    )
                 )
             )
 
-            official_delivery_pct = to_float(
-                today_record.get(
-                    "deliveryPct"
+            official_delivery_pct = (
+                to_float(
+                    today_record.get(
+                        "deliveryPct"
+                    )
                 )
             )
 
 
-        # -------------------------------------------------
-        # PREVIOUS 5 GLOBAL NSE SESSIONS
-        # -------------------------------------------------
+        # =================================================
+        # PREVIOUS 5 AVAILABLE STOCK DELIVERY RECORDS
+        # =================================================
 
-        previous_values = []
-
-        for session in previous_sessions:
-
-            record = find_delivery_record(
-                session["data"],
+        previous_values, previous_dates = (
+            get_previous_available_delivery_records(
+                sessions,
                 symbol,
                 series,
             )
-
-            if not record:
-                continue
-
-            value = to_float(
-                record.get(
-                    "deliverableQty"
-                )
-            )
-
-            if value is not None:
-
-                previous_values.append(
-                    value
-                )
+        )
 
 
-        # -------------------------------------------------
-        # STRICT CURRENT RULE:
-        # 5 / 5 GLOBAL SESSION VALUES REQUIRED
-        # -------------------------------------------------
+        # =================================================
+        # STRICT 5 AVAILABLE RECORD RULE
+        # =================================================
 
         avg_5d = None
 
-        if len(previous_values) == 5:
+        if (
+            len(previous_values)
+            ==
+            REQUIRED_PREVIOUS_RECORDS
+        ):
 
             avg_5d = (
                 sum(previous_values)
-                / 5
+                /
+                REQUIRED_PREVIOUS_RECORDS
             )
 
             full_5day_average_count += 1
@@ -445,29 +472,34 @@ def main():
             incomplete_5day_count += 1
 
 
-        # -------------------------------------------------
+        # =================================================
         # DELIVERY TIMES
-        # -------------------------------------------------
+        # =================================================
 
         ratio = None
 
         if (
             today_delivery is not None
-            and avg_5d is not None
-            and avg_5d > 0
+            and
+            avg_5d is not None
+            and
+            avg_5d > 0
         ):
 
             ratio = (
                 today_delivery
-                / avg_5d
+                /
+                avg_5d
             )
 
 
-        # -------------------------------------------------
+        # =================================================
         # DELIVERY %
-        # -------------------------------------------------
+        # =================================================
 
         delivery_pct = None
+
+        # Prefer official NSE MTO delivery %
 
         if official_delivery_pct is not None:
 
@@ -475,126 +507,164 @@ def main():
                 official_delivery_pct
             )
 
+        # Safety fallback
+
         elif (
             today_delivery is not None
-            and today_volume is not None
-            and today_volume > 0
+            and
+            today_volume is not None
+            and
+            today_volume > 0
         ):
 
             delivery_pct = (
                 today_delivery
-                / today_volume
-                * 100
+                /
+                today_volume
+                *
+                100
             )
 
 
-        # -------------------------------------------------
-        # SAVE
-        # -------------------------------------------------
+        # =================================================
+        # SAVE TODAY VOLUME
+        # =================================================
 
         row["todayVolume"] = (
+
             round(today_volume)
+
             if today_volume is not None
+
             else None
         )
+
+
+        # Keep old frontend field synchronized
 
         row["volume"] = (
+
             round(today_volume)
+
             if today_volume is not None
+
             else None
         )
+
 
         row["mtoTradedVolume"] = (
+
             round(today_volume)
+
             if today_volume is not None
+
             else None
         )
+
+
+        # =================================================
+        # SAVE DELIVERY DATA
+        # =================================================
 
         row["todayDeliveryVolume"] = (
+
             round(today_delivery)
+
             if today_delivery is not None
+
             else None
         )
+
 
         row["avg5DayDeliveryVolume"] = (
-            round(avg_5d, 2)
+
+            round(
+                avg_5d,
+                2,
+            )
+
             if avg_5d is not None
+
             else None
         )
+
 
         row["deliveryVolumeRatio"] = (
-            round(ratio, 2)
+
+            round(
+                ratio,
+                2,
+            )
+
             if ratio is not None
+
             else None
         )
 
+
         row["deliveryPct"] = (
-            round(delivery_pct, 2)
+
+            round(
+                delivery_pct,
+                2,
+            )
+
             if delivery_pct is not None
+
             else None
         )
+
 
         row["deliveryDate"] = (
             today_date
         )
 
+
+        # =================================================
+        # AUDIT FIELDS
+        # =================================================
+        #
+        # Helpful if we ever need to verify
+        # a stock's 5D calculation again.
+        #
+
         row["deliveryHistoryCount"] = (
             len(previous_values)
         )
 
+        row["deliveryHistoryDates"] = (
+            previous_dates
+        )
 
-        # -------------------------------------------------
-        # EXTRA DEBUG FOR TARGET SYMBOLS
-        # -------------------------------------------------
+        row["deliveryHistoryValues"] = [
 
-        if symbol in DEBUG_SYMBOLS:
+            round(x)
 
-            print(
-                f"CURRENT CALCULATION {symbol}"
-            )
-
-            print(
-                f"Today Delivery = "
-                f"{today_delivery}"
-            )
-
-            print(
-                f"Previous values used = "
-                f"{previous_values}"
-            )
-
-            print(
-                f"History count = "
-                f"{len(previous_values)}"
-            )
-
-            print(
-                f"5D Avg = "
-                f"{avg_5d}"
-            )
-
-            print(
-                f"Delivery Times = "
-                f"{ratio}"
-            )
-
-            print("\n")
+            for x in previous_values
+        ]
 
 
-        # -------------------------------------------------
+        # =================================================
         # COUNTS
-        # -------------------------------------------------
+        # =================================================
 
         if today_volume is not None:
+
             updated_today_volume += 1
 
+
         if today_delivery is not None:
+
             updated_delivery_volume += 1
 
+
         if ratio is not None:
+
             updated_ratio += 1
 
+
         if delivery_pct is not None:
+
             updated_delivery_pct += 1
 
 
@@ -603,6 +673,7 @@ def main():
     # =====================================================
 
     stocks_path.write_text(
+
         json.dumps(
             stocks,
             ensure_ascii=False,
@@ -612,7 +683,7 @@ def main():
 
 
     # =====================================================
-    # META
+    # UPDATE META.JSON
     # =====================================================
 
     meta = load_json(
@@ -620,48 +691,75 @@ def main():
         {},
     )
 
+
     meta["deliveryDate"] = (
         today_date
     )
 
+
     meta["deliverySessionsUsed"] = [
+
         x["date"].isoformat()
         for x in sessions
     ]
+
 
     meta["todayVolumeCount"] = (
         updated_today_volume
     )
 
+
     meta["deliveryVolumeCount"] = (
         updated_delivery_volume
     )
+
 
     meta["deliveryRatioCount"] = (
         updated_ratio
     )
 
+
     meta["deliveryPctCount"] = (
         updated_delivery_pct
     )
+
 
     meta["full5DayDeliveryAverageCount"] = (
         full_5day_average_count
     )
 
+
     meta["incomplete5DayDeliveryCount"] = (
         incomplete_5day_count
     )
 
+
     meta["deliveryAverageRule"] = (
-        "Strict previous 5 global NSE sessions required"
+        "Previous 5 available stock delivery records"
     )
+
+
+    meta["deliveryAverageRequiredRecords"] = (
+        REQUIRED_PREVIOUS_RECORDS
+    )
+
+
+    meta["deliveryHistorySessionsLoaded"] = (
+        len(sessions)
+    )
+
 
     meta["volumeSource"] = (
         "Official NSE MTO Quantity Traded"
     )
 
+
+    # =====================================================
+    # WRITE META.JSON
+    # =====================================================
+
     meta_path.write_text(
+
         json.dumps(
             meta,
             indent=2,
@@ -677,13 +775,8 @@ def main():
         "todayTradingDate":
             today_date,
 
-        "debugSessionsLoaded":
+        "historicalSessionsLoaded":
             len(sessions),
-
-        "current5DCalculationSessions": [
-            x["date"].isoformat()
-            for x in previous_sessions
-        ],
 
         "todayVolumesCalculated":
             updated_today_volume,
@@ -703,8 +796,11 @@ def main():
         "deliveryPctCalculated":
             updated_delivery_pct,
 
+        "deliveryAverageRule":
+            "PREVIOUS_5_AVAILABLE_STOCK_RECORDS",
+
         "volumeSource":
-            "NSE MTO",
+            "NSE MTO Quantity Traded",
     })
 
 
