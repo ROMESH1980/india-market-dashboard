@@ -264,7 +264,7 @@ def main():
 
 
     # Today + previous 5
-    # valid trading sessions
+    # valid NSE trading sessions
 
     sessions = (
         get_last_trading_sessions(
@@ -298,6 +298,9 @@ def main():
     updated_delivery_volume = 0
     updated_ratio = 0
     updated_delivery_pct = 0
+
+    full_5day_average_count = 0
+    incomplete_5day_count = 0
 
 
     # =====================================================
@@ -398,18 +401,31 @@ def main():
 
 
         # -------------------------------------------------
-        # 5D AVG DELIVERY
+        # STRICT 5-DAY RULE
+        #
+        # Exactly 5 previous trading-session
+        # delivery values required.
+        #
+        # If even 1 session is missing:
+        # 5D Avg = None
+        # Delivery Times = None
         # -------------------------------------------------
 
         avg_5d = None
 
-        if previous_values:
+        if len(previous_values) == 5:
 
             avg_5d = (
                 sum(previous_values)
                 /
-                len(previous_values)
+                5
             )
+
+            full_5day_average_count += 1
+
+        else:
+
+            incomplete_5day_count += 1
 
 
         # -------------------------------------------------
@@ -472,9 +488,8 @@ def main():
         # SAVE TODAY TOTAL VOLUME
         # =================================================
         #
-        # IMPORTANT:
-        # NSE MTO Quantity Traded is now
-        # authoritative for website Today Volume.
+        # NSE MTO Quantity Traded is authoritative
+        # for website Today Volume.
         #
 
         row["todayVolume"] = (
@@ -570,6 +585,14 @@ def main():
         )
 
 
+        # Optional audit field:
+        # How many previous sessions were actually found.
+
+        row["deliveryHistoryCount"] = (
+            len(previous_values)
+        )
+
+
         # =================================================
         # COUNTS
         # =================================================
@@ -650,6 +673,21 @@ def main():
     )
 
 
+    meta["full5DayDeliveryAverageCount"] = (
+        full_5day_average_count
+    )
+
+
+    meta["incomplete5DayDeliveryCount"] = (
+        incomplete_5day_count
+    )
+
+
+    meta["deliveryAverageRule"] = (
+        "Strict previous 5 trading sessions required"
+    )
+
+
     meta["volumeSource"] = (
         "Official NSE MTO Quantity Traded"
     )
@@ -689,11 +727,20 @@ def main():
         "deliveryVolumesCalculated":
             updated_delivery_volume,
 
+        "full5DayAveragesCalculated":
+            full_5day_average_count,
+
+        "incomplete5DayHistories":
+            incomplete_5day_count,
+
         "deliveryRatiosCalculated":
             updated_ratio,
 
         "deliveryPctCalculated":
             updated_delivery_pct,
+
+        "deliveryAverageRule":
+            "STRICT_5_OF_5",
 
         "volumeSource":
             "NSE MTO Quantity Traded",
