@@ -5,7 +5,7 @@
   "eodPriceCount": 3612,
   "matchedPriceCount": 3002,
   "marketDate": "2026-08-28",
-  "lastUpdated": "2026-08-29",
+  "lastUpdated": "2026-08-30",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-08-28",
@@ -40,5 +40,41 @@
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
-  "volumeSource": "Official NSE MTO Quantity Traded"
+  "volumeSource": "Official NSE MTO Quantity Traded",
+  "monthlyRegimeScore": 54,
+  "weeklyRegimeScore": 53,
+  "dailyRegimeScore": 43,
+  "marketRegime": {
+    "monthly": 54,
+    "weekly": 53,
+    "daily": 43
+  },
+  "marketRegimeDetails": {
+    "daily": {
+      "latest": 24175.65,
+      "fastMA": 24375.32,
+      "slowMA": 24208.19,
+      "momentumPct": -0.31,
+      "rsi14": 32.35,
+      "distanceFromHighPct": -2.42
+    },
+    "weekly": {
+      "latest": 24175.65,
+      "fastMA": 24238.34,
+      "slowMA": 24097.86,
+      "momentumPct": -0.85,
+      "rsi14": 57.1,
+      "distanceFromHighPct": -1.61
+    },
+    "monthly": {
+      "latest": 24175.65,
+      "fastMA": 23716.95,
+      "slowMA": 24513.36,
+      "momentumPct": 2.67,
+      "rsi14": 43.22,
+      "distanceFromHighPct": -7.74
+    }
+  },
+  "marketRegimeSource": "NIFTY 50 Yahoo Finance chart data",
+  "marketRegimeDate": "2026-08-28"
 }
