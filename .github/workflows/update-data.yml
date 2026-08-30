@@ -65,7 +65,8 @@ jobs:
 
       - name: Build company research
         run: python scripts/build_company_research.py
-
+      - name: Build market regime
+        run: python scripts/build_market_regime.py
 
       - name: Build research scores
         run: python scripts/build_research_scores.py
