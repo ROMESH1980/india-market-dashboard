@@ -90,19 +90,9 @@ function passesPermanentUniverseRule(row) {
   const marketCap =
     num(row.marketCapCr);
 
-  /*
-  Pending Market Cap:
-  retain the stock.
-  */
-
   if (marketCap === null) {
     return true;
   }
-
-  /*
-  Known Market Cap:
-  only ₹100 Cr and above.
-  */
 
   return marketCap >= MIN_MARKET_CAP_CR;
 }
@@ -980,20 +970,12 @@ FILTERING
 
 function passesFilters(row) {
 
-  /*
-  PERMANENT MARKET CAP RULE
-  */
-
   if (
     !passesPermanentUniverseRule(row)
   ) {
     return false;
   }
 
-
-  /*
-  SEARCH
-  */
 
   const q =
     (
@@ -1028,18 +1010,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  =====================================================
-  MARKET CAP
-  =====================================================
-
-  When Active:
-
-  1. Pending market cap removed.
-  2. Minimum threshold cannot go below ₹100 Cr.
-  3. User value e.g. 500 means >= ₹500 Cr.
-  */
 
   if (
     checked("activeMarketCap")
@@ -1078,10 +1048,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  PRICE
-  */
-
   if (
     checked("activePrice")
   ) {
@@ -1108,10 +1074,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  CHANGE %
-  */
 
   if (
     checked("activeChange")
@@ -1140,10 +1102,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  TODAY VOLUME
-  */
-
   if (
     checked("activeTodayVolume")
   ) {
@@ -1170,10 +1128,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  TODAY DELIVERY
-  */
 
   if (
     checked("activeTodayDelivery")
@@ -1202,10 +1156,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  5 DAY AVG DELIVERY
-  */
-
   if (
     checked("active5DDelivery")
   ) {
@@ -1232,10 +1182,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  DELIVERY TIMES
-  */
 
   if (
     checked("activeDeliveryRatio")
@@ -1264,10 +1210,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  DELIVERY %
-  */
-
   if (
     checked("activeDeliveryPct")
   ) {
@@ -1295,10 +1237,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  5L VOL + 5% MOVE
-  */
-
   if (
     checked("activeHighVolMove") &&
     !qualifiesHighVolumeMove(row)
@@ -1306,10 +1244,6 @@ function passesFilters(row) {
     return false;
   }
 
-
-  /*
-  SECTOR
-  */
 
   if (
     checked("activeSector")
@@ -1328,10 +1262,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  INDUSTRY
-  */
-
   if (
     checked("activeIndustry")
   ) {
@@ -1348,10 +1278,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  SECTOR GROWTH
-  */
 
   if (
     checked("activeSectorGrowth")
@@ -1380,10 +1306,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  STOCK GROWTH
-  */
-
   if (
     checked("activeStockGrowth")
   ) {
@@ -1410,10 +1332,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  TMV
-  */
 
   if (
     checked("activeTMV")
@@ -1442,10 +1360,6 @@ function passesFilters(row) {
   }
 
 
-  /*
-  GFC
-  */
-
   if (
     checked("activeGFC")
   ) {
@@ -1472,10 +1386,6 @@ function passesFilters(row) {
     }
   }
 
-
-  /*
-  OVERALL
-  */
 
   if (
     checked("activeOverall")
@@ -1652,11 +1562,6 @@ function rankStocks(rows) {
       ) => {
 
 
-        /*
-        PRIMARY SORT:
-        ACTIVE NUMERIC COLUMN
-        */
-
         if (
           activeSortField
         ) {
@@ -1675,11 +1580,6 @@ function rankStocks(rows) {
           }
         }
 
-
-        /*
-        NORMAL / SECONDARY:
-        CHANGE % HIGH -> LOW
-        */
 
         if (
           activeSortField !==
@@ -1700,10 +1600,6 @@ function rankStocks(rows) {
           }
         }
 
-
-        /*
-        NAME TIE BREAK
-        */
 
         const nameA =
           (
@@ -2391,10 +2287,6 @@ function setupFilterEvents() {
     );
 
 
-  /*
-  ACTIVE NUMERIC FILTERS
-  */
-
   for (
     const checkboxId
     of Object.keys(
@@ -2416,10 +2308,6 @@ function setupFilterEvents() {
       );
   }
 
-
-  /*
-  FILTER INPUTS
-  */
 
   const numericInputs = [
 
@@ -2456,10 +2344,6 @@ function setupFilterEvents() {
   );
 
 
-  /*
-  SECTOR
-  */
-
   el("activeSector")
     ?.addEventListener(
       "change",
@@ -2474,10 +2358,6 @@ function setupFilterEvents() {
     );
 
 
-  /*
-  INDUSTRY
-  */
-
   el("activeIndustry")
     ?.addEventListener(
       "change",
@@ -2491,10 +2371,6 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
-
-  /*
-  STOCK GROWTH PERIOD
-  */
 
   el("stockGrowthPeriod")
     ?.addEventListener(
@@ -2588,10 +2464,6 @@ function resetFilters() {
       "3M";
   }
 
-
-  /*
-  NORMAL SORT
-  */
 
   activeSortField =
     null;
@@ -2820,6 +2692,204 @@ function setupScrollSync() {
 
 /*
 =========================================================
+MARKET REGIME
+=========================================================
+
+Score Rules:
+
+75–100  = Aggressive Stocks
+65–74   = Stocks Overweight
+55–64   = Selective Buying
+45–54   = Warning
+35–44   = Equity Reduce
+0–34    = G-Sec / Gold / Cash
+
+Monthly / Weekly / Daily scores
+are treated independently.
+*/
+
+
+function getMarketRegime(score) {
+
+  const n = num(score);
+
+
+  if (n === null) {
+
+    return {
+      text: "Pending",
+      className: "regime-pending"
+    };
+  }
+
+
+  if (n >= 75) {
+
+    return {
+      text: "🟢🟢 Aggressive Stocks",
+      className: "regime-aggressive"
+    };
+  }
+
+
+  if (n >= 65) {
+
+    return {
+      text: "🟢 Stocks Overweight",
+      className: "regime-overweight"
+    };
+  }
+
+
+  if (n >= 55) {
+
+    return {
+      text: "🟢 Selective Buying",
+      className: "regime-selective"
+    };
+  }
+
+
+  if (n >= 45) {
+
+    return {
+      text: "🟡 Warning",
+      className: "regime-warning"
+    };
+  }
+
+
+  if (n >= 35) {
+
+    return {
+      text: "🟠 Equity Reduce",
+      className: "regime-reduce"
+    };
+  }
+
+
+  return {
+    text: "🔴 G-Sec / Gold / Cash",
+    className: "regime-defensive"
+  };
+}
+
+
+/*
+=========================================================
+SET ONE REGIME CARD
+=========================================================
+*/
+
+function setRegimeCard(
+  timeframe,
+  score
+) {
+
+  const card =
+    el(`${timeframe}Regime`);
+
+  const scoreElement =
+    el(`${timeframe}RegimeScore`);
+
+  const textElement =
+    el(`${timeframe}RegimeText`);
+
+
+  if (
+    !card ||
+    !scoreElement ||
+    !textElement
+  ) {
+    return;
+  }
+
+
+  const n =
+    num(score);
+
+
+  const regime =
+    getMarketRegime(n);
+
+
+  card.classList.remove(
+    "regime-aggressive",
+    "regime-overweight",
+    "regime-selective",
+    "regime-warning",
+    "regime-reduce",
+    "regime-defensive",
+    "regime-pending"
+  );
+
+
+  card.classList.add(
+    regime.className
+  );
+
+
+  scoreElement.textContent =
+    n === null
+      ? "—"
+      : Math.round(n);
+
+
+  textElement.textContent =
+    regime.text;
+}
+
+
+/*
+=========================================================
+UPDATE MARKET REGIMES
+=========================================================
+*/
+
+function updateMarketRegimes(meta) {
+
+  const monthlyScore =
+    num(
+      meta?.monthlyRegimeScore ??
+      meta?.marketRegime?.monthly
+    );
+
+
+  const weeklyScore =
+    num(
+      meta?.weeklyRegimeScore ??
+      meta?.marketRegime?.weekly
+    );
+
+
+  const dailyScore =
+    num(
+      meta?.dailyRegimeScore ??
+      meta?.marketRegime?.daily
+    );
+
+
+  setRegimeCard(
+    "monthly",
+    monthlyScore
+  );
+
+
+  setRegimeCard(
+    "weekly",
+    weeklyScore
+  );
+
+
+  setRegimeCard(
+    "daily",
+    dailyScore
+  );
+}
+
+
+/*
+=========================================================
 STATS
 =========================================================
 */
@@ -2828,11 +2898,6 @@ function updateStats(
   stocks,
   meta
 ) {
-
-  /*
-  Stocks passed here are already
-  permanent-universe filtered.
-  */
 
   if (
     el("totalStocks")
@@ -3091,18 +3156,6 @@ async function init() {
     }
 
 
-    /*
-    =====================================================
-    PERMANENT MARKET CAP SCREEN
-    =====================================================
-
-    Known < ₹100 Cr:
-    removed.
-
-    Pending Market Cap:
-    retained.
-    */
-
     allStocks =
       loadedStocks.filter(
         passesPermanentUniverseRule
@@ -3114,6 +3167,11 @@ async function init() {
 
     updateStats(
       allStocks,
+      metaData
+    );
+
+
+    updateMarketRegimes(
       metaData
     );
 
@@ -3133,11 +3191,6 @@ async function init() {
         resetFilters
       );
 
-
-    /*
-    NORMAL:
-    CHANGE % HIGH -> LOW
-    */
 
     activeSortField =
       null;
