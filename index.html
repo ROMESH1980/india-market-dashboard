@@ -28,33 +28,130 @@
 
     <header class="hero">
 
-      <div>
+  <div class="hero-main">
 
-        <h1>
-          MY MARKET RESEARCH
-        </h1>
+    <div class="title-regime-row">
 
-        <p>
-          Market Cap • Delivery • Sector Growth •
-          Stock Growth • T+M+VM • G+F+C • Overall
-        </p>
-
-      </div>
+      <h1>
+        MY MARKET RESEARCH
+      </h1>
 
 
-      <div class="market-date-box">
+      <!-- =========================
+           MARKET REGIME
+      ========================== -->
 
-        <div>
-          Market / Delivery
+      <div class="market-regimes">
+
+        <!-- MONTHLY -->
+
+        <div
+          id="monthlyRegime"
+          class="regime-card regime-pending"
+        >
+
+          <span class="regime-timeframe">
+            Monthly
+          </span>
+
+          <strong
+            id="monthlyRegimeScore"
+            class="regime-score"
+          >
+            —
+          </strong>
+
+          <span
+            id="monthlyRegimeText"
+            class="regime-text"
+          >
+            Pending
+          </span>
+
         </div>
 
-        <strong id="marketDate">
-          —
-        </strong>
+
+        <!-- WEEKLY -->
+
+        <div
+          id="weeklyRegime"
+          class="regime-card regime-pending"
+        >
+
+          <span class="regime-timeframe">
+            Weekly
+          </span>
+
+          <strong
+            id="weeklyRegimeScore"
+            class="regime-score"
+          >
+            —
+          </strong>
+
+          <span
+            id="weeklyRegimeText"
+            class="regime-text"
+          >
+            Pending
+          </span>
+
+        </div>
+
+
+        <!-- DAILY -->
+
+        <div
+          id="dailyRegime"
+          class="regime-card regime-pending"
+        >
+
+          <span class="regime-timeframe">
+            Daily
+          </span>
+
+          <strong
+            id="dailyRegimeScore"
+            class="regime-score"
+          >
+            —
+          </strong>
+
+          <span
+            id="dailyRegimeText"
+            class="regime-text"
+          >
+            Pending
+          </span>
+
+        </div>
 
       </div>
 
-    </header>
+    </div>
+
+
+    <p>
+      Market Cap • Delivery • Sector Growth •
+      Stock Growth • T+M+VM • G+F+C • Overall
+    </p>
+
+  </div>
+
+
+  <div class="market-date-box">
+
+    <div>
+      Market / Delivery
+    </div>
+
+    <strong id="marketDate">
+      —
+    </strong>
+
+  </div>
+
+</header>
 
 
 
