@@ -1,11 +1,11 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3124,
-  "uniqueCount": 3124,
+  "nseCount": 3140,
+  "uniqueCount": 3140,
   "eodPriceCount": 3612,
-  "matchedPriceCount": 3002,
+  "matchedPriceCount": 2979,
   "marketDate": "2026-08-28",
-  "lastUpdated": "2026-08-30",
+  "lastUpdated": "2026-08-31",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-08-28",
@@ -31,12 +31,12 @@
     "2026-08-04",
     "2026-08-03"
   ],
-  "todayVolumeCount": 2731,
-  "deliveryVolumeCount": 2731,
-  "deliveryRatioCount": 2702,
-  "deliveryPctCount": 2731,
-  "full5DayDeliveryAverageCount": 2843,
-  "incomplete5DayDeliveryCount": 281,
+  "todayVolumeCount": 2721,
+  "deliveryVolumeCount": 2721,
+  "deliveryRatioCount": 2692,
+  "deliveryPctCount": 2721,
+  "full5DayDeliveryAverageCount": 2831,
+  "incomplete5DayDeliveryCount": 309,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -51,30 +51,30 @@
   },
   "marketRegimeDetails": {
     "daily": {
-      "latest": 24175.65,
-      "fastMA": 24375.32,
-      "slowMA": 24208.19,
-      "momentumPct": -0.31,
-      "rsi14": 32.35,
-      "distanceFromHighPct": -2.42
+      "latest": 24080.4,
+      "fastMA": 24340.62,
+      "slowMA": 24209.54,
+      "momentumPct": -0.57,
+      "rsi14": 32.83,
+      "distanceFromHighPct": -2.26
     },
     "weekly": {
-      "latest": 24175.65,
-      "fastMA": 24238.34,
-      "slowMA": 24097.86,
-      "momentumPct": -0.85,
-      "rsi14": 57.1,
-      "distanceFromHighPct": -1.61
+      "latest": 24080.4,
+      "fastMA": 24240.78,
+      "slowMA": 24044.09,
+      "momentumPct": -2.0,
+      "rsi14": 58.49,
+      "distanceFromHighPct": -2.0
     },
     "monthly": {
-      "latest": 24175.65,
-      "fastMA": 23716.95,
-      "slowMA": 24513.36,
-      "momentumPct": 2.67,
-      "rsi14": 43.22,
-      "distanceFromHighPct": -7.74
+      "latest": 24080.4,
+      "fastMA": 23701.08,
+      "slowMA": 24503.83,
+      "momentumPct": 2.26,
+      "rsi14": 42.81,
+      "distanceFromHighPct": -8.1
     }
   },
   "marketRegimeSource": "NIFTY 50 Yahoo Finance chart data",
-  "marketRegimeDate": "2026-08-28"
+  "marketRegimeDate": "2026-08-31"
 }
