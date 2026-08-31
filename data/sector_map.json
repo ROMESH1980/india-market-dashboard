@@ -12758,5 +12758,10 @@
     "sector": "Technology",
     "industry": "Scientific & Technical Instruments",
     "source": "Yahoo Finance"
+  },
+  "AUGMONT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
   }
 }

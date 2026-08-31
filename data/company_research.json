@@ -289,7 +289,7 @@
     },
     "ACUTAAS": {
       "tailwindScore": 82.0,
-      "futureGrowth": 92.6,
+      "futureGrowth": 92.67,
       "fundamentalQuality": 98.9,
       "capexScore": 90.0,
       "researchReasons": {
@@ -523,7 +523,7 @@
     },
     "AADHARHFC": {
       "tailwindScore": 78.0,
-      "futureGrowth": 74.49,
+      "futureGrowth": 74.41,
       "fundamentalQuality": 66.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -718,7 +718,7 @@
     },
     "ABSLAMC": {
       "tailwindScore": 78.0,
-      "futureGrowth": 64.63,
+      "futureGrowth": 64.62,
       "fundamentalQuality": 99.71,
       "capexScore": 60.0,
       "researchReasons": {
@@ -1342,7 +1342,7 @@
     },
     "ANANTRAJ": {
       "tailwindScore": 72.0,
-      "futureGrowth": 69.01,
+      "futureGrowth": 69.0,
       "fundamentalQuality": 92.25,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1654,7 +1654,7 @@
     },
     "APTUS": {
       "tailwindScore": 78.0,
-      "futureGrowth": 73.01,
+      "futureGrowth": 73.02,
       "fundamentalQuality": 71.36,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1693,7 +1693,7 @@
     },
     "ASAHIINDIA": {
       "tailwindScore": 80.0,
-      "futureGrowth": 83.16,
+      "futureGrowth": 83.15,
       "fundamentalQuality": 69.08,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2001,7 +2001,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AUROPHARMA": {
       "tailwindScore": 82.0,
@@ -2274,7 +2274,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJFINSV": {
       "tailwindScore": 78.0,
@@ -21466,7 +21466,7 @@
     },
     "AARTIDRUGS": {
       "tailwindScore": 82.0,
-      "futureGrowth": 54.42,
+      "futureGrowth": 54.41,
       "fundamentalQuality": 68.14,
       "capexScore": 90.0,
       "researchReasons": {
@@ -23182,7 +23182,7 @@
     },
     "AJAXENGG": {
       "tailwindScore": 87.0,
-      "futureGrowth": 57.69,
+      "futureGrowth": 57.78,
       "fundamentalQuality": 77.63,
       "capexScore": 60.0,
       "researchReasons": {
@@ -23221,7 +23221,7 @@
     },
     "AJMERA": {
       "tailwindScore": 72.0,
-      "futureGrowth": 73.92,
+      "futureGrowth": 73.91,
       "fundamentalQuality": 80.69,
       "capexScore": 80.0,
       "researchReasons": {
@@ -23806,7 +23806,7 @@
     },
     "ALKYLAMINE": {
       "tailwindScore": 76.0,
-      "futureGrowth": 46.16,
+      "futureGrowth": 46.14,
       "fundamentalQuality": 69.35,
       "capexScore": 90.0,
       "researchReasons": {
@@ -25561,7 +25561,7 @@
     },
     "APTECHT": {
       "tailwindScore": 70.0,
-      "futureGrowth": 66.78,
+      "futureGrowth": 66.67,
       "fundamentalQuality": 68.64,
       "capexScore": 60.0,
       "researchReasons": {
@@ -26341,7 +26341,7 @@
     },
     "ARVINDFASN": {
       "tailwindScore": 70.0,
-      "futureGrowth": 43.07,
+      "futureGrowth": 43.05,
       "fundamentalQuality": 47.48,
       "capexScore": 70.0,
       "researchReasons": {
@@ -26380,7 +26380,7 @@
     },
     "ARVSMART": {
       "tailwindScore": 72.0,
-      "futureGrowth": 86.09,
+      "futureGrowth": 85.94,
       "fundamentalQuality": 85.49,
       "capexScore": 50.0,
       "researchReasons": {
@@ -26770,7 +26770,7 @@
     },
     "ASIANTILES": {
       "tailwindScore": null,
-      "futureGrowth": 69.65,
+      "futureGrowth": 69.64,
       "fundamentalQuality": 60.62,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27004,7 +27004,7 @@
     },
     "ASKAUTOLTD": {
       "tailwindScore": 70.0,
-      "futureGrowth": 87.31,
+      "futureGrowth": 87.01,
       "fundamentalQuality": 64.01,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27351,7 +27351,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ATLANTAA": {
       "tailwindScore": 87.0,
@@ -27390,7 +27390,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ATLANTAELE": {
       "tailwindScore": 90.0,
@@ -27468,7 +27468,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AURIONPRO": {
       "tailwindScore": 75.0,
@@ -99511,6 +99511,45 @@
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: financialisation, credit penetration and formalisation support long-term sector growth.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-08-31",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-08-31",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-08-31",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-08-31",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "AUGMONT": {
+      "tailwindScore": 70.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
           "source": "methodology.html#tailwind",
           "sourceDate": "2026-08-31",
           "mode": "AUTOMATED"
