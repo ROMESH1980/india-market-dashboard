@@ -1612,3 +1612,154 @@ button {
     margin-right: 0;
   }
 }
+/* =====================================================
+   SINGLE MARKET VIEW CARD
+===================================================== */
+
+.market-view-card {
+  min-width: 250px;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #4f6fff;
+  border-radius: 8px;
+
+  background: #172544;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.market-view-card:hover {
+  transform: translateY(-1px);
+  border-color: #7f91ff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.market-view-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.market-view-card-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.market-view-card-signal {
+  font-size: 10px;
+  font-weight: 700;
+  color: #dce6f2;
+}
+
+.market-view-card-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.market-view-card-icon {
+  font-size: 19px;
+}
+
+.market-view-card-arrow {
+  font-size: 24px;
+  color: #c8d2ff;
+}
+
+
+/* =====================================================
+   LARGE MARKET VIEW MODAL
+===================================================== */
+
+.reason-modal-card.market-view-modal-card {
+  width: min(1180px, calc(100vw - 40px));
+  max-width: 1180px;
+
+  max-height: calc(100vh - 30px);
+
+  padding: 20px 22px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.market-view-modal-card #reasonText {
+  max-height: none;
+  overflow: visible;
+}
+
+.market-view-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.market-view-table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.market-view-table th:first-child {
+  width: 22%;
+}
+
+.market-view-table th:not(:first-child) {
+  width: 19.5%;
+}
+
+.market-view-name {
+  min-width: 0;
+  white-space: normal;
+}
+
+.market-view-score {
+  min-width: 0;
+}
+
+.market-view-score span {
+  white-space: normal;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .market-view-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .reason-modal-card.market-view-modal-card {
+    width: calc(100vw - 12px);
+    max-height: calc(100vh - 12px);
+    padding: 14px 10px;
+    overflow: auto;
+  }
+
+  .market-view-wrapper {
+    overflow-x: auto;
+  }
+
+  .market-view-table {
+    min-width: 680px;
+  }
+}
