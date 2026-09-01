@@ -28,130 +28,85 @@
 
     <header class="hero">
 
-  <div class="hero-main">
+      <div class="hero-main">
 
-    <div class="title-regime-row">
+        <div class="title-regime-row">
 
-      <h1>
-        MY MARKET RESEARCH
-      </h1>
-
-
-      <!-- =========================
-           MARKET REGIME
-      ========================== -->
-
-      <div class="market-regimes">
-
-        <!-- MONTHLY -->
-
-        <div
-          id="monthlyRegime"
-          class="regime-card regime-pending"
-        >
-
-          <span class="regime-timeframe">
-            Monthly
-          </span>
-
-          <strong
-            id="monthlyRegimeScore"
-            class="regime-score"
-          >
-            —
-          </strong>
-
-          <span
-            id="monthlyRegimeText"
-            class="regime-text"
-          >
-            Pending
-          </span>
-
-        </div>
+          <h1>
+            MY MARKET RESEARCH
+          </h1>
 
 
-        <!-- WEEKLY -->
+          <!-- =========================
+               SINGLE MARKET VIEW CARD
+          ========================== -->
 
-        <div
-          id="weeklyRegime"
-          class="regime-card regime-pending"
-        >
+          <div class="market-regimes">
 
-          <span class="regime-timeframe">
-            Weekly
-          </span>
+            <div
+              id="marketViewCard"
+              class="market-view-card"
+              role="button"
+              tabindex="0"
+              title="Click to open Multi-Timeframe Market View"
+            >
 
-          <strong
-            id="weeklyRegimeScore"
-            class="regime-score"
-          >
-            —
-          </strong>
+              <div class="market-view-card-left">
 
-          <span
-            id="weeklyRegimeText"
-            class="regime-text"
-          >
-            Pending
-          </span>
+                <span class="market-view-card-title">
+                  MARKET VIEW
+                </span>
+
+                <span
+                  id="marketViewCardSignal"
+                  class="market-view-card-signal"
+                >
+                  Largecap • Midcap • Smallcap • SME • Gold
+                </span>
+
+              </div>
+
+
+              <div class="market-view-card-right">
+
+                <span class="market-view-card-icon">
+                  📊
+                </span>
+
+                <span class="market-view-card-arrow">
+                  ›
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
 
-        <!-- DAILY -->
-
-        <div
-          id="dailyRegime"
-          class="regime-card regime-pending"
-        >
-
-          <span class="regime-timeframe">
-            Daily
-          </span>
-
-          <strong
-            id="dailyRegimeScore"
-            class="regime-score"
-          >
-            —
-          </strong>
-
-          <span
-            id="dailyRegimeText"
-            class="regime-text"
-          >
-            Pending
-          </span>
-
-        </div>
+        <p>
+          Market Cap • Delivery • Sector Growth •
+          Stock Growth • T+M+VM • G+F+C • Overall
+        </p>
 
       </div>
 
-    </div>
 
+      <div class="market-date-box">
 
-    <p>
-      Market Cap • Delivery • Sector Growth •
-      Stock Growth • T+M+VM • G+F+C • Overall
-    </p>
+        <div>
+          Market / Delivery
+        </div>
 
-  </div>
+        <strong id="marketDate">
+          —
+        </strong>
 
+      </div>
 
-  <div class="market-date-box">
-
-    <div>
-      Market / Delivery
-    </div>
-
-    <strong id="marketDate">
-      —
-    </strong>
-
-  </div>
-
-</header>
+    </header>
 
 
 
@@ -1022,7 +977,7 @@
 
 
   <!-- =========================
-       REASON MODAL
+       REASON / MARKET VIEW MODAL
   ========================== -->
 
   <div
