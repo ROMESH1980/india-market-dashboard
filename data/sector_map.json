@@ -12763,5 +12763,25 @@
     "sector": "Consumer Cyclical",
     "industry": "Luxury Goods",
     "source": "Yahoo Finance"
+  },
+  "HTEL": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "MBECL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "SKYWAYS": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
+  },
+  "SYMBIOTEC": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General",
+    "source": "Yahoo Finance"
   }
 }
