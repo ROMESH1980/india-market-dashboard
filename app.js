@@ -1,42 +1,20 @@
 const PAGE_SIZE = 100;
 
-/*
-=========================================================
-PERMANENT MARKET CAP RULE
-=========================================================
-
-Known Market Cap below ₹100 Cr:
-REMOVE from dashboard.
-
-Pending / unknown Market Cap:
-KEEP in dashboard.
-
-When Market Cap filter is Active:
-Pending gets excluded because numerical
-Market Cap is required.
-*/
-
 const MIN_MARKET_CAP_CR = 100;
-
 
 let allStocks = [];
 let filteredStocks = [];
 let currentPage = 1;
 
+let activeSortField = null;
 
 /*
 =========================================================
-DEFAULT SORT
+MULTI TIMEFRAME MARKET VIEW
 =========================================================
-
-Normal:
-Change % Highest -> Lowest
-
-If numeric column is ACTIVE:
-Active column Highest -> Lowest
 */
 
-let activeSortField = null;
+let multiTimeframeMarketView = {};
 
 
 /*
@@ -81,7 +59,7 @@ function escapeHtml(value) {
 
 /*
 =========================================================
-PERMANENT DASHBOARD UNIVERSE RULE
+PERMANENT MARKET CAP RULE
 =========================================================
 */
 
@@ -571,7 +549,7 @@ function highVolumeMoveVal(row) {
 
 /*
 =========================================================
-RESEARCH REASON DETAILS
+RESEARCH DETAILS
 =========================================================
 */
 
@@ -640,9 +618,7 @@ function buildCombinedReasonHtml(details) {
 
   const items = [];
 
-  if (
-    Array.isArray(details)
-  ) {
+  if (Array.isArray(details)) {
 
     for (const item of details) {
 
@@ -818,6 +794,12 @@ function buildCombinedReasonHtml(details) {
 }
 
 
+/*
+=========================================================
+OPEN STANDARD MODAL
+=========================================================
+*/
+
 function openReasonModal(
   title,
   score,
@@ -944,9 +926,7 @@ function inputNumber(id) {
     return null;
   }
 
-  if (
-    element.value === ""
-  ) {
+  if (element.value === "") {
     return null;
   }
 
@@ -1003,17 +983,13 @@ function passesFilters(row) {
     .toLowerCase();
 
 
-    if (
-      !haystack.includes(q)
-    ) {
+    if (!haystack.includes(q)) {
       return false;
     }
   }
 
 
-  if (
-    checked("activeMarketCap")
-  ) {
+  if (checked("activeMarketCap")) {
 
     const enteredThreshold =
       inputNumber(
@@ -1028,41 +1004,28 @@ function passesFilters(row) {
             enteredThreshold
           );
 
-
     const value =
       num(row.marketCapCr);
 
-
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
-
-    if (
-      value < threshold
-    ) {
+    if (value < threshold) {
       return false;
     }
   }
 
 
-  if (
-    checked("activePrice")
-  ) {
+  if (checked("activePrice")) {
 
     const threshold =
-      inputNumber(
-        "abovePrice"
-      );
+      inputNumber("abovePrice");
 
     const value =
       num(row.price);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1075,21 +1038,15 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeChange")
-  ) {
+  if (checked("activeChange")) {
 
     const threshold =
-      inputNumber(
-        "aboveChange"
-      );
+      inputNumber("aboveChange");
 
     const value =
       num(row.changePct);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1102,9 +1059,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeTodayVolume")
-  ) {
+  if (checked("activeTodayVolume")) {
 
     const threshold =
       inputNumber(
@@ -1114,9 +1069,7 @@ function passesFilters(row) {
     const value =
       totalVolume(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1129,9 +1082,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeTodayDelivery")
-  ) {
+  if (checked("activeTodayDelivery")) {
 
     const threshold =
       inputNumber(
@@ -1141,9 +1092,7 @@ function passesFilters(row) {
     const value =
       todayDeliveryVolume(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1156,9 +1105,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("active5DDelivery")
-  ) {
+  if (checked("active5DDelivery")) {
 
     const threshold =
       inputNumber(
@@ -1168,9 +1115,7 @@ function passesFilters(row) {
     const value =
       avg5DayDelivery(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1183,9 +1128,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeDeliveryRatio")
-  ) {
+  if (checked("activeDeliveryRatio")) {
 
     const threshold =
       inputNumber(
@@ -1195,9 +1138,7 @@ function passesFilters(row) {
     const value =
       deliveryTimes(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1210,9 +1151,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeDeliveryPct")
-  ) {
+  if (checked("activeDeliveryPct")) {
 
     const threshold =
       inputNumber(
@@ -1222,9 +1161,7 @@ function passesFilters(row) {
     const value =
       deliveryPercentage(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1245,9 +1182,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeSector")
-  ) {
+  if (checked("activeSector")) {
 
     const value =
       el("sectorFilter")?.value ||
@@ -1262,9 +1197,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeIndustry")
-  ) {
+  if (checked("activeIndustry")) {
 
     const value =
       el("industryFilter")?.value ||
@@ -1279,9 +1212,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeSectorGrowth")
-  ) {
+  if (checked("activeSectorGrowth")) {
 
     const threshold =
       inputNumber(
@@ -1291,9 +1222,7 @@ function passesFilters(row) {
     const value =
       num(row.sectorGrowth1M);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1306,9 +1235,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeStockGrowth")
-  ) {
+  if (checked("activeStockGrowth")) {
 
     const threshold =
       inputNumber(
@@ -1318,9 +1245,7 @@ function passesFilters(row) {
     const value =
       selectedStockGrowth(row);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1333,21 +1258,15 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeTMV")
-  ) {
+  if (checked("activeTMV")) {
 
     const threshold =
-      inputNumber(
-        "aboveTMV"
-      );
+      inputNumber("aboveTMV");
 
     const value =
       num(row.tmvScore);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1360,21 +1279,15 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeGFC")
-  ) {
+  if (checked("activeGFC")) {
 
     const threshold =
-      inputNumber(
-        "aboveGFC"
-      );
+      inputNumber("aboveGFC");
 
     const value =
       num(row.gfcScore);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1387,9 +1300,7 @@ function passesFilters(row) {
   }
 
 
-  if (
-    checked("activeOverall")
-  ) {
+  if (checked("activeOverall")) {
 
     const threshold =
       inputNumber(
@@ -1399,9 +1310,7 @@ function passesFilters(row) {
     const value =
       num(row.overallScore);
 
-    if (
-      value === null
-    ) {
+    if (value === null) {
       return false;
     }
 
@@ -1490,7 +1399,7 @@ function sortValue(
 
 /*
 =========================================================
-NUMERIC DESCENDING SORT
+SORT
 =========================================================
 */
 
@@ -1501,16 +1410,10 @@ function compareNumericDesc(
 ) {
 
   const av =
-    sortValue(
-      a,
-      field
-    );
+    sortValue(a, field);
 
   const bv =
-    sortValue(
-      b,
-      field
-    );
+    sortValue(b, field);
 
 
   if (
@@ -1521,23 +1424,17 @@ function compareNumericDesc(
   }
 
 
-  if (
-    av === null
-  ) {
+  if (av === null) {
     return 1;
   }
 
 
-  if (
-    bv === null
-  ) {
+  if (bv === null) {
     return -1;
   }
 
 
-  if (
-    bv !== av
-  ) {
+  if (bv !== av) {
     return bv - av;
   }
 
@@ -1546,25 +1443,13 @@ function compareNumericDesc(
 }
 
 
-/*
-=========================================================
-RANK STOCKS
-=========================================================
-*/
-
 function rankStocks(rows) {
 
   return [...rows]
     .sort(
-      (
-        a,
-        b
-      ) => {
+      (a, b) => {
 
-
-        if (
-          activeSortField
-        ) {
+        if (activeSortField) {
 
           const primary =
             compareNumericDesc(
@@ -1573,9 +1458,7 @@ function rankStocks(rows) {
               activeSortField
             );
 
-          if (
-            primary !== 0
-          ) {
+          if (primary !== 0) {
             return primary;
           }
         }
@@ -1593,9 +1476,7 @@ function rankStocks(rows) {
               "changePct"
             );
 
-          if (
-            changeSort !== 0
-          ) {
+          if (changeSort !== 0) {
             return changeSort;
           }
         }
@@ -1631,7 +1512,7 @@ function rankStocks(rows) {
 
 /*
 =========================================================
-ACTIVE SORT MAPPING
+ACTIVE SORT MAP
 =========================================================
 */
 
@@ -1702,9 +1583,7 @@ function updateActiveSortFromCheckbox(
   }
 
 
-  if (
-    checkbox.checked
-  ) {
+  if (checkbox.checked) {
 
     activeSortField =
       field;
@@ -1745,7 +1624,7 @@ function findAnotherActiveSortField() {
 
 /*
 =========================================================
-SECTOR / INDUSTRY OPTIONS
+DROPDOWNS
 =========================================================
 */
 
@@ -1777,10 +1656,7 @@ function fillSelectOptions(
         .filter(Boolean)
     )]
     .sort(
-      (
-        a,
-        b
-      ) =>
+      (a, b) =>
         a.localeCompare(b)
     );
 
@@ -1793,10 +1669,7 @@ function fillSelectOptions(
     `;
 
 
-  for (
-    const value
-    of unique
-  ) {
+  for (const value of unique) {
 
     const option =
       document.createElement(
@@ -1815,9 +1688,7 @@ function fillSelectOptions(
   }
 
 
-  if (
-    unique.includes(current)
-  ) {
+  if (unique.includes(current)) {
 
     select.value =
       current;
@@ -1830,8 +1701,7 @@ function populateDropdowns() {
   fillSelectOptions(
     "sectorFilter",
     allStocks.map(
-      row =>
-        row.sector
+      row => row.sector
     )
   );
 
@@ -1839,8 +1709,7 @@ function populateDropdowns() {
   fillSelectOptions(
     "industryFilter",
     allStocks.map(
-      row =>
-        row.industry
+      row => row.industry
     )
   );
 }
@@ -1892,9 +1761,7 @@ function renderRows() {
   }
 
 
-  if (
-    currentPage < 1
-  ) {
+  if (currentPage < 1) {
     currentPage = 1;
   }
 
@@ -1917,7 +1784,6 @@ function renderRows() {
   tbody.innerHTML =
     pageRows
       .map(row => {
-
 
         const globalIndex =
           allStocks.indexOf(row);
@@ -1968,7 +1834,6 @@ function renderRows() {
         return `
 
           <tr>
-
 
             <td>
 
@@ -2134,16 +1999,13 @@ function renderRows() {
 
             </td>
 
-
           </tr>
         `;
       })
       .join("");
 
 
-  if (
-    el("resultCount")
-  ) {
+  if (el("resultCount")) {
 
     el("resultCount").textContent =
       `${total.toLocaleString(
@@ -2152,27 +2014,21 @@ function renderRows() {
   }
 
 
-  if (
-    el("page")
-  ) {
+  if (el("page")) {
 
     el("page").textContent =
       `Page ${currentPage} of ${totalPages}`;
   }
 
 
-  if (
-    el("prev")
-  ) {
+  if (el("prev")) {
 
     el("prev").disabled =
       currentPage <= 1;
   }
 
 
-  if (
-    el("next")
-  ) {
+  if (el("next")) {
 
     el("next").disabled =
       currentPage >= totalPages;
@@ -2187,7 +2043,7 @@ function renderRows() {
 
 /*
 =========================================================
-REASON BUTTON EVENTS
+RESEARCH BUTTON EVENTS
 =========================================================
 */
 
@@ -2220,9 +2076,7 @@ function setupReasonButtons() {
             }
 
 
-            if (
-              type === "tmv"
-            ) {
+            if (type === "tmv") {
 
               openReasonModal(
                 `${
@@ -2238,9 +2092,7 @@ function setupReasonButtons() {
             }
 
 
-            if (
-              type === "gfc"
-            ) {
+            if (type === "gfc") {
 
               openReasonModal(
                 `${
@@ -2314,17 +2166,13 @@ function setupFilterEvents() {
     "aboveMarketCap",
     "abovePrice",
     "aboveChange",
-
     "aboveTodayVolume",
     "aboveTodayDelivery",
     "above5DDelivery",
-
     "aboveDeliveryRatio",
     "aboveDeliveryPct",
-
     "aboveSectorGrowth",
     "aboveStockGrowth",
-
     "aboveTMV",
     "aboveGFC",
     "aboveOverall"
@@ -2395,15 +2243,13 @@ function setupFilterEvents() {
 
 /*
 =========================================================
-RESET FILTERS
+RESET
 =========================================================
 */
 
 function resetFilters() {
 
-  if (
-    el("q")
-  ) {
+  if (el("q")) {
     el("q").value = "";
   }
 
@@ -2438,27 +2284,21 @@ function resetFilters() {
   );
 
 
-  if (
-    el("sectorFilter")
-  ) {
+  if (el("sectorFilter")) {
 
     el("sectorFilter").value =
       "";
   }
 
 
-  if (
-    el("industryFilter")
-  ) {
+  if (el("industryFilter")) {
 
     el("industryFilter").value =
       "";
   }
 
 
-  if (
-    el("stockGrowthPeriod")
-  ) {
+  if (el("stockGrowthPeriod")) {
 
     el("stockGrowthPeriod").value =
       "3M";
@@ -2490,9 +2330,7 @@ function setupPagination() {
       "click",
       () => {
 
-        if (
-          currentPage > 1
-        ) {
+        if (currentPage > 1) {
 
           currentPage--;
 
@@ -2694,20 +2532,7 @@ function setupScrollSync() {
 =========================================================
 MARKET REGIME
 =========================================================
-
-Score Rules:
-
-75–100  = Aggressive Stocks
-65–74   = Stocks Overweight
-55–64   = Selective Buying
-45–54   = Warning
-35–44   = Equity Reduce
-0–34    = G-Sec / Gold / Cash
-
-Monthly / Weekly / Daily scores
-are treated independently.
 */
-
 
 function getMarketRegime(score) {
 
@@ -2775,12 +2600,6 @@ function getMarketRegime(score) {
 }
 
 
-/*
-=========================================================
-SET ONE REGIME CARD
-=========================================================
-*/
-
 function setRegimeCard(
   timeframe,
   score
@@ -2840,12 +2659,6 @@ function setRegimeCard(
 }
 
 
-/*
-=========================================================
-UPDATE MARKET REGIMES
-=========================================================
-*/
-
 function updateMarketRegimes(meta) {
 
   const monthlyScore =
@@ -2890,6 +2703,397 @@ function updateMarketRegimes(meta) {
 
 /*
 =========================================================
+MARKET VIEW SIGNAL
+=========================================================
+*/
+
+function marketViewSignalHtml(
+  score,
+  signalData
+) {
+
+  const n =
+    num(score);
+
+
+  if (n === null) {
+
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
+  }
+
+
+  const emoji =
+    signalData?.emoji ||
+    "";
+
+
+  const label =
+    signalData?.label ||
+    getMarketRegime(n).text;
+
+
+  return `
+    <div class="market-view-score">
+
+      <strong>
+        ${Math.round(n)}
+      </strong>
+
+      <span>
+        ${escapeHtml(emoji)}
+        ${escapeHtml(label)}
+      </span>
+
+    </div>
+  `;
+}
+
+
+/*
+=========================================================
+BUILD MULTI TIMEFRAME VIEW
+=========================================================
+*/
+
+function buildMultiTimeframeMarketViewHtml(
+  marketView
+) {
+
+  const assetOrder = [
+
+    "nifty50",
+    "midcap100",
+    "smallcap100",
+    "sme",
+    "gold"
+
+  ];
+
+
+  const rows = assetOrder
+    .map(key => {
+
+      const asset =
+        marketView?.[key];
+
+
+      if (!asset) {
+        return "";
+      }
+
+
+      const name =
+        asset.name ||
+        key;
+
+
+      return `
+
+        <tr>
+
+          <td class="market-view-name">
+
+            <strong>
+              ${
+                key === "gold"
+                  ? "🥇 "
+                  : ""
+              }
+
+              ${escapeHtml(name)}
+            </strong>
+
+          </td>
+
+
+          <td>
+
+            ${marketViewSignalHtml(
+              asset.daily,
+              asset.dailySignal
+            )}
+
+          </td>
+
+
+          <td>
+
+            ${marketViewSignalHtml(
+              asset.weekly,
+              asset.weeklySignal
+            )}
+
+          </td>
+
+
+          <td>
+
+            ${marketViewSignalHtml(
+              asset.monthly,
+              asset.monthlySignal
+            )}
+
+          </td>
+
+
+          <td>
+
+            ${marketViewSignalHtml(
+              asset.overall,
+              asset.overallSignal
+            )}
+
+          </td>
+
+        </tr>
+      `;
+    })
+    .join("");
+
+
+  if (!rows) {
+
+    return `
+      <div class="pending">
+
+        Multi-Timeframe Market View
+        not available yet.
+
+        Run the daily update workflow
+        to generate regime data.
+
+      </div>
+    `;
+  }
+
+
+  return `
+
+    <div class="market-view-wrapper">
+
+      <table class="market-view-table">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Asset / Segment
+            </th>
+
+            <th>
+              DAILY
+            </th>
+
+            <th>
+              WEEKLY
+            </th>
+
+            <th>
+              MONTHLY
+            </th>
+
+            <th>
+              Overall
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+          ${rows}
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <div class="market-view-note">
+
+      <strong>
+        Score Interpretation
+      </strong>
+
+      <div>
+        75–100
+        🟢🟢
+        Aggressive / Very Strong
+      </div>
+
+      <div>
+        65–74
+        🟢
+        Overweight / Strong
+      </div>
+
+      <div>
+        55–64
+        🟢
+        Selective / Positive
+      </div>
+
+      <div>
+        45–54
+        🟡
+        Warning / Neutral
+      </div>
+
+      <div>
+        35–44
+        🟠
+        Reduce / Weak
+      </div>
+
+      <div>
+        0–34
+        🔴
+        Defensive
+      </div>
+
+    </div>
+  `;
+}
+
+
+/*
+=========================================================
+OPEN MARKET VIEW MODAL
+=========================================================
+*/
+
+function openMarketViewModal() {
+
+  const modal =
+    el("reasonModal");
+
+
+  if (!modal) {
+    return;
+  }
+
+
+  el("reasonTitle").textContent =
+    "Multi-Timeframe Market View";
+
+
+  el("reasonScore").textContent =
+    "Largecap • Midcap • Smallcap • SME • Gold";
+
+
+  el("reasonText").innerHTML =
+    buildMultiTimeframeMarketViewHtml(
+      multiTimeframeMarketView
+    );
+
+
+  el("reasonSourceDate").textContent =
+    "";
+
+
+  const sourceLink =
+    el("reasonSourceLink");
+
+
+  if (sourceLink) {
+
+    sourceLink.style.display =
+      "none";
+  }
+
+
+  modal.classList.add(
+    "open"
+  );
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+}
+
+
+/*
+=========================================================
+MARKET REGIME CLICK EVENTS
+=========================================================
+*/
+
+function setupMarketRegimeEvents() {
+
+  const cards = [
+
+    el("monthlyRegime"),
+    el("weeklyRegime"),
+    el("dailyRegime")
+
+  ];
+
+
+  cards.forEach(card => {
+
+    if (!card) {
+      return;
+    }
+
+
+    card.style.cursor =
+      "pointer";
+
+
+    card.setAttribute(
+      "role",
+      "button"
+    );
+
+
+    card.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+
+    card.setAttribute(
+      "title",
+      "Click for Multi-Timeframe Market View"
+    );
+
+
+    card.addEventListener(
+      "click",
+      openMarketViewModal
+    );
+
+
+    card.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          openMarketViewModal();
+        }
+      }
+    );
+
+  });
+}
+
+
+/*
+=========================================================
 STATS
 =========================================================
 */
@@ -2899,9 +3103,7 @@ function updateStats(
   meta
 ) {
 
-  if (
-    el("totalStocks")
-  ) {
+  if (el("totalStocks")) {
 
     el("totalStocks").textContent =
       stocks.length.toLocaleString(
@@ -2918,9 +3120,7 @@ function updateStats(
     .length;
 
 
-  if (
-    el("eodReady")
-  ) {
+  if (el("eodReady")) {
 
     el("eodReady").textContent =
       eodReady.toLocaleString(
@@ -2937,9 +3137,7 @@ function updateStats(
     .length;
 
 
-  if (
-    el("marketCapReady")
-  ) {
+  if (el("marketCapReady")) {
 
     el("marketCapReady").textContent =
       marketCapReady.toLocaleString(
@@ -2956,9 +3154,7 @@ function updateStats(
     .length;
 
 
-  if (
-    el("fullyScored")
-  ) {
+  if (el("fullyScored")) {
 
     el("fullyScored").textContent =
       fullyScored.toLocaleString(
@@ -2991,10 +3187,7 @@ function updateStats(
     null;
 
 
-  for (
-    const value
-    of dateCandidates
-  ) {
+  for (const value of dateCandidates) {
 
     if (value) {
 
@@ -3006,9 +3199,7 @@ function updateStats(
   }
 
 
-  if (
-    el("marketDate")
-  ) {
+  if (el("marketDate")) {
 
     el("marketDate").textContent =
       marketDate ||
@@ -3052,10 +3243,7 @@ function setupModalEvents() {
     "keydown",
     event => {
 
-      if (
-        event.key ===
-        "Escape"
-      ) {
+      if (event.key === "Escape") {
 
         closeReasonModal();
       }
@@ -3091,9 +3279,7 @@ async function fetchJson(path) {
     );
 
 
-  if (
-    !response.ok
-  ) {
+  if (!response.ok) {
 
     throw new Error(
       `Unable to load ${path}: ${response.status}`
@@ -3171,9 +3357,26 @@ async function init() {
     );
 
 
+    /*
+    =====================================================
+    HEADER MARKET REGIME
+    =====================================================
+    */
+
     updateMarketRegimes(
       metaData
     );
+
+
+    /*
+    =====================================================
+    MULTI TIMEFRAME MARKET VIEW
+    =====================================================
+    */
+
+    multiTimeframeMarketView =
+      metaData?.multiTimeframeMarketView ||
+      {};
 
 
     setupFilterEvents();
@@ -3183,6 +3386,8 @@ async function init() {
     setupScrollSync();
 
     setupModalEvents();
+
+    setupMarketRegimeEvents();
 
 
     el("resetScores")
@@ -3208,6 +3413,12 @@ async function init() {
     );
 
 
+    console.log(
+      "Multi-Timeframe Market View:",
+      multiTimeframeMarketView
+    );
+
+
   } catch (error) {
 
     console.error(
@@ -3216,9 +3427,7 @@ async function init() {
     );
 
 
-    if (
-      el("rows")
-    ) {
+    if (el("rows")) {
 
       el("rows").innerHTML =
         `
