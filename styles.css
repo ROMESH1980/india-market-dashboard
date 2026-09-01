@@ -1426,3 +1426,189 @@ button {
   }
 
 }
+/* =====================================================
+   MULTI-TIMEFRAME MARKET VIEW MODAL
+   ===================================================== */
+
+.market-view-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+
+.market-view-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: #0f1b2d;
+  border: 1px solid #31445f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.market-view-table th {
+  padding: 10px 12px;
+  background: #15243a;
+  border-bottom: 1px solid #41546d;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+.market-view-table th:first-child {
+  text-align: left;
+}
+
+
+.market-view-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #263850;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.market-view-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+.market-view-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+
+.market-view-name {
+  min-width: 190px;
+  text-align: left !important;
+  white-space: nowrap;
+}
+
+
+.market-view-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 105px;
+}
+
+
+.market-view-score strong {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+
+.market-view-score span {
+  font-size: 10px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #dce6f2;
+  text-align: center;
+}
+
+
+.market-view-note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #31445f;
+  border-radius: 7px;
+  background: #101c2f;
+  color: #dce6f2;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+.market-view-note > strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+
+.market-view-note > div {
+  display: inline-block;
+  margin-right: 14px;
+  margin-bottom: 3px;
+}
+
+
+/* =====================================================
+   REGIME CARD HOVER / CLICK FEEDBACK
+   ===================================================== */
+
+.regime-card {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.regime-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+
+.regime-card:focus {
+  outline: 2px solid #7fb3ff;
+  outline-offset: 2px;
+}
+
+
+/* =====================================================
+   MOBILE VIEW
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .market-view-table {
+    min-width: 680px;
+  }
+
+
+  .market-view-table th,
+  .market-view-table td {
+    padding: 8px 9px;
+  }
+
+
+  .market-view-name {
+    min-width: 160px;
+  }
+
+
+  .market-view-score {
+    min-width: 90px;
+  }
+
+
+  .market-view-score strong {
+    font-size: 14px;
+  }
+
+
+  .market-view-score span {
+    font-size: 9px;
+  }
+
+
+  .market-view-note > div {
+    display: block;
+    margin-right: 0;
+  }
+}
