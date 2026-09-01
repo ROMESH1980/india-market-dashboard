@@ -1,27 +1,18 @@
 const PAGE_SIZE = 100;
-
 const MIN_MARKET_CAP_CR = 100;
 
 let allStocks = [];
 let filteredStocks = [];
 let currentPage = 1;
-
 let activeSortField = null;
 
-/*
-=========================================================
-MULTI TIMEFRAME MARKET VIEW
-=========================================================
-*/
-
 let multiTimeframeMarketView = {};
+let metaDataGlobal = {};
 
 
-/*
-=========================================================
-DOM HELPERS
-=========================================================
-*/
+/* =====================================================
+   DOM HELPERS
+===================================================== */
 
 function el(id) {
   return document.getElementById(id);
@@ -29,7 +20,6 @@ function el(id) {
 
 
 function num(value) {
-
   if (
     value === null ||
     value === undefined ||
@@ -47,7 +37,6 @@ function num(value) {
 
 
 function escapeHtml(value) {
-
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -57,16 +46,12 @@ function escapeHtml(value) {
 }
 
 
-/*
-=========================================================
-PERMANENT MARKET CAP RULE
-=========================================================
-*/
+/* =====================================================
+   PERMANENT UNIVERSE RULE
+===================================================== */
 
 function passesPermanentUniverseRule(row) {
-
-  const marketCap =
-    num(row.marketCapCr);
+  const marketCap = num(row.marketCapCr);
 
   if (marketCap === null) {
     return true;
@@ -76,16 +61,12 @@ function passesPermanentUniverseRule(row) {
 }
 
 
-/*
-=========================================================
-TOTAL VOLUME
-=========================================================
-*/
+/* =====================================================
+   TODAY VOLUME
+===================================================== */
 
 function totalVolume(row) {
-
   const candidates = [
-
     row.todayVolume,
     row.totalVolume,
     row.volume,
@@ -96,11 +77,9 @@ function totalVolume(row) {
     row.totalTradedQuantity,
     row.totalTradeQuantity,
     row.ttq
-
   ];
 
   for (const value of candidates) {
-
     const n = num(value);
 
     if (n !== null) {
@@ -112,27 +91,21 @@ function totalVolume(row) {
 }
 
 
-/*
-=========================================================
-TODAY DELIVERY VOLUME
-=========================================================
-*/
+/* =====================================================
+   TODAY DELIVERY VOLUME
+===================================================== */
 
 function todayDeliveryVolume(row) {
-
   const candidates = [
-
     row.todayDeliveryVolume,
     row.deliveryVolume,
     row.deliveryQty,
     row.deliveryQuantity,
     row.deliverableQty,
     row.deliverableQuantity
-
   ];
 
   for (const value of candidates) {
-
     const n = num(value);
 
     if (n !== null) {
@@ -144,25 +117,19 @@ function todayDeliveryVolume(row) {
 }
 
 
-/*
-=========================================================
-5 DAY AVG DELIVERY
-=========================================================
-*/
+/* =====================================================
+   5D AVG DELIVERY VOLUME
+===================================================== */
 
 function avg5DayDelivery(row) {
-
   const candidates = [
-
     row.avg5DayDeliveryVolume,
     row.avg5DDeliveryVolume,
     row.fiveDayAvgDeliveryVolume,
     row.delivery5DayAvg
-
   ];
 
   for (const value of candidates) {
-
     const n = num(value);
 
     if (n !== null) {
@@ -174,14 +141,11 @@ function avg5DayDelivery(row) {
 }
 
 
-/*
-=========================================================
-DELIVERY TIMES
-=========================================================
-*/
+/* =====================================================
+   DELIVERY TIMES
+===================================================== */
 
 function deliveryTimes(row) {
-
   const direct = num(
     row.deliveryVolumeRatio ??
     row.deliveryTimes
@@ -191,11 +155,8 @@ function deliveryTimes(row) {
     return direct;
   }
 
-  const today =
-    todayDeliveryVolume(row);
-
-  const avg =
-    avg5DayDelivery(row);
+  const today = todayDeliveryVolume(row);
+  const avg = avg5DayDelivery(row);
 
   if (
     today === null ||
@@ -209,30 +170,23 @@ function deliveryTimes(row) {
 }
 
 
-/*
-=========================================================
-DELIVERY %
-=========================================================
-*/
+/* =====================================================
+   DELIVERY %
+===================================================== */
 
 function deliveryPercentage(row) {
-
   const directCandidates = [
-
     row.deliveryPct,
     row.deliveryPercent,
     row.deliveryPercentage,
     row.deliverablePct,
     row.deliverablePercentage
-
   ];
 
   for (const value of directCandidates) {
-
     const n = num(value);
 
     if (n !== null) {
-
       if (
         n > 0 &&
         n <= 1
@@ -244,11 +198,8 @@ function deliveryPercentage(row) {
     }
   }
 
-  const delivery =
-    todayDeliveryVolume(row);
-
-  const volume =
-    totalVolume(row);
+  const delivery = todayDeliveryVolume(row);
+  const volume = totalVolume(row);
 
   if (
     delivery === null ||
@@ -265,19 +216,13 @@ function deliveryPercentage(row) {
 }
 
 
-/*
-=========================================================
-5 LAKH VOLUME + 5% MOVE
-=========================================================
-*/
+/* =====================================================
+   5L VOLUME + 5% MOVE
+===================================================== */
 
 function qualifiesHighVolumeMove(row) {
-
-  const volume =
-    totalVolume(row);
-
-  const change =
-    num(row.changePct);
+  const volume = totalVolume(row);
+  const change = num(row.changePct);
 
   if (
     volume === null ||
@@ -293,14 +238,11 @@ function qualifiesHighVolumeMove(row) {
 }
 
 
-/*
-=========================================================
-STOCK GROWTH
-=========================================================
-*/
+/* =====================================================
+   STOCK GROWTH
+===================================================== */
 
 function selectedStockGrowth(row) {
-
   const period =
     el("stockGrowthPeriod")?.value ||
     "3M";
@@ -317,14 +259,11 @@ function selectedStockGrowth(row) {
 }
 
 
-/*
-=========================================================
-FORMATTERS
-=========================================================
-*/
+/* =====================================================
+   FORMATTERS
+===================================================== */
 
 function formatNumber(value) {
-
   const n = num(value);
 
   if (n === null) {
@@ -341,11 +280,9 @@ function formatNumber(value) {
 
 
 function formatPrice(value) {
-
   const n = num(value);
 
   if (n === null) {
-
     return `
       <span class="pending">
         Pending EOD
@@ -364,11 +301,9 @@ function formatPrice(value) {
 
 
 function formatPct(value) {
-
   const n = num(value);
 
   if (n === null) {
-
     return `
       <span class="pending">
         —
@@ -397,11 +332,9 @@ function formatPct(value) {
 
 
 function formatPlainPct(value) {
-
   const n = num(value);
 
   if (n === null) {
-
     return `
       <span class="pending">
         —
@@ -414,11 +347,9 @@ function formatPlainPct(value) {
 
 
 function formatTimes(value) {
-
   const n = num(value);
 
   if (n === null) {
-
     return `
       <span class="pending">
         —
@@ -431,11 +362,9 @@ function formatTimes(value) {
 
 
 function formatScore(value) {
-
   const n = num(value);
 
   if (n === null) {
-
     return `
       <span class="pending">
         Pending
@@ -447,25 +376,18 @@ function formatScore(value) {
 }
 
 
-/*
-=========================================================
-MARKET CAP DISPLAY
-=========================================================
-*/
+/* =====================================================
+   MARKET CAP
+===================================================== */
 
 function marketCapVal(row) {
-
-  const category =
-    row.marketCapCategory;
-
-  const marketCap =
-    num(row.marketCapCr);
+  const category = row.marketCapCategory;
+  const marketCap = num(row.marketCapCr);
 
   if (
     !category &&
     marketCap === null
   ) {
-
     return `
       <span class="pending">
         Pending
@@ -476,7 +398,6 @@ function marketCapVal(row) {
   let html = "";
 
   if (category) {
-
     html += `
       <div class="market-cap-category">
         ${escapeHtml(category)}
@@ -485,7 +406,6 @@ function marketCapVal(row) {
   }
 
   if (marketCap !== null) {
-
     html += `
       <div class="market-cap-value">
         ₹${marketCap.toLocaleString(
@@ -502,25 +422,18 @@ function marketCapVal(row) {
 }
 
 
-/*
-=========================================================
-5L + 5% STATUS
-=========================================================
-*/
+/* =====================================================
+   5L + 5% STATUS
+===================================================== */
 
 function highVolumeMoveVal(row) {
-
-  const volume =
-    totalVolume(row);
-
-  const change =
-    num(row.changePct);
+  const volume = totalVolume(row);
+  const change = num(row.changePct);
 
   if (
     volume === null ||
     change === null
   ) {
-
     return `
       <span class="pending">
         —
@@ -528,10 +441,7 @@ function highVolumeMoveVal(row) {
     `;
   }
 
-  if (
-    qualifiesHighVolumeMove(row)
-  ) {
-
+  if (qualifiesHighVolumeMove(row)) {
     return `
       <span class="setup-yes">
         YES
@@ -547,17 +457,11 @@ function highVolumeMoveVal(row) {
 }
 
 
-/*
-=========================================================
-RESEARCH DETAILS
-=========================================================
-*/
+/* =====================================================
+   RESEARCH DETAILS
+===================================================== */
 
-function normalizeDetailItem(
-  title,
-  item
-) {
-
+function normalizeDetailItem(title, item) {
   if (!item) {
     return null;
   }
@@ -566,7 +470,6 @@ function normalizeDetailItem(
     typeof item === "number" ||
     typeof item === "string"
   ) {
-
     return {
       title,
       score: item,
@@ -578,7 +481,6 @@ function normalizeDetailItem(
   }
 
   return {
-
     title,
 
     score:
@@ -606,9 +508,7 @@ function normalizeDetailItem(
 
 
 function buildCombinedReasonHtml(details) {
-
   if (!details) {
-
     return `
       <div class="pending">
         Details not available.
@@ -619,9 +519,7 @@ function buildCombinedReasonHtml(details) {
   const items = [];
 
   if (Array.isArray(details)) {
-
     for (const item of details) {
-
       items.push(
         normalizeDetailItem(
           item.title ||
@@ -631,47 +529,24 @@ function buildCombinedReasonHtml(details) {
         )
       );
     }
-
   } else {
-
     const keyMap = {
-
-      tailwind:
-        "Tailwind",
-
-      macro:
-        "Macro",
-
-      macroSupport:
-        "Macro",
-
-      valueMigration:
-        "Value Migration",
-
-      futureGrowth:
-        "Future Growth",
-
-      fundamental:
-        "Fundamental",
-
-      fundamentalQuality:
-        "Fundamental",
-
-      capex:
-        "CAPEX",
-
-      capexScore:
-        "CAPEX"
+      tailwind: "Tailwind",
+      macro: "Macro",
+      macroSupport: "Macro",
+      valueMigration: "Value Migration",
+      futureGrowth: "Future Growth",
+      fundamental: "Fundamental",
+      fundamentalQuality: "Fundamental",
+      capex: "CAPEX",
+      capexScore: "CAPEX"
     };
-
 
     for (
       const [key, title]
       of Object.entries(keyMap)
     ) {
-
       if (details[key]) {
-
         items.push(
           normalizeDetailItem(
             title,
@@ -681,19 +556,15 @@ function buildCombinedReasonHtml(details) {
       }
     }
 
-
     if (!items.length) {
-
       for (
         const [key, value]
         of Object.entries(details)
       ) {
-
         if (
           value &&
           typeof value === "object"
         ) {
-
           items.push(
             normalizeDetailItem(
               key,
@@ -705,13 +576,10 @@ function buildCombinedReasonHtml(details) {
     }
   }
 
-
   const validItems =
     items.filter(Boolean);
 
-
   if (!validItems.length) {
-
     return `
       <div class="pending">
         Details not available.
@@ -719,10 +587,8 @@ function buildCombinedReasonHtml(details) {
     `;
   }
 
-
   return validItems
     .map(item => {
-
       const reason =
         escapeHtml(
           item.reason ||
@@ -734,7 +600,6 @@ function buildCombinedReasonHtml(details) {
           ? escapeHtml(item.score)
           : "—";
 
-
       const mode =
         item.mode
           ? `
@@ -744,7 +609,6 @@ function buildCombinedReasonHtml(details) {
             </div>
           `
           : "";
-
 
       const sourceDate =
         item.sourceDate
@@ -756,7 +620,6 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
-
       const source =
         item.source
           ? `
@@ -767,9 +630,7 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
-
       return `
-
         <div class="reason-section">
 
           <h3>
@@ -794,29 +655,32 @@ function buildCombinedReasonHtml(details) {
 }
 
 
-/*
-=========================================================
-OPEN STANDARD MODAL
-=========================================================
-*/
+/* =====================================================
+   STANDARD RESEARCH MODAL
+===================================================== */
 
 function openReasonModal(
   title,
   score,
   details
 ) {
-
-  const modal =
-    el("reasonModal");
+  const modal = el("reasonModal");
 
   if (!modal) {
     return;
   }
 
+  const card =
+    modal.querySelector(
+      ".reason-modal-card"
+    );
+
+  card?.classList.remove(
+    "market-view-modal-card"
+  );
 
   el("reasonTitle").textContent =
     title;
-
 
   el("reasonScore").textContent =
     score !== null &&
@@ -824,14 +688,11 @@ function openReasonModal(
       ? `Score: ${Math.round(Number(score))}`
       : "Score: Pending";
 
-
   el("reasonText").innerHTML =
     buildCombinedReasonHtml(details);
 
-
   el("reasonSourceDate").textContent =
     "";
-
 
   const sourceLink =
     el("reasonSourceLink");
@@ -839,7 +700,6 @@ function openReasonModal(
   if (sourceLink) {
     sourceLink.style.display = "none";
   }
-
 
   modal.classList.add("open");
 
@@ -851,13 +711,20 @@ function openReasonModal(
 
 
 function closeReasonModal() {
-
-  const modal =
-    el("reasonModal");
+  const modal = el("reasonModal");
 
   if (!modal) {
     return;
   }
+
+  const card =
+    modal.querySelector(
+      ".reason-modal-card"
+    );
+
+  card?.classList.remove(
+    "market-view-modal-card"
+  );
 
   modal.classList.remove("open");
 
@@ -868,29 +735,24 @@ function closeReasonModal() {
 }
 
 
-/*
-=========================================================
-SCORE BUTTON
-=========================================================
-*/
+/* =====================================================
+   SCORE BUTTON
+===================================================== */
 
 function researchScoreButton(
   rowIndex,
   type,
   score
 ) {
-
   const n = num(score);
 
   if (n === null) {
-
     return `
       <span class="pending">
         Pending
       </span>
     `;
   }
-
 
   return `
     <button
@@ -911,16 +773,12 @@ function researchScoreButton(
 }
 
 
-/*
-=========================================================
-FILTER HELPERS
-=========================================================
-*/
+/* =====================================================
+   FILTER HELPERS
+===================================================== */
 
 function inputNumber(id) {
-
-  const element =
-    el(id);
+  const element = el(id);
 
   if (!element) {
     return null;
@@ -935,53 +793,43 @@ function inputNumber(id) {
 
 
 function checked(id) {
-
   return Boolean(
     el(id)?.checked
   );
 }
 
 
-/*
-=========================================================
-FILTERING
-=========================================================
-*/
+/* =====================================================
+   FILTERING
+===================================================== */
 
 function passesFilters(row) {
-
   if (
     !passesPermanentUniverseRule(row)
   ) {
     return false;
   }
 
-
   const q =
     (
       el("q")?.value ||
       ""
     )
-    .trim()
-    .toLowerCase();
-
+      .trim()
+      .toLowerCase();
 
   if (q) {
-
     const haystack = [
-
       row.symbol,
       row.name,
       row.companyName,
       row.isin,
       row.sector,
       row.industry
-
     ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
 
     if (!haystack.includes(q)) {
       return false;
@@ -990,7 +838,6 @@ function passesFilters(row) {
 
 
   if (checked("activeMarketCap")) {
-
     const enteredThreshold =
       inputNumber(
         "aboveMarketCap"
@@ -1018,7 +865,6 @@ function passesFilters(row) {
 
 
   if (checked("activePrice")) {
-
     const threshold =
       inputNumber("abovePrice");
 
@@ -1039,7 +885,6 @@ function passesFilters(row) {
 
 
   if (checked("activeChange")) {
-
     const threshold =
       inputNumber("aboveChange");
 
@@ -1060,7 +905,6 @@ function passesFilters(row) {
 
 
   if (checked("activeTodayVolume")) {
-
     const threshold =
       inputNumber(
         "aboveTodayVolume"
@@ -1083,7 +927,6 @@ function passesFilters(row) {
 
 
   if (checked("activeTodayDelivery")) {
-
     const threshold =
       inputNumber(
         "aboveTodayDelivery"
@@ -1106,7 +949,6 @@ function passesFilters(row) {
 
 
   if (checked("active5DDelivery")) {
-
     const threshold =
       inputNumber(
         "above5DDelivery"
@@ -1129,7 +971,6 @@ function passesFilters(row) {
 
 
   if (checked("activeDeliveryRatio")) {
-
     const threshold =
       inputNumber(
         "aboveDeliveryRatio"
@@ -1152,7 +993,6 @@ function passesFilters(row) {
 
 
   if (checked("activeDeliveryPct")) {
-
     const threshold =
       inputNumber(
         "aboveDeliveryPct"
@@ -1183,7 +1023,6 @@ function passesFilters(row) {
 
 
   if (checked("activeSector")) {
-
     const value =
       el("sectorFilter")?.value ||
       "";
@@ -1198,7 +1037,6 @@ function passesFilters(row) {
 
 
   if (checked("activeIndustry")) {
-
     const value =
       el("industryFilter")?.value ||
       "";
@@ -1213,7 +1051,6 @@ function passesFilters(row) {
 
 
   if (checked("activeSectorGrowth")) {
-
     const threshold =
       inputNumber(
         "aboveSectorGrowth"
@@ -1236,7 +1073,6 @@ function passesFilters(row) {
 
 
   if (checked("activeStockGrowth")) {
-
     const threshold =
       inputNumber(
         "aboveStockGrowth"
@@ -1259,7 +1095,6 @@ function passesFilters(row) {
 
 
   if (checked("activeTMV")) {
-
     const threshold =
       inputNumber("aboveTMV");
 
@@ -1280,7 +1115,6 @@ function passesFilters(row) {
 
 
   if (checked("activeGFC")) {
-
     const threshold =
       inputNumber("aboveGFC");
 
@@ -1301,7 +1135,6 @@ function passesFilters(row) {
 
 
   if (checked("activeOverall")) {
-
     const threshold =
       inputNumber(
         "aboveOverall"
@@ -1322,24 +1155,19 @@ function passesFilters(row) {
     }
   }
 
-
   return true;
 }
 
 
-/*
-=========================================================
-SORT VALUE
-=========================================================
-*/
+/* =====================================================
+   SORT VALUES
+===================================================== */
 
 function sortValue(
   row,
   field
 ) {
-
   switch (field) {
-
     case "marketCapCr":
       return num(row.marketCapCr);
 
@@ -1365,7 +1193,6 @@ function sortValue(
       return deliveryPercentage(row);
 
     case "highVolMove":
-
       if (
         !qualifiesHighVolumeMove(row)
       ) {
@@ -1397,24 +1224,20 @@ function sortValue(
 }
 
 
-/*
-=========================================================
-SORT
-=========================================================
-*/
+/* =====================================================
+   SORT
+===================================================== */
 
 function compareNumericDesc(
   a,
   b,
   field
 ) {
-
   const av =
     sortValue(a, field);
 
   const bv =
     sortValue(b, field);
-
 
   if (
     av === null &&
@@ -1423,34 +1246,27 @@ function compareNumericDesc(
     return 0;
   }
 
-
   if (av === null) {
     return 1;
   }
-
 
   if (bv === null) {
     return -1;
   }
 
-
   if (bv !== av) {
     return bv - av;
   }
-
 
   return 0;
 }
 
 
 function rankStocks(rows) {
-
   return [...rows]
     .sort(
       (a, b) => {
-
         if (activeSortField) {
-
           const primary =
             compareNumericDesc(
               a,
@@ -1463,12 +1279,10 @@ function rankStocks(rows) {
           }
         }
 
-
         if (
           activeSortField !==
           "changePct"
         ) {
-
           const changeSort =
             compareNumericDesc(
               a,
@@ -1481,7 +1295,6 @@ function rankStocks(rows) {
           }
         }
 
-
         const nameA =
           (
             a.name ||
@@ -1489,8 +1302,7 @@ function rankStocks(rows) {
             a.symbol ||
             ""
           )
-          .toLowerCase();
-
+            .toLowerCase();
 
         const nameB =
           (
@@ -1499,8 +1311,7 @@ function rankStocks(rows) {
             b.symbol ||
             ""
           )
-          .toLowerCase();
-
+            .toLowerCase();
 
         return nameA.localeCompare(
           nameB
@@ -1510,14 +1321,11 @@ function rankStocks(rows) {
 }
 
 
-/*
-=========================================================
-ACTIVE SORT MAP
-=========================================================
-*/
+/* =====================================================
+   ACTIVE SORT MAP
+===================================================== */
 
 const sortFieldByActiveCheckbox = {
-
   activeMarketCap:
     "marketCapCr",
 
@@ -1565,7 +1373,6 @@ const sortFieldByActiveCheckbox = {
 function updateActiveSortFromCheckbox(
   checkboxId
 ) {
-
   const checkbox =
     el(checkboxId);
 
@@ -1574,7 +1381,6 @@ function updateActiveSortFromCheckbox(
       checkboxId
     ];
 
-
   if (
     !checkbox ||
     !field
@@ -1582,16 +1388,12 @@ function updateActiveSortFromCheckbox(
     return;
   }
 
-
   if (checkbox.checked) {
-
     activeSortField =
       field;
-
   } else if (
     activeSortField === field
   ) {
-
     activeSortField =
       findAnotherActiveSortField();
   }
@@ -1599,7 +1401,6 @@ function updateActiveSortFromCheckbox(
 
 
 function findAnotherActiveSortField() {
-
   for (
     const [
       checkboxId,
@@ -1609,11 +1410,9 @@ function findAnotherActiveSortField() {
       sortFieldByActiveCheckbox
     )
   ) {
-
     if (
       el(checkboxId)?.checked
     ) {
-
       return field;
     }
   }
@@ -1622,17 +1421,14 @@ function findAnotherActiveSortField() {
 }
 
 
-/*
-=========================================================
-DROPDOWNS
-=========================================================
-*/
+/* =====================================================
+   DROPDOWNS
+===================================================== */
 
 function fillSelectOptions(
   id,
   values
 ) {
-
   const select =
     el(id);
 
@@ -1640,10 +1436,8 @@ function fillSelectOptions(
     return;
   }
 
-
   const current =
     select.value;
-
 
   const unique =
     [...new Set(
@@ -1655,11 +1449,10 @@ function fillSelectOptions(
         )
         .filter(Boolean)
     )]
-    .sort(
-      (a, b) =>
-        a.localeCompare(b)
-    );
-
+      .sort(
+        (a, b) =>
+          a.localeCompare(b)
+      );
 
   select.innerHTML =
     `
@@ -1668,9 +1461,7 @@ function fillSelectOptions(
       </option>
     `;
 
-
   for (const value of unique) {
-
     const option =
       document.createElement(
         "option"
@@ -1687,9 +1478,7 @@ function fillSelectOptions(
     );
   }
 
-
   if (unique.includes(current)) {
-
     select.value =
       current;
   }
@@ -1697,14 +1486,12 @@ function fillSelectOptions(
 
 
 function populateDropdowns() {
-
   fillSelectOptions(
     "sectorFilter",
     allStocks.map(
       row => row.sector
     )
   );
-
 
   fillSelectOptions(
     "industryFilter",
@@ -1715,21 +1502,17 @@ function populateDropdowns() {
 }
 
 
-/*
-=========================================================
-RENDER TABLE
-=========================================================
-*/
+/* =====================================================
+   RENDER TABLE
+===================================================== */
 
 function renderRows() {
-
   const tbody =
     el("rows");
 
   if (!tbody) {
     return;
   }
-
 
   filteredStocks =
     rankStocks(
@@ -1738,10 +1521,8 @@ function renderRows() {
       )
     );
 
-
   const total =
     filteredStocks.length;
-
 
   const totalPages =
     Math.max(
@@ -1752,19 +1533,17 @@ function renderRows() {
       )
     );
 
-
   if (
     currentPage >
     totalPages
   ) {
-    currentPage = totalPages;
+    currentPage =
+      totalPages;
   }
-
 
   if (currentPage < 1) {
     currentPage = 1;
   }
-
 
   const start =
     (
@@ -1773,21 +1552,17 @@ function renderRows() {
     ) *
     PAGE_SIZE;
 
-
   const pageRows =
     filteredStocks.slice(
       start,
       start + PAGE_SIZE
     );
 
-
   tbody.innerHTML =
     pageRows
       .map(row => {
-
         const globalIndex =
           allStocks.indexOf(row);
-
 
         const companyName =
           escapeHtml(
@@ -1797,13 +1572,11 @@ function renderRows() {
             "—"
           );
 
-
         const symbol =
           escapeHtml(
             row.symbol ||
             ""
           );
-
 
         const sector =
           escapeHtml(
@@ -1811,28 +1584,22 @@ function renderRows() {
             "—"
           );
 
-
         const industry =
           escapeHtml(
             row.industry ||
             "—"
           );
 
-
         const stockGrowth =
           selectedStockGrowth(row);
-
 
         const deliveryPct =
           deliveryPercentage(row);
 
-
         const volume =
           totalVolume(row);
 
-
         return `
-
           <tr>
 
             <td>
@@ -2004,36 +1771,27 @@ function renderRows() {
       })
       .join("");
 
-
   if (el("resultCount")) {
-
     el("resultCount").textContent =
       `${total.toLocaleString(
         "en-IN"
       )} matched`;
   }
 
-
   if (el("page")) {
-
     el("page").textContent =
       `Page ${currentPage} of ${totalPages}`;
   }
 
-
   if (el("prev")) {
-
     el("prev").disabled =
       currentPage <= 1;
   }
 
-
   if (el("next")) {
-
     el("next").disabled =
       currentPage >= totalPages;
   }
-
 
   syncTopScrollbar();
 
@@ -2041,25 +1799,20 @@ function renderRows() {
 }
 
 
-/*
-=========================================================
-RESEARCH BUTTON EVENTS
-=========================================================
-*/
+/* =====================================================
+   RESEARCH BUTTON EVENTS
+===================================================== */
 
 function setupReasonButtons() {
-
   document
     .querySelectorAll(
       ".score-info-button"
     )
     .forEach(
       button => {
-
         button.addEventListener(
           "click",
           () => {
-
             const index =
               Number(
                 button.dataset.rowIndex
@@ -2075,9 +1828,7 @@ function setupReasonButtons() {
               return;
             }
 
-
             if (type === "tmv") {
-
               openReasonModal(
                 `${
                   row.symbol ||
@@ -2091,9 +1842,7 @@ function setupReasonButtons() {
               return;
             }
 
-
             if (type === "gfc") {
-
               openReasonModal(
                 `${
                   row.symbol ||
@@ -2111,33 +1860,25 @@ function setupReasonButtons() {
 }
 
 
-/*
-=========================================================
-FILTER EVENTS
-=========================================================
-*/
+/* =====================================================
+   FILTER EVENTS
+===================================================== */
 
 function applyFilterChange() {
-
   currentPage = 1;
-
   renderRows();
 }
 
 
 function setupFilterEvents() {
-
   el("q")
     ?.addEventListener(
       "input",
       () => {
-
         currentPage = 1;
-
         renderRows();
       }
     );
-
 
   for (
     const checkboxId
@@ -2145,12 +1886,10 @@ function setupFilterEvents() {
       sortFieldByActiveCheckbox
     )
   ) {
-
     el(checkboxId)
       ?.addEventListener(
         "change",
         () => {
-
           updateActiveSortFromCheckbox(
             checkboxId
           );
@@ -2160,9 +1899,7 @@ function setupFilterEvents() {
       );
   }
 
-
   const numericInputs = [
-
     "aboveMarketCap",
     "abovePrice",
     "aboveChange",
@@ -2176,13 +1913,10 @@ function setupFilterEvents() {
     "aboveTMV",
     "aboveGFC",
     "aboveOverall"
-
   ];
-
 
   numericInputs.forEach(
     id => {
-
       el(id)
         ?.addEventListener(
           "input",
@@ -2191,13 +1925,11 @@ function setupFilterEvents() {
     }
   );
 
-
   el("activeSector")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
-
 
   el("sectorFilter")
     ?.addEventListener(
@@ -2205,13 +1937,11 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
-
   el("activeIndustry")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
-
 
   el("industryFilter")
     ?.addEventListener(
@@ -2219,18 +1949,15 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
-
   el("stockGrowthPeriod")
     ?.addEventListener(
       "change",
       () => {
-
         if (
           checked(
             "activeStockGrowth"
           )
         ) {
-
           activeSortField =
             "stockGrowth";
         }
@@ -2241,97 +1968,71 @@ function setupFilterEvents() {
 }
 
 
-/*
-=========================================================
-RESET
-=========================================================
-*/
+/* =====================================================
+   RESET
+===================================================== */
 
 function resetFilters() {
-
   if (el("q")) {
     el("q").value = "";
   }
-
 
   const checkboxes =
     document.querySelectorAll(
       '.filter-row input[type="checkbox"]'
     );
 
-
   checkboxes.forEach(
     checkbox => {
-
       checkbox.checked =
         false;
     }
   );
-
 
   const inputs =
     document.querySelectorAll(
       '.filter-row input:not([type="checkbox"])'
     );
 
-
   inputs.forEach(
     input => {
-
       input.value =
         "";
     }
   );
 
-
   if (el("sectorFilter")) {
-
     el("sectorFilter").value =
       "";
   }
 
-
   if (el("industryFilter")) {
-
     el("industryFilter").value =
       "";
   }
 
-
   if (el("stockGrowthPeriod")) {
-
     el("stockGrowthPeriod").value =
       "3M";
   }
 
-
-  activeSortField =
-    null;
-
-
-  currentPage =
-    1;
-
+  activeSortField = null;
+  currentPage = 1;
 
   renderRows();
 }
 
 
-/*
-=========================================================
-PAGINATION
-=========================================================
-*/
+/* =====================================================
+   PAGINATION
+===================================================== */
 
 function setupPagination() {
-
   el("prev")
     ?.addEventListener(
       "click",
       () => {
-
         if (currentPage > 1) {
-
           currentPage--;
 
           renderRows();
@@ -2341,12 +2042,10 @@ function setupPagination() {
       }
     );
 
-
   el("next")
     ?.addEventListener(
       "click",
       () => {
-
         const totalPages =
           Math.max(
             1,
@@ -2356,12 +2055,10 @@ function setupPagination() {
             )
           );
 
-
         if (
           currentPage <
           totalPages
         ) {
-
           currentPage++;
 
           renderRows();
@@ -2371,17 +2068,14 @@ function setupPagination() {
       }
     );
 
-
   el("gotoPage")
     ?.addEventListener(
       "change",
       () => {
-
         const requested =
           Number(
             el("gotoPage").value
           );
-
 
         const totalPages =
           Math.max(
@@ -2392,11 +2086,9 @@ function setupPagination() {
             )
           );
 
-
         if (
           Number.isFinite(requested)
         ) {
-
           currentPage =
             Math.min(
               Math.max(
@@ -2405,7 +2097,6 @@ function setupPagination() {
               ),
               totalPages
             );
-
 
           renderRows();
 
@@ -2417,7 +2108,6 @@ function setupPagination() {
 
 
 function scrollTableTop() {
-
   const wrap =
     el("tableWrap");
 
@@ -2427,14 +2117,11 @@ function scrollTableTop() {
 }
 
 
-/*
-=========================================================
-TOP SCROLLBAR
-=========================================================
-*/
+/* =====================================================
+   TOP SCROLLBAR
+===================================================== */
 
 function syncTopScrollbar() {
-
   const topScroll =
     el("topScroll");
 
@@ -2449,7 +2136,6 @@ function syncTopScrollbar() {
       "table"
     );
 
-
   if (
     !topScroll ||
     !topInner ||
@@ -2459,20 +2145,17 @@ function syncTopScrollbar() {
     return;
   }
 
-
   topInner.style.width =
     `${table.scrollWidth}px`;
 }
 
 
 function setupScrollSync() {
-
   const topScroll =
     el("topScroll");
 
   const tableWrap =
     el("tableWrap");
-
 
   if (
     !topScroll ||
@@ -2481,14 +2164,11 @@ function setupScrollSync() {
     return;
   }
 
-
   let syncing = false;
-
 
   topScroll.addEventListener(
     "scroll",
     () => {
-
       if (syncing) {
         return;
       }
@@ -2502,11 +2182,9 @@ function setupScrollSync() {
     }
   );
 
-
   tableWrap.addEventListener(
     "scroll",
     () => {
-
       if (syncing) {
         return;
       }
@@ -2520,7 +2198,6 @@ function setupScrollSync() {
     }
   );
 
-
   window.addEventListener(
     "resize",
     syncTopScrollbar
@@ -2528,216 +2205,285 @@ function setupScrollSync() {
 }
 
 
-/*
-=========================================================
-MARKET REGIME
-=========================================================
-*/
+/* =====================================================
+   MARKET SIGNAL HELPERS
+===================================================== */
 
-function getMarketRegime(score) {
-
+function getEquityRegime(score) {
   const n = num(score);
 
-
   if (n === null) {
-
     return {
       text: "Pending",
-      className: "regime-pending"
+      emoji: "⚪",
+      className: "market-signal-pending"
     };
   }
-
 
   if (n >= 75) {
-
     return {
-      text: "🟢🟢 Aggressive Stocks",
-      className: "regime-aggressive"
+      text: "Aggressive Stocks",
+      emoji: "🟢🟢",
+      className: "market-signal-aggressive"
     };
   }
-
 
   if (n >= 65) {
-
     return {
-      text: "🟢 Stocks Overweight",
-      className: "regime-overweight"
+      text: "Stocks Overweight",
+      emoji: "🟢",
+      className: "market-signal-overweight"
     };
   }
-
 
   if (n >= 55) {
-
     return {
-      text: "🟢 Selective Buying",
-      className: "regime-selective"
+      text: "Selective Buying",
+      emoji: "🟢",
+      className: "market-signal-selective"
     };
   }
-
 
   if (n >= 45) {
-
     return {
-      text: "🟡 Warning",
-      className: "regime-warning"
+      text: "Warning",
+      emoji: "🟡",
+      className: "market-signal-warning"
     };
   }
-
 
   if (n >= 35) {
-
     return {
-      text: "🟠 Equity Reduce",
-      className: "regime-reduce"
+      text: "Equity Reduce",
+      emoji: "🟠",
+      className: "market-signal-reduce"
     };
   }
 
-
   return {
-    text: "🔴 G-Sec / Gold / Cash",
-    className: "regime-defensive"
+    text: "Defensive",
+    emoji: "🔴",
+    className: "market-signal-defensive"
   };
 }
 
 
-function setRegimeCard(
-  timeframe,
-  score
+function getGoldRegime(score) {
+  const n = num(score);
+
+  if (n === null) {
+    return {
+      text: "Pending",
+      emoji: "⚪",
+      className: "market-signal-pending"
+    };
+  }
+
+  if (n >= 75) {
+    return {
+      text: "Very Strong",
+      emoji: "🟢🟢",
+      className: "market-signal-aggressive"
+    };
+  }
+
+  if (n >= 65) {
+    return {
+      text: "Strong",
+      emoji: "🟢",
+      className: "market-signal-overweight"
+    };
+  }
+
+  if (n >= 55) {
+    return {
+      text: "Positive",
+      emoji: "🟢",
+      className: "market-signal-selective"
+    };
+  }
+
+  if (n >= 45) {
+    return {
+      text: "Neutral / Cautious",
+      emoji: "🟡",
+      className: "market-signal-warning"
+    };
+  }
+
+  if (n >= 35) {
+    return {
+      text: "Weak / Correction",
+      emoji: "🟠",
+      className: "market-signal-reduce"
+    };
+  }
+
+  return {
+    text: "Weak",
+    emoji: "🔴",
+    className: "market-signal-defensive"
+  };
+}
+
+
+function getAssetRegime(
+  score,
+  assetType
 ) {
+  if (assetType === "gold") {
+    return getGoldRegime(score);
+  }
 
+  return getEquityRegime(score);
+}
+
+
+/* =====================================================
+   MARKET VIEW CARD
+===================================================== */
+
+function updateMarketViewCard() {
   const card =
-    el(`${timeframe}Regime`);
+    el("marketViewCard");
 
-  const scoreElement =
-    el(`${timeframe}RegimeScore`);
-
-  const textElement =
-    el(`${timeframe}RegimeText`);
-
+  const signal =
+    el("marketViewCardSignal");
 
   if (
     !card ||
-    !scoreElement ||
-    !textElement
+    !signal
   ) {
     return;
   }
 
+  const nifty =
+    multiTimeframeMarketView?.nifty50 ||
+    {};
 
-  const n =
-    num(score);
+  const midcap =
+    multiTimeframeMarketView?.midcap100 ||
+    {};
 
+  const smallcap =
+    multiTimeframeMarketView?.smallcap100 ||
+    {};
+
+  const values = [
+    num(nifty.overall),
+    num(midcap.overall),
+    num(smallcap.overall)
+  ].filter(
+    value =>
+      value !== null
+  );
+
+  if (!values.length) {
+    signal.textContent =
+      "Largecap • Midcap • Smallcap • SME • Gold";
+
+    return;
+  }
+
+  const average =
+    values.reduce(
+      (sum, value) =>
+        sum + value,
+      0
+    ) /
+    values.length;
 
   const regime =
-    getMarketRegime(n);
+    getEquityRegime(
+      average
+    );
 
-
-  card.classList.remove(
-    "regime-aggressive",
-    "regime-overweight",
-    "regime-selective",
-    "regime-warning",
-    "regime-reduce",
-    "regime-defensive",
-    "regime-pending"
-  );
-
-
-  card.classList.add(
-    regime.className
-  );
-
-
-  scoreElement.textContent =
-    n === null
-      ? "—"
-      : Math.round(n);
-
-
-  textElement.textContent =
-    regime.text;
+  signal.textContent =
+    `${regime.emoji} ${regime.text}`;
 }
 
 
-function updateMarketRegimes(meta) {
-
-  const monthlyScore =
-    num(
-      meta?.monthlyRegimeScore ??
-      meta?.marketRegime?.monthly
-    );
-
-
-  const weeklyScore =
-    num(
-      meta?.weeklyRegimeScore ??
-      meta?.marketRegime?.weekly
-    );
-
-
-  const dailyScore =
-    num(
-      meta?.dailyRegimeScore ??
-      meta?.marketRegime?.daily
-    );
-
-
-  setRegimeCard(
-    "monthly",
-    monthlyScore
-  );
-
-
-  setRegimeCard(
-    "weekly",
-    weeklyScore
-  );
-
-
-  setRegimeCard(
-    "daily",
-    dailyScore
-  );
-}
-
-
-/*
-=========================================================
-MARKET VIEW SIGNAL
-=========================================================
-*/
+/* =====================================================
+   MARKET VIEW CELL
+===================================================== */
 
 function marketViewSignalHtml(
   score,
-  signalData
+  signalData,
+  assetType
 ) {
-
   const n =
     num(score);
 
-
   if (n === null) {
-
     return `
-      <span class="pending">
-        —
-      </span>
+      <div class="market-view-score market-signal-pending">
+
+        <strong>
+          —
+        </strong>
+
+        <span>
+          ⚪ Pending
+        </span>
+
+      </div>
     `;
   }
 
+  const fallback =
+    getAssetRegime(
+      n,
+      assetType
+    );
 
   const emoji =
     signalData?.emoji ||
-    "";
-
+    fallback.emoji;
 
   const label =
     signalData?.label ||
-    getMarketRegime(n).text;
+    fallback.text;
 
+  const signalName =
+    signalData?.signal ||
+    "";
+
+  let className =
+    fallback.className;
+
+  if (signalName === "aggressive") {
+    className =
+      "market-signal-aggressive";
+  } else if (
+    signalName === "overweight"
+  ) {
+    className =
+      "market-signal-overweight";
+  } else if (
+    signalName === "selective"
+  ) {
+    className =
+      "market-signal-selective";
+  } else if (
+    signalName === "warning"
+  ) {
+    className =
+      "market-signal-warning";
+  } else if (
+    signalName === "reduce"
+  ) {
+    className =
+      "market-signal-reduce";
+  } else if (
+    signalName === "defensive"
+  ) {
+    className =
+      "market-signal-defensive";
+  }
 
   return `
-    <div class="market-view-score">
+    <div class="market-view-score ${className}">
 
       <strong>
         ${Math.round(n)}
@@ -2753,126 +2499,135 @@ function marketViewSignalHtml(
 }
 
 
-/*
-=========================================================
-BUILD MULTI TIMEFRAME VIEW
-=========================================================
-*/
+/* =====================================================
+   MULTI TIMEFRAME MARKET VIEW
+===================================================== */
 
 function buildMultiTimeframeMarketViewHtml(
   marketView
 ) {
-
   const assetOrder = [
-
     "nifty50",
     "midcap100",
     "smallcap100",
     "sme",
     "gold"
-
   ];
 
+  const rows =
+    assetOrder
+      .map(key => {
+        const asset =
+          marketView?.[key];
 
-  const rows = assetOrder
-    .map(key => {
+        if (!asset) {
+          return "";
+        }
 
-      const asset =
-        marketView?.[key];
+        const assetType =
+          asset.type ||
+          (
+            key === "gold"
+              ? "gold"
+              : "equity"
+          );
 
+        let name =
+          asset.name ||
+          key;
 
-      if (!asset) {
-        return "";
-      }
+        if (
+          key === "gold" &&
+          !name.includes("🥇")
+        ) {
+          name =
+            `🥇 ${name}`;
+        }
 
+        return `
+          <tr>
 
-      const name =
-        asset.name ||
-        key;
+            <td class="market-view-name">
 
+              <strong>
+                ${escapeHtml(name)}
+              </strong>
 
-      return `
-
-        <tr>
-
-          <td class="market-view-name">
-
-            <strong>
-              ${
-                key === "gold"
-                  ? "🥇 "
-                  : ""
-              }
-
-              ${escapeHtml(name)}
-            </strong>
-
-          </td>
-
-
-          <td>
-
-            ${marketViewSignalHtml(
-              asset.daily,
-              asset.dailySignal
-            )}
-
-          </td>
+            </td>
 
 
-          <td>
+            <td>
 
-            ${marketViewSignalHtml(
-              asset.weekly,
-              asset.weeklySignal
-            )}
+              ${marketViewSignalHtml(
+                asset.daily,
+                asset.dailySignal,
+                assetType
+              )}
 
-          </td>
-
-
-          <td>
-
-            ${marketViewSignalHtml(
-              asset.monthly,
-              asset.monthlySignal
-            )}
-
-          </td>
+            </td>
 
 
-          <td>
+            <td>
 
-            ${marketViewSignalHtml(
-              asset.overall,
-              asset.overallSignal
-            )}
+              ${marketViewSignalHtml(
+                asset.weekly,
+                asset.weeklySignal,
+                assetType
+              )}
 
-          </td>
+            </td>
 
-        </tr>
-      `;
-    })
-    .join("");
 
+            <td>
+
+              ${marketViewSignalHtml(
+                asset.monthly,
+                asset.monthlySignal,
+                assetType
+              )}
+
+            </td>
+
+
+            <td>
+
+              ${marketViewSignalHtml(
+                asset.overall,
+                asset.overallSignal,
+                assetType
+              )}
+
+            </td>
+
+          </tr>
+        `;
+      })
+      .join("");
 
   if (!rows) {
-
     return `
-      <div class="pending">
+      <div class="market-view-empty">
 
-        Multi-Timeframe Market View
-        not available yet.
+        <strong>
+          Multi-Timeframe Market View data not available.
+        </strong>
 
-        Run the daily update workflow
-        to generate regime data.
+        <p>
+          Run the latest market-data workflow
+          after the multi-asset regime script is committed.
+        </p>
 
       </div>
     `;
   }
 
+  const marketDate =
+    metaDataGlobal?.marketRegimeDate ||
+    metaDataGlobal?.marketDate ||
+    metaDataGlobal?.deliveryDate ||
+    "—";
 
   return `
-
     <div class="market-view-wrapper">
 
       <table class="market-view-table">
@@ -2921,97 +2676,111 @@ function buildMultiTimeframeMarketViewHtml(
         Score Interpretation
       </strong>
 
-      <div>
-        75–100
-        🟢🟢
-        Aggressive / Very Strong
+      <div class="market-view-legend">
+
+        <span>
+          75–100
+          🟢🟢
+          Aggressive / Very Strong
+        </span>
+
+        <span>
+          65–74
+          🟢
+          Overweight / Strong
+        </span>
+
+        <span>
+          55–64
+          🟢
+          Selective / Positive
+        </span>
+
+        <span>
+          45–54
+          🟡
+          Warning / Neutral
+        </span>
+
+        <span>
+          35–44
+          🟠
+          Reduce / Weak
+        </span>
+
+        <span>
+          0–34
+          🔴
+          Defensive
+        </span>
+
       </div>
 
-      <div>
-        65–74
-        🟢
-        Overweight / Strong
-      </div>
+    </div>
 
-      <div>
-        55–64
-        🟢
-        Selective / Positive
-      </div>
 
-      <div>
-        45–54
-        🟡
-        Warning / Neutral
-      </div>
+    <div class="market-view-footer">
 
-      <div>
-        35–44
-        🟠
-        Reduce / Weak
-      </div>
+      <span>
+        Daily • Weekly • Monthly scores are calculated independently.
+      </span>
 
-      <div>
-        0–34
-        🔴
-        Defensive
-      </div>
+      <strong>
+        Data as of:
+        ${escapeHtml(marketDate)}
+      </strong>
 
     </div>
   `;
 }
 
 
-/*
-=========================================================
-OPEN MARKET VIEW MODAL
-=========================================================
-*/
+/* =====================================================
+   OPEN MARKET VIEW MODAL
+===================================================== */
 
 function openMarketViewModal() {
-
   const modal =
     el("reasonModal");
-
 
   if (!modal) {
     return;
   }
 
+  const card =
+    modal.querySelector(
+      ".reason-modal-card"
+    );
+
+  card?.classList.add(
+    "market-view-modal-card"
+  );
 
   el("reasonTitle").textContent =
     "Multi-Timeframe Market View";
 
-
   el("reasonScore").textContent =
     "Largecap • Midcap • Smallcap • SME • Gold";
-
 
   el("reasonText").innerHTML =
     buildMultiTimeframeMarketViewHtml(
       multiTimeframeMarketView
     );
 
-
   el("reasonSourceDate").textContent =
     "";
-
 
   const sourceLink =
     el("reasonSourceLink");
 
-
   if (sourceLink) {
-
     sourceLink.style.display =
       "none";
   }
 
-
   modal.classList.add(
     "open"
   );
-
 
   modal.setAttribute(
     "aria-hidden",
@@ -3020,151 +2789,97 @@ function openMarketViewModal() {
 }
 
 
-/*
-=========================================================
-MARKET REGIME CLICK EVENTS
-=========================================================
-*/
+/* =====================================================
+   MARKET VIEW CARD EVENTS
+===================================================== */
 
-function setupMarketRegimeEvents() {
+function setupMarketViewCardEvents() {
+  const card =
+    el("marketViewCard");
 
-  const cards = [
+  if (!card) {
+    return;
+  }
 
-    el("monthlyRegime"),
-    el("weeklyRegime"),
-    el("dailyRegime")
+  card.addEventListener(
+    "click",
+    openMarketViewModal
+  );
 
-  ];
+  card.addEventListener(
+    "keydown",
+    event => {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
 
-
-  cards.forEach(card => {
-
-    if (!card) {
-      return;
-    }
-
-
-    card.style.cursor =
-      "pointer";
-
-
-    card.setAttribute(
-      "role",
-      "button"
-    );
-
-
-    card.setAttribute(
-      "tabindex",
-      "0"
-    );
-
-
-    card.setAttribute(
-      "title",
-      "Click for Multi-Timeframe Market View"
-    );
-
-
-    card.addEventListener(
-      "click",
-      openMarketViewModal
-    );
-
-
-    card.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          openMarketViewModal();
-        }
+        openMarketViewModal();
       }
-    );
-
-  });
+    }
+  );
 }
 
 
-/*
-=========================================================
-STATS
-=========================================================
-*/
+/* =====================================================
+   STATS
+===================================================== */
 
 function updateStats(
   stocks,
   meta
 ) {
-
   if (el("totalStocks")) {
-
     el("totalStocks").textContent =
       stocks.length.toLocaleString(
         "en-IN"
       );
   }
 
-
   const eodReady =
     stocks.filter(
       row =>
         num(row.price) !== null
     )
-    .length;
-
+      .length;
 
   if (el("eodReady")) {
-
     el("eodReady").textContent =
       eodReady.toLocaleString(
         "en-IN"
       );
   }
 
-
   const marketCapReady =
     stocks.filter(
       row =>
         num(row.marketCapCr) !== null
     )
-    .length;
-
+      .length;
 
   if (el("marketCapReady")) {
-
     el("marketCapReady").textContent =
       marketCapReady.toLocaleString(
         "en-IN"
       );
   }
 
-
   const fullyScored =
     stocks.filter(
       row =>
         num(row.overallScore) !== null
     )
-    .length;
-
+      .length;
 
   if (el("fullyScored")) {
-
     el("fullyScored").textContent =
       fullyScored.toLocaleString(
         "en-IN"
       );
   }
 
-
   const dateCandidates = [
-
     meta?.marketDate,
     meta?.deliveryDate,
     meta?.date,
@@ -3179,18 +2894,13 @@ function updateStats(
       row =>
         row.date
     )?.date
-
   ];
-
 
   let marketDate =
     null;
 
-
   for (const value of dateCandidates) {
-
     if (value) {
-
       marketDate =
         value;
 
@@ -3198,9 +2908,7 @@ function updateStats(
     }
   }
 
-
   if (el("marketDate")) {
-
     el("marketDate").textContent =
       marketDate ||
       "—";
@@ -3208,43 +2916,34 @@ function updateStats(
 }
 
 
-/*
-=========================================================
-MODAL EVENTS
-=========================================================
-*/
+/* =====================================================
+   MODAL EVENTS
+===================================================== */
 
 function setupModalEvents() {
-
   el("closeReasonModal")
     ?.addEventListener(
       "click",
       closeReasonModal
     );
 
-
   el("reasonModal")
     ?.addEventListener(
       "click",
       event => {
-
         if (
           event.target ===
           el("reasonModal")
         ) {
-
           closeReasonModal();
         }
       }
     );
 
-
   document.addEventListener(
     "keydown",
     event => {
-
       if (event.key === "Escape") {
-
         closeReasonModal();
       }
     }
@@ -3252,23 +2951,18 @@ function setupModalEvents() {
 }
 
 
-/*
-=========================================================
-LOAD JSON
-=========================================================
-*/
+/* =====================================================
+   LOAD JSON
+===================================================== */
 
 async function fetchJson(path) {
-
   const separator =
     path.includes("?")
       ? "&"
       : "?";
 
-
   const url =
     `${path}${separator}t=${Date.now()}`;
-
 
   const response =
     await fetch(
@@ -3278,35 +2972,27 @@ async function fetchJson(path) {
       }
     );
 
-
   if (!response.ok) {
-
     throw new Error(
       `Unable to load ${path}: ${response.status}`
     );
   }
 
-
   return response.json();
 }
 
 
-/*
-=========================================================
-INITIALIZE
-=========================================================
-*/
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 async function init() {
-
   try {
-
     const [
       stockData,
       metaData
     ] =
       await Promise.all([
-
         fetchJson(
           "data/stocks.json"
         ),
@@ -3314,70 +3000,48 @@ async function init() {
         fetchJson(
           "data/meta.json"
         )
-        .catch(
-          () => ({})
-        )
-
+          .catch(
+            () => ({})
+          )
       ]);
 
+    metaDataGlobal =
+      metaData ||
+      {};
 
     let loadedStocks = [];
-
 
     if (
       Array.isArray(stockData)
     ) {
-
       loadedStocks =
         stockData;
-
     } else if (
       Array.isArray(
         stockData?.stocks
       )
     ) {
-
       loadedStocks =
         stockData.stocks;
     }
-
 
     allStocks =
       loadedStocks.filter(
         passesPermanentUniverseRule
       );
 
+    multiTimeframeMarketView =
+      metaData?.multiTimeframeMarketView ||
+      {};
 
     populateDropdowns();
-
 
     updateStats(
       allStocks,
       metaData
     );
 
-
-    /*
-    =====================================================
-    HEADER MARKET REGIME
-    =====================================================
-    */
-
-    updateMarketRegimes(
-      metaData
-    );
-
-
-    /*
-    =====================================================
-    MULTI TIMEFRAME MARKET VIEW
-    =====================================================
-    */
-
-    multiTimeframeMarketView =
-      metaData?.multiTimeframeMarketView ||
-      {};
-
+    updateMarketViewCard();
 
     setupFilterEvents();
 
@@ -3387,8 +3051,7 @@ async function init() {
 
     setupModalEvents();
 
-    setupMarketRegimeEvents();
-
+    setupMarketViewCardEvents();
 
     el("resetScores")
       ?.addEventListener(
@@ -3396,13 +3059,10 @@ async function init() {
         resetFilters
       );
 
-
     activeSortField =
       null;
 
-
     renderRows();
-
 
     console.log(
       `MY MARKET RESEARCH loaded: `
@@ -3412,23 +3072,18 @@ async function init() {
       `(Known Market Cap >= ₹${MIN_MARKET_CAP_CR} Cr + Pending)`
     );
 
-
     console.log(
       "Multi-Timeframe Market View:",
       multiTimeframeMarketView
     );
 
-
   } catch (error) {
-
     console.error(
       "Dashboard load error:",
       error
     );
 
-
     if (el("rows")) {
-
       el("rows").innerHTML =
         `
           <tr>
@@ -3452,11 +3107,9 @@ async function init() {
 }
 
 
-/*
-=========================================================
-START
-=========================================================
-*/
+/* =====================================================
+   START
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
