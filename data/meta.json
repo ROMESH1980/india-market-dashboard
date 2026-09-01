@@ -2,14 +2,15 @@
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
   "nseCount": 3132,
   "uniqueCount": 3132,
-  "eodPriceCount": 3646,
-  "matchedPriceCount": 3000,
-  "marketDate": "2026-08-31",
+  "eodPriceCount": 3656,
+  "matchedPriceCount": 3030,
+  "marketDate": "2026-09-01",
   "lastUpdated": "2026-09-01",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
-  "deliveryDate": "2026-08-31",
+  "deliveryDate": "2026-09-01",
   "deliverySessionsUsed": [
+    "2026-09-01",
     "2026-08-31",
     "2026-08-28",
     "2026-08-27",
@@ -24,19 +25,18 @@
     "2026-08-14",
     "2026-08-13",
     "2026-08-12",
+    "2026-08-11",
     "2026-08-10",
     "2026-08-07",
     "2026-08-06",
-    "2026-08-05",
-    "2026-08-04",
-    "2026-08-03"
+    "2026-08-05"
   ],
-  "todayVolumeCount": 2745,
-  "deliveryVolumeCount": 2745,
-  "deliveryRatioCount": 2707,
-  "deliveryPctCount": 2745,
-  "full5DayDeliveryAverageCount": 2846,
-  "incomplete5DayDeliveryCount": 286,
+  "todayVolumeCount": 2769,
+  "deliveryVolumeCount": 2769,
+  "deliveryRatioCount": 2722,
+  "deliveryPctCount": 2769,
+  "full5DayDeliveryAverageCount": 2830,
+  "incomplete5DayDeliveryCount": 302,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -75,10 +75,10 @@
       "details": {
         "daily": {
           "latest": 24055.8,
-          "fastMA": 24312.67,
-          "slowMA": 24208.6,
-          "momentumPct": -1.15,
-          "rsi14": 33.15,
+          "fastMA": 24334.63,
+          "slowMA": 24207.14,
+          "momentumPct": -0.67,
+          "rsi14": 29.09,
           "distanceFromHighPct": -2.36,
           "components": {
             "priceVsFastMA": 0,
@@ -89,8 +89,8 @@
         },
         "weekly": {
           "latest": 24055.8,
-          "fastMA": 24238.32,
-          "slowMA": 24043.27,
+          "fastMA": 24229.84,
+          "slowMA": 24040.44,
           "momentumPct": -2.1,
           "rsi14": 58.04,
           "distanceFromHighPct": -2.1,
@@ -290,12 +290,12 @@
       },
       "details": {
         "daily": {
-          "latest": 4432.2,
-          "fastMA": 4448.4,
-          "slowMA": 4217.93,
-          "momentumPct": -4.44,
-          "rsi14": 51.77,
-          "distanceFromHighPct": -4.49,
+          "latest": 4430.9,
+          "fastMA": 4448.33,
+          "slowMA": 4217.9,
+          "momentumPct": -4.47,
+          "rsi14": 51.67,
+          "distanceFromHighPct": -4.52,
           "components": {
             "priceVsFastMA": 0,
             "trend": 25,
@@ -304,12 +304,12 @@
           }
         },
         "weekly": {
-          "latest": 4432.2,
-          "fastMA": 4260.17,
-          "slowMA": 4533.68,
-          "momentumPct": 2.11,
-          "rsi14": 45.65,
-          "distanceFromHighPct": -4.15,
+          "latest": 4430.9,
+          "fastMA": 4260.04,
+          "slowMA": 4533.63,
+          "momentumPct": 2.08,
+          "rsi14": 45.61,
+          "distanceFromHighPct": -4.18,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
@@ -318,12 +318,12 @@
           }
         },
         "monthly": {
-          "latest": 4432.2,
-          "fastMA": 4351.75,
-          "slowMA": 4502.81,
-          "momentumPct": 10.17,
-          "rsi14": 66.02,
-          "distanceFromHighPct": -15.26,
+          "latest": 4430.9,
+          "fastMA": 4351.53,
+          "slowMA": 4502.68,
+          "momentumPct": 10.14,
+          "rsi14": 66.01,
+          "distanceFromHighPct": -15.29,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
@@ -362,5 +362,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-01T10:41:43.369960+00:00"
+  "marketRegimeGeneratedAt": "2026-09-01T11:42:42.550833+00:00"
 }

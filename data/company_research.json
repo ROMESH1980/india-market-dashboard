@@ -250,7 +250,7 @@
     },
     "ABBOTINDIA": {
       "tailwindScore": 82.0,
-      "futureGrowth": 66.08,
+      "futureGrowth": 66.07,
       "fundamentalQuality": 94.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -328,7 +328,7 @@
     },
     "ACE": {
       "tailwindScore": 88.0,
-      "futureGrowth": 76.61,
+      "futureGrowth": 76.63,
       "fundamentalQuality": 80.1,
       "capexScore": 70.0,
       "researchReasons": {
@@ -445,7 +445,7 @@
     },
     "ADANIENT": {
       "tailwindScore": 62.0,
-      "futureGrowth": 77.48,
+      "futureGrowth": 77.54,
       "fundamentalQuality": 51.41,
       "capexScore": 90.0,
       "researchReasons": {
@@ -484,7 +484,7 @@
     },
     "ADANIPOWER": {
       "tailwindScore": 90.0,
-      "futureGrowth": 88.18,
+      "futureGrowth": 88.19,
       "fundamentalQuality": 82.67,
       "capexScore": 90.0,
       "researchReasons": {
@@ -562,7 +562,7 @@
     },
     "ADANIPORTS": {
       "tailwindScore": null,
-      "futureGrowth": 63.83,
+      "futureGrowth": 63.82,
       "fundamentalQuality": 88.26,
       "capexScore": 90.0,
       "researchReasons": {
@@ -718,7 +718,7 @@
     },
     "ABSLAMC": {
       "tailwindScore": 78.0,
-      "futureGrowth": 64.64,
+      "futureGrowth": 64.62,
       "fundamentalQuality": 99.71,
       "capexScore": 60.0,
       "researchReasons": {
@@ -835,7 +835,7 @@
     },
     "AFCONS": {
       "tailwindScore": 87.0,
-      "futureGrowth": 24.59,
+      "futureGrowth": 24.53,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -874,7 +874,7 @@
     },
     "CPPLUS": {
       "tailwindScore": 88.0,
-      "futureGrowth": 92.14,
+      "futureGrowth": 92.11,
       "fundamentalQuality": 76.25,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1030,7 +1030,7 @@
     },
     "ALKEM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 39.73,
+      "futureGrowth": 39.72,
       "fundamentalQuality": 80.94,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1420,7 +1420,7 @@
     },
     "ANGELONE": {
       "tailwindScore": 78.0,
-      "futureGrowth": 87.35,
+      "futureGrowth": 87.36,
       "fundamentalQuality": 68.22,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1498,7 +1498,7 @@
     },
     "ANURAS": {
       "tailwindScore": 76.0,
-      "futureGrowth": 69.93,
+      "futureGrowth": 69.92,
       "fundamentalQuality": 70.09,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1654,7 +1654,7 @@
     },
     "APTUS": {
       "tailwindScore": 78.0,
-      "futureGrowth": 73.02,
+      "futureGrowth": 73.03,
       "fundamentalQuality": 71.36,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1693,7 +1693,7 @@
     },
     "ASAHIINDIA": {
       "tailwindScore": 80.0,
-      "futureGrowth": 83.15,
+      "futureGrowth": 83.16,
       "fundamentalQuality": 69.08,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2157,7 +2157,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AXISBANK": {
       "tailwindScore": 78.0,
@@ -2313,7 +2313,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJHLDNG": {
       "tailwindScore": 78.0,
@@ -2352,7 +2352,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJFINANCE": {
       "tailwindScore": 78.0,
@@ -2391,7 +2391,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJHFL": {
       "tailwindScore": 78.0,
@@ -2430,7 +2430,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALKRISIND": {
       "tailwindScore": 80.0,
@@ -2469,7 +2469,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANDHANBNK": {
       "tailwindScore": 78.0,
@@ -2508,7 +2508,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANKINDIA": {
       "tailwindScore": 78.0,
@@ -2547,7 +2547,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANKBARODA": {
       "tailwindScore": 78.0,
@@ -2586,7 +2586,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "MAHABANK": {
       "tailwindScore": 78.0,
@@ -2625,7 +2625,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BATAINDIA": {
       "tailwindScore": 70.0,
@@ -2664,7 +2664,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALRAMCHIN": {
       "tailwindScore": 70.0,
@@ -2703,7 +2703,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAYERCROP": {
       "tailwindScore": 76.0,
@@ -2742,7 +2742,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BELRISE": {
       "tailwindScore": 80.0,
@@ -19906,7 +19906,7 @@
     },
     "ACI": {
       "tailwindScore": 76.0,
-      "futureGrowth": 44.12,
+      "futureGrowth": 44.13,
       "fundamentalQuality": 72.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -20214,7 +20214,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BCPL": {
       "tailwindScore": 87.0,
@@ -20253,7 +20253,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BEPL": {
       "tailwindScore": 76.0,
@@ -21271,7 +21271,7 @@
     },
     "5PAISA": {
       "tailwindScore": 78.0,
-      "futureGrowth": 45.7,
+      "futureGrowth": 45.69,
       "fundamentalQuality": 74.17,
       "capexScore": 50.0,
       "researchReasons": {
@@ -21466,7 +21466,7 @@
     },
     "AARTIDRUGS": {
       "tailwindScore": 82.0,
-      "futureGrowth": 54.41,
+      "futureGrowth": 54.4,
       "fundamentalQuality": 68.14,
       "capexScore": 90.0,
       "researchReasons": {
@@ -21895,7 +21895,7 @@
     },
     "ACCELYA": {
       "tailwindScore": 75.0,
-      "futureGrowth": 40.69,
+      "futureGrowth": 40.75,
       "fundamentalQuality": 89.63,
       "capexScore": 70.0,
       "researchReasons": {
@@ -22168,7 +22168,7 @@
     },
     "AVL": {
       "tailwindScore": 70.0,
-      "futureGrowth": 88.61,
+      "futureGrowth": 88.51,
       "fundamentalQuality": 56.89,
       "capexScore": 80.0,
       "researchReasons": {
@@ -23806,7 +23806,7 @@
     },
     "ALKYLAMINE": {
       "tailwindScore": 76.0,
-      "futureGrowth": 46.14,
+      "futureGrowth": 46.18,
       "fundamentalQuality": 69.35,
       "capexScore": 90.0,
       "researchReasons": {
@@ -26341,7 +26341,7 @@
     },
     "ARVINDFASN": {
       "tailwindScore": 70.0,
-      "futureGrowth": 43.05,
+      "futureGrowth": 43.06,
       "fundamentalQuality": 47.48,
       "capexScore": 70.0,
       "researchReasons": {
@@ -26575,7 +26575,7 @@
     },
     "ASHIANA": {
       "tailwindScore": 72.0,
-      "futureGrowth": 43.1,
+      "futureGrowth": 43.09,
       "fundamentalQuality": 66.59,
       "capexScore": 60.0,
       "researchReasons": {
@@ -26926,7 +26926,7 @@
     },
     "AHLEAST": {
       "tailwindScore": 70.0,
-      "futureGrowth": 33.02,
+      "futureGrowth": 33.01,
       "fundamentalQuality": 26.6,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27004,7 +27004,7 @@
     },
     "ASKAUTOLTD": {
       "tailwindScore": 70.0,
-      "futureGrowth": 87.01,
+      "futureGrowth": 87.03,
       "fundamentalQuality": 64.01,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27472,7 +27472,7 @@
     },
     "AURIONPRO": {
       "tailwindScore": 75.0,
-      "futureGrowth": 47.95,
+      "futureGrowth": 47.96,
       "fundamentalQuality": 80.64,
       "capexScore": 90.0,
       "researchReasons": {
@@ -28209,7 +28209,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AXISCADES": {
       "tailwindScore": 87.0,
@@ -28287,7 +28287,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AYMSYNTEX": {
       "tailwindScore": 70.0,
@@ -28326,7 +28326,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AXITA": {
       "tailwindScore": 70.0,
@@ -28404,7 +28404,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BNALTD": {
       "tailwindScore": 70.0,
@@ -28443,7 +28443,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AZADIND": {
       "tailwindScore": null,
@@ -28482,7 +28482,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BBTCL": {
       "tailwindScore": 70.0,
@@ -28521,7 +28521,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BLKASHYAP": {
       "tailwindScore": 87.0,
@@ -28560,7 +28560,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAGFILMS": {
       "tailwindScore": 80.0,
@@ -28599,7 +28599,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "STYLEBAAZA": {
       "tailwindScore": 70.0,
@@ -28638,7 +28638,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAFNAPH": {
       "tailwindScore": 82.0,
@@ -28677,7 +28677,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAIDFIN": {
       "tailwindScore": 78.0,
@@ -28716,7 +28716,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJCON": {
       "tailwindScore": 70.0,
@@ -28755,7 +28755,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJELEC": {
       "tailwindScore": 70.0,
@@ -28794,7 +28794,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJHCARE": {
       "tailwindScore": 82.0,
@@ -28833,7 +28833,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJHIND": {
       "tailwindScore": 70.0,
@@ -28872,7 +28872,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALAMINES": {
       "tailwindScore": 76.0,
@@ -28911,7 +28911,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJST": {
       "tailwindScore": 88.0,
@@ -28950,7 +28950,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALAJITELE": {
       "tailwindScore": 80.0,
@@ -28989,7 +28989,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJEL": {
       "tailwindScore": null,
@@ -29028,7 +29028,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALPHARMA": {
       "tailwindScore": 82.0,
@@ -29067,7 +29067,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALAXI": {
       "tailwindScore": 82.0,
@@ -29106,7 +29106,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALKRISHNA": {
       "tailwindScore": 70.0,
@@ -29145,7 +29145,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BLIL": {
       "tailwindScore": null,
@@ -29184,7 +29184,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALMLAWRIE": {
       "tailwindScore": null,
@@ -29223,7 +29223,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BALUFORGE": {
       "tailwindScore": 62.0,
@@ -29262,7 +29262,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANARBEADS": {
       "tailwindScore": 70.0,
@@ -29301,7 +29301,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANCOINDIA": {
       "tailwindScore": 70.0,
@@ -29340,7 +29340,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANARISUG": {
       "tailwindScore": 70.0,
@@ -29379,7 +29379,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANKA": {
       "tailwindScore": null,
@@ -29418,7 +29418,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANSALWIRE": {
       "tailwindScore": null,
@@ -29457,7 +29457,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BASML": {
       "tailwindScore": 70.0,
@@ -29496,7 +29496,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANSWRAS": {
       "tailwindScore": 70.0,
@@ -29535,7 +29535,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BVCL": {
       "tailwindScore": null,
@@ -29574,7 +29574,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BATLIBOI": {
       "tailwindScore": 88.0,
@@ -29613,7 +29613,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BASF": {
       "tailwindScore": 76.0,
@@ -29652,7 +29652,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BCLIND": {
       "tailwindScore": 70.0,
@@ -29691,7 +29691,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BEDMUTHA": {
       "tailwindScore": null,
@@ -29847,7 +29847,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BELLACASA": {
       "tailwindScore": 70.0,
