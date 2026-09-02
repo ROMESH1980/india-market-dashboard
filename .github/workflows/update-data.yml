@@ -63,10 +63,17 @@ jobs:
         run: python scripts/build_market_cap_category.py
 
 
+      - name: Build current market cap
+        run: python scripts/build_current_market_cap.py
+
+
       - name: Build company research
         run: python scripts/build_company_research.py
+
+
       - name: Build market regime
         run: python scripts/build_market_regime.py
+
 
       - name: Build research scores
         run: python scripts/build_research_scores.py
