@@ -12783,5 +12783,10 @@
     "sector": "Healthcare",
     "industry": "Drug Manufacturers - General",
     "source": "Yahoo Finance"
+  },
+  "ANNU": {
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
   }
 }
