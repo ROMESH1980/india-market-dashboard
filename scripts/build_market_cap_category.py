@@ -26,7 +26,9 @@ HEADERS = {
 def load_json(path, default):
     try:
         return json.loads(
-            path.read_text()
+            path.read_text(
+                encoding="utf-8"
+            )
         )
     except Exception:
         return default
@@ -48,10 +50,19 @@ def safe_float(value):
         return None
 
 
-def normalize_category(
-    value,
-    rank
-):
+def normalize_category(value, rank):
+    """
+    Dashboard classification:
+
+    Rank 1-100   = Large Cap
+    Rank 101-250 = Mid Cap
+    Rank 251-500 = Small Cap
+    Rank 501+    = Micro Cap
+
+    AMFI category is used where available.
+    Rank is used as fallback / Micro Cap split.
+    """
+
     text = str(
         value or ""
     ).strip().lower()
@@ -64,13 +75,6 @@ def normalize_category(
 
     if "small" in text:
 
-        # Dashboard custom classification:
-        #
-        # Rank 1-100   = Large Cap
-        # Rank 101-250 = Mid Cap
-        # Rank 251-500 = Small Cap
-        # Rank 501+    = Micro Cap
-
         if (
             rank is not None
             and rank >= 501
@@ -78,7 +82,6 @@ def normalize_category(
             return "Micro Cap"
 
         return "Small Cap"
-
 
     # -----------------------------------------------------
     # FALLBACK USING RANK
@@ -116,10 +119,22 @@ def main():
         []
     )
 
+    if not isinstance(
+        stocks,
+        list
+    ):
+        raise RuntimeError(
+            "stocks.json must contain a list"
+        )
+
 
     # =====================================================
     # DOWNLOAD AMFI MARKET CAP FILE
     # =====================================================
+
+    print(
+        "Downloading AMFI market-cap classification file..."
+    )
 
     response = requests.get(
         AMFI_URL,
@@ -130,23 +145,17 @@ def main():
     response.raise_for_status()
 
 
-    raw_excel = (
-        io.BytesIO(
-            response.content
-        )
-    )
-
-
     # =====================================================
     # FIND HEADER ROW
     # =====================================================
 
     excel = pd.read_excel(
-        raw_excel,
+        io.BytesIO(
+            response.content
+        ),
         sheet_name=0,
         header=None,
     )
-
 
     header_row = None
 
@@ -164,15 +173,12 @@ def main():
             in excel.iloc[i].tolist()
         ).lower()
 
-
         if (
             "isin" in row_text
             and
             "categor" in row_text
         ):
-
             header_row = i
-
             break
 
 
@@ -183,8 +189,9 @@ def main():
         )
 
 
-    # Need fresh BytesIO because
-    # pandas has already read previous stream.
+    # =====================================================
+    # READ AMFI DATA
+    # =====================================================
 
     df = pd.read_excel(
         io.BytesIO(
@@ -193,7 +200,6 @@ def main():
         sheet_name=0,
         header=header_row,
     )
-
 
     df.columns = [
         str(c).strip()
@@ -226,8 +232,7 @@ def main():
 
         if (
             isin_col is None
-            and
-            "isin" in low
+            and "isin" in low
         ):
             isin_col = col
 
@@ -238,8 +243,7 @@ def main():
 
         if (
             category_col is None
-            and
-            "categor" in low
+            and "categor" in low
         ):
             category_col = col
 
@@ -265,7 +269,7 @@ def main():
 
 
         # -------------------------------------------------
-        # MARKET CAPITALISATION
+        # AMFI AVERAGE MARKET CAPITALISATION
         # -------------------------------------------------
 
         if (
@@ -302,31 +306,33 @@ def main():
 
         print(
             "WARNING: "
-            "Market-cap value column "
-            "not identified in AMFI file."
+            "AMFI average market-cap column "
+            "not identified."
         )
 
 
-    print({
-        "isinColumn":
-            isin_col,
+    print(
+        {
+            "isinColumn":
+                isin_col,
 
-        "categoryColumn":
-            category_col,
+            "categoryColumn":
+                category_col,
 
-        "rankColumn":
-            rank_col,
+            "rankColumn":
+                rank_col,
 
-        "marketCapColumn":
-            market_cap_col,
-    })
+            "amfiAverageMarketCapColumn":
+                market_cap_col,
+        }
+    )
 
 
     # =====================================================
-    # BUILD ISIN MAP
+    # BUILD AMFI ISIN MAP
     # =====================================================
 
-    market_cap_by_isin = {}
+    amfi_by_isin = {}
 
 
     for _, record in df.iterrows():
@@ -358,13 +364,16 @@ def main():
 
             try:
 
-                rank = int(
-                    float(
-                        record.get(
-                            rank_col
-                        )
+                rank_value = safe_float(
+                    record.get(
+                        rank_col
                     )
                 )
+
+                if rank_value is not None:
+                    rank = int(
+                        rank_value
+                    )
 
             except Exception:
                 rank = None
@@ -374,26 +383,31 @@ def main():
         # CATEGORY
         # -------------------------------------------------
 
-        category = (
-            normalize_category(
-                record.get(
-                    category_col
-                ),
-                rank,
-            )
+        category = normalize_category(
+            record.get(
+                category_col
+            ),
+            rank,
         )
 
 
         # -------------------------------------------------
-        # ACTUAL MARKET CAP ₹ CR
+        # AMFI 6-MONTH AVERAGE MARKET CAP
+        #
+        # IMPORTANT:
+        #
+        # THIS IS NOT CURRENT MARKET CAP.
+        #
+        # Therefore it must NEVER be saved as
+        # row["marketCapCr"].
         # -------------------------------------------------
 
-        market_cap_cr = None
+        amfi_average_market_cap_cr = None
 
 
         if market_cap_col is not None:
 
-            market_cap_cr = (
+            amfi_average_market_cap_cr = (
                 safe_float(
                     record.get(
                         market_cap_col
@@ -402,28 +416,27 @@ def main():
             )
 
 
-        market_cap_by_isin[
+        amfi_by_isin[
             isin
         ] = {
 
             "category":
                 category,
 
-            "marketCapCr":
-                market_cap_cr,
-
-            "marketCapRank":
+            "rank":
                 rank,
+
+            "amfiAverageMarketCapCr":
+                amfi_average_market_cap_cr,
         }
 
 
     # =====================================================
-    # APPLY TO STOCKS.JSON
+    # APPLY AMFI CLASSIFICATION TO STOCKS.JSON
     # =====================================================
 
     matched = 0
-
-    market_cap_value_matched = 0
+    average_market_cap_matched = 0
 
 
     counts = {
@@ -447,13 +460,32 @@ def main():
 
 
         info = (
-            market_cap_by_isin
+            amfi_by_isin
             .get(isin)
         )
 
 
         # -------------------------------------------------
-        # NO MATCH
+        # REMOVE OLD / WRONG CURRENT MARKET CAP
+        # -------------------------------------------------
+        #
+        # Previous version stored AMFI average market cap
+        # inside marketCapCr.
+        #
+        # That number looked like CURRENT market cap on
+        # the website, which is incorrect.
+        #
+        # Until a genuine current market-cap source is
+        # connected, marketCapCr stays None.
+        # -------------------------------------------------
+
+        row[
+            "marketCapCr"
+        ] = None
+
+
+        # -------------------------------------------------
+        # NO AMFI MATCH
         # -------------------------------------------------
 
         if not info:
@@ -463,33 +495,35 @@ def main():
             ] = None
 
             row[
-                "marketCapCr"
+                "marketCapRank"
             ] = None
 
             row[
-                "marketCapRank"
+                "amfiAverageMarketCapCr"
+            ] = None
+
+            row[
+                "marketCapSource"
             ] = None
 
             continue
 
 
-        category = (
-            info.get(
-                "category"
-            )
+        # -------------------------------------------------
+        # AMFI MATCH
+        # -------------------------------------------------
+
+        category = info.get(
+            "category"
         )
 
-
-        market_cap_cr = (
-            info.get(
-                "marketCapCr"
-            )
+        rank = info.get(
+            "rank"
         )
 
-
-        rank = (
+        amfi_average_market_cap_cr = (
             info.get(
-                "marketCapRank"
+                "amfiAverageMarketCapCr"
             )
         )
 
@@ -500,15 +534,21 @@ def main():
 
 
         row[
-            "marketCapCr"
+            "marketCapRank"
+        ] = rank
+
+
+        row[
+            "amfiAverageMarketCapCr"
         ] = (
 
             round(
-                market_cap_cr,
+                amfi_average_market_cap_cr,
                 2
             )
 
-            if market_cap_cr
+            if
+            amfi_average_market_cap_cr
             is not None
 
             else None
@@ -516,18 +556,21 @@ def main():
 
 
         row[
-            "marketCapRank"
-        ] = rank
+            "marketCapSource"
+        ] = (
+            "AMFI Average Market Capitalisation "
+            "30-Jun-2026"
+        )
 
 
         matched += 1
 
 
         if (
-            market_cap_cr
+            amfi_average_market_cap_cr
             is not None
         ):
-            market_cap_value_matched += 1
+            average_market_cap_matched += 1
 
 
         if category:
@@ -545,7 +588,7 @@ def main():
 
 
     # =====================================================
-    # SAVE
+    # SAVE STOCKS.JSON
     # =====================================================
 
     stocks_path.write_text(
@@ -557,7 +600,9 @@ def main():
                 ",",
                 ":"
             ),
-        )
+        ),
+
+        encoding="utf-8",
 
     )
 
@@ -566,24 +611,77 @@ def main():
     # LOG
     # =====================================================
 
-    print({
+    print()
 
-        "stocks":
-            len(stocks),
+    print(
+        "=============================================="
+    )
 
-        "marketCapMatched":
-            matched,
+    print(
+        "MARKET CAP CLASSIFICATION COMPLETE"
+    )
 
-        "marketCapValueMatched":
-            market_cap_value_matched,
+    print(
+        "=============================================="
+    )
 
-        "categoryCounts":
-            counts,
+    print(
+        {
+            "stocks":
+                len(stocks),
 
-        "source":
-            "AMFI Average Market Capitalisation",
+            "amfiMatched":
+                matched,
 
-    })
+            "amfiAverageMarketCapMatched":
+                average_market_cap_matched,
+
+            "categoryCounts":
+                counts,
+
+            "currentMarketCapCr":
+                "NOT POPULATED",
+
+            "reason":
+                (
+                    "AMFI value is historical "
+                    "6-month average market cap, "
+                    "not current market cap"
+                ),
+
+            "source":
+                (
+                    "AMFI Average Market "
+                    "Capitalisation 30-Jun-2026"
+                ),
+        }
+    )
+
+    print()
+
+    print(
+        "IMPORTANT:"
+    )
+
+    print(
+        "marketCapCr = None"
+    )
+
+    print(
+        "amfiAverageMarketCapCr = AMFI average value"
+    )
+
+    print(
+        "marketCapCategory = AMFI/rank classification"
+    )
+
+    print(
+        "marketCapRank = AMFI rank"
+    )
+
+    print(
+        "=============================================="
+    )
 
 
 if __name__ == "__main__":
