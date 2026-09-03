@@ -1,35 +1,27 @@
+import csv
+import io
 import json
-import time
+import re
+import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 
+
+# =========================================================
+# PATHS
+# =========================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 STOCKS_PATH = DATA / "stocks.json"
-CACHE_PATH = DATA / "shares_outstanding.json"
 
 
 # =========================================================
 # SETTINGS
 # =========================================================
-
-NSE_HOME = "https://www.nseindia.com"
-
-NSE_QUOTE_API = (
-    "https://www.nseindia.com/api/quote-equity"
-)
-
-CACHE_DAYS = 30
-
-REQUEST_DELAY = 0.20
-
-MAX_RETRIES = 3
-
 
 HEADERS = {
     "User-Agent": (
@@ -37,11 +29,10 @@ HEADERS = {
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/124.0.0.0 Safari/537.36"
     ),
-    "Accept": "application/json,text/plain,*/*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://www.nseindia.com/",
-    "Connection": "keep-alive",
+    "Accept": "*/*",
 }
+
+MAX_LOOKBACK_DAYS = 10
 
 
 # =========================================================
@@ -49,36 +40,50 @@ HEADERS = {
 # =========================================================
 
 def load_json(path, default):
+
     try:
+
         return json.loads(
             path.read_text(
                 encoding="utf-8"
             )
         )
+
     except Exception:
+
         return default
 
 
-def save_json(path, data, indent=None):
+def save_json(path, data):
+
     path.write_text(
         json.dumps(
             data,
             ensure_ascii=False,
-            separators=(",", ":")
-            if indent is None
-            else None,
-            indent=indent,
+            separators=(",", ":"),
         ),
         encoding="utf-8",
     )
 
 
 def safe_float(value):
+
     try:
+
         if value is None:
             return None
 
-        number = float(value)
+        text = (
+            str(value)
+            .strip()
+            .replace(",", "")
+            .replace("₹", "")
+        )
+
+        if not text:
+            return None
+
+        number = float(text)
 
         if number <= 0:
             return None
@@ -86,308 +91,944 @@ def safe_float(value):
         return number
 
     except Exception:
+
         return None
 
 
-def utc_today():
+def normalize_text(value):
+
+    text = (
+        str(value or "")
+        .upper()
+        .strip()
+    )
+
+    text = re.sub(
+        r"[^A-Z0-9]",
+        "",
+        text,
+    )
+
+    return text
+
+
+def normalize_company_name(value):
+
+    text = (
+        str(value or "")
+        .upper()
+        .strip()
+    )
+
+    replacements = [
+
+        "LIMITED",
+        "LTD",
+        "LTD.",
+        "PRIVATE",
+        "PVT",
+        "PVT.",
+        "INDIA",
+        "THE",
+
+    ]
+
+    for word in replacements:
+
+        text = re.sub(
+            rf"\b{re.escape(word)}\b",
+            " ",
+            text,
+        )
+
+    text = re.sub(
+        r"[^A-Z0-9]",
+        "",
+        text,
+    )
+
+    return text
+
+
+def detect_stock_date(stocks):
+
+    dates = []
+
+    for row in stocks:
+
+        value = row.get(
+            "priceDate"
+        )
+
+        if not value:
+            continue
+
+        try:
+
+            d = datetime.strptime(
+                value,
+                "%Y-%m-%d",
+            ).date()
+
+            dates.append(d)
+
+        except Exception:
+
+            pass
+
+
+    if dates:
+
+        return max(dates)
+
+
     return (
         datetime.now(timezone.utc)
         .date()
-        .isoformat()
     )
-
-
-def cache_is_fresh(record):
-    if not record:
-        return False
-
-    updated = record.get(
-        "updated"
-    )
-
-    if not updated:
-        return False
-
-    try:
-        updated_date = (
-            datetime
-            .fromisoformat(updated)
-            .date()
-        )
-
-        today = (
-            datetime.now(timezone.utc)
-            .date()
-        )
-
-        age = (
-            today - updated_date
-        ).days
-
-        return age <= CACHE_DAYS
-
-    except Exception:
-        return False
 
 
 # =========================================================
-# NSE SESSION
+# NSE PR ZIP
 # =========================================================
 
-def create_nse_session():
+def pr_zip_url(date_obj):
 
-    session = requests.Session()
-
-    session.headers.update(
-        HEADERS
+    ddmmyy = date_obj.strftime(
+        "%d%m%y"
     )
 
-    try:
+    year = date_obj.strftime(
+        "%Y"
+    )
 
-        response = session.get(
-            NSE_HOME,
-            timeout=30,
+    month = date_obj.strftime(
+        "%b"
+    ).upper()
+
+
+    return (
+        "https://nsearchives.nseindia.com/"
+        f"content/historical/EQUITIES/"
+        f"{year}/{month}/"
+        f"PR{ddmmyy}.zip"
+    )
+
+
+def download_pr_zip(date_obj):
+
+    url = pr_zip_url(
+        date_obj
+    )
+
+
+    print(
+        f"Trying NSE PR bundle: "
+        f"{date_obj.isoformat()}"
+    )
+
+
+    response = requests.get(
+        url,
+        headers=HEADERS,
+        timeout=45,
+    )
+
+
+    response.raise_for_status()
+
+
+    return response.content, url
+
+
+# =========================================================
+# FIND MCAP CSV INSIDE PR ZIP
+# =========================================================
+
+def extract_market_cap_csv(
+    zip_bytes,
+    date_obj,
+):
+
+    expected = (
+        "mcap"
+        + date_obj.strftime(
+            "%d%m%Y"
         )
+        + ".csv"
+    ).lower()
+
+
+    with zipfile.ZipFile(
+        io.BytesIO(zip_bytes)
+    ) as z:
+
+        names = z.namelist()
+
 
         print(
-            "NSE session:",
-            response.status_code,
+            "PR bundle files:",
+            len(names),
         )
 
-    except Exception as exc:
 
-        print(
-            "WARNING: NSE homepage session failed:",
-            exc,
-        )
+        # -------------------------------------------------
+        # Exact expected filename
+        # -------------------------------------------------
 
-    return session
+        for name in names:
+
+            if (
+                Path(name)
+                .name
+                .lower()
+                ==
+                expected
+            ):
+
+                print(
+                    "Market-cap file:",
+                    name,
+                )
+
+                return (
+                    z.read(name)
+                    .decode(
+                        "utf-8-sig",
+                        errors="ignore",
+                    ),
+                    name,
+                )
+
+
+        # -------------------------------------------------
+        # Fallback:
+        # Any CSV whose basename begins with "mcap"
+        # -------------------------------------------------
+
+        for name in names:
+
+            base = (
+                Path(name)
+                .name
+                .lower()
+            )
+
+            if (
+                base.startswith(
+                    "mcap"
+                )
+                and
+                base.endswith(
+                    ".csv"
+                )
+            ):
+
+                print(
+                    "Market-cap fallback file:",
+                    name,
+                )
+
+                return (
+                    z.read(name)
+                    .decode(
+                        "utf-8-sig",
+                        errors="ignore",
+                    ),
+                    name,
+                )
+
+
+    raise RuntimeError(
+        "Market-cap CSV not found "
+        "inside NSE PR bundle"
+    )
 
 
 # =========================================================
-# EXTRACT ISSUED SIZE
+# CSV PARSER
 # =========================================================
 
-def extract_issued_size(payload):
+def detect_header_row(rows):
 
-    if not isinstance(
-        payload,
-        dict,
+    for index, row in enumerate(
+        rows[:30]
     ):
-        return None
+
+        joined = " ".join(
+            str(x)
+            for x in row
+        ).lower()
 
 
-    # -----------------------------------------------------
-    # Primary NSE location
-    # -----------------------------------------------------
-
-    security_info = (
-        payload.get(
-            "securityInfo"
-        )
-        or {}
-    )
-
-    issued_size = safe_float(
-        security_info.get(
-            "issuedSize"
-        )
-    )
-
-    if issued_size is not None:
-        return issued_size
-
-
-    # -----------------------------------------------------
-    # Defensive fallback search
-    # -----------------------------------------------------
-
-    possible_keys = [
-        "issuedSize",
-        "issued_size",
-        "issuedShares",
-        "sharesOutstanding",
-    ]
-
-
-    for key in possible_keys:
-
-        value = safe_float(
-            payload.get(key)
+        has_market_cap = (
+            "market"
+            in joined
+            and
+            "cap"
+            in joined
         )
 
-        if value is not None:
-            return value
+
+        has_identity = (
+            "symbol" in joined
+            or
+            "security" in joined
+            or
+            "isin" in joined
+            or
+            "name" in joined
+        )
+
+
+        if (
+            has_market_cap
+            and
+            has_identity
+        ):
+
+            return index
 
 
     return None
 
 
-# =========================================================
-# FETCH SHARES OUTSTANDING FROM NSE
-# =========================================================
-
-def fetch_issued_size(
-    session,
-    symbol,
+def find_column(
+    headers,
+    keywords,
 ):
 
-    url = (
-        NSE_QUOTE_API
-        + "?symbol="
-        + quote(
-            symbol,
-            safe="",
+    for index, header in enumerate(
+        headers
+    ):
+
+        low = (
+            str(header)
+            .strip()
+            .lower()
+        )
+
+
+        for keyword in keywords:
+
+            if keyword in low:
+
+                return index
+
+
+    return None
+
+
+def parse_mcap_csv(text):
+
+    raw_rows = list(
+        csv.reader(
+            io.StringIO(text)
         )
     )
 
 
-    for attempt in range(
-        1,
-        MAX_RETRIES + 1,
+    raw_rows = [
+        row
+        for row in raw_rows
+        if any(
+            str(x).strip()
+            for x in row
+        )
+    ]
+
+
+    if not raw_rows:
+
+        raise RuntimeError(
+            "Market-cap CSV is empty"
+        )
+
+
+    header_row = detect_header_row(
+        raw_rows
+    )
+
+
+    if header_row is None:
+
+        print(
+            "First 10 rows from market-cap file:"
+        )
+
+        for row in raw_rows[:10]:
+
+            print(row)
+
+
+        raise RuntimeError(
+            "Could not detect market-cap CSV header"
+        )
+
+
+    headers = [
+        str(x).strip()
+        for x
+        in raw_rows[
+            header_row
+        ]
+    ]
+
+
+    print(
+        "Market-cap columns:"
+    )
+
+    print(
+        headers
+    )
+
+
+    symbol_col = find_column(
+        headers,
+        [
+            "symbol",
+            "security symbol",
+            "ticker",
+        ],
+    )
+
+
+    isin_col = find_column(
+        headers,
+        [
+            "isin",
+        ],
+    )
+
+
+    name_col = find_column(
+        headers,
+        [
+            "security name",
+            "name of security",
+            "security",
+            "company name",
+            "name",
+        ],
+    )
+
+
+    market_cap_col = None
+
+
+    for index, header in enumerate(
+        headers
     ):
+
+        low = (
+            str(header)
+            .strip()
+            .lower()
+        )
+
+
+        if (
+            "market"
+            in low
+            and
+            "cap"
+            in low
+        ):
+
+            market_cap_col = index
+            break
+
+
+    if market_cap_col is None:
+
+        raise RuntimeError(
+            "Market-cap column not found"
+        )
+
+
+    print({
+        "symbolColumn":
+            symbol_col,
+
+        "isinColumn":
+            isin_col,
+
+        "nameColumn":
+            name_col,
+
+        "marketCapColumn":
+            market_cap_col,
+    })
+
+
+    by_symbol = {}
+
+    by_isin = {}
+
+    by_name = {}
+
+
+    parsed = 0
+
+
+    for row in raw_rows[
+        header_row + 1:
+    ]:
+
+        if (
+            len(row)
+            <= market_cap_col
+        ):
+            continue
+
+
+        market_cap_cr = (
+            safe_float(
+                row[
+                    market_cap_col
+                ]
+            )
+        )
+
+
+        if market_cap_cr is None:
+            continue
+
+
+        symbol = None
+        isin = None
+        name = None
+
+
+        if (
+            symbol_col is not None
+            and
+            len(row) > symbol_col
+        ):
+
+            symbol = normalize_text(
+                row[
+                    symbol_col
+                ]
+            )
+
+
+        if (
+            isin_col is not None
+            and
+            len(row) > isin_col
+        ):
+
+            isin = normalize_text(
+                row[
+                    isin_col
+                ]
+            )
+
+
+        if (
+            name_col is not None
+            and
+            len(row) > name_col
+        ):
+
+            name = normalize_company_name(
+                row[
+                    name_col
+                ]
+            )
+
+
+        item = {
+
+            "marketCapCr":
+                round(
+                    market_cap_cr,
+                    2,
+                ),
+
+            "symbol":
+                symbol,
+
+            "isin":
+                isin,
+
+            "name":
+                name,
+
+        }
+
+
+        if symbol:
+
+            by_symbol[
+                symbol
+            ] = item
+
+
+        if isin:
+
+            by_isin[
+                isin
+            ] = item
+
+
+        if name:
+
+            by_name[
+                name
+            ] = item
+
+
+        parsed += 1
+
+
+    print(
+        "Market-cap rows parsed:",
+        parsed,
+    )
+
+
+    return {
+
+        "bySymbol":
+            by_symbol,
+
+        "byIsin":
+            by_isin,
+
+        "byName":
+            by_name,
+
+        "parsed":
+            parsed,
+
+    }
+
+
+# =========================================================
+# LOAD LATEST NSE MARKET CAP REPORT
+# =========================================================
+
+def load_latest_market_cap_report(
+    preferred_date,
+):
+
+    last_error = None
+
+
+    for back in range(
+        0,
+        MAX_LOOKBACK_DAYS + 1,
+    ):
+
+        d = (
+            preferred_date
+            -
+            timedelta(
+                days=back
+            )
+        )
+
+
+        # Skip weekend
+        if d.weekday() >= 5:
+            continue
+
 
         try:
 
-            response = session.get(
-                url,
-                timeout=30,
+            zip_bytes, url = (
+                download_pr_zip(
+                    d
+                )
             )
 
 
-            # -------------------------------------------------
-            # Session / rate-limit recovery
-            # -------------------------------------------------
+            text, filename = (
+                extract_market_cap_csv(
+                    zip_bytes,
+                    d,
+                )
+            )
 
-            if response.status_code in (
-                401,
-                403,
-                429,
+
+            parsed = parse_mcap_csv(
+                text
+            )
+
+
+            if (
+                parsed[
+                    "parsed"
+                ]
+                <= 0
             ):
 
-                print(
-                    f"{symbol}: HTTP "
-                    f"{response.status_code}, "
-                    "refreshing NSE session"
-                )
-
-                try:
-
-                    session.get(
-                        NSE_HOME,
-                        timeout=20,
-                    )
-
-                except Exception:
-                    pass
-
-                time.sleep(
-                    1.5 * attempt
-                )
-
-                continue
-
-
-            response.raise_for_status()
-
-
-            payload = (
-                response.json()
-            )
-
-
-            issued_size = (
-                extract_issued_size(
-                    payload
-                )
-            )
-
-
-            if issued_size is None:
-
-                return (
-                    None,
-                    "issuedSize not found",
+                raise RuntimeError(
+                    "No market-cap rows parsed"
                 )
 
 
-            return (
-                issued_size,
-                None,
-            )
+            return {
+
+                "date":
+                    d.isoformat(),
+
+                "url":
+                    url,
+
+                "filename":
+                    filename,
+
+                "data":
+                    parsed,
+
+            }
 
 
         except Exception as exc:
 
-            if attempt < MAX_RETRIES:
+            last_error = exc
 
-                time.sleep(
-                    1.5 * attempt
-                )
-
-                continue
-
-
-            return (
-                None,
-                str(exc),
+            print(
+                f"Market-cap report unavailable "
+                f"for {d}: {exc}"
             )
 
 
-    return (
-        None,
-        "unknown fetch error",
+    raise RuntimeError(
+        "No usable NSE PR market-cap report "
+        f"found. Last error: {last_error}"
     )
 
 
 # =========================================================
-# CURRENT MARKET CAP
+# APPLY MARKET CAP TO STOCKS.JSON
 # =========================================================
 
-def calculate_market_cap_cr(
-    price,
-    shares,
+def apply_market_cap(
+    stocks,
+    report,
 ):
 
-    price = safe_float(
-        price
-    )
-
-    shares = safe_float(
-        shares
-    )
+    data = report[
+        "data"
+    ]
 
 
-    if (
-        price is None
-        or shares is None
-    ):
-        return None
+    by_symbol = data[
+        "bySymbol"
+    ]
+
+    by_isin = data[
+        "byIsin"
+    ]
+
+    by_name = data[
+        "byName"
+    ]
 
 
-    # -----------------------------------------------------
-    # Price ₹ × number of shares
-    #
-    # ₹1 Crore = ₹10,000,000
-    # -----------------------------------------------------
+    stats = {
 
-    market_cap_cr = (
-        price
-        *
-        shares
-        /
-        10_000_000
-    )
+        "stocks":
+            len(stocks),
+
+        "matchedByIsin":
+            0,
+
+        "matchedBySymbol":
+            0,
+
+        "matchedByName":
+            0,
+
+        "unmatched":
+            0,
+
+        "marketCapCalculated":
+            0,
+
+    }
 
 
-    if market_cap_cr <= 0:
-        return None
+    for row in stocks:
+
+        symbol = normalize_text(
+            row.get(
+                "symbol"
+            )
+        )
 
 
-    return round(
-        market_cap_cr,
-        2,
-    )
+        isin = normalize_text(
+            row.get(
+                "isin"
+            )
+        )
+
+
+        name = normalize_company_name(
+            row.get(
+                "name"
+            )
+        )
+
+
+        info = None
+
+        match_type = None
+
+
+        # ---------------------------------------------
+        # ISIN first - safest
+        # ---------------------------------------------
+
+        if (
+            isin
+            and
+            isin in by_isin
+        ):
+
+            info = (
+                by_isin[
+                    isin
+                ]
+            )
+
+            match_type = (
+                "ISIN"
+            )
+
+            stats[
+                "matchedByIsin"
+            ] += 1
+
+
+        # ---------------------------------------------
+        # Symbol fallback
+        # ---------------------------------------------
+
+        elif (
+            symbol
+            and
+            symbol in by_symbol
+        ):
+
+            info = (
+                by_symbol[
+                    symbol
+                ]
+            )
+
+            match_type = (
+                "SYMBOL"
+            )
+
+            stats[
+                "matchedBySymbol"
+            ] += 1
+
+
+        # ---------------------------------------------
+        # Company-name fallback
+        # ---------------------------------------------
+
+        elif (
+            name
+            and
+            name in by_name
+        ):
+
+            info = (
+                by_name[
+                    name
+                ]
+            )
+
+            match_type = (
+                "NAME"
+            )
+
+            stats[
+                "matchedByName"
+            ] += 1
+
+
+        # ---------------------------------------------
+        # No match
+        # ---------------------------------------------
+
+        if not info:
+
+            row[
+                "marketCapCr"
+            ] = None
+
+            row[
+                "marketCapDate"
+            ] = None
+
+            row[
+                "marketCapSource"
+            ] = None
+
+            row[
+                "marketCapMatchType"
+            ] = None
+
+            stats[
+                "unmatched"
+            ] += 1
+
+            continue
+
+
+        market_cap_cr = (
+            info.get(
+                "marketCapCr"
+            )
+        )
+
+
+        row[
+            "marketCapCr"
+        ] = (
+            market_cap_cr
+        )
+
+
+        row[
+            "marketCapDate"
+        ] = (
+            report[
+                "date"
+            ]
+        )
+
+
+        row[
+            "marketCapSource"
+        ] = (
+            "NSE PR Market Capitalisation"
+        )
+
+
+        row[
+            "marketCapMatchType"
+        ] = (
+            match_type
+        )
+
+
+        stats[
+            "marketCapCalculated"
+        ] += 1
+
+
+    return stats
 
 
 # =========================================================
@@ -395,11 +1036,6 @@ def calculate_market_cap_cr(
 # =========================================================
 
 def main():
-
-    DATA.mkdir(
-        exist_ok=True
-    )
-
 
     stocks = load_json(
         STOCKS_PATH,
@@ -417,18 +1053,11 @@ def main():
         )
 
 
-    cache = load_json(
-        CACHE_PATH,
-        {},
-    )
+    if not stocks:
 
-
-    if not isinstance(
-        cache,
-        dict,
-    ):
-
-        cache = {}
+        raise RuntimeError(
+            "stocks.json is empty"
+        )
 
 
     print(
@@ -436,452 +1065,71 @@ def main():
     )
 
     print(
-        "BUILD CURRENT MARKET CAP"
+        "BUILD CURRENT MARKET CAP - BULK NSE REPORT"
     )
 
     print(
         "=============================================="
     )
 
-    print(
-        "Stocks:",
-        len(stocks),
-    )
 
-    print(
-        "Cached share records:",
-        len(cache),
+    preferred_date = (
+        detect_stock_date(
+            stocks
+        )
     )
 
 
-    session = create_nse_session()
-
-
-    today = utc_today()
-
-
-    stats = {
-
-        "stocks":
-            len(stocks),
-
-        "cacheFresh":
-            0,
-
-        "cacheStaleUsed":
-            0,
-
-        "nseFetched":
-            0,
-
-        "nseFailed":
-            0,
-
-        "marketCapCalculated":
-            0,
-
-        "missingPrice":
-            0,
-
-        "missingShares":
-            0,
-
-    }
+    print(
+        "Preferred market date:",
+        preferred_date,
+    )
 
 
     # =====================================================
-    # PROCESS EACH STOCK
+    # LOAD NSE BULK MARKET-CAP REPORT
     # =====================================================
 
-    for index, row in enumerate(
+    report = (
+        load_latest_market_cap_report(
+            preferred_date
+        )
+    )
+
+
+    print()
+
+    print(
+        "NSE market-cap report loaded:"
+    )
+
+    print(
+        {
+            "date":
+                report[
+                    "date"
+                ],
+
+            "file":
+                report[
+                    "filename"
+                ],
+
+            "url":
+                report[
+                    "url"
+                ],
+        }
+    )
+
+
+    # =====================================================
+    # APPLY MARKET CAPS
+    # =====================================================
+
+    stats = apply_market_cap(
         stocks,
-        start=1,
-    ):
-
-        symbol = str(
-            row.get(
-                "symbol"
-            )
-            or ""
-        ).strip()
-
-
-        isin = str(
-            row.get(
-                "isin"
-            )
-            or ""
-        ).strip()
-
-
-        if not symbol:
-            continue
-
-
-        # -------------------------------------------------
-        # CACHE KEY
-        #
-        # Prefer ISIN because symbols may occasionally
-        # change after company name/symbol changes.
-        # -------------------------------------------------
-
-        cache_key = (
-            isin
-            or symbol
-        )
-
-
-        cached = (
-            cache.get(
-                cache_key
-            )
-            or {}
-        )
-
-
-        cached_shares = (
-            safe_float(
-                cached.get(
-                    "issuedSize"
-                )
-            )
-        )
-
-
-        issued_size = None
-
-        shares_source_date = None
-
-        shares_status = None
-
-
-        # =================================================
-        # USE FRESH CACHE
-        # =================================================
-
-        if (
-            cached_shares is not None
-            and
-            cache_is_fresh(
-                cached
-            )
-        ):
-
-            issued_size = (
-                cached_shares
-            )
-
-            shares_source_date = (
-                cached.get(
-                    "updated"
-                )
-            )
-
-            shares_status = (
-                "CACHE_FRESH"
-            )
-
-            stats[
-                "cacheFresh"
-            ] += 1
-
-
-        # =================================================
-        # FETCH FROM NSE
-        # =================================================
-
-        else:
-
-            issued_size_new, error = (
-                fetch_issued_size(
-                    session,
-                    symbol,
-                )
-            )
-
-
-            if (
-                issued_size_new
-                is not None
-            ):
-
-                issued_size = (
-                    issued_size_new
-                )
-
-                shares_source_date = (
-                    today
-                )
-
-                shares_status = (
-                    "NSE_FETCHED"
-                )
-
-
-                cache[
-                    cache_key
-                ] = {
-
-                    "symbol":
-                        symbol,
-
-                    "isin":
-                        isin,
-
-                    "issuedSize":
-                        issued_size,
-
-                    "updated":
-                        today,
-
-                    "source":
-                        (
-                            "NSE quote-equity "
-                            "securityInfo.issuedSize"
-                        ),
-
-                }
-
-
-                stats[
-                    "nseFetched"
-                ] += 1
-
-
-            else:
-
-                stats[
-                    "nseFailed"
-                ] += 1
-
-
-                # -----------------------------------------
-                # If live refresh fails but old issued-size
-                # cache exists, keep using it.
-                #
-                # Issued share capital changes much less
-                # frequently than daily market price.
-                # -----------------------------------------
-
-                if (
-                    cached_shares
-                    is not None
-                ):
-
-                    issued_size = (
-                        cached_shares
-                    )
-
-                    shares_source_date = (
-                        cached.get(
-                            "updated"
-                        )
-                    )
-
-                    shares_status = (
-                        "CACHE_STALE"
-                    )
-
-                    stats[
-                        "cacheStaleUsed"
-                    ] += 1
-
-
-                else:
-
-                    issued_size = None
-
-                    shares_status = (
-                        "MISSING"
-                    )
-
-
-                if (
-                    index <= 30
-                    or
-                    index % 100 == 0
-                ):
-
-                    print(
-                        f"{symbol}: "
-                        f"NSE issuedSize failed - "
-                        f"{error}"
-                    )
-
-
-            # ---------------------------------------------
-            # Avoid hitting NSE too fast
-            # ---------------------------------------------
-
-            time.sleep(
-                REQUEST_DELAY
-            )
-
-
-        # =================================================
-        # CURRENT PRICE
-        # =================================================
-
-        price = safe_float(
-            row.get(
-                "price"
-            )
-        )
-
-
-        if price is None:
-
-            stats[
-                "missingPrice"
-            ] += 1
-
-
-        if issued_size is None:
-
-            stats[
-                "missingShares"
-            ] += 1
-
-
-        # =================================================
-        # CALCULATE CURRENT MARKET CAP ₹ CR
-        # =================================================
-
-        market_cap_cr = (
-            calculate_market_cap_cr(
-                price,
-                issued_size,
-            )
-        )
-
-
-        # =================================================
-        # SAVE STOCK FIELDS
-        # =================================================
-
-        row[
-            "sharesOutstanding"
-        ] = (
-
-            round(
-                issued_size
-            )
-
-            if issued_size
-            is not None
-
-            else None
-        )
-
-
-        row[
-            "sharesOutstandingSource"
-        ] = (
-
-            "NSE quote-equity "
-            "securityInfo.issuedSize"
-
-            if issued_size
-            is not None
-
-            else None
-        )
-
-
-        row[
-            "sharesOutstandingDate"
-        ] = (
-            shares_source_date
-        )
-
-
-        row[
-            "sharesOutstandingStatus"
-        ] = (
-            shares_status
-        )
-
-
-        row[
-            "marketCapCr"
-        ] = (
-            market_cap_cr
-        )
-
-
-        row[
-            "marketCapDate"
-        ] = (
-
-            row.get(
-                "priceDate"
-            )
-
-            if market_cap_cr
-            is not None
-
-            else None
-        )
-
-
-        row[
-            "marketCapSource"
-        ] = (
-
-            (
-                "NSE EOD close price × "
-                "NSE issuedSize"
-            )
-
-            if market_cap_cr
-            is not None
-
-            else None
-        )
-
-
-        if (
-            market_cap_cr
-            is not None
-        ):
-
-            stats[
-                "marketCapCalculated"
-            ] += 1
-
-
-        # =================================================
-        # PERIODIC CACHE SAVE
-        #
-        # Protect progress if NSE/API fails later.
-        # =================================================
-
-        if (
-            index % 100 == 0
-        ):
-
-            save_json(
-                CACHE_PATH,
-                cache,
-                indent=2,
-            )
-
-            print(
-                f"Processed {index}/{len(stocks)} | "
-                f"marketCap={stats['marketCapCalculated']} | "
-                f"NSE fetched={stats['nseFetched']} | "
-                f"failed={stats['nseFailed']}"
-            )
-
-
-    # =====================================================
-    # FINAL SAVE
-    # =====================================================
-
-    save_json(
-        CACHE_PATH,
-        cache,
-        indent=2,
+        report,
     )
 
 
@@ -892,21 +1140,30 @@ def main():
 
 
     # =====================================================
-    # REPORT
+    # COVERAGE
     # =====================================================
 
-    coverage = 0.0
+    coverage = 0
 
-    if len(stocks):
+
+    if stats[
+        "stocks"
+    ]:
 
         coverage = (
+
             stats[
                 "marketCapCalculated"
             ]
+
             /
-            len(stocks)
+            stats[
+                "stocks"
+            ]
+
             *
             100
+
         )
 
 
@@ -917,6 +1174,24 @@ def main():
         2,
     )
 
+
+    stats[
+        "reportDate"
+    ] = report[
+        "date"
+    ]
+
+
+    stats[
+        "reportFile"
+    ] = report[
+        "filename"
+    ]
+
+
+    # =====================================================
+    # LOG
+    # =====================================================
 
     print()
 
@@ -942,32 +1217,11 @@ def main():
     print()
 
     print(
-        "FORMULA:"
+        "SOURCE:"
     )
 
     print(
-        "marketCapCr = "
-        "price × issuedSize / 10,000,000"
-    )
-
-    print()
-
-    print(
-        "PRICE SOURCE:"
-    )
-
-    print(
-        "Official NSE UDiFF EOD close price"
-    )
-
-    print()
-
-    print(
-        "SHARES SOURCE:"
-    )
-
-    print(
-        "NSE quote-equity securityInfo.issuedSize"
+        "Official NSE PR daily market-cap file"
     )
 
     print()
@@ -977,8 +1231,12 @@ def main():
     )
 
     print(
+        "No individual NSE quote API calls are used."
+    )
+
+    print(
         "AMFI average market cap is NOT used "
-        "in current marketCapCr."
+        "as current marketCapCr."
     )
 
     print(
