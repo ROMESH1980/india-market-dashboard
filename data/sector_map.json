@@ -12788,5 +12788,10 @@
     "sector": "Industrials",
     "industry": "Infrastructure Operations",
     "source": "Yahoo Finance"
+  },
+  "LUMINO": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
   }
 }
