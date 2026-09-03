@@ -11,9 +11,6 @@ on:
     - cron: "30 11 * * 1-5"
 
 
-# Ek hi workflow ko ek time par run hone dega.
-# Agar previous run chal raha ho to naya run queue/cancel conflict
-# create nahi karega.
 concurrency:
   group: nse-market-data-update
   cancel-in-progress: false
@@ -28,7 +25,6 @@ permissions:
 jobs:
 
   update:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -36,50 +32,37 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-
       - name: Install requirements
         run: pip install -r requirements.txt
-
 
       - name: Build sector map
         run: python scripts/build_sector_map.py
 
-
       - name: Refresh NSE universe
         run: python scripts/refresh_data.py
-
 
       - name: Build delivery volume
         run: python scripts/build_delivery_volume.py
 
-
       - name: Build market cap category
         run: python scripts/build_market_cap_category.py
-
-
-     
 
       - name: Build company research
         run: python scripts/build_company_research.py
 
-
       - name: Build market regime
         run: python scripts/build_market_regime.py
-
 
       - name: Build research scores
         run: python scripts/build_research_scores.py
 
-
       - name: Apply research scores
         run: python scripts/apply_research_scores.py
-
 
       - name: Commit updated NSE data
         run: |
@@ -92,7 +75,6 @@ jobs:
 
           git push
 
-
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
@@ -100,9 +82,7 @@ jobs:
 
 
   deploy:
-
     needs: update
-
     runs-on: ubuntu-latest
 
     environment:
