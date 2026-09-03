@@ -1,15 +1,16 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3135,
-  "uniqueCount": 3135,
-  "eodPriceCount": 3633,
-  "matchedPriceCount": 3023,
-  "marketDate": "2026-09-02",
-  "lastUpdated": "2026-09-02",
+  "nseCount": 3136,
+  "uniqueCount": 3136,
+  "eodPriceCount": 3635,
+  "matchedPriceCount": 3027,
+  "marketDate": "2026-09-03",
+  "lastUpdated": "2026-09-03",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
-  "deliveryDate": "2026-09-02",
+  "deliveryDate": "2026-09-03",
   "deliverySessionsUsed": [
+    "2026-09-03",
     "2026-09-02",
     "2026-09-01",
     "2026-08-31",
@@ -28,15 +29,14 @@
     "2026-08-12",
     "2026-08-11",
     "2026-08-10",
-    "2026-08-07",
-    "2026-08-06"
+    "2026-08-07"
   ],
-  "todayVolumeCount": 2761,
-  "deliveryVolumeCount": 2761,
-  "deliveryRatioCount": 2718,
-  "deliveryPctCount": 2761,
+  "todayVolumeCount": 2749,
+  "deliveryVolumeCount": 2749,
+  "deliveryRatioCount": 2703,
+  "deliveryPctCount": 2749,
   "full5DayDeliveryAverageCount": 2828,
-  "incomplete5DayDeliveryCount": 307,
+  "incomplete5DayDeliveryCount": 308,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -47,8 +47,8 @@
       "type": "equity",
       "available": true,
       "sourceSymbol": "^NSEI",
-      "date": "2026-09-02",
-      "daily": 43,
+      "date": "2026-09-03",
+      "daily": 40,
       "weekly": 53,
       "monthly": 24,
       "overall": 36,
@@ -74,26 +74,26 @@
       },
       "details": {
         "daily": {
-          "latest": 23914.45,
-          "fastMA": 24299.61,
-          "slowMA": 24203.37,
-          "momentumPct": -1.73,
-          "rsi14": 26.29,
-          "distanceFromHighPct": -2.93,
+          "latest": 23873.45,
+          "fastMA": 24262.05,
+          "slowMA": 24204.36,
+          "momentumPct": -1.38,
+          "rsi14": 26.27,
+          "distanceFromHighPct": -3.1,
           "components": {
             "priceVsFastMA": 0,
             "trend": 25,
             "momentum": 8,
-            "strength": 10
+            "strength": 7
           }
         },
         "weekly": {
-          "latest": 23914.45,
-          "fastMA": 24215.7,
-          "slowMA": 24035.73,
-          "momentumPct": -2.67,
-          "rsi14": 55.55,
-          "distanceFromHighPct": -2.67,
+          "latest": 23873.45,
+          "fastMA": 24211.6,
+          "slowMA": 24034.36,
+          "momentumPct": -2.84,
+          "rsi14": 54.87,
+          "distanceFromHighPct": -2.84,
           "components": {
             "priceVsFastMA": 0,
             "trend": 25,
@@ -102,12 +102,12 @@
           }
         },
         "monthly": {
-          "latest": 23914.45,
-          "fastMA": 23964.92,
-          "slowMA": 24274.98,
-          "momentumPct": 0.2,
-          "rsi14": 45.46,
-          "distanceFromHighPct": -8.73,
+          "latest": 23873.45,
+          "fastMA": 23958.08,
+          "slowMA": 24270.88,
+          "momentumPct": 0.03,
+          "rsi14": 45.27,
+          "distanceFromHighPct": -8.89,
           "components": {
             "priceVsFastMA": 0,
             "trend": 0,
@@ -123,11 +123,11 @@
       "type": "equity",
       "available": true,
       "sourceSymbol": "NIFTY_MIDCAP_100.NS",
-      "date": "2026-09-02",
-      "daily": 83,
-      "weekly": 90,
+      "date": "2026-09-03",
+      "daily": 90,
+      "weekly": 95,
       "monthly": 90,
-      "overall": 89,
+      "overall": 92,
       "dailySignal": {
         "label": "Aggressive Stocks",
         "signal": "aggressive",
@@ -150,26 +150,12 @@
       },
       "details": {
         "daily": {
-          "latest": 63001.6,
-          "fastMA": 62337.62,
-          "slowMA": 61606.6,
-          "momentumPct": -0.06,
-          "rsi14": 61.32,
-          "distanceFromHighPct": -0.06,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 25
-          }
-        },
-        "weekly": {
-          "latest": 63001.6,
-          "fastMA": 61960.57,
-          "slowMA": 59596.67,
-          "momentumPct": 1.95,
-          "rsi14": 63.57,
-          "distanceFromHighPct": -0.06,
+          "latest": 63235.2,
+          "fastMA": 62349.3,
+          "slowMA": 61611.27,
+          "momentumPct": 0.31,
+          "rsi14": 62.95,
+          "distanceFromHighPct": 0.0,
           "components": {
             "priceVsFastMA": 25,
             "trend": 25,
@@ -177,12 +163,26 @@
             "strength": 25
           }
         },
+        "weekly": {
+          "latest": 63235.2,
+          "fastMA": 61983.93,
+          "slowMA": 59604.46,
+          "momentumPct": 2.33,
+          "rsi14": 64.3,
+          "distanceFromHighPct": 0.0,
+          "components": {
+            "priceVsFastMA": 25,
+            "trend": 25,
+            "momentum": 20,
+            "strength": 25
+          }
+        },
         "monthly": {
-          "latest": 63001.6,
-          "fastMA": 60231.0,
-          "slowMA": 60046.14,
-          "momentumPct": 2.07,
-          "rsi14": 55.54,
+          "latest": 63235.2,
+          "fastMA": 60269.93,
+          "slowMA": 60069.5,
+          "momentumPct": 2.45,
+          "rsi14": 55.89,
           "distanceFromHighPct": 0.0,
           "components": {
             "priceVsFastMA": 25,
@@ -263,20 +263,20 @@
       "type": "gold",
       "available": true,
       "sourceSymbol": "GC=F",
-      "date": "2026-09-02",
-      "daily": 42,
-      "weekly": 52,
+      "date": "2026-09-03",
+      "daily": 78,
+      "weekly": 60,
       "monthly": 65,
-      "overall": 56,
+      "overall": 66,
       "dailySignal": {
-        "label": "Weak / Correction",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Very Strong",
+        "signal": "aggressive",
+        "emoji": "🟢🟢"
       },
       "weeklySignal": {
-        "label": "Neutral / Cautious",
-        "signal": "warning",
-        "emoji": "🟡"
+        "label": "Positive",
+        "signal": "selective",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Strong",
@@ -284,46 +284,46 @@
         "emoji": "🟢"
       },
       "overallSignal": {
-        "label": "Positive",
-        "signal": "selective",
+        "label": "Strong",
+        "signal": "overweight",
         "emoji": "🟢"
       },
       "details": {
         "daily": {
-          "latest": 4416.6,
-          "fastMA": 4452.73,
-          "slowMA": 4221.98,
-          "momentumPct": -3.95,
-          "rsi14": 53.46,
-          "distanceFromHighPct": -4.83,
+          "latest": 4514.2,
+          "fastMA": 4463.82,
+          "slowMA": 4231.45,
+          "momentumPct": -2.07,
+          "rsi14": 57.91,
+          "distanceFromHighPct": -2.73,
           "components": {
-            "priceVsFastMA": 0,
+            "priceVsFastMA": 25,
             "trend": 25,
-            "momentum": 0,
-            "strength": 17
+            "momentum": 8,
+            "strength": 20
           }
         },
         "weekly": {
-          "latest": 4416.6,
-          "fastMA": 4258.61,
-          "slowMA": 4533.16,
-          "momentumPct": 1.75,
-          "rsi14": 45.17,
-          "distanceFromHighPct": -4.49,
+          "latest": 4514.2,
+          "fastMA": 4268.37,
+          "slowMA": 4536.41,
+          "momentumPct": 4.0,
+          "rsi14": 48.42,
+          "distanceFromHighPct": -2.38,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
-            "momentum": 15,
-            "strength": 12
+            "momentum": 20,
+            "strength": 15
           }
         },
         "monthly": {
-          "latest": 4416.6,
-          "fastMA": 4349.15,
-          "slowMA": 4501.25,
-          "momentumPct": 9.79,
-          "rsi14": 65.74,
-          "distanceFromHighPct": -15.56,
+          "latest": 4514.2,
+          "fastMA": 4365.42,
+          "slowMA": 4511.01,
+          "momentumPct": 12.21,
+          "rsi14": 66.79,
+          "distanceFromHighPct": -13.69,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
@@ -335,11 +335,11 @@
       "error": null
     }
   },
-  "dailyRegimeScore": 43.0,
+  "dailyRegimeScore": 40.0,
   "weeklyRegimeScore": 53.0,
   "monthlyRegimeScore": 24.0,
   "marketRegime": {
-    "daily": 43.0,
+    "daily": 40.0,
     "weekly": 53.0,
     "monthly": 24.0
   },
@@ -362,5 +362,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-02T17:16:11.605664+00:00"
+  "marketRegimeGeneratedAt": "2026-09-03T12:42:42.804562+00:00"
 }
