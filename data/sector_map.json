@@ -12793,5 +12793,15 @@
     "sector": "Industrials",
     "industry": "Electrical Equipment & Parts",
     "source": "Yahoo Finance"
+  },
+  "ESDS": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "PRIORITY": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
   }
 }

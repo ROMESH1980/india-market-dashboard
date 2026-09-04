@@ -94,7 +94,7 @@
     },
     "360ONE": {
       "tailwindScore": 78.0,
-      "futureGrowth": 74.7,
+      "futureGrowth": 74.72,
       "fundamentalQuality": 69.61,
       "capexScore": 50.0,
       "researchReasons": {
@@ -445,7 +445,7 @@
     },
     "ADANIENT": {
       "tailwindScore": 62.0,
-      "futureGrowth": 77.55,
+      "futureGrowth": 77.46,
       "fundamentalQuality": 51.41,
       "capexScore": 90.0,
       "researchReasons": {
@@ -796,7 +796,7 @@
     },
     "ABCAPITAL": {
       "tailwindScore": 78.0,
-      "futureGrowth": 90.67,
+      "futureGrowth": 90.68,
       "fundamentalQuality": 48.68,
       "capexScore": 50.0,
       "researchReasons": {
@@ -835,7 +835,7 @@
     },
     "AFCONS": {
       "tailwindScore": 87.0,
-      "futureGrowth": 24.54,
+      "futureGrowth": 24.44,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -991,7 +991,7 @@
     },
     "AEGISLOG": {
       "tailwindScore": 58.0,
-      "futureGrowth": 89.02,
+      "futureGrowth": 88.72,
       "fundamentalQuality": 80.79,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1147,7 +1147,7 @@
     },
     "AIAENG": {
       "tailwindScore": 88.0,
-      "futureGrowth": 54.69,
+      "futureGrowth": 54.46,
       "fundamentalQuality": 95.97,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1225,7 +1225,7 @@
     },
     "ANANDRATHI": {
       "tailwindScore": 78.0,
-      "futureGrowth": 89.31,
+      "futureGrowth": 89.24,
       "fundamentalQuality": 98.49,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1576,7 +1576,7 @@
     },
     "APLAPOLLO": {
       "tailwindScore": 88.0,
-      "futureGrowth": 64.45,
+      "futureGrowth": 64.44,
       "fundamentalQuality": 68.86,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1693,7 +1693,7 @@
     },
     "ASAHIINDIA": {
       "tailwindScore": 80.0,
-      "futureGrowth": 83.13,
+      "futureGrowth": 83.16,
       "fundamentalQuality": 69.08,
       "capexScore": 90.0,
       "researchReasons": {
@@ -22207,7 +22207,7 @@
     },
     "ADOR": {
       "tailwindScore": 88.0,
-      "futureGrowth": 79.06,
+      "futureGrowth": 79.0,
       "fundamentalQuality": 73.46,
       "capexScore": 70.0,
       "researchReasons": {
@@ -22324,7 +22324,7 @@
     },
     "ADVENZYMES": {
       "tailwindScore": 76.0,
-      "futureGrowth": 47.26,
+      "futureGrowth": 47.34,
       "fundamentalQuality": 90.73,
       "capexScore": 80.0,
       "researchReasons": {
@@ -23689,7 +23689,7 @@
     },
     "APLLTD": {
       "tailwindScore": 82.0,
-      "futureGrowth": 71.37,
+      "futureGrowth": 71.36,
       "fundamentalQuality": 71.18,
       "capexScore": 90.0,
       "researchReasons": {
@@ -24313,7 +24313,7 @@
     },
     "AMAGI": {
       "tailwindScore": 75.0,
-      "futureGrowth": 93.8,
+      "futureGrowth": 93.72,
       "fundamentalQuality": 70.5,
       "capexScore": 50.0,
       "researchReasons": {
@@ -25405,7 +25405,7 @@
     },
     "APCOTEXIND": {
       "tailwindScore": 76.0,
-      "futureGrowth": 86.0,
+      "futureGrowth": 86.4,
       "fundamentalQuality": 79.11,
       "capexScore": 70.0,
       "researchReasons": {
@@ -26575,7 +26575,7 @@
     },
     "ASHIANA": {
       "tailwindScore": 72.0,
-      "futureGrowth": 43.09,
+      "futureGrowth": 43.1,
       "fundamentalQuality": 66.59,
       "capexScore": 60.0,
       "researchReasons": {
@@ -27121,7 +27121,7 @@
     },
     "ASALCBR": {
       "tailwindScore": 70.0,
-      "futureGrowth": 34.28,
+      "futureGrowth": 34.29,
       "fundamentalQuality": 71.71,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27173,19 +27173,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 3.5%, earnings growth 33.3%, quarterly earnings growth 51.6%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 5.7%, operating margin 14.3%, debt/equity 4.4.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         }
       },
@@ -27195,7 +27195,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ASTRAZEN": {
       "tailwindScore": 82.0,
@@ -27224,7 +27224,7 @@
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         }
       },
@@ -27263,7 +27263,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.00× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         }
       },
@@ -27290,13 +27290,13 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth -0.7%, earnings growth -49.1%, quarterly earnings growth -48.7%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 3.8%, operating margin 7.8%, debt/equity 39.3.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
         },
         "capex": {
@@ -27312,7 +27312,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATULAUTO": {
       "tailwindScore": 70.0,
@@ -99823,6 +99823,84 @@
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: power demand, grid expansion, transmission investment and electrification support the industry.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "ESDS": {
+      "tailwindScore": 75.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: digital transformation, cloud and AI spending provide structural technology demand.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-09-04",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "PRIORITY": {
+      "tailwindScore": 70.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
           "source": "methodology.html#tailwind",
           "sourceDate": "2026-09-04",
           "mode": "AUTOMATED"
