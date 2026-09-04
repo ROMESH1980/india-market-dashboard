@@ -1,11 +1,11 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3136,
-  "uniqueCount": 3136,
+  "nseCount": 3138,
+  "uniqueCount": 3138,
   "eodPriceCount": 3635,
-  "matchedPriceCount": 3027,
+  "matchedPriceCount": 3023,
   "marketDate": "2026-09-03",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-04",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-09-03",
@@ -31,12 +31,12 @@
     "2026-08-10",
     "2026-08-07"
   ],
-  "todayVolumeCount": 2749,
-  "deliveryVolumeCount": 2749,
-  "deliveryRatioCount": 2703,
-  "deliveryPctCount": 2749,
-  "full5DayDeliveryAverageCount": 2828,
-  "incomplete5DayDeliveryCount": 308,
+  "todayVolumeCount": 2748,
+  "deliveryVolumeCount": 2748,
+  "deliveryRatioCount": 2702,
+  "deliveryPctCount": 2748,
+  "full5DayDeliveryAverageCount": 2827,
+  "incomplete5DayDeliveryCount": 311,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -47,7 +47,7 @@
       "type": "equity",
       "available": true,
       "sourceSymbol": "^NSEI",
-      "date": "2026-09-03",
+      "date": "2026-09-04",
       "daily": 43,
       "weekly": 53,
       "monthly": 24,
@@ -74,12 +74,12 @@
       },
       "details": {
         "daily": {
-          "latest": 23873.45,
-          "fastMA": 24239.03,
-          "slowMA": 24207.44,
-          "momentumPct": -0.9,
-          "rsi14": 30.15,
-          "distanceFromHighPct": -2.89,
+          "latest": 23897.7,
+          "fastMA": 24205.38,
+          "slowMA": 24204.27,
+          "momentumPct": -1.15,
+          "rsi14": 33.57,
+          "distanceFromHighPct": -2.79,
           "components": {
             "priceVsFastMA": 0,
             "trend": 25,
@@ -88,12 +88,12 @@
           }
         },
         "weekly": {
-          "latest": 23873.45,
-          "fastMA": 24220.08,
-          "slowMA": 24037.19,
-          "momentumPct": -2.84,
-          "rsi14": 54.87,
-          "distanceFromHighPct": -2.84,
+          "latest": 23897.7,
+          "fastMA": 24222.51,
+          "slowMA": 24038.0,
+          "momentumPct": -2.74,
+          "rsi14": 55.27,
+          "distanceFromHighPct": -2.74,
           "components": {
             "priceVsFastMA": 0,
             "trend": 25,
@@ -102,12 +102,12 @@
           }
         },
         "monthly": {
-          "latest": 23873.45,
-          "fastMA": 23958.08,
-          "slowMA": 24270.88,
-          "momentumPct": 0.03,
-          "rsi14": 45.27,
-          "distanceFromHighPct": -8.89,
+          "latest": 23897.7,
+          "fastMA": 23962.12,
+          "slowMA": 24273.31,
+          "momentumPct": 0.13,
+          "rsi14": 45.38,
+          "distanceFromHighPct": -8.8,
           "components": {
             "priceVsFastMA": 0,
             "trend": 0,
@@ -121,78 +121,34 @@
     "midcap100": {
       "name": "NIFTY Midcap 100",
       "type": "equity",
-      "available": true,
-      "sourceSymbol": "NIFTY_MIDCAP_100.NS",
-      "date": "2026-09-03",
-      "daily": 90,
-      "weekly": 95,
-      "monthly": 90,
-      "overall": 92,
+      "available": false,
+      "sourceSymbol": null,
+      "date": null,
+      "daily": null,
+      "weekly": null,
+      "monthly": null,
+      "overall": null,
       "dailySignal": {
-        "label": "Aggressive Stocks",
-        "signal": "aggressive",
-        "emoji": "🟢🟢"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
       "weeklySignal": {
-        "label": "Aggressive Stocks",
-        "signal": "aggressive",
-        "emoji": "🟢🟢"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
       "monthlySignal": {
-        "label": "Aggressive Stocks",
-        "signal": "aggressive",
-        "emoji": "🟢🟢"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
       "overallSignal": {
-        "label": "Aggressive Stocks",
-        "signal": "aggressive",
-        "emoji": "🟢🟢"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
-      "details": {
-        "daily": {
-          "latest": 63235.2,
-          "fastMA": 62349.3,
-          "slowMA": 61611.27,
-          "momentumPct": 0.31,
-          "rsi14": 62.95,
-          "distanceFromHighPct": 0.0,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 15,
-            "strength": 25
-          }
-        },
-        "weekly": {
-          "latest": 63235.2,
-          "fastMA": 61983.93,
-          "slowMA": 59604.46,
-          "momentumPct": 2.33,
-          "rsi14": 64.3,
-          "distanceFromHighPct": 0.0,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 20,
-            "strength": 25
-          }
-        },
-        "monthly": {
-          "latest": 63235.2,
-          "fastMA": 60269.93,
-          "slowMA": 60069.5,
-          "momentumPct": 2.45,
-          "rsi14": 55.89,
-          "distanceFromHighPct": 0.0,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 20,
-            "strength": 20
-          }
-        }
-      },
-      "error": null
+      "error": "NIFTY_MIDCAP_100.NS: Insufficient history for NIFTY_MIDCAP_100.NS: 1 rows | ^CNXMIDCAP: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/%5ECNXMIDCAP?range=5y&interval=1d&events=history&includeAdjustedClose=true"
     },
     "smallcap100": {
       "name": "NIFTY Smallcap 100",
@@ -263,11 +219,11 @@
       "type": "gold",
       "available": true,
       "sourceSymbol": "GC=F",
-      "date": "2026-09-03",
-      "daily": 78,
+      "date": "2026-09-04",
+      "daily": 85,
       "weekly": 60,
       "monthly": 65,
-      "overall": 66,
+      "overall": 68,
       "dailySignal": {
         "label": "Very Strong",
         "signal": "aggressive",
@@ -290,26 +246,26 @@
       },
       "details": {
         "daily": {
-          "latest": 4527.5,
-          "fastMA": 4464.49,
-          "slowMA": 4231.71,
-          "momentumPct": -1.78,
-          "rsi14": 58.56,
-          "distanceFromHighPct": -2.44,
+          "latest": 4517.1,
+          "fastMA": 4471.52,
+          "slowMA": 4240.73,
+          "momentumPct": 0.87,
+          "rsi14": 56.12,
+          "distanceFromHighPct": -2.67,
           "components": {
             "priceVsFastMA": 25,
             "trend": 25,
-            "momentum": 8,
+            "momentum": 15,
             "strength": 20
           }
         },
         "weekly": {
-          "latest": 4527.5,
-          "fastMA": 4269.7,
-          "slowMA": 4536.85,
-          "momentumPct": 4.3,
-          "rsi14": 48.88,
-          "distanceFromHighPct": -2.09,
+          "latest": 4517.1,
+          "fastMA": 4268.66,
+          "slowMA": 4536.51,
+          "momentumPct": 4.06,
+          "rsi14": 48.52,
+          "distanceFromHighPct": -2.31,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
@@ -318,12 +274,12 @@
           }
         },
         "monthly": {
-          "latest": 4527.5,
-          "fastMA": 4367.63,
-          "slowMA": 4512.34,
-          "momentumPct": 12.54,
-          "rsi14": 66.91,
-          "distanceFromHighPct": -13.44,
+          "latest": 4517.1,
+          "fastMA": 4365.9,
+          "slowMA": 4511.3,
+          "momentumPct": 12.28,
+          "rsi14": 66.82,
+          "distanceFromHighPct": -13.64,
           "components": {
             "priceVsFastMA": 25,
             "trend": 0,
@@ -362,5 +318,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-03T13:28:43.673736+00:00"
+  "marketRegimeGeneratedAt": "2026-09-04T10:38:57.758686+00:00"
 }
