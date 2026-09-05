@@ -217,7 +217,7 @@
 
 
     <!-- =========================
-         SEARCH + RESET
+         SEARCH + RESET + PAGINATION
     ========================== -->
 
     <section class="toolbar">
@@ -236,6 +236,41 @@
       >
         Reset
       </button>
+
+
+      <!-- PAGINATION -->
+
+      <div class="pagination toolbar-pagination">
+
+        <button
+          id="prev"
+          type="button"
+        >
+          Previous
+        </button>
+
+
+        <span id="page">
+          Page 1
+        </span>
+
+
+        <input
+          id="gotoPage"
+          type="number"
+          min="1"
+          placeholder="Page"
+        >
+
+
+        <button
+          id="next"
+          type="button"
+        >
+          Next
+        </button>
+
+      </div>
 
     </section>
 
@@ -1020,44 +1055,6 @@
         </tbody>
 
       </table>
-
-    </div>
-
-
-
-    <!-- =========================
-         PAGINATION
-    ========================== -->
-
-    <div class="pagination">
-
-      <button
-        id="prev"
-        type="button"
-      >
-        Previous
-      </button>
-
-
-      <span id="page">
-        Page 1
-      </span>
-
-
-      <input
-        id="gotoPage"
-        type="number"
-        min="1"
-        placeholder="Page"
-      >
-
-
-      <button
-        id="next"
-        type="button"
-      >
-        Next
-      </button>
 
     </div>
 
