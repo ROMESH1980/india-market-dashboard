@@ -211,7 +211,7 @@
     },
     "ACMESOLAR": {
       "tailwindScore": 90.0,
-      "futureGrowth": 93.45,
+      "futureGrowth": 93.61,
       "fundamentalQuality": 62.43,
       "capexScore": 90.0,
       "researchReasons": {
@@ -835,7 +835,7 @@
     },
     "AFCONS": {
       "tailwindScore": 87.0,
-      "futureGrowth": 24.56,
+      "futureGrowth": 24.54,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1147,7 +1147,7 @@
     },
     "AIAENG": {
       "tailwindScore": 88.0,
-      "futureGrowth": 54.78,
+      "futureGrowth": 54.69,
       "fundamentalQuality": 95.97,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1537,7 +1537,7 @@
     },
     "APOLLOHOSP": {
       "tailwindScore": 82.0,
-      "futureGrowth": 86.1,
+      "futureGrowth": 86.06,
       "fundamentalQuality": 60.29,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3097,7 +3097,7 @@
     },
     "GROWW": {
       "tailwindScore": 78.0,
-      "futureGrowth": 91.2,
+      "futureGrowth": 91.33,
       "fundamentalQuality": 99.44,
       "capexScore": 50.0,
       "researchReasons": {
@@ -4033,7 +4033,7 @@
     },
     "CEATLTD": {
       "tailwindScore": 80.0,
-      "futureGrowth": 37.18,
+      "futureGrowth": 37.21,
       "fundamentalQuality": 56.34,
       "capexScore": 90.0,
       "researchReasons": {
@@ -4072,7 +4072,7 @@
     },
     "CEMPRO": {
       "tailwindScore": 87.0,
-      "futureGrowth": 58.43,
+      "futureGrowth": 58.44,
       "fundamentalQuality": 65.46,
       "capexScore": 90.0,
       "researchReasons": {
@@ -4306,7 +4306,7 @@
     },
     "CHALET": {
       "tailwindScore": 70.0,
-      "futureGrowth": 14.78,
+      "futureGrowth": 14.84,
       "fundamentalQuality": 84.67,
       "capexScore": 80.0,
       "researchReasons": {
@@ -5940,7 +5940,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELGIEQUIP": {
       "tailwindScore": 88.0,
@@ -5979,7 +5979,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMAMILTD": {
       "tailwindScore": 70.0,
@@ -6018,7 +6018,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELECON": {
       "tailwindScore": 88.0,
@@ -6057,7 +6057,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EIDPARRY": {
       "tailwindScore": 70.0,
@@ -6135,7 +6135,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENGINERSIN": {
       "tailwindScore": 87.0,
@@ -6174,7 +6174,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENDURANCE": {
       "tailwindScore": 80.0,
@@ -6213,7 +6213,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ERIS": {
       "tailwindScore": 82.0,
@@ -6252,7 +6252,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ESCORTS": {
       "tailwindScore": 88.0,
@@ -20604,7 +20604,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "FERMENTA": {
       "tailwindScore": 82.0,
@@ -25327,7 +25327,7 @@
     },
     "PARKHOTELS": {
       "tailwindScore": 70.0,
-      "futureGrowth": 47.42,
+      "futureGrowth": 47.37,
       "fundamentalQuality": 73.42,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27745,7 +27745,7 @@
     },
     "AUTOIND": {
       "tailwindScore": 70.0,
-      "futureGrowth": 84.97,
+      "futureGrowth": 84.05,
       "fundamentalQuality": 38.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -39207,7 +39207,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELIN": {
       "tailwindScore": 90.0,
@@ -39246,7 +39246,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELITECON": {
       "tailwindScore": 70.0,
@@ -39285,7 +39285,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELECTCAST": {
       "tailwindScore": null,
@@ -39324,7 +39324,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELECTHERM": {
       "tailwindScore": null,
@@ -39363,7 +39363,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELGIRUBCO": {
       "tailwindScore": 70.0,
@@ -39402,7 +39402,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ELLEN": {
       "tailwindScore": 76.0,
@@ -39441,7 +39441,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMAMIREAL": {
       "tailwindScore": 72.0,
@@ -39480,7 +39480,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMBDL": {
       "tailwindScore": 72.0,
@@ -39519,7 +39519,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMMBI": {
       "tailwindScore": 70.0,
@@ -39558,7 +39558,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMPOWER": {
       "tailwindScore": 92.0,
@@ -39585,7 +39585,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
@@ -39597,7 +39597,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMPIND": {
       "tailwindScore": null,
@@ -39636,7 +39636,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMKAY": {
       "tailwindScore": 78.0,
@@ -39675,7 +39675,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMSLIMITED": {
       "tailwindScore": 87.0,
@@ -39714,7 +39714,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENERGYDEV": {
       "tailwindScore": null,
@@ -39753,7 +39753,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EMUDHRA": {
       "tailwindScore": 75.0,
@@ -39792,7 +39792,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENTERO": {
       "tailwindScore": 82.0,
@@ -39831,7 +39831,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENKEIWHEL": {
       "tailwindScore": 70.0,
@@ -39870,7 +39870,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EIEL": {
       "tailwindScore": 87.0,
@@ -39909,7 +39909,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ENIL": {
       "tailwindScore": 80.0,
@@ -39948,7 +39948,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EPACKPEB": {
       "tailwindScore": 87.0,
@@ -39987,7 +39987,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EPACK": {
       "tailwindScore": 70.0,
@@ -40026,7 +40026,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EPIGRAL": {
       "tailwindScore": 76.0,
@@ -40065,7 +40065,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EPL": {
       "tailwindScore": 70.0,
@@ -40104,7 +40104,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "EQUIPPP": {
       "tailwindScore": 75.0,
@@ -40143,7 +40143,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ESABINDIA": {
       "tailwindScore": null,
@@ -40221,7 +40221,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ESAFSFB": {
       "tailwindScore": 78.0,
