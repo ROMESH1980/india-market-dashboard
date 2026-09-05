@@ -38,90 +38,41 @@
 
 
           <!-- =========================
-               MARKET REGIME
+               SINGLE MARKET VIEW CARD
           ========================== -->
 
-          <div class="market-regimes">
+          <div
+            id="marketViewCard"
+            class="market-view-card"
+            role="button"
+            tabindex="0"
+            aria-label="Open Multi-Timeframe Market View"
+          >
 
-            <!-- MONTHLY -->
+            <div class="market-view-card-left">
 
-            <div
-              id="monthlyRegime"
-              class="regime-card regime-pending"
-            >
-
-              <span class="regime-timeframe">
-                Monthly
+              <span class="market-view-card-title">
+                MARKET VIEW
               </span>
 
-              <strong
-                id="monthlyRegimeScore"
-                class="regime-score"
-              >
-                —
-              </strong>
-
               <span
-                id="monthlyRegimeText"
-                class="regime-text"
+                id="marketViewCardSignal"
+                class="market-view-card-signal"
               >
-                Pending
+                Largecap • Midcap • Smallcap • SME • Gold
               </span>
 
             </div>
 
 
-            <!-- WEEKLY -->
+            <div class="market-view-card-right">
 
-            <div
-              id="weeklyRegime"
-              class="regime-card regime-pending"
-            >
-
-              <span class="regime-timeframe">
-                Weekly
+              <span class="market-view-card-icon">
+                📊
               </span>
 
-              <strong
-                id="weeklyRegimeScore"
-                class="regime-score"
-              >
-                —
-              </strong>
-
-              <span
-                id="weeklyRegimeText"
-                class="regime-text"
-              >
-                Pending
-              </span>
-
-            </div>
-
-
-            <!-- DAILY -->
-
-            <div
-              id="dailyRegime"
-              class="regime-card regime-pending"
-            >
-
-              <span class="regime-timeframe">
-                Daily
-              </span>
-
-              <strong
-                id="dailyRegimeScore"
-                class="regime-score"
-              >
-                —
-              </strong>
-
-              <span
-                id="dailyRegimeText"
-                class="regime-text"
-              >
-                Pending
+              <span class="market-view-card-arrow">
+                ›
               </span>
 
             </div>
@@ -1063,7 +1014,7 @@
 
 
   <!-- =========================
-       REASON MODAL
+       REASON / MARKET VIEW MODAL
   ========================== -->
 
   <div
