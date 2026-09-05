@@ -3412,3 +3412,545 @@ document.addEventListener(
   "DOMContentLoaded",
   init
 );
+/* =====================================================
+   CSV / EXCEL DOWNLOAD
+===================================================== */
+
+function exportNumber(value) {
+  const n = num(value);
+
+  return n === null
+    ? ""
+    : n;
+}
+
+
+function exportStockGrowthPeriod() {
+  return (
+    el("stockGrowthPeriod")?.value ||
+    "3M"
+  );
+}
+
+
+function buildExportRows() {
+
+  /*
+   IMPORTANT:
+   Current page ke 100 rows use nahi karne.
+
+   Same filters + same search + same sorting ko
+   dobara allStocks par apply karenge.
+  */
+
+  const rows =
+    rankStocks(
+      allStocks.filter(
+        passesFilters
+      )
+    );
+
+
+  const growthPeriod =
+    exportStockGrowthPeriod();
+
+
+  return rows.map(
+    row => {
+
+      const volume =
+        totalVolume(row);
+
+      const delivery =
+        todayDeliveryVolume(row);
+
+      const avgDelivery =
+        avg5DayDelivery(row);
+
+      const deliveryRatio =
+        deliveryTimes(row);
+
+      const deliveryPct =
+        deliveryPercentage(row);
+
+      const stockGrowth =
+        selectedStockGrowth(row);
+
+      const rs =
+        rsRating(row);
+
+
+      return {
+
+        "Stock":
+          row.name ||
+          row.companyName ||
+          row.symbol ||
+          "",
+
+        "Symbol":
+          row.symbol ||
+          "",
+
+        "Market Cap Category":
+          row.marketCapCategory ||
+          "",
+
+        "Market Cap ₹ Cr":
+          exportNumber(
+            row.marketCapCr
+          ),
+
+        "Price ₹":
+          exportNumber(
+            row.price
+          ),
+
+        "Change %":
+          exportNumber(
+            row.changePct
+          ),
+
+        "Today Volume":
+          exportNumber(
+            volume
+          ),
+
+        "Today Delivery Vol":
+          exportNumber(
+            delivery
+          ),
+
+        "5D Avg Delivery Vol":
+          exportNumber(
+            avgDelivery
+          ),
+
+        "Delivery Times":
+          exportNumber(
+            deliveryRatio
+          ),
+
+        "Delivery %":
+          exportNumber(
+            deliveryPct
+          ),
+
+        "5L Vol + 5% Move":
+          qualifiesHighVolumeMove(row)
+            ? "YES"
+            : "NO",
+
+        "RS Rating":
+          exportNumber(
+            rs
+          ),
+
+        "RS Label":
+          rs === null
+            ? ""
+            : (
+                row.rsLabel ||
+                rsRatingLabel(rs)
+              ),
+
+        "Sector":
+          row.sector ||
+          "",
+
+        "Industry":
+          row.industry ||
+          "",
+
+        "Sector Growth 1M %":
+          exportNumber(
+            row.sectorGrowth1M
+          ),
+
+        [`Stock Growth ${growthPeriod} %`]:
+          exportNumber(
+            stockGrowth
+          ),
+
+        "T + M + VM":
+          exportNumber(
+            row.tmvScore
+          ),
+
+        "G + F + C":
+          exportNumber(
+            row.gfcScore
+          ),
+
+        "Overall":
+          exportNumber(
+            row.overallScore
+          )
+      };
+    }
+  );
+}
+
+
+/* =====================================================
+   FILE NAME
+===================================================== */
+
+function exportFileName(extension) {
+
+  const marketDate =
+    metaDataGlobal?.marketDate ||
+    metaDataGlobal?.deliveryDate ||
+    new Date()
+      .toISOString()
+      .slice(0, 10);
+
+
+  const matchedCount =
+    allStocks.filter(
+      passesFilters
+    ).length;
+
+
+  return (
+    `MY_MARKET_RESEARCH_` +
+    `${marketDate}_` +
+    `${matchedCount}_stocks.` +
+    extension
+  );
+}
+
+
+/* =====================================================
+   CSV ESCAPE
+===================================================== */
+
+function csvCell(value) {
+
+  if (
+    value === null ||
+    value === undefined
+  ) {
+    return "";
+  }
+
+
+  const text =
+    String(value);
+
+
+  if (
+    text.includes(",") ||
+    text.includes('"') ||
+    text.includes("\n") ||
+    text.includes("\r")
+  ) {
+
+    return (
+      '"' +
+      text.replaceAll(
+        '"',
+        '""'
+      ) +
+      '"'
+    );
+  }
+
+
+  return text;
+}
+
+
+/* =====================================================
+   DOWNLOAD BLOB
+===================================================== */
+
+function downloadBlob(
+  blob,
+  filename
+) {
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+
+  link.href =
+    url;
+
+  link.download =
+    filename;
+
+
+  document.body.appendChild(
+    link
+  );
+
+
+  link.click();
+
+
+  link.remove();
+
+
+  setTimeout(
+    () => {
+      URL.revokeObjectURL(
+        url
+      );
+    },
+    1000
+  );
+}
+
+
+/* =====================================================
+   CSV DOWNLOAD
+===================================================== */
+
+function downloadCSV() {
+
+  const rows =
+    buildExportRows();
+
+
+  if (!rows.length) {
+
+    alert(
+      "Current filters me download karne ke liye koi stock nahi hai."
+    );
+
+    return;
+  }
+
+
+  const headers =
+    Object.keys(
+      rows[0]
+    );
+
+
+  const lines = [];
+
+
+  lines.push(
+    headers
+      .map(csvCell)
+      .join(",")
+  );
+
+
+  for (const row of rows) {
+
+    lines.push(
+
+      headers
+        .map(
+          header =>
+            csvCell(
+              row[header]
+            )
+        )
+        .join(",")
+
+    );
+  }
+
+
+  /*
+   UTF-8 BOM:
+   Excel me company/sector names aur ₹
+   correctly open hon.
+  */
+
+  const csv =
+    "\uFEFF" +
+    lines.join(
+      "\r\n"
+    );
+
+
+  const blob =
+    new Blob(
+      [csv],
+      {
+        type:
+          "text/csv;charset=utf-8;"
+      }
+    );
+
+
+  downloadBlob(
+    blob,
+    exportFileName(
+      "csv"
+    )
+  );
+}
+
+
+/* =====================================================
+   EXCEL DOWNLOAD
+===================================================== */
+
+function downloadExcel() {
+
+  const rows =
+    buildExportRows();
+
+
+  if (!rows.length) {
+
+    alert(
+      "Current filters me download karne ke liye koi stock nahi hai."
+    );
+
+    return;
+  }
+
+
+  if (
+    typeof XLSX ===
+    "undefined"
+  ) {
+
+    alert(
+      "Excel library load nahi hui. Ctrl + F5 karke dobara try karein."
+    );
+
+    return;
+  }
+
+
+  const worksheet =
+    XLSX.utils.json_to_sheet(
+      rows
+    );
+
+
+  /* =========================
+     COLUMN WIDTHS
+  ========================== */
+
+  worksheet["!cols"] = [
+
+    { wch: 32 }, // Stock
+    { wch: 14 }, // Symbol
+    { wch: 20 }, // MCap category
+    { wch: 18 }, // MCap
+    { wch: 14 }, // Price
+    { wch: 12 }, // Change
+    { wch: 18 }, // Volume
+    { wch: 20 }, // Delivery
+    { wch: 22 }, // Avg delivery
+    { wch: 16 }, // Delivery times
+    { wch: 14 }, // Delivery %
+    { wch: 18 }, // 5L + 5%
+    { wch: 12 }, // RS
+    { wch: 14 }, // RS label
+    { wch: 24 }, // Sector
+    { wch: 28 }, // Industry
+    { wch: 20 }, // Sector growth
+    { wch: 20 }, // Stock growth
+    { wch: 14 }, // TMV
+    { wch: 14 }, // GFC
+    { wch: 12 }  // Overall
+  ];
+
+
+  const workbook =
+    XLSX.utils.book_new();
+
+
+  XLSX.utils.book_append_sheet(
+    workbook,
+    worksheet,
+    "Market Research"
+  );
+
+
+  XLSX.writeFile(
+    workbook,
+    exportFileName(
+      "xlsx"
+    )
+  );
+}
+
+
+/* =====================================================
+   MAIN DOWNLOAD
+===================================================== */
+
+function downloadCurrentResults() {
+
+  const format =
+    el("downloadFormat")?.value ||
+    "csv";
+
+
+  if (format === "xlsx") {
+
+    downloadExcel();
+
+    return;
+  }
+
+
+  downloadCSV();
+}
+
+
+/* =====================================================
+   DOWNLOAD EVENT
+===================================================== */
+
+function setupDownload() {
+
+  const button =
+    el("downloadData");
+
+
+  if (!button) {
+
+    console.warn(
+      "Download button not found."
+    );
+
+    return;
+  }
+
+
+  button.addEventListener(
+    "click",
+    downloadCurrentResults
+  );
+}
+
+
+/* =====================================================
+   INITIALIZE DOWNLOAD
+===================================================== */
+
+if (
+  document.readyState ===
+  "loading"
+) {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    setupDownload
+  );
+
+} else {
+
+  setupDownload();
+
+}
