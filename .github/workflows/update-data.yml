@@ -55,6 +55,9 @@ jobs:
       - name: Build current market cap
         run: python scripts/build_current_market_cap.py
 
+      - name: Build RS rating
+        run: python scripts/build_rs_rating.py
+
       - name: Build company research
         run: python scripts/build_company_research.py
 
