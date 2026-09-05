@@ -1137,10 +1137,6 @@ function passesFilters(row) {
   }
 
 
-  /* =========================
-     RS RATING FILTER
-  ========================== */
-
   if (checked("activeRS")) {
     const threshold =
       inputNumber("aboveRS");
@@ -1748,7 +1744,6 @@ function renderRows() {
           <tr>
 
             <td>
-
               <div class="stock-cell">
 
                 <strong>
@@ -1766,7 +1761,6 @@ function renderRows() {
                 }
 
               </div>
-
             </td>
 
 
@@ -1786,7 +1780,6 @@ function renderRows() {
 
 
             <td>
-
               ${
                 volume === null
                   ? `
@@ -1796,12 +1789,10 @@ function renderRows() {
                   `
                   : formatNumber(volume)
               }
-
             </td>
 
 
             <td>
-
               ${
                 todayDeliveryVolume(row) === null
                   ? `
@@ -1813,12 +1804,10 @@ function renderRows() {
                       todayDeliveryVolume(row)
                     )
               }
-
             </td>
 
 
             <td>
-
               ${
                 avg5DayDelivery(row) === null
                   ? `
@@ -1830,7 +1819,6 @@ function renderRows() {
                       avg5DayDelivery(row)
                     )
               }
-
             </td>
 
 
@@ -1883,37 +1871,29 @@ function renderRows() {
 
 
             <td>
-
               ${researchScoreButton(
                 globalIndex,
                 "tmv",
                 row.tmvScore
               )}
-
             </td>
 
 
             <td>
-
               ${researchScoreButton(
                 globalIndex,
                 "gfc",
                 row.gfcScore
               )}
-
             </td>
 
 
             <td>
-
               <strong class="overall-score">
-
                 ${formatScore(
                   row.overallScore
                 )}
-
               </strong>
-
             </td>
 
           </tr>
@@ -2491,6 +2471,166 @@ function getAssetRegime(
 
 
 /* =====================================================
+   HEADER MONTHLY / WEEKLY / DAILY
+===================================================== */
+
+function averageMarketViewScore(
+  timeframe
+) {
+  const segments = [
+    multiTimeframeMarketView?.nifty50,
+    multiTimeframeMarketView?.midcap100,
+    multiTimeframeMarketView?.smallcap100
+  ];
+
+  const values =
+    segments
+      .map(
+        segment =>
+          num(segment?.[timeframe])
+      )
+      .filter(
+        value =>
+          value !== null
+      );
+
+  if (!values.length) {
+    return null;
+  }
+
+  return (
+    values.reduce(
+      (sum, value) =>
+        sum + value,
+      0
+    ) /
+    values.length
+  );
+}
+
+
+function regimeCardClass(score) {
+  const n = num(score);
+
+  if (n === null) {
+    return "regime-pending";
+  }
+
+  if (n >= 75) {
+    return "regime-aggressive";
+  }
+
+  if (n >= 65) {
+    return "regime-overweight";
+  }
+
+  if (n >= 55) {
+    return "regime-selective";
+  }
+
+  if (n >= 45) {
+    return "regime-warning";
+  }
+
+  if (n >= 35) {
+    return "regime-reduce";
+  }
+
+  return "regime-defensive";
+}
+
+
+function updateSingleRegimeCard(
+  timeframe,
+  cardId,
+  scoreId,
+  textId
+) {
+  const card =
+    el(cardId);
+
+  const scoreElement =
+    el(scoreId);
+
+  const textElement =
+    el(textId);
+
+  if (
+    !card ||
+    !scoreElement ||
+    !textElement
+  ) {
+    return;
+  }
+
+  const score =
+    averageMarketViewScore(
+      timeframe
+    );
+
+  card.classList.remove(
+    "regime-pending",
+    "regime-aggressive",
+    "regime-overweight",
+    "regime-selective",
+    "regime-warning",
+    "regime-reduce",
+    "regime-defensive"
+  );
+
+  card.classList.add(
+    regimeCardClass(score)
+  );
+
+  if (score === null) {
+    scoreElement.textContent =
+      "—";
+
+    textElement.textContent =
+      "Pending";
+
+    return;
+  }
+
+  const rounded =
+    Math.round(score);
+
+  const regime =
+    getEquityRegime(score);
+
+  scoreElement.textContent =
+    rounded;
+
+  textElement.textContent =
+    `${regime.emoji} ${regime.text}`;
+}
+
+
+function updateHeaderRegimeCards() {
+  updateSingleRegimeCard(
+    "monthly",
+    "monthlyRegime",
+    "monthlyRegimeScore",
+    "monthlyRegimeText"
+  );
+
+  updateSingleRegimeCard(
+    "weekly",
+    "weeklyRegime",
+    "weeklyRegimeScore",
+    "weeklyRegimeText"
+  );
+
+  updateSingleRegimeCard(
+    "daily",
+    "dailyRegime",
+    "dailyRegimeScore",
+    "dailyRegimeText"
+  );
+}
+
+
+/* =====================================================
    MARKET VIEW CARD
 ===================================================== */
 
@@ -2708,46 +2848,38 @@ function buildMultiTimeframeMarketViewHtml(
 
 
             <td>
-
               ${marketViewSignalHtml(
                 asset.daily,
                 asset.dailySignal,
                 assetType
               )}
-
             </td>
 
 
             <td>
-
               ${marketViewSignalHtml(
                 asset.weekly,
                 asset.weeklySignal,
                 assetType
               )}
-
             </td>
 
 
             <td>
-
               ${marketViewSignalHtml(
                 asset.monthly,
                 asset.monthlySignal,
                 assetType
               )}
-
             </td>
 
 
             <td>
-
               ${marketViewSignalHtml(
                 asset.overall,
                 asset.overallSignal,
                 assetType
               )}
-
             </td>
 
           </tr>
@@ -2762,11 +2894,6 @@ function buildMultiTimeframeMarketViewHtml(
         <strong>
           Multi-Timeframe Market View data not available.
         </strong>
-
-        <p>
-          Run the latest market-data workflow
-          after the multi-asset regime script is committed.
-        </p>
 
       </div>
     `;
@@ -2830,39 +2957,27 @@ function buildMultiTimeframeMarketViewHtml(
       <div class="market-view-legend">
 
         <span>
-          75–100
-          🟢🟢
-          Aggressive / Very Strong
+          75–100 🟢🟢 Aggressive / Very Strong
         </span>
 
         <span>
-          65–74
-          🟢
-          Overweight / Strong
+          65–74 🟢 Overweight / Strong
         </span>
 
         <span>
-          55–64
-          🟢
-          Selective / Positive
+          55–64 🟢 Selective / Positive
         </span>
 
         <span>
-          45–54
-          🟡
-          Warning / Neutral
+          45–54 🟡 Warning / Neutral
         </span>
 
         <span>
-          35–44
-          🟠
-          Reduce / Weak
+          35–44 🟠 Reduce / Weak
         </span>
 
         <span>
-          0–34
-          🔴
-          Defensive
+          0–34 🔴 Defensive
         </span>
 
       </div>
@@ -2871,10 +2986,6 @@ function buildMultiTimeframeMarketViewHtml(
 
 
     <div class="market-view-footer">
-
-      <span>
-        Daily • Weekly • Monthly scores are calculated independently.
-      </span>
 
       <strong>
         Data as of:
@@ -2992,8 +3103,7 @@ function updateStats(
     stocks.filter(
       row =>
         num(row.price) !== null
-    )
-      .length;
+    ).length;
 
   if (el("eodReady")) {
     el("eodReady").textContent =
@@ -3006,8 +3116,7 @@ function updateStats(
     stocks.filter(
       row =>
         num(row.marketCapCr) !== null
-    )
-      .length;
+    ).length;
 
   if (el("marketCapReady")) {
     el("marketCapReady").textContent =
@@ -3020,8 +3129,7 @@ function updateStats(
     stocks.filter(
       row =>
         num(row.overallScore) !== null
-    )
-      .length;
+    ).length;
 
   if (el("fullyScored")) {
     el("fullyScored").textContent =
@@ -3192,6 +3300,14 @@ async function init() {
       metaData
     );
 
+
+    /* =========================
+       FIX HEADER SIGNALS
+    ========================== */
+
+    updateHeaderRegimeCards();
+
+
     updateMarketViewCard();
 
     setupFilterEvents();
@@ -3226,6 +3342,26 @@ async function init() {
     console.log(
       "Multi-Timeframe Market View:",
       multiTimeframeMarketView
+    );
+
+    console.log(
+      "Header regime:",
+      {
+        daily:
+          averageMarketViewScore(
+            "daily"
+          ),
+
+        weekly:
+          averageMarketViewScore(
+            "weekly"
+          ),
+
+        monthly:
+          averageMarketViewScore(
+            "monthly"
+          )
+      }
     );
 
     const rsReady =
