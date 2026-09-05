@@ -121,7 +121,6 @@ def normalize_company_name(value):
     )
 
     replacements = [
-
         "LIMITED",
         "LTD",
         "LTD.",
@@ -130,7 +129,6 @@ def normalize_company_name(value):
         "PVT.",
         "INDIA",
         "THE",
-
     ]
 
     for word in replacements:
@@ -176,11 +174,8 @@ def detect_stock_date(stocks):
 
             pass
 
-
     if dates:
-
         return max(dates)
-
 
     return (
         datetime.now(timezone.utc)
@@ -198,19 +193,9 @@ def pr_zip_url(date_obj):
         "%d%m%y"
     )
 
-    year = date_obj.strftime(
-        "%Y"
-    )
-
-    month = date_obj.strftime(
-        "%b"
-    ).upper()
-
-
     return (
         "https://nsearchives.nseindia.com/"
-        f"content/historical/EQUITIES/"
-        f"{year}/{month}/"
+        "archives/equities/bhavcopy/pr/"
         f"PR{ddmmyy}.zip"
     )
 
@@ -221,12 +206,10 @@ def download_pr_zip(date_obj):
         date_obj
     )
 
-
     print(
         f"Trying NSE PR bundle: "
         f"{date_obj.isoformat()}"
     )
-
 
     response = requests.get(
         url,
@@ -234,9 +217,7 @@ def download_pr_zip(date_obj):
         timeout=45,
     )
 
-
     response.raise_for_status()
-
 
     return response.content, url
 
@@ -258,24 +239,18 @@ def extract_market_cap_csv(
         + ".csv"
     ).lower()
 
-
     with zipfile.ZipFile(
         io.BytesIO(zip_bytes)
     ) as z:
 
         names = z.namelist()
 
-
         print(
             "PR bundle files:",
             len(names),
         )
 
-
-        # -------------------------------------------------
         # Exact expected filename
-        # -------------------------------------------------
-
         for name in names:
 
             if (
@@ -300,12 +275,8 @@ def extract_market_cap_csv(
                     name,
                 )
 
-
-        # -------------------------------------------------
         # Fallback:
         # Any CSV whose basename begins with "mcap"
-        # -------------------------------------------------
-
         for name in names:
 
             base = (
@@ -338,7 +309,6 @@ def extract_market_cap_csv(
                     name,
                 )
 
-
     raise RuntimeError(
         "Market-cap CSV not found "
         "inside NSE PR bundle"
@@ -360,7 +330,6 @@ def detect_header_row(rows):
             for x in row
         ).lower()
 
-
         has_market_cap = (
             "market"
             in joined
@@ -368,7 +337,6 @@ def detect_header_row(rows):
             "cap"
             in joined
         )
-
 
         has_identity = (
             "symbol" in joined
@@ -380,7 +348,6 @@ def detect_header_row(rows):
             "name" in joined
         )
 
-
         if (
             has_market_cap
             and
@@ -388,7 +355,6 @@ def detect_header_row(rows):
         ):
 
             return index
-
 
     return None
 
@@ -408,13 +374,10 @@ def find_column(
             .lower()
         )
 
-
         for keyword in keywords:
 
             if keyword in low:
-
                 return index
-
 
     return None
 
@@ -427,7 +390,6 @@ def parse_mcap_csv(text):
         )
     )
 
-
     raw_rows = [
         row
         for row in raw_rows
@@ -437,18 +399,15 @@ def parse_mcap_csv(text):
         )
     ]
 
-
     if not raw_rows:
 
         raise RuntimeError(
             "Market-cap CSV is empty"
         )
 
-
     header_row = detect_header_row(
         raw_rows
     )
-
 
     if header_row is None:
 
@@ -457,14 +416,11 @@ def parse_mcap_csv(text):
         )
 
         for row in raw_rows[:10]:
-
             print(row)
-
 
         raise RuntimeError(
             "Could not detect market-cap CSV header"
         )
-
 
     headers = [
         str(x).strip()
@@ -474,7 +430,6 @@ def parse_mcap_csv(text):
         ]
     ]
 
-
     print(
         "Market-cap columns:"
     )
@@ -482,7 +437,6 @@ def parse_mcap_csv(text):
     print(
         headers
     )
-
 
     symbol_col = find_column(
         headers,
@@ -493,14 +447,12 @@ def parse_mcap_csv(text):
         ],
     )
 
-
     isin_col = find_column(
         headers,
         [
             "isin",
         ],
     )
-
 
     name_col = find_column(
         headers,
@@ -513,9 +465,7 @@ def parse_mcap_csv(text):
         ],
     )
 
-
     market_cap_col = None
-
 
     for index, header in enumerate(
         headers
@@ -526,7 +476,6 @@ def parse_mcap_csv(text):
             .strip()
             .lower()
         )
-
 
         if (
             "market"
@@ -539,13 +488,11 @@ def parse_mcap_csv(text):
             market_cap_col = index
             break
 
-
     if market_cap_col is None:
 
         raise RuntimeError(
             "Market-cap column not found"
         )
-
 
     print({
         "symbolColumn":
@@ -561,16 +508,11 @@ def parse_mcap_csv(text):
             market_cap_col,
     })
 
-
     by_symbol = {}
-
     by_isin = {}
-
     by_name = {}
 
-
     parsed = 0
-
 
     for row in raw_rows[
         header_row + 1:
@@ -582,8 +524,7 @@ def parse_mcap_csv(text):
         ):
             continue
 
-
-        market_cap_cr = (
+        market_cap_rs = (
             safe_float(
                 row[
                     market_cap_col
@@ -591,15 +532,20 @@ def parse_mcap_csv(text):
             )
         )
 
-
-        if market_cap_cr is None:
+        if market_cap_rs is None:
             continue
 
+        # NSE MCAP file reports market cap in rupees.
+        # Convert Rs. to Rs. Crore.
+        market_cap_cr = (
+            market_cap_rs
+            /
+            10_000_000
+        )
 
         symbol = None
         isin = None
         name = None
-
 
         if (
             symbol_col is not None
@@ -613,7 +559,6 @@ def parse_mcap_csv(text):
                 ]
             )
 
-
         if (
             isin_col is not None
             and
@@ -626,7 +571,6 @@ def parse_mcap_csv(text):
                 ]
             )
 
-
         if (
             name_col is not None
             and
@@ -638,7 +582,6 @@ def parse_mcap_csv(text):
                     name_col
                 ]
             )
-
 
         item = {
 
@@ -656,39 +599,29 @@ def parse_mcap_csv(text):
 
             "name":
                 name,
-
         }
 
-
         if symbol:
-
             by_symbol[
                 symbol
             ] = item
 
-
         if isin:
-
             by_isin[
                 isin
             ] = item
 
-
         if name:
-
             by_name[
                 name
             ] = item
 
-
         parsed += 1
-
 
     print(
         "Market-cap rows parsed:",
         parsed,
     )
-
 
     return {
 
@@ -703,7 +636,6 @@ def parse_mcap_csv(text):
 
         "parsed":
             parsed,
-
     }
 
 
@@ -716,7 +648,6 @@ def load_latest_market_cap_report(
 ):
 
     last_error = None
-
 
     for back in range(
         0,
@@ -731,11 +662,9 @@ def load_latest_market_cap_report(
             )
         )
 
-
         # Skip weekend
         if d.weekday() >= 5:
             continue
-
 
         try:
 
@@ -745,7 +674,6 @@ def load_latest_market_cap_report(
                 )
             )
 
-
             text, filename = (
                 extract_market_cap_csv(
                     zip_bytes,
@@ -753,11 +681,9 @@ def load_latest_market_cap_report(
                 )
             )
 
-
             parsed = parse_mcap_csv(
                 text
             )
-
 
             if (
                 parsed[
@@ -769,7 +695,6 @@ def load_latest_market_cap_report(
                 raise RuntimeError(
                     "No market-cap rows parsed"
                 )
-
 
             return {
 
@@ -784,9 +709,7 @@ def load_latest_market_cap_report(
 
                 "data":
                     parsed,
-
             }
-
 
         except Exception as exc:
 
@@ -796,7 +719,6 @@ def load_latest_market_cap_report(
                 f"Market-cap report unavailable "
                 f"for {d}: {exc}"
             )
-
 
     raise RuntimeError(
         "No usable NSE PR market-cap report "
@@ -817,7 +739,6 @@ def apply_market_cap(
         "data"
     ]
 
-
     by_symbol = data[
         "bySymbol"
     ]
@@ -829,7 +750,6 @@ def apply_market_cap(
     by_name = data[
         "byName"
     ]
-
 
     stats = {
 
@@ -850,9 +770,7 @@ def apply_market_cap(
 
         "marketCapCalculated":
             0,
-
     }
-
 
     for row in stocks:
 
@@ -862,13 +780,11 @@ def apply_market_cap(
             )
         )
 
-
         isin = normalize_text(
             row.get(
                 "isin"
             )
         )
-
 
         name = normalize_company_name(
             row.get(
@@ -876,16 +792,10 @@ def apply_market_cap(
             )
         )
 
-
         info = None
-
         match_type = None
 
-
-        # ---------------------------------------------
         # ISIN first - safest
-        # ---------------------------------------------
-
         if (
             isin
             and
@@ -906,11 +816,7 @@ def apply_market_cap(
                 "matchedByIsin"
             ] += 1
 
-
-        # ---------------------------------------------
         # Symbol fallback
-        # ---------------------------------------------
-
         elif (
             symbol
             and
@@ -931,11 +837,7 @@ def apply_market_cap(
                 "matchedBySymbol"
             ] += 1
 
-
-        # ---------------------------------------------
         # Company-name fallback
-        # ---------------------------------------------
-
         elif (
             name
             and
@@ -956,11 +858,7 @@ def apply_market_cap(
                 "matchedByName"
             ] += 1
 
-
-        # ---------------------------------------------
         # No match
-        # ---------------------------------------------
-
         if not info:
 
             row[
@@ -985,20 +883,17 @@ def apply_market_cap(
 
             continue
 
-
         market_cap_cr = (
             info.get(
                 "marketCapCr"
             )
         )
 
-
         row[
             "marketCapCr"
         ] = (
             market_cap_cr
         )
-
 
         row[
             "marketCapDate"
@@ -1008,13 +903,11 @@ def apply_market_cap(
             ]
         )
 
-
         row[
             "marketCapSource"
         ] = (
             "NSE PR Market Capitalisation"
         )
-
 
         row[
             "marketCapMatchType"
@@ -1022,11 +915,9 @@ def apply_market_cap(
             match_type
         )
 
-
         stats[
             "marketCapCalculated"
         ] += 1
-
 
     return stats
 
@@ -1042,7 +933,6 @@ def main():
         [],
     )
 
-
     if not isinstance(
         stocks,
         list,
@@ -1052,13 +942,11 @@ def main():
             "stocks.json must contain a list"
         )
 
-
     if not stocks:
 
         raise RuntimeError(
             "stocks.json is empty"
         )
-
 
     print(
         "=============================================="
@@ -1072,19 +960,16 @@ def main():
         "=============================================="
     )
 
-
     preferred_date = (
         detect_stock_date(
             stocks
         )
     )
 
-
     print(
         "Preferred market date:",
         preferred_date,
     )
-
 
     # =====================================================
     # LOAD NSE BULK MARKET-CAP REPORT
@@ -1095,7 +980,6 @@ def main():
             preferred_date
         )
     )
-
 
     print()
 
@@ -1122,7 +1006,6 @@ def main():
         }
     )
 
-
     # =====================================================
     # APPLY MARKET CAPS
     # =====================================================
@@ -1132,19 +1015,16 @@ def main():
         report,
     )
 
-
     save_json(
         STOCKS_PATH,
         stocks,
     )
-
 
     # =====================================================
     # COVERAGE
     # =====================================================
 
     coverage = 0
-
 
     if stats[
         "stocks"
@@ -1163,9 +1043,7 @@ def main():
 
             *
             100
-
         )
-
 
     stats[
         "coveragePct"
@@ -1174,20 +1052,17 @@ def main():
         2,
     )
 
-
     stats[
         "reportDate"
     ] = report[
         "date"
     ]
 
-
     stats[
         "reportFile"
     ] = report[
         "filename"
     ]
-
 
     # =====================================================
     # LOG
