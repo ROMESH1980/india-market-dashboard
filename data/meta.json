@@ -46,12 +46,10 @@
       "name": "NIFTY 50 / Largecap",
       "type": "equity",
       "available": true,
-      "sourceSymbol": "^NSEI",
       "source": "Yahoo Finance",
+      "sourceSymbol": "^NSEI",
       "date": "2026-09-04",
       "historyRows": 1236,
-      "weeklyRows": 261,
-      "monthlyRows": 61,
       "daily": 43,
       "weekly": 53,
       "monthly": 24,
@@ -83,13 +81,7 @@
           "slowMA": 24204.27,
           "momentumPct": -1.15,
           "rsi14": 33.57,
-          "distanceFromHighPct": -2.79,
-          "components": {
-            "priceVsFastMA": 0,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 10
-          }
+          "distanceFromHighPct": -2.79
         },
         "weekly": {
           "latest": 23897.7,
@@ -97,13 +89,7 @@
           "slowMA": 24038.0,
           "momentumPct": -2.74,
           "rsi14": 55.27,
-          "distanceFromHighPct": -2.74,
-          "components": {
-            "priceVsFastMA": 0,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 20
-          }
+          "distanceFromHighPct": -2.74
         },
         "monthly": {
           "latest": 23897.7,
@@ -111,13 +97,7 @@
           "slowMA": 24273.31,
           "momentumPct": 0.13,
           "rsi14": 45.38,
-          "distanceFromHighPct": -8.8,
-          "components": {
-            "priceVsFastMA": 0,
-            "trend": 0,
-            "momentum": 15,
-            "strength": 9
-          }
+          "distanceFromHighPct": -8.8
         }
       },
       "error": null
@@ -126,12 +106,10 @@
       "name": "NIFTY Midcap 100",
       "type": "equity",
       "available": true,
-      "sourceSymbol": "NIFTY_MIDCAP_100.NS",
       "source": "Yahoo Finance",
+      "sourceSymbol": "NIFTY_MIDCAP_100.NS",
       "date": "2026-07-17",
       "historyRows": 1195,
-      "weeklyRows": 254,
-      "monthlyRows": 59,
       "daily": 78,
       "weekly": 83,
       "monthly": 65,
@@ -163,13 +141,7 @@
           "slowMA": 61586.63,
           "momentumPct": -0.97,
           "rsi14": 58.65,
-          "distanceFromHighPct": -0.97,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 20
-          }
+          "distanceFromHighPct": -0.97
         },
         "weekly": {
           "latest": 62428.05,
@@ -177,13 +149,7 @@
           "slowMA": 59507.1,
           "momentumPct": -0.14,
           "rsi14": 67.74,
-          "distanceFromHighPct": -0.97,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 25
-          }
+          "distanceFromHighPct": -0.97
         },
         "monthly": {
           "latest": 62428.05,
@@ -191,93 +157,19 @@
           "slowMA": 59728.57,
           "momentumPct": 4.42,
           "rsi14": 58.03,
-          "distanceFromHighPct": 0.0,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 0,
-            "momentum": 20,
-            "strength": 20
-          }
+          "distanceFromHighPct": 0.0
         }
       },
       "error": null
-    },
-    "smallcap100": {
-      "name": "NIFTY Smallcap 100",
-      "type": "equity",
-      "available": false,
-      "sourceSymbol": null,
-      "source": null,
-      "date": null,
-      "daily": null,
-      "weekly": null,
-      "monthly": null,
-      "overall": null,
-      "dailySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "weeklySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "monthlySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "overallSignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "error": "Nifty Indices NIFTY SMALLCAP 100: Expecting value: line 1 column 2 (char 1) | Yahoo ^CNXSC: Insufficient Yahoo history for ^CNXSC: 1 rows | Yahoo NIFTY_SMLCAP_100.NS: Insufficient Yahoo history for NIFTY_SMLCAP_100.NS: 0 rows"
-    },
-    "sme": {
-      "name": "NIFTY SME Emerge",
-      "type": "equity",
-      "available": false,
-      "sourceSymbol": null,
-      "source": null,
-      "date": null,
-      "daily": null,
-      "weekly": null,
-      "monthly": null,
-      "overall": null,
-      "dailySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "weeklySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "monthlySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "overallSignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
-      },
-      "error": "Nifty Indices NIFTY SME EMERGE: Expecting value: line 1 column 2 (char 1)"
     },
     "gold": {
       "name": "GOLD",
       "type": "gold",
       "available": true,
-      "sourceSymbol": "GC=F",
       "source": "Yahoo Finance",
+      "sourceSymbol": "GC=F",
       "date": "2026-09-04",
       "historyRows": 1257,
-      "weeklyRows": 261,
-      "monthlyRows": 61,
       "daily": 50,
       "weekly": 57,
       "monthly": 65,
@@ -309,13 +201,7 @@
           "slowMA": 4238.98,
           "momentumPct": -1.08,
           "rsi14": 50.71,
-          "distanceFromHighPct": -4.55,
-          "components": {
-            "priceVsFastMA": 0,
-            "trend": 25,
-            "momentum": 8,
-            "strength": 17
-          }
+          "distanceFromHighPct": -4.55
         },
         "weekly": {
           "latest": 4429.8,
@@ -323,13 +209,7 @@
           "slowMA": 4533.6,
           "momentumPct": 2.05,
           "rsi14": 45.57,
-          "distanceFromHighPct": -4.2,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 0,
-            "momentum": 20,
-            "strength": 12
-          }
+          "distanceFromHighPct": -4.2
         },
         "monthly": {
           "latest": 4429.8,
@@ -337,16 +217,119 @@
           "slowMA": 4502.57,
           "momentumPct": 10.11,
           "rsi14": 65.99,
-          "distanceFromHighPct": -15.31,
-          "components": {
-            "priceVsFastMA": 25,
-            "trend": 0,
-            "momentum": 25,
-            "strength": 15
-          }
+          "distanceFromHighPct": -15.31
         }
       },
       "error": null
+    },
+    "smallcap100": {
+      "name": "NIFTY Smallcap 100",
+      "type": "equity",
+      "available": true,
+      "source": "NSE dashboard Small Cap top-100 market-cap breadth proxy",
+      "sourceSymbol": null,
+      "date": "2026-09-04",
+      "universeSize": 100,
+      "daily": 55,
+      "weekly": 52,
+      "monthly": 88,
+      "overall": 71,
+      "dailySignal": {
+        "label": "Selective Buying",
+        "signal": "selective",
+        "emoji": "🟢"
+      },
+      "weeklySignal": {
+        "label": "Warning",
+        "signal": "warning",
+        "emoji": "🟡"
+      },
+      "monthlySignal": {
+        "label": "Aggressive Stocks",
+        "signal": "aggressive",
+        "emoji": "🟢🟢"
+      },
+      "overallSignal": {
+        "label": "Stocks Overweight",
+        "signal": "overweight",
+        "emoji": "🟢"
+      },
+      "details": {
+        "daily": {
+          "method": "Dashboard universe breadth proxy",
+          "availableStocks": 100,
+          "positiveBreadthPct": 55.5,
+          "medianReturnPct": 0.24,
+          "returnStrengthScore": 54.04
+        },
+        "weekly": {
+          "method": "Dashboard universe breadth proxy",
+          "availableStocks": 93,
+          "positiveBreadthPct": 51.61,
+          "medianReturnPct": 0.74,
+          "returnStrengthScore": 53.71
+        },
+        "monthly": {
+          "method": "Dashboard universe breadth proxy",
+          "availableStocks": 93,
+          "positiveBreadthPct": 80.65,
+          "medianReturnPct": 21.15,
+          "returnStrengthScore": 100
+        }
+      },
+      "proxy": true,
+      "proxyNote": "Breadth/momentum proxy from dashboard NSE stock universe; not official index historical score.",
+      "error": null
+    },
+    "sme": {
+      "name": "NIFTY SME Emerge",
+      "type": "equity",
+      "available": false,
+      "source": "Official NSE SME board dashboard breadth proxy",
+      "sourceSymbol": null,
+      "date": "2026-09-04",
+      "universeSize": 0,
+      "daily": null,
+      "weekly": null,
+      "monthly": null,
+      "overall": null,
+      "dailySignal": {
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
+      },
+      "weeklySignal": {
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
+      },
+      "monthlySignal": {
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
+      },
+      "overallSignal": {
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
+      },
+      "details": {
+        "daily": {
+          "error": "Insufficient proxy breadth",
+          "availableStocks": 0
+        },
+        "weekly": {
+          "error": "Insufficient proxy breadth",
+          "availableStocks": 0
+        },
+        "monthly": {
+          "error": "Insufficient proxy breadth",
+          "availableStocks": 0
+        }
+      },
+      "proxy": true,
+      "proxyNote": "Breadth/momentum proxy from dashboard NSE stock universe; not official index historical score.",
+      "error": "Insufficient proxy data"
     }
   },
   "dailyRegimeScore": 43.0,
@@ -360,12 +343,13 @@
   "marketRegimeDate": "2026-09-04",
   "marketRegimeMethod": {
     "scoreRange": "0-100",
-    "equityPrimarySource": "Official Nifty Indices historical data",
-    "equityFallbackSource": "Yahoo Finance",
-    "goldSource": "Yahoo Finance GC=F",
-    "daily": "20DMA / 50DMA / 5-day momentum / RSI / 20-day high",
-    "weekly": "10-week MA / 30-week MA / 4-week momentum / RSI / 13-week high",
-    "monthly": "6-month MA / 10-month MA / 3-month momentum / RSI / 12-month high",
+    "directAssets": "NIFTY 50, NIFTY Midcap 100 and Gold use historical price series",
+    "smallcap100": "Top 100 dashboard Small Cap stocks by current market cap; breadth/momentum proxy",
+    "sme": "Official NSE SME-board stocks from dashboard universe; breadth/momentum proxy",
+    "proxyWeights": {
+      "breadth": 60,
+      "medianReturnStrength": 40
+    },
     "overallWeights": {
       "daily": 20,
       "weekly": 30,
@@ -380,5 +364,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-05T10:18:54.652760+00:00"
+  "marketRegimeGeneratedAt": "2026-09-05T10:45:36.769800+00:00"
 }
