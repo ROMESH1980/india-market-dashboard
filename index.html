@@ -38,46 +38,91 @@
 
 
           <!-- =========================
-               SINGLE MARKET VIEW CARD
+               MARKET REGIME
           ========================== -->
 
           <div class="market-regimes">
 
+            <!-- MONTHLY -->
+
             <div
-              id="marketViewCard"
-              class="market-view-card"
-              role="button"
-              tabindex="0"
-              title="Click to open Multi-Timeframe Market View"
+              id="monthlyRegime"
+              class="regime-card regime-pending"
             >
 
-              <div class="market-view-card-left">
+              <span class="regime-timeframe">
+                Monthly
+              </span>
 
-                <span class="market-view-card-title">
-                  MARKET VIEW
-                </span>
+              <strong
+                id="monthlyRegimeScore"
+                class="regime-score"
+              >
+                —
+              </strong>
 
-                <span
-                  id="marketViewCardSignal"
-                  class="market-view-card-signal"
-                >
-                  Largecap • Midcap • Smallcap • SME • Gold
-                </span>
+              <span
+                id="monthlyRegimeText"
+                class="regime-text"
+              >
+                Pending
+              </span>
 
-              </div>
+            </div>
 
 
-              <div class="market-view-card-right">
+            <!-- WEEKLY -->
 
-                <span class="market-view-card-icon">
-                  📊
-                </span>
+            <div
+              id="weeklyRegime"
+              class="regime-card regime-pending"
+            >
 
-                <span class="market-view-card-arrow">
-                  ›
-                </span>
+              <span class="regime-timeframe">
+                Weekly
+              </span>
 
-              </div>
+              <strong
+                id="weeklyRegimeScore"
+                class="regime-score"
+              >
+                —
+              </strong>
+
+              <span
+                id="weeklyRegimeText"
+                class="regime-text"
+              >
+                Pending
+              </span>
+
+            </div>
+
+
+            <!-- DAILY -->
+
+            <div
+              id="dailyRegime"
+              class="regime-card regime-pending"
+            >
+
+              <span class="regime-timeframe">
+                Daily
+              </span>
+
+              <strong
+                id="dailyRegimeScore"
+                class="regime-score"
+              >
+                —
+              </strong>
+
+              <span
+                id="dailyRegimeText"
+                class="regime-text"
+              >
+                Pending
+              </span>
 
             </div>
 
@@ -88,7 +133,7 @@
 
         <p>
           Market Cap • Delivery • Sector Growth •
-          Stock Growth • T+M+VM • G+F+C • Overall
+          Stock Growth • RS Rating • T+M+VM • G+F+C • Overall
         </p>
 
       </div>
@@ -294,6 +339,15 @@
               5L Vol +
               <br>
               5% Move
+            </th>
+
+
+            <th>
+              RS Rating
+              <br>
+              <small>
+                1–99
+              </small>
             </th>
 
 
@@ -663,6 +717,41 @@
 
 
 
+            <!-- RS RATING -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeRS"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveRS"
+                  type="number"
+                  min="1"
+                  max="99"
+                  step="1"
+                  placeholder="Above RS"
+                >
+
+              </div>
+
+            </th>
+
+
+
             <!-- SECTOR -->
 
             <th>
@@ -977,7 +1066,7 @@
 
 
   <!-- =========================
-       REASON / MARKET VIEW MODAL
+       REASON MODAL
   ========================== -->
 
   <div
