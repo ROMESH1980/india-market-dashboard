@@ -15,6 +15,12 @@
     rel="stylesheet"
     href="styles.css"
   >
+
+  <!-- EXCEL EXPORT LIBRARY -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+    defer
+  ></script>
 </head>
 
 
@@ -168,7 +174,8 @@
 
 
     <!-- =========================
-         SEARCH + RESET + PAGINATION
+         SEARCH + RESET + DOWNLOAD
+         + PAGINATION
     ========================== -->
 
     <section class="toolbar">
@@ -189,7 +196,37 @@
       </button>
 
 
-      <!-- PAGINATION -->
+      <!-- =========================
+           DOWNLOAD FORMAT
+      ========================== -->
+
+      <select
+        id="downloadFormat"
+        aria-label="Select download format"
+      >
+
+        <option value="csv">
+          CSV
+        </option>
+
+        <option value="xlsx">
+          Excel
+        </option>
+
+      </select>
+
+
+      <button
+        id="downloadData"
+        type="button"
+      >
+        Download
+      </button>
+
+
+      <!-- =========================
+           PAGINATION
+      ========================== -->
 
       <div class="pagination toolbar-pagination">
 
@@ -331,6 +368,7 @@
             <th>
               RS Rating
               <br>
+
               <small>
                 1–99
               </small>
@@ -362,6 +400,7 @@
             <th>
               T + M + VM
               <br>
+
               <small>
                 Tailwind + Macro + Value Migration
               </small>
@@ -371,6 +410,7 @@
             <th>
               G + F + C
               <br>
+
               <small>
                 Growth + Fundamental + CAPEX
               </small>
@@ -692,9 +732,11 @@
 
 
                 <div class="filter-note">
+
                   Vol ≥ 5L
                   <br>
                   |Move| ≥ 5%
+
                 </div>
 
               </div>
@@ -1002,7 +1044,6 @@
 
 
         <tbody id="rows">
-
         </tbody>
 
       </table>
@@ -1076,7 +1117,10 @@
 
 
 
-  <script src="app.js"></script>
+  <script
+    src="app.js"
+    defer
+  ></script>
 
 </body>
 
