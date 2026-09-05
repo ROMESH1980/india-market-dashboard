@@ -2,7 +2,11 @@ import json
 import math
 import time
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import (
+    datetime,
+    timezone,
+    timedelta
+)
 from urllib.parse import quote
 
 import requests
@@ -19,23 +23,16 @@ META_FILE = ROOT / "data" / "meta.json"
 # =========================================================
 # ASSETS
 # =========================================================
-#
-# IMPORTANT:
-# Every asset is calculated independently.
-#
-# If one asset fails:
-# - entire workflow will NOT fail
-# - that asset will show Pending
-#
-# Gold is kept separate from equity.
-# =========================================================
 
 ASSETS = {
 
     "nifty50": {
         "name": "NIFTY 50 / Largecap",
         "type": "equity",
-        "symbols": [
+
+        "niftyIndexName": "NIFTY 50",
+
+        "yahooSymbols": [
             "^NSEI"
         ]
     },
@@ -43,7 +40,10 @@ ASSETS = {
     "midcap100": {
         "name": "NIFTY Midcap 100",
         "type": "equity",
-        "symbols": [
+
+        "niftyIndexName": "NIFTY MIDCAP 100",
+
+        "yahooSymbols": [
             "NIFTY_MIDCAP_100.NS",
             "^CNXMIDCAP"
         ]
@@ -52,25 +52,31 @@ ASSETS = {
     "smallcap100": {
         "name": "NIFTY Smallcap 100",
         "type": "equity",
-        "symbols": [
-            "NIFTY_SMLCAP_100.NS",
-            "^CNXSC"
+
+        "niftyIndexName": "NIFTY SMALLCAP 100",
+
+        "yahooSymbols": [
+            "^CNXSC",
+            "NIFTY_SMLCAP_100.NS"
         ]
     },
 
     "sme": {
         "name": "NIFTY SME Emerge",
         "type": "equity",
-        "symbols": [
-            "NIFTY_SME_EMERGE.NS",
-            "^NIFTYSME"
-        ]
+
+        "niftyIndexName": "NIFTY SME EMERGE",
+
+        "yahooSymbols": []
     },
 
     "gold": {
         "name": "GOLD",
         "type": "gold",
-        "symbols": [
+
+        "niftyIndexName": None,
+
+        "yahooSymbols": [
             "GC=F"
         ]
     }
@@ -89,8 +95,42 @@ HEADERS = {
         "(KHTML, like Gecko) "
         "Chrome/131.0 Safari/537.36"
     ),
-    "Accept": "application/json,text/plain,*/*"
+    "Accept": (
+        "application/json,"
+        "text/javascript,"
+        "text/plain,*/*"
+    )
 }
+
+
+NIFTY_HEADERS = {
+    "User-Agent":
+        HEADERS["User-Agent"],
+
+    "Accept":
+        "application/json, "
+        "text/javascript, */*; q=0.01",
+
+    "Content-Type":
+        "application/json; charset=UTF-8",
+
+    "X-Requested-With":
+        "XMLHttpRequest",
+
+    "Origin":
+        "https://www.niftyindices.com",
+
+    "Referer":
+        "https://www.niftyindices.com/"
+        "reports/historical-data"
+}
+
+
+NIFTY_HISTORY_URL = (
+    "https://www.niftyindices.com/"
+    "Backpage.aspx/"
+    "getHistoricaldatatabletoString"
+)
 
 
 # =========================================================
@@ -100,6 +140,17 @@ HEADERS = {
 def safe_number(value):
 
     try:
+
+        if isinstance(
+            value,
+            str
+        ):
+
+            value = (
+                value
+                .replace(",", "")
+                .strip()
+            )
 
         n = float(value)
 
@@ -138,7 +189,11 @@ def average(values):
     if not clean:
         return None
 
-    return sum(clean) / len(clean)
+    return (
+        sum(clean)
+        /
+        len(clean)
+    )
 
 
 def pct_change(
@@ -146,8 +201,13 @@ def pct_change(
     previous
 ):
 
-    current = safe_number(current)
-    previous = safe_number(previous)
+    current = safe_number(
+        current
+    )
+
+    previous = safe_number(
+        previous
+    )
 
     if (
         current is None
@@ -157,8 +217,53 @@ def pct_change(
         return None
 
     return (
-        (current / previous) - 1
+        (
+            current /
+            previous
+        )
+        - 1
     ) * 100
+
+
+# =========================================================
+# DATE PARSER
+# =========================================================
+
+def parse_nifty_date(value):
+
+    if not value:
+        return None
+
+    value = str(
+        value
+    ).strip()
+
+
+    formats = [
+        "%d %b %Y",
+        "%d-%b-%Y",
+        "%d %B %Y",
+        "%Y-%m-%d"
+    ]
+
+
+    for fmt in formats:
+
+        try:
+
+            return (
+                datetime.strptime(
+                    value,
+                    fmt
+                )
+                .date()
+            )
+
+        except Exception:
+            pass
+
+
+    return None
 
 
 # =========================================================
@@ -179,7 +284,13 @@ def calculate_rsi(
         if n is not None:
             clean.append(n)
 
-    if len(clean) < period + 1:
+
+    if (
+        len(clean)
+        <
+        period + 1
+    ):
+
         return None
 
 
@@ -200,7 +311,8 @@ def calculate_rsi(
 
         change = (
             clean[i]
-            - clean[i - 1]
+            -
+            clean[i - 1]
         )
 
 
@@ -212,13 +324,19 @@ def calculate_rsi(
         else:
 
             gains.append(0)
+
             losses.append(
                 abs(change)
             )
 
 
-    avg_gain = average(gains)
-    avg_loss = average(losses)
+    avg_gain = average(
+        gains
+    )
+
+    avg_loss = average(
+        losses
+    )
 
 
     if avg_gain is None:
@@ -240,7 +358,9 @@ def calculate_rsi(
         -
         (
             100 /
-            (1 + rs)
+            (
+                1 + rs
+            )
         )
     )
 
@@ -254,20 +374,27 @@ def regime_label(
     asset_type="equity"
 ):
 
-    score = safe_number(score)
+    score = safe_number(
+        score
+    )
 
 
     if score is None:
 
         return {
-            "label": "Pending",
-            "signal": "pending",
-            "emoji": "⚪"
+            "label":
+                "Pending",
+
+            "signal":
+                "pending",
+
+            "emoji":
+                "⚪"
         }
 
 
     # =====================================================
-    # GOLD WORDING
+    # GOLD
     # =====================================================
 
     if asset_type == "gold":
@@ -275,121 +402,458 @@ def regime_label(
         if score >= 75:
 
             return {
-                "label": "Very Strong",
-                "signal": "aggressive",
-                "emoji": "🟢🟢"
+                "label":
+                    "Very Strong",
+
+                "signal":
+                    "aggressive",
+
+                "emoji":
+                    "🟢🟢"
             }
 
 
         if score >= 65:
 
             return {
-                "label": "Strong",
-                "signal": "overweight",
-                "emoji": "🟢"
+                "label":
+                    "Strong",
+
+                "signal":
+                    "overweight",
+
+                "emoji":
+                    "🟢"
             }
 
 
         if score >= 55:
 
             return {
-                "label": "Positive",
-                "signal": "selective",
-                "emoji": "🟢"
+                "label":
+                    "Positive",
+
+                "signal":
+                    "selective",
+
+                "emoji":
+                    "🟢"
             }
 
 
         if score >= 45:
 
             return {
-                "label": "Neutral / Cautious",
-                "signal": "warning",
-                "emoji": "🟡"
+                "label":
+                    "Neutral / Cautious",
+
+                "signal":
+                    "warning",
+
+                "emoji":
+                    "🟡"
             }
 
 
         if score >= 35:
 
             return {
-                "label": "Weak / Correction",
-                "signal": "reduce",
-                "emoji": "🟠"
+                "label":
+                    "Weak / Correction",
+
+                "signal":
+                    "reduce",
+
+                "emoji":
+                    "🟠"
             }
 
 
         return {
-            "label": "Defensive Weak",
-            "signal": "defensive",
-            "emoji": "🔴"
+            "label":
+                "Defensive Weak",
+
+            "signal":
+                "defensive",
+
+            "emoji":
+                "🔴"
         }
 
 
     # =====================================================
-    # EQUITY WORDING
+    # EQUITY
     # =====================================================
 
     if score >= 75:
 
         return {
-            "label": "Aggressive Stocks",
-            "signal": "aggressive",
-            "emoji": "🟢🟢"
+            "label":
+                "Aggressive Stocks",
+
+            "signal":
+                "aggressive",
+
+            "emoji":
+                "🟢🟢"
         }
 
 
     if score >= 65:
 
         return {
-            "label": "Stocks Overweight",
-            "signal": "overweight",
-            "emoji": "🟢"
+            "label":
+                "Stocks Overweight",
+
+            "signal":
+                "overweight",
+
+            "emoji":
+                "🟢"
         }
 
 
     if score >= 55:
 
         return {
-            "label": "Selective Buying",
-            "signal": "selective",
-            "emoji": "🟢"
+            "label":
+                "Selective Buying",
+
+            "signal":
+                "selective",
+
+            "emoji":
+                "🟢"
         }
 
 
     if score >= 45:
 
         return {
-            "label": "Warning",
-            "signal": "warning",
-            "emoji": "🟡"
+            "label":
+                "Warning",
+
+            "signal":
+                "warning",
+
+            "emoji":
+                "🟡"
         }
 
 
     if score >= 35:
 
         return {
-            "label": "Equity Reduce",
-            "signal": "reduce",
-            "emoji": "🟠"
+            "label":
+                "Equity Reduce",
+
+            "signal":
+                "reduce",
+
+            "emoji":
+                "🟠"
         }
 
 
     return {
-        "label": "G-Sec / Gold / Cash",
-        "signal": "defensive",
-        "emoji": "🔴"
+        "label":
+            "G-Sec / Gold / Cash",
+
+        "signal":
+            "defensive",
+
+        "emoji":
+            "🔴"
     }
 
 
 # =========================================================
-# YAHOO DOWNLOAD
+# NIFTY INDICES OFFICIAL HISTORY
 # =========================================================
 
-def yahoo_chart_url(symbol):
+def fetch_nifty_index_history(
+    index_name
+):
+
+    today = (
+        datetime.now(
+            timezone.utc
+        )
+        .date()
+    )
+
+
+    start_date = (
+        today
+        -
+        timedelta(
+            days=365 * 6
+        )
+    )
+
+
+    start_text = (
+        start_date
+        .strftime(
+            "%d-%b-%Y"
+        )
+    )
+
+
+    end_text = (
+        today
+        .strftime(
+            "%d-%b-%Y"
+        )
+    )
+
+
+    inner_payload = {
+
+        "name":
+            index_name,
+
+        "indexName":
+            index_name,
+
+        "startDate":
+            start_text,
+
+        "endDate":
+            end_text
+    }
+
+
+    payload = {
+
+        "cinfo":
+            json.dumps(
+                inner_payload
+            )
+    }
+
+
+    session = (
+        requests.Session()
+    )
+
+
+    session.headers.update(
+        NIFTY_HEADERS
+    )
+
+
+    # =====================================================
+    # BOOTSTRAP COOKIE
+    #
+    # Failure is allowed.
+    # =====================================================
+
+    try:
+
+        session.get(
+            "https://www.niftyindices.com/"
+            "reports/historical-data",
+            timeout=10
+        )
+
+    except Exception:
+
+        pass
+
+
+    response = session.post(
+
+        NIFTY_HISTORY_URL,
+
+        json=payload,
+
+        timeout=40
+    )
+
+
+    response.raise_for_status()
+
+
+    result = (
+        response.json()
+    )
+
+
+    raw_data = (
+        result.get("d")
+    )
+
+
+    if raw_data is None:
+
+        raise RuntimeError(
+            "Nifty Indices API "
+            "returned no d field"
+        )
+
+
+    if isinstance(
+        raw_data,
+        str
+    ):
+
+        raw_data = (
+            raw_data.strip()
+        )
+
+
+        if not raw_data:
+
+            raise RuntimeError(
+                "Empty Nifty Indices "
+                "historical response"
+            )
+
+
+        records = json.loads(
+            raw_data
+        )
+
+    elif isinstance(
+        raw_data,
+        list
+    ):
+
+        records = raw_data
+
+    else:
+
+        raise RuntimeError(
+            "Unexpected Nifty "
+            "history response"
+        )
+
+
+    rows = []
+
+
+    for record in records:
+
+        date_value = (
+            record.get(
+                "HistoricalDate"
+            )
+            or
+            record.get(
+                "Date"
+            )
+        )
+
+
+        close_value = (
+
+            record.get(
+                "CLOSE"
+            )
+
+            or
+
+            record.get(
+                "Close"
+            )
+
+            or
+
+            record.get(
+                "close"
+            )
+        )
+
+
+        date_obj = (
+            parse_nifty_date(
+                date_value
+            )
+        )
+
+
+        close = (
+            safe_number(
+                close_value
+            )
+        )
+
+
+        if (
+            date_obj is None
+            or close is None
+        ):
+
+            continue
+
+
+        rows.append({
+
+            "date":
+                date_obj,
+
+            "close":
+                close
+        })
+
+
+    rows.sort(
+        key=lambda x:
+            x["date"]
+    )
+
+
+    # remove duplicate dates
+
+    unique = {}
+
+
+    for row in rows:
+
+        unique[
+            row["date"]
+        ] = row
+
+
+    rows = list(
+        unique.values()
+    )
+
+
+    rows.sort(
+        key=lambda x:
+            x["date"]
+    )
+
+
+    if len(rows) < 100:
+
+        raise RuntimeError(
+
+            f"Official Nifty history "
+            f"insufficient for "
+            f"{index_name}: "
+            f"{len(rows)} rows"
+        )
+
+
+    return rows
+
+
+# =========================================================
+# YAHOO HISTORY
+# =========================================================
+
+def yahoo_chart_url(
+    symbol
+):
 
     encoded_symbol = quote(
         symbol,
         safe=""
     )
+
 
     return (
         "https://query1.finance.yahoo.com/"
@@ -402,16 +866,23 @@ def yahoo_chart_url(symbol):
     )
 
 
-def fetch_symbol_history(symbol):
+def fetch_yahoo_symbol_history(
+    symbol
+):
 
-    url = yahoo_chart_url(
-        symbol
+    url = (
+        yahoo_chart_url(
+            symbol
+        )
     )
 
 
     response = requests.get(
+
         url,
+
         headers=HEADERS,
+
         timeout=30
     )
 
@@ -423,12 +894,16 @@ def fetch_symbol_history(symbol):
 
 
     chart = (
-        payload.get("chart")
+        payload.get(
+            "chart"
+        )
         or {}
     )
 
 
-    error = chart.get("error")
+    error = chart.get(
+        "error"
+    )
 
 
     if error:
@@ -439,7 +914,9 @@ def fetch_symbol_history(symbol):
 
 
     results = (
-        chart.get("result")
+        chart.get(
+            "result"
+        )
         or []
     )
 
@@ -447,7 +924,8 @@ def fetch_symbol_history(symbol):
     if not results:
 
         raise RuntimeError(
-            f"No Yahoo result for {symbol}"
+            f"No Yahoo result "
+            f"for {symbol}"
         )
 
 
@@ -455,25 +933,33 @@ def fetch_symbol_history(symbol):
 
 
     timestamps = (
-        result.get("timestamp")
+        result.get(
+            "timestamp"
+        )
         or []
     )
 
 
     indicators = (
-        result.get("indicators")
+        result.get(
+            "indicators"
+        )
         or {}
     )
 
 
     quote_data = (
-        indicators.get("quote")
+        indicators.get(
+            "quote"
+        )
         or [{}]
     )[0]
 
 
     closes = (
-        quote_data.get("close")
+        quote_data.get(
+            "close"
+        )
         or []
     )
 
@@ -481,38 +967,55 @@ def fetch_symbol_history(symbol):
     rows = []
 
 
-    for ts, close in zip(
+    for (
+        ts,
+        close
+    ) in zip(
         timestamps,
         closes
     ):
 
-        close = safe_number(close)
+        close = (
+            safe_number(
+                close
+            )
+        )
+
 
         if close is None:
             continue
 
 
-        dt = datetime.fromtimestamp(
-            ts,
-            tz=timezone.utc
+        dt = (
+            datetime.fromtimestamp(
+                ts,
+                tz=timezone.utc
+            )
         )
 
 
         rows.append({
-            "date": dt.date(),
-            "close": close
+
+            "date":
+                dt.date(),
+
+            "close":
+                close
         })
 
 
     rows.sort(
-        key=lambda x: x["date"]
+        key=lambda x:
+            x["date"]
     )
 
 
     if len(rows) < 100:
 
         raise RuntimeError(
-            f"Insufficient history for {symbol}: "
+
+            f"Insufficient Yahoo "
+            f"history for {symbol}: "
             f"{len(rows)} rows"
         )
 
@@ -521,7 +1024,7 @@ def fetch_symbol_history(symbol):
 
 
 # =========================================================
-# TRY SYMBOLS
+# LOAD ASSET HISTORY
 # =========================================================
 
 def fetch_asset_history(
@@ -532,17 +1035,94 @@ def fetch_asset_history(
     errors = []
 
 
-    for symbol in config["symbols"]:
+    # =====================================================
+    # 1. OFFICIAL NIFTY INDICES FIRST
+    # =====================================================
+
+    nifty_index_name = (
+        config.get(
+            "niftyIndexName"
+        )
+    )
+
+
+    if nifty_index_name:
 
         try:
 
             print(
-                f"Trying {asset_key}: {symbol}"
+                f"Trying official "
+                f"Nifty Indices: "
+                f"{nifty_index_name}"
             )
 
 
-            rows = fetch_symbol_history(
-                symbol
+            rows = (
+                fetch_nifty_index_history(
+                    nifty_index_name
+                )
+            )
+
+
+            print(
+                f"Loaded {asset_key}: "
+                f"{nifty_index_name} "
+                f"({len(rows)} rows)"
+            )
+
+
+            return (
+                rows,
+                nifty_index_name,
+                "Nifty Indices Official",
+                None
+            )
+
+
+        except Exception as exc:
+
+            message = (
+                "Nifty Indices "
+                f"{nifty_index_name}: "
+                f"{exc}"
+            )
+
+
+            errors.append(
+                message
+            )
+
+
+            print(
+                f"Failed {asset_key}: "
+                f"{message}"
+            )
+
+
+    # =====================================================
+    # 2. YAHOO FALLBACK
+    # =====================================================
+
+    for symbol in (
+        config.get(
+            "yahooSymbols",
+            []
+        )
+    ):
+
+        try:
+
+            print(
+                f"Trying Yahoo "
+                f"{asset_key}: "
+                f"{symbol}"
+            )
+
+
+            rows = (
+                fetch_yahoo_symbol_history(
+                    symbol
+                )
             )
 
 
@@ -556,6 +1136,7 @@ def fetch_asset_history(
             return (
                 rows,
                 symbol,
+                "Yahoo Finance",
                 None
             )
 
@@ -563,10 +1144,15 @@ def fetch_asset_history(
         except Exception as exc:
 
             message = (
-                f"{symbol}: {exc}"
+                f"Yahoo {symbol}: "
+                f"{exc}"
             )
 
-            errors.append(message)
+
+            errors.append(
+                message
+            )
+
 
             print(
                 f"Failed {asset_key}: "
@@ -580,7 +1166,10 @@ def fetch_asset_history(
     return (
         None,
         None,
-        " | ".join(errors)
+        None,
+        " | ".join(
+            errors
+        )
     )
 
 
@@ -598,7 +1187,9 @@ def resample_last_close(
 
     for row in rows:
 
-        date = row["date"]
+        date = (
+            row["date"]
+        )
 
 
         if mode == "weekly":
@@ -606,6 +1197,7 @@ def resample_last_close(
             iso = (
                 date.isocalendar()
             )
+
 
             key = (
                 iso.year,
@@ -628,9 +1220,9 @@ def resample_last_close(
             )
 
 
-        # because rows are sorted,
-        # latest row overwrites earlier row
-        buckets[key] = row
+        buckets[
+            key
+        ] = row
 
 
     result = list(
@@ -639,7 +1231,8 @@ def resample_last_close(
 
 
     result.sort(
-        key=lambda x: x["date"]
+        key=lambda x:
+            x["date"]
     )
 
 
@@ -648,15 +1241,6 @@ def resample_last_close(
 
 # =========================================================
 # CORE SCORE
-# =========================================================
-#
-# Total = 100
-#
-# 1. Price vs Fast MA       25
-# 2. Fast MA vs Slow MA     25
-# 3. Momentum               25
-# 4. RSI + distance high    25
-#
 # =========================================================
 
 def score_series(
@@ -672,44 +1256,63 @@ def score_series(
 
     for value in values:
 
-        n = safe_number(value)
+        n = safe_number(
+            value
+        )
 
         if n is not None:
             clean.append(n)
 
 
     minimum_required = max(
+
         slow_period,
+
         momentum_period + 1,
+
         high_period,
+
         15
     )
 
 
     if (
         len(clean)
-        < minimum_required
+        <
+        minimum_required
     ):
 
         return (
             None,
             {
                 "error":
-                    "Insufficient history"
+                    "Insufficient history",
+
+                "availableRows":
+                    len(clean),
+
+                "requiredRows":
+                    minimum_required
             }
         )
 
 
-    latest = clean[-1]
+    latest = (
+        clean[-1]
+    )
 
 
     fast_ma = average(
-        clean[-fast_period:]
+        clean[
+            -fast_period:
+        ]
     )
 
 
     slow_ma = average(
-        clean[-slow_period:]
+        clean[
+            -slow_period:
+        ]
     )
 
 
@@ -717,7 +1320,8 @@ def score_series(
         clean[
             -(
                 momentum_period
-                + 1
+                +
+                1
             )
         ]
     )
@@ -736,18 +1340,22 @@ def score_series(
 
 
     recent_high = max(
-        clean[-high_period:]
+        clean[
+            -high_period:
+        ]
     )
 
 
-    distance_from_high = pct_change(
-        latest,
-        recent_high
+    distance_from_high = (
+        pct_change(
+            latest,
+            recent_high
+        )
     )
 
 
     # =====================================================
-    # 1. PRICE VS FAST MA
+    # PRICE VS FAST MA
     # =====================================================
 
     price_fast_score = 0
@@ -755,14 +1363,15 @@ def score_series(
 
     if (
         fast_ma is not None
-        and latest >= fast_ma
+        and
+        latest >= fast_ma
     ):
 
         price_fast_score = 25
 
 
     # =====================================================
-    # 2. FAST MA VS SLOW MA
+    # FAST MA VS SLOW MA
     # =====================================================
 
     trend_score = 0
@@ -770,15 +1379,17 @@ def score_series(
 
     if (
         fast_ma is not None
-        and slow_ma is not None
-        and fast_ma >= slow_ma
+        and
+        slow_ma is not None
+        and
+        fast_ma >= slow_ma
     ):
 
         trend_score = 25
 
 
     # =====================================================
-    # 3. MOMENTUM
+    # MOMENTUM
     # =====================================================
 
     momentum_score = 0
@@ -812,7 +1423,7 @@ def score_series(
 
 
     # =====================================================
-    # 4. RSI + DISTANCE FROM HIGH
+    # RSI + DISTANCE FROM HIGH
     # =====================================================
 
     strength_score = 0
@@ -835,90 +1446,114 @@ def score_series(
             strength_score += 5
 
 
-    if distance_from_high is not None:
+    if (
+        distance_from_high
+        is not None
+    ):
 
-        if distance_from_high >= -3:
+        if (
+            distance_from_high
+            >= -3
+        ):
 
             strength_score += 10
 
 
-        elif distance_from_high >= -7:
+        elif (
+            distance_from_high
+            >= -7
+        ):
 
             strength_score += 7
 
 
-        elif distance_from_high >= -12:
+        elif (
+            distance_from_high
+            >= -12
+        ):
 
             strength_score += 4
 
 
     total_score = (
+
         price_fast_score
-        + trend_score
-        + momentum_score
-        + strength_score
+        +
+        trend_score
+        +
+        momentum_score
+        +
+        strength_score
     )
 
 
     total_score = round(
-        clamp(total_score)
+        clamp(
+            total_score
+        )
     )
 
 
     details = {
 
-        "latest": round(
-            latest,
-            2
-        ),
-
-        "fastMA": (
+        "latest":
             round(
-                fast_ma,
+                latest,
                 2
-            )
-            if fast_ma is not None
-            else None
-        ),
+            ),
 
-        "slowMA": (
-            round(
-                slow_ma,
-                2
-            )
-            if slow_ma is not None
-            else None
-        ),
+        "fastMA":
+            (
+                round(
+                    fast_ma,
+                    2
+                )
+                if fast_ma is not None
+                else None
+            ),
 
-        "momentumPct": (
-            round(
-                momentum,
-                2
-            )
-            if momentum is not None
-            else None
-        ),
+        "slowMA":
+            (
+                round(
+                    slow_ma,
+                    2
+                )
+                if slow_ma is not None
+                else None
+            ),
 
-        "rsi14": (
-            round(
-                rsi,
-                2
-            )
-            if rsi is not None
-            else None
-        ),
+        "momentumPct":
+            (
+                round(
+                    momentum,
+                    2
+                )
+                if momentum is not None
+                else None
+            ),
 
-        "distanceFromHighPct": (
-            round(
-                distance_from_high,
-                2
-            )
-            if (
-                distance_from_high
-                is not None
-            )
-            else None
-        ),
+        "rsi14":
+            (
+                round(
+                    rsi,
+                    2
+                )
+                if rsi is not None
+                else None
+            ),
+
+        "distanceFromHighPct":
+            (
+                round(
+                    distance_from_high,
+                    2
+                )
+                if (
+                    distance_from_high
+                    is not None
+                )
+                else None
+            ),
 
         "components": {
 
@@ -955,6 +1590,7 @@ def build_asset_regime(
     (
         rows,
         source_symbol,
+        source_name,
         fetch_error
     ) = fetch_asset_history(
         asset_key,
@@ -977,6 +1613,9 @@ def build_asset_regime(
 
             "sourceSymbol":
                 None,
+
+            "source":
+                source_name,
 
             "date":
                 None,
@@ -1023,12 +1662,15 @@ def build_asset_regime(
 
 
     daily_values = [
+
         row["close"]
+
         for row in rows
     ]
 
 
     weekly_rows = (
+
         resample_last_close(
             rows,
             "weekly"
@@ -1037,12 +1679,15 @@ def build_asset_regime(
 
 
     weekly_values = [
+
         row["close"]
+
         for row in weekly_rows
     ]
 
 
     monthly_rows = (
+
         resample_last_close(
             rows,
             "monthly"
@@ -1051,19 +1696,12 @@ def build_asset_regime(
 
 
     monthly_values = [
+
         row["close"]
+
         for row in monthly_rows
     ]
 
-
-    # =====================================================
-    # DAILY
-    #
-    # 20 DMA
-    # 50 DMA
-    # 5-day momentum
-    # 20-day high
-    # =====================================================
 
     (
         daily_score,
@@ -1082,15 +1720,6 @@ def build_asset_regime(
     )
 
 
-    # =====================================================
-    # WEEKLY
-    #
-    # 10-week MA
-    # 30-week MA
-    # 4-week momentum
-    # 13-week high
-    # =====================================================
-
     (
         weekly_score,
         weekly_details
@@ -1108,15 +1737,6 @@ def build_asset_regime(
     )
 
 
-    # =====================================================
-    # MONTHLY
-    #
-    # 6-month MA
-    # 10-month MA
-    # 3-month momentum
-    # 12-month high
-    # =====================================================
-
     (
         monthly_score,
         monthly_details
@@ -1133,16 +1753,6 @@ def build_asset_regime(
         high_period=12
     )
 
-
-    # =====================================================
-    # OVERALL
-    #
-    # Daily   20%
-    # Weekly  30%
-    # Monthly 50%
-    #
-    # Longer timeframe receives higher weight.
-    # =====================================================
 
     scores_for_overall = [
 
@@ -1175,12 +1785,16 @@ def build_asset_regime(
         if score is None:
             continue
 
+
         weighted_total += (
             score *
             weight
         )
 
-        weight_total += weight
+
+        weight_total += (
+            weight
+        )
 
 
     overall_score = None
@@ -1208,10 +1822,22 @@ def build_asset_regime(
         "sourceSymbol":
             source_symbol,
 
+        "source":
+            source_name,
+
         "date":
             str(
                 rows[-1]["date"]
             ),
+
+        "historyRows":
+            len(rows),
+
+        "weeklyRows":
+            len(weekly_rows),
+
+        "monthlyRows":
+            len(monthly_rows),
 
         "daily":
             daily_score,
@@ -1284,6 +1910,7 @@ def build_all_regimes():
     ) in ASSETS.items():
 
         print()
+
         print(
             "=" * 60
         )
@@ -1302,9 +1929,11 @@ def build_all_regimes():
 
             result[
                 asset_key
-            ] = build_asset_regime(
-                asset_key,
-                config
+            ] = (
+                build_asset_regime(
+                    asset_key,
+                    config
+                )
             )
 
 
@@ -1330,6 +1959,12 @@ def build_all_regimes():
                 "available":
                     False,
 
+                "sourceSymbol":
+                    None,
+
+                "source":
+                    None,
+
                 "daily":
                     None,
 
@@ -1342,6 +1977,30 @@ def build_all_regimes():
                 "overall":
                     None,
 
+                "dailySignal":
+                    regime_label(
+                        None,
+                        config["type"]
+                    ),
+
+                "weeklySignal":
+                    regime_label(
+                        None,
+                        config["type"]
+                    ),
+
+                "monthlySignal":
+                    regime_label(
+                        None,
+                        config["type"]
+                    ),
+
+                "overallSignal":
+                    regime_label(
+                        None,
+                        config["type"]
+                    ),
+
                 "error":
                     str(exc)
             }
@@ -1353,22 +2012,15 @@ def build_all_regimes():
 # =========================================================
 # HEADER SCORE
 # =========================================================
-#
-# Existing header stays compatible.
-#
-# Header currently uses NIFTY 50 regime.
-#
-# Later, if desired, header can be changed to:
-# Midcap + Smallcap composite.
-#
-# =========================================================
 
 def get_header_scores(
     regimes
 ):
 
     nifty = (
-        regimes.get("nifty50")
+        regimes.get(
+            "nifty50"
+        )
         or {}
     )
 
@@ -1377,17 +2029,23 @@ def get_header_scores(
 
         "daily":
             safe_number(
-                nifty.get("daily")
+                nifty.get(
+                    "daily"
+                )
             ),
 
         "weekly":
             safe_number(
-                nifty.get("weekly")
+                nifty.get(
+                    "weekly"
+                )
             ),
 
         "monthly":
             safe_number(
-                nifty.get("monthly")
+                nifty.get(
+                    "monthly"
+                )
             )
     }
 
@@ -1398,10 +2056,6 @@ def get_header_scores(
 
 def main():
 
-    # =====================================================
-    # LOAD EXISTING META
-    # =====================================================
-
     if META_FILE.exists():
 
         with open(
@@ -1410,7 +2064,9 @@ def main():
             encoding="utf-8"
         ) as file:
 
-            meta = json.load(file)
+            meta = json.load(
+                file
+            )
 
     else:
 
@@ -1418,17 +2074,20 @@ def main():
 
 
     print()
+
     print(
         "Building multi-asset "
         "market regime..."
     )
 
 
-    regimes = build_all_regimes()
+    regimes = (
+        build_all_regimes()
+    )
 
 
     # =====================================================
-    # FULL MULTI-TIMEFRAME VIEW
+    # MULTI TIMEFRAME VIEW
     # =====================================================
 
     meta[
@@ -1437,7 +2096,7 @@ def main():
 
 
     # =====================================================
-    # HEADER BACKWARD COMPATIBILITY
+    # HEADER COMPATIBILITY
     # =====================================================
 
     header_scores = (
@@ -1450,21 +2109,27 @@ def main():
     meta[
         "dailyRegimeScore"
     ] = (
-        header_scores["daily"]
+        header_scores[
+            "daily"
+        ]
     )
 
 
     meta[
         "weeklyRegimeScore"
     ] = (
-        header_scores["weekly"]
+        header_scores[
+            "weekly"
+        ]
     )
 
 
     meta[
         "monthlyRegimeScore"
     ] = (
-        header_scores["monthly"]
+        header_scores[
+            "monthly"
+        ]
     )
 
 
@@ -1473,18 +2138,58 @@ def main():
     ] = {
 
         "daily":
-            header_scores["daily"],
+            header_scores[
+                "daily"
+            ],
 
         "weekly":
-            header_scores["weekly"],
+            header_scores[
+                "weekly"
+            ],
 
         "monthly":
-            header_scores["monthly"]
+            header_scores[
+                "monthly"
+            ]
     }
 
 
     # =====================================================
-    # SOURCE / METHOD
+    # MARKET REGIME DATE
+    # =====================================================
+
+    available_dates = []
+
+
+    for asset in (
+        regimes.values()
+    ):
+
+        date_value = (
+            asset.get(
+                "date"
+            )
+        )
+
+
+        if date_value:
+
+            available_dates.append(
+                date_value
+            )
+
+
+    if available_dates:
+
+        meta[
+            "marketRegimeDate"
+        ] = max(
+            available_dates
+        )
+
+
+    # =====================================================
+    # METHOD
     # =====================================================
 
     meta[
@@ -1493,6 +2198,18 @@ def main():
 
         "scoreRange":
             "0-100",
+
+        "equityPrimarySource":
+            (
+                "Official Nifty Indices "
+                "historical data"
+            ),
+
+        "equityFallbackSource":
+            "Yahoo Finance",
+
+        "goldSource":
+            "Yahoo Finance GC=F",
 
         "daily":
             (
@@ -1518,9 +2235,15 @@ def main():
             ),
 
         "overallWeights": {
-            "daily": 20,
-            "weekly": 30,
-            "monthly": 50
+
+            "daily":
+                20,
+
+            "weekly":
+                30,
+
+            "monthly":
+                50
         },
 
         "bands": {
@@ -1549,6 +2272,7 @@ def main():
     meta[
         "marketRegimeGeneratedAt"
     ] = (
+
         datetime.now(
             timezone.utc
         )
@@ -1573,9 +2297,13 @@ def main():
     ) as file:
 
         json.dump(
+
             meta,
+
             file,
+
             indent=2,
+
             ensure_ascii=False
         )
 
@@ -1585,6 +2313,7 @@ def main():
     # =====================================================
 
     print()
+
     print(
         "=" * 60
     )
@@ -1612,12 +2341,38 @@ def main():
             )
         )
 
+
+        print(
+            "  Source :",
+            asset.get(
+                "source"
+            )
+        )
+
+
         print(
             "  Symbol :",
             asset.get(
                 "sourceSymbol"
             )
         )
+
+
+        print(
+            "  Rows   :",
+            asset.get(
+                "historyRows"
+            )
+        )
+
+
+        print(
+            "  Date   :",
+            asset.get(
+                "date"
+            )
+        )
+
 
         print(
             "  Daily  :",
@@ -1626,6 +2381,7 @@ def main():
             )
         )
 
+
         print(
             "  Weekly :",
             asset.get(
@@ -1633,12 +2389,14 @@ def main():
             )
         )
 
+
         print(
             "  Monthly:",
             asset.get(
                 "monthly"
             )
         )
+
 
         print(
             "  Overall:",
@@ -1648,7 +2406,9 @@ def main():
         )
 
 
-        if asset.get("error"):
+        if asset.get(
+            "error"
+        ):
 
             print(
                 "  Error  :",
@@ -1659,15 +2419,19 @@ def main():
 
 
     print()
+
     print(
         "Header regime:"
     )
+
 
     print(
         header_scores
     )
 
+
     print()
+
     print(
         "Market regime saved to:",
         META_FILE
