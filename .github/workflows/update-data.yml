@@ -31,6 +31,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -77,9 +79,21 @@ jobs:
 
           git add data/
 
-          git diff --cached --quiet || git commit -m "Daily NSE data refresh"
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
 
-          git push
+          git commit -m "Daily NSE data refresh"
+
+          echo "Fetching latest remote main..."
+          git fetch origin main
+
+          echo "Rebasing data commit on latest remote main..."
+          git rebase origin/main
+
+          echo "Pushing updated data..."
+          git push origin HEAD:main
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
