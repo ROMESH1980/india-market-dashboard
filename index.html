@@ -89,7 +89,7 @@
 
 
         <p>
-          Market Cap • Delivery • Sector Growth •
+          Market Cap • Turnover • Delivery • Sector Growth •
           Stock Growth • RS Rating • T+M+VM • G+F+C • Overall
         </p>
 
@@ -196,10 +196,6 @@
       </button>
 
 
-      <!-- =========================
-           DOWNLOAD FORMAT
-      ========================== -->
-
       <select
         id="downloadFormat"
         aria-label="Select download format"
@@ -223,10 +219,6 @@
         Download
       </button>
 
-
-      <!-- =========================
-           PAGINATION
-      ========================== -->
 
       <div class="pagination toolbar-pagination">
 
@@ -335,6 +327,18 @@
 
             <th>
               Today Volume
+            </th>
+
+
+            <!-- NEW: TODAY TURNOVER -->
+
+            <th>
+              Today Turnover
+              <br>
+
+              <small>
+                ₹ Cr
+              </small>
             </th>
 
 
@@ -566,6 +570,40 @@
                   min="0"
                   step="100000"
                   placeholder="Above Vol"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- NEW: TODAY TURNOVER -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeTodayTurnover"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveTodayTurnover"
+                  type="number"
+                  min="0"
+                  step="1"
+                  placeholder="Above ₹ Cr"
                 >
 
               </div>
