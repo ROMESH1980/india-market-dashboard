@@ -3417,13 +3417,40 @@ document.addEventListener(
 ===================================================== */
 
 function exportNumber(value) {
-  const n = num(value);
 
-  return n === null
-    ? ""
-    : n;
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
+    return "";
+  }
+
+  if (typeof value === "number") {
+    return Number.isFinite(value)
+      ? value
+      : "";
+  }
+
+  const cleaned =
+    String(value)
+      .replace(/,/g, "")
+      .replace(/₹/g, "")
+      .replace(/\s*Cr\s*/gi, "")
+      .replace(/%/g, "")
+      .replace(/x/gi, "")
+      .trim();
+
+  if (!cleaned) {
+    return "";
+  }
+
+  const n = Number(cleaned);
+
+  return Number.isFinite(n)
+    ? n
+    : "";
 }
-
 
 function exportStockGrowthPeriod() {
   return (
