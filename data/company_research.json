@@ -445,7 +445,7 @@
     },
     "ADANIENT": {
       "tailwindScore": 62.0,
-      "futureGrowth": 77.33,
+      "futureGrowth": 77.55,
       "fundamentalQuality": 51.41,
       "capexScore": 90.0,
       "researchReasons": {
@@ -484,7 +484,7 @@
     },
     "ADANIPOWER": {
       "tailwindScore": 90.0,
-      "futureGrowth": 88.13,
+      "futureGrowth": 88.09,
       "fundamentalQuality": 82.67,
       "capexScore": 90.0,
       "researchReasons": {
@@ -874,7 +874,7 @@
     },
     "CPPLUS": {
       "tailwindScore": 88.0,
-      "futureGrowth": 92.19,
+      "futureGrowth": 92.13,
       "fundamentalQuality": 76.25,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1303,7 +1303,7 @@
     },
     "ABLBL": {
       "tailwindScore": 70.0,
-      "futureGrowth": 74.71,
+      "futureGrowth": 74.55,
       "fundamentalQuality": 34.41,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1342,7 +1342,7 @@
     },
     "ANANTRAJ": {
       "tailwindScore": 72.0,
-      "futureGrowth": 69.04,
+      "futureGrowth": 69.01,
       "fundamentalQuality": 92.25,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1420,7 +1420,7 @@
     },
     "ANGELONE": {
       "tailwindScore": 78.0,
-      "futureGrowth": 87.36,
+      "futureGrowth": 87.06,
       "fundamentalQuality": 68.22,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1459,7 +1459,7 @@
     },
     "ANTHEM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 35.79,
+      "futureGrowth": 35.67,
       "fundamentalQuality": 98.64,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1693,7 +1693,7 @@
     },
     "ASAHIINDIA": {
       "tailwindScore": 80.0,
-      "futureGrowth": 83.21,
+      "futureGrowth": 83.16,
       "fundamentalQuality": 69.08,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1771,7 +1771,7 @@
     },
     "APARINDS": {
       "tailwindScore": 88.0,
-      "futureGrowth": 88.22,
+      "futureGrowth": 88.1,
       "fundamentalQuality": 69.8,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1810,7 +1810,7 @@
     },
     "ASIANPAINT": {
       "tailwindScore": 70.0,
-      "futureGrowth": 83.49,
+      "futureGrowth": 83.54,
       "fundamentalQuality": 79.22,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1849,7 +1849,7 @@
     },
     "ASTERDM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 39.95,
+      "futureGrowth": 40.04,
       "fundamentalQuality": 68.2,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1901,19 +1901,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 88.8%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin -9.2%, operating margin -5.9%, debt/equity 25.8.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 15.87× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -1923,11 +1923,11 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ASTRAL": {
       "tailwindScore": 88.0,
-      "futureGrowth": 84.6,
+      "futureGrowth": 84.61,
       "fundamentalQuality": 73.78,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1940,19 +1940,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 15.9%, earnings growth 48.0%, quarterly earnings growth 48.0%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 8.5%, operating margin 9.9%, debt/equity 6.2.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -1962,7 +1962,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATUL": {
       "tailwindScore": 76.0,
@@ -22792,7 +22792,7 @@
     },
     "AGI": {
       "tailwindScore": 70.0,
-      "futureGrowth": 68.46,
+      "futureGrowth": 68.41,
       "fundamentalQuality": 80.16,
       "capexScore": 90.0,
       "researchReasons": {
@@ -23221,7 +23221,7 @@
     },
     "AJMERA": {
       "tailwindScore": 72.0,
-      "futureGrowth": 73.82,
+      "futureGrowth": 73.9,
       "fundamentalQuality": 80.69,
       "capexScore": 80.0,
       "researchReasons": {
@@ -24157,7 +24157,7 @@
     },
     "ADSL": {
       "tailwindScore": 75.0,
-      "futureGrowth": 51.57,
+      "futureGrowth": 51.54,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -25327,7 +25327,7 @@
     },
     "PARKHOTELS": {
       "tailwindScore": 70.0,
-      "futureGrowth": 47.42,
+      "futureGrowth": 47.37,
       "fundamentalQuality": 73.42,
       "capexScore": 90.0,
       "researchReasons": {
@@ -26341,7 +26341,7 @@
     },
     "ARVINDFASN": {
       "tailwindScore": 70.0,
-      "futureGrowth": 43.14,
+      "futureGrowth": 43.06,
       "fundamentalQuality": 47.48,
       "capexScore": 70.0,
       "researchReasons": {
@@ -27173,19 +27173,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 3.5%, earnings growth 33.3%, quarterly earnings growth 51.6%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 5.7%, operating margin 14.3%, debt/equity 4.4.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27195,7 +27195,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ASTRAZEN": {
       "tailwindScore": 82.0,
@@ -27212,19 +27212,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 29.7%, earnings growth -32.1%, quarterly earnings growth -32.1%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 7.0%, operating margin 6.4%, debt/equity 12.7.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27234,7 +27234,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ASTRON": {
       "tailwindScore": null,
@@ -27251,19 +27251,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth -92.4%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on ROE -26.6%, profit margin 0.0%, operating margin -5929.4%, debt/equity 113.1, current ratio 0.58, positive free cash flow, positive operating cash flow.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.00× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27273,7 +27273,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATAM": {
       "tailwindScore": 88.0,
@@ -27290,19 +27290,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth -0.7%, earnings growth -49.1%, quarterly earnings growth -48.7%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 3.8%, operating margin 7.8%, debt/equity 39.3.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-04",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.90× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27312,7 +27312,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATULAUTO": {
       "tailwindScore": 70.0,
@@ -27368,19 +27368,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 26.2%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin -6.5%, operating margin -13.9%, debt/equity 148.3.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27390,11 +27390,11 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATLANTAELE": {
       "tailwindScore": 90.0,
-      "futureGrowth": 89.47,
+      "futureGrowth": 89.53,
       "fundamentalQuality": 78.19,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27407,19 +27407,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth 48.0%, quarterly earnings growth 50.4%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin 10.9%, operating margin 14.4%, debt/equity 5.5.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.63× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-03",
+          "sourceDate": "2026-09-05",
           "mode": "AUTOMATED"
         }
       },
@@ -27429,7 +27429,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ATLASCYCLE": {
       "tailwindScore": 70.0,
