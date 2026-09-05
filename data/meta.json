@@ -47,7 +47,11 @@
       "type": "equity",
       "available": true,
       "sourceSymbol": "^NSEI",
+      "source": "Yahoo Finance",
       "date": "2026-09-04",
+      "historyRows": 1236,
+      "weeklyRows": 261,
+      "monthlyRows": 61,
       "daily": 43,
       "weekly": 53,
       "monthly": 24,
@@ -123,7 +127,11 @@
       "type": "equity",
       "available": true,
       "sourceSymbol": "NIFTY_MIDCAP_100.NS",
+      "source": "Yahoo Finance",
       "date": "2026-07-17",
+      "historyRows": 1195,
+      "weeklyRows": 254,
+      "monthlyRows": 59,
       "daily": 78,
       "weekly": 83,
       "monthly": 65,
@@ -199,6 +207,7 @@
       "type": "equity",
       "available": false,
       "sourceSymbol": null,
+      "source": null,
       "date": null,
       "daily": null,
       "weekly": null,
@@ -224,13 +233,14 @@
         "signal": "pending",
         "emoji": "⚪"
       },
-      "error": "NIFTY_SMLCAP_100.NS: Insufficient history for NIFTY_SMLCAP_100.NS: 0 rows | ^CNXSC: Insufficient history for ^CNXSC: 1 rows"
+      "error": "Nifty Indices NIFTY SMALLCAP 100: Expecting value: line 1 column 2 (char 1) | Yahoo ^CNXSC: Insufficient Yahoo history for ^CNXSC: 1 rows | Yahoo NIFTY_SMLCAP_100.NS: Insufficient Yahoo history for NIFTY_SMLCAP_100.NS: 0 rows"
     },
     "sme": {
       "name": "NIFTY SME Emerge",
       "type": "equity",
       "available": false,
       "sourceSymbol": null,
+      "source": null,
       "date": null,
       "daily": null,
       "weekly": null,
@@ -256,14 +266,18 @@
         "signal": "pending",
         "emoji": "⚪"
       },
-      "error": "NIFTY_SME_EMERGE.NS: Insufficient history for NIFTY_SME_EMERGE.NS: 1 rows | ^NIFTYSME: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/%5ENIFTYSME?range=5y&interval=1d&events=history&includeAdjustedClose=true"
+      "error": "Nifty Indices NIFTY SME EMERGE: Expecting value: line 1 column 2 (char 1)"
     },
     "gold": {
       "name": "GOLD",
       "type": "gold",
       "available": true,
       "sourceSymbol": "GC=F",
+      "source": "Yahoo Finance",
       "date": "2026-09-04",
+      "historyRows": 1257,
+      "weeklyRows": 261,
+      "monthlyRows": 61,
       "daily": 50,
       "weekly": 57,
       "monthly": 65,
@@ -343,8 +357,12 @@
     "weekly": 53.0,
     "monthly": 24.0
   },
+  "marketRegimeDate": "2026-09-04",
   "marketRegimeMethod": {
     "scoreRange": "0-100",
+    "equityPrimarySource": "Official Nifty Indices historical data",
+    "equityFallbackSource": "Yahoo Finance",
+    "goldSource": "Yahoo Finance GC=F",
     "daily": "20DMA / 50DMA / 5-day momentum / RSI / 20-day high",
     "weekly": "10-week MA / 30-week MA / 4-week momentum / RSI / 13-week high",
     "monthly": "6-month MA / 10-month MA / 3-month momentum / RSI / 12-month high",
@@ -362,5 +380,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-05T07:49:15.972846+00:00"
+  "marketRegimeGeneratedAt": "2026-09-05T10:18:54.652760+00:00"
 }
