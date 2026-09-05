@@ -1894,3 +1894,114 @@ button {
   }
 
 }
+/* =====================================================
+   TOP TOOLBAR PAGINATION
+===================================================== */
+
+.toolbar-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 6px;
+
+  margin: 0 0 0 6px;
+  padding: 0;
+}
+
+
+/* Previous / Next */
+
+.toolbar-pagination button {
+  height: 30px;
+
+  padding: 5px 10px;
+
+  border: 1px solid #a8b2c0;
+  border-radius: 3px;
+
+  background: #f1f1f1;
+  color: #111111;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* Disabled button */
+
+.toolbar-pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+
+/* Page 1 of 11 */
+
+.toolbar-pagination span {
+  min-width: 88px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* Go-to-page input */
+
+.toolbar-pagination input {
+  width: 58px;
+  height: 30px;
+
+  padding: 4px 5px;
+
+  border: 1px solid #41546d;
+  border-radius: 3px;
+
+  background: #0b1627;
+  color: #ffffff;
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+
+/* Remove number input arrows where supported */
+
+.toolbar-pagination input::-webkit-inner-spin-button,
+.toolbar-pagination input::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+
+/* Keep toolbar items aligned */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar-pagination {
+    margin-left: 0;
+  }
+
+}
