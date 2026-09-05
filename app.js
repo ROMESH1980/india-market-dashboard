@@ -239,6 +239,121 @@ function qualifiesHighVolumeMove(row) {
 
 
 /* =====================================================
+   RS RATING
+===================================================== */
+
+function rsRating(row) {
+  const rating = num(row.rsRating);
+
+  if (rating === null) {
+    return null;
+  }
+
+  return Math.max(
+    1,
+    Math.min(
+      99,
+      Math.round(rating)
+    )
+  );
+}
+
+
+function rsRatingLabel(value) {
+  const rating = num(value);
+
+  if (rating === null) {
+    return "Pending";
+  }
+
+  if (rating >= 90) {
+    return "Elite";
+  }
+
+  if (rating >= 80) {
+    return "Leader";
+  }
+
+  if (rating >= 70) {
+    return "Strong";
+  }
+
+  if (rating >= 50) {
+    return "Average";
+  }
+
+  if (rating >= 30) {
+    return "Weak";
+  }
+
+  return "Very Weak";
+}
+
+
+function rsRatingClass(value) {
+  const rating = num(value);
+
+  if (rating === null) {
+    return "rs-pending";
+  }
+
+  if (rating >= 90) {
+    return "rs-elite";
+  }
+
+  if (rating >= 80) {
+    return "rs-leader";
+  }
+
+  if (rating >= 70) {
+    return "rs-strong";
+  }
+
+  if (rating >= 50) {
+    return "rs-average";
+  }
+
+  if (rating >= 30) {
+    return "rs-weak";
+  }
+
+  return "rs-very-weak";
+}
+
+
+function rsRatingVal(row) {
+  const rating = rsRating(row);
+
+  if (rating === null) {
+    return `
+      <span class="pending">
+        Pending
+      </span>
+    `;
+  }
+
+  const label =
+    row.rsLabel ||
+    rsRatingLabel(rating);
+
+  const cls =
+    rsRatingClass(rating);
+
+  return `
+    <div class="rs-rating ${cls}">
+      <strong>
+        ${rating}
+      </strong>
+
+      <small>
+        ${escapeHtml(label)}
+      </small>
+    </div>
+  `;
+}
+
+
+/* =====================================================
    STOCK GROWTH
 ===================================================== */
 
@@ -1022,6 +1137,30 @@ function passesFilters(row) {
   }
 
 
+  /* =========================
+     RS RATING FILTER
+  ========================== */
+
+  if (checked("activeRS")) {
+    const threshold =
+      inputNumber("aboveRS");
+
+    const value =
+      rsRating(row);
+
+    if (value === null) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
   if (checked("activeSector")) {
     const value =
       el("sectorFilter")?.value ||
@@ -1203,6 +1342,9 @@ function sortValue(
         num(row.changePct) || 0
       );
 
+    case "rsRating":
+      return rsRating(row);
+
     case "sectorGrowth1M":
       return num(row.sectorGrowth1M);
 
@@ -1352,6 +1494,9 @@ const sortFieldByActiveCheckbox = {
 
   activeHighVolMove:
     "highVolMove",
+
+  activeRS:
+    "rsRating",
 
   activeSectorGrowth:
     "sectorGrowth1M",
@@ -1709,6 +1854,11 @@ function renderRows() {
 
 
             <td>
+              ${rsRatingVal(row)}
+            </td>
+
+
+            <td>
               ${sector}
             </td>
 
@@ -1908,6 +2058,7 @@ function setupFilterEvents() {
     "above5DDelivery",
     "aboveDeliveryRatio",
     "aboveDeliveryPct",
+    "aboveRS",
     "aboveSectorGrowth",
     "aboveStockGrowth",
     "aboveTMV",
@@ -3077,6 +3228,16 @@ async function init() {
       multiTimeframeMarketView
     );
 
+    const rsReady =
+      allStocks.filter(
+        row =>
+          rsRating(row) !== null
+      ).length;
+
+    console.log(
+      `RS Rating ready: ${rsReady}/${allStocks.length}`
+    );
+
   } catch (error) {
     console.error(
       "Dashboard load error:",
@@ -3089,7 +3250,7 @@ async function init() {
           <tr>
 
             <td
-              colspan="17"
+              colspan="18"
               class="error-cell"
             >
 
