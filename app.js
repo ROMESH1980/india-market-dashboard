@@ -92,6 +92,28 @@ function totalVolume(row) {
 
 
 /* =====================================================
+   TODAY TURNOVER (APPROX ₹ CR)
+===================================================== */
+
+function todayTurnoverCr(row) {
+  const price = num(row.price);
+  const volume = totalVolume(row);
+
+  if (
+    price === null ||
+    volume === null
+  ) {
+    return null;
+  }
+
+  return (
+    price *
+    volume
+  ) / 10000000;
+}
+
+
+/* =====================================================
    TODAY DELIVERY VOLUME
 ===================================================== */
 
@@ -391,6 +413,27 @@ function formatNumber(value) {
       maximumFractionDigits: 0
     }
   );
+}
+
+
+function formatTurnoverCr(value) {
+  const n = num(value);
+
+  if (n === null) {
+    return `
+      <span class="pending">
+        —
+      </span>
+    `;
+  }
+
+  return `₹${n.toLocaleString(
+    "en-IN",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  )} Cr`;
 }
 
 
@@ -1041,6 +1084,28 @@ function passesFilters(row) {
   }
 
 
+  if (checked("activeTodayTurnover")) {
+    const threshold =
+      inputNumber(
+        "aboveTodayTurnover"
+      );
+
+    const value =
+      todayTurnoverCr(row);
+
+    if (value === null) {
+      return false;
+    }
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+  }
+
+
   if (checked("activeTodayDelivery")) {
     const threshold =
       inputNumber(
@@ -1292,8 +1357,6 @@ function passesFilters(row) {
 
   return true;
 }
-
-
 /* =====================================================
    SORT VALUES
 ===================================================== */
@@ -1314,6 +1377,9 @@ function sortValue(
 
     case "todayVolume":
       return totalVolume(row);
+
+    case "todayTurnoverCr":
+      return todayTurnoverCr(row);
 
     case "todayDeliveryVolume":
       return todayDeliveryVolume(row);
@@ -1475,6 +1541,9 @@ const sortFieldByActiveCheckbox = {
 
   activeTodayVolume:
     "todayVolume",
+
+  activeTodayTurnover:
+    "todayTurnoverCr",
 
   activeTodayDelivery:
     "todayDeliveryVolume",
@@ -1740,8 +1809,13 @@ function renderRows() {
         const volume =
           totalVolume(row);
 
+        const turnover =
+          todayTurnoverCr(row);
+
         return `
           <tr>
+
+            <!-- STOCK -->
 
             <td>
               <div class="stock-cell">
@@ -1764,20 +1838,28 @@ function renderRows() {
             </td>
 
 
+            <!-- MARKET CAP -->
+
             <td>
               ${marketCapVal(row)}
             </td>
 
+
+            <!-- PRICE -->
 
             <td>
               ${formatPrice(row.price)}
             </td>
 
 
+            <!-- CHANGE -->
+
             <td>
               ${formatPct(row.changePct)}
             </td>
 
+
+            <!-- TODAY VOLUME -->
 
             <td>
               ${
@@ -1791,6 +1873,17 @@ function renderRows() {
               }
             </td>
 
+
+            <!-- TODAY TURNOVER -->
+
+            <td>
+              ${formatTurnoverCr(
+                turnover
+              )}
+            </td>
+
+
+            <!-- TODAY DELIVERY -->
 
             <td>
               ${
@@ -1807,6 +1900,8 @@ function renderRows() {
             </td>
 
 
+            <!-- 5D AVG DELIVERY -->
+
             <td>
               ${
                 avg5DayDelivery(row) === null
@@ -1822,12 +1917,16 @@ function renderRows() {
             </td>
 
 
+            <!-- DELIVERY TIMES -->
+
             <td>
               ${formatTimes(
                 deliveryTimes(row)
               )}
             </td>
 
+
+            <!-- DELIVERY % -->
 
             <td>
               ${formatPlainPct(
@@ -1836,25 +1935,35 @@ function renderRows() {
             </td>
 
 
+            <!-- 5L + 5% MOVE -->
+
             <td>
               ${highVolumeMoveVal(row)}
             </td>
 
+
+            <!-- RS RATING -->
 
             <td>
               ${rsRatingVal(row)}
             </td>
 
 
+            <!-- SECTOR -->
+
             <td>
               ${sector}
             </td>
 
 
+            <!-- INDUSTRY -->
+
             <td>
               ${industry}
             </td>
 
+
+            <!-- SECTOR GROWTH -->
 
             <td>
               ${formatPct(
@@ -1863,12 +1972,16 @@ function renderRows() {
             </td>
 
 
+            <!-- STOCK GROWTH -->
+
             <td>
               ${formatPct(
                 stockGrowth
               )}
             </td>
 
+
+            <!-- T + M + VM -->
 
             <td>
               ${researchScoreButton(
@@ -1879,6 +1992,8 @@ function renderRows() {
             </td>
 
 
+            <!-- G + F + C -->
+
             <td>
               ${researchScoreButton(
                 globalIndex,
@@ -1887,6 +2002,8 @@ function renderRows() {
               )}
             </td>
 
+
+            <!-- OVERALL -->
 
             <td>
               <strong class="overall-score">
@@ -2034,6 +2151,7 @@ function setupFilterEvents() {
     "abovePrice",
     "aboveChange",
     "aboveTodayVolume",
+    "aboveTodayTurnover",
     "aboveTodayDelivery",
     "above5DDelivery",
     "aboveDeliveryRatio",
@@ -2152,8 +2270,6 @@ function resetFilters() {
 
   renderRows();
 }
-
-
 /* =====================================================
    PAGINATION
 ===================================================== */
@@ -2164,11 +2280,8 @@ function setupPagination() {
       "click",
       () => {
         if (currentPage > 1) {
-          currentPage--;
-
+          currentPage -= 1;
           renderRows();
-
-          scrollTableTop();
         }
       }
     );
@@ -2190,11 +2303,8 @@ function setupPagination() {
           currentPage <
           totalPages
         ) {
-          currentPage++;
-
+          currentPage += 1;
           renderRows();
-
-          scrollTableTop();
         }
       }
     );
@@ -2205,7 +2315,7 @@ function setupPagination() {
       () => {
         const requested =
           Number(
-            el("gotoPage").value
+            el("gotoPage")?.value
           );
 
         const totalPages =
@@ -2222,66 +2332,56 @@ function setupPagination() {
         ) {
           currentPage =
             Math.min(
+              totalPages,
               Math.max(
                 1,
                 Math.floor(requested)
-              ),
-              totalPages
+              )
             );
 
           renderRows();
+        }
 
-          scrollTableTop();
+        if (el("gotoPage")) {
+          el("gotoPage").value =
+            "";
         }
       }
     );
 }
 
 
-function scrollTableTop() {
-  const wrap =
-    el("tableWrap");
-
-  if (wrap) {
-    wrap.scrollTop = 0;
-  }
-}
-
-
 /* =====================================================
-   TOP SCROLLBAR
+   TOP HORIZONTAL SCROLLBAR
 ===================================================== */
 
 function syncTopScrollbar() {
   const topScroll =
     el("topScroll");
 
-  const topInner =
+  const topScrollInner =
     el("topScrollInner");
 
   const tableWrap =
     el("tableWrap");
 
-  const table =
-    tableWrap?.querySelector(
-      "table"
-    );
-
   if (
     !topScroll ||
-    !topInner ||
-    !tableWrap ||
-    !table
+    !topScrollInner ||
+    !tableWrap
   ) {
     return;
   }
 
-  topInner.style.width =
-    `${table.scrollWidth}px`;
+  topScrollInner.style.width =
+    `${tableWrap.scrollWidth}px`;
+
+  topScroll.scrollLeft =
+    tableWrap.scrollLeft;
 }
 
 
-function setupScrollSync() {
+function setupTopScrollbar() {
   const topScroll =
     el("topScroll");
 
@@ -2295,37 +2395,45 @@ function setupScrollSync() {
     return;
   }
 
-  let syncing = false;
+  let syncingFromTop =
+    false;
+
+  let syncingFromTable =
+    false;
 
   topScroll.addEventListener(
     "scroll",
     () => {
-      if (syncing) {
+      if (syncingFromTable) {
         return;
       }
 
-      syncing = true;
+      syncingFromTop =
+        true;
 
       tableWrap.scrollLeft =
         topScroll.scrollLeft;
 
-      syncing = false;
+      syncingFromTop =
+        false;
     }
   );
 
   tableWrap.addEventListener(
     "scroll",
     () => {
-      if (syncing) {
+      if (syncingFromTop) {
         return;
       }
 
-      syncing = true;
+      syncingFromTable =
+        true;
 
       topScroll.scrollLeft =
         tableWrap.scrollLeft;
 
-      syncing = false;
+      syncingFromTable =
+        false;
     }
   );
 
@@ -2337,7 +2445,45 @@ function setupScrollSync() {
 
 
 /* =====================================================
-   MARKET SIGNAL HELPERS
+   STANDARD MODAL EVENTS
+===================================================== */
+
+function setupReasonModalEvents() {
+  el("closeReasonModal")
+    ?.addEventListener(
+      "click",
+      closeReasonModal
+    );
+
+  el("reasonModal")
+    ?.addEventListener(
+      "click",
+      event => {
+        if (
+          event.target ===
+          el("reasonModal")
+        ) {
+          closeReasonModal();
+        }
+      }
+    );
+
+  document.addEventListener(
+    "keydown",
+    event => {
+      if (
+        event.key ===
+        "Escape"
+      ) {
+        closeReasonModal();
+      }
+    }
+  );
+}
+
+
+/* =====================================================
+   MARKET VIEW REGIME HELPERS
 ===================================================== */
 
 function getEquityRegime(score) {
@@ -2345,56 +2491,57 @@ function getEquityRegime(score) {
 
   if (n === null) {
     return {
-      text: "Pending",
-      emoji: "⚪",
-      className: "market-signal-pending"
+      label: "Pending",
+      icon: "⚪",
+      action: "Data pending"
     };
   }
 
   if (n >= 75) {
     return {
-      text: "Aggressive Stocks",
-      emoji: "🟢🟢",
-      className: "market-signal-aggressive"
+      label: "Strong Risk-ON",
+      icon: "🟢🟢",
+      action: "Aggressive Stocks"
     };
   }
 
   if (n >= 65) {
     return {
-      text: "Stocks Overweight",
-      emoji: "🟢",
-      className: "market-signal-overweight"
+      label: "Risk-ON",
+      icon: "🟢",
+      action: "Stocks overweight"
     };
   }
 
   if (n >= 55) {
     return {
-      text: "Selective Buying",
-      emoji: "🟢",
-      className: "market-signal-selective"
+      label: "Mild Risk-ON",
+      icon: "🟢",
+      action: "Selective buying"
     };
   }
 
   if (n >= 45) {
     return {
-      text: "Warning",
-      emoji: "🟡",
-      className: "market-signal-warning"
+      label: "Warning",
+      icon: "🟡",
+      action: "New buying reduce"
     };
   }
 
   if (n >= 35) {
     return {
-      text: "Equity Reduce",
-      emoji: "🟠",
-      className: "market-signal-reduce"
+      label: "Risk-OFF",
+      icon: "🟠",
+      action: "Equity exposure reduce"
     };
   }
 
   return {
-    text: "Defensive",
-    emoji: "🔴",
-    className: "market-signal-defensive"
+    label: "Strong Risk-OFF",
+    icon: "🔴",
+    action:
+      "Capital protection / G-Sec / Gold / Cash"
   };
 }
 
@@ -2404,95 +2551,85 @@ function getGoldRegime(score) {
 
   if (n === null) {
     return {
-      text: "Pending",
-      emoji: "⚪",
-      className: "market-signal-pending"
+      label: "Pending",
+      icon: "⚪",
+      action: "Data pending"
     };
   }
 
   if (n >= 75) {
     return {
-      text: "Very Strong",
-      emoji: "🟢🟢",
-      className: "market-signal-aggressive"
+      label: "Strong Positive",
+      icon: "🟢🟢",
+      action: "Strong Gold preference"
     };
   }
 
   if (n >= 65) {
     return {
-      text: "Strong",
-      emoji: "🟢",
-      className: "market-signal-overweight"
+      label: "Positive",
+      icon: "🟢",
+      action: "Gold overweight"
     };
   }
 
   if (n >= 55) {
     return {
-      text: "Positive",
-      emoji: "🟢",
-      className: "market-signal-selective"
+      label: "Mild Positive",
+      icon: "🟢",
+      action: "Selective Gold allocation"
     };
   }
 
   if (n >= 45) {
     return {
-      text: "Neutral / Cautious",
-      emoji: "🟡",
-      className: "market-signal-warning"
+      label: "Neutral",
+      icon: "🟡",
+      action: "Balanced allocation"
     };
   }
 
   if (n >= 35) {
     return {
-      text: "Weak / Correction",
-      emoji: "🟠",
-      className: "market-signal-reduce"
+      label: "Weak",
+      icon: "🟠",
+      action: "Gold exposure reduce"
     };
   }
 
   return {
-    text: "Weak",
-    emoji: "🔴",
-    className: "market-signal-defensive"
+    label: "Strong Weakness",
+    icon: "🔴",
+    action: "Avoid overweight Gold"
   };
 }
 
 
-function getAssetRegime(
-  score,
-  assetType
-) {
-  if (assetType === "gold") {
-    return getGoldRegime(score);
-  }
-
-  return getEquityRegime(score);
-}
-
-
 /* =====================================================
-   HEADER MONTHLY / WEEKLY / DAILY
+   MARKET VIEW SCORE HELPERS
 ===================================================== */
 
-function averageMarketViewScore(
-  timeframe
-) {
-  const segments = [
-    multiTimeframeMarketView?.nifty50,
-    multiTimeframeMarketView?.midcap100,
-    multiTimeframeMarketView?.smallcap100
-  ];
+function marketViewOverallScore(item) {
+  if (!item) {
+    return null;
+  }
 
-  const values =
-    segments
-      .map(
-        segment =>
-          num(segment?.[timeframe])
-      )
-      .filter(
-        value =>
-          value !== null
-      );
+  const direct =
+    num(item.overall);
+
+  if (direct !== null) {
+    return direct;
+  }
+
+  const values = [
+    num(item.daily),
+    num(item.weekly),
+    num(item.monthly)
+  ]
+    .filter(
+      value =>
+        value !== null
+    );
 
   if (!values.length) {
     return null;
@@ -2509,123 +2646,34 @@ function averageMarketViewScore(
 }
 
 
-function regimeCardClass(score) {
-  const n = num(score);
+function averageMarketViewScore() {
+  const candidates = [
+    multiTimeframeMarketView.nifty50,
+    multiTimeframeMarketView.midcap100,
+    multiTimeframeMarketView.smallcap100
+  ];
 
-  if (n === null) {
-    return "regime-pending";
+  const scores =
+    candidates
+      .map(
+        marketViewOverallScore
+      )
+      .filter(
+        value =>
+          value !== null
+      );
+
+  if (!scores.length) {
+    return null;
   }
 
-  if (n >= 75) {
-    return "regime-aggressive";
-  }
-
-  if (n >= 65) {
-    return "regime-overweight";
-  }
-
-  if (n >= 55) {
-    return "regime-selective";
-  }
-
-  if (n >= 45) {
-    return "regime-warning";
-  }
-
-  if (n >= 35) {
-    return "regime-reduce";
-  }
-
-  return "regime-defensive";
-}
-
-
-function updateSingleRegimeCard(
-  timeframe,
-  cardId,
-  scoreId,
-  textId
-) {
-  const card =
-    el(cardId);
-
-  const scoreElement =
-    el(scoreId);
-
-  const textElement =
-    el(textId);
-
-  if (
-    !card ||
-    !scoreElement ||
-    !textElement
-  ) {
-    return;
-  }
-
-  const score =
-    averageMarketViewScore(
-      timeframe
-    );
-
-  card.classList.remove(
-    "regime-pending",
-    "regime-aggressive",
-    "regime-overweight",
-    "regime-selective",
-    "regime-warning",
-    "regime-reduce",
-    "regime-defensive"
-  );
-
-  card.classList.add(
-    regimeCardClass(score)
-  );
-
-  if (score === null) {
-    scoreElement.textContent =
-      "—";
-
-    textElement.textContent =
-      "Pending";
-
-    return;
-  }
-
-  const rounded =
-    Math.round(score);
-
-  const regime =
-    getEquityRegime(score);
-
-  scoreElement.textContent =
-    rounded;
-
-  textElement.textContent =
-    `${regime.emoji} ${regime.text}`;
-}
-
-
-function updateHeaderRegimeCards() {
-  updateSingleRegimeCard(
-    "monthly",
-    "monthlyRegime",
-    "monthlyRegimeScore",
-    "monthlyRegimeText"
-  );
-
-  updateSingleRegimeCard(
-    "weekly",
-    "weeklyRegime",
-    "weeklyRegimeScore",
-    "weeklyRegimeText"
-  );
-
-  updateSingleRegimeCard(
-    "daily",
-    "dailyRegime",
-    "dailyRegimeScore",
-    "dailyRegimeText"
+  return (
+    scores.reduce(
+      (sum, value) =>
+        sum + value,
+      0
+    ) /
+    scores.length
   );
 }
 
@@ -2635,154 +2683,78 @@ function updateHeaderRegimeCards() {
 ===================================================== */
 
 function updateMarketViewCard() {
-  const card =
-    el("marketViewCard");
-
-  const signal =
+  const signalEl =
     el("marketViewCardSignal");
 
-  if (
-    !card ||
-    !signal
-  ) {
+  if (!signalEl) {
     return;
   }
 
-  const nifty =
-    multiTimeframeMarketView?.nifty50 ||
-    {};
+  const averageScore =
+    averageMarketViewScore();
 
-  const midcap =
-    multiTimeframeMarketView?.midcap100 ||
-    {};
+  if (averageScore === null) {
+    signalEl.innerHTML =
+      `
+        <span class="market-view-dot market-view-dot-pending">
+        </span>
 
-  const smallcap =
-    multiTimeframeMarketView?.smallcap100 ||
-    {};
-
-  const values = [
-    num(nifty.overall),
-    num(midcap.overall),
-    num(smallcap.overall)
-  ].filter(
-    value =>
-      value !== null
-  );
-
-  if (!values.length) {
-    signal.textContent =
-      "Largecap • Midcap • Smallcap • SME • Gold";
+        Data Pending
+      `;
 
     return;
   }
-
-  const average =
-    values.reduce(
-      (sum, value) =>
-        sum + value,
-      0
-    ) /
-    values.length;
 
   const regime =
     getEquityRegime(
-      average
+      averageScore
     );
 
-  signal.textContent =
-    `${regime.emoji} ${regime.text}`;
+  signalEl.innerHTML =
+    `
+      <span
+        class="market-view-dot"
+        aria-hidden="true"
+      ></span>
+
+      ${escapeHtml(regime.action)}
+    `;
 }
 
 
 /* =====================================================
-   MARKET VIEW CELL
+   MARKET VIEW SIGNAL HTML
 ===================================================== */
 
 function marketViewSignalHtml(
   score,
-  signalData,
-  assetType
+  isGold = false
 ) {
-  const n =
-    num(score);
+  const n = num(score);
 
   if (n === null) {
     return `
-      <div class="market-view-score market-signal-pending">
-
-        <strong>
-          —
-        </strong>
-
-        <span>
-          ⚪ Pending
-        </span>
-
-      </div>
+      <span class="market-view-score pending">
+        —
+      </span>
     `;
   }
 
-  const fallback =
-    getAssetRegime(
-      n,
-      assetType
-    );
-
-  const emoji =
-    signalData?.emoji ||
-    fallback.emoji;
-
-  const label =
-    signalData?.label ||
-    fallback.text;
-
-  const signalName =
-    signalData?.signal ||
-    "";
-
-  let className =
-    fallback.className;
-
-  if (signalName === "aggressive") {
-    className =
-      "market-signal-aggressive";
-  } else if (
-    signalName === "overweight"
-  ) {
-    className =
-      "market-signal-overweight";
-  } else if (
-    signalName === "selective"
-  ) {
-    className =
-      "market-signal-selective";
-  } else if (
-    signalName === "warning"
-  ) {
-    className =
-      "market-signal-warning";
-  } else if (
-    signalName === "reduce"
-  ) {
-    className =
-      "market-signal-reduce";
-  } else if (
-    signalName === "defensive"
-  ) {
-    className =
-      "market-signal-defensive";
-  }
+  const regime =
+    isGold
+      ? getGoldRegime(n)
+      : getEquityRegime(n);
 
   return `
-    <div class="market-view-score ${className}">
+    <div class="market-view-signal-cell">
 
-      <strong>
+      <strong class="market-view-score">
         ${Math.round(n)}
       </strong>
 
-      <span>
-        ${escapeHtml(emoji)}
-        ${escapeHtml(label)}
+      <span class="market-view-regime">
+        ${regime.icon}
+        ${escapeHtml(regime.label)}
       </span>
 
     </div>
@@ -2791,94 +2763,83 @@ function marketViewSignalHtml(
 
 
 /* =====================================================
-   MULTI TIMEFRAME MARKET VIEW
+   BUILD MARKET VIEW TABLE
 ===================================================== */
 
-function buildMultiTimeframeMarketViewHtml(
-  marketView
-) {
-  const assetOrder = [
-    "nifty50",
-    "midcap100",
-    "smallcap100",
-    "sme",
-    "gold"
+function buildMultiTimeframeMarketViewHtml() {
+  const rows = [
+    {
+      key: "nifty50",
+      label: "NIFTY 50 / Largecap",
+      gold: false
+    },
+    {
+      key: "midcap100",
+      label: "NIFTY Midcap 100",
+      gold: false
+    },
+    {
+      key: "smallcap100",
+      label: "NIFTY Smallcap 100",
+      gold: false
+    },
+    {
+      key: "sme",
+      label: "NIFTY SME Emerge",
+      gold: false
+    },
+    {
+      key: "gold",
+      label: "Gold",
+      gold: true
+    }
   ];
 
-  const rows =
-    assetOrder
-      .map(key => {
-        const asset =
-          marketView?.[key];
+  const body =
+    rows
+      .map(item => {
+        const data =
+          multiTimeframeMarketView[
+            item.key
+          ] || {};
 
-        if (!asset) {
-          return "";
-        }
-
-        const assetType =
-          asset.type ||
-          (
-            key === "gold"
-              ? "gold"
-              : "equity"
+        const overall =
+          marketViewOverallScore(
+            data
           );
-
-        let name =
-          asset.name ||
-          key;
-
-        if (
-          key === "gold" &&
-          !name.includes("🥇")
-        ) {
-          name =
-            `🥇 ${name}`;
-        }
 
         return `
           <tr>
 
             <td class="market-view-name">
-
-              <strong>
-                ${escapeHtml(name)}
-              </strong>
-
+              ${escapeHtml(item.label)}
             </td>
-
 
             <td>
               ${marketViewSignalHtml(
-                asset.daily,
-                asset.dailySignal,
-                assetType
+                data.daily,
+                item.gold
               )}
             </td>
 
-
             <td>
               ${marketViewSignalHtml(
-                asset.weekly,
-                asset.weeklySignal,
-                assetType
+                data.weekly,
+                item.gold
               )}
             </td>
 
-
             <td>
               ${marketViewSignalHtml(
-                asset.monthly,
-                asset.monthlySignal,
-                assetType
+                data.monthly,
+                item.gold
               )}
             </td>
 
-
             <td>
               ${marketViewSignalHtml(
-                asset.overall,
-                asset.overallSignal,
-                assetType
+                overall,
+                item.gold
               )}
             </td>
 
@@ -2887,23 +2848,27 @@ function buildMultiTimeframeMarketViewHtml(
       })
       .join("");
 
-  if (!rows) {
-    return `
-      <div class="market-view-empty">
+  const proxyRows =
+    rows.filter(item => {
+      const data =
+        multiTimeframeMarketView[
+          item.key
+        ];
 
-        <strong>
-          Multi-Timeframe Market View data not available.
-        </strong>
+      return Boolean(
+        data?.proxy
+      );
+    });
 
-      </div>
-    `;
-  }
-
-  const marketDate =
-    metaDataGlobal?.marketRegimeDate ||
-    metaDataGlobal?.marketDate ||
-    metaDataGlobal?.deliveryDate ||
-    "—";
+  const proxyNote =
+    proxyRows.length
+      ? `
+        <div class="market-view-note">
+          * Smallcap / SME values marked by available dashboard proxy data
+          where official index history is unavailable.
+        </div>
+      `
+      : "";
 
   return `
     <div class="market-view-wrapper">
@@ -2913,84 +2878,36 @@ function buildMultiTimeframeMarketViewHtml(
         <thead>
 
           <tr>
-
             <th>
-              Asset / Segment
+              Asset / Index
             </th>
 
             <th>
-              DAILY
+              Daily
             </th>
 
             <th>
-              WEEKLY
+              Weekly
             </th>
 
             <th>
-              MONTHLY
+              Monthly
             </th>
 
             <th>
               Overall
             </th>
-
           </tr>
 
         </thead>
 
-
         <tbody>
-          ${rows}
+          ${body}
         </tbody>
 
       </table>
 
-    </div>
-
-
-    <div class="market-view-note">
-
-      <strong>
-        Score Interpretation
-      </strong>
-
-      <div class="market-view-legend">
-
-        <span>
-          75–100 🟢🟢 Aggressive / Very Strong
-        </span>
-
-        <span>
-          65–74 🟢 Overweight / Strong
-        </span>
-
-        <span>
-          55–64 🟢 Selective / Positive
-        </span>
-
-        <span>
-          45–54 🟡 Warning / Neutral
-        </span>
-
-        <span>
-          35–44 🟠 Reduce / Weak
-        </span>
-
-        <span>
-          0–34 🔴 Defensive
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="market-view-footer">
-
-      <strong>
-        Data as of:
-        ${escapeHtml(marketDate)}
-      </strong>
+      ${proxyNote}
 
     </div>
   `;
@@ -3019,18 +2936,24 @@ function openMarketViewModal() {
   );
 
   el("reasonTitle").textContent =
-    "Multi-Timeframe Market View";
+    "Current Multi-Timeframe Market View";
 
   el("reasonScore").textContent =
-    "Largecap • Midcap • Smallcap • SME • Gold";
+    "";
 
   el("reasonText").innerHTML =
-    buildMultiTimeframeMarketViewHtml(
-      multiTimeframeMarketView
-    );
+    buildMultiTimeframeMarketViewHtml();
+
+  const generatedDate =
+    metaDataGlobal.marketDate ||
+    metaDataGlobal.deliveryDate ||
+    metaDataGlobal.lastUpdated ||
+    "";
 
   el("reasonSourceDate").textContent =
-    "";
+    generatedDate
+      ? `Market data: ${generatedDate}`
+      : "";
 
   const sourceLink =
     el("reasonSourceLink");
@@ -3040,9 +2963,7 @@ function openMarketViewModal() {
       "none";
   }
 
-  modal.classList.add(
-    "open"
-  );
+  modal.classList.add("open");
 
   modal.setAttribute(
     "aria-hidden",
@@ -3076,7 +2997,6 @@ function setupMarketViewCardEvents() {
         event.key === " "
       ) {
         event.preventDefault();
-
         openMarketViewModal();
       }
     }
@@ -3088,235 +3008,158 @@ function setupMarketViewCardEvents() {
    STATS
 ===================================================== */
 
-function updateStats(
-  stocks,
-  meta
-) {
+function updateStats() {
   if (el("totalStocks")) {
     el("totalStocks").textContent =
-      stocks.length.toLocaleString(
-        "en-IN"
-      );
+      allStocks.length
+        .toLocaleString("en-IN");
   }
 
   const eodReady =
-    stocks.filter(
+    allStocks.filter(
       row =>
         num(row.price) !== null
     ).length;
 
   if (el("eodReady")) {
     el("eodReady").textContent =
-      eodReady.toLocaleString(
-        "en-IN"
-      );
+      eodReady
+        .toLocaleString("en-IN");
   }
 
   const marketCapReady =
-    stocks.filter(
+    allStocks.filter(
       row =>
         num(row.marketCapCr) !== null
     ).length;
 
   if (el("marketCapReady")) {
     el("marketCapReady").textContent =
-      marketCapReady.toLocaleString(
-        "en-IN"
-      );
+      marketCapReady
+        .toLocaleString("en-IN");
   }
 
   const fullyScored =
-    stocks.filter(
+    allStocks.filter(
       row =>
+        num(row.tmvScore) !== null &&
+        num(row.gfcScore) !== null &&
         num(row.overallScore) !== null
     ).length;
 
   if (el("fullyScored")) {
     el("fullyScored").textContent =
-      fullyScored.toLocaleString(
-        "en-IN"
-      );
+      fullyScored
+        .toLocaleString("en-IN");
   }
+}
 
-  const dateCandidates = [
-    meta?.marketDate,
-    meta?.deliveryDate,
-    meta?.date,
-    meta?.asOfDate,
 
-    stocks.find(
-      row =>
-        row.marketDate
-    )?.marketDate,
+/* =====================================================
+   MARKET DATE
+===================================================== */
 
-    stocks.find(
-      row =>
-        row.date
-    )?.date
-  ];
-
-  let marketDate =
-    null;
-
-  for (const value of dateCandidates) {
-    if (value) {
-      marketDate =
-        value;
-
-      break;
-    }
-  }
+function updateMarketDate() {
+  const marketDate =
+    metaDataGlobal.marketDate ||
+    metaDataGlobal.deliveryDate ||
+    metaDataGlobal.lastUpdated ||
+    "—";
 
   if (el("marketDate")) {
     el("marketDate").textContent =
-      marketDate ||
-      "—";
+      marketDate;
   }
 }
 
 
 /* =====================================================
-   MODAL EVENTS
+   HEADER REGIME
 ===================================================== */
 
-function setupModalEvents() {
-  el("closeReasonModal")
-    ?.addEventListener(
-      "click",
-      closeReasonModal
-    );
-
-  el("reasonModal")
-    ?.addEventListener(
-      "click",
-      event => {
-        if (
-          event.target ===
-          el("reasonModal")
-        ) {
-          closeReasonModal();
-        }
-      }
-    );
-
-  document.addEventListener(
-    "keydown",
-    event => {
-      if (event.key === "Escape") {
-        closeReasonModal();
-      }
-    }
-  );
+function updateHeaderRegime() {
+  updateMarketViewCard();
 }
 
 
 /* =====================================================
-   LOAD JSON
-===================================================== */
-
-async function fetchJson(path) {
-  const separator =
-    path.includes("?")
-      ? "&"
-      : "?";
-
-  const url =
-    `${path}${separator}t=${Date.now()}`;
-
-  const response =
-    await fetch(
-      url,
-      {
-        cache: "no-store"
-      }
-    );
-
-  if (!response.ok) {
-    throw new Error(
-      `Unable to load ${path}: ${response.status}`
-    );
-  }
-
-  return response.json();
-}
-
-
-/* =====================================================
-   INITIALIZE
+   INIT DATA
 ===================================================== */
 
 async function init() {
   try {
+    const cacheBuster =
+      Date.now();
+
     const [
-      stockData,
-      metaData
+      stocksResponse,
+      metaResponse
     ] =
       await Promise.all([
-        fetchJson(
-          "data/stocks.json"
+        fetch(
+          `data/stocks.json?v=${cacheBuster}`
         ),
-
-        fetchJson(
-          "data/meta.json"
+        fetch(
+          `data/meta.json?v=${cacheBuster}`
         )
-          .catch(
-            () => ({})
-          )
       ]);
 
-    metaDataGlobal =
-      metaData ||
-      {};
-
-    let loadedStocks = [];
-
-    if (
-      Array.isArray(stockData)
-    ) {
-      loadedStocks =
-        stockData;
-    } else if (
-      Array.isArray(
-        stockData?.stocks
-      )
-    ) {
-      loadedStocks =
-        stockData.stocks;
+    if (!stocksResponse.ok) {
+      throw new Error(
+        `stocks.json HTTP ${stocksResponse.status}`
+      );
     }
 
+    if (!metaResponse.ok) {
+      throw new Error(
+        `meta.json HTTP ${metaResponse.status}`
+      );
+    }
+
+    const stocksData =
+      await stocksResponse.json();
+
+    const metaData =
+      await metaResponse.json();
+
+    metaDataGlobal =
+      metaData || {};
+
+    multiTimeframeMarketView =
+      metaDataGlobal
+        .multiTimeframeMarketView ||
+      metaDataGlobal
+        .marketView ||
+      {};
+
+    const sourceStocks =
+      Array.isArray(stocksData)
+        ? stocksData
+        : (
+            stocksData.stocks ||
+            []
+          );
+
     allStocks =
-      loadedStocks.filter(
+      sourceStocks.filter(
         passesPermanentUniverseRule
       );
 
-    multiTimeframeMarketView =
-      metaData?.multiTimeframeMarketView ||
-      {};
-
     populateDropdowns();
 
-    updateStats(
-      allStocks,
-      metaData
-    );
+    updateStats();
 
+    updateMarketDate();
 
-    /* =========================
-       FIX HEADER SIGNALS
-    ========================== */
-
-    updateHeaderRegimeCards();
-
-
-    updateMarketViewCard();
+    updateHeaderRegime();
 
     setupFilterEvents();
 
     setupPagination();
 
-    setupScrollSync();
+    setupTopScrollbar();
 
-    setupModalEvents();
+    setupReasonModalEvents();
 
     setupMarketViewCardEvents();
 
@@ -3326,98 +3169,48 @@ async function init() {
         resetFilters
       );
 
-    activeSortField =
-      null;
-
     renderRows();
-
-    console.log(
-      `MY MARKET RESEARCH loaded: `
-      +
-      `${allStocks.length} stocks `
-      +
-      `(Known Market Cap >= ₹${MIN_MARKET_CAP_CR} Cr + Pending)`
-    );
-
-    console.log(
-      "Multi-Timeframe Market View:",
-      multiTimeframeMarketView
-    );
-
-    console.log(
-      "Header regime:",
-      {
-        daily:
-          averageMarketViewScore(
-            "daily"
-          ),
-
-        weekly:
-          averageMarketViewScore(
-            "weekly"
-          ),
-
-        monthly:
-          averageMarketViewScore(
-            "monthly"
-          )
-      }
-    );
-
-    const rsReady =
-      allStocks.filter(
-        row =>
-          rsRating(row) !== null
-      ).length;
-
-    console.log(
-      `RS Rating ready: ${rsReady}/${allStocks.length}`
-    );
 
   } catch (error) {
     console.error(
-      "Dashboard load error:",
+      "Dashboard initialization failed:",
       error
     );
 
-    if (el("rows")) {
-      el("rows").innerHTML =
+    const tbody =
+      el("rows");
+
+    if (tbody) {
+      tbody.innerHTML =
         `
           <tr>
-
             <td
-              colspan="18"
-              class="error-cell"
+              colspan="19"
+              class="pending"
             >
-
-              Data load failed.
-
-              Please refresh the page
-              or check data/stocks.json.
-
+              Unable to load market data.
             </td>
-
           </tr>
         `;
+    }
+
+    if (el("resultCount")) {
+      el("resultCount").textContent =
+        "0 matched";
     }
   }
 }
 
-
-/* =====================================================
-   START
-===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   init
 );
 /* =====================================================
-   CSV / EXCEL DOWNLOAD
+   EXPORT HELPERS
 ===================================================== */
 
 function exportNumber(value) {
-
   if (
     value === null ||
     value === undefined ||
@@ -3452,6 +3245,36 @@ function exportNumber(value) {
     : "";
 }
 
+
+function exportRoundedNumber(
+  value,
+  decimals = 2
+) {
+  const n = exportNumber(value);
+
+  if (n === "") {
+    return "";
+  }
+
+  const factor =
+    10 ** decimals;
+
+  return Math.round(
+    (n + Number.EPSILON) *
+    factor
+  ) / factor;
+}
+
+
+function exportInteger(value) {
+  const n = exportNumber(value);
+
+  return n === ""
+    ? ""
+    : Math.round(n);
+}
+
+
 function exportStockGrowthPeriod() {
   return (
     el("stockGrowthPeriod")?.value ||
@@ -3460,16 +3283,11 @@ function exportStockGrowthPeriod() {
 }
 
 
+/* =====================================================
+   BUILD EXPORT ROWS
+===================================================== */
+
 function buildExportRows() {
-
-  /*
-   IMPORTANT:
-   Current page ke 100 rows use nahi karne.
-
-   Same filters + same search + same sorting ko
-   dobara allStocks par apply karenge.
-  */
-
   const rows =
     rankStocks(
       allStocks.filter(
@@ -3477,183 +3295,181 @@ function buildExportRows() {
       )
     );
 
-
   const growthPeriod =
     exportStockGrowthPeriod();
 
+  return rows.map(row => {
+    const volume =
+      totalVolume(row);
 
-  return rows.map(
-    row => {
+    const turnover =
+      todayTurnoverCr(row);
 
-      const volume =
-        totalVolume(row);
+    const delivery =
+      todayDeliveryVolume(row);
 
-      const delivery =
-        todayDeliveryVolume(row);
+    const avgDelivery =
+      avg5DayDelivery(row);
 
-      const avgDelivery =
-        avg5DayDelivery(row);
+    const deliveryRatio =
+      deliveryTimes(row);
 
-      const deliveryRatio =
-        deliveryTimes(row);
+    const deliveryPct =
+      deliveryPercentage(row);
 
-      const deliveryPct =
-        deliveryPercentage(row);
+    const stockGrowth =
+      selectedStockGrowth(row);
 
-      const stockGrowth =
-        selectedStockGrowth(row);
+    const rating =
+      rsRating(row);
 
-      const rs =
-        rsRating(row);
+    return {
+      "Stock":
+        row.name ||
+        row.companyName ||
+        "",
 
+      "Symbol":
+        row.symbol ||
+        "",
 
-      return {
+      "Market Cap Category":
+        row.marketCapCategory ||
+        "",
 
-        "Stock":
-          row.name ||
-          row.companyName ||
-          row.symbol ||
-          "",
+      "Market Cap ₹ Cr":
+        exportNumber(
+          row.marketCapCr
+        ),
 
-        "Symbol":
-          row.symbol ||
-          "",
+      "Price ₹":
+        exportRoundedNumber(
+          row.price,
+          2
+        ),
 
-        "Market Cap Category":
-          row.marketCapCategory ||
-          "",
+      "Change %":
+        exportRoundedNumber(
+          row.changePct,
+          2
+        ),
 
-        "Market Cap ₹ Cr":
-          exportNumber(
-            row.marketCapCr
-          ),
+      "Today Volume":
+        exportInteger(
+          volume
+        ),
 
-        "Price ₹":
-          exportNumber(
-            row.price
-          ),
+      "Today Turnover ₹ Cr":
+        exportRoundedNumber(
+          turnover,
+          2
+        ),
 
-        "Change %":
-          exportNumber(
-            row.changePct
-          ),
+      "Today Delivery Vol":
+        exportInteger(
+          delivery
+        ),
 
-        "Today Volume":
-          exportNumber(
-            volume
-          ),
+      "5D Avg Delivery Vol":
+        exportInteger(
+          avgDelivery
+        ),
 
-        "Today Delivery Vol":
-          exportNumber(
-            delivery
-          ),
+      "Delivery Times":
+        exportRoundedNumber(
+          deliveryRatio,
+          2
+        ),
 
-        "5D Avg Delivery Vol":
-          exportNumber(
-            avgDelivery
-          ),
+      "Delivery %":
+        exportRoundedNumber(
+          deliveryPct,
+          2
+        ),
 
-        "Delivery Times":
-          exportNumber(
-            deliveryRatio
-          ),
+      "5L Vol + 5% Move":
+        qualifiesHighVolumeMove(row)
+          ? "YES"
+          : "NO",
 
-        "Delivery %":
-          exportNumber(
-            deliveryPct
-          ),
+      "RS Rating":
+        rating === null
+          ? ""
+          : exportInteger(rating),
 
-        "5L Vol + 5% Move":
-          qualifiesHighVolumeMove(row)
-            ? "YES"
-            : "NO",
+      "RS Label":
+        rating === null
+          ? "Pending"
+          : (
+              row.rsLabel ||
+              rsRatingLabel(rating)
+            ),
 
-        "RS Rating":
-          exportNumber(
-            rs
-          ),
+      "Sector":
+        row.sector ||
+        "",
 
-        "RS Label":
-          rs === null
-            ? ""
-            : (
-                row.rsLabel ||
-                rsRatingLabel(rs)
-              ),
+      "Industry":
+        row.industry ||
+        "",
 
-        "Sector":
-          row.sector ||
-          "",
+      "Sector Growth 1M %":
+        exportRoundedNumber(
+          row.sectorGrowth1M,
+          2
+        ),
 
-        "Industry":
-          row.industry ||
-          "",
+      [`Stock Growth ${growthPeriod} %`]:
+        exportRoundedNumber(
+          stockGrowth,
+          2
+        ),
 
-        "Sector Growth 1M %":
-          exportNumber(
-            row.sectorGrowth1M
-          ),
+      "T + M + VM":
+        exportInteger(
+          row.tmvScore
+        ),
 
-        [`Stock Growth ${growthPeriod} %`]:
-          exportNumber(
-            stockGrowth
-          ),
+      "G + F + C":
+        exportInteger(
+          row.gfcScore
+        ),
 
-        "T + M + VM":
-          exportNumber(
-            row.tmvScore
-          ),
-
-        "G + F + C":
-          exportNumber(
-            row.gfcScore
-          ),
-
-        "Overall":
-          exportNumber(
-            row.overallScore
-          )
-      };
-    }
-  );
+      "Overall":
+        exportInteger(
+          row.overallScore
+        )
+    };
+  });
 }
 
 
 /* =====================================================
-   FILE NAME
+   EXPORT FILE NAME
 ===================================================== */
 
-function exportFileName(extension) {
-
+function exportFileBaseName(
+  rowCount
+) {
   const marketDate =
-    metaDataGlobal?.marketDate ||
-    metaDataGlobal?.deliveryDate ||
-    new Date()
-      .toISOString()
-      .slice(0, 10);
-
-
-  const matchedCount =
-    allStocks.filter(
-      passesFilters
-    ).length;
-
+    metaDataGlobal.marketDate ||
+    metaDataGlobal.deliveryDate ||
+    metaDataGlobal.lastUpdated ||
+    "latest";
 
   return (
     `MY_MARKET_RESEARCH_` +
     `${marketDate}_` +
-    `${matchedCount}_stocks.` +
-    extension
+    `${rowCount}_stocks`
   );
 }
 
 
 /* =====================================================
-   CSV ESCAPE
+   CSV EXPORT
 ===================================================== */
 
-function csvCell(value) {
-
+function csvEscape(value) {
   if (
     value === null ||
     value === undefined
@@ -3661,102 +3477,201 @@ function csvCell(value) {
     return "";
   }
 
-
   const text =
     String(value);
-
 
   if (
     text.includes(",") ||
     text.includes('"') ||
-    text.includes("\n") ||
-    text.includes("\r")
+    text.includes("\n")
   ) {
-
     return (
       '"' +
-      text.replaceAll(
-        '"',
+      text.replace(
+        /"/g,
         '""'
       ) +
       '"'
     );
   }
 
-
   return text;
 }
 
 
-/* =====================================================
-   DOWNLOAD BLOB
-===================================================== */
+function downloadCSV(rows) {
+  if (!rows.length) {
+    alert(
+      "No matched stocks to download."
+    );
 
-function downloadBlob(
-  blob,
-  filename
-) {
+    return;
+  }
+
+  const headers =
+    Object.keys(
+      rows[0]
+    );
+
+  const csvLines = [
+    headers
+      .map(csvEscape)
+      .join(",")
+  ];
+
+  for (const row of rows) {
+    csvLines.push(
+      headers
+        .map(
+          header =>
+            csvEscape(
+              row[header]
+            )
+        )
+        .join(",")
+    );
+  }
+
+  const csvContent =
+    "\uFEFF" +
+    csvLines.join("\r\n");
+
+  const blob =
+    new Blob(
+      [csvContent],
+      {
+        type:
+          "text/csv;charset=utf-8;"
+      }
+    );
 
   const url =
     URL.createObjectURL(
       blob
     );
 
-
   const link =
     document.createElement(
       "a"
     );
 
-
   link.href =
     url;
 
   link.download =
-    filename;
-
+    `${exportFileBaseName(
+      rows.length
+    )}.csv`;
 
   document.body.appendChild(
     link
   );
 
-
   link.click();
-
 
   link.remove();
 
-
-  setTimeout(
-    () => {
-      URL.revokeObjectURL(
-        url
-      );
-    },
-    1000
+  URL.revokeObjectURL(
+    url
   );
 }
 
 
 /* =====================================================
-   CSV DOWNLOAD
+   EXCEL HELPERS
 ===================================================== */
 
-function downloadCSV() {
+function findExcelColumnIndex(
+  headers,
+  headerName
+) {
+  return headers.indexOf(
+    headerName
+  );
+}
 
-  const rows =
-    buildExportRows();
+
+function applyExcelNumberFormat(
+  worksheet,
+  headers,
+  headerName,
+  format
+) {
+  const columnIndex =
+    findExcelColumnIndex(
+      headers,
+      headerName
+    );
+
+  if (columnIndex < 0) {
+    return;
+  }
+
+  const range =
+    XLSX.utils.decode_range(
+      worksheet["!ref"]
+    );
+
+  for (
+    let rowIndex =
+      range.s.r + 1;
+    rowIndex <= range.e.r;
+    rowIndex++
+  ) {
+    const address =
+      XLSX.utils.encode_cell(
+        {
+          r: rowIndex,
+          c: columnIndex
+        }
+      );
+
+    const cell =
+      worksheet[address];
+
+    if (!cell) {
+      continue;
+    }
+
+    if (
+      cell.t === "n" &&
+      typeof cell.v === "number"
+    ) {
+      cell.z =
+        format;
+    }
+  }
+}
 
 
+/* =====================================================
+   EXCEL EXPORT
+===================================================== */
+
+function downloadExcel(rows) {
   if (!rows.length) {
-
     alert(
-      "Current filters me download karne ke liye koi stock nahi hai."
+      "No matched stocks to download."
     );
 
     return;
   }
 
+  if (
+    typeof XLSX ===
+    "undefined"
+  ) {
+    alert(
+      "Excel library not loaded. Please refresh and try again."
+    );
+
+    return;
+  }
+
+  const worksheet =
+    XLSX.utils.json_to_sheet(
+      rows
+    );
 
   const headers =
     Object.keys(
@@ -3764,137 +3679,190 @@ function downloadCSV() {
     );
 
 
-  const lines = [];
-
-
-  lines.push(
-    headers
-      .map(csvCell)
-      .join(",")
-  );
-
-
-  for (const row of rows) {
-
-    lines.push(
-
-      headers
-        .map(
-          header =>
-            csvCell(
-              row[header]
-            )
-        )
-        .join(",")
-
-    );
-  }
-
-
-  /*
-   UTF-8 BOM:
-   Excel me company/sector names aur ₹
-   correctly open hon.
-  */
-
-  const csv =
-    "\uFEFF" +
-    lines.join(
-      "\r\n"
-    );
-
-
-  const blob =
-    new Blob(
-      [csv],
-      {
-        type:
-          "text/csv;charset=utf-8;"
-      }
-    );
-
-
-  downloadBlob(
-    blob,
-    exportFileName(
-      "csv"
-    )
-  );
-}
-
-
-/* =====================================================
-   EXCEL DOWNLOAD
-===================================================== */
-
-function downloadExcel() {
-
-  const rows =
-    buildExportRows();
-
-
-  if (!rows.length) {
-
-    alert(
-      "Current filters me download karne ke liye koi stock nahi hai."
-    );
-
-    return;
-  }
-
-
-  if (
-    typeof XLSX ===
-    "undefined"
-  ) {
-
-    alert(
-      "Excel library load nahi hui. Ctrl + F5 karke dobara try karein."
-    );
-
-    return;
-  }
-
-
-  const worksheet =
-    XLSX.utils.json_to_sheet(
-      rows
-    );
-
-
   /* =========================
      COLUMN WIDTHS
   ========================== */
 
-  worksheet["!cols"] = [
+  worksheet["!cols"] =
+    headers.map(header => {
+      const widths = {
+        "Stock": 30,
+        "Symbol": 14,
+        "Market Cap Category": 20,
+        "Market Cap ₹ Cr": 18,
+        "Price ₹": 14,
+        "Change %": 12,
+        "Today Volume": 16,
+        "Today Turnover ₹ Cr": 20,
+        "Today Delivery Vol": 20,
+        "5D Avg Delivery Vol": 22,
+        "Delivery Times": 16,
+        "Delivery %": 14,
+        "5L Vol + 5% Move": 18,
+        "RS Rating": 12,
+        "RS Label": 14,
+        "Sector": 24,
+        "Industry": 28,
+        "Sector Growth 1M %": 20,
+        [`Stock Growth ${
+          exportStockGrowthPeriod()
+        } %`]: 20,
+        "T + M + VM": 14,
+        "G + F + C": 14,
+        "Overall": 12
+      };
 
-    { wch: 32 }, // Stock
-    { wch: 14 }, // Symbol
-    { wch: 20 }, // MCap category
-    { wch: 18 }, // MCap
-    { wch: 14 }, // Price
-    { wch: 12 }, // Change
-    { wch: 18 }, // Volume
-    { wch: 20 }, // Delivery
-    { wch: 22 }, // Avg delivery
-    { wch: 16 }, // Delivery times
-    { wch: 14 }, // Delivery %
-    { wch: 18 }, // 5L + 5%
-    { wch: 12 }, // RS
-    { wch: 14 }, // RS label
-    { wch: 24 }, // Sector
-    { wch: 28 }, // Industry
-    { wch: 20 }, // Sector growth
-    { wch: 20 }, // Stock growth
-    { wch: 14 }, // TMV
-    { wch: 14 }, // GFC
-    { wch: 12 }  // Overall
-  ];
+      return {
+        wch:
+          widths[header] ||
+          16
+      };
+    });
 
+
+  /* =========================
+     NUMBER FORMATS
+  ========================== */
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Market Cap ₹ Cr",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Price ₹",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Change %",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Today Volume",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Today Turnover ₹ Cr",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Today Delivery Vol",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "5D Avg Delivery Vol",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Delivery Times",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Delivery %",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "RS Rating",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Sector Growth 1M %",
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    `Stock Growth ${
+      exportStockGrowthPeriod()
+    } %`,
+    "0.00"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "T + M + VM",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "G + F + C",
+    "0"
+  );
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Overall",
+    "0"
+  );
+
+
+  /* =========================
+     FREEZE TOP ROW
+  ========================== */
+
+  worksheet["!freeze"] = {
+    xSplit: 0,
+    ySplit: 1,
+    topLeftCell: "A2",
+    activePane: "bottomLeft",
+    state: "frozen"
+  };
+
+
+  /* =========================
+     AUTO FILTER
+  ========================== */
+
+  if (worksheet["!ref"]) {
+    worksheet["!autofilter"] = {
+      ref:
+        worksheet["!ref"]
+    };
+  }
+
+
+  /* =========================
+     WORKBOOK
+  ========================== */
 
   const workbook =
     XLSX.utils.book_new();
-
 
   XLSX.utils.book_append_sheet(
     workbook,
@@ -3902,82 +3870,65 @@ function downloadExcel() {
     "Market Research"
   );
 
-
   XLSX.writeFile(
     workbook,
-    exportFileName(
-      "xlsx"
-    )
+    `${exportFileBaseName(
+      rows.length
+    )}.xlsx`
   );
 }
 
 
 /* =====================================================
-   MAIN DOWNLOAD
+   DOWNLOAD HANDLER
 ===================================================== */
 
-function downloadCurrentResults() {
+function handleDownload() {
+  const rows =
+    buildExportRows();
 
-  const format =
-    el("downloadFormat")?.value ||
-    "csv";
-
-
-  if (format === "xlsx") {
-
-    downloadExcel();
-
-    return;
-  }
-
-
-  downloadCSV();
-}
-
-
-/* =====================================================
-   DOWNLOAD EVENT
-===================================================== */
-
-function setupDownload() {
-
-  const button =
-    el("downloadData");
-
-
-  if (!button) {
-
-    console.warn(
-      "Download button not found."
+  if (!rows.length) {
+    alert(
+      "No matched stocks to download."
     );
 
     return;
   }
 
+  const format =
+    el("downloadFormat")?.value ||
+    "csv";
 
-  button.addEventListener(
-    "click",
-    downloadCurrentResults
-  );
+  if (format === "xlsx") {
+    downloadExcel(rows);
+    return;
+  }
+
+  downloadCSV(rows);
 }
 
 
 /* =====================================================
-   INITIALIZE DOWNLOAD
+   DOWNLOAD SETUP
 ===================================================== */
+
+function setupDownload() {
+  el("downloadData")
+    ?.addEventListener(
+      "click",
+      handleDownload
+    );
+}
+
 
 if (
   document.readyState ===
   "loading"
 ) {
-
   document.addEventListener(
     "DOMContentLoaded",
     setupDownload
   );
-
 } else {
-
   setupDownload();
-
 }
