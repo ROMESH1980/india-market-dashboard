@@ -300,7 +300,7 @@ button {
 .table-wrap table {
   width: max-content;
 
-  min-width: 2050px;
+  min-width: 2140px;
 
   border-collapse: separate;
   border-spacing: 0;
@@ -328,14 +328,6 @@ button {
 /* =====================================================
    FREEZE ENTIRE TABLE HEADER
    ===================================================== */
-
-/*
-   IMPORTANT:
-   Entire THEAD stays frozen.
-
-   Isse first heading row aur filter row
-   dono ek saath sticky rahenge.
-*/
 
 .table-wrap thead {
   position: sticky;
@@ -627,6 +619,168 @@ button {
 
 
 /* =====================================================
+   RS RATING
+   ===================================================== */
+
+.rs-rating {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 54px;
+
+  padding: 4px 5px;
+
+  border: 1px solid #41546d;
+  border-radius: 5px;
+
+  background: #101c2f;
+
+  line-height: 1.05;
+}
+
+.rs-rating strong {
+  font-size: 15px;
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: #ffffff;
+}
+
+.rs-rating small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 8px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* 90–99 Elite */
+
+.rs-elite {
+  border-color: #31e86d;
+
+  background: rgba(
+    35,
+    195,
+    93,
+    0.28
+  );
+}
+
+.rs-elite small {
+  color: #7dff9e;
+}
+
+
+/* 80–89 Leader */
+
+.rs-leader {
+  border-color: #23c35d;
+
+  background: rgba(
+    35,
+    195,
+    93,
+    0.16
+  );
+}
+
+.rs-leader small {
+  color: #7eea9c;
+}
+
+
+/* 70–79 Strong */
+
+.rs-strong {
+  border-color: #70c96c;
+
+  background: rgba(
+    71,
+    160,
+    79,
+    0.12
+  );
+}
+
+.rs-strong small {
+  color: #9ddd99;
+}
+
+
+/* 50–69 Average */
+
+.rs-average {
+  border-color: #60738d;
+
+  background: rgba(
+    96,
+    115,
+    141,
+    0.12
+  );
+}
+
+.rs-average small {
+  color: #c4cedb;
+}
+
+
+/* 30–49 Weak */
+
+.rs-weak {
+  border-color: #ffae1a;
+
+  background: rgba(
+    255,
+    174,
+    26,
+    0.12
+  );
+}
+
+.rs-weak small {
+  color: #ffc65c;
+}
+
+
+/* 1–29 Very Weak */
+
+.rs-very-weak {
+  border-color: #ff4d4d;
+
+  background: rgba(
+    255,
+    77,
+    77,
+    0.12
+  );
+}
+
+.rs-very-weak small {
+  color: #ff8585;
+}
+
+
+/* Pending */
+
+.rs-pending {
+  border-color: #41546d;
+
+  background: #101c2f;
+}
+
+
+/* =====================================================
    RESEARCH SCORE BUTTONS
    ===================================================== */
 
@@ -782,58 +936,62 @@ button {
 }
 
 
-/* 11 Sector */
+/* 11 RS Rating */
 .table-wrap th:nth-child(11),
 .table-wrap td:nth-child(11) {
-  width: 170px;
-  min-width: 170px;
-  max-width: 170px;
+  width: 90px;
+  min-width: 90px;
+  max-width: 90px;
+
+  text-align: center;
 }
 
 
-/* 12 Industry */
+/* 12 Sector */
 .table-wrap th:nth-child(12),
 .table-wrap td:nth-child(12) {
-  width: 190px;
-  min-width: 190px;
-  max-width: 190px;
+  width: 125px;
+  min-width: 125px;
+  max-width: 125px;
+
+  white-space: normal;
 }
 
 
-/* 13 Sector Growth */
+/* 13 Industry */
 .table-wrap th:nth-child(13),
 .table-wrap td:nth-child(13) {
-  width: 100px;
-  min-width: 100px;
-  max-width: 100px;
+  width: 145px;
+  min-width: 145px;
+  max-width: 145px;
 
-  text-align: center;
+  white-space: normal;
 }
 
 
-/* 14 Stock Growth */
+/* 14 Sector Growth */
 .table-wrap th:nth-child(14),
 .table-wrap td:nth-child(14) {
-  width: 105px;
-  min-width: 105px;
-  max-width: 105px;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
 
   text-align: center;
 }
 
 
-/* 15 TMV */
+/* 15 Stock Growth */
 .table-wrap th:nth-child(15),
 .table-wrap td:nth-child(15) {
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
 
   text-align: center;
 }
 
 
-/* 16 GFC */
+/* 16 TMV */
 .table-wrap th:nth-child(16),
 .table-wrap td:nth-child(16) {
   width: 150px;
@@ -844,9 +1002,20 @@ button {
 }
 
 
-/* 17 Overall */
+/* 17 GFC */
 .table-wrap th:nth-child(17),
 .table-wrap td:nth-child(17) {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+
+  text-align: center;
+}
+
+
+/* 18 Overall */
+.table-wrap th:nth-child(18),
+.table-wrap td:nth-child(18) {
   width: 85px;
   min-width: 85px;
   max-width: 85px;
@@ -1137,52 +1306,8 @@ button {
   }
 
 }
-/* =====================================================
-   COMPACT SECTOR / GROWTH COLUMNS
-   ===================================================== */
-
-/* 11 - Sector */
-.table-wrap th:nth-child(11),
-.table-wrap td:nth-child(11) {
-  width: 125px;
-  min-width: 125px;
-  max-width: 125px;
-
-  white-space: normal;
-}
 
 
-/* 12 - Industry */
-.table-wrap th:nth-child(12),
-.table-wrap td:nth-child(12) {
-  width: 145px;
-  min-width: 145px;
-  max-width: 145px;
-
-  white-space: normal;
-}
-
-
-/* 13 - Sector Growth */
-.table-wrap th:nth-child(13),
-.table-wrap td:nth-child(13) {
-  width: 80px;
-  min-width: 80px;
-  max-width: 80px;
-
-  text-align: center;
-}
-
-
-/* 14 - Stock Growth */
-.table-wrap th:nth-child(14),
-.table-wrap td:nth-child(14) {
-  width: 85px;
-  min-width: 85px;
-  max-width: 85px;
-
-  text-align: center;
-}
 /* =====================================================
    MARKET REGIME INDICATORS
    ===================================================== */
@@ -1426,6 +1551,8 @@ button {
   }
 
 }
+
+
 /* =====================================================
    MULTI-TIMEFRAME MARKET VIEW MODAL
    ===================================================== */
@@ -1611,7 +1738,10 @@ button {
     display: block;
     margin-right: 0;
   }
+
 }
+
+
 /* =====================================================
    SINGLE MARKET VIEW CARD
 ===================================================== */
@@ -1762,4 +1892,5 @@ button {
   .market-view-table {
     min-width: 680px;
   }
+
 }
