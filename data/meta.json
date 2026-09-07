@@ -2,14 +2,15 @@
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
   "nseCount": 3154,
   "uniqueCount": 3154,
-  "eodPriceCount": 3655,
-  "matchedPriceCount": 3001,
-  "marketDate": "2026-09-04",
+  "eodPriceCount": 3704,
+  "matchedPriceCount": 3057,
+  "marketDate": "2026-09-07",
   "lastUpdated": "2026-09-07",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
-  "deliveryDate": "2026-09-04",
+  "deliveryDate": "2026-09-07",
   "deliverySessionsUsed": [
+    "2026-09-07",
     "2026-09-04",
     "2026-09-03",
     "2026-09-02",
@@ -28,15 +29,14 @@
     "2026-08-14",
     "2026-08-13",
     "2026-08-12",
-    "2026-08-11",
-    "2026-08-10"
+    "2026-08-11"
   ],
-  "todayVolumeCount": 2747,
-  "deliveryVolumeCount": 2747,
-  "deliveryRatioCount": 2706,
-  "deliveryPctCount": 2747,
-  "full5DayDeliveryAverageCount": 2821,
-  "incomplete5DayDeliveryCount": 333,
+  "todayVolumeCount": 2782,
+  "deliveryVolumeCount": 2782,
+  "deliveryRatioCount": 2729,
+  "deliveryPctCount": 2782,
+  "full5DayDeliveryAverageCount": 2842,
+  "incomplete5DayDeliveryCount": 312,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -228,21 +228,21 @@
       "available": true,
       "source": "NSE dashboard Small Cap top-100 market-cap breadth proxy",
       "sourceSymbol": null,
-      "date": "2026-09-04",
+      "date": "2026-09-07",
       "universeSize": 100,
-      "daily": 55,
-      "weekly": 52,
-      "monthly": 88,
-      "overall": 71,
+      "daily": 50,
+      "weekly": 57,
+      "monthly": 89,
+      "overall": 72,
       "dailySignal": {
-        "label": "Selective Buying",
-        "signal": "selective",
-        "emoji": "🟢"
-      },
-      "weeklySignal": {
         "label": "Warning",
         "signal": "warning",
         "emoji": "🟡"
+      },
+      "weeklySignal": {
+        "label": "Selective Buying",
+        "signal": "selective",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Aggressive Stocks",
@@ -258,22 +258,22 @@
         "daily": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 55.5,
-          "medianReturnPct": 0.24,
-          "returnStrengthScore": 54.04
+          "positiveBreadthPct": 50.5,
+          "medianReturnPct": 0.03,
+          "returnStrengthScore": 50.49
         },
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 93,
-          "positiveBreadthPct": 51.61,
-          "medianReturnPct": 0.74,
-          "returnStrengthScore": 53.71
+          "positiveBreadthPct": 54.84,
+          "medianReturnPct": 1.83,
+          "returnStrengthScore": 59.16
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 93,
-          "positiveBreadthPct": 80.65,
-          "medianReturnPct": 21.15,
+          "positiveBreadthPct": 81.72,
+          "medianReturnPct": 21.76,
           "returnStrengthScore": 100
         }
       },
@@ -287,12 +287,12 @@
       "available": true,
       "source": "Official NSE SME board dashboard breadth proxy",
       "sourceSymbol": null,
-      "date": "2026-09-04",
+      "date": "2026-09-07",
       "universeSize": 571,
-      "daily": 53,
+      "daily": 50,
       "weekly": null,
       "monthly": null,
-      "overall": 53,
+      "overall": 50,
       "dailySignal": {
         "label": "Warning",
         "signal": "warning",
@@ -316,18 +316,18 @@
       "details": {
         "daily": {
           "method": "Dashboard universe breadth proxy",
-          "availableStocks": 463,
-          "positiveBreadthPct": 53.56,
-          "medianReturnPct": 0.14,
-          "returnStrengthScore": 52.37
+          "availableStocks": 515,
+          "positiveBreadthPct": 49.71,
+          "medianReturnPct": 0.0,
+          "returnStrengthScore": 50.0
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         },
         "monthly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         }
       },
       "proxy": true,
@@ -343,7 +343,7 @@
     "weekly": 50.0,
     "monthly": 17.0
   },
-  "marketRegimeDate": "2026-09-04",
+  "marketRegimeDate": "2026-09-07",
   "marketRegimeMethod": {
     "scoreRange": "0-100",
     "directAssets": "NIFTY 50, NIFTY Midcap 100 and Gold use historical price series",
@@ -367,5 +367,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-07T10:40:06.461055+00:00"
+  "marketRegimeGeneratedAt": "2026-09-07T11:43:22.510304+00:00"
 }

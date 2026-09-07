@@ -12813,5 +12813,15 @@
     "sector": "Consumer Cyclical",
     "industry": "Footwear & Accessories",
     "source": "Yahoo Finance"
+  },
+  "DUMMYHEG": {
+    "sector": "Metals & Mining",
+    "industry": "Metals & Mining",
+    "source": "Nifty Indices"
+  },
+  "PERNIASPOP": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "source": "Yahoo Finance"
   }
 }
