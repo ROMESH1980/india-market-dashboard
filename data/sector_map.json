@@ -12803,5 +12803,15 @@
     "sector": "Consumer Cyclical",
     "industry": "Luxury Goods",
     "source": "Yahoo Finance"
+  },
+  "ASTAR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "KDGREEN": {
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories",
+    "source": "Yahoo Finance"
   }
 }
