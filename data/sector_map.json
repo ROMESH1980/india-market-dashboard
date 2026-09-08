@@ -12823,5 +12823,10 @@
     "sector": "Consumer Cyclical",
     "industry": "Apparel Retail",
     "source": "Yahoo Finance"
+  },
+  "DEEPA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
   }
 }
