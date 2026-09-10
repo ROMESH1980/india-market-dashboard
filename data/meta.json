@@ -1,11 +1,11 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3143,
-  "uniqueCount": 3143,
+  "nseCount": 3139,
+  "uniqueCount": 3139,
   "eodPriceCount": 3681,
-  "matchedPriceCount": 3046,
+  "matchedPriceCount": 3038,
   "marketDate": "2026-09-09",
-  "lastUpdated": "2026-09-09",
+  "lastUpdated": "2026-09-10",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-09-09",
@@ -31,12 +31,12 @@
     "2026-08-14",
     "2026-08-13"
   ],
-  "todayVolumeCount": 2776,
-  "deliveryVolumeCount": 2776,
-  "deliveryRatioCount": 2729,
-  "deliveryPctCount": 2776,
-  "full5DayDeliveryAverageCount": 2849,
-  "incomplete5DayDeliveryCount": 294,
+  "todayVolumeCount": 2771,
+  "deliveryVolumeCount": 2771,
+  "deliveryRatioCount": 2724,
+  "deliveryPctCount": 2771,
+  "full5DayDeliveryAverageCount": 2844,
+  "incomplete5DayDeliveryCount": 295,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -48,7 +48,7 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-09-09",
+      "date": "2026-09-10",
       "historyRows": 1236,
       "daily": 15,
       "weekly": 42,
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 23431.5,
-          "fastMA": 24073.1,
-          "slowMA": 24184.83,
-          "momentumPct": -2.02,
-          "rsi14": 18.97,
-          "distanceFromHighPct": -3.95
+          "latest": 23427.8,
+          "fastMA": 24024.7,
+          "slowMA": 24169.87,
+          "momentumPct": -1.87,
+          "rsi14": 17.64,
+          "distanceFromHighPct": -3.85
         },
         "weekly": {
-          "latest": 23431.5,
-          "fastMA": 24138.58,
-          "slowMA": 23970.01,
-          "momentumPct": -3.84,
-          "rsi14": 50.9,
-          "distanceFromHighPct": -4.64
+          "latest": 23427.8,
+          "fastMA": 24138.21,
+          "slowMA": 23969.89,
+          "momentumPct": -3.85,
+          "rsi14": 50.85,
+          "distanceFromHighPct": -4.65
         },
         "monthly": {
-          "latest": 23431.5,
-          "fastMA": 23884.43,
-          "slowMA": 24226.69,
-          "momentumPct": -1.82,
-          "rsi14": 43.24,
-          "distanceFromHighPct": -10.58
+          "latest": 23427.8,
+          "fastMA": 23883.81,
+          "slowMA": 24226.32,
+          "momentumPct": -1.84,
+          "rsi14": 43.23,
+          "distanceFromHighPct": -10.59
         }
       },
       "error": null
@@ -108,8 +108,8 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "NIFTY_MIDCAP_100.NS",
-      "date": "2026-09-09",
-      "historyRows": 1193,
+      "date": "2026-09-10",
+      "historyRows": 1192,
       "daily": 78,
       "weekly": 90,
       "monthly": 85,
@@ -136,28 +136,28 @@
       },
       "details": {
         "daily": {
-          "latest": 62592.8,
-          "fastMA": 62317.18,
-          "slowMA": 61598.42,
-          "momentumPct": -0.71,
-          "rsi14": 58.1,
-          "distanceFromHighPct": -0.71
+          "latest": 62370.5,
+          "fastMA": 62306.06,
+          "slowMA": 61593.98,
+          "momentumPct": -1.06,
+          "rsi14": 55.97,
+          "distanceFromHighPct": -1.06
         },
         "weekly": {
-          "latest": 62592.8,
-          "fastMA": 61919.69,
-          "slowMA": 59583.04,
-          "momentumPct": 1.29,
-          "rsi14": 62.22,
-          "distanceFromHighPct": -0.7
+          "latest": 62370.5,
+          "fastMA": 61897.46,
+          "slowMA": 59575.63,
+          "momentumPct": 0.93,
+          "rsi14": 61.32,
+          "distanceFromHighPct": -1.06
         },
         "monthly": {
-          "latest": 62592.8,
-          "fastMA": 60162.87,
-          "slowMA": 60005.26,
-          "momentumPct": 1.41,
-          "rsi14": 54.91,
-          "distanceFromHighPct": 0.0
+          "latest": 62370.5,
+          "fastMA": 60125.82,
+          "slowMA": 59983.03,
+          "momentumPct": 1.05,
+          "rsi14": 54.54,
+          "distanceFromHighPct": -0.09
         }
       },
       "error": null
@@ -168,16 +168,16 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-09-09",
+      "date": "2026-09-10",
       "historyRows": 1257,
-      "daily": 57,
+      "daily": 52,
       "weekly": 57,
       "monthly": 65,
-      "overall": 61,
+      "overall": 60,
       "dailySignal": {
-        "label": "Positive",
-        "signal": "selective",
-        "emoji": "🟢"
+        "label": "Neutral / Cautious",
+        "signal": "warning",
+        "emoji": "🟡"
       },
       "weeklySignal": {
         "label": "Positive",
@@ -196,26 +196,26 @@
       },
       "details": {
         "daily": {
-          "latest": 4451.2,
-          "fastMA": 4472.17,
-          "slowMA": 4253.87,
-          "momentumPct": 2.37,
-          "rsi14": 47.51,
+          "latest": 4451.0,
+          "fastMA": 4472.51,
+          "slowMA": 4261.72,
+          "momentumPct": 1.94,
+          "rsi14": 45.58,
           "distanceFromHighPct": -4.09
         },
         "weekly": {
-          "latest": 4451.2,
-          "fastMA": 4293.78,
-          "slowMA": 4514.57,
-          "momentumPct": 1.62,
-          "rsi14": 54.48,
+          "latest": 4451.0,
+          "fastMA": 4293.76,
+          "slowMA": 4514.56,
+          "momentumPct": 1.61,
+          "rsi14": 54.47,
           "distanceFromHighPct": -3.74
         },
         "monthly": {
-          "latest": 4451.2,
-          "fastMA": 4354.92,
-          "slowMA": 4504.71,
-          "momentumPct": 10.65,
+          "latest": 4451.0,
+          "fastMA": 4354.88,
+          "slowMA": 4504.69,
+          "momentumPct": 10.64,
           "rsi14": 66.2,
           "distanceFromHighPct": -14.9
         }
@@ -367,5 +367,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-09T11:43:08.445897+00:00"
+  "marketRegimeGeneratedAt": "2026-09-10T05:08:00.314963+00:00"
 }
