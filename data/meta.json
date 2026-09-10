@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 23427.8,
-          "fastMA": 24024.7,
-          "slowMA": 24169.87,
-          "momentumPct": -1.87,
-          "rsi14": 17.64,
-          "distanceFromHighPct": -3.85
+          "latest": 23477.8,
+          "fastMA": 24027.2,
+          "slowMA": 24170.87,
+          "momentumPct": -1.66,
+          "rsi14": 20.58,
+          "distanceFromHighPct": -3.65
         },
         "weekly": {
-          "latest": 23427.8,
-          "fastMA": 24138.21,
-          "slowMA": 23969.89,
-          "momentumPct": -3.85,
-          "rsi14": 50.85,
-          "distanceFromHighPct": -4.65
+          "latest": 23477.8,
+          "fastMA": 24143.21,
+          "slowMA": 23971.55,
+          "momentumPct": -3.65,
+          "rsi14": 51.56,
+          "distanceFromHighPct": -4.45
         },
         "monthly": {
-          "latest": 23427.8,
-          "fastMA": 23883.81,
-          "slowMA": 24226.32,
-          "momentumPct": -1.84,
-          "rsi14": 43.23,
-          "distanceFromHighPct": -10.59
+          "latest": 23477.8,
+          "fastMA": 23892.14,
+          "slowMA": 24231.32,
+          "momentumPct": -1.63,
+          "rsi14": 43.45,
+          "distanceFromHighPct": -10.4
         }
       },
       "error": null
@@ -136,28 +136,28 @@
       },
       "details": {
         "daily": {
-          "latest": 62370.5,
-          "fastMA": 62306.06,
-          "slowMA": 61593.98,
-          "momentumPct": -1.06,
-          "rsi14": 55.97,
-          "distanceFromHighPct": -1.06
+          "latest": 62357.35,
+          "fastMA": 62305.41,
+          "slowMA": 61593.72,
+          "momentumPct": -1.08,
+          "rsi14": 55.81,
+          "distanceFromHighPct": -1.08
         },
         "weekly": {
-          "latest": 62370.5,
-          "fastMA": 61897.46,
-          "slowMA": 59575.63,
-          "momentumPct": 0.93,
-          "rsi14": 61.32,
-          "distanceFromHighPct": -1.06
+          "latest": 62357.35,
+          "fastMA": 61896.14,
+          "slowMA": 59575.19,
+          "momentumPct": 0.91,
+          "rsi14": 61.25,
+          "distanceFromHighPct": -1.08
         },
         "monthly": {
-          "latest": 62370.5,
-          "fastMA": 60125.82,
-          "slowMA": 59983.03,
-          "momentumPct": 1.05,
-          "rsi14": 54.54,
-          "distanceFromHighPct": -0.09
+          "latest": 62357.35,
+          "fastMA": 60123.63,
+          "slowMA": 59981.71,
+          "momentumPct": 1.03,
+          "rsi14": 54.52,
+          "distanceFromHighPct": -0.11
         }
       },
       "error": null
@@ -196,28 +196,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4451.0,
-          "fastMA": 4472.51,
-          "slowMA": 4261.72,
-          "momentumPct": 1.94,
-          "rsi14": 45.58,
-          "distanceFromHighPct": -4.09
+          "latest": 4436.0,
+          "fastMA": 4471.76,
+          "slowMA": 4261.42,
+          "momentumPct": 1.6,
+          "rsi14": 44.45,
+          "distanceFromHighPct": -4.41
         },
         "weekly": {
-          "latest": 4451.0,
-          "fastMA": 4293.76,
-          "slowMA": 4514.56,
-          "momentumPct": 1.61,
-          "rsi14": 54.47,
-          "distanceFromHighPct": -3.74
+          "latest": 4436.0,
+          "fastMA": 4292.26,
+          "slowMA": 4514.06,
+          "momentumPct": 1.27,
+          "rsi14": 53.93,
+          "distanceFromHighPct": -4.07
         },
         "monthly": {
-          "latest": 4451.0,
-          "fastMA": 4354.88,
-          "slowMA": 4504.69,
-          "momentumPct": 10.64,
-          "rsi14": 66.2,
-          "distanceFromHighPct": -14.9
+          "latest": 4436.0,
+          "fastMA": 4352.38,
+          "slowMA": 4503.19,
+          "momentumPct": 10.27,
+          "rsi14": 66.06,
+          "distanceFromHighPct": -15.19
         }
       },
       "error": null
@@ -231,18 +231,18 @@
       "date": "2026-09-09",
       "universeSize": 100,
       "daily": 38,
-      "weekly": 53,
-      "monthly": 88,
-      "overall": 68,
+      "weekly": 56,
+      "monthly": 90,
+      "overall": 69,
       "dailySignal": {
         "label": "Equity Reduce",
         "signal": "reduce",
         "emoji": "🟠"
       },
       "weeklySignal": {
-        "label": "Warning",
-        "signal": "warning",
-        "emoji": "🟡"
+        "label": "Selective Buying",
+        "signal": "selective",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Aggressive Stocks",
@@ -264,17 +264,17 @@
         },
         "weekly": {
           "method": "Dashboard universe breadth proxy",
-          "availableStocks": 93,
-          "positiveBreadthPct": 51.61,
-          "medianReturnPct": 1.1,
-          "returnStrengthScore": 55.51
+          "availableStocks": 97,
+          "positiveBreadthPct": 55.67,
+          "medianReturnPct": 1.37,
+          "returnStrengthScore": 56.86
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
-          "availableStocks": 93,
-          "positiveBreadthPct": 81.72,
-          "medianReturnPct": 19.42,
-          "returnStrengthScore": 98.56
+          "availableStocks": 97,
+          "positiveBreadthPct": 83.51,
+          "medianReturnPct": 21.27,
+          "returnStrengthScore": 100
         }
       },
       "proxy": true,
@@ -367,5 +367,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-10T05:08:00.314963+00:00"
+  "marketRegimeGeneratedAt": "2026-09-10T10:40:28.501946+00:00"
 }
