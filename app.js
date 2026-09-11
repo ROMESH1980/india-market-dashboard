@@ -5,6 +5,7 @@ let allStocks = [];
 let filteredStocks = [];
 let currentPage = 1;
 let activeSortField = null;
+let activeSortDirection = "desc";
 
 let multiTimeframeMarketView = {};
 let metaDataGlobal = {};
@@ -209,6 +210,7 @@ function deliveryPercentage(row) {
     const n = num(value);
 
     if (n !== null) {
+
       if (
         n > 0 &&
         n <= 1
@@ -376,23 +378,144 @@ function rsRatingVal(row) {
 
 
 /* =====================================================
-   STOCK GROWTH
+   INDUSTRY + STOCK MOMENTUM
 ===================================================== */
 
-function selectedStockGrowth(row) {
-  const period =
-    el("stockGrowthPeriod")?.value ||
-    "3M";
+function industryGrowth1M(row) {
+  return num(row.industryGrowth1M);
+}
 
-  if (period === "1M") {
-    return num(row.stockGrowth1M);
+
+function industryGrowth3M(row) {
+  return num(row.industryGrowth3M);
+}
+
+
+function industryGrowth6M(row) {
+  return num(row.industryGrowth6M);
+}
+
+
+function industryRating(row) {
+  const rating = num(row.industryRating);
+
+  if (rating === null) {
+    return null;
   }
 
-  if (period === "6M") {
-    return num(row.stockGrowth6M);
-  }
+  return Math.max(
+    1,
+    Math.min(
+      99,
+      Math.round(rating)
+    )
+  );
+}
 
+
+function stockGrowth1M(row) {
+  return num(row.stockGrowth1M);
+}
+
+
+function stockGrowth3M(row) {
   return num(row.stockGrowth3M);
+}
+
+
+function stockGrowth6M(row) {
+  return num(row.stockGrowth6M);
+}
+
+
+function stockMomentumRating(row) {
+  const rating =
+    num(row.stockMomentumRating);
+
+  if (rating === null) {
+    return null;
+  }
+
+  return Math.max(
+    1,
+    Math.min(
+      99,
+      Math.round(rating)
+    )
+  );
+}
+
+
+function momentumRatingLabel(value) {
+  const rating = num(value);
+
+  if (rating === null) {
+    return "Pending";
+  }
+
+  if (rating >= 90) {
+    return "Elite";
+  }
+
+  if (rating >= 80) {
+    return "Leader";
+  }
+
+  if (rating >= 70) {
+    return "Strong";
+  }
+
+  if (rating >= 50) {
+    return "Average";
+  }
+
+  if (rating >= 30) {
+    return "Weak";
+  }
+
+  return "Very Weak";
+}
+
+
+function momentumRatingVal(value) {
+  const rating = num(value);
+
+  if (rating === null) {
+    return `
+      <span class="pending">
+        Pending
+      </span>
+    `;
+  }
+
+  return `
+    <div class="rs-rating ${rsRatingClass(rating)}">
+      <strong>
+        ${Math.round(rating)}
+      </strong>
+
+      <small>
+        ${escapeHtml(
+          momentumRatingLabel(rating)
+        )}
+      </small>
+    </div>
+  `;
+}
+
+
+function ratingMode(id) {
+  const mode =
+    el(id)?.value ||
+    "above";
+
+  return [
+    "above",
+    "asc",
+    "desc"
+  ].includes(mode)
+    ? mode
+    : "above";
 }
 
 
@@ -619,7 +742,10 @@ function highVolumeMoveVal(row) {
    RESEARCH DETAILS
 ===================================================== */
 
-function normalizeDetailItem(title, item) {
+function normalizeDetailItem(
+  title,
+  item
+) {
   if (!item) {
     return null;
   }
@@ -677,7 +803,9 @@ function buildCombinedReasonHtml(details) {
   const items = [];
 
   if (Array.isArray(details)) {
+
     for (const item of details) {
+
       items.push(
         normalizeDetailItem(
           item.title ||
@@ -686,8 +814,11 @@ function buildCombinedReasonHtml(details) {
           item
         )
       );
+
     }
+
   } else {
+
     const keyMap = {
       tailwind: "Tailwind",
       macro: "Macro",
@@ -700,63 +831,84 @@ function buildCombinedReasonHtml(details) {
       capexScore: "CAPEX"
     };
 
+
     for (
       const [key, title]
       of Object.entries(keyMap)
     ) {
+
       if (details[key]) {
+
         items.push(
           normalizeDetailItem(
             title,
             details[key]
           )
         );
+
       }
+
     }
 
+
     if (!items.length) {
+
       for (
         const [key, value]
         of Object.entries(details)
       ) {
+
         if (
           value &&
           typeof value === "object"
         ) {
+
           items.push(
             normalizeDetailItem(
               key,
               value
             )
           );
+
         }
+
       }
+
     }
+
   }
+
 
   const validItems =
     items.filter(Boolean);
 
+
   if (!validItems.length) {
+
     return `
       <div class="pending">
         Details not available.
       </div>
     `;
+
   }
+
 
   return validItems
     .map(item => {
+
       const reason =
         escapeHtml(
           item.reason ||
           "No reason available."
         );
 
+
       const score =
         item.score !== ""
           ? escapeHtml(item.score)
           : "—";
+
 
       const mode =
         item.mode
@@ -768,6 +920,7 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
+
       const sourceDate =
         item.sourceDate
           ? `
@@ -778,6 +931,7 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
+
       const source =
         item.source
           ? `
@@ -787,6 +941,7 @@ function buildCombinedReasonHtml(details) {
             </div>
           `
           : "";
+
 
       return `
         <div class="reason-section">
@@ -808,6 +963,7 @@ function buildCombinedReasonHtml(details) {
 
         </div>
       `;
+
     })
     .join("");
 }
@@ -822,7 +978,8 @@ function openReasonModal(
   score,
   details
 ) {
-  const modal = el("reasonModal");
+  const modal =
+    el("reasonModal");
 
   if (!modal) {
     return;
@@ -843,7 +1000,9 @@ function openReasonModal(
   el("reasonScore").textContent =
     score !== null &&
     score !== undefined
-      ? `Score: ${Math.round(Number(score))}`
+      ? `Score: ${Math.round(
+          Number(score)
+        )}`
       : "Score: Pending";
 
   el("reasonText").innerHTML =
@@ -856,7 +1015,8 @@ function openReasonModal(
     el("reasonSourceLink");
 
   if (sourceLink) {
-    sourceLink.style.display = "none";
+    sourceLink.style.display =
+      "none";
   }
 
   modal.classList.add("open");
@@ -869,7 +1029,8 @@ function openReasonModal(
 
 
 function closeReasonModal() {
-  const modal = el("reasonModal");
+  const modal =
+    el("reasonModal");
 
   if (!modal) {
     return;
@@ -905,12 +1066,15 @@ function researchScoreButton(
   const n = num(score);
 
   if (n === null) {
+
     return `
       <span class="pending">
         Pending
       </span>
     `;
+
   }
+
 
   return `
     <button
@@ -962,11 +1126,13 @@ function checked(id) {
 ===================================================== */
 
 function passesFilters(row) {
+
   if (
     !passesPermanentUniverseRule(row)
   ) {
     return false;
   }
+
 
   const q =
     (
@@ -976,7 +1142,9 @@ function passesFilters(row) {
       .trim()
       .toLowerCase();
 
+
   if (q) {
+
     const haystack = [
       row.symbol,
       row.name,
@@ -989,17 +1157,21 @@ function passesFilters(row) {
       .join(" ")
       .toLowerCase();
 
+
     if (!haystack.includes(q)) {
       return false;
     }
+
   }
 
 
   if (checked("activeMarketCap")) {
+
     const enteredThreshold =
       inputNumber(
         "aboveMarketCap"
       );
+
 
     const threshold =
       enteredThreshold === null
@@ -1009,29 +1181,39 @@ function passesFilters(row) {
             enteredThreshold
           );
 
+
     const value =
       num(row.marketCapCr);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (value < threshold) {
       return false;
     }
+
   }
 
 
   if (checked("activePrice")) {
+
     const threshold =
-      inputNumber("abovePrice");
+      inputNumber(
+        "abovePrice"
+      );
+
 
     const value =
       num(row.price);
 
+
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1039,19 +1221,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeChange")) {
+
     const threshold =
-      inputNumber("aboveChange");
+      inputNumber(
+        "aboveChange"
+      );
+
 
     const value =
       num(row.changePct);
 
+
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1059,21 +1248,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeTodayVolume")) {
+
     const threshold =
       inputNumber(
         "aboveTodayVolume"
       );
 
+
     const value =
       totalVolume(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1081,21 +1275,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeTodayTurnover")) {
+
     const threshold =
       inputNumber(
         "aboveTodayTurnover"
       );
 
+
     const value =
       todayTurnoverCr(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1103,21 +1302,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeTodayDelivery")) {
+
     const threshold =
       inputNumber(
         "aboveTodayDelivery"
       );
 
+
     const value =
       todayDeliveryVolume(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1125,21 +1329,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("active5DDelivery")) {
+
     const threshold =
       inputNumber(
         "above5DDelivery"
       );
 
+
     const value =
       avg5DayDelivery(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1147,21 +1356,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeDeliveryRatio")) {
+
     const threshold =
       inputNumber(
         "aboveDeliveryRatio"
       );
 
+
     const value =
       deliveryTimes(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1169,21 +1383,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeDeliveryPct")) {
+
     const threshold =
       inputNumber(
         "aboveDeliveryPct"
       );
 
+
     const value =
       deliveryPercentage(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1191,6 +1410,7 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
@@ -1203,15 +1423,21 @@ function passesFilters(row) {
 
 
   if (checked("activeRS")) {
+
     const threshold =
-      inputNumber("aboveRS");
+      inputNumber(
+        "aboveRS"
+      );
+
 
     const value =
       rsRating(row);
 
+
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1219,13 +1445,16 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeSector")) {
+
     const value =
       el("sectorFilter")?.value ||
       "";
+
 
     if (
       value &&
@@ -1233,13 +1462,16 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeIndustry")) {
+
     const value =
       el("industryFilter")?.value ||
       "";
+
 
     if (
       value &&
@@ -1247,21 +1479,30 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
-  if (checked("activeSectorGrowth")) {
+  /* ===================================================
+     INDUSTRY MOMENTUM FILTERS
+  =================================================== */
+
+  if (checked("activeIndustry1M")) {
+
     const threshold =
       inputNumber(
-        "aboveSectorGrowth"
+        "aboveIndustry1M"
       );
 
+
     const value =
-      num(row.sectorGrowth1M);
+      industryGrowth1M(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1269,21 +1510,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
-  if (checked("activeStockGrowth")) {
+  if (checked("activeIndustry3M")) {
+
     const threshold =
       inputNumber(
-        "aboveStockGrowth"
+        "aboveIndustry3M"
       );
 
+
     const value =
-      selectedStockGrowth(row);
+      industryGrowth3M(row);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1291,19 +1537,208 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
+  }
+
+
+  if (checked("activeIndustry6M")) {
+
+    const threshold =
+      inputNumber(
+        "aboveIndustry6M"
+      );
+
+
+    const value =
+      industryGrowth6M(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+
+  }
+
+
+  if (checked("activeIndustryRating")) {
+
+    const value =
+      industryRating(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      ratingMode(
+        "industryRatingMode"
+      ) === "above"
+    ) {
+
+      const threshold =
+        inputNumber(
+          "aboveIndustryRating"
+        );
+
+
+      if (
+        threshold !== null &&
+        value < threshold
+      ) {
+        return false;
+      }
+
+    }
+
+  }
+
+
+  /* ===================================================
+     STOCK MOMENTUM FILTERS
+  =================================================== */
+
+  if (checked("activeStock1M")) {
+
+    const threshold =
+      inputNumber(
+        "aboveStock1M"
+      );
+
+
+    const value =
+      stockGrowth1M(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+
+  }
+
+
+  if (checked("activeStock3M")) {
+
+    const threshold =
+      inputNumber(
+        "aboveStock3M"
+      );
+
+
+    const value =
+      stockGrowth3M(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+
+  }
+
+
+  if (checked("activeStock6M")) {
+
+    const threshold =
+      inputNumber(
+        "aboveStock6M"
+      );
+
+
+    const value =
+      stockGrowth6M(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      threshold !== null &&
+      value < threshold
+    ) {
+      return false;
+    }
+
+  }
+
+
+  if (checked("activeStockRating")) {
+
+    const value =
+      stockMomentumRating(row);
+
+
+    if (value === null) {
+      return false;
+    }
+
+
+    if (
+      ratingMode(
+        "stockRatingMode"
+      ) === "above"
+    ) {
+
+      const threshold =
+        inputNumber(
+          "aboveStockRating"
+        );
+
+
+      if (
+        threshold !== null &&
+        value < threshold
+      ) {
+        return false;
+      }
+
+    }
+
   }
 
 
   if (checked("activeTMV")) {
+
     const threshold =
-      inputNumber("aboveTMV");
+      inputNumber(
+        "aboveTMV"
+      );
+
 
     const value =
       num(row.tmvScore);
 
+
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1311,19 +1746,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeGFC")) {
+
     const threshold =
-      inputNumber("aboveGFC");
+      inputNumber(
+        "aboveGFC"
+      );
+
 
     const value =
       num(row.gfcScore);
 
+
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1331,21 +1773,26 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
 
 
   if (checked("activeOverall")) {
+
     const threshold =
       inputNumber(
         "aboveOverall"
       );
 
+
     const value =
       num(row.overallScore);
+
 
     if (value === null) {
       return false;
     }
+
 
     if (
       threshold !== null &&
@@ -1353,10 +1800,14 @@ function passesFilters(row) {
     ) {
       return false;
     }
+
   }
+
 
   return true;
 }
+
+
 /* =====================================================
    SORT VALUES
 ===================================================== */
@@ -1365,35 +1816,47 @@ function sortValue(
   row,
   field
 ) {
+
   switch (field) {
+
     case "marketCapCr":
       return num(row.marketCapCr);
+
 
     case "price":
       return num(row.price);
 
+
     case "changePct":
       return num(row.changePct);
+
 
     case "todayVolume":
       return totalVolume(row);
 
+
     case "todayTurnoverCr":
       return todayTurnoverCr(row);
+
 
     case "todayDeliveryVolume":
       return todayDeliveryVolume(row);
 
+
     case "avg5DayDeliveryVolume":
       return avg5DayDelivery(row);
+
 
     case "deliveryVolumeRatio":
       return deliveryTimes(row);
 
+
     case "deliveryPct":
       return deliveryPercentage(row);
 
+
     case "highVolMove":
+
       if (
         !qualifiesHighVolumeMove(row)
       ) {
@@ -1404,27 +1867,60 @@ function sortValue(
         num(row.changePct) || 0
       );
 
+
     case "rsRating":
       return rsRating(row);
 
-    case "sectorGrowth1M":
-      return num(row.sectorGrowth1M);
 
-    case "stockGrowth":
-      return selectedStockGrowth(row);
+    case "industryGrowth1M":
+      return industryGrowth1M(row);
+
+
+    case "industryGrowth3M":
+      return industryGrowth3M(row);
+
+
+    case "industryGrowth6M":
+      return industryGrowth6M(row);
+
+
+    case "industryRating":
+      return industryRating(row);
+
+
+    case "stockGrowth1M":
+      return stockGrowth1M(row);
+
+
+    case "stockGrowth3M":
+      return stockGrowth3M(row);
+
+
+    case "stockGrowth6M":
+      return stockGrowth6M(row);
+
+
+    case "stockMomentumRating":
+      return stockMomentumRating(row);
+
 
     case "tmvScore":
       return num(row.tmvScore);
 
+
     case "gfcScore":
       return num(row.gfcScore);
+
 
     case "overallScore":
       return num(row.overallScore);
 
+
     default:
       return null;
+
   }
+
 }
 
 
@@ -1432,16 +1928,20 @@ function sortValue(
    SORT
 ===================================================== */
 
-function compareNumericDesc(
+function compareNumeric(
   a,
   b,
-  field
+  field,
+  direction = "desc"
 ) {
+
   const av =
     sortValue(a, field);
 
+
   const bv =
     sortValue(b, field);
+
 
   if (
     av === null &&
@@ -1450,54 +1950,73 @@ function compareNumericDesc(
     return 0;
   }
 
+
   if (av === null) {
     return 1;
   }
+
 
   if (bv === null) {
     return -1;
   }
 
-  if (bv !== av) {
-    return bv - av;
+
+  if (bv === av) {
+    return 0;
   }
 
-  return 0;
+
+  return direction === "asc"
+    ? av - bv
+    : bv - av;
+
 }
 
 
 function rankStocks(rows) {
+
   return [...rows]
     .sort(
       (a, b) => {
+
         if (activeSortField) {
+
           const primary =
-            compareNumericDesc(
+            compareNumeric(
               a,
               b,
-              activeSortField
+              activeSortField,
+              activeSortDirection
             );
+
 
           if (primary !== 0) {
             return primary;
           }
+
         }
+
 
         if (
           activeSortField !==
           "changePct"
         ) {
+
           const changeSort =
-            compareNumericDesc(
+            compareNumeric(
               a,
               b,
-              "changePct"
+              "changePct",
+              "desc"
             );
+
 
           if (changeSort !== 0) {
             return changeSort;
           }
+
         }
+
 
         const nameA =
           (
@@ -1508,6 +2027,7 @@ function rankStocks(rows) {
           )
             .toLowerCase();
 
+
         const nameB =
           (
             b.name ||
@@ -1517,11 +2037,14 @@ function rankStocks(rows) {
           )
             .toLowerCase();
 
+
         return nameA.localeCompare(
           nameB
         );
+
       }
     );
+
 }
 
 
@@ -1530,6 +2053,7 @@ function rankStocks(rows) {
 ===================================================== */
 
 const sortFieldByActiveCheckbox = {
+
   activeMarketCap:
     "marketCapCr",
 
@@ -1563,11 +2087,29 @@ const sortFieldByActiveCheckbox = {
   activeRS:
     "rsRating",
 
-  activeSectorGrowth:
-    "sectorGrowth1M",
+  activeIndustry1M:
+    "industryGrowth1M",
 
-  activeStockGrowth:
-    "stockGrowth",
+  activeIndustry3M:
+    "industryGrowth3M",
+
+  activeIndustry6M:
+    "industryGrowth6M",
+
+  activeIndustryRating:
+    "industryRating",
+
+  activeStock1M:
+    "stockGrowth1M",
+
+  activeStock3M:
+    "stockGrowth3M",
+
+  activeStock6M:
+    "stockGrowth6M",
+
+  activeStockRating:
+    "stockMomentumRating",
 
   activeTMV:
     "tmvScore",
@@ -1577,19 +2119,66 @@ const sortFieldByActiveCheckbox = {
 
   activeOverall:
     "overallScore"
+
 };
+
+
+function sortDirectionForCheckbox(
+  checkboxId
+) {
+
+  if (
+    checkboxId ===
+    "activeIndustryRating"
+  ) {
+
+    const mode =
+      ratingMode(
+        "industryRatingMode"
+      );
+
+    return mode === "asc"
+      ? "asc"
+      : "desc";
+
+  }
+
+
+  if (
+    checkboxId ===
+    "activeStockRating"
+  ) {
+
+    const mode =
+      ratingMode(
+        "stockRatingMode"
+      );
+
+    return mode === "asc"
+      ? "asc"
+      : "desc";
+
+  }
+
+
+  return "desc";
+
+}
 
 
 function updateActiveSortFromCheckbox(
   checkboxId
 ) {
+
   const checkbox =
     el(checkboxId);
+
 
   const field =
     sortFieldByActiveCheckbox[
       checkboxId
     ];
+
 
   if (
     !checkbox ||
@@ -1598,19 +2187,42 @@ function updateActiveSortFromCheckbox(
     return;
   }
 
+
   if (checkbox.checked) {
+
     activeSortField =
       field;
+
+
+    activeSortDirection =
+      sortDirectionForCheckbox(
+        checkboxId
+      );
+
   } else if (
     activeSortField === field
   ) {
-    activeSortField =
+
+    const replacement =
       findAnotherActiveSortField();
+
+
+    activeSortField =
+      replacement?.field ||
+      null;
+
+
+    activeSortDirection =
+      replacement?.direction ||
+      "desc";
+
   }
+
 }
 
 
 function findAnotherActiveSortField() {
+
   for (
     const [
       checkboxId,
@@ -1620,14 +2232,27 @@ function findAnotherActiveSortField() {
       sortFieldByActiveCheckbox
     )
   ) {
+
     if (
       el(checkboxId)?.checked
     ) {
-      return field;
+
+      return {
+        field,
+
+        direction:
+          sortDirectionForCheckbox(
+            checkboxId
+          )
+      };
+
     }
+
   }
 
+
   return null;
+
 }
 
 
@@ -1639,15 +2264,19 @@ function fillSelectOptions(
   id,
   values
 ) {
+
   const select =
     el(id);
+
 
   if (!select) {
     return;
   }
 
+
   const current =
     select.value;
+
 
   const unique =
     [...new Set(
@@ -1664,6 +2293,7 @@ function fillSelectOptions(
           a.localeCompare(b)
       );
 
+
   select.innerHTML =
     `
       <option value="">
@@ -1671,31 +2301,42 @@ function fillSelectOptions(
       </option>
     `;
 
+
   for (const value of unique) {
+
     const option =
       document.createElement(
         "option"
       );
 
+
     option.value =
       value;
+
 
     option.textContent =
       value;
 
+
     select.appendChild(
       option
     );
+
   }
 
+
   if (unique.includes(current)) {
+
     select.value =
       current;
+
   }
+
 }
 
 
 function populateDropdowns() {
+
   fillSelectOptions(
     "sectorFilter",
     allStocks.map(
@@ -1703,12 +2344,14 @@ function populateDropdowns() {
     )
   );
 
+
   fillSelectOptions(
     "industryFilter",
     allStocks.map(
       row => row.industry
     )
   );
+
 }
 
 
@@ -1717,12 +2360,15 @@ function populateDropdowns() {
 ===================================================== */
 
 function renderRows() {
+
   const tbody =
     el("rows");
+
 
   if (!tbody) {
     return;
   }
+
 
   filteredStocks =
     rankStocks(
@@ -1731,8 +2377,10 @@ function renderRows() {
       )
     );
 
+
   const total =
     filteredStocks.length;
+
 
   const totalPages =
     Math.max(
@@ -1743,17 +2391,22 @@ function renderRows() {
       )
     );
 
+
   if (
     currentPage >
     totalPages
   ) {
+
     currentPage =
       totalPages;
+
   }
+
 
   if (currentPage < 1) {
     currentPage = 1;
   }
+
 
   const start =
     (
@@ -1762,17 +2415,21 @@ function renderRows() {
     ) *
     PAGE_SIZE;
 
+
   const pageRows =
     filteredStocks.slice(
       start,
       start + PAGE_SIZE
     );
 
+
   tbody.innerHTML =
     pageRows
       .map(row => {
+
         const globalIndex =
           allStocks.indexOf(row);
+
 
         const companyName =
           escapeHtml(
@@ -1782,11 +2439,13 @@ function renderRows() {
             "—"
           );
 
+
         const symbol =
           escapeHtml(
             row.symbol ||
             ""
           );
+
 
         const sector =
           escapeHtml(
@@ -1794,23 +2453,25 @@ function renderRows() {
             "—"
           );
 
+
         const industry =
           escapeHtml(
             row.industry ||
             "—"
           );
 
-        const stockGrowth =
-          selectedStockGrowth(row);
 
         const deliveryPct =
           deliveryPercentage(row);
 
+
         const volume =
           totalVolume(row);
 
+
         const turnover =
           todayTurnoverCr(row);
+
 
         return `
           <tr>
@@ -1818,6 +2479,7 @@ function renderRows() {
             <!-- STOCK -->
 
             <td>
+
               <div class="stock-cell">
 
                 <strong>
@@ -1835,6 +2497,7 @@ function renderRows() {
                 }
 
               </div>
+
             </td>
 
 
@@ -1862,6 +2525,7 @@ function renderRows() {
             <!-- TODAY VOLUME -->
 
             <td>
+
               ${
                 volume === null
                   ? `
@@ -1871,21 +2535,25 @@ function renderRows() {
                   `
                   : formatNumber(volume)
               }
+
             </td>
 
 
             <!-- TODAY TURNOVER -->
 
             <td>
+
               ${formatTurnoverCr(
                 turnover
               )}
+
             </td>
 
 
             <!-- TODAY DELIVERY -->
 
             <td>
+
               ${
                 todayDeliveryVolume(row) === null
                   ? `
@@ -1897,12 +2565,14 @@ function renderRows() {
                       todayDeliveryVolume(row)
                     )
               }
+
             </td>
 
 
             <!-- 5D AVG DELIVERY -->
 
             <td>
+
               ${
                 avg5DayDelivery(row) === null
                   ? `
@@ -1914,135 +2584,241 @@ function renderRows() {
                       avg5DayDelivery(row)
                     )
               }
+
             </td>
 
 
             <!-- DELIVERY TIMES -->
 
             <td>
+
               ${formatTimes(
                 deliveryTimes(row)
               )}
+
             </td>
 
 
             <!-- DELIVERY % -->
 
             <td>
+
               ${formatPlainPct(
                 deliveryPct
               )}
+
             </td>
 
 
             <!-- 5L + 5% MOVE -->
 
             <td>
+
               ${highVolumeMoveVal(row)}
+
             </td>
 
 
             <!-- RS RATING -->
 
             <td>
+
               ${rsRatingVal(row)}
+
             </td>
 
 
             <!-- SECTOR -->
 
             <td>
+
               ${sector}
+
             </td>
 
 
             <!-- INDUSTRY -->
 
             <td>
+
               ${industry}
+
             </td>
 
 
-            <!-- SECTOR GROWTH -->
+            <!-- INDUSTRY 1M -->
 
             <td>
+
               ${formatPct(
-                row.sectorGrowth1M
+                row.industryGrowth1M
               )}
+
             </td>
 
 
-            <!-- STOCK GROWTH -->
+            <!-- INDUSTRY 3M -->
 
             <td>
+
               ${formatPct(
-                stockGrowth
+                row.industryGrowth3M
               )}
+
+            </td>
+
+
+            <!-- INDUSTRY 6M -->
+
+            <td>
+
+              ${formatPct(
+                row.industryGrowth6M
+              )}
+
+            </td>
+
+
+            <!-- INDUSTRY RATING -->
+
+            <td>
+
+              ${momentumRatingVal(
+                row.industryRating
+              )}
+
+            </td>
+
+
+            <!-- STOCK 1M -->
+
+            <td>
+
+              ${formatPct(
+                row.stockGrowth1M
+              )}
+
+            </td>
+
+
+            <!-- STOCK 3M -->
+
+            <td>
+
+              ${formatPct(
+                row.stockGrowth3M
+              )}
+
+            </td>
+
+
+            <!-- STOCK 6M -->
+
+            <td>
+
+              ${formatPct(
+                row.stockGrowth6M
+              )}
+
+            </td>
+
+
+            <!-- STOCK MOMENTUM RATING -->
+
+            <td>
+
+              ${momentumRatingVal(
+                row.stockMomentumRating
+              )}
+
             </td>
 
 
             <!-- T + M + VM -->
 
             <td>
+
               ${researchScoreButton(
                 globalIndex,
                 "tmv",
                 row.tmvScore
               )}
+
             </td>
 
 
             <!-- G + F + C -->
 
             <td>
+
               ${researchScoreButton(
                 globalIndex,
                 "gfc",
                 row.gfcScore
               )}
+
             </td>
 
 
             <!-- OVERALL -->
 
             <td>
+
               <strong class="overall-score">
+
                 ${formatScore(
                   row.overallScore
                 )}
+
               </strong>
+
             </td>
 
           </tr>
         `;
+
       })
       .join("");
 
+
   if (el("resultCount")) {
+
     el("resultCount").textContent =
       `${total.toLocaleString(
         "en-IN"
       )} matched`;
+
   }
+
 
   if (el("page")) {
+
     el("page").textContent =
       `Page ${currentPage} of ${totalPages}`;
+
   }
+
 
   if (el("prev")) {
+
     el("prev").disabled =
       currentPage <= 1;
+
   }
 
+
   if (el("next")) {
+
     el("next").disabled =
       currentPage >= totalPages;
+
   }
+
 
   syncTopScrollbar();
 
   setupReasonButtons();
+
 }
 
 
@@ -2051,31 +2827,39 @@ function renderRows() {
 ===================================================== */
 
 function setupReasonButtons() {
+
   document
     .querySelectorAll(
       ".score-info-button"
     )
     .forEach(
       button => {
+
         button.addEventListener(
           "click",
           () => {
+
             const index =
               Number(
                 button.dataset.rowIndex
               );
 
+
             const type =
               button.dataset.reasonType;
 
+
             const row =
               allStocks[index];
+
 
             if (!row) {
               return;
             }
 
+
             if (type === "tmv") {
+
               openReasonModal(
                 `${
                   row.symbol ||
@@ -2087,9 +2871,12 @@ function setupReasonButtons() {
               );
 
               return;
+
             }
 
+
             if (type === "gfc") {
+
               openReasonModal(
                 `${
                   row.symbol ||
@@ -2099,33 +2886,109 @@ function setupReasonButtons() {
                 row.gfcScore,
                 row.gfcDetails
               );
+
             }
+
           }
         );
+
       }
     );
+
 }
-
-
 /* =====================================================
    FILTER EVENTS
 ===================================================== */
 
 function applyFilterChange() {
+
   currentPage = 1;
+
   renderRows();
+
 }
 
 
+/* =====================================================
+   RATING MODE CHANGE
+===================================================== */
+
+function updateIndustryRatingSortMode() {
+
+  if (
+    checked(
+      "activeIndustryRating"
+    )
+  ) {
+
+    activeSortField =
+      "industryRating";
+
+
+    activeSortDirection =
+      ratingMode(
+        "industryRatingMode"
+      ) === "asc"
+        ? "asc"
+        : "desc";
+
+  }
+
+
+  applyFilterChange();
+
+}
+
+
+function updateStockRatingSortMode() {
+
+  if (
+    checked(
+      "activeStockRating"
+    )
+  ) {
+
+    activeSortField =
+      "stockMomentumRating";
+
+
+    activeSortDirection =
+      ratingMode(
+        "stockRatingMode"
+      ) === "asc"
+        ? "asc"
+        : "desc";
+
+  }
+
+
+  applyFilterChange();
+
+}
+
+
+/* =====================================================
+   FILTER EVENT SETUP
+===================================================== */
+
 function setupFilterEvents() {
+
   el("q")
     ?.addEventListener(
       "input",
       () => {
+
         currentPage = 1;
+
         renderRows();
+
       }
     );
+
+
+  /* ===================================================
+     ACTIVE CHECKBOX EVENTS
+  =================================================== */
 
   for (
     const checkboxId
@@ -2133,46 +2996,101 @@ function setupFilterEvents() {
       sortFieldByActiveCheckbox
     )
   ) {
+
     el(checkboxId)
       ?.addEventListener(
         "change",
         () => {
+
           updateActiveSortFromCheckbox(
             checkboxId
           );
 
+
           applyFilterChange();
+
         }
       );
+
   }
 
+
+  /* ===================================================
+     NUMERIC INPUTS
+  =================================================== */
+
   const numericInputs = [
+
     "aboveMarketCap",
+
     "abovePrice",
+
     "aboveChange",
+
     "aboveTodayVolume",
+
     "aboveTodayTurnover",
+
     "aboveTodayDelivery",
+
     "above5DDelivery",
+
     "aboveDeliveryRatio",
+
     "aboveDeliveryPct",
+
     "aboveRS",
-    "aboveSectorGrowth",
-    "aboveStockGrowth",
+
+
+    /* INDUSTRY */
+
+    "aboveIndustry1M",
+
+    "aboveIndustry3M",
+
+    "aboveIndustry6M",
+
+    "aboveIndustryRating",
+
+
+    /* STOCK */
+
+    "aboveStock1M",
+
+    "aboveStock3M",
+
+    "aboveStock6M",
+
+    "aboveStockRating",
+
+
+    /* RESEARCH */
+
     "aboveTMV",
+
     "aboveGFC",
+
     "aboveOverall"
+
   ];
+
 
   numericInputs.forEach(
     id => {
+
       el(id)
         ?.addEventListener(
           "input",
           applyFilterChange
         );
+
     }
   );
+
+
+  /* ===================================================
+     SECTOR / INDUSTRY DROPDOWN
+  =================================================== */
 
   el("activeSector")
     ?.addEventListener(
@@ -2180,11 +3098,13 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
+
   el("sectorFilter")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
+
 
   el("activeIndustry")
     ?.addEventListener(
@@ -2192,28 +3112,35 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
+
   el("industryFilter")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
 
-  el("stockGrowthPeriod")
+
+  /* ===================================================
+     INDUSTRY RATING MODE
+  =================================================== */
+
+  el("industryRatingMode")
     ?.addEventListener(
       "change",
-      () => {
-        if (
-          checked(
-            "activeStockGrowth"
-          )
-        ) {
-          activeSortField =
-            "stockGrowth";
-        }
-
-        applyFilterChange();
-      }
+      updateIndustryRatingSortMode
     );
+
+
+  /* ===================================================
+     STOCK RATING MODE
+  =================================================== */
+
+  el("stockRatingMode")
+    ?.addEventListener(
+      "change",
+      updateStockRatingSortMode
+    );
+
 }
 
 
@@ -2222,74 +3149,162 @@ function setupFilterEvents() {
 ===================================================== */
 
 function resetFilters() {
+
   if (el("q")) {
-    el("q").value = "";
+
+    el("q").value =
+      "";
+
   }
+
+
+  /* ===================================================
+     RESET CHECKBOXES
+  =================================================== */
 
   const checkboxes =
     document.querySelectorAll(
       '.filter-row input[type="checkbox"]'
     );
 
+
   checkboxes.forEach(
     checkbox => {
+
       checkbox.checked =
         false;
+
     }
   );
+
+
+  /* ===================================================
+     RESET NUMBER INPUTS
+  =================================================== */
 
   const inputs =
     document.querySelectorAll(
       '.filter-row input:not([type="checkbox"])'
     );
 
+
   inputs.forEach(
     input => {
+
       input.value =
         "";
+
     }
   );
 
+
+  /* ===================================================
+     RESET SECTOR
+  =================================================== */
+
   if (el("sectorFilter")) {
+
     el("sectorFilter").value =
       "";
+
   }
+
+
+  /* ===================================================
+     RESET INDUSTRY
+  =================================================== */
 
   if (el("industryFilter")) {
+
     el("industryFilter").value =
       "";
+
   }
 
-  if (el("stockGrowthPeriod")) {
-    el("stockGrowthPeriod").value =
-      "3M";
+
+  /* ===================================================
+     RESET INDUSTRY RATING MODE
+  =================================================== */
+
+  if (
+    el(
+      "industryRatingMode"
+    )
+  ) {
+
+    el(
+      "industryRatingMode"
+    ).value =
+      "above";
+
   }
 
-  activeSortField = null;
-  currentPage = 1;
+
+  /* ===================================================
+     RESET STOCK RATING MODE
+  =================================================== */
+
+  if (
+    el(
+      "stockRatingMode"
+    )
+  ) {
+
+    el(
+      "stockRatingMode"
+    ).value =
+      "above";
+
+  }
+
+
+  activeSortField =
+    null;
+
+
+  activeSortDirection =
+    "desc";
+
+
+  currentPage =
+    1;
+
 
   renderRows();
+
 }
+
+
 /* =====================================================
    PAGINATION
 ===================================================== */
 
 function setupPagination() {
+
   el("prev")
     ?.addEventListener(
       "click",
       () => {
-        if (currentPage > 1) {
+
+        if (
+          currentPage > 1
+        ) {
+
           currentPage -= 1;
+
           renderRows();
+
         }
+
       }
     );
+
 
   el("next")
     ?.addEventListener(
       "click",
       () => {
+
         const totalPages =
           Math.max(
             1,
@@ -2298,25 +3313,33 @@ function setupPagination() {
               PAGE_SIZE
             )
           );
+
 
         if (
           currentPage <
           totalPages
         ) {
+
           currentPage += 1;
+
           renderRows();
+
         }
+
       }
     );
+
 
   el("gotoPage")
     ?.addEventListener(
       "change",
       () => {
+
         const requested =
           Number(
             el("gotoPage")?.value
           );
+
 
         const totalPages =
           Math.max(
@@ -2327,27 +3350,44 @@ function setupPagination() {
             )
           );
 
+
         if (
-          Number.isFinite(requested)
+          Number.isFinite(
+            requested
+          )
         ) {
+
           currentPage =
             Math.min(
               totalPages,
               Math.max(
                 1,
-                Math.floor(requested)
+                Math.floor(
+                  requested
+                )
               )
             );
 
+
           renderRows();
+
         }
 
-        if (el("gotoPage")) {
-          el("gotoPage").value =
+
+        if (
+          el("gotoPage")
+        ) {
+
+          el(
+            "gotoPage"
+          ).value =
             "";
+
         }
+
       }
     );
+
 }
 
 
@@ -2356,91 +3396,135 @@ function setupPagination() {
 ===================================================== */
 
 function syncTopScrollbar() {
+
   const topScroll =
     el("topScroll");
 
+
   const topScrollInner =
-    el("topScrollInner");
+    el(
+      "topScrollInner"
+    );
+
 
   const tableWrap =
     el("tableWrap");
+
 
   if (
     !topScroll ||
     !topScrollInner ||
     !tableWrap
   ) {
+
     return;
+
   }
+
 
   topScrollInner.style.width =
     `${tableWrap.scrollWidth}px`;
 
+
   topScroll.scrollLeft =
     tableWrap.scrollLeft;
+
 }
 
 
+/* =====================================================
+   TOP SCROLLBAR EVENT SETUP
+===================================================== */
+
 function setupTopScrollbar() {
+
   const topScroll =
     el("topScroll");
 
+
   const tableWrap =
     el("tableWrap");
+
 
   if (
     !topScroll ||
     !tableWrap
   ) {
+
     return;
+
   }
+
 
   let syncingFromTop =
     false;
 
+
   let syncingFromTable =
     false;
+
 
   topScroll.addEventListener(
     "scroll",
     () => {
-      if (syncingFromTable) {
+
+      if (
+        syncingFromTable
+      ) {
+
         return;
+
       }
+
 
       syncingFromTop =
         true;
+
 
       tableWrap.scrollLeft =
         topScroll.scrollLeft;
 
+
       syncingFromTop =
         false;
+
     }
   );
+
 
   tableWrap.addEventListener(
     "scroll",
     () => {
-      if (syncingFromTop) {
+
+      if (
+        syncingFromTop
+      ) {
+
         return;
+
       }
+
 
       syncingFromTable =
         true;
 
+
       topScroll.scrollLeft =
         tableWrap.scrollLeft;
 
+
       syncingFromTable =
         false;
+
     }
   );
+
 
   window.addEventListener(
     "resize",
     syncTopScrollbar
   );
+
 }
 
 
@@ -2449,36 +3533,48 @@ function setupTopScrollbar() {
 ===================================================== */
 
 function setupReasonModalEvents() {
+
   el("closeReasonModal")
     ?.addEventListener(
       "click",
       closeReasonModal
     );
 
+
   el("reasonModal")
     ?.addEventListener(
       "click",
       event => {
+
         if (
           event.target ===
           el("reasonModal")
         ) {
+
           closeReasonModal();
+
         }
+
       }
     );
+
 
   document.addEventListener(
     "keydown",
     event => {
+
       if (
         event.key ===
         "Escape"
       ) {
+
         closeReasonModal();
+
       }
+
     }
   );
+
 }
 
 
@@ -2487,121 +3583,266 @@ function setupReasonModalEvents() {
 ===================================================== */
 
 function getEquityRegime(score) {
-  const n = num(score);
+
+  const n =
+    num(score);
+
 
   if (n === null) {
+
     return {
-      label: "Pending",
-      icon: "⚪",
-      action: "Data pending"
+
+      label:
+        "Pending",
+
+      icon:
+        "⚪",
+
+      action:
+        "Data pending"
+
     };
+
   }
+
 
   if (n >= 75) {
+
     return {
-      label: "Strong Risk-ON",
-      icon: "🟢🟢",
-      action: "Aggressive Stocks"
+
+      label:
+        "Strong Risk-ON",
+
+      icon:
+        "🟢🟢",
+
+      action:
+        "Aggressive Stocks"
+
     };
+
   }
+
 
   if (n >= 65) {
+
     return {
-      label: "Risk-ON",
-      icon: "🟢",
-      action: "Stocks overweight"
+
+      label:
+        "Risk-ON",
+
+      icon:
+        "🟢",
+
+      action:
+        "Stocks overweight"
+
     };
+
   }
+
 
   if (n >= 55) {
+
     return {
-      label: "Mild Risk-ON",
-      icon: "🟢",
-      action: "Selective buying"
+
+      label:
+        "Mild Risk-ON",
+
+      icon:
+        "🟢",
+
+      action:
+        "Selective buying"
+
     };
+
   }
+
 
   if (n >= 45) {
+
     return {
-      label: "Warning",
-      icon: "🟡",
-      action: "New buying reduce"
+
+      label:
+        "Warning",
+
+      icon:
+        "🟡",
+
+      action:
+        "New buying reduce"
+
     };
+
   }
+
 
   if (n >= 35) {
+
     return {
-      label: "Risk-OFF",
-      icon: "🟠",
-      action: "Equity exposure reduce"
+
+      label:
+        "Risk-OFF",
+
+      icon:
+        "🟠",
+
+      action:
+        "Equity exposure reduce"
+
     };
+
   }
 
+
   return {
-    label: "Strong Risk-OFF",
-    icon: "🔴",
+
+    label:
+      "Strong Risk-OFF",
+
+    icon:
+      "🔴",
+
     action:
       "Capital protection / G-Sec / Gold / Cash"
+
   };
+
 }
 
 
+/* =====================================================
+   GOLD REGIME
+===================================================== */
+
 function getGoldRegime(score) {
-  const n = num(score);
+
+  const n =
+    num(score);
+
 
   if (n === null) {
+
     return {
-      label: "Pending",
-      icon: "⚪",
-      action: "Data pending"
+
+      label:
+        "Pending",
+
+      icon:
+        "⚪",
+
+      action:
+        "Data pending"
+
     };
+
   }
+
 
   if (n >= 75) {
+
     return {
-      label: "Strong Positive",
-      icon: "🟢🟢",
-      action: "Strong Gold preference"
+
+      label:
+        "Strong Positive",
+
+      icon:
+        "🟢🟢",
+
+      action:
+        "Strong Gold preference"
+
     };
+
   }
+
 
   if (n >= 65) {
+
     return {
-      label: "Positive",
-      icon: "🟢",
-      action: "Gold overweight"
+
+      label:
+        "Positive",
+
+      icon:
+        "🟢",
+
+      action:
+        "Gold overweight"
+
     };
+
   }
+
 
   if (n >= 55) {
+
     return {
-      label: "Mild Positive",
-      icon: "🟢",
-      action: "Selective Gold allocation"
+
+      label:
+        "Mild Positive",
+
+      icon:
+        "🟢",
+
+      action:
+        "Selective Gold allocation"
+
     };
+
   }
+
 
   if (n >= 45) {
+
     return {
-      label: "Neutral",
-      icon: "🟡",
-      action: "Balanced allocation"
+
+      label:
+        "Neutral",
+
+      icon:
+        "🟡",
+
+      action:
+        "Balanced allocation"
+
     };
+
   }
+
 
   if (n >= 35) {
+
     return {
-      label: "Weak",
-      icon: "🟠",
-      action: "Gold exposure reduce"
+
+      label:
+        "Weak",
+
+      icon:
+        "🟠",
+
+      action:
+        "Gold exposure reduce"
+
     };
+
   }
 
+
   return {
-    label: "Strong Weakness",
-    icon: "🔴",
-    action: "Avoid overweight Gold"
+
+    label:
+      "Strong Weakness",
+
+    icon:
+      "🔴",
+
+    action:
+      "Avoid overweight Gold"
+
   };
+
 }
 
 
@@ -2609,49 +3850,96 @@ function getGoldRegime(score) {
    MARKET VIEW SCORE HELPERS
 ===================================================== */
 
-function marketViewOverallScore(item) {
+function marketViewOverallScore(
+  item
+) {
+
   if (!item) {
+
     return null;
+
   }
+
 
   const direct =
-    num(item.overall);
+    num(
+      item.overall
+    );
 
-  if (direct !== null) {
+
+  if (
+    direct !== null
+  ) {
+
     return direct;
+
   }
 
+
   const values = [
-    num(item.daily),
-    num(item.weekly),
-    num(item.monthly)
+
+    num(
+      item.daily
+    ),
+
+    num(
+      item.weekly
+    ),
+
+    num(
+      item.monthly
+    )
+
   ]
     .filter(
       value =>
         value !== null
     );
 
-  if (!values.length) {
+
+  if (
+    !values.length
+  ) {
+
     return null;
+
   }
+
 
   return (
     values.reduce(
-      (sum, value) =>
+      (
+        sum,
+        value
+      ) =>
         sum + value,
       0
     ) /
     values.length
   );
+
 }
 
 
+/* =====================================================
+   MARKET VIEW AVERAGE
+===================================================== */
+
 function averageMarketViewScore() {
+
   const candidates = [
-    multiTimeframeMarketView.nifty50,
-    multiTimeframeMarketView.midcap100,
-    multiTimeframeMarketView.smallcap100
+
+    multiTimeframeMarketView
+      .nifty50,
+
+    multiTimeframeMarketView
+      .midcap100,
+
+    multiTimeframeMarketView
+      .smallcap100
+
   ];
+
 
   const scores =
     candidates
@@ -2663,18 +3951,28 @@ function averageMarketViewScore() {
           value !== null
       );
 
-  if (!scores.length) {
+
+  if (
+    !scores.length
+  ) {
+
     return null;
+
   }
+
 
   return (
     scores.reduce(
-      (sum, value) =>
+      (
+        sum,
+        value
+      ) =>
         sum + value,
       0
     ) /
     scores.length
   );
+
 }
 
 
@@ -2683,42 +3981,63 @@ function averageMarketViewScore() {
 ===================================================== */
 
 function updateMarketViewCard() {
+
   const signalEl =
-    el("marketViewCardSignal");
+    el(
+      "marketViewCardSignal"
+    );
+
 
   if (!signalEl) {
+
     return;
+
   }
+
 
   const averageScore =
     averageMarketViewScore();
 
-  if (averageScore === null) {
+
+  if (
+    averageScore === null
+  ) {
+
     signalEl.innerHTML =
       `
-        <span class="market-view-dot market-view-dot-pending">
+        <span
+          class="market-view-dot market-view-dot-pending"
+        >
         </span>
 
         Data Pending
       `;
 
+
     return;
+
   }
+
 
   const regime =
     getEquityRegime(
       averageScore
     );
 
+
   signalEl.innerHTML =
     `
       <span
         class="market-view-dot"
         aria-hidden="true"
-      ></span>
+      >
+      </span>
 
-      ${escapeHtml(regime.action)}
+      ${escapeHtml(
+        regime.action
+      )}
     `;
+
 }
 
 
@@ -2730,154 +4049,267 @@ function marketViewSignalHtml(
   score,
   isGold = false
 ) {
-  const n = num(score);
 
-  if (n === null) {
+  const n =
+    num(score);
+
+
+  if (
+    n === null
+  ) {
+
     return `
-      <span class="market-view-score pending">
+      <span
+        class="market-view-score pending"
+      >
         —
       </span>
     `;
+
   }
+
 
   const regime =
     isGold
-      ? getGoldRegime(n)
-      : getEquityRegime(n);
+      ? getGoldRegime(
+          n
+        )
+      : getEquityRegime(
+          n
+        );
+
 
   return `
-    <div class="market-view-signal-cell">
+    <div
+      class="market-view-signal-cell"
+    >
 
-      <strong class="market-view-score">
+      <strong
+        class="market-view-score"
+      >
         ${Math.round(n)}
       </strong>
 
-      <span class="market-view-regime">
+      <span
+        class="market-view-regime"
+      >
         ${regime.icon}
-        ${escapeHtml(regime.label)}
+
+        ${escapeHtml(
+          regime.label
+        )}
       </span>
 
     </div>
   `;
+
 }
 
 
 /* =====================================================
-   BUILD MARKET VIEW TABLE
+   BUILD MULTI-TIMEFRAME MARKET VIEW
 ===================================================== */
 
 function buildMultiTimeframeMarketViewHtml() {
+
   const rows = [
+
     {
-      key: "nifty50",
-      label: "NIFTY 50 / Largecap",
-      gold: false
+
+      key:
+        "nifty50",
+
+      label:
+        "NIFTY 50 / Largecap",
+
+      gold:
+        false
+
     },
+
+
     {
-      key: "midcap100",
-      label: "NIFTY Midcap 100",
-      gold: false
+
+      key:
+        "midcap100",
+
+      label:
+        "NIFTY Midcap 100",
+
+      gold:
+        false
+
     },
+
+
     {
-      key: "smallcap100",
-      label: "NIFTY Smallcap 100",
-      gold: false
+
+      key:
+        "smallcap100",
+
+      label:
+        "NIFTY Smallcap 100",
+
+      gold:
+        false
+
     },
+
+
     {
-      key: "sme",
-      label: "NIFTY SME Emerge",
-      gold: false
+
+      key:
+        "sme",
+
+      label:
+        "NIFTY SME Emerge",
+
+      gold:
+        false
+
     },
+
+
     {
-      key: "gold",
-      label: "Gold",
-      gold: true
+
+      key:
+        "gold",
+
+      label:
+        "Gold",
+
+      gold:
+        true
+
     }
+
   ];
+
 
   const body =
     rows
-      .map(item => {
+      .map(
+        item => {
+
+          const data =
+            multiTimeframeMarketView[
+              item.key
+            ] ||
+            {};
+
+
+          const overall =
+            marketViewOverallScore(
+              data
+            );
+
+
+          return `
+            <tr>
+
+              <td
+                class="market-view-name"
+              >
+                ${escapeHtml(
+                  item.label
+                )}
+              </td>
+
+
+              <td>
+
+                ${marketViewSignalHtml(
+                  data.daily,
+                  item.gold
+                )}
+
+              </td>
+
+
+              <td>
+
+                ${marketViewSignalHtml(
+                  data.weekly,
+                  item.gold
+                )}
+
+              </td>
+
+
+              <td>
+
+                ${marketViewSignalHtml(
+                  data.monthly,
+                  item.gold
+                )}
+
+              </td>
+
+
+              <td>
+
+                ${marketViewSignalHtml(
+                  overall,
+                  item.gold
+                )}
+
+              </td>
+
+            </tr>
+          `;
+
+        }
+      )
+      .join("");
+
+
+  const proxyRows =
+    rows.filter(
+      item => {
+
         const data =
           multiTimeframeMarketView[
             item.key
-          ] || {};
+          ];
 
-        const overall =
-          marketViewOverallScore(
-            data
-          );
 
-        return `
-          <tr>
+        return Boolean(
+          data?.proxy
+        );
 
-            <td class="market-view-name">
-              ${escapeHtml(item.label)}
-            </td>
+      }
+    );
 
-            <td>
-              ${marketViewSignalHtml(
-                data.daily,
-                item.gold
-              )}
-            </td>
-
-            <td>
-              ${marketViewSignalHtml(
-                data.weekly,
-                item.gold
-              )}
-            </td>
-
-            <td>
-              ${marketViewSignalHtml(
-                data.monthly,
-                item.gold
-              )}
-            </td>
-
-            <td>
-              ${marketViewSignalHtml(
-                overall,
-                item.gold
-              )}
-            </td>
-
-          </tr>
-        `;
-      })
-      .join("");
-
-  const proxyRows =
-    rows.filter(item => {
-      const data =
-        multiTimeframeMarketView[
-          item.key
-        ];
-
-      return Boolean(
-        data?.proxy
-      );
-    });
 
   const proxyNote =
     proxyRows.length
       ? `
-        <div class="market-view-note">
-          * Smallcap / SME values marked by available dashboard proxy data
+        <div
+          class="market-view-note"
+        >
+
+          * Smallcap / SME values marked by
+          available dashboard proxy data
           where official index history is unavailable.
+
         </div>
       `
       : "";
 
-  return `
-    <div class="market-view-wrapper">
 
-      <table class="market-view-table">
+  return `
+    <div
+      class="market-view-wrapper"
+    >
+
+      <table
+        class="market-view-table"
+      >
 
         <thead>
 
           <tr>
+
             <th>
               Asset / Index
             </th>
@@ -2897,20 +4329,26 @@ function buildMultiTimeframeMarketViewHtml() {
             <th>
               Overall
             </th>
+
           </tr>
 
         </thead>
 
+
         <tbody>
+
           ${body}
+
         </tbody>
 
       </table>
+
 
       ${proxyNote}
 
     </div>
   `;
+
 }
 
 
@@ -2919,56 +4357,97 @@ function buildMultiTimeframeMarketViewHtml() {
 ===================================================== */
 
 function openMarketViewModal() {
+
   const modal =
-    el("reasonModal");
+    el(
+      "reasonModal"
+    );
+
 
   if (!modal) {
+
     return;
+
   }
+
 
   const card =
     modal.querySelector(
       ".reason-modal-card"
     );
 
+
   card?.classList.add(
     "market-view-modal-card"
   );
 
-  el("reasonTitle").textContent =
+
+  el(
+    "reasonTitle"
+  ).textContent =
     "Current Multi-Timeframe Market View";
 
-  el("reasonScore").textContent =
+
+  el(
+    "reasonScore"
+  ).textContent =
     "";
 
-  el("reasonText").innerHTML =
+
+  el(
+    "reasonText"
+  ).innerHTML =
     buildMultiTimeframeMarketViewHtml();
 
+
   const generatedDate =
-    metaDataGlobal.marketDate ||
-    metaDataGlobal.deliveryDate ||
-    metaDataGlobal.lastUpdated ||
+
+    metaDataGlobal
+      .marketDate ||
+
+    metaDataGlobal
+      .deliveryDate ||
+
+    metaDataGlobal
+      .lastUpdated ||
+
     "";
 
-  el("reasonSourceDate").textContent =
+
+  el(
+    "reasonSourceDate"
+  ).textContent =
     generatedDate
       ? `Market data: ${generatedDate}`
       : "";
 
-  const sourceLink =
-    el("reasonSourceLink");
 
-  if (sourceLink) {
+  const sourceLink =
+    el(
+      "reasonSourceLink"
+    );
+
+
+  if (
+    sourceLink
+  ) {
+
     sourceLink.style.display =
       "none";
+
   }
 
-  modal.classList.add("open");
+
+  modal.classList.add(
+    "open"
+  );
+
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
+
 }
 
 
@@ -2977,30 +4456,46 @@ function openMarketViewModal() {
 ===================================================== */
 
 function setupMarketViewCardEvents() {
+
   const card =
-    el("marketViewCard");
+    el(
+      "marketViewCard"
+    );
+
 
   if (!card) {
+
     return;
+
   }
+
 
   card.addEventListener(
     "click",
     openMarketViewModal
   );
 
+
   card.addEventListener(
     "keydown",
     event => {
+
       if (
-        event.key === "Enter" ||
-        event.key === " "
+        event.key ===
+          "Enter" ||
+        event.key ===
+          " "
       ) {
+
         event.preventDefault();
+
         openMarketViewModal();
+
       }
+
     }
   );
+
 }
 
 
@@ -3009,49 +4504,103 @@ function setupMarketViewCardEvents() {
 ===================================================== */
 
 function updateStats() {
-  if (el("totalStocks")) {
-    el("totalStocks").textContent =
+
+  if (
+    el("totalStocks")
+  ) {
+
+    el(
+      "totalStocks"
+    ).textContent =
       allStocks.length
-        .toLocaleString("en-IN");
+        .toLocaleString(
+          "en-IN"
+        );
+
   }
+
 
   const eodReady =
     allStocks.filter(
       row =>
-        num(row.price) !== null
+        num(
+          row.price
+        ) !== null
     ).length;
 
-  if (el("eodReady")) {
-    el("eodReady").textContent =
+
+  if (
+    el("eodReady")
+  ) {
+
+    el(
+      "eodReady"
+    ).textContent =
       eodReady
-        .toLocaleString("en-IN");
+        .toLocaleString(
+          "en-IN"
+        );
+
   }
+
 
   const marketCapReady =
     allStocks.filter(
       row =>
-        num(row.marketCapCr) !== null
+        num(
+          row.marketCapCr
+        ) !== null
     ).length;
 
-  if (el("marketCapReady")) {
-    el("marketCapReady").textContent =
+
+  if (
+    el("marketCapReady")
+  ) {
+
+    el(
+      "marketCapReady"
+    ).textContent =
       marketCapReady
-        .toLocaleString("en-IN");
+        .toLocaleString(
+          "en-IN"
+        );
+
   }
+
 
   const fullyScored =
     allStocks.filter(
       row =>
-        num(row.tmvScore) !== null &&
-        num(row.gfcScore) !== null &&
-        num(row.overallScore) !== null
+
+        num(
+          row.tmvScore
+        ) !== null &&
+
+        num(
+          row.gfcScore
+        ) !== null &&
+
+        num(
+          row.overallScore
+        ) !== null
+
     ).length;
 
-  if (el("fullyScored")) {
-    el("fullyScored").textContent =
+
+  if (
+    el("fullyScored")
+  ) {
+
+    el(
+      "fullyScored"
+    ).textContent =
       fullyScored
-        .toLocaleString("en-IN");
+        .toLocaleString(
+          "en-IN"
+        );
+
   }
+
 }
 
 
@@ -3060,16 +4609,32 @@ function updateStats() {
 ===================================================== */
 
 function updateMarketDate() {
+
   const marketDate =
-    metaDataGlobal.marketDate ||
-    metaDataGlobal.deliveryDate ||
-    metaDataGlobal.lastUpdated ||
+
+    metaDataGlobal
+      .marketDate ||
+
+    metaDataGlobal
+      .deliveryDate ||
+
+    metaDataGlobal
+      .lastUpdated ||
+
     "—";
 
-  if (el("marketDate")) {
-    el("marketDate").textContent =
+
+  if (
+    el("marketDate")
+  ) {
+
+    el(
+      "marketDate"
+    ).textContent =
       marketDate;
+
   }
+
 }
 
 
@@ -3078,90 +4643,143 @@ function updateMarketDate() {
 ===================================================== */
 
 function updateHeaderRegime() {
+
   updateMarketViewCard();
+
 }
 
 
 /* =====================================================
-   INIT DATA
+   INITIALIZE DATA
 ===================================================== */
 
 async function init() {
+
   try {
+
     const cacheBuster =
       Date.now();
+
 
     const [
       stocksResponse,
       metaResponse
     ] =
       await Promise.all([
+
         fetch(
-          `data/stocks.json?v=${cacheBuster}`
+          `data/stocks.json?v=${cacheBuster}`,
+          {
+            cache:
+              "no-store"
+          }
         ),
+
         fetch(
-          `data/meta.json?v=${cacheBuster}`
+          `data/meta.json?v=${cacheBuster}`,
+          {
+            cache:
+              "no-store"
+          }
         )
+
       ]);
 
-    if (!stocksResponse.ok) {
+
+    if (
+      !stocksResponse.ok
+    ) {
+
       throw new Error(
         `stocks.json HTTP ${stocksResponse.status}`
       );
+
     }
 
-    if (!metaResponse.ok) {
+
+    if (
+      !metaResponse.ok
+    ) {
+
       throw new Error(
         `meta.json HTTP ${metaResponse.status}`
       );
+
     }
 
+
     const stocksData =
-      await stocksResponse.json();
+      await stocksResponse
+        .json();
+
 
     const metaData =
-      await metaResponse.json();
+      await metaResponse
+        .json();
+
 
     metaDataGlobal =
-      metaData || {};
-
-    multiTimeframeMarketView =
-      metaDataGlobal
-        .multiTimeframeMarketView ||
-      metaDataGlobal
-        .marketView ||
+      metaData ||
       {};
 
+
+    multiTimeframeMarketView =
+
+      metaDataGlobal
+        .multiTimeframeMarketView ||
+
+      metaDataGlobal
+        .marketView ||
+
+      {};
+
+
     const sourceStocks =
-      Array.isArray(stocksData)
+
+      Array.isArray(
+        stocksData
+      )
+
         ? stocksData
+
         : (
             stocksData.stocks ||
             []
           );
+
 
     allStocks =
       sourceStocks.filter(
         passesPermanentUniverseRule
       );
 
+
     populateDropdowns();
+
 
     updateStats();
 
+
     updateMarketDate();
+
 
     updateHeaderRegime();
 
+
     setupFilterEvents();
+
 
     setupPagination();
 
+
     setupTopScrollbar();
+
 
     setupReasonModalEvents();
 
+
     setupMarketViewCardEvents();
+
 
     el("resetScores")
       ?.addEventListener(
@@ -3169,38 +4787,109 @@ async function init() {
         resetFilters
       );
 
+
+    activeSortField =
+      null;
+
+
+    activeSortDirection =
+      "desc";
+
+
+    currentPage =
+      1;
+
+
     renderRows();
 
+
+    console.log(
+      `MY MARKET RESEARCH loaded: ${allStocks.length} stocks`
+    );
+
+
+    const industryRatingReady =
+      allStocks.filter(
+        row =>
+          industryRating(
+            row
+          ) !== null
+      ).length;
+
+
+    const stockMomentumReady =
+      allStocks.filter(
+        row =>
+          stockMomentumRating(
+            row
+          ) !== null
+      ).length;
+
+
+    console.log(
+      `Industry Rating ready: ${industryRatingReady}/${allStocks.length}`
+    );
+
+
+    console.log(
+      `Stock Momentum Rating ready: ${stockMomentumReady}/${allStocks.length}`
+    );
+
+
   } catch (error) {
+
     console.error(
       "Dashboard initialization failed:",
       error
     );
 
+
     const tbody =
       el("rows");
 
-    if (tbody) {
+
+    if (
+      tbody
+    ) {
+
       tbody.innerHTML =
         `
           <tr>
+
             <td
-              colspan="19"
+              colspan="25"
               class="pending"
             >
+
               Unable to load market data.
+
             </td>
+
           </tr>
         `;
+
     }
 
-    if (el("resultCount")) {
-      el("resultCount").textContent =
+
+    if (
+      el("resultCount")
+    ) {
+
+      el(
+        "resultCount"
+      ).textContent =
         "0 matched";
+
     }
+
   }
+
 }
 
+
+/* =====================================================
+   START
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -3211,6 +4900,7 @@ document.addEventListener(
 ===================================================== */
 
 function exportNumber(value) {
+
   if (
     value === null ||
     value === undefined ||
@@ -3219,11 +4909,17 @@ function exportNumber(value) {
     return "";
   }
 
-  if (typeof value === "number") {
+
+  if (
+    typeof value === "number"
+  ) {
+
     return Number.isFinite(value)
       ? value
       : "";
+
   }
+
 
   const cleaned =
     String(value)
@@ -3234,52 +4930,70 @@ function exportNumber(value) {
       .replace(/x/gi, "")
       .trim();
 
+
   if (!cleaned) {
     return "";
   }
 
-  const n = Number(cleaned);
+
+  const n =
+    Number(cleaned);
+
 
   return Number.isFinite(n)
     ? n
     : "";
+
 }
 
+
+/* =====================================================
+   EXPORT ROUND NUMBER
+===================================================== */
 
 function exportRoundedNumber(
   value,
   decimals = 2
 ) {
-  const n = exportNumber(value);
+
+  const n =
+    exportNumber(value);
+
 
   if (n === "") {
     return "";
   }
 
+
   const factor =
     10 ** decimals;
 
+
   return Math.round(
-    (n + Number.EPSILON) *
+    (
+      n +
+      Number.EPSILON
+    ) *
     factor
   ) / factor;
+
 }
 
 
+/* =====================================================
+   EXPORT INTEGER
+===================================================== */
+
 function exportInteger(value) {
-  const n = exportNumber(value);
+
+  const n =
+    exportNumber(value);
+
 
   return n === ""
     ? ""
     : Math.round(n);
-}
 
-
-function exportStockGrowthPeriod() {
-  return (
-    el("stockGrowthPeriod")?.value ||
-    "3M"
-  );
 }
 
 
@@ -3288,6 +5002,21 @@ function exportStockGrowthPeriod() {
 ===================================================== */
 
 function buildExportRows() {
+
+  /*
+    IMPORTANT:
+
+    Export current FULL filtered result.
+
+    Example:
+
+    2,000 stocks matched
+    Page size = 100
+
+    Export will contain all 2,000 matched stocks,
+    not only current page.
+  */
+
   const rows =
     rankStocks(
       allStocks.filter(
@@ -3295,152 +5024,298 @@ function buildExportRows() {
       )
     );
 
-  const growthPeriod =
-    exportStockGrowthPeriod();
 
-  return rows.map(row => {
-    const volume =
-      totalVolume(row);
+  return rows.map(
+    row => {
 
-    const turnover =
-      todayTurnoverCr(row);
+      const volume =
+        totalVolume(row);
 
-    const delivery =
-      todayDeliveryVolume(row);
 
-    const avgDelivery =
-      avg5DayDelivery(row);
+      const turnover =
+        todayTurnoverCr(row);
 
-    const deliveryRatio =
-      deliveryTimes(row);
 
-    const deliveryPct =
-      deliveryPercentage(row);
+      const delivery =
+        todayDeliveryVolume(row);
 
-    const stockGrowth =
-      selectedStockGrowth(row);
 
-    const rating =
-      rsRating(row);
+      const avgDelivery =
+        avg5DayDelivery(row);
 
-    return {
-      "Stock":
-        row.name ||
-        row.companyName ||
-        "",
 
-      "Symbol":
-        row.symbol ||
-        "",
+      const deliveryRatio =
+        deliveryTimes(row);
 
-      "Market Cap Category":
-        row.marketCapCategory ||
-        "",
 
-      "Market Cap ₹ Cr":
-        exportNumber(
-          row.marketCapCr
-        ),
+      const deliveryPct =
+        deliveryPercentage(row);
 
-      "Price ₹":
-        exportRoundedNumber(
-          row.price,
-          2
-        ),
 
-      "Change %":
-        exportRoundedNumber(
-          row.changePct,
-          2
-        ),
+      const rating =
+        rsRating(row);
 
-      "Today Volume":
-        exportInteger(
-          volume
-        ),
 
-      "Today Turnover ₹ Cr":
-        exportRoundedNumber(
-          turnover,
-          2
-        ),
+      const industryRatingValue =
+        industryRating(row);
 
-      "Today Delivery Vol":
-        exportInteger(
-          delivery
-        ),
 
-      "5D Avg Delivery Vol":
-        exportInteger(
-          avgDelivery
-        ),
+      const stockMomentumValue =
+        stockMomentumRating(row);
 
-      "Delivery Times":
-        exportRoundedNumber(
-          deliveryRatio,
-          2
-        ),
 
-      "Delivery %":
-        exportRoundedNumber(
-          deliveryPct,
-          2
-        ),
+      return {
 
-      "5L Vol + 5% Move":
-        qualifiesHighVolumeMove(row)
-          ? "YES"
-          : "NO",
+        /* ============================================
+           STOCK
+        ============================================ */
 
-      "RS Rating":
-        rating === null
-          ? ""
-          : exportInteger(rating),
+        "Stock":
+          row.name ||
+          row.companyName ||
+          "",
 
-      "RS Label":
-        rating === null
-          ? "Pending"
-          : (
-              row.rsLabel ||
-              rsRatingLabel(rating)
-            ),
 
-      "Sector":
-        row.sector ||
-        "",
+        "Symbol":
+          row.symbol ||
+          "",
 
-      "Industry":
-        row.industry ||
-        "",
 
-      "Sector Growth 1M %":
-        exportRoundedNumber(
-          row.sectorGrowth1M,
-          2
-        ),
+        /* ============================================
+           MARKET CAP
+        ============================================ */
 
-      [`Stock Growth ${growthPeriod} %`]:
-        exportRoundedNumber(
-          stockGrowth,
-          2
-        ),
+        "Market Cap Category":
+          row.marketCapCategory ||
+          "",
 
-      "T + M + VM":
-        exportInteger(
-          row.tmvScore
-        ),
 
-      "G + F + C":
-        exportInteger(
-          row.gfcScore
-        ),
+        "Market Cap ₹ Cr":
+          exportNumber(
+            row.marketCapCr
+          ),
 
-      "Overall":
-        exportInteger(
-          row.overallScore
-        )
-    };
-  });
+
+        /* ============================================
+           PRICE
+        ============================================ */
+
+        "Price ₹":
+          exportRoundedNumber(
+            row.price,
+            2
+          ),
+
+
+        "Change %":
+          exportRoundedNumber(
+            row.changePct,
+            2
+          ),
+
+
+        /* ============================================
+           VOLUME / TURNOVER
+        ============================================ */
+
+        "Today Volume":
+          exportInteger(
+            volume
+          ),
+
+
+        "Today Turnover ₹ Cr":
+          exportRoundedNumber(
+            turnover,
+            2
+          ),
+
+
+        /* ============================================
+           DELIVERY
+        ============================================ */
+
+        "Today Delivery Vol":
+          exportInteger(
+            delivery
+          ),
+
+
+        "5D Avg Delivery Vol":
+          exportInteger(
+            avgDelivery
+          ),
+
+
+        "Delivery Times":
+          exportRoundedNumber(
+            deliveryRatio,
+            2
+          ),
+
+
+        "Delivery %":
+          exportRoundedNumber(
+            deliveryPct,
+            2
+          ),
+
+
+        /* ============================================
+           FAST MOVE CONDITION
+        ============================================ */
+
+        "5L Vol + 5% Move":
+          qualifiesHighVolumeMove(row)
+            ? "YES"
+            : "NO",
+
+
+        /* ============================================
+           RS RATING
+        ============================================ */
+
+        "RS Rating":
+          rating === null
+            ? ""
+            : exportInteger(
+                rating
+              ),
+
+
+        "RS Label":
+          rating === null
+            ? "Pending"
+            : (
+                row.rsLabel ||
+                rsRatingLabel(
+                  rating
+                )
+              ),
+
+
+        /* ============================================
+           SECTOR / INDUSTRY
+        ============================================ */
+
+        "Sector":
+          row.sector ||
+          "",
+
+
+        "Industry":
+          row.industry ||
+          "",
+
+
+        /* ============================================
+           INDUSTRY MOMENTUM
+        ============================================ */
+
+        "Industry 1M %":
+          exportRoundedNumber(
+            row.industryGrowth1M,
+            2
+          ),
+
+
+        "Industry 3M %":
+          exportRoundedNumber(
+            row.industryGrowth3M,
+            2
+          ),
+
+
+        "Industry 6M %":
+          exportRoundedNumber(
+            row.industryGrowth6M,
+            2
+          ),
+
+
+        "Industry Rating":
+          industryRatingValue === null
+            ? ""
+            : exportInteger(
+                industryRatingValue
+              ),
+
+
+        "Industry Rating Label":
+          industryRatingValue === null
+            ? "Pending"
+            : momentumRatingLabel(
+                industryRatingValue
+              ),
+
+
+        /* ============================================
+           STOCK MOMENTUM
+        ============================================ */
+
+        "Stock 1M %":
+          exportRoundedNumber(
+            row.stockGrowth1M,
+            2
+          ),
+
+
+        "Stock 3M %":
+          exportRoundedNumber(
+            row.stockGrowth3M,
+            2
+          ),
+
+
+        "Stock 6M %":
+          exportRoundedNumber(
+            row.stockGrowth6M,
+            2
+          ),
+
+
+        "Stock Momentum Rating":
+          stockMomentumValue === null
+            ? ""
+            : exportInteger(
+                stockMomentumValue
+              ),
+
+
+        "Stock Momentum Label":
+          stockMomentumValue === null
+            ? "Pending"
+            : momentumRatingLabel(
+                stockMomentumValue
+              ),
+
+
+        /* ============================================
+           RESEARCH SCORES
+        ============================================ */
+
+        "T + M + VM":
+          exportInteger(
+            row.tmvScore
+          ),
+
+
+        "G + F + C":
+          exportInteger(
+            row.gfcScore
+          ),
+
+
+        "Overall":
+          exportInteger(
+            row.overallScore
+          )
+
+      };
+
+    }
+  );
+
 }
 
 
@@ -3451,25 +5326,38 @@ function buildExportRows() {
 function exportFileBaseName(
   rowCount
 ) {
+
   const marketDate =
-    metaDataGlobal.marketDate ||
-    metaDataGlobal.deliveryDate ||
-    metaDataGlobal.lastUpdated ||
+
+    metaDataGlobal
+      .marketDate ||
+
+    metaDataGlobal
+      .deliveryDate ||
+
+    metaDataGlobal
+      .lastUpdated ||
+
     "latest";
 
+
   return (
+
     `MY_MARKET_RESEARCH_` +
     `${marketDate}_` +
     `${rowCount}_stocks`
+
   );
+
 }
 
 
 /* =====================================================
-   CSV EXPORT
+   CSV ESCAPE
 ===================================================== */
 
 function csvEscape(value) {
+
   if (
     value === null ||
     value === undefined
@@ -3477,50 +5365,79 @@ function csvEscape(value) {
     return "";
   }
 
+
   const text =
     String(value);
+
 
   if (
     text.includes(",") ||
     text.includes('"') ||
     text.includes("\n")
   ) {
+
     return (
+
       '"' +
+
       text.replace(
         /"/g,
         '""'
       ) +
+
       '"'
+
     );
+
   }
 
+
   return text;
+
 }
 
 
+/* =====================================================
+   CSV DOWNLOAD
+===================================================== */
+
 function downloadCSV(rows) {
+
   if (!rows.length) {
+
     alert(
       "No matched stocks to download."
     );
 
     return;
+
   }
+
 
   const headers =
     Object.keys(
       rows[0]
     );
 
+
   const csvLines = [
+
     headers
-      .map(csvEscape)
+      .map(
+        csvEscape
+      )
       .join(",")
+
   ];
 
-  for (const row of rows) {
+
+  for (
+    const row
+    of rows
+  ) {
+
     csvLines.push(
+
       headers
         .map(
           header =>
@@ -3529,51 +5446,70 @@ function downloadCSV(rows) {
             )
         )
         .join(",")
+
     );
+
   }
 
+
   const csvContent =
+
     "\uFEFF" +
-    csvLines.join("\r\n");
+
+    csvLines.join(
+      "\r\n"
+    );
+
 
   const blob =
     new Blob(
-      [csvContent],
+      [
+        csvContent
+      ],
       {
         type:
           "text/csv;charset=utf-8;"
       }
     );
 
+
   const url =
     URL.createObjectURL(
       blob
     );
+
 
   const link =
     document.createElement(
       "a"
     );
 
+
   link.href =
     url;
+
 
   link.download =
     `${exportFileBaseName(
       rows.length
     )}.csv`;
 
+
   document.body.appendChild(
     link
   );
 
+
   link.click();
 
+
   link.remove();
+
 
   URL.revokeObjectURL(
     url
   );
+
 }
 
 
@@ -3585,11 +5521,17 @@ function findExcelColumnIndex(
   headers,
   headerName
 ) {
+
   return headers.indexOf(
     headerName
   );
+
 }
 
+
+/* =====================================================
+   EXCEL NUMBER FORMAT
+===================================================== */
 
 function applyExcelNumberFormat(
   worksheet,
@@ -3597,50 +5539,80 @@ function applyExcelNumberFormat(
   headerName,
   format
 ) {
+
   const columnIndex =
     findExcelColumnIndex(
       headers,
       headerName
     );
 
-  if (columnIndex < 0) {
+
+  if (
+    columnIndex < 0
+  ) {
     return;
   }
+
+
+  if (
+    !worksheet["!ref"]
+  ) {
+    return;
+  }
+
 
   const range =
     XLSX.utils.decode_range(
       worksheet["!ref"]
     );
 
+
   for (
     let rowIndex =
       range.s.r + 1;
-    rowIndex <= range.e.r;
+
+    rowIndex <=
+      range.e.r;
+
     rowIndex++
   ) {
+
     const address =
       XLSX.utils.encode_cell(
         {
-          r: rowIndex,
-          c: columnIndex
+          r:
+            rowIndex,
+
+          c:
+            columnIndex
         }
       );
 
+
     const cell =
-      worksheet[address];
+      worksheet[
+        address
+      ];
+
 
     if (!cell) {
       continue;
     }
 
+
     if (
       cell.t === "n" &&
-      typeof cell.v === "number"
+      typeof cell.v ===
+        "number"
     ) {
+
       cell.z =
         format;
+
     }
+
   }
+
 }
 
 
@@ -3649,29 +5621,37 @@ function applyExcelNumberFormat(
 ===================================================== */
 
 function downloadExcel(rows) {
+
   if (!rows.length) {
+
     alert(
       "No matched stocks to download."
     );
 
     return;
+
   }
+
 
   if (
     typeof XLSX ===
     "undefined"
   ) {
+
     alert(
       "Excel library not loaded. Please refresh and try again."
     );
 
     return;
+
   }
+
 
   const worksheet =
     XLSX.utils.json_to_sheet(
       rows
     );
+
 
   const headers =
     Object.keys(
@@ -3679,50 +5659,135 @@ function downloadExcel(rows) {
     );
 
 
-  /* =========================
+  /* ===================================================
      COLUMN WIDTHS
-  ========================== */
+  =================================================== */
 
   worksheet["!cols"] =
-    headers.map(header => {
-      const widths = {
-        "Stock": 30,
-        "Symbol": 14,
-        "Market Cap Category": 20,
-        "Market Cap ₹ Cr": 18,
-        "Price ₹": 14,
-        "Change %": 12,
-        "Today Volume": 16,
-        "Today Turnover ₹ Cr": 20,
-        "Today Delivery Vol": 20,
-        "5D Avg Delivery Vol": 22,
-        "Delivery Times": 16,
-        "Delivery %": 14,
-        "5L Vol + 5% Move": 18,
-        "RS Rating": 12,
-        "RS Label": 14,
-        "Sector": 24,
-        "Industry": 28,
-        "Sector Growth 1M %": 20,
-        [`Stock Growth ${
-          exportStockGrowthPeriod()
-        } %`]: 20,
-        "T + M + VM": 14,
-        "G + F + C": 14,
-        "Overall": 12
-      };
+    headers.map(
+      header => {
 
-      return {
-        wch:
-          widths[header] ||
-          16
-      };
-    });
+        const widths = {
+
+          "Stock":
+            30,
+
+          "Symbol":
+            14,
+
+          "Market Cap Category":
+            20,
+
+          "Market Cap ₹ Cr":
+            18,
+
+          "Price ₹":
+            14,
+
+          "Change %":
+            12,
+
+          "Today Volume":
+            16,
+
+          "Today Turnover ₹ Cr":
+            20,
+
+          "Today Delivery Vol":
+            20,
+
+          "5D Avg Delivery Vol":
+            22,
+
+          "Delivery Times":
+            16,
+
+          "Delivery %":
+            14,
+
+          "5L Vol + 5% Move":
+            18,
+
+          "RS Rating":
+            12,
+
+          "RS Label":
+            14,
+
+          "Sector":
+            24,
+
+          "Industry":
+            28,
 
 
-  /* =========================
-     NUMBER FORMATS
-  ========================== */
+          /* INDUSTRY MOMENTUM */
+
+          "Industry 1M %":
+            16,
+
+          "Industry 3M %":
+            16,
+
+          "Industry 6M %":
+            16,
+
+          "Industry Rating":
+            16,
+
+          "Industry Rating Label":
+            22,
+
+
+          /* STOCK MOMENTUM */
+
+          "Stock 1M %":
+            16,
+
+          "Stock 3M %":
+            16,
+
+          "Stock 6M %":
+            16,
+
+          "Stock Momentum Rating":
+            22,
+
+          "Stock Momentum Label":
+            22,
+
+
+          /* RESEARCH */
+
+          "T + M + VM":
+            14,
+
+          "G + F + C":
+            14,
+
+          "Overall":
+            12
+
+        };
+
+
+        return {
+
+          wch:
+            widths[
+              header
+            ] ||
+            16
+
+        };
+
+      }
+    );
+
+
+  /* ===================================================
+     MARKET CAP FORMAT
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
@@ -3731,12 +5796,22 @@ function downloadExcel(rows) {
     "0.00"
   );
 
+
+  /* ===================================================
+     PRICE
+  =================================================== */
+
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Price ₹",
     "0.00"
   );
+
+
+  /* ===================================================
+     CHANGE %
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
@@ -3745,12 +5820,22 @@ function downloadExcel(rows) {
     "0.00"
   );
 
+
+  /* ===================================================
+     TODAY VOLUME
+  =================================================== */
+
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Today Volume",
     "0"
   );
+
+
+  /* ===================================================
+     TURNOVER
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
@@ -3759,12 +5844,18 @@ function downloadExcel(rows) {
     "0.00"
   );
 
+
+  /* ===================================================
+     DELIVERY VOLUME
+  =================================================== */
+
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Today Delivery Vol",
     "0"
   );
+
 
   applyExcelNumberFormat(
     worksheet,
@@ -3773,12 +5864,22 @@ function downloadExcel(rows) {
     "0"
   );
 
+
+  /* ===================================================
+     DELIVERY TIMES
+  =================================================== */
+
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Delivery Times",
     "0.00"
   );
+
+
+  /* ===================================================
+     DELIVERY %
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
@@ -3787,6 +5888,11 @@ function downloadExcel(rows) {
     "0.00"
   );
 
+
+  /* ===================================================
+     RS RATING
+  =================================================== */
+
   applyExcelNumberFormat(
     worksheet,
     headers,
@@ -3794,21 +5900,90 @@ function downloadExcel(rows) {
     "0"
   );
 
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "Sector Growth 1M %",
-    "0.00"
-  );
+
+  /* ===================================================
+     INDUSTRY MOMENTUM %
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
     headers,
-    `Stock Growth ${
-      exportStockGrowthPeriod()
-    } %`,
+    "Industry 1M %",
     "0.00"
   );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Industry 3M %",
+    "0.00"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Industry 6M %",
+    "0.00"
+  );
+
+
+  /* ===================================================
+     INDUSTRY RATING
+  =================================================== */
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Industry Rating",
+    "0"
+  );
+
+
+  /* ===================================================
+     STOCK MOMENTUM %
+  =================================================== */
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Stock 1M %",
+    "0.00"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Stock 3M %",
+    "0.00"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Stock 6M %",
+    "0.00"
+  );
+
+
+  /* ===================================================
+     STOCK MOMENTUM RATING
+  =================================================== */
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "Stock Momentum Rating",
+    "0"
+  );
+
+
+  /* ===================================================
+     RESEARCH SCORES
+  =================================================== */
 
   applyExcelNumberFormat(
     worksheet,
@@ -3817,12 +5992,14 @@ function downloadExcel(rows) {
     "0"
   );
 
+
   applyExcelNumberFormat(
     worksheet,
     headers,
     "G + F + C",
     "0"
   );
+
 
   applyExcelNumberFormat(
     worksheet,
@@ -3832,37 +6009,63 @@ function downloadExcel(rows) {
   );
 
 
-  /* =========================
+  /* ===================================================
      FREEZE TOP ROW
-  ========================== */
+  =================================================== */
 
-  worksheet["!freeze"] = {
-    xSplit: 0,
-    ySplit: 1,
-    topLeftCell: "A2",
-    activePane: "bottomLeft",
-    state: "frozen"
+  worksheet[
+    "!freeze"
+  ] = {
+
+    xSplit:
+      0,
+
+    ySplit:
+      1,
+
+    topLeftCell:
+      "A2",
+
+    activePane:
+      "bottomLeft",
+
+    state:
+      "frozen"
+
   };
 
 
-  /* =========================
+  /* ===================================================
      AUTO FILTER
-  ========================== */
+  =================================================== */
 
-  if (worksheet["!ref"]) {
-    worksheet["!autofilter"] = {
+  if (
+    worksheet[
+      "!ref"
+    ]
+  ) {
+
+    worksheet[
+      "!autofilter"
+    ] = {
+
       ref:
-        worksheet["!ref"]
+        worksheet[
+          "!ref"
+        ]
+
     };
+
   }
 
 
-  /* =========================
-     WORKBOOK
-  ========================== */
+  /* ===================================================
+     CREATE WORKBOOK
+  =================================================== */
 
   const workbook =
     XLSX.utils.book_new();
+
 
   XLSX.utils.book_append_sheet(
     workbook,
@@ -3870,41 +6073,62 @@ function downloadExcel(rows) {
     "Market Research"
   );
 
+
   XLSX.writeFile(
     workbook,
+
     `${exportFileBaseName(
       rows.length
     )}.xlsx`
   );
+
 }
-
-
 /* =====================================================
    DOWNLOAD HANDLER
 ===================================================== */
 
 function handleDownload() {
+
   const rows =
     buildExportRows();
 
+
   if (!rows.length) {
+
     alert(
       "No matched stocks to download."
     );
 
     return;
+
   }
+
 
   const format =
-    el("downloadFormat")?.value ||
+    el(
+      "downloadFormat"
+    )?.value ||
     "csv";
 
-  if (format === "xlsx") {
-    downloadExcel(rows);
+
+  if (
+    format ===
+    "xlsx"
+  ) {
+
+    downloadExcel(
+      rows
+    );
+
     return;
+
   }
 
-  downloadCSV(rows);
+
+  downloadCSV(
+    rows
+  );
+
 }
 
 
@@ -3913,22 +6137,34 @@ function handleDownload() {
 ===================================================== */
 
 function setupDownload() {
-  el("downloadData")
+
+  el(
+    "downloadData"
+  )
     ?.addEventListener(
       "click",
       handleDownload
     );
+
 }
 
+
+/* =====================================================
+   START DOWNLOAD EVENT
+===================================================== */
 
 if (
   document.readyState ===
   "loading"
 ) {
+
   document.addEventListener(
     "DOMContentLoaded",
     setupDownload
   );
+
 } else {
+
   setupDownload();
+
 }
