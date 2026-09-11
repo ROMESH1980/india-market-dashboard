@@ -171,18 +171,18 @@
       "date": "2026-09-11",
       "historyRows": 1257,
       "daily": 40,
-      "weekly": 50,
+      "weekly": 57,
       "monthly": 65,
-      "overall": 56,
+      "overall": 58,
       "dailySignal": {
         "label": "Weak / Correction",
         "signal": "reduce",
         "emoji": "🟠"
       },
       "weeklySignal": {
-        "label": "Neutral / Cautious",
-        "signal": "warning",
-        "emoji": "🟡"
+        "label": "Positive",
+        "signal": "selective",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Strong",
@@ -196,28 +196,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4373.8,
-          "fastMA": 4468.7,
-          "slowMA": 4266.1,
-          "momentumPct": -2.62,
-          "rsi14": 30.95,
-          "distanceFromHighPct": -5.75
+          "latest": 4428.4,
+          "fastMA": 4471.43,
+          "slowMA": 4267.2,
+          "momentumPct": -1.41,
+          "rsi14": 36.25,
+          "distanceFromHighPct": -4.58
         },
         "weekly": {
-          "latest": 4373.8,
-          "fastMA": 4286.04,
-          "slowMA": 4511.99,
-          "momentumPct": -0.15,
-          "rsi14": 51.4,
-          "distanceFromHighPct": -5.41
+          "latest": 4428.4,
+          "fastMA": 4291.5,
+          "slowMA": 4513.81,
+          "momentumPct": 1.1,
+          "rsi14": 53.64,
+          "distanceFromHighPct": -4.23
         },
         "monthly": {
-          "latest": 4373.8,
-          "fastMA": 4342.02,
-          "slowMA": 4496.97,
-          "momentumPct": 8.72,
-          "rsi14": 64.97,
-          "distanceFromHighPct": -16.38
+          "latest": 4428.4,
+          "fastMA": 4351.12,
+          "slowMA": 4502.43,
+          "momentumPct": 10.08,
+          "rsi14": 65.96,
+          "distanceFromHighPct": -15.34
         }
       },
       "error": null
@@ -367,5 +367,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-11T12:05:52.003990+00:00"
+  "marketRegimeGeneratedAt": "2026-09-11T13:12:22.842265+00:00"
 }
