@@ -332,21 +332,34 @@ def main():
     # FIELDS COPIED FROM RESEARCH SCORES
     # =====================================================
 
-    fields = [
+      fields = [
 
         # ---------------------------------------------
-        # ACTUAL GROWTH %
+        # INDUSTRY MOMENTUM
         # ---------------------------------------------
 
-        "sectorGrowth1M",
+        "industryGrowth1M",
+        "industryGrowth3M",
+        "industryGrowth6M",
+        "industryRating",
+
+        # ---------------------------------------------
+        # STOCK MOMENTUM
+        # ---------------------------------------------
 
         "stockGrowth1M",
         "stockGrowth3M",
         "stockGrowth6M",
-
+        "stockMomentumRating",
 
         # ---------------------------------------------
-        # STRENGTH SCORES
+        # EXISTING SECTOR GROWTH
+        # ---------------------------------------------
+
+        "sectorGrowth1M",
+
+        # ---------------------------------------------
+        # EXISTING STRENGTH SCORES
         # ---------------------------------------------
 
         "sectorStrength",
@@ -356,7 +369,6 @@ def main():
         "stockStrength6M",
 
         "strengthBenchmark",
-
 
         # ---------------------------------------------
         # RESEARCH SCORES
@@ -373,7 +385,6 @@ def main():
         "fundamentalQuality",
 
         "capexScore",
-
 
         # ---------------------------------------------
         # REASONS / SOURCES
