@@ -332,7 +332,7 @@ def main():
     # FIELDS COPIED FROM RESEARCH SCORES
     # =====================================================
 
-      fields = [
+    fields = [
 
         # ---------------------------------------------
         # INDUSTRY MOMENTUM
