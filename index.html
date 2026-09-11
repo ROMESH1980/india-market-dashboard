@@ -28,9 +28,9 @@
 
   <div class="app-shell">
 
-    <!-- =========================
+    <!-- =================================================
          HEADER
-    ========================== -->
+    ================================================== -->
 
     <header class="hero">
 
@@ -43,9 +43,7 @@
           </h1>
 
 
-          <!-- =========================
-               SINGLE MARKET VIEW CARD
-          ========================== -->
+          <!-- MARKET VIEW -->
 
           <div
             id="marketViewCard"
@@ -89,8 +87,9 @@
 
 
         <p>
-          Market Cap • Turnover • Delivery • Sector Growth •
-          Stock Growth • RS Rating • T+M+VM • G+F+C • Overall
+          Market Cap • Turnover • Delivery •
+          Industry Momentum • Stock Momentum •
+          RS Rating • T+M+VM • G+F+C • Overall
         </p>
 
       </div>
@@ -112,9 +111,9 @@
 
 
 
-    <!-- =========================
+    <!-- =================================================
          STATS
-    ========================== -->
+    ================================================== -->
 
     <section class="stats">
 
@@ -173,10 +172,9 @@
 
 
 
-    <!-- =========================
-         SEARCH + RESET + DOWNLOAD
-         + PAGINATION
-    ========================== -->
+    <!-- =================================================
+         TOOLBAR
+    ================================================== -->
 
     <section class="toolbar">
 
@@ -256,9 +254,9 @@
 
 
 
-    <!-- =========================
+    <!-- =================================================
          RESULT COUNT
-    ========================== -->
+    ================================================== -->
 
     <div class="result-bar">
 
@@ -270,9 +268,9 @@
 
 
 
-    <!-- =========================
-         TOP SCROLLBAR
-    ========================== -->
+    <!-- =================================================
+         TOP HORIZONTAL SCROLLBAR
+    ================================================== -->
 
     <div
       id="topScroll"
@@ -286,9 +284,9 @@
 
 
 
-    <!-- =========================
+    <!-- =================================================
          TABLE
-    ========================== -->
+    ================================================== -->
 
     <div
       id="tableWrap"
@@ -299,9 +297,10 @@
 
         <thead>
 
-          <!-- =====================
-               COLUMN NAMES
-          ====================== -->
+
+          <!-- =================================================
+               COLUMN HEADINGS
+          ================================================== -->
 
           <tr>
 
@@ -329,8 +328,6 @@
               Today Volume
             </th>
 
-
-            <!-- NEW: TODAY TURNOVER -->
 
             <th>
               Today Turnover
@@ -389,15 +386,66 @@
             </th>
 
 
+            <!-- INDUSTRY MOMENTUM -->
+
             <th>
-              Sector Growth
+              Industry
               <br>
               1M %
             </th>
 
 
             <th>
-              Stock Growth
+              Industry
+              <br>
+              3M %
+            </th>
+
+
+            <th>
+              Industry
+              <br>
+              6M %
+            </th>
+
+
+            <th>
+              Industry Rating
+              <br>
+
+              <small>
+                1–99
+              </small>
+            </th>
+
+
+            <!-- STOCK MOMENTUM -->
+
+            <th>
+              Stock
+              <br>
+              1M %
+            </th>
+
+
+            <th>
+              Stock
+              <br>
+              3M %
+            </th>
+
+
+            <th>
+              Stock
+              <br>
+              6M %
+            </th>
+
+
+            <th>
+              Stock Momentum
+              <br>
+              Rating
             </th>
 
 
@@ -429,9 +477,9 @@
 
 
 
-          <!-- =====================
-               FILTERS
-          ====================== -->
+          <!-- =================================================
+               FILTER ROW
+          ================================================== -->
 
           <tr class="filter-row">
 
@@ -511,7 +559,7 @@
 
 
 
-            <!-- CHANGE % -->
+            <!-- CHANGE -->
 
             <th>
 
@@ -544,7 +592,7 @@
 
 
 
-            <!-- TODAY TOTAL VOLUME -->
+            <!-- TODAY VOLUME -->
 
             <th>
 
@@ -578,7 +626,7 @@
 
 
 
-            <!-- NEW: TODAY TURNOVER -->
+            <!-- TODAY TURNOVER -->
 
             <th>
 
@@ -612,7 +660,7 @@
 
 
 
-            <!-- TODAY DELIVERY VOLUME -->
+            <!-- TODAY DELIVERY -->
 
             <th>
 
@@ -646,7 +694,7 @@
 
 
 
-            <!-- 5 DAY AVG DELIVERY -->
+            <!-- 5D AVG DELIVERY -->
 
             <th>
 
@@ -749,7 +797,7 @@
 
 
 
-            <!-- 5 LAKH VOLUME + 5% MOVE -->
+            <!-- HIGH VOLUME + MOVE -->
 
             <th>
 
@@ -886,7 +934,9 @@
 
 
 
-            <!-- SECTOR GROWTH -->
+            <!-- =================================================
+                 INDUSTRY 1M
+            ================================================== -->
 
             <th>
 
@@ -895,7 +945,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeSectorGrowth"
+                    id="activeIndustry1M"
                     type="checkbox"
                   >
 
@@ -907,7 +957,7 @@
 
 
                 <input
-                  id="aboveSectorGrowth"
+                  id="aboveIndustry1M"
                   type="number"
                   step="0.1"
                   placeholder="Above %"
@@ -919,7 +969,7 @@
 
 
 
-            <!-- STOCK GROWTH -->
+            <!-- INDUSTRY 3M -->
 
             <th>
 
@@ -928,7 +978,7 @@
                 <label class="filter-toggle">
 
                   <input
-                    id="activeStockGrowth"
+                    id="activeIndustry3M"
                     type="checkbox"
                   >
 
@@ -939,31 +989,261 @@
                 </label>
 
 
-                <select id="stockGrowthPeriod">
+                <input
+                  id="aboveIndustry3M"
+                  type="number"
+                  step="0.1"
+                  placeholder="Above %"
+                >
 
-                  <option value="1M">
-                    1M
-                  </option>
+              </div>
 
-                  <option
-                    value="3M"
-                    selected
+            </th>
+
+
+
+            <!-- INDUSTRY 6M -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeIndustry6M"
+                    type="checkbox"
                   >
-                    3M
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveIndustry6M"
+                  type="number"
+                  step="0.1"
+                  placeholder="Above %"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- =================================================
+                 INDUSTRY RATING
+                 ABOVE / ASCENDING / DESCENDING
+            ================================================== -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeIndustryRating"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <select
+                  id="industryRatingMode"
+                  aria-label="Industry Rating mode"
+                >
+
+                  <option value="above">
+                    Above
                   </option>
 
-                  <option value="6M">
-                    6M
+                  <option value="asc">
+                    Ascending
+                  </option>
+
+                  <option value="desc">
+                    Descending
                   </option>
 
                 </select>
 
 
                 <input
-                  id="aboveStockGrowth"
+                  id="aboveIndustryRating"
+                  type="number"
+                  min="1"
+                  max="99"
+                  step="1"
+                  placeholder="Rating"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- =================================================
+                 STOCK 1M
+            ================================================== -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeStock1M"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveStock1M"
                   type="number"
                   step="0.1"
                   placeholder="Above %"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- STOCK 3M -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeStock3M"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveStock3M"
+                  type="number"
+                  step="0.1"
+                  placeholder="Above %"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- STOCK 6M -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeStock6M"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="aboveStock6M"
+                  type="number"
+                  step="0.1"
+                  placeholder="Above %"
+                >
+
+              </div>
+
+            </th>
+
+
+
+            <!-- =================================================
+                 STOCK MOMENTUM RATING
+                 ABOVE / ASCENDING / DESCENDING
+            ================================================== -->
+
+            <th>
+
+              <div class="filter-box">
+
+                <label class="filter-toggle">
+
+                  <input
+                    id="activeStockRating"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Active
+                  </span>
+
+                </label>
+
+
+                <select
+                  id="stockRatingMode"
+                  aria-label="Stock Momentum Rating mode"
+                >
+
+                  <option value="above">
+                    Above
+                  </option>
+
+                  <option value="asc">
+                    Ascending
+                  </option>
+
+                  <option value="desc">
+                    Descending
+                  </option>
+
+                </select>
+
+
+                <input
+                  id="aboveStockRating"
+                  type="number"
+                  min="1"
+                  max="99"
+                  step="1"
+                  placeholder="Rating"
                 >
 
               </div>
@@ -1092,9 +1372,9 @@
 
 
 
-  <!-- =========================
+  <!-- =================================================
        REASON / MARKET VIEW MODAL
-  ========================== -->
+  ================================================== -->
 
   <div
     id="reasonModal"
