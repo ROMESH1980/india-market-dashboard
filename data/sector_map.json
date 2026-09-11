@@ -12833,5 +12833,10 @@
     "sector": "Healthcare",
     "industry": "Medical Care Facilities",
     "source": "Yahoo Finance"
+  },
+  "DOLLEX": {
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "source": "Yahoo Finance"
   }
 }
