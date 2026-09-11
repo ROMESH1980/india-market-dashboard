@@ -9,14 +9,8 @@ import yfinance as yf
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-
 NIFTY500 = "^CRSLDX"
-
-RUN_DATE = (
-    datetime.now(timezone.utc)
-    .date()
-    .isoformat()
-)
+RUN_DATE = datetime.now(timezone.utc).date().isoformat()
 
 METHODOLOGY = {
     "macro": "methodology.html#macro",
@@ -30,18 +24,13 @@ METHODOLOGY = {
 
 def load_json(path, default):
     try:
-        return json.loads(
-            path.read_text()
-        )
+        return json.loads(path.read_text())
     except Exception:
         return default
 
 
 def clamp(x, lo=0, hi=100):
-    return max(
-        lo,
-        min(hi, x)
-    )
+    return max(lo, min(hi, x))
 
 
 def safe_float(value):
@@ -60,10 +49,7 @@ def safe_float(value):
         return None
 
 
-def percentile(
-    value,
-    values
-):
+def percentile(value, values):
     value = safe_float(value)
 
     if value is None:
@@ -85,9 +71,56 @@ def percentile(
     )
 
     return round(
-        count /
-        len(clean) *
-        100,
+        count / len(clean) * 100,
+        2
+    )
+
+
+def percentile_1_99(value, values):
+    """
+    Cross-sectional rating:
+    lowest available observation = 1
+    highest available observation = 99
+    """
+
+    value = safe_float(value)
+
+    if value is None:
+        return None
+
+    clean = sorted(
+        float(v)
+        for v in values
+        if safe_float(v) is not None
+    )
+
+    if not clean:
+        return None
+
+    if len(clean) == 1:
+        return 99
+
+    count = sum(
+        1
+        for v in clean
+        if v <= value
+    )
+
+    rank_index = max(
+        0,
+        count - 1
+    )
+
+    score = (
+        1
+        +
+        98
+        * rank_index
+        / (len(clean) - 1)
+    )
+
+    return round(
+        clamp(score, 1, 99),
         2
     )
 
@@ -121,6 +154,34 @@ def normalize_sector_name(value):
     return str(
         value or ""
     ).strip()
+
+
+def normalize_industry_name(value):
+    return str(
+        value or ""
+    ).strip()
+
+
+def median_map(grouped):
+    result = {}
+
+    for key, values in grouped.items():
+
+        clean = [
+            safe_float(value)
+            for value in values
+            if safe_float(value) is not None
+        ]
+
+        if not clean:
+            continue
+
+        result[key] = round(
+            median(clean),
+            4
+        )
+
+    return result
 
 
 # =========================================================
@@ -666,6 +727,7 @@ def extract_close_series(
         return series
 
     except Exception:
+
         return None
 
 
@@ -737,7 +799,6 @@ def download_history(
                 ] = series
 
     print({
-
         "historyTickersRequested":
             len(tickers),
 
@@ -756,8 +817,8 @@ def period_return(
         return None
 
     if (
-        len(series) <=
-        trading_days
+        len(series)
+        <= trading_days
     ):
         return None
 
@@ -787,6 +848,7 @@ def period_return(
         )
 
     except Exception:
+
         return None
 
 
@@ -999,14 +1061,445 @@ def main():
 
 
     # =====================================================
-    # SECTOR STOCK-MEDIAN FALLBACK
+    # INDUSTRY MOMENTUM
     # =====================================================
     #
-    # Every classified sector ke available
-    # stocks ka actual 1M return collect karenge.
+    # Same Industry ke sab available stocks ka
+    # median return use hoga.
     #
-    # Median mean se better hai because one
-    # extreme stock sector return distort nahi karega.
+    # Industry Rating:
+    # 50% x 1M percentile
+    # 30% x 3M percentile
+    # 20% x 6M percentile
+    # =====================================================
+
+    industry_returns_1m = {}
+    industry_returns_3m = {}
+    industry_returns_6m = {}
+
+
+    for row in classified:
+
+        symbol = row.get(
+            "symbol"
+        )
+
+        industry = normalize_industry_name(
+            row.get(
+                "industry"
+            )
+        )
+
+
+        if (
+            not symbol
+            or not industry
+            or industry == "Unclassified"
+        ):
+            continue
+
+
+        value_1m = stock_growth_1m.get(
+            symbol
+        )
+
+        value_3m = stock_growth_3m.get(
+            symbol
+        )
+
+        value_6m = stock_growth_6m.get(
+            symbol
+        )
+
+
+        if value_1m is not None:
+
+            industry_returns_1m.setdefault(
+                industry,
+                []
+            ).append(
+                value_1m
+            )
+
+
+        if value_3m is not None:
+
+            industry_returns_3m.setdefault(
+                industry,
+                []
+            ).append(
+                value_3m
+            )
+
+
+        if value_6m is not None:
+
+            industry_returns_6m.setdefault(
+                industry,
+                []
+            ).append(
+                value_6m
+            )
+
+
+    industry_growth_1m = median_map(
+        industry_returns_1m
+    )
+
+    industry_growth_3m = median_map(
+        industry_returns_3m
+    )
+
+    industry_growth_6m = median_map(
+        industry_returns_6m
+    )
+
+
+    industry_values_1m = list(
+        industry_growth_1m.values()
+    )
+
+    industry_values_3m = list(
+        industry_growth_3m.values()
+    )
+
+    industry_values_6m = list(
+        industry_growth_6m.values()
+    )
+
+
+    industry_percentile_1m = {
+
+        industry:
+            percentile_1_99(
+                value,
+                industry_values_1m
+            )
+
+        for (
+            industry,
+            value
+        ) in industry_growth_1m.items()
+    }
+
+
+    industry_percentile_3m = {
+
+        industry:
+            percentile_1_99(
+                value,
+                industry_values_3m
+            )
+
+        for (
+            industry,
+            value
+        ) in industry_growth_3m.items()
+    }
+
+
+    industry_percentile_6m = {
+
+        industry:
+            percentile_1_99(
+                value,
+                industry_values_6m
+            )
+
+        for (
+            industry,
+            value
+        ) in industry_growth_6m.items()
+    }
+
+
+    industry_rating = {}
+
+
+    all_industries = (
+        set(industry_growth_1m)
+        |
+        set(industry_growth_3m)
+        |
+        set(industry_growth_6m)
+    )
+
+
+    for industry in all_industries:
+
+        p1 = industry_percentile_1m.get(
+            industry
+        )
+
+        p3 = industry_percentile_3m.get(
+            industry
+        )
+
+        p6 = industry_percentile_6m.get(
+            industry
+        )
+
+
+        if (
+            p1 is None
+            or p3 is None
+            or p6 is None
+        ):
+            continue
+
+
+        rating = (
+            p1 * 0.50
+            +
+            p3 * 0.30
+            +
+            p6 * 0.20
+        )
+
+
+        industry_rating[
+            industry
+        ] = int(
+            round(
+                clamp(
+                    rating,
+                    1,
+                    99
+                )
+            )
+        )
+
+
+    # =====================================================
+    # STOCK MOMENTUM RATING
+    # =====================================================
+    #
+    # Relative 1M =
+    # Stock 1M - Industry 1M
+    #
+    # Relative 3M =
+    # Stock 3M - Industry 3M
+    #
+    # Relative 6M =
+    # Stock 6M - Industry 6M
+    #
+    # Rating:
+    # 50% x Relative 1M percentile
+    # 30% x Relative 3M percentile
+    # 20% x Relative 6M percentile
+    # =====================================================
+
+    stock_relative_1m = {}
+    stock_relative_3m = {}
+    stock_relative_6m = {}
+
+
+    for row in classified:
+
+        symbol = row.get(
+            "symbol"
+        )
+
+        industry = normalize_industry_name(
+            row.get(
+                "industry"
+            )
+        )
+
+
+        if (
+            not symbol
+            or not industry
+            or industry == "Unclassified"
+        ):
+            continue
+
+
+        stock_1m = stock_growth_1m.get(
+            symbol
+        )
+
+        stock_3m = stock_growth_3m.get(
+            symbol
+        )
+
+        stock_6m = stock_growth_6m.get(
+            symbol
+        )
+
+
+        industry_1m = industry_growth_1m.get(
+            industry
+        )
+
+        industry_3m = industry_growth_3m.get(
+            industry
+        )
+
+        industry_6m = industry_growth_6m.get(
+            industry
+        )
+
+
+        if (
+            stock_1m is not None
+            and industry_1m is not None
+        ):
+
+            stock_relative_1m[
+                symbol
+            ] = (
+                stock_1m
+                -
+                industry_1m
+            )
+
+
+        if (
+            stock_3m is not None
+            and industry_3m is not None
+        ):
+
+            stock_relative_3m[
+                symbol
+            ] = (
+                stock_3m
+                -
+                industry_3m
+            )
+
+
+        if (
+            stock_6m is not None
+            and industry_6m is not None
+        ):
+
+            stock_relative_6m[
+                symbol
+            ] = (
+                stock_6m
+                -
+                industry_6m
+            )
+
+
+    relative_values_1m = list(
+        stock_relative_1m.values()
+    )
+
+    relative_values_3m = list(
+        stock_relative_3m.values()
+    )
+
+    relative_values_6m = list(
+        stock_relative_6m.values()
+    )
+
+
+    stock_relative_percentile_1m = {
+
+        symbol:
+            percentile_1_99(
+                value,
+                relative_values_1m
+            )
+
+        for (
+            symbol,
+            value
+        ) in stock_relative_1m.items()
+    }
+
+
+    stock_relative_percentile_3m = {
+
+        symbol:
+            percentile_1_99(
+                value,
+                relative_values_3m
+            )
+
+        for (
+            symbol,
+            value
+        ) in stock_relative_3m.items()
+    }
+
+
+    stock_relative_percentile_6m = {
+
+        symbol:
+            percentile_1_99(
+                value,
+                relative_values_6m
+            )
+
+        for (
+            symbol,
+            value
+        ) in stock_relative_6m.items()
+    }
+
+
+    stock_momentum_rating = {}
+
+
+    all_momentum_symbols = (
+        set(stock_relative_1m)
+        |
+        set(stock_relative_3m)
+        |
+        set(stock_relative_6m)
+    )
+
+
+    for symbol in all_momentum_symbols:
+
+        p1 = stock_relative_percentile_1m.get(
+            symbol
+        )
+
+        p3 = stock_relative_percentile_3m.get(
+            symbol
+        )
+
+        p6 = stock_relative_percentile_6m.get(
+            symbol
+        )
+
+
+        if (
+            p1 is None
+            or p3 is None
+            or p6 is None
+        ):
+            continue
+
+
+        rating = (
+            p1 * 0.50
+            +
+            p3 * 0.30
+            +
+            p6 * 0.20
+        )
+
+
+        stock_momentum_rating[
+            symbol
+        ] = int(
+            round(
+                clamp(
+                    rating,
+                    1,
+                    99
+                )
+            )
+        )
+
+
+    # =====================================================
+    # EXISTING SECTOR STOCK-MEDIAN FALLBACK
     # =====================================================
 
     sector_stock_returns = {}
@@ -1050,51 +1543,18 @@ def main():
         )
 
 
-    sector_median_1m = {}
-
-
-    for (
-        sector,
-        values
-    ) in sector_stock_returns.items():
-
-        clean = [
-
-            safe_float(value)
-
-            for value in values
-
-            if safe_float(value)
-            is not None
-        ]
-
-
-        if not clean:
-            continue
-
-
-        sector_median_1m[
-            sector
-        ] = round(
-            median(clean),
-            4
-        )
+    sector_median_1m = median_map(
+        sector_stock_returns
+    )
 
 
     # =====================================================
-    # FINAL SECTOR GROWTH MAP
-    # =====================================================
-    #
-    # Priority:
-    #
-    # 1. Sector index 1M
-    # 2. Sector stocks median 1M
+    # EXISTING FINAL SECTOR GROWTH MAP
     # =====================================================
 
     sector_growth_by_sector = {}
 
     sector_growth_source = {}
-
 
     unique_sector_rows = {}
 
@@ -1192,7 +1652,7 @@ def main():
 
 
     # =====================================================
-    # SECTOR STRENGTH
+    # EXISTING SECTOR STRENGTH
     # =====================================================
 
     sector_growth_values = list(
@@ -1217,7 +1677,7 @@ def main():
 
 
     # =====================================================
-    # STOCK STRENGTH RAW
+    # EXISTING STOCK STRENGTH RAW
     # =====================================================
 
     raw_1m = {}
@@ -1340,7 +1800,7 @@ def main():
 
 
     # =====================================================
-    # STOCK STRENGTH PERCENTILES
+    # EXISTING STOCK STRENGTH PERCENTILES
     # =====================================================
 
     values_1m = list(
@@ -1446,6 +1906,13 @@ def main():
     stock_growth_3m_fallback_count = 0
     stock_growth_6m_fallback_count = 0
 
+    industry_growth_1m_fallback_count = 0
+    industry_growth_3m_fallback_count = 0
+    industry_growth_6m_fallback_count = 0
+
+    industry_rating_fallback_count = 0
+    stock_momentum_rating_fallback_count = 0
+
     verified_macro_count = 0
     automated_macro_count = 0
 
@@ -1482,8 +1949,10 @@ def main():
             )
         )
 
-        industry = row.get(
-            "industry"
+        industry = normalize_industry_name(
+            row.get(
+                "industry"
+            )
         )
 
 
@@ -1491,6 +1960,152 @@ def main():
             sector,
             industry
         )
+
+
+        # -------------------------------------------------
+        # INDUSTRY MOMENTUM
+        # -------------------------------------------------
+
+        new_industry_growth_1m = None
+        new_industry_growth_3m = None
+        new_industry_growth_6m = None
+        new_industry_rating = None
+
+
+        if (
+            industry
+            and industry != "Unclassified"
+        ):
+
+            new_industry_growth_1m = (
+                industry_growth_1m.get(
+                    industry
+                )
+            )
+
+            new_industry_growth_3m = (
+                industry_growth_3m.get(
+                    industry
+                )
+            )
+
+            new_industry_growth_6m = (
+                industry_growth_6m.get(
+                    industry
+                )
+            )
+
+            new_industry_rating = (
+                industry_rating.get(
+                    industry
+                )
+            )
+
+
+        industry_growth_value_1m = (
+            fallback_value(
+                new_industry_growth_1m,
+                previous,
+                "industryGrowth1M"
+            )
+        )
+
+
+        industry_growth_value_3m = (
+            fallback_value(
+                new_industry_growth_3m,
+                previous,
+                "industryGrowth3M"
+            )
+        )
+
+
+        industry_growth_value_6m = (
+            fallback_value(
+                new_industry_growth_6m,
+                previous,
+                "industryGrowth6M"
+            )
+        )
+
+
+        industry_rating_value = (
+            fallback_value(
+                new_industry_rating,
+                previous,
+                "industryRating"
+            )
+        )
+
+
+        if (
+            new_industry_growth_1m
+            is None
+            and industry_growth_value_1m
+            is not None
+        ):
+
+            industry_growth_1m_fallback_count += 1
+
+
+        if (
+            new_industry_growth_3m
+            is None
+            and industry_growth_value_3m
+            is not None
+        ):
+
+            industry_growth_3m_fallback_count += 1
+
+
+        if (
+            new_industry_growth_6m
+            is None
+            and industry_growth_value_6m
+            is not None
+        ):
+
+            industry_growth_6m_fallback_count += 1
+
+
+        if (
+            new_industry_rating
+            is None
+            and industry_rating_value
+            is not None
+        ):
+
+            industry_rating_fallback_count += 1
+
+
+        # -------------------------------------------------
+        # STOCK MOMENTUM RATING
+        # -------------------------------------------------
+
+        new_stock_momentum_rating = (
+            stock_momentum_rating.get(
+                symbol
+            )
+        )
+
+
+        stock_momentum_rating_value = (
+            fallback_value(
+                new_stock_momentum_rating,
+                previous,
+                "stockMomentumRating"
+            )
+        )
+
+
+        if (
+            new_stock_momentum_rating
+            is None
+            and stock_momentum_rating_value
+            is not None
+        ):
+
+            stock_momentum_rating_fallback_count += 1
 
 
         # -------------------------------------------------
@@ -2185,7 +2800,25 @@ def main():
             symbol
         ] = {
 
-            # ACTUAL GROWTH %
+            # NEW INDUSTRY MOMENTUM
+
+            "industryGrowth1M":
+                industry_growth_value_1m,
+
+            "industryGrowth3M":
+                industry_growth_value_3m,
+
+            "industryGrowth6M":
+                industry_growth_value_6m,
+
+            "industryRating":
+                industry_rating_value,
+
+            "stockMomentumRating":
+                stock_momentum_rating_value,
+
+
+            # EXISTING ACTUAL GROWTH %
 
             "sectorGrowth1M":
                 sector_growth_1m,
@@ -2213,7 +2846,7 @@ def main():
                 stock_growth_value_6m,
 
 
-            # STRENGTH
+            # EXISTING STRENGTH
 
             "sectorStrength":
                 sector_strength,
@@ -2240,7 +2873,7 @@ def main():
                 ),
 
 
-            # RESEARCH
+            # EXISTING RESEARCH
 
             "tailwindScore":
                 tailwind_score,
@@ -2290,20 +2923,56 @@ def main():
 
             "historyFallback":
                 (
-                    "Sector Growth uses relevant sector-index "
-                    "1-month return when available. When sector-index "
-                    "history is unavailable, the median 1-month return "
-                    "of available stocks in that sector is used. "
-                    "Previous valid values are preserved if both are unavailable."
+                    "Industry Growth uses the median actual return of "
+                    "available stocks in the same Industry for 1M, "
+                    "3M and 6M. Industry Rating and Stock Momentum "
+                    "Rating use 1-99 percentile inputs with 50/30/20 "
+                    "weights. Sector Growth retains the existing "
+                    "sector-index / sector-stock median fallback. "
+                    "Previous valid values are preserved when current "
+                    "calculations are unavailable."
                 ),
 
             "method": {
 
+                "industryGrowth1M":
+                    (
+                        "Median actual 1-month return of available "
+                        "stocks in the same Industry."
+                    ),
+
+                "industryGrowth3M":
+                    (
+                        "Median actual 3-month return of available "
+                        "stocks in the same Industry."
+                    ),
+
+                "industryGrowth6M":
+                    (
+                        "Median actual 6-month return of available "
+                        "stocks in the same Industry."
+                    ),
+
+                "industryRating":
+                    (
+                        "1-99 rating = 50% Industry 1M percentile + "
+                        "30% Industry 3M percentile + "
+                        "20% Industry 6M percentile."
+                    ),
+
+                "stockMomentumRating":
+                    (
+                        "1-99 rating based on Stock return minus "
+                        "its own Industry median return for "
+                        "1M/3M/6M, cross-sectionally ranked and "
+                        "combined with 50%/30%/20% weights."
+                    ),
+
                 "sectorGrowth1M":
                     (
-                        "Actual 1-month relevant Nifty sector-index return; "
-                        "fallback is median 1-month return of available "
-                        "stocks in the same sector."
+                        "Actual 1-month relevant Nifty sector-index "
+                        "return; fallback is median 1-month return "
+                        "of available stocks in the same sector."
                     ),
 
                 "stockGrowth1M":
@@ -2317,8 +2986,8 @@ def main():
 
                 "sectorStrength":
                     (
-                        "Percentile rank of final sector 1-month growth "
-                        "across available classified sectors."
+                        "Percentile rank of final sector 1-month "
+                        "growth across available classified sectors."
                     ),
 
                 "stockStrength1M":
@@ -2390,11 +3059,14 @@ def main():
 
             "note":
                 (
-                    "Sector Growth and Stock Growth are actual "
-                    "price-return percentages. Sector Strength and "
-                    "Stock Strength remain 0-100 percentile screening "
-                    "metrics. Automated Value Migration is a screening "
-                    "proxy and not verified business migration."
+                    "Industry Growth and Stock Growth are actual "
+                    "price-return percentages. Industry Rating and "
+                    "Stock Momentum Rating are 1-99 momentum ratings "
+                    "using 50/30/20 weights. Sector Strength and "
+                    "legacy Stock Strength remain 0-100 percentile "
+                    "screening metrics. Automated Value Migration "
+                    "is a screening proxy and not verified business "
+                    "migration."
                 ),
         },
 
@@ -2433,6 +3105,31 @@ def main():
                 unique_sector_rows
             ),
 
+        "industries1MAvailable":
+            len(
+                industry_growth_1m
+            ),
+
+        "industries3MAvailable":
+            len(
+                industry_growth_3m
+            ),
+
+        "industries6MAvailable":
+            len(
+                industry_growth_6m
+            ),
+
+        "industryRatingsAvailable":
+            len(
+                industry_rating
+            ),
+
+        "stockMomentumRatingsCalculated":
+            len(
+                stock_momentum_rating
+            ),
+
         "sectorGrowthSectorsAvailable":
             len(
                 sector_growth_by_sector
@@ -2443,6 +3140,61 @@ def main():
 
         "sectorGrowthMedianAssignments":
             sector_growth_median_count,
+
+        "industryGrowth1MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "industryGrowth1M"
+                )
+                is not None
+            ),
+
+        "industryGrowth3MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "industryGrowth3M"
+                )
+                is not None
+            ),
+
+        "industryGrowth6MAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "industryGrowth6M"
+                )
+                is not None
+            ),
+
+        "industryRatingAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "industryRating"
+                )
+                is not None
+            ),
+
+        "stockMomentumRatingAvailable":
+            sum(
+                1
+                for value
+                in scores.values()
+                if value.get(
+                    "stockMomentumRating"
+                )
+                is not None
+            ),
 
         "sectorGrowth1MAvailable":
             sum(
@@ -2531,6 +3283,21 @@ def main():
                 )
                 is not None
             ),
+
+        "industryGrowth1MFallbackUsed":
+            industry_growth_1m_fallback_count,
+
+        "industryGrowth3MFallbackUsed":
+            industry_growth_3m_fallback_count,
+
+        "industryGrowth6MFallbackUsed":
+            industry_growth_6m_fallback_count,
+
+        "industryRatingFallbackUsed":
+            industry_rating_fallback_count,
+
+        "stockMomentumRatingFallbackUsed":
+            stock_momentum_rating_fallback_count,
 
         "sectorGrowthFallbackUsed":
             sector_growth_fallback_count,
