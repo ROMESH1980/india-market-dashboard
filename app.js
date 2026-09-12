@@ -377,6 +377,16 @@ function rsRatingVal(row) {
 }
 
 
+function rsImprovement(row) {
+  return num(row.rsImprovement);
+}
+
+
+function isRSImproving(row) {
+  return row.rsImproving === true;
+}
+
+
 /* =====================================================
    INDUSTRY + STOCK MOMENTUM
 ===================================================== */
@@ -789,8 +799,6 @@ function normalizeDetailItem(
       ""
   };
 }
-
-
 function buildCombinedReasonHtml(details) {
   if (!details) {
     return `
@@ -1449,6 +1457,18 @@ function passesFilters(row) {
   }
 
 
+  /* ===================================================
+     RS IMPROVING FILTER
+  =================================================== */
+
+  if (
+    checked("activeRSImproving") &&
+    !isRSImproving(row)
+  ) {
+    return false;
+  }
+
+
   if (checked("activeSector")) {
 
     const value =
@@ -1806,8 +1826,6 @@ function passesFilters(row) {
 
   return true;
 }
-
-
 /* =====================================================
    SORT VALUES
 ===================================================== */
@@ -1870,6 +1888,10 @@ function sortValue(
 
     case "rsRating":
       return rsRating(row);
+
+
+    case "rsImprovement":
+      return rsImprovement(row);
 
 
     case "industryGrowth1M":
@@ -2087,6 +2109,9 @@ const sortFieldByActiveCheckbox = {
   activeRS:
     "rsRating",
 
+  activeRSImproving:
+    "rsImprovement",
+
   activeIndustry1M:
     "industryGrowth1M",
 
@@ -2122,6 +2147,10 @@ const sortFieldByActiveCheckbox = {
 
 };
 
+
+/* =====================================================
+   SORT DIRECTION
+===================================================== */
 
 function sortDirectionForCheckbox(
   checkboxId
@@ -2161,10 +2190,34 @@ function sortDirectionForCheckbox(
   }
 
 
+  /*
+    RS Improving:
+
+    Higher rsImprovement first.
+
+    Example:
+    +37
+    +31
+    +25
+    +20
+  */
+
+  if (
+    checkboxId ===
+    "activeRSImproving"
+  ) {
+    return "desc";
+  }
+
+
   return "desc";
 
 }
 
+
+/* =====================================================
+   UPDATE ACTIVE SORT FROM CHECKBOX
+===================================================== */
 
 function updateActiveSortFromCheckbox(
   checkboxId
@@ -2220,6 +2273,10 @@ function updateActiveSortFromCheckbox(
 
 }
 
+
+/* =====================================================
+   FIND ANOTHER ACTIVE SORT FIELD
+===================================================== */
 
 function findAnotherActiveSortField() {
 
@@ -2820,8 +2877,6 @@ function renderRows() {
   setupReasonButtons();
 
 }
-
-
 /* =====================================================
    RESEARCH BUTTON EVENTS
 ===================================================== */
@@ -2896,6 +2951,8 @@ function setupReasonButtons() {
     );
 
 }
+
+
 /* =====================================================
    FILTER EVENTS
 ===================================================== */
@@ -3576,8 +3633,6 @@ function setupReasonModalEvents() {
   );
 
 }
-
-
 /* =====================================================
    MARKET VIEW REGIME HELPERS
 ===================================================== */
@@ -4647,8 +4702,6 @@ function updateHeaderRegime() {
   updateMarketViewCard();
 
 }
-
-
 /* =====================================================
    INITIALIZE DATA
 ===================================================== */
@@ -4826,6 +4879,35 @@ async function init() {
       ).length;
 
 
+    const rsHistoryReady =
+      allStocks.filter(
+        row =>
+
+          num(
+            row.rsRating1MAgo
+          ) !== null &&
+
+          num(
+            row.rsRating2WAgo
+          ) !== null &&
+
+          num(
+            row.rsRating1WAgo
+          ) !== null &&
+
+          num(
+            row.rsRating
+          ) !== null
+      ).length;
+
+
+    const rsImprovingReady =
+      allStocks.filter(
+        row =>
+          isRSImproving(row)
+      ).length;
+
+
     console.log(
       `Industry Rating ready: ${industryRatingReady}/${allStocks.length}`
     );
@@ -4833,6 +4915,16 @@ async function init() {
 
     console.log(
       `Stock Momentum Rating ready: ${stockMomentumReady}/${allStocks.length}`
+    );
+
+
+    console.log(
+      `RS history ready: ${rsHistoryReady}/${allStocks.length}`
+    );
+
+
+    console.log(
+      `RS Improving stocks: ${rsImprovingReady}/${allStocks.length}`
     );
 
 
@@ -4895,6 +4987,8 @@ document.addEventListener(
   "DOMContentLoaded",
   init
 );
+
+
 /* =====================================================
    EXPORT HELPERS
 ===================================================== */
@@ -5056,6 +5150,28 @@ function buildExportRows() {
         rsRating(row);
 
 
+      const rs1MAgo =
+        num(
+          row.rsRating1MAgo
+        );
+
+
+      const rs2WAgo =
+        num(
+          row.rsRating2WAgo
+        );
+
+
+      const rs1WAgo =
+        num(
+          row.rsRating1WAgo
+        );
+
+
+      const rsImprovementValue =
+        rsImprovement(row);
+
+
       const industryRatingValue =
         industryRating(row);
 
@@ -5172,8 +5288,32 @@ function buildExportRows() {
 
 
         /* ============================================
-           RS RATING
+           RS HISTORY + CURRENT RS
         ============================================ */
+
+        "RS 1M Ago":
+          rs1MAgo === null
+            ? ""
+            : exportInteger(
+                rs1MAgo
+              ),
+
+
+        "RS 2W Ago":
+          rs2WAgo === null
+            ? ""
+            : exportInteger(
+                rs2WAgo
+              ),
+
+
+        "RS 1W Ago":
+          rs1WAgo === null
+            ? ""
+            : exportInteger(
+                rs1WAgo
+              ),
+
 
         "RS Rating":
           rating === null
@@ -5181,6 +5321,30 @@ function buildExportRows() {
             : exportInteger(
                 rating
               ),
+
+
+        "RS Improvement":
+          rsImprovementValue === null
+            ? ""
+            : exportRoundedNumber(
+                rsImprovementValue,
+                2
+              ),
+
+
+        "RS Improving":
+          isRSImproving(row)
+            ? "YES"
+            : "NO",
+
+
+        "RS Improving Status":
+          row.rsImprovingStatus ||
+          (
+            isRSImproving(row)
+              ? "YES"
+              : "NO"
+          ),
 
 
         "RS Label":
@@ -5317,8 +5481,6 @@ function buildExportRows() {
   );
 
 }
-
-
 /* =====================================================
    EXPORT FILE NAME
 ===================================================== */
@@ -5708,8 +5870,23 @@ function downloadExcel(rows) {
           "5L Vol + 5% Move":
             18,
 
+          "RS 1M Ago":
+            14,
+
+          "RS 2W Ago":
+            14,
+
+          "RS 1W Ago":
+            14,
+
           "RS Rating":
             12,
+
+          "RS Improvement":
+            16,
+
+          "RS Improving":
+            14,
 
           "RS Label":
             14,
@@ -5890,14 +6067,46 @@ function downloadExcel(rows) {
 
 
   /* ===================================================
-     RS RATING
+     RS HISTORY / IMPROVEMENT
   =================================================== */
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "RS 1M Ago",
+    "0"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "RS 2W Ago",
+    "0"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+    headers,
+    "RS 1W Ago",
+    "0"
+  );
+
 
   applyExcelNumberFormat(
     worksheet,
     headers,
     "RS Rating",
     "0"
+  );
+
+
+  applyExcelNumberFormat(
+    worksheet,
+         headers,
+    "RS Improvement",
+    "0.00"
   );
 
 
@@ -6083,6 +6292,8 @@ function downloadExcel(rows) {
   );
 
 }
+
+
 /* =====================================================
    DOWNLOAD HANDLER
 ===================================================== */
