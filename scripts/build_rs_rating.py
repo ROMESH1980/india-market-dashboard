@@ -45,21 +45,6 @@ WEIGHT_9M = 0.20
 WEIGHT_12M = 0.20
 
 
-# =========================================================
-# RS IMPROVING SETTINGS
-# =========================================================
-
-# Historical anchor offsets.
-RS_1W_DAYS = 7
-RS_2W_DAYS = 14
-RS_1M_MONTHS = 1
-
-
-# Final RS Improving conditions.
-RS_IMPROVING_MAX_1M_AGO = 60
-RS_IMPROVING_MIN_CURRENT = 70
-RS_IMPROVING_MIN_GAIN = 20
-
 
 # =========================================================
 # JSON HELPERS
@@ -413,9 +398,7 @@ def download_bhavcopy(date_obj):
         "count":
             len(prices),
     }
-
-
-# =========================================================
+    # =========================================================
 # BHAVCOPY CACHE
 # =========================================================
 
@@ -711,7 +694,6 @@ def assign_percentile_ratings(
 
         return 1
 
-
     # -----------------------------------------------------
     # TIE-AWARE AVERAGE RANK
     # -----------------------------------------------------
@@ -836,589 +818,7 @@ def rs_label(rating):
         return "Weak"
 
     return "Very Weak"
-
-
-# =========================================================
-# HISTORICAL ANCHOR DATE HELPERS
-# =========================================================
-
-def build_anchor_dates(
-    latest_date,
-):
-
-    return {
-
-        "1MAgo":
-            subtract_months(
-                latest_date,
-                RS_1M_MONTHS,
-            ),
-
-        "2WAgo":
-            latest_date
-            -
-            timedelta(
-                days=RS_2W_DAYS
-            ),
-
-        "1WAgo":
-            latest_date
-            -
-            timedelta(
-                days=RS_1W_DAYS
-            ),
-
-        "Current":
-            latest_date,
-    }
-
-
-# =========================================================
-# LOAD RS BHAVCOPIES FOR ONE ANCHOR
-# =========================================================
-
-def load_rs_bhavcopies_for_anchor(
-    anchor_date,
-):
-
-    target_3m = subtract_months(
-        anchor_date,
-        3,
-    )
-
-    target_6m = subtract_months(
-        anchor_date,
-        6,
-    )
-
-    target_9m = subtract_months(
-        anchor_date,
-        9,
-    )
-
-    target_12m = subtract_months(
-        anchor_date,
-        12,
-    )
-
-
-    print(
-        "----------------------------------------------"
-    )
-
-    print(
-        "Loading RS anchor:",
-        anchor_date.isoformat(),
-    )
-
-    print({
-        "anchor":
-            anchor_date.isoformat(),
-
-        "3M":
-            target_3m.isoformat(),
-
-        "6M":
-            target_6m.isoformat(),
-
-        "9M":
-            target_9m.isoformat(),
-
-        "12M":
-            target_12m.isoformat(),
-    })
-
-
-    anchor_bhav = load_nearest_bhavcopy(
-        anchor_date
-    )
-
-    bhav_3m = load_nearest_bhavcopy(
-        target_3m
-    )
-
-    bhav_6m = load_nearest_bhavcopy(
-        target_6m
-    )
-
-    bhav_9m = load_nearest_bhavcopy(
-        target_9m
-    )
-
-    bhav_12m = load_nearest_bhavcopy(
-        target_12m
-    )
-
-
-    return {
-
-        "anchor":
-            anchor_bhav,
-
-        "3M":
-            bhav_3m,
-
-        "6M":
-            bhav_6m,
-
-        "9M":
-            bhav_9m,
-
-        "12M":
-            bhav_12m,
-    }
-
-
-# =========================================================
-# CALCULATE ONE HISTORICAL RS SNAPSHOT
-# =========================================================
-
-def calculate_rs_snapshot(
-    stocks,
-    anchor_name,
-    bundle,
-):
-
-    raw_field = (
-        f"_rsRaw_{anchor_name}"
-    )
-
-    rating_field = (
-        f"_rsRating_{anchor_name}"
-    )
-
-
-    stats = {
-
-        "anchor":
-            anchor_name,
-
-        "anchorDate":
-            bundle[
-                "anchor"
-            ][
-                "date"
-            ].isoformat(),
-
-        "eligible":
-            0,
-
-        "missingAnchorPrice":
-            0,
-
-        "missing3M":
-            0,
-
-        "missing6M":
-            0,
-
-        "missing9M":
-            0,
-
-        "missing12M":
-            0,
-    }
-
-
-    for row in stocks:
-
-        row[
-            raw_field
-        ] = None
-
-        row[
-            rating_field
-        ] = None
-
-
-        anchor_price = lookup_price(
-            row,
-            bundle[
-                "anchor"
-            ],
-        )
-
-
-        if anchor_price is None:
-
-            stats[
-                "missingAnchorPrice"
-            ] += 1
-
-            continue
-
-
-        price_3m = lookup_price(
-            row,
-            bundle[
-                "3M"
-            ],
-        )
-
-        price_6m = lookup_price(
-            row,
-            bundle[
-                "6M"
-            ],
-        )
-
-        price_9m = lookup_price(
-            row,
-            bundle[
-                "9M"
-            ],
-        )
-
-        price_12m = lookup_price(
-            row,
-            bundle[
-                "12M"
-            ],
-        )
-
-
-        if price_3m is None:
-
-            stats[
-                "missing3M"
-            ] += 1
-
-
-        if price_6m is None:
-
-            stats[
-                "missing6M"
-            ] += 1
-
-
-        if price_9m is None:
-
-            stats[
-                "missing9M"
-            ] += 1
-
-
-        if price_12m is None:
-
-            stats[
-                "missing12M"
-            ] += 1
-
-
-        return_3m = calculate_return(
-            anchor_price,
-            price_3m,
-        )
-
-        return_6m = calculate_return(
-            anchor_price,
-            price_6m,
-        )
-
-        return_9m = calculate_return(
-            anchor_price,
-            price_9m,
-        )
-
-        return_12m = calculate_return(
-            anchor_price,
-            price_12m,
-        )
-
-
-        raw_rs = calculate_raw_rs(
-            return_3m,
-            return_6m,
-            return_9m,
-            return_12m,
-        )
-
-
-        row[
-            raw_field
-        ] = round_or_none(
-            raw_rs,
-            4,
-        )
-
-
-        if raw_rs is not None:
-
-            stats[
-                "eligible"
-            ] += 1
-
-
-    rated = assign_percentile_ratings(
-        stocks,
-        raw_field,
-        rating_field,
-    )
-
-
-    stats[
-        "rated"
-    ] = rated
-
-
-    return {
-
-        "rawField":
-            raw_field,
-
-        "ratingField":
-            rating_field,
-
-        "stats":
-            stats,
-    }
     # =========================================================
-# RS IMPROVING LOGIC
-# =========================================================
-
-def calculate_rs_improving_fields(
-    stocks,
-):
-
-    improving_count = 0
-
-    history_ready_count = 0
-
-
-    for row in stocks:
-
-        rs_1m = safe_numeric(
-            row.get(
-                "rsRating1MAgo"
-            )
-        )
-
-        rs_2w = safe_numeric(
-            row.get(
-                "rsRating2WAgo"
-            )
-        )
-
-        rs_1w = safe_numeric(
-            row.get(
-                "rsRating1WAgo"
-            )
-        )
-
-        current_rs = safe_numeric(
-            row.get(
-                "rsRating"
-            )
-        )
-
-
-        row[
-            "rsImprovement"
-        ] = None
-
-        row[
-            "rsImproving"
-        ] = False
-
-
-        if (
-            rs_1m is None
-            or
-            rs_2w is None
-            or
-            rs_1w is None
-            or
-            current_rs is None
-        ):
-
-            row[
-                "rsImprovingStatus"
-            ] = "INSUFFICIENT_HISTORY"
-
-            continue
-
-
-        history_ready_count += 1
-
-
-        improvement = (
-            current_rs
-            -
-            rs_1m
-        )
-
-
-        row[
-            "rsImprovement"
-        ] = round(
-            improvement,
-            2,
-        )
-
-
-        improving = (
-            rs_1m
-            <=
-            RS_IMPROVING_MAX_1M_AGO
-
-            and
-
-            rs_2w
-            >
-            rs_1m
-
-            and
-
-            rs_1w
-            >
-            rs_2w
-
-            and
-
-            current_rs
-            >
-            rs_1w
-
-            and
-
-            current_rs
-            >=
-            RS_IMPROVING_MIN_CURRENT
-
-            and
-
-            improvement
-            >=
-            RS_IMPROVING_MIN_GAIN
-        )
-
-
-        row[
-            "rsImproving"
-        ] = bool(
-            improving
-        )
-
-
-        if improving:
-
-            row[
-                "rsImprovingStatus"
-            ] = "YES"
-
-            improving_count += 1
-
-        else:
-
-            row[
-                "rsImprovingStatus"
-            ] = "NO"
-
-
-    return {
-
-        "historyReady":
-            history_ready_count,
-
-        "improvingCount":
-            improving_count,
-    }
-
-
-# =========================================================
-# COPY SNAPSHOT RATINGS TO FINAL PUBLIC FIELDS
-# =========================================================
-
-def map_snapshot_ratings_to_public_fields(
-    stocks,
-    snapshot_results,
-):
-
-    mapping = {
-
-        "1MAgo":
-            "rsRating1MAgo",
-
-        "2WAgo":
-            "rsRating2WAgo",
-
-        "1WAgo":
-            "rsRating1WAgo",
-    }
-
-
-    for anchor_name, public_field in mapping.items():
-
-        snapshot = snapshot_results.get(
-            anchor_name,
-            {}
-        )
-
-
-        internal_rating_field = snapshot.get(
-            "ratingField"
-        )
-
-
-        if not internal_rating_field:
-
-            continue
-
-
-        for row in stocks:
-
-            rating = row.get(
-                internal_rating_field
-            )
-
-
-            row[
-                public_field
-            ] = (
-                int(rating)
-                if rating is not None
-                else None
-            )
-
-
-# =========================================================
-# REMOVE INTERNAL TEMPORARY SNAPSHOT FIELDS
-# =========================================================
-
-def cleanup_internal_snapshot_fields(
-    stocks,
-):
-
-    prefixes = (
-        "_rsRaw_",
-        "_rsRating_",
-    )
-
-
-    for row in stocks:
-
-        keys_to_delete = []
-
-        for key in row.keys():
-
-            if key.startswith(
-                prefixes
-            ):
-
-                keys_to_delete.append(
-                    key
-                )
-
-
-        for key in keys_to_delete:
-
-            row.pop(
-                key,
-                None
-            )
-
-
-# =========================================================
 # CURRENT RS CALCULATION
 # =========================================================
 
@@ -1739,6 +1139,51 @@ def calculate_current_rs(
         )
 
 
+        # -------------------------------------------------
+        # REMOVE OLD RS IMPROVING FIELDS IF THEY EXIST
+        # -------------------------------------------------
+
+        row.pop(
+            "rsRating1MAgo",
+            None,
+        )
+
+        row.pop(
+            "rsRating2WAgo",
+            None,
+        )
+
+        row.pop(
+            "rsRating1WAgo",
+            None,
+        )
+
+        row.pop(
+            "rsImprovement",
+            None,
+        )
+
+        row.pop(
+            "rsImproving",
+            None,
+        )
+
+        row.pop(
+            "rsImprovingStatus",
+            None,
+        )
+
+        row.pop(
+            "rsImprovingMethod",
+            None,
+        )
+
+        row.pop(
+            "rsImprovingSource",
+            None,
+        )
+
+
     stats[
         "rated"
     ] = rated_count
@@ -1864,64 +1309,7 @@ def build_distribution(
 
 
     return distribution
-
-
-# =========================================================
-# RS HISTORY DATE METADATA
-# =========================================================
-
-def build_rs_history_metadata(
-    snapshot_results,
-):
-
-    history = {}
-
-
-    for anchor_name in [
-        "1MAgo",
-        "2WAgo",
-        "1WAgo",
-    ]:
-
-        snapshot = snapshot_results.get(
-            anchor_name,
-            {}
-        )
-
-
-        stats = snapshot.get(
-            "stats",
-            {}
-        )
-
-
-        history[
-            anchor_name
-        ] = {
-
-            "anchorDate":
-                stats.get(
-                    "anchorDate"
-                ),
-
-            "rated":
-                stats.get(
-                    "rated",
-                    0
-                ),
-
-            "eligible":
-                stats.get(
-                    "eligible",
-                    0
-                ),
-        }
-
-
-    return history
-
-
-# =========================================================
+    # =========================================================
 # MAIN
 # =========================================================
 
@@ -1955,7 +1343,7 @@ def main():
     )
 
     print(
-        "BUILD RELATIVE STRENGTH RATING + RS IMPROVING"
+        "BUILD RELATIVE STRENGTH RATING"
     )
 
     print(
@@ -1980,108 +1368,13 @@ def main():
 
 
     # =====================================================
-    # CURRENT RS
+    # CURRENT RS ONLY
     # =====================================================
 
     current_result = calculate_current_rs(
         stocks,
         latest_date,
     )
-
-
-    # =====================================================
-    # HISTORICAL RS SNAPSHOTS
-    # =====================================================
-
-    anchors = build_anchor_dates(
-        latest_date
-    )
-
-
-    snapshot_results = {}
-
-
-    for anchor_name in [
-        "1MAgo",
-        "2WAgo",
-        "1WAgo",
-    ]:
-
-        anchor_date = anchors[
-            anchor_name
-        ]
-
-
-        bundle = (
-            load_rs_bhavcopies_for_anchor(
-                anchor_date
-            )
-        )
-
-
-        snapshot_results[
-            anchor_name
-        ] = (
-            calculate_rs_snapshot(
-                stocks,
-                anchor_name,
-                bundle,
-            )
-        )
-
-
-    # =====================================================
-    # COPY HISTORICAL RATINGS
-    # =====================================================
-
-    map_snapshot_ratings_to_public_fields(
-        stocks,
-        snapshot_results,
-    )
-
-
-    # =====================================================
-    # RS IMPROVEMENT + RS IMPROVING
-    # =====================================================
-
-    improving_stats = (
-        calculate_rs_improving_fields(
-            stocks
-        )
-    )
-
-
-    # =====================================================
-    # CLEAN INTERNAL TEMP FIELDS
-    # =====================================================
-
-    cleanup_internal_snapshot_fields(
-        stocks
-    )
-        # =====================================================
-    # FINAL METADATA
-    # =====================================================
-
-    for row in stocks:
-
-        row[
-            "rsImprovingMethod"
-        ] = (
-            "RS 1M Ago <= 60; "
-            "RS 2W Ago > RS 1M Ago; "
-            "RS 1W Ago > RS 2W Ago; "
-            "Current RS > RS 1W Ago; "
-            "Current RS >= 70; "
-            "Current RS - RS 1M Ago >= 20"
-        )
-
-        row[
-            "rsImprovingSource"
-        ] = (
-            "Official NSE UDiFF EOD bhavcopy; "
-            "historical RS independently calculated "
-            "at 1M, 2W and 1W anchors"
-        )
 
 
     # =====================================================
@@ -2131,13 +1424,6 @@ def main():
     distribution = (
         build_distribution(
             stocks
-        )
-    )
-
-
-    history_metadata = (
-        build_rs_history_metadata(
-            snapshot_results
         )
     )
 
@@ -2200,36 +1486,6 @@ def main():
                 "historyDates",
                 {}
             ),
-
-        "rsHistory":
-            history_metadata,
-
-        "rsImprovingHistoryReady":
-            improving_stats.get(
-                "historyReady",
-                0
-            ),
-
-        "rsImprovingCount":
-            improving_stats.get(
-                "improvingCount",
-                0
-            ),
-
-        "rsImprovingConditions": {
-
-            "max1MAgo":
-                RS_IMPROVING_MAX_1M_AGO,
-
-            "minCurrent":
-                RS_IMPROVING_MIN_CURRENT,
-
-            "minGain":
-                RS_IMPROVING_MIN_GAIN,
-
-            "continuousRise":
-                True,
-        },
     }
 
 
@@ -2244,7 +1500,7 @@ def main():
     )
 
     print(
-        "RS RATING + RS IMPROVING COMPLETE"
+        "RS RATING COMPLETE"
     )
 
     print(
@@ -2306,73 +1562,6 @@ def main():
 
 
     # =====================================================
-    # RS IMPROVING SCALE
-    # =====================================================
-
-    print(
-        "RS IMPROVING CONDITION:"
-    )
-
-
-    print(
-        "1M Ago <= 60"
-    )
-
-
-    print(
-        "2W Ago > 1M Ago"
-    )
-
-
-    print(
-        "1W Ago > 2W Ago"
-    )
-
-
-    print(
-        "Current RS > 1W Ago"
-    )
-
-
-    print(
-        "Current RS >= 70"
-    )
-
-
-    print(
-        "Current RS - 1M Ago >= 20"
-    )
-
-
-    print()
-
-
-    # =====================================================
-    # EXAMPLE COUNTS
-    # =====================================================
-
-    print(
-        "RS Improving history ready:",
-        improving_stats.get(
-            "historyReady",
-            0
-        ),
-    )
-
-
-    print(
-        "RS Improving stocks:",
-        improving_stats.get(
-            "improvingCount",
-            0
-        ),
-    )
-
-
-    print()
-
-
-    # =====================================================
     # IMPORTANT
     # =====================================================
 
@@ -2382,14 +1571,20 @@ def main():
 
 
     print(
-        "Historical RS ratings are independently "
-        "calculated at each anchor date."
+        "RS Rating uses official NSE UDiFF EOD bhavcopy."
     )
 
 
     print(
-        "They are NOT reverse-calculated "
-        "from current RS."
+        "Current RS is based on "
+        "40% 3M + 20% 6M + "
+        "20% 9M + 20% 12M returns."
+    )
+
+
+    print(
+        "Rating is converted to a "
+        "cross-sectional percentile from 1 to 99."
     )
 
 
@@ -2400,9 +1595,16 @@ def main():
 
 
     print(
+        "RS Improving and historical "
+        "RS snapshot logic are removed."
+    )
+
+
+    print(
         "=============================================="
     )
 
 
 if __name__ == "__main__":
     main()
+    
