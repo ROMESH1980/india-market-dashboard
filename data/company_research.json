@@ -1913,7 +1913,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 15.87× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         }
       },
@@ -21622,7 +21622,7 @@
     },
     "AARTIPHARM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 88.65,
+      "futureGrowth": 88.66,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27380,7 +27380,7 @@
         "capex": {
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         }
       },
@@ -27419,7 +27419,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.63× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         }
       },
@@ -27446,19 +27446,19 @@
         "futureGrowth": {
           "reason": "Automated screening proxy based on revenue growth -22.5%.",
           "source": "methodology.html#future-growth",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
           "reason": "Automated screening proxy based on profit margin -129.7%, operating margin -125.0%, debt/equity 2.4.",
           "source": "methodology.html#fundamental",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         },
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.01× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
+          "sourceDate": "2026-09-13",
           "mode": "AUTOMATED"
         }
       },
@@ -27468,7 +27468,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "AURIONPRO": {
       "tailwindScore": 75.0,
