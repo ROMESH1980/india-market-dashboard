@@ -1,10 +1,13 @@
 import io
 import json
+import math
 import re
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin, urlencode
+from urllib.parse import urlencode, urljoin
 
 import pandas as pd
 import requests
@@ -23,7 +26,7 @@ CACHE_PATH = DATA_DIR / "free_float_cache.json"
 
 
 # =========================================================
-# NSE CONFIG
+# CONFIG
 # =========================================================
 
 BASE_URL = "https://www.nseindia.com"
@@ -34,10 +37,23 @@ SHAREHOLDING_PAGE = (
     "corporate-filings-shareholding-pattern"
 )
 
-REQUEST_TIMEOUT = 35
-REQUEST_DELAY = 0.18
+# Parallelism intentionally kept moderate so NSE is not hammered.
+MAX_WORKERS = 8
 
-CACHE_MAX_AGE_DAYS = 120
+CONNECT_TIMEOUT = 5
+READ_TIMEOUT = 10
+
+MAX_RETRIES = 2
+RETRY_SLEEP = 0.75
+
+# Successful filings normally change quarterly.
+READY_CACHE_MAX_AGE_DAYS = 120
+
+# Failed lookup should not be retried twice every day forever.
+# A short cache helps keep the daily workflow fast.
+PENDING_CACHE_MAX_AGE_DAYS = 1
+
+SAVE_CACHE_EVERY = 50
 
 
 HEADERS = {
@@ -48,8 +64,8 @@ HEADERS = {
     ),
     "Accept": (
         "text/html,application/xhtml+xml,"
-        "application/xml;q=0.9,image/avif,"
-        "image/webp,*/*;q=0.8"
+        "application/xml;q=0.9,"
+        "image/avif,image/webp,*/*;q=0.8"
     ),
     "Accept-Language": "en-US,en;q=0.9",
     "Connection": "keep-alive",
@@ -58,7 +74,53 @@ HEADERS = {
 
 
 # =========================================================
-# BASIC HELPERS
+# THREAD-LOCAL SESSION
+# =========================================================
+
+_thread_local = threading.local()
+
+
+def get_session():
+    """
+    One requests.Session per worker thread.
+
+    requests.Session is not shared across threads.
+    """
+
+    session = getattr(
+        _thread_local,
+        "session",
+        None,
+    )
+
+    if session is not None:
+        return session
+
+    session = requests.Session()
+
+    session.headers.update(
+        HEADERS
+    )
+
+    # Warm NSE cookies once for this worker.
+    try:
+        session.get(
+            BASE_URL,
+            timeout=(
+                CONNECT_TIMEOUT,
+                READ_TIMEOUT,
+            ),
+        )
+    except Exception:
+        pass
+
+    _thread_local.session = session
+
+    return session
+
+
+# =========================================================
+# JSON
 # =========================================================
 
 def load_json(
@@ -71,7 +133,6 @@ def load_json(
                 encoding="utf-8"
             )
         )
-
     except Exception:
         return default
 
@@ -85,13 +146,59 @@ def save_json(
         exist_ok=True,
     )
 
-    path.write_text(
+    temp_path = path.with_suffix(
+        path.suffix + ".tmp"
+    )
+
+    temp_path.write_text(
         json.dumps(
             data,
             ensure_ascii=False,
             indent=2,
         ),
         encoding="utf-8",
+    )
+
+    temp_path.replace(
+        path
+    )
+
+
+# =========================================================
+# SAFE VALUES
+# =========================================================
+
+def clean_text(
+    value,
+):
+    if value is None:
+        return ""
+
+    value = str(
+        value
+    )
+
+    value = re.sub(
+        r"\s+",
+        " ",
+        value,
+    )
+
+    return value.strip()
+
+
+def normalized_text(
+    value,
+):
+    return (
+        clean_text(
+            value
+        )
+        .lower()
+        .replace(
+            "\xa0",
+            " ",
+        )
     )
 
 
@@ -105,7 +212,7 @@ def safe_float(
         value,
         str,
     ):
-        cleaned = (
+        value = (
             value
             .replace(",", "")
             .replace("%", "")
@@ -113,10 +220,10 @@ def safe_float(
             .strip()
         )
 
-        if not cleaned:
+        if not value:
             return None
 
-        if cleaned.lower() in {
+        if value.lower() in {
             "-",
             "—",
             "na",
@@ -124,22 +231,21 @@ def safe_float(
             "none",
             "null",
             "pending",
+            "nan",
         }:
             return None
 
-        value = cleaned
-
     try:
-        number = float(
+        result = float(
             value
         )
 
-        if pd.isna(
-            number
+        if not math.isfinite(
+            result
         ):
             return None
 
-        return number
+        return result
 
     except Exception:
         return None
@@ -148,203 +254,21 @@ def safe_float(
 def safe_int(
     value,
 ):
-    number = safe_float(
+    value = safe_float(
         value
     )
 
-    if number is None:
+    if value is None:
         return None
 
     return int(
         round(
-            number
-        )
-    )
-
-
-def clean_text(
-    value,
-):
-    if value is None:
-        return ""
-
-    text = str(
-        value
-    )
-
-    text = re.sub(
-        r"\s+",
-        " ",
-        text,
-    )
-
-    return text.strip()
-
-
-def normalized_text(
-    value,
-):
-    return (
-        clean_text(
             value
         )
-        .lower()
-        .replace("\xa0", " ")
     )
 
 
-def normalize_column(
-    column,
-):
-    if isinstance(
-        column,
-        tuple,
-    ):
-        column = " ".join(
-            clean_text(
-                item
-            )
-            for item in column
-            if clean_text(
-                item
-            )
-        )
-
-    column = normalized_text(
-        column
-    )
-
-    column = re.sub(
-        r"[^a-z0-9%]+",
-        " ",
-        column,
-    )
-
-    column = re.sub(
-        r"\s+",
-        " ",
-        column,
-    )
-
-    return column.strip()
-
-
-def row_text(
-    row,
-):
-    values = []
-
-    try:
-        iterator = row.tolist()
-
-    except Exception:
-        iterator = list(
-            row
-        )
-
-    for value in iterator:
-        text = normalized_text(
-            value
-        )
-
-        if text:
-            values.append(
-                text
-            )
-
-    return " ".join(
-        values
-    )
-
-
-# =========================================================
-# DATE HELPERS
-# =========================================================
-
-def parse_date(
-    value,
-):
-    if not value:
-        return None
-
-    text = clean_text(
-        value
-    )
-
-    formats = [
-        "%Y-%m-%d",
-        "%d-%m-%Y",
-        "%d/%m/%Y",
-        "%d-%b-%Y",
-        "%d %b %Y",
-        "%d-%B-%Y",
-        "%d %B %Y",
-    ]
-
-    for fmt in formats:
-        try:
-            return datetime.strptime(
-                text,
-                fmt,
-            )
-
-        except Exception:
-            pass
-
-    match = re.search(
-        r"(\d{1,2})[-/ ]"
-        r"([A-Za-z]{3,9}|\d{1,2})[-/ ]"
-        r"(\d{4})",
-        text,
-    )
-
-    if match:
-        raw = match.group(
-            0
-        )
-
-        for fmt in formats:
-            try:
-                return datetime.strptime(
-                    raw,
-                    fmt,
-                )
-
-            except Exception:
-                pass
-
-    return None
-
-
-def extract_date_from_text(
-    value,
-):
-    text = clean_text(
-        value
-    )
-
-    patterns = [
-        r"\b\d{4}-\d{2}-\d{2}\b",
-        r"\b\d{1,2}-[A-Za-z]{3,9}-\d{4}\b",
-        r"\b\d{1,2}/\d{1,2}/\d{4}\b",
-        r"\b\d{1,2}-\d{1,2}-\d{4}\b",
-    ]
-
-    for pattern in patterns:
-        match = re.search(
-            pattern,
-            text,
-        )
-
-        if match:
-            return match.group(
-                0
-            )
-
-    return None
-
-
-def utc_now_iso():
+def utc_now():
     return (
         datetime.now(
             timezone.utc
@@ -360,30 +284,28 @@ def utc_now_iso():
 # CACHE
 # =========================================================
 
-def cache_entry_is_fresh(
+def cache_age_days(
     entry,
 ):
     if not isinstance(
         entry,
         dict,
     ):
-        return False
-
-    if entry.get(
-        "status"
-    ) != "READY":
-        return False
+        return None
 
     cached_at = entry.get(
         "cachedAt"
     )
 
     if not cached_at:
-        return False
+        return None
 
     try:
         timestamp = datetime.fromisoformat(
-            cached_at.replace(
+            str(
+                cached_at
+            )
+            .replace(
                 "Z",
                 "+00:00",
             )
@@ -394,50 +316,96 @@ def cache_entry_is_fresh(
                 tzinfo=timezone.utc
             )
 
-        age = (
+        return (
             datetime.now(
                 timezone.utc
             )
             -
             timestamp
-        ).days
-
-        return (
-            age <=
-            CACHE_MAX_AGE_DAYS
-        )
+        ).total_seconds() / 86400
 
     except Exception:
-        return False
+        return None
 
 
-# =========================================================
-# SESSION
-# =========================================================
-
-def build_session():
-    session = requests.Session()
-
-    session.headers.update(
-        HEADERS
+def cache_entry_is_fresh(
+    entry,
+):
+    age = cache_age_days(
+        entry
     )
 
-    try:
-        session.get(
-            BASE_URL,
-            timeout=REQUEST_TIMEOUT,
+    if age is None:
+        return False
+
+    status = str(
+        entry.get(
+            "status",
+            ""
+        )
+    ).upper()
+
+    if status == "READY":
+        return (
+            age <=
+            READY_CACHE_MAX_AGE_DAYS
         )
 
-    except Exception as exc:
-        print(
-            f"NSE warmup warning: {exc}"
+    if status == "PENDING":
+        return (
+            age <=
+            PENDING_CACHE_MAX_AGE_DAYS
         )
 
-    return session
+    return False
 
 
 # =========================================================
-# BOARD / TAB
+# STOCKS PAYLOAD
+# =========================================================
+
+def normalize_stocks_payload(
+    payload,
+):
+    if isinstance(
+        payload,
+        list,
+    ):
+        return (
+            payload,
+            None,
+        )
+
+    if isinstance(
+        payload,
+        dict,
+    ):
+        for key in (
+            "stocks",
+            "rows",
+            "data",
+        ):
+            value = payload.get(
+                key
+            )
+
+            if isinstance(
+                value,
+                list,
+            ):
+                return (
+                    value,
+                    key,
+                )
+
+    raise RuntimeError(
+        "data/stocks.json must be a list or contain "
+        "a stocks / rows / data list"
+    )
+
+
+# =========================================================
+# NSE BOARD
 # =========================================================
 
 def preferred_tab(
@@ -470,16 +438,90 @@ def preferred_tab(
 
 
 # =========================================================
-# SHAREHOLDING PAGE
+# HTTP
 # =========================================================
 
-def shareholding_urls(
+def fetch_text(
+    url,
+):
+    """
+    HTTP GET with short timeout + retry.
+
+    Returns:
+        HTML text
+    """
+
+    last_error = None
+
+    for attempt in range(
+        1,
+        MAX_RETRIES + 1,
+    ):
+        session = get_session()
+
+        try:
+            response = session.get(
+                url,
+                timeout=(
+                    CONNECT_TIMEOUT,
+                    READ_TIMEOUT,
+                ),
+            )
+
+            if response.status_code in {
+                401,
+                403,
+                429,
+            }:
+                raise RuntimeError(
+                    f"NSE HTTP {response.status_code}"
+                )
+
+            response.raise_for_status()
+
+            text = response.text
+
+            if not text:
+                raise RuntimeError(
+                    "Empty NSE response"
+                )
+
+            return text
+
+        except Exception as exc:
+            last_error = exc
+
+            if attempt < MAX_RETRIES:
+                time.sleep(
+                    RETRY_SLEEP
+                    *
+                    attempt
+                )
+
+                # recreate this worker's session after failure
+                try:
+                    _thread_local.session.close()
+                except Exception:
+                    pass
+
+                _thread_local.session = None
+
+    raise RuntimeError(
+        str(
+            last_error
+        )
+    )
+
+
+# =========================================================
+# SHAREHOLDING PAGE URLS
+# =========================================================
+
+def build_shareholding_urls(
     symbol,
     tab,
 ):
-    candidates = []
-
-    query_sets = [
+    query_variants = [
         {
             "symbol":
                 symbol,
@@ -498,32 +540,81 @@ def shareholding_urls(
         },
     ]
 
-    for params in query_sets:
-        candidates.append(
-            SHAREHOLDING_PAGE
-            +
-            "?"
-            +
-            urlencode(
-                params
-            )
+    return [
+        SHAREHOLDING_PAGE
+        +
+        "?"
+        +
+        urlencode(
+            params
         )
+        for params
+        in query_variants
+    ]
 
-    return candidates
 
+# =========================================================
+# DATE
+# =========================================================
 
-def fetch_html(
-    session,
-    url,
+def parse_date(
+    value,
 ):
-    response = session.get(
-        url,
-        timeout=REQUEST_TIMEOUT,
+    if not value:
+        return None
+
+    value = clean_text(
+        value
     )
 
-    response.raise_for_status()
+    formats = (
+        "%Y-%m-%d",
+        "%d-%m-%Y",
+        "%d/%m/%Y",
+        "%d-%b-%Y",
+        "%d %b %Y",
+        "%d-%B-%Y",
+        "%d %B %Y",
+    )
 
-    return response.text
+    for fmt in formats:
+        try:
+            return datetime.strptime(
+                value,
+                fmt,
+            )
+        except Exception:
+            pass
+
+    return None
+
+
+def extract_date_text(
+    text,
+):
+    text = clean_text(
+        text
+    )
+
+    patterns = (
+        r"\b\d{4}-\d{2}-\d{2}\b",
+        r"\b\d{1,2}-[A-Za-z]{3,9}-\d{4}\b",
+        r"\b\d{1,2}/\d{1,2}/\d{4}\b",
+        r"\b\d{1,2}-\d{1,2}-\d{4}\b",
+    )
+
+    for pattern in patterns:
+        match = re.search(
+            pattern,
+            text,
+        )
+
+        if match:
+            return match.group(
+                0
+            )
+
+    return None
 
 
 # =========================================================
@@ -540,6 +631,7 @@ def extract_xbrl_candidates(
     )
 
     candidates = []
+    seen = set()
 
     for anchor in soup.find_all(
         "a"
@@ -563,100 +655,90 @@ def extract_xbrl_candidates(
         parent = anchor.parent
 
         if parent is not None:
-            context += " " + clean_text(
-                parent.get_text(
-                    " ",
-                    strip=True,
+            context += (
+                " "
+                +
+                clean_text(
+                    parent.get_text(
+                        " ",
+                        strip=True,
+                    )
                 )
             )
 
-        href_lower = href.lower()
+        search_text = (
+            href
+            +
+            " "
+            +
+            context
+        ).lower()
 
-        context_lower = context.lower()
-
-        looks_xbrl = (
-            "xbrl"
-            in href_lower
-            or
-            "ixbrl"
-            in href_lower
-            or
-            "xbrl"
-            in context_lower
-            or
-            "xml"
-            in href_lower
-        )
-
-        if not looks_xbrl:
+        if not any(
+            token in search_text
+            for token in (
+                "xbrl",
+                "ixbrl",
+                ".xml",
+            )
+        ):
             continue
 
-        absolute = urljoin(
+        url = urljoin(
             page_url,
             href,
         )
 
-        date_text = extract_date_from_text(
-            context
+        if url in seen:
+            continue
+
+        seen.add(
+            url
         )
 
-        parsed = parse_date(
-            date_text
+        date_text = extract_date_text(
+            context
         )
 
         candidates.append(
             {
                 "url":
-                    absolute,
-
-                "context":
-                    context,
+                    url,
 
                 "dateText":
                     date_text,
 
                 "date":
-                    parsed,
+                    parse_date(
+                        date_text
+                    ),
             }
         )
 
-    # -----------------------------------------------------
-    # Also scan raw HTML for absolute/relative XBRL URLs
-    # -----------------------------------------------------
-
-    raw_links = re.findall(
-        r"""(?:href=["']?)?([^"'<> ]+(?:xbrl|ixbrl)[^"'<> ]*)""",
+    # Fallback scan from raw HTML
+    links = re.findall(
+        r"""["']([^"']*(?:xbrl|ixbrl)[^"']*)["']""",
         html,
         flags=re.IGNORECASE,
     )
 
-    for raw in raw_links:
-        raw = clean_text(
-            raw
-        )
-
-        if not raw:
-            continue
-
-        absolute = urljoin(
+    for raw_url in links:
+        url = urljoin(
             page_url,
-            raw,
+            raw_url,
         )
 
-        if any(
-            item["url"] ==
-            absolute
-            for item in candidates
-        ):
+        if url in seen:
             continue
+
+        seen.add(
+            url
+        )
 
         candidates.append(
             {
                 "url":
-                    absolute,
-
-                "context":
-                    "",
+                    url,
 
                 "dateText":
                     None,
@@ -669,7 +751,7 @@ def extract_xbrl_candidates(
     return candidates
 
 
-def choose_latest_xbrl(
+def choose_latest_candidate(
     candidates,
 ):
     if not candidates:
@@ -685,17 +767,13 @@ def choose_latest_xbrl(
     ]
 
     if dated:
-        dated.sort(
+        return max(
+            dated,
             key=lambda item:
                 item[
                     "date"
                 ],
-            reverse=True,
         )
-
-        return dated[
-            0
-        ]
 
     return candidates[
         0
@@ -703,94 +781,156 @@ def choose_latest_xbrl(
 
 
 # =========================================================
-# TABLE READING
+# TABLE HELPERS
 # =========================================================
 
-def read_html_tables(
+def normalize_column(
+    column,
+):
+    if isinstance(
+        column,
+        tuple,
+    ):
+        column = " ".join(
+            clean_text(
+                part
+            )
+            for part in column
+            if clean_text(
+                part
+            )
+        )
+
+    column = normalized_text(
+        column
+    )
+
+    column = re.sub(
+        r"[^a-z0-9%]+",
+        " ",
+        column,
+    )
+
+    column = re.sub(
+        r"\s+",
+        " ",
+        column,
+    )
+
+    return column.strip()
+
+
+def row_text(
+    row,
+):
+    try:
+        values = row.tolist()
+    except Exception:
+        values = list(
+            row
+        )
+
+    return " ".join(
+        normalized_text(
+            value
+        )
+        for value in values
+        if normalized_text(
+            value
+        )
+    )
+
+
+def read_tables(
     html,
 ):
     try:
-        tables = pd.read_html(
+        return pd.read_html(
             io.StringIO(
                 html
             )
         )
 
-        return tables
-
     except Exception:
         return []
 
 
-def table_score(
+def score_table(
     df,
 ):
-    if df is None:
-        return 0
-
     try:
         if df.empty:
             return 0
-
     except Exception:
         return 0
 
-    column_text = " ".join(
+    headers = " ".join(
         normalize_column(
             column
         )
         for column in df.columns
     )
 
-    sample_rows = []
+    samples = []
 
     try:
         for _, row in df.head(
-            20
+            30
         ).iterrows():
-            sample_rows.append(
+            samples.append(
                 row_text(
                     row
                 )
             )
-
     except Exception:
         pass
 
-    body_text = " ".join(
-        sample_rows
-    )
-
-    combined = (
-        column_text
+    text = (
+        headers
         +
         " "
         +
-        body_text
+        " ".join(
+            samples
+        )
     )
 
     score = 0
 
-    if "public" in combined:
-        score += 5
+    conditions = (
+        (
+            "public",
+            8,
+        ),
+        (
+            "shareholder",
+            5,
+        ),
+        (
+            "total no",
+            5,
+        ),
+        (
+            "shares held",
+            5,
+        ),
+        (
+            "locked",
+            4,
+        ),
+        (
+            "table iii",
+            8,
+        ),
+        (
+            "% of total",
+            3,
+        ),
+    )
 
-    if "shareholder" in combined:
-        score += 4
-
-    if "total no" in combined:
-        score += 4
-
-    if "shares held" in combined:
-        score += 4
-
-    if "locked" in combined:
-        score += 3
-
-    if "% of total" in combined:
-        score += 2
-
-    if "table iii" in combined:
-        score += 6
+    for token, points in conditions:
+        if token in text:
+            score += points
 
     return score
 
@@ -798,26 +938,26 @@ def table_score(
 def choose_public_table(
     tables,
 ):
-    best_table = None
+    best = None
     best_score = 0
 
-    for df in tables:
-        score = table_score(
-            df
+    for table in tables:
+        score = score_table(
+            table
         )
 
         if score > best_score:
+            best = table
             best_score = score
-            best_table = df
 
     if (
-        best_table is None
+        best is None
         or
-        best_score < 5
+        best_score < 8
     ):
         return None
 
-    return best_table
+    return best
 
 
 # =========================================================
@@ -833,20 +973,15 @@ def find_public_total_row(
     try:
         if df.empty:
             return None
-
     except Exception:
         return None
 
-    preferred_phrases = [
+    preferred_phrases = (
         "total public shareholding",
         "total public shareholder",
         "public shareholding b",
         "total b",
-    ]
-
-    # -----------------------------------------------------
-    # Preferred phrases
-    # -----------------------------------------------------
+    )
 
     for phrase in preferred_phrases:
 
@@ -856,15 +991,8 @@ def find_public_total_row(
                 row
             )
 
-            if (
-                phrase
-                in text
-            ):
+            if phrase in text:
                 return row
-
-    # -----------------------------------------------------
-    # Public + Total
-    # -----------------------------------------------------
 
     for _, row in df.iterrows():
 
@@ -881,17 +1009,13 @@ def find_public_total_row(
         ):
             return row
 
-    # -----------------------------------------------------
-    # Search backwards
-    # -----------------------------------------------------
-
-    try:
-        for index in range(
-            len(df) - 1,
-            -1,
-            -1,
-        ):
-
+    # Search backwards because total is often near table bottom.
+    for index in range(
+        len(df) - 1,
+        -1,
+        -1,
+    ):
+        try:
             row = df.iloc[
                 index
             ]
@@ -917,57 +1041,41 @@ def find_public_total_row(
             ):
                 return row
 
-    except Exception:
-        pass
+        except Exception:
+            continue
 
     return None
 
 
 # =========================================================
-# COLUMN MATCHING
+# COLUMN DETECTION
 # =========================================================
-
-def column_map(
-    df,
-):
-    result = {}
-
-    for column in df.columns:
-        result[
-            column
-        ] = normalize_column(
-            column
-        )
-
-    return result
-
 
 def find_column(
     df,
-    groups,
+    token_groups,
 ):
-    mapping = column_map(
-        df
-    )
+    normalized_columns = {
+        column:
+            normalize_column(
+                column
+            )
+        for column
+        in df.columns
+    }
 
-    # Every string in a group must be present.
-    for group in groups:
+    for tokens in token_groups:
 
-        for original, normalized in mapping.items():
+        for column, text in normalized_columns.items():
 
             if all(
-                token
-                in normalized
-                for token in group
+                token in text
+                for token in tokens
             ):
-                return original
+                return column
 
     return None
 
-
-# =========================================================
-# ROW NUMERIC EXTRACTION
-# =========================================================
 
 def numeric_from_row(
     row,
@@ -980,16 +1088,15 @@ def numeric_from_row(
         value = row[
             column
         ]
-
     except Exception:
         return None
 
-    # MultiIndex / duplicate columns can yield Series.
     if isinstance(
         value,
         pd.Series,
     ):
         for item in value.tolist():
+
             number = safe_float(
                 item
             )
@@ -1004,17 +1111,17 @@ def numeric_from_row(
     )
 
 
+# =========================================================
+# EXACT PUBLIC VALUES
+# =========================================================
+
 def extract_public_values(
     df,
     row,
 ):
-    # -----------------------------------------------------
-    # Total no. shares held
-    # -----------------------------------------------------
-
     shares_column = find_column(
         df,
-        [
+        (
             (
                 "total",
                 "shares",
@@ -1028,19 +1135,12 @@ def extract_public_values(
                 "total nos",
                 "shares",
             ),
-            (
-                "shares held",
-            ),
-        ],
+        ),
     )
-
-    # -----------------------------------------------------
-    # Public holding %
-    # -----------------------------------------------------
 
     pct_column = find_column(
         df,
-        [
+        (
             (
                 "% of total",
                 "shares",
@@ -1051,20 +1151,12 @@ def extract_public_values(
             (
                 "% calculated",
             ),
-            (
-                "percentage",
-                "shares",
-            ),
-        ],
+        ),
     )
-
-    # -----------------------------------------------------
-    # Locked shares
-    # -----------------------------------------------------
 
     locked_column = find_column(
         df,
-        [
+        (
             (
                 "locked",
                 "number",
@@ -1079,8 +1171,15 @@ def extract_public_values(
                 "locked",
                 "shares",
             ),
-        ],
+        ),
     )
+
+    # -----------------------------------------------------
+    # IMPORTANT
+    #
+    # Do not derive Total Shares from Market Cap / Price.
+    # Only filing values are allowed here.
+    # -----------------------------------------------------
 
     public_shares = safe_int(
         numeric_from_row(
@@ -1103,93 +1202,21 @@ def extract_public_values(
         )
     )
 
-    if locked_shares is None:
-        locked_shares = 0
-
-    # -----------------------------------------------------
-    # If exact columns failed, intelligently scan row values.
-    # -----------------------------------------------------
-
-    if public_shares is None:
-
-        candidate_numbers = []
-
-        for value in row.tolist():
-
-            number = safe_float(
-                value
-            )
-
-            if number is None:
-                continue
-
-            candidate_numbers.append(
-                number
-            )
-
-        large_numbers = [
-            number
-            for number in candidate_numbers
-            if number >= 1000
-        ]
-
-        if large_numbers:
-            public_shares = int(
-                round(
-                    max(
-                        large_numbers
-                    )
-                )
-            )
-
-    if (
-        public_pct is None
-        or
-        public_pct < 0
-        or
-        public_pct > 100
-    ):
-        pct_candidates = []
-
-        for value in row.tolist():
-
-            number = safe_float(
-                value
-            )
-
-            if (
-                number is not None
-                and
-                0 <= number <= 100
-            ):
-                pct_candidates.append(
-                    number
-                )
-
-        if pct_candidates:
-            # Shareholding % is normally a meaningful %
-            # rather than zero.
-            positive = [
-                value
-                for value in pct_candidates
-                if value > 0
-            ]
-
-            if positive:
-                public_pct = positive[
-                    0
-                ]
-
     if public_shares is None:
         return None
 
     if public_shares <= 0:
         return None
 
-    if locked_shares < 0:
+    if locked_shares is None:
         locked_shares = 0
 
-    if locked_shares > public_shares:
+    if (
+        locked_shares < 0
+        or
+        locked_shares >
+        public_shares
+    ):
         locked_shares = 0
 
     tradable_public_shares = (
@@ -1206,7 +1233,7 @@ def extract_public_values(
     if (
         public_pct is not None
         and
-        public_shares > 0
+        0 <= public_pct <= 100
     ):
         tradable_public_pct = (
             public_pct
@@ -1251,45 +1278,44 @@ def extract_public_values(
 
 
 # =========================================================
-# XBRL PROCESSING
+# PARSE FILING
 # =========================================================
 
-def parse_xbrl_document(
+def parse_filing(
     html,
 ):
-    tables = read_html_tables(
+    tables = read_tables(
         html
     )
 
     if not tables:
         return None
 
-    public_table = choose_public_table(
+    table = choose_public_table(
         tables
     )
 
-    if public_table is None:
+    if table is None:
         return None
 
     public_row = find_public_total_row(
-        public_table
+        table
     )
 
     if public_row is None:
         return None
 
     return extract_public_values(
-        public_table,
+        table,
         public_row,
     )
 
 
 # =========================================================
-# ONE STOCK FETCH
+# FETCH ONE STOCK
 # =========================================================
 
-def fetch_free_float_for_stock(
-    session,
+def fetch_one_stock(
     stock,
 ):
     symbol = clean_text(
@@ -1299,97 +1325,98 @@ def fetch_free_float_for_stock(
     ).upper()
 
     if not symbol:
-        return {
-            "status":
-                "PENDING",
+        return (
+            symbol,
+            {
+                "status":
+                    "PENDING",
 
-            "reason":
-                "Missing symbol",
-        }
+                "reason":
+                    "Missing symbol",
+
+                "cachedAt":
+                    utc_now(),
+
+                "freeFloatEstimated":
+                    False,
+            },
+        )
 
     tab = preferred_tab(
         stock
     )
 
-    page_urls = shareholding_urls(
+    page_urls = build_shareholding_urls(
         symbol,
         tab,
     )
 
-    last_reason = (
-        "No XBRL filing found"
-    )
+    reasons = []
 
     for page_url in page_urls:
 
         try:
-            html = fetch_html(
-                session,
-                page_url,
+            page_html = fetch_text(
+                page_url
             )
 
         except Exception as exc:
-            last_reason = (
-                "Shareholding page request failed: "
-                +
-                str(exc)
+            reasons.append(
+                f"shareholding page: {exc}"
             )
 
             continue
 
         candidates = extract_xbrl_candidates(
-            html,
+            page_html,
             page_url,
         )
 
         if not candidates:
-            last_reason = (
-                "No XBRL link in shareholding page"
+            reasons.append(
+                "no XBRL link"
             )
 
             continue
 
-        candidate = choose_latest_xbrl(
+        candidate = choose_latest_candidate(
             candidates
         )
 
         if candidate is None:
+            reasons.append(
+                "no usable XBRL candidate"
+            )
+
             continue
 
-        source_url = candidate[
-            "url"
-        ]
-
         try:
-            xbrl_html = fetch_html(
-                session,
-                source_url,
+            filing_html = fetch_text(
+                candidate[
+                    "url"
+                ]
             )
 
         except Exception as exc:
-            last_reason = (
-                "XBRL request failed: "
-                +
-                str(exc)
+            reasons.append(
+                f"XBRL: {exc}"
             )
 
             continue
 
-        values = parse_xbrl_document(
-            xbrl_html
+        values = parse_filing(
+            filing_html
         )
 
         if values is None:
-            last_reason = (
-                "Could not parse public shareholding table"
+            reasons.append(
+                "public total row / filing values not parsed"
             )
 
             continue
 
-        filing_date = (
-            candidate.get(
-                "dateText"
-            )
+        filing_date = candidate.get(
+            "dateText"
         )
 
         if (
@@ -1408,7 +1435,7 @@ def fetch_free_float_for_stock(
                 .isoformat()
             )
 
-        return {
+        result = {
             "status":
                 "READY",
 
@@ -1421,7 +1448,9 @@ def fetch_free_float_for_stock(
                 "NSE Shareholding Pattern XBRL",
 
             "freeFloatSourceUrl":
-                source_url,
+                candidate[
+                    "url"
+                ],
 
             "freeFloatMethod":
                 (
@@ -1439,29 +1468,48 @@ def fetch_free_float_for_stock(
                 False,
 
             "cachedAt":
-                utc_now_iso(),
+                utc_now(),
         }
 
-    return {
-        "status":
-            "PENDING",
+        return (
+            symbol,
+            result,
+        )
 
-        "reason":
-            last_reason,
+    reason = (
+        " | ".join(
+            reasons[
+                -3:
+            ]
+        )
+        if reasons
+        else
+        "No filing data found"
+    )
 
-        "freeFloatEstimated":
-            False,
+    return (
+        symbol,
+        {
+            "status":
+                "PENDING",
 
-        "cachedAt":
-            utc_now_iso(),
-    }
+            "reason":
+                reason,
+
+            "freeFloatEstimated":
+                False,
+
+            "cachedAt":
+                utc_now(),
+        },
+    )
 
 
 # =========================================================
-# APPLY RESULT TO STOCK
+# APPLY RESULT
 # =========================================================
 
-FREE_FLOAT_FIELDS = [
+FREE_FLOAT_FIELDS = (
     "publicShares",
     "publicHoldingPct",
     "publicLockedShares",
@@ -1473,17 +1521,19 @@ FREE_FLOAT_FIELDS = [
     "freeFloatMethod",
     "freeFloatMethodologyNote",
     "freeFloatEstimated",
-]
+)
 
 
-def apply_result_to_stock(
+def apply_result(
     stock,
     result,
 ):
-    status = result.get(
-        "status",
-        "PENDING",
-    )
+    status = str(
+        result.get(
+            "status",
+            "PENDING",
+        )
+    ).upper()
 
     stock[
         "freeFloatStatus"
@@ -1492,6 +1542,7 @@ def apply_result_to_stock(
     if status == "READY":
 
         for field in FREE_FLOAT_FIELDS:
+
             stock[
                 field
             ] = result.get(
@@ -1503,65 +1554,24 @@ def apply_result_to_stock(
             None,
         )
 
-    else:
+        return
 
-        # Do not convert unavailable values to zero.
-        for field in FREE_FLOAT_FIELDS:
-            if field == "freeFloatEstimated":
-                stock[
-                    field
-                ] = False
+    # Missing values must stay None, never zero.
+    for field in FREE_FLOAT_FIELDS:
 
-            else:
-                stock[
-                    field
-                ] = None
+        if field == "freeFloatEstimated":
+            stock[
+                field
+            ] = False
+        else:
+            stock[
+                field
+            ] = None
 
-        stock[
-            "freeFloatReason"
-        ] = result.get(
-            "reason"
-        )
-
-
-# =========================================================
-# STOCKS PAYLOAD
-# =========================================================
-
-def normalize_stocks_payload(
-    payload,
-):
-    if isinstance(
-        payload,
-        list,
-    ):
-        return payload, None
-
-    if isinstance(
-        payload,
-        dict,
-    ):
-        for key in [
-            "stocks",
-            "rows",
-            "data",
-        ]:
-            if isinstance(
-                payload.get(
-                    key
-                ),
-                list,
-            ):
-                return (
-                    payload[
-                        key
-                    ],
-                    key,
-                )
-
-    raise RuntimeError(
-        "data/stocks.json must contain a list "
-        "or a dict containing stocks/rows/data list"
+    stock[
+        "freeFloatReason"
+    ] = result.get(
+        "reason"
     )
 
 
@@ -1571,30 +1581,38 @@ def normalize_stocks_payload(
 
 def main():
 
-    print(
-        "=============================================="
-    )
-
-    print(
-        "BUILD FREE FLOAT"
-    )
+    start_time = time.time()
 
     print(
         "=============================================="
     )
+    print(
+        "BUILD FREE FLOAT - PARALLEL"
+    )
+    print(
+        "=============================================="
+    )
+    print(
+        f"Workers: {MAX_WORKERS}"
+    )
+    print(
+        f"Timeout: {CONNECT_TIMEOUT}s connect / "
+        f"{READ_TIMEOUT}s read"
+    )
+    print()
 
-    stocks_payload = load_json(
+    payload = load_json(
         STOCKS_PATH,
         None,
     )
 
-    if stocks_payload is None:
+    if payload is None:
         raise RuntimeError(
-            "data/stocks.json not found or invalid"
+            "data/stocks.json is missing or invalid"
         )
 
     stocks, list_key = normalize_stocks_payload(
-        stocks_payload
+        payload
     )
 
     cache = load_json(
@@ -1608,12 +1626,31 @@ def main():
     ):
         cache = {}
 
-    session = build_session()
+    symbol_to_stock = {}
+
+    for stock in stocks:
+
+        if not isinstance(
+            stock,
+            dict,
+        ):
+            continue
+
+        symbol = clean_text(
+            stock.get(
+                "symbol"
+            )
+        ).upper()
+
+        if symbol:
+            symbol_to_stock[
+                symbol
+            ] = stock
 
     stats = {
         "stocks":
             len(
-                stocks
+                symbol_to_stock
             ),
 
         "cacheUsed":
@@ -1632,41 +1669,13 @@ def main():
             0,
     }
 
-    for index, stock in enumerate(
-        stocks,
-        start=1,
-    ):
+    to_fetch = []
 
-        if not isinstance(
-            stock,
-            dict,
-        ):
-            stats[
-                "pending"
-            ] += 1
+    # -----------------------------------------------------
+    # APPLY FRESH CACHE FIRST
+    # -----------------------------------------------------
 
-            continue
-
-        symbol = clean_text(
-            stock.get(
-                "symbol"
-            )
-        ).upper()
-
-        if not symbol:
-            stock[
-                "freeFloatStatus"
-            ] = "PENDING"
-
-            stock[
-                "freeFloatReason"
-            ] = "Missing symbol"
-
-            stats[
-                "pending"
-            ] += 1
-
-            continue
+    for symbol, stock in symbol_to_stock.items():
 
         cached = cache.get(
             symbol
@@ -1676,137 +1685,281 @@ def main():
             cached
         ):
 
-            result = cached
+            apply_result(
+                stock,
+                cached,
+            )
 
             stats[
                 "cacheUsed"
             ] += 1
 
+            if (
+                str(
+                    cached.get(
+                        "status",
+                        ""
+                    )
+                ).upper()
+                ==
+                "READY"
+            ):
+                stats[
+                    "ready"
+                ] += 1
+
+            else:
+                stats[
+                    "pending"
+                ] += 1
+
         else:
 
-            try:
-                result = fetch_free_float_for_stock(
-                    session,
+            to_fetch.append(
+                stock
+            )
+
+    print(
+        f"Universe      : {stats['stocks']}"
+    )
+
+    print(
+        f"Fresh cache   : {stats['cacheUsed']}"
+    )
+
+    print(
+        f"Need fetch    : {len(to_fetch)}"
+    )
+
+    print()
+
+
+    # -----------------------------------------------------
+    # PARALLEL FETCH
+    # -----------------------------------------------------
+
+    completed = 0
+
+    if to_fetch:
+
+        with ThreadPoolExecutor(
+            max_workers=MAX_WORKERS
+        ) as executor:
+
+            future_map = {
+                executor.submit(
+                    fetch_one_stock,
                     stock,
+                ):
+                    clean_text(
+                        stock.get(
+                            "symbol"
+                        )
+                    ).upper()
+
+                for stock in to_fetch
+            }
+
+            for future in as_completed(
+                future_map
+            ):
+
+                fallback_symbol = future_map[
+                    future
+                ]
+
+                completed += 1
+
+                try:
+                    symbol, result = future.result()
+
+                    if not symbol:
+                        symbol = fallback_symbol
+
+                except Exception as exc:
+
+                    symbol = fallback_symbol
+
+                    result = {
+                        "status":
+                            "PENDING",
+
+                        "reason":
+                            f"Worker error: {exc}",
+
+                        "freeFloatEstimated":
+                            False,
+
+                        "cachedAt":
+                            utc_now(),
+                    }
+
+                    stats[
+                        "errors"
+                    ] += 1
+
+                cache[
+                    symbol
+                ] = result
+
+                stock = symbol_to_stock.get(
+                    symbol
                 )
+
+                if stock is not None:
+
+                    apply_result(
+                        stock,
+                        result,
+                    )
 
                 stats[
                     "fetched"
                 ] += 1
 
-            except Exception as exc:
+                if (
+                    str(
+                        result.get(
+                            "status",
+                            ""
+                        )
+                    ).upper()
+                    ==
+                    "READY"
+                ):
+                    stats[
+                        "ready"
+                    ] += 1
 
-                result = {
-                    "status":
-                        "PENDING",
+                else:
+                    stats[
+                        "pending"
+                    ] += 1
 
-                    "reason":
-                        str(exc),
+                if (
+                    completed % 25
+                    ==
+                    0
+                    or
+                    completed
+                    ==
+                    len(
+                        to_fetch
+                    )
+                ):
 
-                    "freeFloatEstimated":
-                        False,
+                    elapsed = (
+                        time.time()
+                        -
+                        start_time
+                    )
 
-                    "cachedAt":
-                        utc_now_iso(),
-                }
+                    rate = (
+                        completed
+                        /
+                        elapsed
+                        if elapsed > 0
+                        else 0
+                    )
 
-                stats[
-                    "errors"
-                ] += 1
+                    print(
+                        f"[{completed}/{len(to_fetch)}] "
+                        f"ready={stats['ready']} "
+                        f"pending={stats['pending']} "
+                        f"errors={stats['errors']} "
+                        f"rate={rate:.2f}/sec",
+                        flush=True,
+                    )
 
-            cache[
-                symbol
-            ] = result
-
-            time.sleep(
-                REQUEST_DELAY
-            )
-
-        apply_result_to_stock(
-            stock,
-            result,
-        )
-
-        if (
-            result.get(
-                "status"
-            )
-            ==
-            "READY"
-        ):
-            stats[
-                "ready"
-            ] += 1
-
-        else:
-            stats[
-                "pending"
-            ] += 1
-
-        if (
-            index % 25
-            ==
-            0
-        ):
-            print(
-                f"[{index}/{len(stocks)}] "
-                f"ready={stats['ready']} "
-                f"pending={stats['pending']} "
-                f"cache={stats['cacheUsed']} "
-                f"fetched={stats['fetched']}"
-            )
-
-            save_json(
-                CACHE_PATH,
-                cache,
-            )
+                if (
+                    completed % SAVE_CACHE_EVERY
+                    ==
+                    0
+                ):
+                    save_json(
+                        CACHE_PATH,
+                        cache,
+                    )
 
     # -----------------------------------------------------
-    # Save stocks
+    # SAVE
     # -----------------------------------------------------
-
-    if list_key is None:
-        output_payload = stocks
-
-    else:
-        stocks_payload[
-            list_key
-        ] = stocks
-
-        output_payload = (
-            stocks_payload
-        )
-
-    save_json(
-        STOCKS_PATH,
-        output_payload,
-    )
 
     save_json(
         CACHE_PATH,
         cache,
     )
 
+    if list_key is None:
+
+        output_payload = stocks
+
+    else:
+
+        payload[
+            list_key
+        ] = stocks
+
+        output_payload = payload
+
+    save_json(
+        STOCKS_PATH,
+        output_payload,
+    )
+
+
+    # -----------------------------------------------------
+    # SUMMARY
+    # -----------------------------------------------------
+
+    total = stats[
+        "stocks"
+    ]
+
     coverage_pct = (
         round(
-            (
-                stats[
-                    "ready"
-                ]
-                /
-                stats[
-                    "stocks"
-                ]
-                *
-                100
-            ),
+            stats[
+                "ready"
+            ]
+            /
+            total
+            *
+            100,
             2,
         )
-        if stats[
-            "stocks"
-        ]
+        if total
         else 0
     )
+
+    elapsed_seconds = (
+        time.time()
+        -
+        start_time
+    )
+
+    summary = {
+        **stats,
+
+        "coveragePct":
+            coverage_pct,
+
+        "elapsedSeconds":
+            round(
+                elapsed_seconds,
+                2,
+            ),
+
+        "elapsedMinutes":
+            round(
+                elapsed_seconds
+                /
+                60,
+                2,
+            ),
+
+        "workers":
+            MAX_WORKERS,
+    }
 
     print()
     print(
@@ -1823,33 +1976,34 @@ def main():
 
     print(
         json.dumps(
-            {
-                **stats,
-                "coveragePct":
-                    coverage_pct,
-            },
+            summary,
             indent=2,
         )
     )
 
     print()
     print(
-        "Method:"
+        "Free Float Shares = "
+        "Exact Public Shares - Locked-in Public Shares"
     )
 
     print(
-        "Free Float Shares = Exact Public Shares "
-        "- Locked-in Public Shares"
+        "Free Float % = filing-derived Public Holding % "
+        "adjusted for locked public shares"
     )
 
     print(
-        "Source: NSE Shareholding Pattern XBRL"
+        "Source = NSE Shareholding Pattern XBRL"
     )
 
     print(
-        "Important: this is a filing-derived tradable-public-"
-        "shares proxy, NOT the NSE Indices official "
-        "free-float factor."
+        "No Market Cap / Price estimation is used."
+    )
+
+    print(
+        "Methodology note: this is a filing-derived "
+        "tradable-public-float proxy, not the NSE Indices "
+        "official free-float factor."
     )
 
     print(
