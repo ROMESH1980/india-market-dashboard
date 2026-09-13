@@ -377,16 +377,6 @@ function rsRatingVal(row) {
 }
 
 
-function rsImprovement(row) {
-  return num(row.rsImprovement);
-}
-
-
-function isRSImproving(row) {
-  return row.rsImproving === true;
-}
-
-
 /* =====================================================
    INDUSTRY + STOCK MOMENTUM
 ===================================================== */
@@ -822,7 +812,6 @@ function buildCombinedReasonHtml(details) {
           item
         )
       );
-
     }
 
   } else {
@@ -839,7 +828,6 @@ function buildCombinedReasonHtml(details) {
       capexScore: "CAPEX"
     };
 
-
     for (
       const [key, title]
       of Object.entries(keyMap)
@@ -853,11 +841,8 @@ function buildCombinedReasonHtml(details) {
             details[key]
           )
         );
-
       }
-
     }
-
 
     if (!items.length) {
 
@@ -877,19 +862,13 @@ function buildCombinedReasonHtml(details) {
               value
             )
           );
-
         }
-
       }
-
     }
-
   }
-
 
   const validItems =
     items.filter(Boolean);
-
 
   if (!validItems.length) {
 
@@ -898,9 +877,7 @@ function buildCombinedReasonHtml(details) {
         Details not available.
       </div>
     `;
-
   }
-
 
   return validItems
     .map(item => {
@@ -911,12 +888,10 @@ function buildCombinedReasonHtml(details) {
           "No reason available."
         );
 
-
       const score =
         item.score !== ""
           ? escapeHtml(item.score)
           : "—";
-
 
       const mode =
         item.mode
@@ -928,7 +903,6 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
-
       const sourceDate =
         item.sourceDate
           ? `
@@ -939,7 +913,6 @@ function buildCombinedReasonHtml(details) {
           `
           : "";
 
-
       const source =
         item.source
           ? `
@@ -949,7 +922,6 @@ function buildCombinedReasonHtml(details) {
             </div>
           `
           : "";
-
 
       return `
         <div class="reason-section">
@@ -971,7 +943,6 @@ function buildCombinedReasonHtml(details) {
 
         </div>
       `;
-
     })
     .join("");
 }
@@ -1080,9 +1051,7 @@ function researchScoreButton(
         Pending
       </span>
     `;
-
   }
-
 
   return `
     <button
@@ -1141,7 +1110,6 @@ function passesFilters(row) {
     return false;
   }
 
-
   const q =
     (
       el("q")?.value ||
@@ -1149,7 +1117,6 @@ function passesFilters(row) {
     )
       .trim()
       .toLowerCase();
-
 
   if (q) {
 
@@ -1165,13 +1132,15 @@ function passesFilters(row) {
       .join(" ")
       .toLowerCase();
 
-
     if (!haystack.includes(q)) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     MARKET CAP
+  =================================================== */
 
   if (checked("activeMarketCap")) {
 
@@ -1179,7 +1148,6 @@ function passesFilters(row) {
       inputNumber(
         "aboveMarketCap"
       );
-
 
     const threshold =
       enteredThreshold === null
@@ -1189,22 +1157,22 @@ function passesFilters(row) {
             enteredThreshold
           );
 
-
     const value =
       num(row.marketCapCr);
-
 
     if (value === null) {
       return false;
     }
 
-
     if (value < threshold) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     PRICE
+  =================================================== */
 
   if (checked("activePrice")) {
 
@@ -1213,15 +1181,12 @@ function passesFilters(row) {
         "abovePrice"
       );
 
-
     const value =
       num(row.price);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1229,9 +1194,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     CHANGE %
+  =================================================== */
 
   if (checked("activeChange")) {
 
@@ -1240,15 +1208,12 @@ function passesFilters(row) {
         "aboveChange"
       );
 
-
     const value =
       num(row.changePct);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1256,9 +1221,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     TODAY VOLUME
+  =================================================== */
 
   if (checked("activeTodayVolume")) {
 
@@ -1267,15 +1235,12 @@ function passesFilters(row) {
         "aboveTodayVolume"
       );
 
-
     const value =
       totalVolume(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1283,9 +1248,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     TODAY TURNOVER
+  =================================================== */
 
   if (checked("activeTodayTurnover")) {
 
@@ -1294,15 +1262,12 @@ function passesFilters(row) {
         "aboveTodayTurnover"
       );
 
-
     const value =
       todayTurnoverCr(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1310,9 +1275,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     TODAY DELIVERY
+  =================================================== */
 
   if (checked("activeTodayDelivery")) {
 
@@ -1321,15 +1289,12 @@ function passesFilters(row) {
         "aboveTodayDelivery"
       );
 
-
     const value =
       todayDeliveryVolume(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1337,9 +1302,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     5D AVG DELIVERY
+  =================================================== */
 
   if (checked("active5DDelivery")) {
 
@@ -1348,15 +1316,12 @@ function passesFilters(row) {
         "above5DDelivery"
       );
 
-
     const value =
       avg5DayDelivery(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1364,9 +1329,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     DELIVERY TIMES
+  =================================================== */
 
   if (checked("activeDeliveryRatio")) {
 
@@ -1375,15 +1343,12 @@ function passesFilters(row) {
         "aboveDeliveryRatio"
       );
 
-
     const value =
       deliveryTimes(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1391,9 +1356,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     DELIVERY %
+  =================================================== */
 
   if (checked("activeDeliveryPct")) {
 
@@ -1402,15 +1370,12 @@ function passesFilters(row) {
         "aboveDeliveryPct"
       );
 
-
     const value =
       deliveryPercentage(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1418,9 +1383,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     5L VOLUME + 5% MOVE
+  =================================================== */
 
   if (
     checked("activeHighVolMove") &&
@@ -1430,6 +1398,10 @@ function passesFilters(row) {
   }
 
 
+  /* ===================================================
+     RS RATING
+  =================================================== */
+
   if (checked("activeRS")) {
 
     const threshold =
@@ -1437,15 +1409,12 @@ function passesFilters(row) {
         "aboveRS"
       );
 
-
     const value =
       rsRating(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1453,21 +1422,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
 
   /* ===================================================
-     RS IMPROVING FILTER
+     SECTOR
   =================================================== */
-
-  if (
-    checked("activeRSImproving") &&
-    !isRSImproving(row)
-  ) {
-    return false;
-  }
-
 
   if (checked("activeSector")) {
 
@@ -1475,16 +1435,18 @@ function passesFilters(row) {
       el("sectorFilter")?.value ||
       "";
 
-
     if (
       value &&
       row.sector !== value
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     INDUSTRY
+  =================================================== */
 
   if (checked("activeIndustry")) {
 
@@ -1492,19 +1454,17 @@ function passesFilters(row) {
       el("industryFilter")?.value ||
       "";
 
-
     if (
       value &&
       row.industry !== value
     ) {
       return false;
     }
-
   }
 
 
   /* ===================================================
-     INDUSTRY MOMENTUM FILTERS
+     INDUSTRY 1M
   =================================================== */
 
   if (checked("activeIndustry1M")) {
@@ -1514,15 +1474,12 @@ function passesFilters(row) {
         "aboveIndustry1M"
       );
 
-
     const value =
       industryGrowth1M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1530,9 +1487,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     INDUSTRY 3M
+  =================================================== */
 
   if (checked("activeIndustry3M")) {
 
@@ -1541,15 +1501,12 @@ function passesFilters(row) {
         "aboveIndustry3M"
       );
 
-
     const value =
       industryGrowth3M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1557,9 +1514,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     INDUSTRY 6M
+  =================================================== */
 
   if (checked("activeIndustry6M")) {
 
@@ -1568,15 +1528,12 @@ function passesFilters(row) {
         "aboveIndustry6M"
       );
 
-
     const value =
       industryGrowth6M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1584,47 +1541,40 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
 
+  /* ===================================================
+     INDUSTRY RATING
+     IMPORTANT:
+     Threshold applies in Above + Ascending + Descending.
+  =================================================== */
+
   if (checked("activeIndustryRating")) {
+
+    const threshold =
+      inputNumber(
+        "aboveIndustryRating"
+      );
 
     const value =
       industryRating(row);
-
 
     if (value === null) {
       return false;
     }
 
-
     if (
-      ratingMode(
-        "industryRatingMode"
-      ) === "above"
+      threshold !== null &&
+      value < threshold
     ) {
-
-      const threshold =
-        inputNumber(
-          "aboveIndustryRating"
-        );
-
-
-      if (
-        threshold !== null &&
-        value < threshold
-      ) {
-        return false;
-      }
-
+      return false;
     }
-
   }
 
 
   /* ===================================================
-     STOCK MOMENTUM FILTERS
+     STOCK 1M
   =================================================== */
 
   if (checked("activeStock1M")) {
@@ -1634,15 +1584,12 @@ function passesFilters(row) {
         "aboveStock1M"
       );
 
-
     const value =
       stockGrowth1M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1650,9 +1597,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     STOCK 3M
+  =================================================== */
 
   if (checked("activeStock3M")) {
 
@@ -1661,15 +1611,12 @@ function passesFilters(row) {
         "aboveStock3M"
       );
 
-
     const value =
       stockGrowth3M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1677,9 +1624,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     STOCK 6M
+  =================================================== */
 
   if (checked("activeStock6M")) {
 
@@ -1688,15 +1638,12 @@ function passesFilters(row) {
         "aboveStock6M"
       );
 
-
     const value =
       stockGrowth6M(row);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1704,44 +1651,46 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
 
+  /* ===================================================
+     STOCK MOMENTUM RATING
+     IMPORTANT:
+     Threshold applies in Above + Ascending + Descending.
+
+     Example:
+     Rating threshold = 80
+     Ascending  => 80,81,82...99
+     Descending => 99,98,97...80
+  =================================================== */
+
   if (checked("activeStockRating")) {
+
+    const threshold =
+      inputNumber(
+        "aboveStockRating"
+      );
 
     const value =
       stockMomentumRating(row);
-
 
     if (value === null) {
       return false;
     }
 
-
     if (
-      ratingMode(
-        "stockRatingMode"
-      ) === "above"
+      threshold !== null &&
+      value < threshold
     ) {
-
-      const threshold =
-        inputNumber(
-          "aboveStockRating"
-        );
-
-
-      if (
-        threshold !== null &&
-        value < threshold
-      ) {
-        return false;
-      }
-
+      return false;
     }
-
   }
 
+
+  /* ===================================================
+     T + M + VM
+  =================================================== */
 
   if (checked("activeTMV")) {
 
@@ -1750,15 +1699,12 @@ function passesFilters(row) {
         "aboveTMV"
       );
 
-
     const value =
       num(row.tmvScore);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1766,9 +1712,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     G + F + C
+  =================================================== */
 
   if (checked("activeGFC")) {
 
@@ -1777,15 +1726,12 @@ function passesFilters(row) {
         "aboveGFC"
       );
 
-
     const value =
       num(row.gfcScore);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1793,9 +1739,12 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
 
+
+  /* ===================================================
+     OVERALL
+  =================================================== */
 
   if (checked("activeOverall")) {
 
@@ -1804,15 +1753,12 @@ function passesFilters(row) {
         "aboveOverall"
       );
 
-
     const value =
       num(row.overallScore);
-
 
     if (value === null) {
       return false;
     }
-
 
     if (
       threshold !== null &&
@@ -1820,9 +1766,7 @@ function passesFilters(row) {
     ) {
       return false;
     }
-
   }
-
 
   return true;
 }
@@ -1840,38 +1784,29 @@ function sortValue(
     case "marketCapCr":
       return num(row.marketCapCr);
 
-
     case "price":
       return num(row.price);
-
 
     case "changePct":
       return num(row.changePct);
 
-
     case "todayVolume":
       return totalVolume(row);
-
 
     case "todayTurnoverCr":
       return todayTurnoverCr(row);
 
-
     case "todayDeliveryVolume":
       return todayDeliveryVolume(row);
-
 
     case "avg5DayDeliveryVolume":
       return avg5DayDelivery(row);
 
-
     case "deliveryVolumeRatio":
       return deliveryTimes(row);
 
-
     case "deliveryPct":
       return deliveryPercentage(row);
-
 
     case "highVolMove":
 
@@ -1885,64 +1820,45 @@ function sortValue(
         num(row.changePct) || 0
       );
 
-
     case "rsRating":
       return rsRating(row);
-
-
-    case "rsImprovement":
-      return rsImprovement(row);
-
 
     case "industryGrowth1M":
       return industryGrowth1M(row);
 
-
     case "industryGrowth3M":
       return industryGrowth3M(row);
-
 
     case "industryGrowth6M":
       return industryGrowth6M(row);
 
-
     case "industryRating":
       return industryRating(row);
-
 
     case "stockGrowth1M":
       return stockGrowth1M(row);
 
-
     case "stockGrowth3M":
       return stockGrowth3M(row);
-
 
     case "stockGrowth6M":
       return stockGrowth6M(row);
 
-
     case "stockMomentumRating":
       return stockMomentumRating(row);
-
 
     case "tmvScore":
       return num(row.tmvScore);
 
-
     case "gfcScore":
       return num(row.gfcScore);
-
 
     case "overallScore":
       return num(row.overallScore);
 
-
     default:
       return null;
-
   }
-
 }
 
 
@@ -1960,10 +1876,8 @@ function compareNumeric(
   const av =
     sortValue(a, field);
 
-
   const bv =
     sortValue(b, field);
-
 
   if (
     av === null &&
@@ -1972,26 +1886,21 @@ function compareNumeric(
     return 0;
   }
 
-
   if (av === null) {
     return 1;
   }
-
 
   if (bv === null) {
     return -1;
   }
 
-
   if (bv === av) {
     return 0;
   }
 
-
   return direction === "asc"
     ? av - bv
     : bv - av;
-
 }
 
 
@@ -2011,13 +1920,10 @@ function rankStocks(rows) {
               activeSortDirection
             );
 
-
           if (primary !== 0) {
             return primary;
           }
-
         }
-
 
         if (
           activeSortField !==
@@ -2032,13 +1938,10 @@ function rankStocks(rows) {
               "desc"
             );
 
-
           if (changeSort !== 0) {
             return changeSort;
           }
-
         }
-
 
         const nameA =
           (
@@ -2049,7 +1952,6 @@ function rankStocks(rows) {
           )
             .toLowerCase();
 
-
         const nameB =
           (
             b.name ||
@@ -2059,14 +1961,11 @@ function rankStocks(rows) {
           )
             .toLowerCase();
 
-
         return nameA.localeCompare(
           nameB
         );
-
       }
     );
-
 }
 
 
@@ -2108,9 +2007,6 @@ const sortFieldByActiveCheckbox = {
 
   activeRS:
     "rsRating",
-
-  activeRSImproving:
-    "rsImprovement",
 
   activeIndustry1M:
     "industryGrowth1M",
@@ -2169,9 +2065,7 @@ function sortDirectionForCheckbox(
     return mode === "asc"
       ? "asc"
       : "desc";
-
   }
-
 
   if (
     checkboxId ===
@@ -2186,32 +2080,9 @@ function sortDirectionForCheckbox(
     return mode === "asc"
       ? "asc"
       : "desc";
-
   }
-
-
-  /*
-    RS Improving:
-
-    Higher rsImprovement first.
-
-    Example:
-    +37
-    +31
-    +25
-    +20
-  */
-
-  if (
-    checkboxId ===
-    "activeRSImproving"
-  ) {
-    return "desc";
-  }
-
 
   return "desc";
-
 }
 
 
@@ -2226,12 +2097,10 @@ function updateActiveSortFromCheckbox(
   const checkbox =
     el(checkboxId);
 
-
   const field =
     sortFieldByActiveCheckbox[
       checkboxId
     ];
-
 
   if (
     !checkbox ||
@@ -2240,12 +2109,10 @@ function updateActiveSortFromCheckbox(
     return;
   }
 
-
   if (checkbox.checked) {
 
     activeSortField =
       field;
-
 
     activeSortDirection =
       sortDirectionForCheckbox(
@@ -2259,18 +2126,14 @@ function updateActiveSortFromCheckbox(
     const replacement =
       findAnotherActiveSortField();
 
-
     activeSortField =
       replacement?.field ||
       null;
 
-
     activeSortDirection =
       replacement?.direction ||
       "desc";
-
   }
-
 }
 
 
@@ -2302,14 +2165,10 @@ function findAnotherActiveSortField() {
             checkboxId
           )
       };
-
     }
-
   }
 
-
   return null;
-
 }
 
 
@@ -2325,15 +2184,12 @@ function fillSelectOptions(
   const select =
     el(id);
 
-
   if (!select) {
     return;
   }
 
-
   const current =
     select.value;
-
 
   const unique =
     [...new Set(
@@ -2350,14 +2206,12 @@ function fillSelectOptions(
           a.localeCompare(b)
       );
 
-
   select.innerHTML =
     `
       <option value="">
         All
       </option>
     `;
-
 
   for (const value of unique) {
 
@@ -2366,29 +2220,21 @@ function fillSelectOptions(
         "option"
       );
 
-
     option.value =
       value;
-
 
     option.textContent =
       value;
 
-
     select.appendChild(
       option
     );
-
   }
-
 
   if (unique.includes(current)) {
-
     select.value =
       current;
-
   }
-
 }
 
 
@@ -2401,14 +2247,12 @@ function populateDropdowns() {
     )
   );
 
-
   fillSelectOptions(
     "industryFilter",
     allStocks.map(
       row => row.industry
     )
   );
-
 }
 
 
@@ -2421,11 +2265,9 @@ function renderRows() {
   const tbody =
     el("rows");
 
-
   if (!tbody) {
     return;
   }
-
 
   filteredStocks =
     rankStocks(
@@ -2434,10 +2276,8 @@ function renderRows() {
       )
     );
 
-
   const total =
     filteredStocks.length;
-
 
   const totalPages =
     Math.max(
@@ -2448,22 +2288,17 @@ function renderRows() {
       )
     );
 
-
   if (
     currentPage >
     totalPages
   ) {
-
     currentPage =
       totalPages;
-
   }
-
 
   if (currentPage < 1) {
     currentPage = 1;
   }
-
 
   const start =
     (
@@ -2472,13 +2307,11 @@ function renderRows() {
     ) *
     PAGE_SIZE;
 
-
   const pageRows =
     filteredStocks.slice(
       start,
       start + PAGE_SIZE
     );
-
 
   tbody.innerHTML =
     pageRows
@@ -2486,7 +2319,6 @@ function renderRows() {
 
         const globalIndex =
           allStocks.indexOf(row);
-
 
         const companyName =
           escapeHtml(
@@ -2496,13 +2328,11 @@ function renderRows() {
             "—"
           );
 
-
         const symbol =
           escapeHtml(
             row.symbol ||
             ""
           );
-
 
         const sector =
           escapeHtml(
@@ -2510,25 +2340,20 @@ function renderRows() {
             "—"
           );
 
-
         const industry =
           escapeHtml(
             row.industry ||
             "—"
           );
 
-
         const deliveryPct =
           deliveryPercentage(row);
-
 
         const volume =
           totalVolume(row);
 
-
         const turnover =
           todayTurnoverCr(row);
-
 
         return `
           <tr>
@@ -2833,10 +2658,8 @@ function renderRows() {
 
           </tr>
         `;
-
       })
       .join("");
-
 
   if (el("resultCount")) {
 
@@ -2844,38 +2667,29 @@ function renderRows() {
       `${total.toLocaleString(
         "en-IN"
       )} matched`;
-
   }
-
 
   if (el("page")) {
 
     el("page").textContent =
       `Page ${currentPage} of ${totalPages}`;
-
   }
-
 
   if (el("prev")) {
 
     el("prev").disabled =
       currentPage <= 1;
-
   }
-
 
   if (el("next")) {
 
     el("next").disabled =
       currentPage >= totalPages;
-
   }
-
 
   syncTopScrollbar();
 
   setupReasonButtons();
-
 }
 /* =====================================================
    RESEARCH BUTTON EVENTS
@@ -2899,19 +2713,15 @@ function setupReasonButtons() {
                 button.dataset.rowIndex
               );
 
-
             const type =
               button.dataset.reasonType;
-
 
             const row =
               allStocks[index];
 
-
             if (!row) {
               return;
             }
-
 
             if (type === "tmv") {
 
@@ -2926,9 +2736,7 @@ function setupReasonButtons() {
               );
 
               return;
-
             }
-
 
             if (type === "gfc") {
 
@@ -2941,15 +2749,11 @@ function setupReasonButtons() {
                 row.gfcScore,
                 row.gfcDetails
               );
-
             }
-
           }
         );
-
       }
     );
-
 }
 
 
@@ -2962,7 +2766,6 @@ function applyFilterChange() {
   currentPage = 1;
 
   renderRows();
-
 }
 
 
@@ -2981,19 +2784,15 @@ function updateIndustryRatingSortMode() {
     activeSortField =
       "industryRating";
 
-
     activeSortDirection =
       ratingMode(
         "industryRatingMode"
       ) === "asc"
         ? "asc"
         : "desc";
-
   }
 
-
   applyFilterChange();
-
 }
 
 
@@ -3008,19 +2807,15 @@ function updateStockRatingSortMode() {
     activeSortField =
       "stockMomentumRating";
 
-
     activeSortDirection =
       ratingMode(
         "stockRatingMode"
       ) === "asc"
         ? "asc"
         : "desc";
-
   }
 
-
   applyFilterChange();
-
 }
 
 
@@ -3038,7 +2833,6 @@ function setupFilterEvents() {
         currentPage = 1;
 
         renderRows();
-
       }
     );
 
@@ -3063,12 +2857,9 @@ function setupFilterEvents() {
             checkboxId
           );
 
-
           applyFilterChange();
-
         }
       );
-
   }
 
 
@@ -3131,7 +2922,6 @@ function setupFilterEvents() {
 
   ];
 
-
   numericInputs.forEach(
     id => {
 
@@ -3140,7 +2930,6 @@ function setupFilterEvents() {
           "input",
           applyFilterChange
         );
-
     }
   );
 
@@ -3155,20 +2944,17 @@ function setupFilterEvents() {
       applyFilterChange
     );
 
-
   el("sectorFilter")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
 
-
   el("activeIndustry")
     ?.addEventListener(
       "change",
       applyFilterChange
     );
-
 
   el("industryFilter")
     ?.addEventListener(
@@ -3197,7 +2983,6 @@ function setupFilterEvents() {
       "change",
       updateStockRatingSortMode
     );
-
 }
 
 
@@ -3211,7 +2996,6 @@ function resetFilters() {
 
     el("q").value =
       "";
-
   }
 
 
@@ -3224,13 +3008,11 @@ function resetFilters() {
       '.filter-row input[type="checkbox"]'
     );
 
-
   checkboxes.forEach(
     checkbox => {
 
       checkbox.checked =
         false;
-
     }
   );
 
@@ -3244,13 +3026,11 @@ function resetFilters() {
       '.filter-row input:not([type="checkbox"])'
     );
 
-
   inputs.forEach(
     input => {
 
       input.value =
         "";
-
     }
   );
 
@@ -3263,7 +3043,6 @@ function resetFilters() {
 
     el("sectorFilter").value =
       "";
-
   }
 
 
@@ -3275,7 +3054,6 @@ function resetFilters() {
 
     el("industryFilter").value =
       "";
-
   }
 
 
@@ -3293,7 +3071,6 @@ function resetFilters() {
       "industryRatingMode"
     ).value =
       "above";
-
   }
 
 
@@ -3311,24 +3088,19 @@ function resetFilters() {
       "stockRatingMode"
     ).value =
       "above";
-
   }
 
 
   activeSortField =
     null;
 
-
   activeSortDirection =
     "desc";
-
 
   currentPage =
     1;
 
-
   renderRows();
-
 }
 
 
@@ -3350,9 +3122,7 @@ function setupPagination() {
           currentPage -= 1;
 
           renderRows();
-
         }
-
       }
     );
 
@@ -3371,7 +3141,6 @@ function setupPagination() {
             )
           );
 
-
         if (
           currentPage <
           totalPages
@@ -3380,9 +3149,7 @@ function setupPagination() {
           currentPage += 1;
 
           renderRows();
-
         }
-
       }
     );
 
@@ -3397,7 +3164,6 @@ function setupPagination() {
             el("gotoPage")?.value
           );
 
-
         const totalPages =
           Math.max(
             1,
@@ -3406,7 +3172,6 @@ function setupPagination() {
               PAGE_SIZE
             )
           );
-
 
         if (
           Number.isFinite(
@@ -3425,11 +3190,8 @@ function setupPagination() {
               )
             );
 
-
           renderRows();
-
         }
-
 
         if (
           el("gotoPage")
@@ -3439,12 +3201,9 @@ function setupPagination() {
             "gotoPage"
           ).value =
             "";
-
         }
-
       }
     );
-
 }
 
 
@@ -3457,16 +3216,13 @@ function syncTopScrollbar() {
   const topScroll =
     el("topScroll");
 
-
   const topScrollInner =
     el(
       "topScrollInner"
     );
 
-
   const tableWrap =
     el("tableWrap");
-
 
   if (
     !topScroll ||
@@ -3475,17 +3231,13 @@ function syncTopScrollbar() {
   ) {
 
     return;
-
   }
-
 
   topScrollInner.style.width =
     `${tableWrap.scrollWidth}px`;
 
-
   topScroll.scrollLeft =
     tableWrap.scrollLeft;
-
 }
 
 
@@ -3498,10 +3250,8 @@ function setupTopScrollbar() {
   const topScroll =
     el("topScroll");
 
-
   const tableWrap =
     el("tableWrap");
-
 
   if (
     !topScroll ||
@@ -3509,17 +3259,13 @@ function setupTopScrollbar() {
   ) {
 
     return;
-
   }
-
 
   let syncingFromTop =
     false;
 
-
   let syncingFromTable =
     false;
-
 
   topScroll.addEventListener(
     "scroll",
@@ -3528,26 +3274,19 @@ function setupTopScrollbar() {
       if (
         syncingFromTable
       ) {
-
         return;
-
       }
-
 
       syncingFromTop =
         true;
 
-
       tableWrap.scrollLeft =
         topScroll.scrollLeft;
 
-
       syncingFromTop =
         false;
-
     }
   );
-
 
   tableWrap.addEventListener(
     "scroll",
@@ -3556,32 +3295,24 @@ function setupTopScrollbar() {
       if (
         syncingFromTop
       ) {
-
         return;
-
       }
-
 
       syncingFromTable =
         true;
 
-
       topScroll.scrollLeft =
         tableWrap.scrollLeft;
 
-
       syncingFromTable =
         false;
-
     }
   );
-
 
   window.addEventListener(
     "resize",
     syncTopScrollbar
   );
-
 }
 
 
@@ -3597,7 +3328,6 @@ function setupReasonModalEvents() {
       closeReasonModal
     );
 
-
   el("reasonModal")
     ?.addEventListener(
       "click",
@@ -3609,12 +3339,9 @@ function setupReasonModalEvents() {
         ) {
 
           closeReasonModal();
-
         }
-
       }
     );
-
 
   document.addEventListener(
     "keydown",
@@ -3626,12 +3353,9 @@ function setupReasonModalEvents() {
       ) {
 
         closeReasonModal();
-
       }
-
     }
   );
-
 }
 /* =====================================================
    MARKET VIEW REGIME HELPERS
@@ -3641,7 +3365,6 @@ function getEquityRegime(score) {
 
   const n =
     num(score);
-
 
   if (n === null) {
 
@@ -3655,11 +3378,8 @@ function getEquityRegime(score) {
 
       action:
         "Data pending"
-
     };
-
   }
-
 
   if (n >= 75) {
 
@@ -3673,11 +3393,8 @@ function getEquityRegime(score) {
 
       action:
         "Aggressive Stocks"
-
     };
-
   }
-
 
   if (n >= 65) {
 
@@ -3691,11 +3408,8 @@ function getEquityRegime(score) {
 
       action:
         "Stocks overweight"
-
     };
-
   }
-
 
   if (n >= 55) {
 
@@ -3709,11 +3423,8 @@ function getEquityRegime(score) {
 
       action:
         "Selective buying"
-
     };
-
   }
-
 
   if (n >= 45) {
 
@@ -3727,11 +3438,8 @@ function getEquityRegime(score) {
 
       action:
         "New buying reduce"
-
     };
-
   }
-
 
   if (n >= 35) {
 
@@ -3745,11 +3453,8 @@ function getEquityRegime(score) {
 
       action:
         "Equity exposure reduce"
-
     };
-
   }
-
 
   return {
 
@@ -3761,9 +3466,7 @@ function getEquityRegime(score) {
 
     action:
       "Capital protection / G-Sec / Gold / Cash"
-
   };
-
 }
 
 
@@ -3775,7 +3478,6 @@ function getGoldRegime(score) {
 
   const n =
     num(score);
-
 
   if (n === null) {
 
@@ -3789,11 +3491,8 @@ function getGoldRegime(score) {
 
       action:
         "Data pending"
-
     };
-
   }
-
 
   if (n >= 75) {
 
@@ -3807,11 +3506,8 @@ function getGoldRegime(score) {
 
       action:
         "Strong Gold preference"
-
     };
-
   }
-
 
   if (n >= 65) {
 
@@ -3825,11 +3521,8 @@ function getGoldRegime(score) {
 
       action:
         "Gold overweight"
-
     };
-
   }
-
 
   if (n >= 55) {
 
@@ -3843,11 +3536,8 @@ function getGoldRegime(score) {
 
       action:
         "Selective Gold allocation"
-
     };
-
   }
-
 
   if (n >= 45) {
 
@@ -3861,11 +3551,8 @@ function getGoldRegime(score) {
 
       action:
         "Balanced allocation"
-
     };
-
   }
-
 
   if (n >= 35) {
 
@@ -3879,11 +3566,8 @@ function getGoldRegime(score) {
 
       action:
         "Gold exposure reduce"
-
     };
-
   }
-
 
   return {
 
@@ -3895,9 +3579,7 @@ function getGoldRegime(score) {
 
     action:
       "Avoid overweight Gold"
-
   };
-
 }
 
 
@@ -3910,26 +3592,19 @@ function marketViewOverallScore(
 ) {
 
   if (!item) {
-
     return null;
-
   }
-
 
   const direct =
     num(
       item.overall
     );
 
-
   if (
     direct !== null
   ) {
-
     return direct;
-
   }
-
 
   const values = [
 
@@ -3951,15 +3626,11 @@ function marketViewOverallScore(
         value !== null
     );
 
-
   if (
     !values.length
   ) {
-
     return null;
-
   }
-
 
   return (
     values.reduce(
@@ -3972,7 +3643,6 @@ function marketViewOverallScore(
     ) /
     values.length
   );
-
 }
 
 
@@ -3995,7 +3665,6 @@ function averageMarketViewScore() {
 
   ];
 
-
   const scores =
     candidates
       .map(
@@ -4006,15 +3675,11 @@ function averageMarketViewScore() {
           value !== null
       );
 
-
   if (
     !scores.length
   ) {
-
     return null;
-
   }
-
 
   return (
     scores.reduce(
@@ -4027,7 +3692,6 @@ function averageMarketViewScore() {
     ) /
     scores.length
   );
-
 }
 
 
@@ -4042,17 +3706,12 @@ function updateMarketViewCard() {
       "marketViewCardSignal"
     );
 
-
   if (!signalEl) {
-
     return;
-
   }
-
 
   const averageScore =
     averageMarketViewScore();
-
 
   if (
     averageScore === null
@@ -4068,17 +3727,13 @@ function updateMarketViewCard() {
         Data Pending
       `;
 
-
     return;
-
   }
-
 
   const regime =
     getEquityRegime(
       averageScore
     );
-
 
   signalEl.innerHTML =
     `
@@ -4092,7 +3747,6 @@ function updateMarketViewCard() {
         regime.action
       )}
     `;
-
 }
 
 
@@ -4108,7 +3762,6 @@ function marketViewSignalHtml(
   const n =
     num(score);
 
-
   if (
     n === null
   ) {
@@ -4120,9 +3773,7 @@ function marketViewSignalHtml(
         —
       </span>
     `;
-
   }
-
 
   const regime =
     isGold
@@ -4132,7 +3783,6 @@ function marketViewSignalHtml(
       : getEquityRegime(
           n
         );
-
 
   return `
     <div
@@ -4157,7 +3807,6 @@ function marketViewSignalHtml(
 
     </div>
   `;
-
 }
 
 
@@ -4170,7 +3819,6 @@ function buildMultiTimeframeMarketViewHtml() {
   const rows = [
 
     {
-
       key:
         "nifty50",
 
@@ -4179,12 +3827,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
       gold:
         false
-
     },
 
-
     {
-
       key:
         "midcap100",
 
@@ -4193,12 +3838,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
       gold:
         false
-
     },
 
-
     {
-
       key:
         "smallcap100",
 
@@ -4207,12 +3849,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
       gold:
         false
-
     },
 
-
     {
-
       key:
         "sme",
 
@@ -4221,12 +3860,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
       gold:
         false
-
     },
 
-
     {
-
       key:
         "gold",
 
@@ -4235,11 +3871,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
       gold:
         true
-
     }
 
   ];
-
 
   const body =
     rows
@@ -4252,12 +3886,10 @@ function buildMultiTimeframeMarketViewHtml() {
             ] ||
             {};
 
-
           const overall =
             marketViewOverallScore(
               data
             );
-
 
           return `
             <tr>
@@ -4270,7 +3902,6 @@ function buildMultiTimeframeMarketViewHtml() {
                 )}
               </td>
 
-
               <td>
 
                 ${marketViewSignalHtml(
@@ -4279,7 +3910,6 @@ function buildMultiTimeframeMarketViewHtml() {
                 )}
 
               </td>
-
 
               <td>
 
@@ -4290,7 +3920,6 @@ function buildMultiTimeframeMarketViewHtml() {
 
               </td>
 
-
               <td>
 
                 ${marketViewSignalHtml(
@@ -4299,7 +3928,6 @@ function buildMultiTimeframeMarketViewHtml() {
                 )}
 
               </td>
-
 
               <td>
 
@@ -4312,11 +3940,9 @@ function buildMultiTimeframeMarketViewHtml() {
 
             </tr>
           `;
-
         }
       )
       .join("");
-
 
   const proxyRows =
     rows.filter(
@@ -4327,14 +3953,11 @@ function buildMultiTimeframeMarketViewHtml() {
             item.key
           ];
 
-
         return Boolean(
           data?.proxy
         );
-
       }
     );
-
 
   const proxyNote =
     proxyRows.length
@@ -4350,7 +3973,6 @@ function buildMultiTimeframeMarketViewHtml() {
         </div>
       `
       : "";
-
 
   return `
     <div
@@ -4389,7 +4011,6 @@ function buildMultiTimeframeMarketViewHtml() {
 
         </thead>
 
-
         <tbody>
 
           ${body}
@@ -4398,12 +4019,10 @@ function buildMultiTimeframeMarketViewHtml() {
 
       </table>
 
-
       ${proxyNote}
 
     </div>
   `;
-
 }
 
 
@@ -4418,42 +4037,33 @@ function openMarketViewModal() {
       "reasonModal"
     );
 
-
   if (!modal) {
-
     return;
-
   }
-
 
   const card =
     modal.querySelector(
       ".reason-modal-card"
     );
 
-
   card?.classList.add(
     "market-view-modal-card"
   );
-
 
   el(
     "reasonTitle"
   ).textContent =
     "Current Multi-Timeframe Market View";
 
-
   el(
     "reasonScore"
   ).textContent =
     "";
 
-
   el(
     "reasonText"
   ).innerHTML =
     buildMultiTimeframeMarketViewHtml();
-
 
   const generatedDate =
 
@@ -4468,7 +4078,6 @@ function openMarketViewModal() {
 
     "";
 
-
   el(
     "reasonSourceDate"
   ).textContent =
@@ -4476,12 +4085,10 @@ function openMarketViewModal() {
       ? `Market data: ${generatedDate}`
       : "";
 
-
   const sourceLink =
     el(
       "reasonSourceLink"
     );
-
 
   if (
     sourceLink
@@ -4489,20 +4096,16 @@ function openMarketViewModal() {
 
     sourceLink.style.display =
       "none";
-
   }
-
 
   modal.classList.add(
     "open"
   );
 
-
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
-
 }
 
 
@@ -4517,19 +4120,14 @@ function setupMarketViewCardEvents() {
       "marketViewCard"
     );
 
-
   if (!card) {
-
     return;
-
   }
-
 
   card.addEventListener(
     "click",
     openMarketViewModal
   );
-
 
   card.addEventListener(
     "keydown",
@@ -4545,12 +4143,9 @@ function setupMarketViewCardEvents() {
         event.preventDefault();
 
         openMarketViewModal();
-
       }
-
     }
   );
-
 }
 
 
@@ -4571,9 +4166,7 @@ function updateStats() {
         .toLocaleString(
           "en-IN"
         );
-
   }
-
 
   const eodReady =
     allStocks.filter(
@@ -4582,7 +4175,6 @@ function updateStats() {
           row.price
         ) !== null
     ).length;
-
 
   if (
     el("eodReady")
@@ -4595,9 +4187,7 @@ function updateStats() {
         .toLocaleString(
           "en-IN"
         );
-
   }
-
 
   const marketCapReady =
     allStocks.filter(
@@ -4606,7 +4196,6 @@ function updateStats() {
           row.marketCapCr
         ) !== null
     ).length;
-
 
   if (
     el("marketCapReady")
@@ -4619,9 +4208,7 @@ function updateStats() {
         .toLocaleString(
           "en-IN"
         );
-
   }
-
 
   const fullyScored =
     allStocks.filter(
@@ -4641,7 +4228,6 @@ function updateStats() {
 
     ).length;
 
-
   if (
     el("fullyScored")
   ) {
@@ -4653,9 +4239,7 @@ function updateStats() {
         .toLocaleString(
           "en-IN"
         );
-
   }
-
 }
 
 
@@ -4678,7 +4262,6 @@ function updateMarketDate() {
 
     "—";
 
-
   if (
     el("marketDate")
   ) {
@@ -4687,9 +4270,7 @@ function updateMarketDate() {
       "marketDate"
     ).textContent =
       marketDate;
-
   }
-
 }
 
 
@@ -4700,8 +4281,9 @@ function updateMarketDate() {
 function updateHeaderRegime() {
 
   updateMarketViewCard();
-
 }
+
+
 /* =====================================================
    INITIALIZE DATA
 ===================================================== */
@@ -4712,7 +4294,6 @@ async function init() {
 
     const cacheBuster =
       Date.now();
-
 
     const [
       stocksResponse,
@@ -4738,7 +4319,6 @@ async function init() {
 
       ]);
 
-
     if (
       !stocksResponse.ok
     ) {
@@ -4746,9 +4326,7 @@ async function init() {
       throw new Error(
         `stocks.json HTTP ${stocksResponse.status}`
       );
-
     }
-
 
     if (
       !metaResponse.ok
@@ -4757,24 +4335,19 @@ async function init() {
       throw new Error(
         `meta.json HTTP ${metaResponse.status}`
       );
-
     }
-
 
     const stocksData =
       await stocksResponse
         .json();
 
-
     const metaData =
       await metaResponse
         .json();
 
-
     metaDataGlobal =
       metaData ||
       {};
-
 
     multiTimeframeMarketView =
 
@@ -4785,7 +4358,6 @@ async function init() {
         .marketView ||
 
       {};
-
 
     const sourceStocks =
 
@@ -4800,39 +4372,28 @@ async function init() {
             []
           );
 
-
     allStocks =
       sourceStocks.filter(
         passesPermanentUniverseRule
       );
 
-
     populateDropdowns();
-
 
     updateStats();
 
-
     updateMarketDate();
-
 
     updateHeaderRegime();
 
-
     setupFilterEvents();
-
 
     setupPagination();
 
-
     setupTopScrollbar();
-
 
     setupReasonModalEvents();
 
-
     setupMarketViewCardEvents();
-
 
     el("resetScores")
       ?.addEventListener(
@@ -4840,26 +4401,20 @@ async function init() {
         resetFilters
       );
 
-
     activeSortField =
       null;
-
 
     activeSortDirection =
       "desc";
 
-
     currentPage =
       1;
 
-
     renderRows();
-
 
     console.log(
       `MY MARKET RESEARCH loaded: ${allStocks.length} stocks`
     );
-
 
     const industryRatingReady =
       allStocks.filter(
@@ -4869,7 +4424,6 @@ async function init() {
           ) !== null
       ).length;
 
-
     const stockMomentumReady =
       allStocks.filter(
         row =>
@@ -4878,55 +4432,25 @@ async function init() {
           ) !== null
       ).length;
 
-
-    const rsHistoryReady =
+    const rsReady =
       allStocks.filter(
         row =>
-
-          num(
-            row.rsRating1MAgo
-          ) !== null &&
-
-          num(
-            row.rsRating2WAgo
-          ) !== null &&
-
-          num(
-            row.rsRating1WAgo
-          ) !== null &&
-
-          num(
-            row.rsRating
+          rsRating(
+            row
           ) !== null
       ).length;
-
-
-    const rsImprovingReady =
-      allStocks.filter(
-        row =>
-          isRSImproving(row)
-      ).length;
-
 
     console.log(
       `Industry Rating ready: ${industryRatingReady}/${allStocks.length}`
     );
 
-
     console.log(
       `Stock Momentum Rating ready: ${stockMomentumReady}/${allStocks.length}`
     );
 
-
     console.log(
-      `RS history ready: ${rsHistoryReady}/${allStocks.length}`
+      `RS Rating ready: ${rsReady}/${allStocks.length}`
     );
-
-
-    console.log(
-      `RS Improving stocks: ${rsImprovingReady}/${allStocks.length}`
-    );
-
 
   } catch (error) {
 
@@ -4935,10 +4459,8 @@ async function init() {
       error
     );
 
-
     const tbody =
       el("rows");
-
 
     if (
       tbody
@@ -4959,9 +4481,7 @@ async function init() {
 
           </tr>
         `;
-
     }
-
 
     if (
       el("resultCount")
@@ -4971,11 +4491,8 @@ async function init() {
         "resultCount"
       ).textContent =
         "0 matched";
-
     }
-
   }
-
 }
 
 
@@ -4987,8 +4504,6 @@ document.addEventListener(
   "DOMContentLoaded",
   init
 );
-
-
 /* =====================================================
    EXPORT HELPERS
 ===================================================== */
@@ -5003,7 +4518,6 @@ function exportNumber(value) {
     return "";
   }
 
-
   if (
     typeof value === "number"
   ) {
@@ -5011,9 +4525,7 @@ function exportNumber(value) {
     return Number.isFinite(value)
       ? value
       : "";
-
   }
-
 
   const cleaned =
     String(value)
@@ -5024,20 +4536,16 @@ function exportNumber(value) {
       .replace(/x/gi, "")
       .trim();
 
-
   if (!cleaned) {
     return "";
   }
 
-
   const n =
     Number(cleaned);
-
 
   return Number.isFinite(n)
     ? n
     : "";
-
 }
 
 
@@ -5053,15 +4561,12 @@ function exportRoundedNumber(
   const n =
     exportNumber(value);
 
-
   if (n === "") {
     return "";
   }
 
-
   const factor =
     10 ** decimals;
-
 
   return Math.round(
     (
@@ -5070,7 +4575,6 @@ function exportRoundedNumber(
     ) *
     factor
   ) / factor;
-
 }
 
 
@@ -5083,11 +4587,9 @@ function exportInteger(value) {
   const n =
     exportNumber(value);
 
-
   return n === ""
     ? ""
     : Math.round(n);
-
 }
 
 
@@ -5118,67 +4620,35 @@ function buildExportRows() {
       )
     );
 
-
   return rows.map(
     row => {
 
       const volume =
         totalVolume(row);
 
-
       const turnover =
         todayTurnoverCr(row);
-
 
       const delivery =
         todayDeliveryVolume(row);
 
-
       const avgDelivery =
         avg5DayDelivery(row);
-
 
       const deliveryRatio =
         deliveryTimes(row);
 
-
       const deliveryPct =
         deliveryPercentage(row);
-
 
       const rating =
         rsRating(row);
 
-
-      const rs1MAgo =
-        num(
-          row.rsRating1MAgo
-        );
-
-
-      const rs2WAgo =
-        num(
-          row.rsRating2WAgo
-        );
-
-
-      const rs1WAgo =
-        num(
-          row.rsRating1WAgo
-        );
-
-
-      const rsImprovementValue =
-        rsImprovement(row);
-
-
       const industryRatingValue =
         industryRating(row);
 
-
       const stockMomentumValue =
         stockMomentumRating(row);
-
 
       return {
 
@@ -5190,7 +4660,6 @@ function buildExportRows() {
           row.name ||
           row.companyName ||
           "",
-
 
         "Symbol":
           row.symbol ||
@@ -5204,7 +4673,6 @@ function buildExportRows() {
         "Market Cap Category":
           row.marketCapCategory ||
           "",
-
 
         "Market Cap ₹ Cr":
           exportNumber(
@@ -5222,7 +4690,6 @@ function buildExportRows() {
             2
           ),
 
-
         "Change %":
           exportRoundedNumber(
             row.changePct,
@@ -5238,7 +4705,6 @@ function buildExportRows() {
           exportInteger(
             volume
           ),
-
 
         "Today Turnover ₹ Cr":
           exportRoundedNumber(
@@ -5256,19 +4722,16 @@ function buildExportRows() {
             delivery
           ),
 
-
         "5D Avg Delivery Vol":
           exportInteger(
             avgDelivery
           ),
-
 
         "Delivery Times":
           exportRoundedNumber(
             deliveryRatio,
             2
           ),
-
 
         "Delivery %":
           exportRoundedNumber(
@@ -5288,32 +4751,8 @@ function buildExportRows() {
 
 
         /* ============================================
-           RS HISTORY + CURRENT RS
+           RS RATING
         ============================================ */
-
-        "RS 1M Ago":
-          rs1MAgo === null
-            ? ""
-            : exportInteger(
-                rs1MAgo
-              ),
-
-
-        "RS 2W Ago":
-          rs2WAgo === null
-            ? ""
-            : exportInteger(
-                rs2WAgo
-              ),
-
-
-        "RS 1W Ago":
-          rs1WAgo === null
-            ? ""
-            : exportInteger(
-                rs1WAgo
-              ),
-
 
         "RS Rating":
           rating === null
@@ -5321,31 +4760,6 @@ function buildExportRows() {
             : exportInteger(
                 rating
               ),
-
-
-        "RS Improvement":
-          rsImprovementValue === null
-            ? ""
-            : exportRoundedNumber(
-                rsImprovementValue,
-                2
-              ),
-
-
-        "RS Improving":
-          isRSImproving(row)
-            ? "YES"
-            : "NO",
-
-
-        "RS Improving Status":
-          row.rsImprovingStatus ||
-          (
-            isRSImproving(row)
-              ? "YES"
-              : "NO"
-          ),
-
 
         "RS Label":
           rating === null
@@ -5366,7 +4780,6 @@ function buildExportRows() {
           row.sector ||
           "",
 
-
         "Industry":
           row.industry ||
           "",
@@ -5382,13 +4795,11 @@ function buildExportRows() {
             2
           ),
 
-
         "Industry 3M %":
           exportRoundedNumber(
             row.industryGrowth3M,
             2
           ),
-
 
         "Industry 6M %":
           exportRoundedNumber(
@@ -5396,14 +4807,12 @@ function buildExportRows() {
             2
           ),
 
-
         "Industry Rating":
           industryRatingValue === null
             ? ""
             : exportInteger(
                 industryRatingValue
               ),
-
 
         "Industry Rating Label":
           industryRatingValue === null
@@ -5423,13 +4832,11 @@ function buildExportRows() {
             2
           ),
 
-
         "Stock 3M %":
           exportRoundedNumber(
             row.stockGrowth3M,
             2
           ),
-
 
         "Stock 6M %":
           exportRoundedNumber(
@@ -5437,14 +4844,12 @@ function buildExportRows() {
             2
           ),
 
-
         "Stock Momentum Rating":
           stockMomentumValue === null
             ? ""
             : exportInteger(
                 stockMomentumValue
               ),
-
 
         "Stock Momentum Label":
           stockMomentumValue === null
@@ -5463,12 +4868,10 @@ function buildExportRows() {
             row.tmvScore
           ),
 
-
         "G + F + C":
           exportInteger(
             row.gfcScore
           ),
-
 
         "Overall":
           exportInteger(
@@ -5476,11 +4879,11 @@ function buildExportRows() {
           )
 
       };
-
     }
   );
-
 }
+
+
 /* =====================================================
    EXPORT FILE NAME
 ===================================================== */
@@ -5502,7 +4905,6 @@ function exportFileBaseName(
 
     "latest";
 
-
   return (
 
     `MY_MARKET_RESEARCH_` +
@@ -5510,7 +4912,6 @@ function exportFileBaseName(
     `${rowCount}_stocks`
 
   );
-
 }
 
 
@@ -5527,10 +4928,8 @@ function csvEscape(value) {
     return "";
   }
 
-
   const text =
     String(value);
-
 
   if (
     text.includes(",") ||
@@ -5550,12 +4949,9 @@ function csvEscape(value) {
       '"'
 
     );
-
   }
 
-
   return text;
-
 }
 
 
@@ -5572,15 +4968,12 @@ function downloadCSV(rows) {
     );
 
     return;
-
   }
-
 
   const headers =
     Object.keys(
       rows[0]
     );
-
 
   const csvLines = [
 
@@ -5591,7 +4984,6 @@ function downloadCSV(rows) {
       .join(",")
 
   ];
-
 
   for (
     const row
@@ -5610,9 +5002,7 @@ function downloadCSV(rows) {
         .join(",")
 
     );
-
   }
-
 
   const csvContent =
 
@@ -5621,7 +5011,6 @@ function downloadCSV(rows) {
     csvLines.join(
       "\r\n"
     );
-
 
   const blob =
     new Blob(
@@ -5634,44 +5023,35 @@ function downloadCSV(rows) {
       }
     );
 
-
   const url =
     URL.createObjectURL(
       blob
     );
-
 
   const link =
     document.createElement(
       "a"
     );
 
-
   link.href =
     url;
-
 
   link.download =
     `${exportFileBaseName(
       rows.length
     )}.csv`;
 
-
   document.body.appendChild(
     link
   );
 
-
   link.click();
 
-
   link.remove();
-
 
   URL.revokeObjectURL(
     url
   );
-
 }
 
 
@@ -5687,7 +5067,6 @@ function findExcelColumnIndex(
   return headers.indexOf(
     headerName
   );
-
 }
 
 
@@ -5708,13 +5087,11 @@ function applyExcelNumberFormat(
       headerName
     );
 
-
   if (
     columnIndex < 0
   ) {
     return;
   }
-
 
   if (
     !worksheet["!ref"]
@@ -5722,12 +5099,10 @@ function applyExcelNumberFormat(
     return;
   }
 
-
   const range =
     XLSX.utils.decode_range(
       worksheet["!ref"]
     );
-
 
   for (
     let rowIndex =
@@ -5750,17 +5125,14 @@ function applyExcelNumberFormat(
         }
       );
 
-
     const cell =
       worksheet[
         address
       ];
 
-
     if (!cell) {
       continue;
     }
-
 
     if (
       cell.t === "n" &&
@@ -5770,11 +5142,8 @@ function applyExcelNumberFormat(
 
       cell.z =
         format;
-
     }
-
   }
-
 }
 
 
@@ -5791,9 +5160,7 @@ function downloadExcel(rows) {
     );
 
     return;
-
   }
-
 
   if (
     typeof XLSX ===
@@ -5805,15 +5172,12 @@ function downloadExcel(rows) {
     );
 
     return;
-
   }
-
 
   const worksheet =
     XLSX.utils.json_to_sheet(
       rows
     );
-
 
   const headers =
     Object.keys(
@@ -5870,23 +5234,8 @@ function downloadExcel(rows) {
           "5L Vol + 5% Move":
             18,
 
-          "RS 1M Ago":
-            14,
-
-          "RS 2W Ago":
-            14,
-
-          "RS 1W Ago":
-            14,
-
           "RS Rating":
             12,
-
-          "RS Improvement":
-            16,
-
-          "RS Improving":
-            14,
 
           "RS Label":
             14,
@@ -5947,7 +5296,6 @@ function downloadExcel(rows) {
 
         };
 
-
         return {
 
           wch:
@@ -5957,7 +5305,6 @@ function downloadExcel(rows) {
             16
 
         };
-
       }
     );
 
@@ -6033,7 +5380,6 @@ function downloadExcel(rows) {
     "0"
   );
 
-
   applyExcelNumberFormat(
     worksheet,
     headers,
@@ -6067,46 +5413,14 @@ function downloadExcel(rows) {
 
 
   /* ===================================================
-     RS HISTORY / IMPROVEMENT
+     RS RATING
   =================================================== */
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "RS 1M Ago",
-    "0"
-  );
-
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "RS 2W Ago",
-    "0"
-  );
-
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "RS 1W Ago",
-    "0"
-  );
-
 
   applyExcelNumberFormat(
     worksheet,
     headers,
     "RS Rating",
     "0"
-  );
-
-
-  applyExcelNumberFormat(
-    worksheet,
-         headers,
-    "RS Improvement",
-    "0.00"
   );
 
 
@@ -6121,14 +5435,12 @@ function downloadExcel(rows) {
     "0.00"
   );
 
-
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Industry 3M %",
     "0.00"
   );
-
 
   applyExcelNumberFormat(
     worksheet,
@@ -6161,14 +5473,12 @@ function downloadExcel(rows) {
     "0.00"
   );
 
-
   applyExcelNumberFormat(
     worksheet,
     headers,
     "Stock 3M %",
     "0.00"
   );
-
 
   applyExcelNumberFormat(
     worksheet,
@@ -6201,14 +5511,12 @@ function downloadExcel(rows) {
     "0"
   );
 
-
   applyExcelNumberFormat(
     worksheet,
     headers,
     "G + F + C",
     "0"
   );
-
 
   applyExcelNumberFormat(
     worksheet,
@@ -6264,7 +5572,6 @@ function downloadExcel(rows) {
         ]
 
     };
-
   }
 
 
@@ -6275,13 +5582,11 @@ function downloadExcel(rows) {
   const workbook =
     XLSX.utils.book_new();
 
-
   XLSX.utils.book_append_sheet(
     workbook,
     worksheet,
     "Market Research"
   );
-
 
   XLSX.writeFile(
     workbook,
@@ -6290,7 +5595,6 @@ function downloadExcel(rows) {
       rows.length
     )}.xlsx`
   );
-
 }
 
 
@@ -6303,7 +5607,6 @@ function handleDownload() {
   const rows =
     buildExportRows();
 
-
   if (!rows.length) {
 
     alert(
@@ -6311,16 +5614,13 @@ function handleDownload() {
     );
 
     return;
-
   }
-
 
   const format =
     el(
       "downloadFormat"
     )?.value ||
     "csv";
-
 
   if (
     format ===
@@ -6332,14 +5632,11 @@ function handleDownload() {
     );
 
     return;
-
   }
-
 
   downloadCSV(
     rows
   );
-
 }
 
 
@@ -6356,7 +5653,6 @@ function setupDownload() {
       "click",
       handleDownload
     );
-
 }
 
 
@@ -6377,5 +5673,4 @@ if (
 } else {
 
   setupDownload();
-
 }
