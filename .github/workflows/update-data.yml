@@ -56,6 +56,8 @@ jobs:
 
       - name: Build current market cap
         run: python scripts/build_current_market_cap.py
+        - name: Build free float
+        run: python scripts/build_free_float.py
 
       - name: Build RS rating
         run: python scripts/build_rs_rating.py
