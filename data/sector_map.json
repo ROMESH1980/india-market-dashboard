@@ -12838,5 +12838,10 @@
     "sector": "Consumer Defensive",
     "industry": "Confectioners",
     "source": "Yahoo Finance"
+  },
+  "CRESTO": {
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "source": "Yahoo Finance"
   }
 }
