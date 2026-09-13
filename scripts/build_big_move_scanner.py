@@ -9,43 +9,27 @@ from pathlib import Path
 # =========================================================
 
 ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
 
-DATA = ROOT / "data"
-
-STOCKS_PATH = DATA / "stocks.json"
-
-OUTPUT_PATH = DATA / "big_move_scanner.json"
+STOCKS_PATH = DATA_DIR / "stocks.json"
+OUTPUT_PATH = DATA_DIR / "big_move_scanner.json"
 
 
 # =========================================================
-# SETTINGS
-# =========================================================
-
-MIN_MARKET_CAP_CR = 100
-
-
-# =========================================================
-# JSON HELPERS
+# HELPERS
 # =========================================================
 
 def load_json(path, default):
-
     try:
-
         return json.loads(
-            path.read_text(
-                encoding="utf-8"
-            )
+            path.read_text(encoding="utf-8")
         )
-
     except Exception:
-
         return default
 
 
 def save_json(path, data):
-
-    DATA.mkdir(
+    path.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
@@ -60,2137 +44,1115 @@ def save_json(path, data):
     )
 
 
-# =========================================================
-# NUMBER HELPERS
-# =========================================================
+def num(value):
+    """
+    Safe numeric conversion.
 
-def safe_float(value):
+    IMPORTANT:
+    None / blank / Pending / dash must remain None.
+    Do NOT convert missing values to zero.
+    """
+
+    if value is None:
+        return None
+
+    if isinstance(value, str):
+        text = (
+            value
+            .replace(",", "")
+            .replace("%", "")
+            .replace("₹", "")
+            .strip()
+        )
+
+        if not text:
+            return None
+
+        if text.lower() in {
+            "-",
+            "—",
+            "na",
+            "n/a",
+            "none",
+            "null",
+            "pending",
+        }:
+            return None
+
+        value = text
 
     try:
+        result = float(value)
 
-        if value is None:
+        if not math.isfinite(result):
             return None
 
-        if isinstance(
-            value,
-            str,
-        ):
-
-            value = (
-                value
-                .replace(",", "")
-                .replace("%", "")
-                .replace("₹", "")
-                .replace("Cr", "")
-                .replace("x", "")
-                .strip()
-            )
-
-            if not value:
-                return None
-
-        value = float(value)
-
-        if not math.isfinite(value):
-            return None
-
-        return value
+        return result
 
     except Exception:
-
         return None
 
 
-def positive_float(value):
+def integer(value):
+    value = num(value)
 
-    value = safe_float(
-        value
+    if value is None:
+        return None
+
+    return int(round(value))
+
+
+def text(value):
+    if value is None:
+        return ""
+
+    return str(value).strip()
+
+
+def first_value(row, keys):
+    for key in keys:
+        value = row.get(key)
+
+        if value is None:
+            continue
+
+        if isinstance(value, str):
+            if not value.strip():
+                continue
+
+        return value
+
+    return None
+
+
+def first_number(row, keys):
+    for key in keys:
+        value = num(
+            row.get(key)
+        )
+
+        if value is not None:
+            return value
+
+    return None
+
+
+def clamp(value, low, high):
+    return max(
+        low,
+        min(
+            high,
+            value,
+        ),
     )
 
-    if (
-        value is None
-        or
-        value <= 0
-    ):
 
+# =========================================================
+# RETURNS
+# =========================================================
+
+def stock_return(row, period):
+    """
+    Support multiple field names so existing Page 1 backend
+    does not need to change.
+    """
+
+    candidates = {
+        "1M": [
+            "stockGrowth1M",
+            "stockReturn1M",
+            "return1M",
+            "priceChange1M",
+            "change1M",
+        ],
+
+        "3M": [
+            "stockGrowth3M",
+            "stockReturn3M",
+            "return3M",
+            "priceChange3M",
+            "change3M",
+        ],
+
+        "6M": [
+            "stockGrowth6M",
+            "stockReturn6M",
+            "return6M",
+            "priceChange6M",
+            "change6M",
+        ],
+
+        "1Y": [
+            "stockGrowth1Y",
+            "stockReturn1Y",
+            "return1Y",
+            "priceChange1Y",
+            "change1Y",
+            "return12M",
+        ],
+    }
+
+    return first_number(
+        row,
+        candidates.get(
+            period,
+            [],
+        ),
+    )
+
+
+# =========================================================
+# FUNDAMENTAL / BUSINESS TRIGGERS
+# =========================================================
+
+def score_like(value):
+    value = num(value)
+
+    if value is None:
         return None
 
     return value
 
 
-def round_or_none(
-    value,
-    decimals=2,
-):
-
-    value = safe_float(
-        value
-    )
+def positive_flag(value):
+    """
+    Converts common boolean / score / string values
+    into True / False / None.
+    """
 
     if value is None:
         return None
 
-    return round(
-        value,
-        decimals,
-    )
-
-
-def clamp(
-    value,
-    minimum=0,
-    maximum=100,
-):
-
-    value = safe_float(
-        value
-    )
-
-    if value is None:
-        return None
-
-    return max(
-        minimum,
-        min(
-            maximum,
-            value,
-        ),
-    )
-
-
-# =========================================================
-# BOOLEAN HELPERS
-# =========================================================
-
-def truthy(value):
-
-    if value is True:
-        return True
-
-    if isinstance(
-        value,
-        str,
-    ):
-
-        return (
-            value.strip().lower()
-            in {
-                "yes",
-                "true",
-                "1",
-                "ready",
-                "confirmed",
-            }
-        )
-
-    return False
-
-
-# =========================================================
-# STOCK FIELD HELPERS
-# =========================================================
-
-def company_name(row):
-
-    return (
-        row.get("name")
-        or
-        row.get("companyName")
-        or
-        row.get("symbol")
-        or
-        ""
-    )
-
-
-def symbol(row):
-
-    return str(
-        row.get("symbol")
-        or ""
-    ).strip().upper()
-
-
-def market_cap(row):
-
-    return positive_float(
-        row.get(
-            "marketCapCr"
-        )
-    )
-
-
-def price(row):
-
-    return positive_float(
-        row.get(
-            "price"
-        )
-    )
-
-
-# =========================================================
-# RETURN HELPERS
-# =========================================================
-
-def return_1m(row):
-
-    return round_or_none(
-        row.get(
-            "stockGrowth1M"
-        )
-    )
-
-
-def return_3m(row):
-
-    value = row.get(
-        "stockGrowth3M"
-    )
-
-    if value is None:
-
-        value = row.get(
-            "rsReturn3M"
-        )
-
-    return round_or_none(
-        value
-    )
-
-
-def return_6m(row):
-
-    value = row.get(
-        "stockGrowth6M"
-    )
-
-    if value is None:
-
-        value = row.get(
-            "rsReturn6M"
-        )
-
-    return round_or_none(
-        value
-    )
-
-
-def return_1y(row):
-
-    value = row.get(
-        "rsReturn12M"
-    )
-
-    return round_or_none(
-        value
-    )
-
-
-# =========================================================
-# RATING HELPERS
-# =========================================================
-
-def rs_rating(row):
-
-    value = safe_float(
-        row.get(
-            "rsRating"
-        )
-    )
-
-    if value is None:
-        return None
-
-    return int(
-        max(
-            1,
-            min(
-                99,
-                round(value),
-            ),
-        )
-    )
-
-
-def stock_momentum_rating(row):
-
-    value = safe_float(
-        row.get(
-            "stockMomentumRating"
-        )
-    )
-
-    if value is None:
-        return None
-
-    return int(
-        max(
-            1,
-            min(
-                99,
-                round(value),
-            ),
-        )
-    )
-
-
-def industry_rating(row):
-
-    value = safe_float(
-        row.get(
-            "industryRating"
-        )
-    )
-
-    if value is None:
-        return None
-
-    return int(
-        max(
-            1,
-            min(
-                99,
-                round(value),
-            ),
-        )
-    )
-
-
-# =========================================================
-# RESEARCH SCORE HELPERS
-# =========================================================
-
-def score_value(
-    row,
-    field,
-):
-
-    return clamp(
-        row.get(
-            field
-        )
-    )
-
-
-def research_reasons(row):
-
-    reasons = row.get(
-        "researchReasons"
-    )
-
-    if isinstance(
-        reasons,
-        dict,
-    ):
-
-        return reasons
-
-    return {}
-
-
-def reason_to_text(value):
-
-    if value is None:
-        return ""
-
-    if isinstance(
-        value,
-        str,
-    ):
-
+    if isinstance(value, bool):
         return value
 
-    if isinstance(
-        value,
-        dict,
-    ):
-
-        parts = []
-
-        for key in [
-            "reason",
-            "description",
-            "note",
-            "source",
-        ]:
-
-            text = value.get(
-                key
-            )
-
-            if text:
-                parts.append(
-                    str(text)
-                )
-
-        return " ".join(
-            parts
-        )
-
-    if isinstance(
-        value,
-        list,
-    ):
-
-        return " ".join(
-            reason_to_text(x)
-            for x in value
-        )
-
-    return str(
-        value
-    )
-
-
-def combined_research_text(row):
-
-    blocks = []
-
-    reasons = research_reasons(
-        row
-    )
-
-    for value in reasons.values():
-
-        text = reason_to_text(
-            value
-        )
-
-        if text:
-            blocks.append(
-                text
-            )
-
-    for field in [
-        "tmvDetails",
-        "gfcDetails",
-        "fundamentalReason",
-        "growthReason",
-        "capexReason",
-        "tailwindReason",
-    ]:
-
-        value = row.get(
-            field
-        )
-
-        text = reason_to_text(
-            value
-        )
-
-        if text:
-            blocks.append(
-                text
-            )
-
-    return (
-        " ".join(blocks)
-        .lower()
-    )
-
-
-# =========================================================
-# FUNDAMENTAL / BUSINESS TRIGGER ENGINE
-# =========================================================
-
-TRIGGER_KEYWORDS = {
-
-    "Earnings Acceleration": [
-        "earnings growth",
-        "earnings acceleration",
-        "profit growth",
-        "pat growth",
-        "revenue growth",
-        "sales growth",
-        "strong result",
-        "strong results",
-    ],
-
-    "Margin Expansion": [
-        "margin expansion",
-        "margin improved",
-        "margin improvement",
-        "ebitda margin",
-        "operating margin",
-    ],
-
-    "Order Win": [
-        "order win",
-        "order wins",
-        "new order",
-        "order received",
-        "order book",
-        "orderbook",
-        "contract awarded",
-        "contract win",
-    ],
-
-    "CAPEX": [
-        "capex",
-        "capital expenditure",
-        "investment programme",
-        "investment program",
-    ],
-
-    "Capacity Expansion": [
-        "capacity expansion",
-        "capacity addition",
-        "capacity increase",
-        "expansion project",
-        "new facility",
-        "new plant",
-        "new unit",
-        "commissioning",
-    ],
-
-    "New Product": [
-        "new product",
-        "product launch",
-        "new launch",
-        "new segment",
-        "product portfolio",
-    ],
-
-    "Fund Raising": [
-        "fund raising",
-        "fundraising",
-        "preferential issue",
-        "preferential allotment",
-        "warrant",
-        "warrants",
-        "qip",
-        "qualified institutional placement",
-        "rights issue",
-    ],
-
-    "Corporate Action": [
-        "bonus",
-        "stock split",
-        "split",
-        "merger",
-        "demerger",
-        "acquisition",
-        "buyback",
-        "promoter purchase",
-    ],
-
-    "Industry Tailwind": [
-        "tailwind",
-        "industry growth",
-        "sector growth",
-        "strong demand",
-        "demand growth",
-        "market expansion",
-        "import substitution",
-        "value migration",
-    ],
-
-}
-
-
-def detect_text_triggers(row):
-
-    text = combined_research_text(
-        row
-    )
-
-    detected = []
-
-    if not text:
-        return detected
-
-    for (
-        label,
-        keywords,
-    ) in TRIGGER_KEYWORDS.items():
-
-        for keyword in keywords:
-
-            if keyword in text:
-
-                detected.append(
-                    label
-                )
-
-                break
-
-    return detected
-
-
-# =========================================================
-# SCORE-BASED TRIGGER ENGINE
-# =========================================================
-
-def detect_score_triggers(row):
-
-    detected = []
-
-    future_growth = score_value(
-        row,
-        "futureGrowth",
-    )
-
-    fundamental = score_value(
-        row,
-        "fundamentalQuality",
-    )
-
-    capex = score_value(
-        row,
-        "capexScore",
-    )
-
-    tailwind = score_value(
-        row,
-        "tailwindScore",
-    )
-
-    macro = score_value(
-        row,
-        "macroSupport",
-    )
-
-    value_migration = score_value(
-        row,
-        "valueMigration",
-    )
-
-
-    if (
-        future_growth is not None
-        and
-        future_growth >= 70
-    ):
-
-        detected.append(
-            "Growth"
-        )
-
-
-    if (
-        fundamental is not None
-        and
-        fundamental >= 70
-    ):
-
-        detected.append(
-            "Fundamental Quality"
-        )
-
-
-    if (
-        capex is not None
-        and
-        capex >= 70
-    ):
-
-        detected.append(
-            "CAPEX"
-        )
-
-
-    if (
-        tailwind is not None
-        and
-        tailwind >= 70
-    ):
-
-        detected.append(
-            "Industry Tailwind"
-        )
-
-
-    if (
-        macro is not None
-        and
-        macro >= 70
-    ):
-
-        detected.append(
-            "Macro Support"
-        )
-
-
-    if (
-        value_migration is not None
-        and
-        value_migration >= 70
-    ):
-
-        detected.append(
-            "Value Migration"
-        )
-
-
-    return detected
-
-
-def get_triggers(row):
+    numeric = num(value)
+
+    if numeric is not None:
+        return numeric >= 60
+
+    value = str(value).strip().lower()
+
+    if value in {
+        "yes",
+        "true",
+        "strong",
+        "positive",
+        "present",
+        "active",
+        "high",
+        "good",
+        "bullish",
+    }:
+        return True
+
+    if value in {
+        "no",
+        "false",
+        "weak",
+        "negative",
+        "absent",
+        "low",
+    }:
+        return False
+
+    return None
+
+
+def detect_triggers(row):
+    """
+    Build trigger list from existing research fields.
+
+    This does NOT invent a trigger.
+    It only uses fields already available in stocks.json.
+    """
 
     triggers = []
 
-    for trigger in (
-        detect_text_triggers(row)
-        +
-        detect_score_triggers(row)
+    # -----------------------------------------------------
+    # Earnings Acceleration
+    # -----------------------------------------------------
+
+    earnings_flag = first_value(
+        row,
+        [
+            "earningsAcceleration",
+            "earningsGrowth",
+            "earningsTrigger",
+        ],
+    )
+
+    if positive_flag(earnings_flag) is True:
+        triggers.append(
+            "Earnings Acceleration"
+        )
+
+    # -----------------------------------------------------
+    # Margin Expansion
+    # -----------------------------------------------------
+
+    margin_flag = first_value(
+        row,
+        [
+            "marginExpansion",
+            "marginTrigger",
+        ],
+    )
+
+    if positive_flag(margin_flag) is True:
+        triggers.append(
+            "Margin Expansion"
+        )
+
+    # -----------------------------------------------------
+    # Order Win / Order Book
+    # -----------------------------------------------------
+
+    order_flag = first_value(
+        row,
+        [
+            "orderWin",
+            "orderBook",
+            "orderTrigger",
+        ],
+    )
+
+    if positive_flag(order_flag) is True:
+        triggers.append(
+            "Order Win / Order Book"
+        )
+
+    # -----------------------------------------------------
+    # CAPEX
+    # -----------------------------------------------------
+
+    capex_value = first_value(
+        row,
+        [
+            "capexTrigger",
+            "capex",
+            "capexScore",
+        ],
+    )
+
+    capex_score = score_like(
+        capex_value
+    )
+
+    if (
+        positive_flag(capex_value) is True
+        or
+        (
+            capex_score is not None
+            and capex_score >= 70
+        )
     ):
+        triggers.append(
+            "CAPEX"
+        )
 
-        if trigger not in triggers:
+    # -----------------------------------------------------
+    # Capacity Expansion
+    # -----------------------------------------------------
 
-            triggers.append(
-                trigger
-            )
+    capacity_flag = first_value(
+        row,
+        [
+            "capacityExpansion",
+            "capacityTrigger",
+        ],
+    )
 
-    return triggers
+    if positive_flag(capacity_flag) is True:
+        triggers.append(
+            "Capacity Expansion"
+        )
+
+    # -----------------------------------------------------
+    # New Product
+    # -----------------------------------------------------
+
+    new_product = first_value(
+        row,
+        [
+            "newProduct",
+            "newProductTrigger",
+        ],
+    )
+
+    if positive_flag(new_product) is True:
+        triggers.append(
+            "New Product"
+        )
+
+    # -----------------------------------------------------
+    # Corporate Action
+    # -----------------------------------------------------
+
+    corporate_action = first_value(
+        row,
+        [
+            "corporateAction",
+            "corporateActionTrigger",
+        ],
+    )
+
+    if positive_flag(corporate_action) is True:
+        triggers.append(
+            "Corporate Action"
+        )
+
+    # -----------------------------------------------------
+    # Fund Raise / Warrants / QIP
+    # -----------------------------------------------------
+
+    fund_raise = first_value(
+        row,
+        [
+            "fundRaise",
+            "fundRaising",
+            "preferentialIssue",
+            "warrants",
+            "qip",
+        ],
+    )
+
+    if positive_flag(fund_raise) is True:
+        triggers.append(
+            "Fund Raise / Warrants / QIP"
+        )
+
+    # -----------------------------------------------------
+    # Industry Tailwind
+    # -----------------------------------------------------
+
+    tailwind = first_value(
+        row,
+        [
+            "tailwind",
+            "tailwindScore",
+            "industryTailwind",
+        ],
+    )
+
+    tailwind_score = score_like(
+        tailwind
+    )
+
+    if (
+        positive_flag(tailwind) is True
+        or
+        (
+            tailwind_score is not None
+            and tailwind_score >= 70
+        )
+    ):
+        triggers.append(
+            "Industry Tailwind"
+        )
+
+    # remove duplicates, preserve order
+    clean = []
+
+    seen = set()
+
+    for item in triggers:
+        if item in seen:
+            continue
+
+        seen.add(item)
+        clean.append(item)
+
+    return clean
 
 
-# =========================================================
-# KEY TRIGGER
-# =========================================================
+def choose_key_trigger(triggers):
+    """
+    Higher-value event trigger gets priority.
+    """
 
-TRIGGER_PRIORITY = [
+    priority = [
+        "Earnings Acceleration",
+        "Margin Expansion",
+        "Order Win / Order Book",
+        "Capacity Expansion",
+        "CAPEX",
+        "Fund Raise / Warrants / QIP",
+        "New Product",
+        "Corporate Action",
+        "Industry Tailwind",
+    ]
 
-    "Earnings Acceleration",
-
-    "Margin Expansion",
-
-    "Order Win",
-
-    "Capacity Expansion",
-
-    "CAPEX",
-
-    "New Product",
-
-    "Fund Raising",
-
-    "Corporate Action",
-
-    "Fundamental Quality",
-
-    "Growth",
-
-    "Industry Tailwind",
-
-    "Value Migration",
-
-    "Macro Support",
-
-]
-
-
-def key_trigger(
-    triggers,
-):
-
-    for item in TRIGGER_PRIORITY:
-
+    for item in priority:
         if item in triggers:
-
             return item
-
-    if triggers:
-
-        return triggers[0]
 
     return None
 
 
 # =========================================================
-# PRELIMINARY MOMENTUM SCORE
-# =========================================================
-#
-# Maximum = 35 points
-#
-# RS Rating              = 15
-# Stock Momentum Rating  = 10
-# Industry Rating        = 10
-#
-# These are already available from the existing
-# MY MARKET RESEARCH engine.
-#
+# PHASE-1 SCORE
 # =========================================================
 
-def momentum_score(row):
-
-    score = 0.0
-
-    available = 0.0
-
-
-    rs = rs_rating(
-        row
-    )
-
-    if rs is not None:
-
-        available += 15
-
-        score += (
-            rs
-            /
-            99
-            *
-            15
-        )
-
-
-    momentum = stock_momentum_rating(
-        row
-    )
-
-    if momentum is not None:
-
-        available += 10
-
-        score += (
-            momentum
-            /
-            99
-            *
-            10
-        )
-
-
-    industry = industry_rating(
-        row
-    )
-
-    if industry is not None:
-
-        available += 10
-
-        score += (
-            industry
-            /
-            99
-            *
-            10
-        )
-
-
-    return (
-        score,
-        available,
-    )
-
-
-# =========================================================
-# RETURN QUALITY SCORE
-# =========================================================
-#
-# Maximum = 15 points
-#
-# This is NOT a substitute for chart structure.
-#
-# It only measures whether price momentum is already
-# strong across multiple periods.
-#
-# =========================================================
-
-def score_return(
-    value,
-    full_threshold,
-):
-
-    value = safe_float(
-        value
-    )
-
-    if value is None:
-
-        return None
-
-    if value <= 0:
-
-        return 0
-
-    ratio = (
-        value
-        /
-        full_threshold
-    )
-
-    return min(
-        1,
-        ratio,
-    )
-
-
-def return_quality_score(row):
-
-    periods = [
-
-        (
-            return_1m(row),
-            15,
-            4,
-        ),
-
-        (
-            return_3m(row),
-            30,
-            4,
-        ),
-
-        (
-            return_6m(row),
-            50,
-            4,
-        ),
-
-        (
-            return_1y(row),
-            80,
-            3,
-        ),
-
-    ]
-
-
-    score = 0.0
-
-    available = 0.0
-
-
-    for (
-        value,
-        full_threshold,
-        max_points,
-    ) in periods:
-
-        result = score_return(
-            value,
-            full_threshold,
-        )
-
-        if result is None:
-            continue
-
-        available += max_points
-
-        score += (
-            result
-            *
-            max_points
-        )
-
-
-    return (
-        score,
-        available,
-    )
-
-
-# =========================================================
-# FUNDAMENTAL SCORE
-# =========================================================
-#
-# Maximum = 30 points
-#
-# Future Growth           8
-# Fundamental Quality     8
-# CAPEX                    5
-# Tailwind                 4
-# Value Migration          3
-# Macro                    2
-#
-# =========================================================
-
-def fundamental_score(row):
-
-    fields = [
-
-        (
-            "futureGrowth",
-            8,
-        ),
-
-        (
-            "fundamentalQuality",
-            8,
-        ),
-
-        (
-            "capexScore",
-            5,
-        ),
-
-        (
-            "tailwindScore",
-            4,
-        ),
-
-        (
-            "valueMigration",
-            3,
-        ),
-
-        (
-            "macroSupport",
-            2,
-        ),
-
-    ]
-
-
-    score = 0.0
-
-    available = 0.0
-
-
-    for (
-        field,
-        max_points,
-    ) in fields:
-
-        value = score_value(
-            row,
-            field,
-        )
-
-        if value is None:
-            continue
-
-        available += max_points
-
-        score += (
-            value
-            /
-            100
-            *
-            max_points
-        )
-
-
-    return (
-        score,
-        available,
-    )
-
-
-# =========================================================
-# BUSINESS TRIGGER BONUS
-# =========================================================
-#
-# Maximum = 20 points
-#
-# Trigger quality is deliberately capped.
-#
-# =========================================================
-
-TRIGGER_POINTS = {
-
-    "Earnings Acceleration": 5,
-
-    "Margin Expansion": 4,
-
-    "Order Win": 5,
-
-    "CAPEX": 4,
-
-    "Capacity Expansion": 5,
-
-    "New Product": 3,
-
-    "Fund Raising": 2,
-
-    "Corporate Action": 2,
-
-    "Industry Tailwind": 3,
-
-    "Fundamental Quality": 2,
-
-    "Growth": 2,
-
-    "Value Migration": 2,
-
-    "Macro Support": 1,
-
-}
-
-
-def trigger_score(
+def calculate_phase1_score(
+    rs_rating,
+    stock_momentum,
+    industry_rating,
+    return_1m,
+    return_3m,
+    return_6m,
+    return_1y,
     triggers,
 ):
+    """
+    Phase-1 preliminary score.
 
-    total = 0
+    MAX = 100 here.
 
-    for trigger in triggers:
+    build_big_move_technical.py later rescales
+    this phase to 55 points and adds technical 45 points.
+    """
 
-        total += TRIGGER_POINTS.get(
-            trigger,
-            0,
+    score = 0.0
+
+    # -----------------------------------------------------
+    # RS Rating : 25 points
+    # -----------------------------------------------------
+
+    if rs_rating is not None:
+        score += (
+            clamp(
+                rs_rating,
+                0,
+                100,
+            )
+            / 100
+            * 25
         )
 
-    return min(
+    # -----------------------------------------------------
+    # Stock Momentum : 20 points
+    # -----------------------------------------------------
+
+    if stock_momentum is not None:
+        score += (
+            clamp(
+                stock_momentum,
+                0,
+                100,
+            )
+            / 100
+            * 20
+        )
+
+    # -----------------------------------------------------
+    # Industry Rating : 15 points
+    # -----------------------------------------------------
+
+    if industry_rating is not None:
+        score += (
+            clamp(
+                industry_rating,
+                0,
+                100,
+            )
+            / 100
+            * 15
+        )
+
+    # -----------------------------------------------------
+    # Multi-period return strength : 20 points
+    # -----------------------------------------------------
+
+    return_score = 0.0
+
+    if return_1m is not None:
+        if return_1m >= 20:
+            return_score += 5
+        elif return_1m >= 10:
+            return_score += 4
+        elif return_1m >= 5:
+            return_score += 3
+        elif return_1m > 0:
+            return_score += 2
+
+    if return_3m is not None:
+        if return_3m >= 40:
+            return_score += 5
+        elif return_3m >= 25:
+            return_score += 4
+        elif return_3m >= 15:
+            return_score += 3
+        elif return_3m > 0:
+            return_score += 2
+
+    if return_6m is not None:
+        if return_6m >= 60:
+            return_score += 5
+        elif return_6m >= 40:
+            return_score += 4
+        elif return_6m >= 20:
+            return_score += 3
+        elif return_6m > 0:
+            return_score += 2
+
+    if return_1y is not None:
+        if return_1y >= 100:
+            return_score += 5
+        elif return_1y >= 60:
+            return_score += 4
+        elif return_1y >= 30:
+            return_score += 3
+        elif return_1y > 0:
+            return_score += 2
+
+    score += min(
         20,
-        total,
+        return_score,
     )
 
+    # -----------------------------------------------------
+    # Fundamental / business triggers : 20 points
+    # -----------------------------------------------------
 
-# =========================================================
-# PRELIMINARY SCORE
-# =========================================================
-#
-# CURRENT PHASE
-#
-# Momentum                 35
-# Return Quality           15
-# Fundamental Quality      30
-# Business Triggers        20
-#
-# TOTAL                   100
-#
-#
-# IMPORTANT:
-#
-# Technical chart engine is intentionally NOT guessed.
-#
-# In Phase-2:
-#
-# - Prior Move
-# - Retracement
-# - Consolidation Days
-# - Volume Contraction
-# - Volatility Contraction
-# - Breakout Distance
-# - Turnover Expansion
-# - Free Float Shares
-#
-# will be integrated.
-#
-# When Phase-2 is added, final score weights will be
-# redesigned around technical + fundamental + supply.
-#
-# =========================================================
-
-def calculate_preliminary_score(
-    row,
-    triggers,
-):
-
-    momentum, momentum_available = (
-        momentum_score(
-            row
-        )
-    )
-
-    returns, returns_available = (
-        return_quality_score(
-            row
-        )
-    )
-
-    fundamental, fundamental_available = (
-        fundamental_score(
-            row
-        )
-    )
-
-    trigger_points = trigger_score(
+    trigger_count = len(
         triggers
     )
 
+    if trigger_count >= 4:
+        score += 20
 
-    raw_score = (
-        momentum
-        +
-        returns
-        +
-        fundamental
-        +
-        trigger_points
-    )
+    elif trigger_count == 3:
+        score += 17
 
+    elif trigger_count == 2:
+        score += 13
 
-    score = int(
+    elif trigger_count == 1:
+        score += 8
+
+    return int(
         round(
-            max(
+            clamp(
+                score,
                 0,
-                min(
-                    100,
-                    raw_score,
-                ),
+                100,
             )
         )
     )
 
 
-    coverage_available = (
-        momentum_available
-        +
-        returns_available
-        +
-        fundamental_available
-        +
-        20
-    )
-
-
-    coverage_pct = (
-        coverage_available
-        /
-        100
-        *
-        100
-    )
-
-
-    return {
-
-        "score":
-            score,
-
-        "coveragePct":
-            round(
-                coverage_pct,
-                1,
-            ),
-
-        "components": {
-
-            "momentum":
-                round(
-                    momentum,
-                    2,
-                ),
-
-            "returnQuality":
-                round(
-                    returns,
-                    2,
-                ),
-
-            "fundamental":
-                round(
-                    fundamental,
-                    2,
-                ),
-
-            "businessTriggers":
-                trigger_points,
-
-        },
-
-    }
-
-
 # =========================================================
-# TECHNICAL DATA PLACEHOLDERS
-# =========================================================
-#
-# DO NOT manufacture technical values from
-# 1M / 3M / 6M returns.
-#
-# Proper daily OHLCV history will be used in Phase-2.
-#
+# PRELIMINARY SETUP STATUS
 # =========================================================
 
-def technical_fields(row):
+def preliminary_status(score):
+    if score >= 80:
+        return "High Potential"
 
-    return {
+    if score >= 70:
+        return "Watchlist"
 
-        "priorMovePct":
-            round_or_none(
-                row.get(
-                    "priorMovePct"
-                )
-            ),
+    if score >= 60:
+        return "Developing"
 
-        "movePeriod":
-            row.get(
-                "movePeriod"
-            ),
-
-        "retracementPct":
-            round_or_none(
-                row.get(
-                    "retracementPct"
-                )
-            ),
-
-        "consolidationDays":
-            row.get(
-                "consolidationDays"
-            ),
-
-        "volumeContraction":
-            (
-                row.get(
-                    "volumeContraction"
-                )
-                if
-                "volumeContraction"
-                in row
-                else
-                None
-            ),
-
-        "volatilityContraction":
-            (
-                row.get(
-                    "volatilityContraction"
-                )
-                if
-                "volatilityContraction"
-                in row
-                else
-                None
-            ),
-
-        "breakoutStatus":
-            (
-                row.get(
-                    "breakoutStatus"
-                )
-                or
-                "Pending"
-            ),
-
-        "turnoverExpansion":
-            (
-                row.get(
-                    "turnoverExpansion"
-                )
-                if
-                "turnoverExpansion"
-                in row
-                else
-                None
-            ),
-
-    }
-
-
-# =========================================================
-# FREE FLOAT
-# =========================================================
-
-def free_float_shares(row):
-
-    candidates = [
-
-        row.get(
-            "freeFloatShares"
-        ),
-
-        row.get(
-            "free_float_shares"
-        ),
-
-        row.get(
-            "freeFloatQuantity"
-        ),
-
-        row.get(
-            "freeFloatQty"
-        ),
-
-    ]
-
-    for value in candidates:
-
-        result = positive_float(
-            value
-        )
-
-        if result is not None:
-
-            return int(
-                round(
-                    result
-                )
-            )
-
-    return None
+    return "Early"
 
 
 # =========================================================
 # MISSING CONDITIONS
 # =========================================================
 
-def missing_conditions(
-    row,
-    technical,
-    free_float,
-    triggers,
+def initial_missing_conditions(
+    rs_rating,
+    stock_momentum,
+    industry_rating,
+    free_float_shares,
+    free_float_pct,
 ):
-
     missing = []
 
-
-    if rs_rating(row) is None:
-
+    if rs_rating is None:
         missing.append(
-            "RS Rating"
+            "RS"
         )
 
-
-    if stock_momentum_rating(
-        row
-    ) is None:
-
+    if stock_momentum is None:
         missing.append(
             "Stock Momentum"
         )
 
-
-    if industry_rating(
-        row
-    ) is None:
-
+    if industry_rating is None:
         missing.append(
             "Industry Rating"
         )
 
-
-    if free_float is None:
-
-        missing.append(
-            "Free Float Shares"
-        )
-
-
-    if technical.get(
-        "priorMovePct"
-    ) is None:
-
-        missing.append(
-            "Prior Move"
-        )
-
-
-    if technical.get(
-        "retracementPct"
-    ) is None:
-
-        missing.append(
-            "Retracement"
-        )
-
-
-    if technical.get(
-        "consolidationDays"
-    ) is None:
-
-        missing.append(
-            "Consolidation"
-        )
-
-
-    if technical.get(
-        "volumeContraction"
-    ) is None:
-
-        missing.append(
-            "Volume Contraction"
-        )
-
-
-    if technical.get(
-        "volatilityContraction"
-    ) is None:
-
-        missing.append(
-            "Volatility Contraction"
-        )
-
-
     if (
-        technical.get(
-            "breakoutStatus"
-        )
-        in {
-            None,
-            "",
-            "Pending",
-        }
+        free_float_shares is None
+        and
+        free_float_pct is None
     ):
-
         missing.append(
-            "Breakout Analysis"
+            "Free Float"
         )
 
-
-    if technical.get(
-        "turnoverExpansion"
-    ) is None:
-
-        missing.append(
-            "Turnover Expansion"
-        )
-
-
-    if not triggers:
-
-        missing.append(
-            "Confirmed Business Trigger"
-        )
-
+    # Technical engine runs after this script.
+    missing.append(
+        "Technical Analysis"
+    )
 
     return missing
 
 
 # =========================================================
-# SETUP STATUS
+# BUILD ROW
 # =========================================================
 
-def technical_ready(
-    technical,
-):
-
-    required = [
-
-        technical.get(
-            "priorMovePct"
-        ),
-
-        technical.get(
-            "retracementPct"
-        ),
-
-        technical.get(
-            "consolidationDays"
-        ),
-
-        technical.get(
-            "volumeContraction"
-        ),
-
-        technical.get(
-            "volatilityContraction"
-        ),
-
-        technical.get(
-            "turnoverExpansion"
-        ),
-
-    ]
-
-    if any(
-        value is None
-        for value in required
-    ):
-
-        return False
-
-
-    breakout = technical.get(
-        "breakoutStatus"
-    )
-
-    if (
-        not breakout
-        or
-        breakout == "Pending"
-    ):
-
-        return False
-
-
-    return True
-
-
-def setup_status(
-    score,
-    technical,
-):
-
-    if not technical_ready(
-        technical
-    ):
-
-        if score >= 80:
-
-            return (
-                "High Potential / "
-                "Technical Pending"
-            )
-
-        if score >= 70:
-
-            return (
-                "Watchlist / "
-                "Technical Pending"
-            )
-
-        return (
-            "Data Building"
+def build_scanner_row(stock):
+    symbol = text(
+        stock.get(
+            "symbol"
         )
+    ).upper()
 
-
-    breakout = str(
-        technical.get(
-            "breakoutStatus"
-        )
-        or ""
-    ).lower()
-
-
-    if (
-        "breakout"
-        in breakout
-        and
-        "near"
-        not in breakout
-    ):
-
-        if score >= 75:
-
-            return "Breakout"
-
-
-    if "near" in breakout:
-
-        if score >= 70:
-
-            return "Near Breakout"
-
-
-    if score >= 80:
-
-        return "Strong Setup"
-
-
-    if score >= 65:
-
-        return "Watchlist"
-
-
-    return "Developing"
-
-
-# =========================================================
-# BUILD ONE STOCK
-# =========================================================
-
-def build_scanner_row(row):
-
-    stock_symbol = symbol(
-        row
-    )
-
-    if not stock_symbol:
-
-        return None
-
-
-    mcap = market_cap(
-        row
-    )
-
-
-    # Permanent dashboard universe rule:
-    # Known market cap below ₹100 Cr excluded.
-    #
-    # Unknown market cap remains.
-    if (
-        mcap is not None
-        and
-        mcap < MIN_MARKET_CAP_CR
-    ):
-
-        return None
-
-
-    current_price = price(
-        row
-    )
-
-    if current_price is None:
-
-        return None
-
-
-    triggers = get_triggers(
-        row
-    )
-
-
-    score_data = (
-        calculate_preliminary_score(
-            row,
-            triggers,
+    name = text(
+        first_value(
+            stock,
+            [
+                "name",
+                "companyName",
+                "company",
+            ],
         )
     )
 
-
-    technical = technical_fields(
-        row
-    )
-
-
-    free_float = free_float_shares(
-        row
-    )
-
-
-    missing = missing_conditions(
-        row,
-        technical,
-        free_float,
-        triggers,
-    )
-
-
-    status = setup_status(
-        score_data[
-            "score"
+    price = first_number(
+        stock,
+        [
+            "price",
+            "close",
+            "lastPrice",
+            "ltp",
         ],
-        technical,
     )
 
-
-    fundamental_trigger = (
-        len(triggers) > 0
+    change_pct = first_number(
+        stock,
+        [
+            "changePct",
+            "changePercent",
+            "pctChange",
+            "pChange",
+        ],
     )
 
+    return_1m = stock_return(
+        stock,
+        "1M",
+    )
 
-    return {
+    return_3m = stock_return(
+        stock,
+        "3M",
+    )
 
-        # =================================================
-        # IDENTITY
-        # =================================================
+    return_6m = stock_return(
+        stock,
+        "6M",
+    )
 
-        "stock":
-            company_name(
-                row
-            ),
+    return_1y = stock_return(
+        stock,
+        "1Y",
+    )
+
+    rs_rating = first_number(
+        stock,
+        [
+            "rsRating",
+        ],
+    )
+
+    stock_momentum = first_number(
+        stock,
+        [
+            "stockMomentumRating",
+        ],
+    )
+
+    industry_rating = first_number(
+        stock,
+        [
+            "industryRating",
+        ],
+    )
+
+    # =====================================================
+    # FREE FLOAT
+    #
+    # Values originate from build_free_float.py.
+    #
+    # freeFloatShares:
+    # exact filing-derived Public Shares minus locked
+    # public shares.
+    #
+    # It is NOT estimated from Market Cap / Price.
+    # =====================================================
+
+    free_float_shares = integer(
+        stock.get(
+            "freeFloatShares"
+        )
+    )
+
+    free_float_pct = num(
+        stock.get(
+            "freeFloatPct"
+        )
+    )
+
+    free_float_status = (
+        text(
+            stock.get(
+                "freeFloatStatus"
+            )
+        )
+        or
+        "PENDING"
+    )
+
+    free_float_date = (
+        stock.get(
+            "freeFloatDate"
+        )
+    )
+
+    free_float_source = (
+        stock.get(
+            "freeFloatSource"
+        )
+    )
+
+    free_float_source_url = (
+        stock.get(
+            "freeFloatSourceUrl"
+        )
+    )
+
+    free_float_method = (
+        stock.get(
+            "freeFloatMethod"
+        )
+    )
+
+    free_float_estimated = (
+        stock.get(
+            "freeFloatEstimated"
+        )
+    )
+
+    public_shares = integer(
+        stock.get(
+            "publicShares"
+        )
+    )
+
+    public_holding_pct = num(
+        stock.get(
+            "publicHoldingPct"
+        )
+    )
+
+    public_locked_shares = integer(
+        stock.get(
+            "publicLockedShares"
+        )
+    )
+
+    triggers = detect_triggers(
+        stock
+    )
+
+    key_trigger = choose_key_trigger(
+        triggers
+    )
+
+    phase1_score = calculate_phase1_score(
+        rs_rating=rs_rating,
+        stock_momentum=stock_momentum,
+        industry_rating=industry_rating,
+        return_1m=return_1m,
+        return_3m=return_3m,
+        return_6m=return_6m,
+        return_1y=return_1y,
+        triggers=triggers,
+    )
+
+    setup_status = preliminary_status(
+        phase1_score
+    )
+
+    missing = initial_missing_conditions(
+        rs_rating=rs_rating,
+        stock_momentum=stock_momentum,
+        industry_rating=industry_rating,
+        free_float_shares=free_float_shares,
+        free_float_pct=free_float_pct,
+    )
+
+    sector = text(
+        stock.get(
+            "sector"
+        )
+    )
+
+    industry = text(
+        stock.get(
+            "industry"
+        )
+    )
+
+    market_cap = first_number(
+        stock,
+        [
+            "marketCapCr",
+            "marketCap",
+            "currentMarketCapCr",
+        ],
+    )
+
+    market_cap_category = text(
+        first_value(
+            stock,
+            [
+                "marketCapCategory",
+                "mcapCategory",
+            ],
+        )
+    )
+
+    board = text(
+        stock.get(
+            "board"
+        )
+    )
+
+    series = text(
+        stock.get(
+            "series"
+        )
+    )
+
+    row = {
+        # -------------------------------------------------
+        # Identity
+        # -------------------------------------------------
 
         "symbol":
-            stock_symbol,
+            symbol,
 
-        "series":
-            row.get(
-                "series"
-            ),
+        "name":
+            name,
 
         "board":
-            row.get(
-                "board"
-            ),
+            board,
+
+        "series":
+            series,
 
         "sector":
-            row.get(
-                "sector"
-            )
-            or
-            "Unclassified",
+            sector,
 
         "industry":
-            row.get(
-                "industry"
-            )
-            or
-            "Unclassified",
+            industry,
 
-
-        # =================================================
-        # BASIC MARKET DATA
-        # =================================================
+        # -------------------------------------------------
+        # Market data
+        # -------------------------------------------------
 
         "price":
-            round(
-                current_price,
-                2,
-            ),
+            price,
+
+        "changePct":
+            change_pct,
 
         "marketCapCr":
-            round_or_none(
-                mcap,
-                2,
-            ),
+            market_cap,
 
-        "priceDate":
-            row.get(
-                "priceDate"
-            ),
+        "marketCapCategory":
+            market_cap_category,
 
-
-        # =================================================
-        # RETURNS
-        # =================================================
+        # -------------------------------------------------
+        # Returns
+        # -------------------------------------------------
 
         "return1M":
-            return_1m(
-                row
-            ),
+            return_1m,
 
         "return3M":
-            return_3m(
-                row
-            ),
+            return_3m,
 
         "return6M":
-            return_6m(
-                row
-            ),
+            return_6m,
 
         "return1Y":
-            return_1y(
-                row
-            ),
+            return_1y,
 
-
-        # =================================================
-        # RELATIVE STRENGTH
-        # =================================================
+        # -------------------------------------------------
+        # Ratings
+        # -------------------------------------------------
 
         "rsRating":
-            rs_rating(
-                row
-            ),
-
-        "rsLabel":
-            row.get(
-                "rsLabel"
-            ),
+            rs_rating,
 
         "stockMomentumRating":
-            stock_momentum_rating(
-                row
-            ),
+            stock_momentum,
 
         "industryRating":
-            industry_rating(
-                row
+            industry_rating,
+
+        # -------------------------------------------------
+        # FREE FLOAT
+        # -------------------------------------------------
+
+        "freeFloatPct":
+            (
+                round(
+                    free_float_pct,
+                    4,
+                )
+                if free_float_pct is not None
+                else None
             ),
 
-
-        # =================================================
-        # SUPPLY
-        # =================================================
-
         "freeFloatShares":
-            free_float,
+            free_float_shares,
 
+        "freeFloatStatus":
+            free_float_status,
 
-        # =================================================
-        # CHART STRUCTURE
-        # =================================================
+        "freeFloatDate":
+            free_float_date,
 
-        "priorMovePct":
-            technical[
-                "priorMovePct"
-            ],
+        "freeFloatSource":
+            free_float_source,
 
-        "movePeriod":
-            technical[
-                "movePeriod"
-            ],
+        "freeFloatSourceUrl":
+            free_float_source_url,
 
-        "retracementPct":
-            technical[
-                "retracementPct"
-            ],
+        "freeFloatMethod":
+            free_float_method,
 
-        "consolidationDays":
-            technical[
-                "consolidationDays"
-            ],
+        "freeFloatEstimated":
+            free_float_estimated,
 
-        "volumeContraction":
-            technical[
-                "volumeContraction"
-            ],
+        # Keep underlying filing values too.
+        "publicShares":
+            public_shares,
 
-        "volatilityContraction":
-            technical[
-                "volatilityContraction"
-            ],
+        "publicHoldingPct":
+            public_holding_pct,
 
-        "breakoutStatus":
-            technical[
-                "breakoutStatus"
-            ],
+        "publicLockedShares":
+            public_locked_shares,
 
-        "turnoverExpansion":
-            technical[
-                "turnoverExpansion"
-            ],
-
-
-        # =================================================
-        # FUNDAMENTAL / BUSINESS
-        # =================================================
+        # -------------------------------------------------
+        # Fundamental / business triggers
+        # -------------------------------------------------
 
         "fundamentalTrigger":
-            fundamental_trigger,
-
-        "keyTrigger":
-            key_trigger(
+            bool(
                 triggers
             ),
 
-        "triggers":
+        "fundamentalTriggers":
             triggers,
 
+        "keyTrigger":
+            key_trigger,
 
-        # =================================================
-        # EXISTING RESEARCH SCORES
-        # =================================================
+        # -------------------------------------------------
+        # Phase-1 score
+        # -------------------------------------------------
 
-        "tailwindScore":
-            score_value(
-                row,
-                "tailwindScore",
-            ),
-
-        "macroSupport":
-            score_value(
-                row,
-                "macroSupport",
-            ),
-
-        "valueMigration":
-            score_value(
-                row,
-                "valueMigration",
-            ),
-
-        "futureGrowth":
-            score_value(
-                row,
-                "futureGrowth",
-            ),
-
-        "fundamentalQuality":
-            score_value(
-                row,
-                "fundamentalQuality",
-            ),
-
-        "capexScore":
-            score_value(
-                row,
-                "capexScore",
-            ),
-
-        "tmvScore":
-            score_value(
-                row,
-                "tmvScore",
-            ),
-
-        "gfcScore":
-            score_value(
-                row,
-                "gfcScore",
-            ),
-
-        "overallScore":
-            score_value(
-                row,
-                "overallScore",
-            ),
-
-
-        # =================================================
-        # BIG MOVE SCORE
-        # =================================================
+        "phase1Score":
+            phase1_score,
 
         "bigMoveScore":
-            score_data[
-                "score"
-            ],
-
-        "scoreCoveragePct":
-            score_data[
-                "coveragePct"
-            ],
-
-        "scoreComponents":
-            score_data[
-                "components"
-            ],
-
-        "scorePhase":
-            "PHASE_1_PRELIMINARY",
-
-
-        # =================================================
-        # FINAL STATUS
-        # =================================================
+            phase1_score,
 
         "setupStatus":
-            status,
+            setup_status,
+
+        # -------------------------------------------------
+        # Technical placeholders
+        #
+        # build_big_move_technical.py fills these afterward.
+        # -------------------------------------------------
+
+        "priorMovePct":
+            None,
+
+        "movePeriod":
+            None,
+
+        "moveStartDate":
+            None,
+
+        "movePeakDate":
+            None,
+
+        "moveStartPrice":
+            None,
+
+        "movePeakPrice":
+            None,
+
+        "retracementPct":
+            None,
+
+        "consolidationDays":
+            None,
+
+        "volumeContraction":
+            None,
+
+        "volumeContractionRatio":
+            None,
+
+        "volatilityContraction":
+            None,
+
+        "volatilityContractionRatio":
+            None,
+
+        "breakoutStatus":
+            None,
+
+        "breakoutDistancePct":
+            None,
+
+        "turnoverExpansion":
+            None,
+
+        "technicalScore":
+            None,
+
+        "technicalStatus":
+            "PENDING",
+
+        "technicalDetails":
+            None,
+
+        # -------------------------------------------------
+        # Missing
+        # -------------------------------------------------
 
         "missingConditions":
-            (
-                " | ".join(
-                    missing
-                )
-                if missing
-                else
-                "None"
-            ),
-
-        "missingConditionsList":
             missing,
-
     }
 
-
-# =========================================================
-# SORTING
-# =========================================================
-
-def sort_rows(rows):
-
-    def sort_key(row):
-
-        return (
-
-            row.get(
-                "bigMoveScore"
-            )
-            or 0,
-
-            row.get(
-                "rsRating"
-            )
-            or 0,
-
-            row.get(
-                "stockMomentumRating"
-            )
-            or 0,
-
-            row.get(
-                "industryRating"
-            )
-            or 0,
-
-        )
-
-    return sorted(
-        rows,
-        key=sort_key,
-        reverse=True,
-    )
-
-
-# =========================================================
-# SUMMARY
-# =========================================================
-
-def build_summary(rows):
-
-    return {
-
-        "total":
-            len(rows),
-
-        "score80Plus":
-            sum(
-                1
-                for row in rows
-                if (
-                    row.get(
-                        "bigMoveScore"
-                    )
-                    or 0
-                )
-                >= 80
-            ),
-
-        "score70Plus":
-            sum(
-                1
-                for row in rows
-                if (
-                    row.get(
-                        "bigMoveScore"
-                    )
-                    or 0
-                )
-                >= 70
-            ),
-
-        "rs80Plus":
-            sum(
-                1
-                for row in rows
-                if (
-                    row.get(
-                        "rsRating"
-                    )
-                    or 0
-                )
-                >= 80
-            ),
-
-        "rs90Plus":
-            sum(
-                1
-                for row in rows
-                if (
-                    row.get(
-                        "rsRating"
-                    )
-                    or 0
-                )
-                >= 90
-            ),
-
-        "triggerPresent":
-            sum(
-                1
-                for row in rows
-                if row.get(
-                    "fundamentalTrigger"
-                )
-            ),
-
-        "technicalReady":
-            sum(
-                1
-                for row in rows
-                if row.get(
-                    "setupStatus"
-                )
-                in {
-                    "Strong Setup",
-                    "Near Breakout",
-                    "Breakout",
-                    "Watchlist",
-                    "Developing",
-                }
-            ),
-
-        "freeFloatReady":
-            sum(
-                1
-                for row in rows
-                if row.get(
-                    "freeFloatShares"
-                )
-                is not None
-            ),
-
-        "industryReady":
-            sum(
-                1
-                for row in rows
-                if row.get(
-                    "industryRating"
-                )
-                is not None
-            ),
-
-        "stockMomentumReady":
-            sum(
-                1
-                for row in rows
-                if row.get(
-                    "stockMomentumRating"
-                )
-                is not None
-            ),
-
-    }
+    return row
 
 
 # =========================================================
@@ -2198,39 +1160,107 @@ def build_summary(rows):
 # =========================================================
 
 def detect_market_date(stocks):
-
     dates = []
 
-    for row in stocks:
+    for stock in stocks:
+        value = first_value(
+            stock,
+            [
+                "marketDate",
+                "date",
+                "priceDate",
+                "eodDate",
+            ],
+        )
 
-        for field in [
-            "priceDate",
-            "rsDate",
-        ]:
-
-            value = row.get(
-                field
+        if value:
+            dates.append(
+                str(value)
             )
 
-            if value:
+    if not dates:
+        return None
 
-                dates.append(
-                    str(value)
-                )
+    # Most common / latest-looking value.
+    return sorted(
+        dates
+    )[-1]
 
-    if dates:
 
-        return max(
-            dates
-        )
+# =========================================================
+# SUMMARY
+# =========================================================
 
-    return (
-        datetime.now(
-            timezone.utc
-        )
-        .date()
-        .isoformat()
+def build_summary(rows):
+    total = len(
+        rows
     )
+
+    score_80 = sum(
+        1
+        for row in rows
+        if (
+            num(
+                row.get(
+                    "bigMoveScore"
+                )
+            )
+            is not None
+            and
+            num(
+                row.get(
+                    "bigMoveScore"
+                )
+            )
+            >= 80
+        )
+    )
+
+    trigger_present = sum(
+        1
+        for row in rows
+        if row.get(
+            "fundamentalTrigger"
+        )
+        is True
+    )
+
+    free_float_ready = sum(
+        1
+        for row in rows
+        if (
+            row.get(
+                "freeFloatShares"
+            )
+            is not None
+            or
+            row.get(
+                "freeFloatPct"
+            )
+            is not None
+        )
+    )
+
+    return {
+        "scannerUniverse":
+            total,
+
+        "score80Plus":
+            score_80,
+
+        "triggerPresent":
+            trigger_present,
+
+        "freeFloatReady":
+            free_float_ready,
+
+        # Technical engine recalculates these later.
+        "nearBreakout":
+            0,
+
+        "breakout":
+            0,
+    }
 
 
 # =========================================================
@@ -2238,7 +1268,6 @@ def detect_market_date(stocks):
 # =========================================================
 
 def main():
-
     print(
         "=============================================="
     )
@@ -2251,123 +1280,81 @@ def main():
         "=============================================="
     )
 
-
     stocks = load_json(
         STOCKS_PATH,
         [],
     )
 
-
-    if not isinstance(
-        stocks,
-        list,
+    if (
+        not isinstance(
+            stocks,
+            list,
+        )
+        or
+        not stocks
     ):
-
         raise RuntimeError(
-            "stocks.json must contain a list"
+            "data/stocks.json is missing or empty"
         )
-
-
-    if not stocks:
-
-        raise RuntimeError(
-            "stocks.json is empty"
-        )
-
-
-    print(
-        "Stocks loaded:",
-        len(stocks),
-    )
-
 
     rows = []
 
-
-    skipped = {
-
-        "noSymbol":
-            0,
-
-        "noPrice":
-            0,
-
-        "below100Cr":
-            0,
-
-    }
-
+    skipped = 0
 
     for stock in stocks:
-
-        stock_symbol = symbol(
-            stock
-        )
-
-
-        if not stock_symbol:
-
-            skipped[
-                "noSymbol"
-            ] += 1
-
-            continue
-
-
-        mcap = market_cap(
-            stock
-        )
-
-
-        if (
-            mcap is not None
-            and
-            mcap < MIN_MARKET_CAP_CR
+        if not isinstance(
+            stock,
+            dict,
         ):
-
-            skipped[
-                "below100Cr"
-            ] += 1
-
+            skipped += 1
             continue
 
-
-        if price(
-            stock
-        ) is None:
-
-            skipped[
-                "noPrice"
-            ] += 1
-
-            continue
-
-
-        scanner_row = (
-            build_scanner_row(
-                stock
+        symbol = text(
+            stock.get(
+                "symbol"
             )
         )
 
+        if not symbol:
+            skipped += 1
+            continue
 
-        if scanner_row:
+        row = build_scanner_row(
+            stock
+        )
 
-            rows.append(
-                scanner_row
+        rows.append(
+            row
+        )
+
+    # Default Page 2 ranking before technical engine.
+    rows.sort(
+        key=lambda row: (
+            num(
+                row.get(
+                    "bigMoveScore"
+                )
             )
-
-
-    rows = sort_rows(
-        rows
+            if num(
+                row.get(
+                    "bigMoveScore"
+                )
+            )
+            is not None
+            else -1
+        ),
+        reverse=True,
     )
-
 
     market_date = detect_market_date(
         stocks
     )
 
+    summary = build_summary(
+        rows
+    )
 
-    generated_at = (
+    now = (
         datetime.now(
             timezone.utc
         )
@@ -2377,135 +1364,71 @@ def main():
         .isoformat()
     )
 
-
-    summary = build_summary(
-        rows
-    )
-
-
     output = {
-
         "marketDate":
             market_date,
 
-        "updated":
-            market_date,
-
         "generatedAt":
-            generated_at,
+            now,
 
         "scannerVersion":
-            "1.0",
-
-        "phase":
-            "PHASE_1_PRELIMINARY",
+            "2.1",
 
         "methodology": {
-
-            "description":
+            "phase1":
                 (
-                    "Phase-1 Big Move Scanner combines existing "
-                    "NSE price momentum, RS Rating, Stock Momentum, "
-                    "Industry Rating, company research scores and "
-                    "detected business triggers. Technical chart "
-                    "structure and free-float supply data are not "
-                    "guessed when unavailable."
+                    "RS + Stock Momentum + Industry Rating + "
+                    "multi-period price strength + existing "
+                    "fundamental/business triggers."
                 ),
 
-            "scoreWeights": {
+            "technical":
+                (
+                    "Technical fields are added by "
+                    "build_big_move_technical.py after this step."
+                ),
 
-                "momentum":
-                    35,
+            "freeFloat":
+                (
+                    "Free Float Shares and Free Float % are carried "
+                    "from build_free_float.py. Free Float Shares are "
+                    "filing-derived Public Shares less locked-in "
+                    "Public Shares; not estimated from Market Cap / Price."
+                ),
 
-                "returnQuality":
-                    15,
-
-                "fundamental":
-                    30,
-
-                "businessTriggers":
-                    20,
-
-            },
-
-            "phase2WillAdd": [
-
-                "Prior Move Detection",
-
-                "Retracement",
-
-                "Consolidation Days",
-
-                "Volume Contraction",
-
-                "Volatility Contraction",
-
-                "Breakout Distance",
-
-                "Turnover Expansion",
-
-                "Free Float Shares",
-
-            ],
-
+            "freeFloatScore":
+                (
+                    "Free Float is currently displayed/filterable but "
+                    "NOT yet included in Big Move Score. Thresholds will "
+                    "be calibrated after coverage/distribution validation."
+                ),
         },
 
         "summary":
             summary,
 
-        "skipped":
-            skipped,
-
         "rows":
             rows,
-
     }
-
 
     save_json(
         OUTPUT_PATH,
         output,
     )
 
-
-    print()
-
-    print(
-        "=============================================="
-    )
-
-    print(
-        "BIG MOVE SCANNER SUMMARY"
-    )
-
-    print(
-        "=============================================="
-    )
-
-
     print({
-        "marketDate":
-            market_date,
-
-        "inputStocks":
+        "stocksInput":
             len(stocks),
 
-        "scannerStocks":
+        "scannerRows":
             len(rows),
+
+        "skipped":
+            skipped,
 
         "score80Plus":
             summary[
                 "score80Plus"
-            ],
-
-        "score70Plus":
-            summary[
-                "score70Plus"
-            ],
-
-        "rs90Plus":
-            summary[
-                "rs90Plus"
             ],
 
         "triggerPresent":
@@ -2513,44 +1436,38 @@ def main():
                 "triggerPresent"
             ],
 
-        "industryReady":
-            summary[
-                "industryReady"
-            ],
-
-        "stockMomentumReady":
-            summary[
-                "stockMomentumReady"
-            ],
-
-        "technicalReady":
-            summary[
-                "technicalReady"
-            ],
-
         "freeFloatReady":
             summary[
                 "freeFloatReady"
             ],
 
-        "skipped":
-            skipped,
-
-        "output":
-            str(
-                OUTPUT_PATH
-            ),
-
+        "marketDate":
+            market_date,
     })
 
-
-    print()
+    print(
+        "Saved:"
+    )
 
     print(
-        "Big Move Scanner Phase-1 build complete."
+        OUTPUT_PATH
+    )
+
+    print()
+    print(
+        "IMPORTANT:"
+    )
+    print(
+        "Free Float is NOT included in Big Move Score yet."
+    )
+    print(
+        "build_big_move_technical.py runs after this file and "
+        "adds technical score / breakout / consolidation fields."
+    )
+    print(
+        "=============================================="
     )
 
 
 if __name__ == "__main__":
-
     main()
