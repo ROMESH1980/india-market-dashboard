@@ -1,53 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
 
-  <title>Big Move Scanner | MY MARKET RESEARCH</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Big Move Scanner | MY MARKET RESEARCH
+  </title>
 
   <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
+
     :root {
       --bg: #07111f;
-      --panel: #0c1828;
-      --panel2: #101f32;
-      --border: #21344b;
+      --panel: #0c192b;
+      --panel-2: #102039;
+      --panel-3: #132640;
+
+      --border: #223651;
+      --border-soft: #192c45;
 
       --text: #f4f7fb;
-      --muted: #91a4ba;
+      --muted: #91a3bb;
 
-      --green: #35d07f;
-      --yellow: #f5c451;
-      --orange: #ff9d4d;
-      --red: #ff6b6b;
-      --blue: #5aa9ff;
+      --green: #27d980;
+      --green-soft: rgba(39, 217, 128, 0.13);
 
-      --radius: 12px;
+      --blue: #4da3ff;
+      --blue-soft: rgba(77, 163, 255, 0.13);
+
+      --yellow: #f0bd4e;
+      --yellow-soft: rgba(240, 189, 78, 0.13);
+
+      --orange: #ff944d;
+      --orange-soft: rgba(255, 148, 77, 0.13);
+
+      --red: #ff5e72;
+      --red-soft: rgba(255, 94, 114, 0.13);
+
+      --header-height: 54px;
     }
+
+
+    /* =====================================================
+       BASE
+    ===================================================== */
 
     * {
       box-sizing: border-box;
     }
 
+
+    html,
     body {
       margin: 0;
+      padding: 0;
+
+      min-height: 100%;
+
+      background:
+        var(--bg);
+
+      color:
+        var(--text);
+
       font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
+        Arial,
+        Helvetica,
         sans-serif;
-
-      background: var(--bg);
-      color: var(--text);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+
+    body {
+      overflow-x: hidden;
     }
+
 
     button,
     input,
@@ -55,1997 +89,5321 @@
       font: inherit;
     }
 
-    .page {
-      width: 100%;
-      min-height: 100vh;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* ---------------- HEADER ---------------- */
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+    /* =====================================================
+       TOP HEADER — COMPACT
+    ===================================================== */
 
-      background: rgba(7, 17, 31, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-    }
-
-    .topbar-inner {
-      max-width: 1900px;
-      margin: 0 auto;
-      padding: 14px 20px;
+    .site-header {
+      min-height:
+        var(--header-height);
 
       display: flex;
+
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
+
+      padding:
+        8px 18px;
+
+      border-bottom:
+        1px solid var(--border-soft);
+
+      background:
+        #081321;
+
+      position: relative;
+
+      z-index: 20;
     }
+
+
+    .brand-wrap {
+      min-width: 0;
+    }
+
 
     .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      margin: 0;
+
+      font-size: 21px;
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing:
+        0.4px;
+
+      white-space: nowrap;
     }
 
-    .brand-title {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-    }
 
     .brand-subtitle {
-      font-size: 12px;
-      color: var(--muted);
-    }
+      margin-top: 4px;
 
-    .nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+      color:
+        var(--muted);
 
-    .nav a {
-      padding: 9px 13px;
-      border-radius: 8px;
-      color: var(--muted);
-      border: 1px solid transparent;
-      font-size: 13px;
-      font-weight: 700;
-    }
+      font-size: 10px;
 
-    .nav a:hover {
-      color: var(--text);
-      background: var(--panel2);
-    }
-
-    .nav a.active {
-      color: var(--text);
-      background: var(--panel2);
-      border-color: var(--border);
-    }
-
-    /* ---------------- MAIN ---------------- */
-
-    .main {
-      max-width: 1900px;
-      margin: 0 auto;
-      padding: 18px 20px 40px;
-    }
-
-    .page-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 16px;
-    }
-
-    .page-head h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-
-    .page-head p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .status-badge {
       white-space: nowrap;
-      padding: 8px 12px;
-      border-radius: 999px;
-
-      border: 1px solid rgba(53, 208, 127, 0.3);
-      background: rgba(53, 208, 127, 0.09);
-
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 800;
     }
 
-    /* ---------------- SUMMARY ---------------- */
+
+    .main-nav {
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      flex-wrap: nowrap;
+    }
+
+
+    .nav-link {
+      padding:
+        9px 13px;
+
+      border:
+        1px solid transparent;
+
+      border-radius:
+        7px;
+
+      color:
+        #aebed2;
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      white-space: nowrap;
+    }
+
+
+    .nav-link:hover {
+      color:
+        var(--text);
+
+      background:
+        var(--panel);
+    }
+
+
+    .nav-link.active {
+      color:
+        var(--text);
+
+      background:
+        var(--panel-2);
+
+      border-color:
+        var(--border);
+    }
+
+
+    .nav-link.disabled {
+      opacity:
+        0.45;
+
+      cursor:
+        default;
+    }
+
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    .page {
+      width: 100%;
+
+      padding:
+        10px 18px 18px;
+    }
+
+
+    /* =====================================================
+       TITLE BAR — COMPACT
+    ===================================================== */
+
+    .scanner-title-row {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .scanner-heading {
+      min-width: 0;
+    }
+
+
+    .scanner-heading h1 {
+      margin: 0;
+
+      font-size: 22px;
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        0.2px;
+
+      font-weight:
+        900;
+    }
+
+
+    .scanner-heading p {
+      margin:
+        4px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.3;
+    }
+
+
+    .scanner-active {
+      flex: 0 0 auto;
+
+      padding:
+        7px 12px;
+
+      border-radius:
+        999px;
+
+      border:
+        1px solid rgba(
+          39,
+          217,
+          128,
+          0.27
+        );
+
+      background:
+        var(--green-soft);
+
+      color:
+        var(--green);
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      white-space:
+        nowrap;
+    }
+
+
+    /* =====================================================
+       SUMMARY — COMPACT
+    ===================================================== */
 
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(150px, 1fr));
-      gap: 10px;
-      margin-bottom: 16px;
+
+      grid-template-columns:
+        repeat(
+          6,
+          minmax(125px, 1fr)
+        );
+
+      gap:
+        8px;
+
+      margin-bottom:
+        8px;
     }
+
 
     .summary-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      min-height:
+        70px;
 
-      padding: 14px;
+      padding:
+        9px 12px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        9px;
+
+      background:
+        var(--panel);
     }
+
 
     .summary-label {
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+      color:
+        #91a7c3;
+
+      font-size:
+        9px;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.55px;
     }
+
 
     .summary-value {
-      margin-top: 6px;
-      font-size: 22px;
-      font-weight: 800;
+      margin-top:
+        5px;
+
+      font-size:
+        21px;
+
+      line-height:
+        1;
+
+      font-weight:
+        900;
     }
+
 
     .summary-note {
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        9px;
     }
 
-    /* ---------------- FILTER BAR ---------------- */
 
-    .filters {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    /* =====================================================
+       FILTERS — COMPACT
+    ===================================================== */
 
-      margin-bottom: 14px;
-      padding: 12px;
+    .filters-panel {
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        9px;
+
+      background:
+        var(--panel);
+
+      padding:
+        9px;
+
+      margin-bottom:
+        7px;
     }
 
-    .filter-row {
+
+    .filters-grid {
       display: grid;
+
       grid-template-columns:
-        minmax(220px, 1.3fr)
-        repeat(7, minmax(120px, 0.7fr));
+        minmax(170px, 1.7fr)
+        repeat(
+          4,
+          minmax(105px, 0.9fr)
+        )
+        minmax(130px, 1fr)
+        minmax(130px, 1fr)
+        minmax(130px, 1fr);
 
-      gap: 8px;
-      align-items: end;
+      gap:
+        7px;
+
+      align-items:
+        end;
     }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+
+    .filter-group {
+      min-width: 0;
     }
 
-    .field label {
-      font-size: 10px;
-      color: var(--muted);
-      text-transform: uppercase;
-      font-weight: 800;
+
+    .filter-group label {
+      display: block;
+
+      margin:
+        0 0 4px;
+
+      color:
+        #94aac5;
+
+      font-size:
+        8px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.4px;
+
+      white-space:
+        nowrap;
     }
 
-    .field input,
-    .field select {
+
+    .filter-control {
       width: 100%;
 
-      padding: 9px 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      height:
+        34px;
 
-      background: #071522;
-      color: var(--text);
+      padding:
+        0 10px;
 
-      outline: none;
+      border:
+        1px solid #29415e;
+
+      border-radius:
+        6px;
+
+      outline:
+        none;
+
+      background:
+        #0b1829;
+
+      color:
+        var(--text);
+
+      font-size:
+        11px;
     }
 
-    .field input:focus,
-    .field select:focus {
-      border-color: var(--blue);
+
+    .filter-control:focus {
+      border-color:
+        #3f7fd3;
     }
+
 
     .filter-actions {
+      margin-top:
+        7px;
+
       display: flex;
-      gap: 8px;
-      margin-top: 10px;
+
+      align-items: center;
+
+      gap:
+        7px;
     }
+
 
     .btn {
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      min-height:
+        33px;
 
-      padding: 9px 12px;
+      padding:
+        0 13px;
 
-      background: var(--panel2);
-      color: var(--text);
+      border:
+        1px solid var(--border);
 
-      cursor: pointer;
-      font-weight: 700;
+      border-radius:
+        6px;
+
+      cursor:
+        pointer;
+
+      color:
+        var(--text);
+
+      background:
+        var(--panel-2);
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
     }
+
 
     .btn:hover {
-      filter: brightness(1.12);
+      filter:
+        brightness(1.13);
     }
+
 
     .btn-primary {
-      background: #173b66;
-      border-color: #285b92;
+      background:
+        #245e9e;
+
+      border-color:
+        #377fc9;
     }
 
-    /* ---------------- LEGEND ---------------- */
+
+    /* =====================================================
+       LEGEND
+    ===================================================== */
 
     .legend {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
 
-      margin-bottom: 12px;
-      padding: 0 2px;
+      align-items: center;
 
-      color: var(--muted);
-      font-size: 11px;
+      gap:
+        13px;
+
+      min-height:
+        25px;
+
+      padding:
+        0 2px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        9px;
+
+      margin-bottom:
+        4px;
+
+      flex-wrap:
+        wrap;
     }
+
 
     .legend-item {
       display: inline-flex;
-      gap: 5px;
+
       align-items: center;
+
+      gap:
+        4px;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+
+    .legend-dot {
+      width:
+        7px;
+
+      height:
+        7px;
+
+      border-radius:
+        50%;
     }
+
 
     .dot-green {
-      background: var(--green);
+      background:
+        var(--green);
     }
+
 
     .dot-yellow {
-      background: var(--yellow);
+      background:
+        var(--yellow);
     }
+
 
     .dot-orange {
-      background: var(--orange);
+      background:
+        var(--orange);
     }
+
 
     .dot-red {
-      background: var(--red);
+      background:
+        var(--red);
     }
 
-    /* ---------------- TABLE ---------------- */
+
+    /* =====================================================
+       TABLE PANEL
+    ===================================================== */
 
     .table-panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border:
+        1px solid var(--border);
 
-      overflow: hidden;
+      border-radius:
+        9px;
+
+      background:
+        var(--panel);
+
+      overflow:
+        hidden;
     }
+
 
     .table-toolbar {
+      min-height:
+        42px;
+
+      padding:
+        6px 10px;
+
       display: flex;
+
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
 
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
+      gap:
+        12px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        #0b1829;
     }
 
-    .result-text {
-      color: var(--muted);
-      font-size: 12px;
+
+    .result-count {
+      color:
+        #9eb0c6;
+
+      font-size:
+        10px;
     }
+
+
+    .export-btn {
+      min-height:
+        32px;
+    }
+
+
+    /* =====================================================
+       TOP HORIZONTAL SCROLLBAR
+    ===================================================== */
+
+    .top-scroll-wrap {
+      width:
+        100%;
+
+      overflow-x:
+        auto;
+
+      overflow-y:
+        hidden;
+
+      background:
+        #081422;
+
+      border-bottom:
+        1px solid var(--border-soft);
+
+      height:
+        18px;
+    }
+
+
+    .top-scroll-inner {
+      height:
+        1px;
+
+      min-width:
+        100%;
+    }
+
+
+    .top-scroll-wrap::-webkit-scrollbar,
+    .table-wrap::-webkit-scrollbar {
+      height:
+        12px;
+
+      width:
+        11px;
+    }
+
+
+    .top-scroll-wrap::-webkit-scrollbar-track,
+    .table-wrap::-webkit-scrollbar-track {
+      background:
+        #07111f;
+    }
+
+
+    .top-scroll-wrap::-webkit-scrollbar-thumb,
+    .table-wrap::-webkit-scrollbar-thumb {
+      background:
+        #455f82;
+
+      border-radius:
+        10px;
+
+      border:
+        2px solid #07111f;
+    }
+
+
+    .top-scroll-wrap::-webkit-scrollbar-thumb:hover,
+    .table-wrap::-webkit-scrollbar-thumb:hover {
+      background:
+        #5b79a1;
+    }
+
+
+    /* =====================================================
+       TABLE WRAPPER
+    ===================================================== */
 
     .table-wrap {
-      width: 100%;
-      overflow: auto;
-      max-height: calc(100vh - 325px);
+      width:
+        100%;
+
+      max-height:
+        calc(100vh - 315px);
+
+      min-height:
+        360px;
+
+      overflow:
+        auto;
+
+      position:
+        relative;
     }
+
 
     table {
-      width: max-content;
-      min-width: 100%;
+      border-collapse:
+        separate;
 
-      border-collapse: collapse;
-      font-size: 12px;
+      border-spacing:
+        0;
+
+      min-width:
+        2600px;
+
+      width:
+        max-content;
+
+      background:
+        var(--panel);
     }
 
-    thead th {
-      position: sticky;
-      top: 0;
-      z-index: 10;
 
-      background: #102136;
+    thead {
+      position:
+        sticky;
 
-      color: #cbd7e4;
+      top:
+        0;
 
-      text-align: left;
-      white-space: nowrap;
-
-      padding: 11px 9px;
-
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid rgba(33, 52, 75, 0.65);
-
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-
-      cursor: pointer;
+      z-index:
+        8;
     }
 
-    tbody td {
-      white-space: nowrap;
 
-      padding: 9px;
+    th {
+      position:
+        sticky;
 
-      border-bottom: 1px solid rgba(33, 52, 75, 0.5);
-      border-right: 1px solid rgba(33, 52, 75, 0.35);
+      top:
+        0;
+
+      z-index:
+        8;
+
+      min-width:
+        85px;
+
+      padding:
+        7px 7px;
+
+      border-right:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        #10223a;
+
+      color:
+        #f7f9fc;
+
+      font-size:
+        9px;
+
+      font-weight:
+        900;
+
+      text-align:
+        center;
+
+      vertical-align:
+        middle;
+
+      white-space:
+        normal;
+
+      line-height:
+        1.1;
     }
+
+
+    th:first-child {
+      min-width:
+        275px;
+
+      text-align:
+        left;
+    }
+
+
+    td {
+      height:
+        46px;
+
+      padding:
+        6px 7px;
+
+      border-right:
+        1px solid #1c314b;
+
+      border-bottom:
+        1px solid #1c314b;
+
+      color:
+        #edf3fb;
+
+      font-size:
+        10px;
+
+      text-align:
+        center;
+
+      vertical-align:
+        middle;
+
+      white-space:
+        nowrap;
+    }
+
 
     tbody tr {
-      transition: background 0.12s ease;
+      cursor:
+        pointer;
+
+      background:
+        #0b192b;
     }
+
+
+    tbody tr:nth-child(even) {
+      background:
+        #0c1b2e;
+    }
+
 
     tbody tr:hover {
-      background: #11243b;
-      cursor: pointer;
+      background:
+        #132944;
     }
+
+
+    td:first-child {
+      text-align:
+        left;
+
+      position:
+        sticky;
+
+      left:
+        0;
+
+      z-index:
+        4;
+
+      min-width:
+        275px;
+
+      max-width:
+        275px;
+
+      background:
+        inherit;
+    }
+
+
+    th:first-child {
+      left:
+        0;
+
+      z-index:
+        12;
+    }
+
 
     .stock-name {
-      font-weight: 800;
+      display:
+        block;
+
+      max-width:
+        245px;
+
+      overflow:
+        hidden;
+
+      text-overflow:
+        ellipsis;
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      color:
+        #ffffff;
     }
+
 
     .stock-symbol {
-      display: block;
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 10px;
+      display:
+        block;
+
+      margin-top:
+        2px;
+
+      font-size:
+        8px;
+
+      color:
+        #8fa4be;
     }
 
-    .number {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
+
+    /* =====================================================
+       NUMBER FORMATTING
+    ===================================================== */
+
+    .positive {
+      color:
+        #ffffff;
+
+      font-weight:
+        700;
     }
 
-    /* ---------------- SCORE ---------------- */
 
-    .score {
-      min-width: 58px;
-      text-align: center;
-      font-weight: 900;
-      padding: 6px 8px;
-      border-radius: 7px;
+    .negative {
+      color:
+        var(--red);
+
+      font-weight:
+        700;
     }
 
-    .score-elite {
-      color: var(--green);
-      background: rgba(53, 208, 127, 0.12);
-    }
-
-    .score-good {
-      color: #79d5ff;
-      background: rgba(90, 169, 255, 0.12);
-    }
-
-    .score-watch {
-      color: var(--yellow);
-      background: rgba(245, 196, 81, 0.12);
-    }
-
-    .score-weak {
-      color: var(--red);
-      background: rgba(255, 107, 107, 0.12);
-    }
-
-    /* ---------------- STATUS ---------------- */
-
-    .setup {
-      padding: 5px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 900;
-      text-align: center;
-    }
-
-    .setup-ready {
-      color: var(--green);
-      background: rgba(53, 208, 127, 0.12);
-    }
-
-    .setup-near {
-      color: var(--yellow);
-      background: rgba(245, 196, 81, 0.12);
-    }
-
-    .setup-watch {
-      color: var(--orange);
-      background: rgba(255, 157, 77, 0.12);
-    }
-
-    .setup-weak {
-      color: var(--red);
-      background: rgba(255, 107, 107, 0.12);
-    }
-
-    .yes {
-      color: var(--green);
-      font-weight: 800;
-    }
-
-    .no {
-      color: var(--red);
-      font-weight: 800;
-    }
 
     .pending {
-      color: var(--muted);
+      color:
+        #72869f;
     }
 
-    /* ---------------- DETAIL DRAWER ---------------- */
+
+    /* =====================================================
+       SCORE BADGES
+    ===================================================== */
+
+    .score-badge {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+      justify-content:
+        center;
+
+      min-width:
+        54px;
+
+      min-height:
+        27px;
+
+      padding:
+        4px 8px;
+
+      border:
+        1px solid transparent;
+
+      border-radius:
+        6px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        900;
+    }
+
+
+    .score-elite {
+      color:
+        var(--green);
+
+      background:
+        var(--green-soft);
+
+      border-color:
+        rgba(
+          39,
+          217,
+          128,
+          0.18
+        );
+    }
+
+
+    .score-strong {
+      color:
+        #74bfff;
+
+      background:
+        var(--blue-soft);
+
+      border-color:
+        rgba(
+          77,
+          163,
+          255,
+          0.18
+        );
+    }
+
+
+    .score-developing {
+      color:
+        var(--yellow);
+
+      background:
+        var(--yellow-soft);
+
+      border-color:
+        rgba(
+          240,
+          189,
+          78,
+          0.18
+        );
+    }
+
+
+    .score-weak {
+      color:
+        var(--red);
+
+      background:
+        var(--red-soft);
+
+      border-color:
+        rgba(
+          255,
+          94,
+          114,
+          0.18
+        );
+    }
+
+
+    /* =====================================================
+       SETUP BADGES
+    ===================================================== */
+
+    .setup-badge {
+      display:
+        inline-block;
+
+      max-width:
+        190px;
+
+      padding:
+        5px 8px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        8px;
+
+      font-weight:
+        900;
+
+      white-space:
+        nowrap;
+    }
+
+
+    .setup-green {
+      color:
+        var(--green);
+
+      background:
+        var(--green-soft);
+    }
+
+
+    .setup-yellow {
+      color:
+        var(--yellow);
+
+      background:
+        var(--yellow-soft);
+    }
+
+
+    .setup-orange {
+      color:
+        var(--orange);
+
+      background:
+        var(--orange-soft);
+    }
+
+
+    .setup-red {
+      color:
+        var(--red);
+
+      background:
+        var(--red-soft);
+    }
+
+
+    /* =====================================================
+       YES / NO
+    ===================================================== */
+
+    .signal-yes {
+      color:
+        var(--green);
+
+      font-weight:
+        800;
+    }
+
+
+    .signal-no {
+      color:
+        var(--red);
+
+      font-weight:
+        800;
+    }
+
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
 
     .drawer-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
+      position:
+        fixed;
 
-      background: rgba(0, 0, 0, 0.55);
+      inset:
+        0;
 
-      display: none;
+      z-index:
+        100;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.52
+        );
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transition:
+        0.2s;
     }
+
 
     .drawer-overlay.open {
-      display: block;
+      opacity:
+        1;
+
+      visibility:
+        visible;
     }
+
 
     .drawer {
-      position: absolute;
-      right: 0;
-      top: 0;
+      position:
+        fixed;
 
-      width: min(760px, 96vw);
-      height: 100%;
+      top:
+        0;
 
-      overflow: auto;
+      right:
+        -520px;
 
-      background: #091522;
-      border-left: 1px solid var(--border);
+      z-index:
+        101;
 
-      padding: 20px;
+      width:
+        min(
+          500px,
+          96vw
+        );
+
+      height:
+        100vh;
+
+      background:
+        #0a1626;
+
+      border-left:
+        1px solid #28405d;
+
+      box-shadow:
+        -12px 0 35px
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
+
+      transition:
+        right 0.23s ease;
+
+      overflow-y:
+        auto;
     }
 
-    .drawer-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
 
-      margin-bottom: 16px;
+    .drawer.open {
+      right:
+        0;
     }
+
+
+    .drawer-header {
+      position:
+        sticky;
+
+      top:
+        0;
+
+      z-index:
+        3;
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      padding:
+        15px;
+
+      background:
+        #0a1626;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
 
     .drawer-title {
-      font-size: 23px;
-      font-weight: 900;
+      margin:
+        0;
+
+      font-size:
+        17px;
     }
+
 
     .drawer-symbol {
-      margin-top: 4px;
-      color: var(--muted);
+      margin-top:
+        4px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        10px;
     }
 
-    .close-btn {
-      background: var(--panel2);
-      border: 1px solid var(--border);
-      color: var(--text);
 
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+    .drawer-close {
+      width:
+        31px;
 
-      cursor: pointer;
+      height:
+        31px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        6px;
+
+      background:
+        var(--panel-2);
+
+      color:
+        #fff;
+
+      cursor:
+        pointer;
+
+      font-size:
+        17px;
     }
 
-    .detail-score-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
 
-      margin-bottom: 14px;
+    .drawer-content {
+      padding:
+        13px;
     }
 
-    .detail-score-box {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
 
-      padding: 12px;
+    .drawer-section {
+      margin-bottom:
+        12px;
 
-      text-align: center;
+      padding:
+        11px;
+
+      border:
+        1px solid var(--border-soft);
+
+      border-radius:
+        8px;
+
+      background:
+        var(--panel);
     }
 
-    .detail-score-label {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
+
+    .drawer-section h3 {
+      margin:
+        0 0 9px;
+
+      color:
+        #9fb5d0;
+
+      font-size:
+        10px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.5px;
     }
 
-    .detail-score-value {
-      font-size: 21px;
-      font-weight: 900;
-      margin-top: 5px;
-    }
-
-    .detail-section {
-      margin-top: 12px;
-
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-
-      padding: 14px;
-    }
-
-    .detail-section-title {
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
 
     .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap:
+        7px;
     }
+
 
     .detail-item {
-      border: 1px solid rgba(33, 52, 75, 0.6);
-      border-radius: 8px;
-      padding: 9px;
+      padding:
+        8px;
+
+      border-radius:
+        6px;
+
+      background:
+        #0a1728;
     }
 
-    .detail-item-label {
-      color: var(--muted);
-      font-size: 10px;
+
+    .detail-label {
+      color:
+        var(--muted);
+
+      font-size:
+        8px;
+
+      text-transform:
+        uppercase;
     }
 
-    .detail-item-value {
-      margin-top: 4px;
-      font-size: 12px;
-      font-weight: 800;
+
+    .detail-value {
+      margin-top:
+        4px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      word-break:
+        break-word;
     }
+
 
     .trigger-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        5px;
     }
 
-    .trigger {
-      padding: 6px 8px;
-      border-radius: 7px;
 
-      font-size: 10px;
-      font-weight: 800;
+    .trigger-chip {
+      padding:
+        5px 7px;
 
-      background: #13283e;
-      border: 1px solid #274662;
+      border-radius:
+        999px;
+
+      color:
+        #8fc6ff;
+
+      background:
+        var(--blue-soft);
+
+      border:
+        1px solid rgba(
+          77,
+          163,
+          255,
+          0.18
+        );
+
+      font-size:
+        9px;
+
+      font-weight:
+        700;
     }
 
-    .missing {
-      color: var(--yellow);
-      line-height: 1.6;
-      font-size: 12px;
+
+    .missing-text {
+      color:
+        var(--yellow);
+
+      font-size:
+        10px;
+
+      line-height:
+        1.5;
     }
+
+
+    /* =====================================================
+       EMPTY / ERROR
+    ===================================================== */
 
     .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--muted);
+      padding:
+        35px;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
     }
 
-    /* ---------------- RESPONSIVE ---------------- */
 
-    @media (max-width: 1350px) {
+    .empty-state strong {
+      display:
+        block;
+
+      margin-bottom:
+        7px;
+
+      color:
+        #dce7f5;
+
+      font-size:
+        15px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (
+      max-width: 1250px
+    ) {
+
       .summary-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+          repeat(
+            3,
+            minmax(150px, 1fr)
+          );
       }
 
-      .filter-row {
-        grid-template-columns: repeat(4, 1fr);
+
+      .filters-grid {
+        grid-template-columns:
+          repeat(
+            4,
+            minmax(140px, 1fr)
+          );
       }
+
     }
 
-    @media (max-width: 800px) {
-      .topbar-inner,
-      .page-head {
-        flex-direction: column;
+
+    @media (
+      max-width: 800px
+    ) {
+
+      .site-header {
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
+
+        gap:
+          7px;
       }
+
+
+      .main-nav {
+        width:
+          100%;
+
+        overflow-x:
+          auto;
+      }
+
+
+      .scanner-title-row {
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
+
+        gap:
+          7px;
+      }
+
 
       .summary-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(135px, 1fr)
+          );
       }
 
-      .filter-row {
-        grid-template-columns: repeat(2, 1fr);
+
+      .filters-grid {
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(130px, 1fr)
+          );
       }
 
-      .detail-score-row,
-      .detail-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+      .page {
+        padding:
+          8px;
       }
+
+
+      .table-wrap {
+        max-height:
+          calc(100vh - 370px);
+      }
+
     }
+
+
+    @media (
+      max-width: 500px
+    ) {
+
+      .summary-grid,
+      .filters-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
-  <div class="page">
 
-    <header class="topbar">
-      <div class="topbar-inner">
+  <!-- =====================================================
+       COMPACT HEADER
+  ====================================================== -->
 
-        <div class="brand">
-          <div class="brand-title">MY MARKET RESEARCH</div>
-          <div class="brand-subtitle">
-            NSE Main + SME • Research & Momentum Intelligence
-          </div>
-        </div>
+  <header class="site-header">
 
-        <nav class="nav">
-          <a href="index.html">Market Research</a>
+    <div class="brand-wrap">
 
-          <a href="big-move-scanner.html" class="active">
-            Big Move Scanner
-          </a>
+      <h1 class="brand">
+        MY MARKET RESEARCH
+      </h1>
 
-          <a href="#" onclick="return false;">
-            Industry Heat Map
-          </a>
-        </nav>
-
+      <div class="brand-subtitle">
+        NSE Main + SME • Research & Momentum Intelligence
       </div>
-    </header>
+
+    </div>
 
 
-    <main class="main">
+    <nav class="main-nav">
 
-      <section class="page-head">
+      <a
+        class="nav-link"
+        href="index.html"
+      >
+        Market Research
+      </a>
 
-        <div>
-          <h1>BIG MOVE SCANNER</h1>
+      <a
+        class="nav-link active"
+        href="big-move-scanner.html"
+      >
+        Big Move Scanner
+      </a>
 
-          <p>
-            Momentum + Chart Structure + Supply + Fundamental Trigger +
-            Industry Strength combined into one decision-support scanner.
-          </p>
-        </div>
+      <a
+        class="nav-link disabled"
+        href="#"
+        onclick="return false;"
+      >
+        Industry Heat Map
+      </a>
 
-        <div class="status-badge">
-          ● Scanner Active
-        </div>
+    </nav>
 
-      </section>
-
-
-      <!-- SUMMARY -->
-
-      <section class="summary-grid">
-
-        <div class="summary-card">
-          <div class="summary-label">Scanner Universe</div>
-          <div class="summary-value" id="universeCount">—</div>
-          <div class="summary-note">Eligible NSE stocks</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">Strong Setup</div>
-          <div class="summary-value" id="strongCount">—</div>
-          <div class="summary-note">Score ≥ 80</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">Near Breakout</div>
-          <div class="summary-value" id="nearBreakoutCount">—</div>
-          <div class="summary-note">Close to trigger level</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">Breakout</div>
-          <div class="summary-value" id="breakoutCount">—</div>
-          <div class="summary-note">Price confirmation</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">Trigger Present</div>
-          <div class="summary-value" id="triggerCount">—</div>
-          <div class="summary-note">Fundamental/business catalyst</div>
-        </div>
-
-        <div class="summary-card">
-          <div class="summary-label">Updated</div>
-          <div class="summary-value" id="updatedDate">—</div>
-          <div class="summary-note">Scanner data date</div>
-        </div>
-
-      </section>
+  </header>
 
 
-      <!-- FILTERS -->
+  <main class="page">
 
-      <section class="filters">
+    <!-- ===================================================
+         TITLE
+    ==================================================== -->
 
-        <div class="filter-row">
+    <section class="scanner-title-row">
 
-          <div class="field">
-            <label>Search Stock / Symbol</label>
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="e.g. CYIENTDLM"
-            />
-          </div>
+      <div class="scanner-heading">
 
-          <div class="field">
-            <label>Minimum Big Move Score</label>
-            <input
-              id="minScore"
-              type="number"
-              min="0"
-              max="100"
-              placeholder="e.g. 70"
-            />
-          </div>
+        <h1>
+          BIG MOVE SCANNER
+        </h1>
 
-          <div class="field">
-            <label>Minimum RS</label>
-            <input
-              id="minRS"
-              type="number"
-              min="1"
-              max="99"
-              placeholder="e.g. 80"
-            />
-          </div>
-
-          <div class="field">
-            <label>Stock Momentum</label>
-            <input
-              id="minMomentum"
-              type="number"
-              min="1"
-              max="99"
-              placeholder="e.g. 70"
-            />
-          </div>
-
-          <div class="field">
-            <label>Industry Rating</label>
-            <input
-              id="minIndustry"
-              type="number"
-              min="1"
-              max="99"
-              placeholder="e.g. 70"
-            />
-          </div>
-
-          <div class="field">
-            <label>Setup Status</label>
-            <select id="setupFilter">
-              <option value="">All</option>
-              <option value="Strong Setup">Strong Setup</option>
-              <option value="Near Breakout">Near Breakout</option>
-              <option value="Breakout">Breakout</option>
-              <option value="Watchlist">Watchlist</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Fundamental Trigger</label>
-            <select id="triggerFilter">
-              <option value="">All</option>
-              <option value="yes">Trigger Present</option>
-              <option value="no">No Trigger</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Sort By</label>
-            <select id="sortBy">
-              <option value="score">Big Move Score</option>
-              <option value="rs">RS Rating</option>
-              <option value="momentum">Stock Momentum</option>
-              <option value="industry">Industry Rating</option>
-              <option value="return1M">1M Return</option>
-              <option value="return3M">3M Return</option>
-              <option value="return6M">6M Return</option>
-              <option value="return1Y">1Y Return</option>
-            </select>
-          </div>
-
-        </div>
-
-
-        <div class="filter-actions">
-
-          <button class="btn btn-primary" id="applyFilters">
-            Apply Filters
-          </button>
-
-          <button class="btn" id="resetFilters">
-            Reset
-          </button>
-
-        </div>
-
-      </section>
-
-
-      <!-- LEGEND -->
-
-      <div class="legend">
-
-        <span class="legend-item">
-          <span class="dot dot-green"></span>
-          Strong / Confirmed
-        </span>
-
-        <span class="legend-item">
-          <span class="dot dot-yellow"></span>
-          Near / Developing
-        </span>
-
-        <span class="legend-item">
-          <span class="dot dot-orange"></span>
-          Watch
-        </span>
-
-        <span class="legend-item">
-          <span class="dot dot-red"></span>
-          Weak / Missing
-        </span>
+        <p>
+          Momentum + Chart Structure + Supply +
+          Fundamental Trigger + Industry Strength
+        </p>
 
       </div>
 
 
-      <!-- TABLE -->
+      <div class="scanner-active">
+        ● Scanner Active
+      </div>
 
-      <section class="table-panel">
+    </section>
 
-        <div class="table-toolbar">
 
-          <div class="result-text" id="resultText">
-            Loading scanner data...
-          </div>
+    <!-- ===================================================
+         SUMMARY
+    ==================================================== -->
 
-          <button class="btn" id="exportBtn">
-            Export CSV
-          </button>
+    <section class="summary-grid">
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Scanner Universe
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryUniverse"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Eligible NSE stocks
+        </div>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Score ≥ 80
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryStrong"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Phase-1 high potential
+        </div>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Near Breakout
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryNear"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Close to trigger
+        </div>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Breakout
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryBreakout"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Price confirmation
+        </div>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Trigger Present
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryTrigger"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Fundamental / business catalyst
+        </div>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div class="summary-label">
+          Updated
+        </div>
+
+        <div
+          class="summary-value"
+          id="summaryUpdated"
+        >
+          —
+        </div>
+
+        <div class="summary-note">
+          Scanner data date
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FILTERS
+    ==================================================== -->
+
+    <section class="filters-panel">
+
+      <div class="filters-grid">
+
+        <div class="filter-group">
+
+          <label for="searchInput">
+            Search Stock / Symbol
+          </label>
+
+          <input
+            id="searchInput"
+            class="filter-control"
+            type="search"
+            placeholder="e.g. CYIENTDLM"
+          >
 
         </div>
 
 
-        <div class="table-wrap">
+        <div class="filter-group">
 
-          <table>
+          <label for="minScore">
+            Minimum Big Move Score
+          </label>
 
-            <thead>
-              <tr>
-
-                <th>Stock</th>
-
-                <th>Big Move<br>Score</th>
-
-                <th>Setup<br>Status</th>
-
-                <th>Price</th>
-
-                <th>1M %</th>
-                <th>3M %</th>
-                <th>6M %</th>
-                <th>1Y %</th>
-
-                <th>RS</th>
-
-                <th>Stock<br>Momentum</th>
-
-                <th>Industry<br>Rating</th>
-
-                <th>Free Float<br>Shares</th>
-
-                <th>Prior<br>Move %</th>
-
-                <th>Retracement<br>%</th>
-
-                <th>Consolidation<br>Days</th>
-
-                <th>Volume<br>Contraction</th>
-
-                <th>Volatility<br>Contraction</th>
-
-                <th>Breakout<br>Status</th>
-
-                <th>Turnover<br>Expansion</th>
-
-                <th>Fundamental<br>Trigger</th>
-
-                <th>Key Trigger</th>
-
-                <th>Missing<br>Conditions</th>
-
-              </tr>
-            </thead>
-
-
-            <tbody id="scannerRows"></tbody>
-
-          </table>
+          <input
+            id="minScore"
+            class="filter-control"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="e.g. 70"
+          >
 
         </div>
 
-      </section>
 
-    </main>
+        <div class="filter-group">
 
-  </div>
+          <label for="minRS">
+            Minimum RS
+          </label>
 
+          <input
+            id="minRS"
+            class="filter-control"
+            type="number"
+            min="1"
+            max="99"
+            placeholder="e.g. 80"
+          >
 
-  <!-- DETAIL DRAWER -->
-
-  <div class="drawer-overlay" id="drawerOverlay">
-
-    <aside class="drawer">
-
-      <div class="drawer-head">
-
-        <div>
-          <div class="drawer-title" id="drawerTitle">
-            Stock
-          </div>
-
-          <div class="drawer-symbol" id="drawerSymbol">
-            —
-          </div>
         </div>
 
-        <button class="close-btn" id="closeDrawer">
-          ✕
+
+        <div class="filter-group">
+
+          <label for="minMomentum">
+            Stock Momentum
+          </label>
+
+          <input
+            id="minMomentum"
+            class="filter-control"
+            type="number"
+            min="1"
+            max="99"
+            placeholder="e.g. 70"
+          >
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="minIndustry">
+            Industry Rating
+          </label>
+
+          <input
+            id="minIndustry"
+            class="filter-control"
+            type="number"
+            min="1"
+            max="99"
+            placeholder="e.g. 70"
+          >
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="setupFilter">
+            Setup Status
+          </label>
+
+          <select
+            id="setupFilter"
+            class="filter-control"
+          >
+
+            <option value="">
+              All
+            </option>
+
+            <option value="Strong Setup">
+              Strong Setup
+            </option>
+
+            <option value="Near Breakout">
+              Near Breakout
+            </option>
+
+            <option value="Breakout">
+              Breakout
+            </option>
+
+            <option value="High Potential / Technical Pending">
+              High Potential / Technical Pending
+            </option>
+
+            <option value="Watchlist / Technical Pending">
+              Watchlist / Technical Pending
+            </option>
+
+            <option value="Data Building">
+              Data Building
+            </option>
+
+            <option value="Watchlist">
+              Watchlist
+            </option>
+
+            <option value="Developing">
+              Developing
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="triggerFilter">
+            Fundamental Trigger
+          </label>
+
+          <select
+            id="triggerFilter"
+            class="filter-control"
+          >
+
+            <option value="">
+              All
+            </option>
+
+            <option value="YES">
+              Trigger Present
+            </option>
+
+            <option value="NO">
+              No Trigger
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="sortBy">
+            Sort By
+          </label>
+
+          <select
+            id="sortBy"
+            class="filter-control"
+          >
+
+            <option value="bigMoveScore">
+              Big Move Score
+            </option>
+
+            <option value="rsRating">
+              RS Rating
+            </option>
+
+            <option value="stockMomentumRating">
+              Stock Momentum
+            </option>
+
+            <option value="industryRating">
+              Industry Rating
+            </option>
+
+            <option value="return1M">
+              1M Return
+            </option>
+
+            <option value="return3M">
+              3M Return
+            </option>
+
+            <option value="return6M">
+              6M Return
+            </option>
+
+            <option value="return1Y">
+              1Y Return
+            </option>
+
+            <option value="priorMovePct">
+              Prior Move
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="filter-actions">
+
+        <button
+          class="btn btn-primary"
+          id="applyFilters"
+          type="button"
+        >
+          Apply Filters
+        </button>
+
+        <button
+          class="btn"
+          id="resetFilters"
+          type="button"
+        >
+          Reset
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         LEGEND
+    ==================================================== -->
+
+    <section class="legend">
+
+      <span class="legend-item">
+
+        <span
+          class="legend-dot dot-green"
+        ></span>
+
+        Strong / Confirmed
+
+      </span>
+
+
+      <span class="legend-item">
+
+        <span
+          class="legend-dot dot-yellow"
+        ></span>
+
+        Near / Developing
+
+      </span>
+
+
+      <span class="legend-item">
+
+        <span
+          class="legend-dot dot-orange"
+        ></span>
+
+        Watch
+
+      </span>
+
+
+      <span class="legend-item">
+
+        <span
+          class="legend-dot dot-red"
+        ></span>
+
+        Weak / Missing
+
+      </span>
+
+    </section>
+
+
+    <!-- ===================================================
+         TABLE
+    ==================================================== -->
+
+    <section class="table-panel">
+
+      <div class="table-toolbar">
+
+        <div
+          id="resultCount"
+          class="result-count"
+        >
+          Loading scanner...
+        </div>
+
+
+        <button
+          id="exportCsv"
+          class="btn export-btn"
+          type="button"
+        >
+          Export CSV
         </button>
 
       </div>
 
 
-      <div class="detail-score-row">
+      <!-- ===============================================
+           TOP SCROLLBAR
+      ================================================ -->
 
-        <div class="detail-score-box">
-          <div class="detail-score-label">BIG MOVE</div>
-          <div class="detail-score-value" id="detailScore">—</div>
-        </div>
+      <div
+        id="topScroll"
+        class="top-scroll-wrap"
+      >
 
-        <div class="detail-score-box">
-          <div class="detail-score-label">RS</div>
-          <div class="detail-score-value" id="detailRS">—</div>
-        </div>
-
-        <div class="detail-score-box">
-          <div class="detail-score-label">MOMENTUM</div>
-          <div class="detail-score-value" id="detailMomentum">—</div>
-        </div>
-
-        <div class="detail-score-box">
-          <div class="detail-score-label">INDUSTRY</div>
-          <div class="detail-score-value" id="detailIndustry">—</div>
-        </div>
-
-        <div class="detail-score-box">
-          <div class="detail-score-label">SETUP</div>
-          <div
-            class="detail-score-value"
-            id="detailSetup"
-            style="font-size:14px"
-          >
-            —
-          </div>
-        </div>
+        <div
+          id="topScrollInner"
+          class="top-scroll-inner"
+        ></div>
 
       </div>
 
 
-      <section class="detail-section">
+      <div
+        id="tableWrap"
+        class="table-wrap"
+      >
+
+        <table
+          id="scannerTable"
+        >
+
+          <thead>
+
+            <tr>
+
+              <th>Stock</th>
+
+              <th>
+                Big Move
+                <br>
+                Score
+              </th>
+
+              <th>
+                Setup
+                <br>
+                Status
+              </th>
+
+              <th>
+                Price
+              </th>
+
+              <th>
+                1M %
+              </th>
+
+              <th>
+                3M %
+              </th>
+
+              <th>
+                6M %
+              </th>
+
+              <th>
+                1Y %
+              </th>
+
+              <th>
+                RS
+              </th>
 
-        <div class="detail-section-title">
-          Price & Momentum
-        </div>
+              <th>
+                Stock
+                <br>
+                Momentum
+              </th>
 
-        <div class="detail-grid" id="priceMomentumDetails"></div>
+              <th>
+                Industry
+                <br>
+                Rating
+              </th>
 
-      </section>
+              <th>
+                Free Float
+                <br>
+                Shares
+              </th>
 
+              <th>
+                Prior
+                <br>
+                Move %
+              </th>
 
-      <section class="detail-section">
+              <th>
+                Retracement
+                <br>
+                %
+              </th>
 
-        <div class="detail-section-title">
-          Chart Structure
-        </div>
+              <th>
+                Consolidation
+                <br>
+                Days
+              </th>
 
-        <div class="detail-grid" id="chartDetails"></div>
+              <th>
+                Volume
+                <br>
+                Contraction
+              </th>
 
-      </section>
+              <th>
+                Volatility
+                <br>
+                Contraction
+              </th>
 
+              <th>
+                Breakout
+                <br>
+                Status
+              </th>
 
-      <section class="detail-section">
+              <th>
+                Turnover
+                <br>
+                Expansion
+              </th>
 
-        <div class="detail-section-title">
-          Supply & Participation
-        </div>
+              <th>
+                Fundamental
+                <br>
+                Trigger
+              </th>
 
-        <div class="detail-grid" id="supplyDetails"></div>
+              <th>
+                Key Trigger
+              </th>
 
-      </section>
+              <th>
+                Missing Conditions
+              </th>
 
+            </tr>
 
-      <section class="detail-section">
+          </thead>
 
-        <div class="detail-section-title">
-          Fundamental / Business Triggers
-        </div>
 
-        <div class="trigger-list" id="triggerList">
-          —
-        </div>
+          <tbody id="scannerRows">
 
-      </section>
+            <tr>
 
+              <td colspan="22">
 
-      <section class="detail-section">
+                <div class="empty-state">
+                  Loading scanner data...
+                </div>
 
-        <div class="detail-section-title">
-          Missing Conditions
-        </div>
+              </td>
 
-        <div class="missing" id="missingConditions">
-          —
-        </div>
+            </tr>
 
-      </section>
+          </tbody>
 
-    </aside>
+        </table>
 
-  </div>
+      </div>
 
+    </section>
 
-<script>
+  </main>
 
-const DATA_URL = "data/big_move_scanner.json";
 
-let allRows = [];
-let filteredRows = [];
+  <!-- =====================================================
+       DRAWER
+  ====================================================== -->
 
+  <div
+    id="drawerOverlay"
+    class="drawer-overlay"
+  ></div>
 
-/* ---------------- HELPERS ---------------- */
 
-function n(value) {
-  const x = Number(value);
-  return Number.isFinite(x) ? x : null;
-}
+  <aside
+    id="detailDrawer"
+    class="drawer"
+  >
 
+    <div class="drawer-header">
 
-function fmt(value, digits = 1) {
+      <div>
 
-  const x = n(value);
+        <h2
+          id="drawerTitle"
+          class="drawer-title"
+        >
+          Stock Details
+        </h2>
 
-  if (x === null) return "—";
+        <div
+          id="drawerSymbol"
+          class="drawer-symbol"
+        ></div>
 
-  return x.toLocaleString("en-IN", {
-    maximumFractionDigits: digits,
-    minimumFractionDigits: digits
-  });
-}
+      </div>
 
 
-function fmtInt(value) {
+      <button
+        id="drawerClose"
+        class="drawer-close"
+        type="button"
+      >
+        ×
+      </button>
 
-  const x = n(value);
+    </div>
 
-  if (x === null) return "—";
 
-  return Math.round(x).toLocaleString("en-IN");
-}
+    <div
+      id="drawerContent"
+      class="drawer-content"
+    ></div>
 
+  </aside>
 
-function yesNo(value) {
 
-  if (value === true || value === "yes" || value === "Yes") {
-    return `<span class="yes">Yes</span>`;
-  }
+  <script>
 
-  if (value === false || value === "no" || value === "No") {
-    return `<span class="no">No</span>`;
-  }
+    /* =====================================================
+       CONFIG
+    ===================================================== */
 
-  return `<span class="pending">—</span>`;
-}
+    const DATA_URL =
+      "data/big_move_scanner.json";
 
 
-function scoreClass(score) {
+    let allRows =
+      [];
 
-  const x = n(score);
 
-  if (x === null) return "score-watch";
+    let filteredRows =
+      [];
 
-  if (x >= 80) return "score-elite";
 
-  if (x >= 70) return "score-good";
+    let scannerMeta =
+      {};
 
-  if (x >= 55) return "score-watch";
 
-  return "score-weak";
-}
+    /* =====================================================
+       ELEMENT
+    ===================================================== */
 
+    function el(id) {
 
-function setupClass(status) {
+      return document.getElementById(
+        id
+      );
 
-  const s = String(status || "").toLowerCase();
-
-  if (s.includes("strong") || s === "breakout") {
-    return "setup-ready";
-  }
-
-  if (s.includes("near")) {
-    return "setup-near";
-  }
-
-  if (s.includes("watch")) {
-    return "setup-watch";
-  }
-
-  return "setup-weak";
-}
-
-
-function escapeHtml(value) {
-
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-
-/* ---------------- LOAD DATA ---------------- */
-
-async function loadData() {
-
-  try {
-
-    const response = await fetch(
-      `${DATA_URL}?t=${Date.now()}`
-    );
-
-    if (!response.ok) {
-      throw new Error("Scanner data not found");
-    }
-
-    const payload = await response.json();
-
-    allRows = Array.isArray(payload)
-      ? payload
-      : (payload.rows || payload.stocks || []);
-
-    filteredRows = [...allRows];
-
-    const updated =
-      payload.updated ||
-      payload.marketDate ||
-      payload.generatedAt ||
-      "—";
-
-    document.getElementById("updatedDate").textContent = updated;
-
-    updateSummary();
-
-    applyFilters();
-
-  } catch (error) {
-
-    console.error(error);
-
-    document.getElementById("resultText").textContent =
-      "Scanner backend data not created yet.";
-
-    document.getElementById("scannerRows").innerHTML = `
-      <tr>
-        <td colspan="22">
-          <div class="empty-state">
-
-            <strong>Page 2 design is ready.</strong>
-
-            <br><br>
-
-            Next step: create
-            <code>data/big_move_scanner.json</code>
-            from NSE price, momentum, chart structure,
-            free-float and research data.
-
-          </div>
-        </td>
-      </tr>
-    `;
-
-    document.getElementById("universeCount").textContent = "—";
-    document.getElementById("strongCount").textContent = "—";
-    document.getElementById("nearBreakoutCount").textContent = "—";
-    document.getElementById("breakoutCount").textContent = "—";
-    document.getElementById("triggerCount").textContent = "—";
-  }
-}
-
-
-/* ---------------- SUMMARY ---------------- */
-
-function updateSummary() {
-
-  document.getElementById("universeCount").textContent =
-    allRows.length.toLocaleString("en-IN");
-
-  const strong =
-    allRows.filter(row => n(row.bigMoveScore) >= 80).length;
-
-  const near =
-    allRows.filter(row =>
-      String(row.setupStatus || "")
-        .toLowerCase()
-        .includes("near")
-    ).length;
-
-  const breakout =
-    allRows.filter(row =>
-      String(row.breakoutStatus || "")
-        .toLowerCase()
-        .includes("breakout")
-    ).length;
-
-  const trigger =
-    allRows.filter(row =>
-      row.fundamentalTrigger === true ||
-      row.fundamentalTrigger === "yes"
-    ).length;
-
-  document.getElementById("strongCount").textContent =
-    strong.toLocaleString("en-IN");
-
-  document.getElementById("nearBreakoutCount").textContent =
-    near.toLocaleString("en-IN");
-
-  document.getElementById("breakoutCount").textContent =
-    breakout.toLocaleString("en-IN");
-
-  document.getElementById("triggerCount").textContent =
-    trigger.toLocaleString("en-IN");
-}
-
-
-/* ---------------- FILTERS ---------------- */
-
-function applyFilters() {
-
-  const q =
-    document.getElementById("searchInput")
-      .value
-      .trim()
-      .toLowerCase();
-
-  const minScore =
-    n(document.getElementById("minScore").value);
-
-  const minRS =
-    n(document.getElementById("minRS").value);
-
-  const minMomentum =
-    n(document.getElementById("minMomentum").value);
-
-  const minIndustry =
-    n(document.getElementById("minIndustry").value);
-
-  const setup =
-    document.getElementById("setupFilter").value;
-
-  const trigger =
-    document.getElementById("triggerFilter").value;
-
-  const sortBy =
-    document.getElementById("sortBy").value;
-
-
-  filteredRows = allRows.filter(row => {
-
-    const name =
-      String(row.stock || row.name || "")
-        .toLowerCase();
-
-    const symbol =
-      String(row.symbol || "")
-        .toLowerCase();
-
-
-    if (
-      q &&
-      !name.includes(q) &&
-      !symbol.includes(q)
-    ) {
-      return false;
     }
 
 
-    if (
-      minScore !== null &&
-      n(row.bigMoveScore) !== null &&
-      n(row.bigMoveScore) < minScore
-    ) {
-      return false;
-    }
+    /* =====================================================
+       SAFE NUMBER
 
+       IMPORTANT:
+       null / undefined / "" must remain NULL.
 
-    if (
-      minRS !== null &&
-      n(row.rsRating) !== null &&
-      n(row.rsRating) < minRS
-    ) {
-      return false;
-    }
+       Number(null) = 0 in JavaScript.
+       That caused Pending fields to display as 0 earlier.
+    ===================================================== */
 
-
-    if (
-      minMomentum !== null &&
-      n(row.stockMomentumRating) !== null &&
-      n(row.stockMomentumRating) < minMomentum
-    ) {
-      return false;
-    }
-
-
-    if (
-      minIndustry !== null &&
-      n(row.industryRating) !== null &&
-      n(row.industryRating) < minIndustry
-    ) {
-      return false;
-    }
-
-
-    if (
-      setup &&
-      String(row.setupStatus || "") !== setup
-    ) {
-      return false;
-    }
-
-
-    if (trigger === "yes") {
+    function num(value) {
 
       if (
-        !(
-          row.fundamentalTrigger === true ||
-          row.fundamentalTrigger === "yes"
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return null;
+
+      }
+
+
+      if (
+        typeof value === "string"
+      ) {
+
+        const cleaned =
+          value
+            .replace(/,/g, "")
+            .replace(/%/g, "")
+            .replace(/₹/g, "")
+            .replace(/x/gi, "")
+            .trim();
+
+
+        if (
+          !cleaned ||
+          cleaned === "—" ||
+          cleaned.toLowerCase() ===
+            "pending"
+        ) {
+
+          return null;
+
+        }
+
+
+        const parsed =
+          Number(cleaned);
+
+
+        return Number.isFinite(
+          parsed
+        )
+          ? parsed
+          : null;
+
+      }
+
+
+      const parsed =
+        Number(value);
+
+
+      return Number.isFinite(
+        parsed
+      )
+        ? parsed
+        : null;
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
+
+    function escapeHtml(value) {
+
+      return String(
+        value ?? ""
+      )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* =====================================================
+       FORMATTERS
+    ===================================================== */
+
+    function formatInteger(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return Math.round(
+        n
+      ).toLocaleString(
+        "en-IN"
+      );
+
+    }
+
+
+    function formatNumber(
+      value,
+      decimals = 2
+    ) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return n.toLocaleString(
+        "en-IN",
+        {
+          minimumFractionDigits:
+            decimals,
+
+          maximumFractionDigits:
+            decimals
+        }
+      );
+
+    }
+
+
+    function formatPrice(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return (
+        "₹" +
+        n.toLocaleString(
+          "en-IN",
+          {
+            minimumFractionDigits:
+              2,
+
+            maximumFractionDigits:
+              2
+          }
+        )
+      );
+
+    }
+
+
+    function formatPct(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      const cls =
+        n < 0
+          ? "negative"
+          : "positive";
+
+
+      const sign =
+        n > 0
+          ? "+"
+          : "";
+
+
+      return (
+        `<span class="${cls}">` +
+        `${sign}${n.toFixed(1)}%` +
+        `</span>`
+      );
+
+    }
+
+
+    function formatPlainPct(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return (
+        `${n.toFixed(1)}%`
+      );
+
+    }
+
+
+    function formatTimes(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return (
+        `${n.toFixed(2)}x`
+      );
+
+    }
+
+
+    function formatBoolean(
+      value,
+      pendingAllowed = true
+    ) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return pendingAllowed
+          ? '<span class="pending">—</span>'
+          : "NO";
+
+      }
+
+
+      const yes =
+        value === true ||
+        value === 1 ||
+        String(value)
+          .toLowerCase()
+          .trim() === "true" ||
+        String(value)
+          .toLowerCase()
+          .trim() === "yes";
+
+
+      return yes
+        ? '<span class="signal-yes">YES</span>'
+        : '<span class="signal-no">NO</span>';
+
+    }
+
+
+    /* =====================================================
+       SCORE BADGE
+    ===================================================== */
+
+    function scoreBadge(value) {
+
+      const n =
+        num(value);
+
+
+      if (
+        n === null
+      ) {
+
+        return (
+          '<span class="pending">Pending</span>'
+        );
+
+      }
+
+
+      let cls =
+        "score-weak";
+
+
+      if (
+        n >= 80
+      ) {
+
+        cls =
+          "score-elite";
+
+      }
+
+      else if (
+        n >= 70
+      ) {
+
+        cls =
+          "score-strong";
+
+      }
+
+      else if (
+        n >= 55
+      ) {
+
+        cls =
+          "score-developing";
+
+      }
+
+
+      return (
+        `<span class="score-badge ${cls}">` +
+        `${Math.round(n)}` +
+        `</span>`
+      );
+
+    }
+
+
+    /* =====================================================
+       SETUP BADGE
+    ===================================================== */
+
+    function setupBadge(value) {
+
+      const text =
+        String(
+          value ||
+          "Pending"
+        );
+
+
+      const lower =
+        text.toLowerCase();
+
+
+      let cls =
+        "setup-red";
+
+
+      if (
+        lower.includes(
+          "strong"
+        ) ||
+        (
+          lower.includes(
+            "breakout"
+          ) &&
+          !lower.includes(
+            "near"
+          )
         )
       ) {
-        return false;
+
+        cls =
+          "setup-green";
+
       }
+
+      else if (
+        lower.includes(
+          "near"
+        ) ||
+        lower.includes(
+          "developing"
+        )
+      ) {
+
+        cls =
+          "setup-yellow";
+
+      }
+
+      else if (
+        lower.includes(
+          "watch"
+        )
+      ) {
+
+        cls =
+          "setup-orange";
+
+      }
+
+
+      return (
+        `<span class="setup-badge ${cls}">` +
+        `${escapeHtml(text)}` +
+        `</span>`
+      );
 
     }
 
 
-    if (trigger === "no") {
+    /* =====================================================
+       BREAKOUT
+    ===================================================== */
+
+    function formatBreakout(value) {
 
       if (
-        row.fundamentalTrigger === true ||
-        row.fundamentalTrigger === "yes"
+        value === null ||
+        value === undefined ||
+        value === "" ||
+        String(value)
+          .toLowerCase() ===
+            "pending"
       ) {
-        return false;
+
+        return (
+          '<span class="pending">Pending</span>'
+        );
+
       }
+
+
+      const text =
+        String(value);
+
+
+      const lower =
+        text.toLowerCase();
+
+
+      if (
+        lower.includes(
+          "breakout"
+        ) &&
+        !lower.includes(
+          "near"
+        )
+      ) {
+
+        return (
+          `<span class="signal-yes">` +
+          `${escapeHtml(text)}` +
+          `</span>`
+        );
+
+      }
+
+
+      if (
+        lower.includes(
+          "near"
+        )
+      ) {
+
+        return (
+          `<span style="color:var(--yellow);font-weight:800;">` +
+          `${escapeHtml(text)}` +
+          `</span>`
+        );
+
+      }
+
+
+      return escapeHtml(
+        text
+      );
 
     }
 
 
-    return true;
-  });
+    /* =====================================================
+       FREE FLOAT
+
+       0 is treated as unavailable because Free Float Shares
+       cannot meaningfully be zero for a normally traded stock.
+    ===================================================== */
+
+    function formatFreeFloat(value) {
+
+      const n =
+        num(value);
 
 
-  const sortMap = {
+      if (
+        n === null ||
+        n <= 0
+      ) {
 
-    score: "bigMoveScore",
+        return (
+          '<span class="pending">—</span>'
+        );
 
-    rs: "rsRating",
-
-    momentum: "stockMomentumRating",
-
-    industry: "industryRating",
-
-    return1M: "return1M",
-
-    return3M: "return3M",
-
-    return6M: "return6M",
-
-    return1Y: "return1Y"
-
-  };
+      }
 
 
-  const sortKey = sortMap[sortBy] || "bigMoveScore";
+      return Math.round(
+        n
+      ).toLocaleString(
+        "en-IN"
+      );
+
+    }
 
 
-  filteredRows.sort((a, b) => {
+    /* =====================================================
+       TECHNICAL VALUE
 
-    const av = n(a[sortKey]) ?? -Infinity;
-    const bv = n(b[sortKey]) ?? -Infinity;
+       Phase-1 accidentally surfaced some unavailable fields
+       as numeric zero. Until technical engine populates them,
+       zero is displayed as Pending.
+    ===================================================== */
 
-    return bv - av;
-  });
+    function formatTechnicalPct(value) {
 
-
-  renderRows();
-}
-
-
-/* ---------------- TABLE ---------------- */
-
-function renderRows() {
-
-  const tbody =
-    document.getElementById("scannerRows");
+      const n =
+        num(value);
 
 
-  document.getElementById("resultText").textContent =
-    `${filteredRows.length.toLocaleString("en-IN")} stocks found`;
+      if (
+        n === null ||
+        n === 0
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
 
 
-  if (!filteredRows.length) {
+      return (
+        `${n.toFixed(1)}%`
+      );
 
-    tbody.innerHTML = `
-      <tr>
-        <td colspan="22">
-          <div class="empty-state">
-            No stocks match the selected filters.
-          </div>
-        </td>
-      </tr>
-    `;
-
-    return;
-  }
+    }
 
 
-  tbody.innerHTML =
-    filteredRows.map((row, index) => {
+    function formatTechnicalDays(value) {
 
-      const name =
-        escapeHtml(row.stock || row.name || row.symbol);
+      const n =
+        num(value);
 
-      const symbol =
-        escapeHtml(row.symbol || "");
 
-      const setup =
-        escapeHtml(row.setupStatus || "Pending");
+      if (
+        n === null ||
+        n <= 0
+      ) {
+
+        return (
+          '<span class="pending">—</span>'
+        );
+
+      }
+
+
+      return Math.round(
+        n
+      ).toLocaleString(
+        "en-IN"
+      );
+
+    }
+
+
+    /* =====================================================
+       FETCH
+    ===================================================== */
+
+    async function fetchScanner() {
+
+      const url =
+        `${DATA_URL}?v=${Date.now()}`;
+
+
+      const response =
+        await fetch(
+          url,
+          {
+            cache:
+              "no-store"
+          }
+        );
+
+
+      if (
+        !response.ok
+      ) {
+
+        throw new Error(
+          `Scanner data HTTP ${response.status}`
+        );
+
+      }
+
+
+      return response.json();
+
+    }
+
+
+    /* =====================================================
+       NORMALIZE PAYLOAD
+    ===================================================== */
+
+    function normalizePayload(
+      payload
+    ) {
+
+      scannerMeta =
+        payload &&
+        typeof payload ===
+          "object"
+          ? payload
+          : {};
+
+
+      if (
+        Array.isArray(
+          payload
+        )
+      ) {
+
+        return payload;
+
+      }
+
+
+      if (
+        Array.isArray(
+          payload?.rows
+        )
+      ) {
+
+        return payload.rows;
+
+      }
+
+
+      if (
+        Array.isArray(
+          payload?.stocks
+        )
+      ) {
+
+        return payload.stocks;
+
+      }
+
+
+      return [];
+
+    }
+
+
+    /* =====================================================
+       SUMMARY
+    ===================================================== */
+
+    function updateSummary() {
+
+      const total =
+        allRows.length;
+
+
+      const score80 =
+        allRows.filter(
+          row => {
+
+            const v =
+              num(
+                row.bigMoveScore
+              );
+
+
+            return (
+              v !== null &&
+              v >= 80
+            );
+
+          }
+        ).length;
+
+
+      const near =
+        allRows.filter(
+          row => {
+
+            const text =
+              String(
+                row.breakoutStatus ||
+                ""
+              )
+                .toLowerCase();
+
+
+            return text.includes(
+              "near"
+            );
+
+          }
+        ).length;
+
 
       const breakout =
-        escapeHtml(row.breakoutStatus || "Pending");
+        allRows.filter(
+          row => {
+
+            const text =
+              String(
+                row.breakoutStatus ||
+                ""
+              )
+                .toLowerCase();
+
+
+            return (
+              text.includes(
+                "breakout"
+              ) &&
+              !text.includes(
+                "near"
+              )
+            );
+
+          }
+        ).length;
+
+
+      const trigger =
+        allRows.filter(
+          row =>
+            row.fundamentalTrigger ===
+              true ||
+            (
+              Array.isArray(
+                row.triggers
+              ) &&
+              row.triggers.length >
+                0
+            )
+        ).length;
+
+
+      el(
+        "summaryUniverse"
+      ).textContent =
+        total.toLocaleString(
+          "en-IN"
+        );
+
+
+      el(
+        "summaryStrong"
+      ).textContent =
+        score80.toLocaleString(
+          "en-IN"
+        );
+
+
+      el(
+        "summaryNear"
+      ).textContent =
+        near.toLocaleString(
+          "en-IN"
+        );
+
+
+      el(
+        "summaryBreakout"
+      ).textContent =
+        breakout.toLocaleString(
+          "en-IN"
+        );
+
+
+      el(
+        "summaryTrigger"
+      ).textContent =
+        trigger.toLocaleString(
+          "en-IN"
+        );
+
+
+      el(
+        "summaryUpdated"
+      ).textContent =
+        scannerMeta.marketDate ||
+        scannerMeta.updated ||
+        "—";
 
-      const keyTrigger =
-        escapeHtml(row.keyTrigger || "—");
-
-      const missing =
-        escapeHtml(row.missingConditions || "—");
-
-
-      return `
-        <tr data-index="${index}">
-
-          <td>
-            <span class="stock-name">${name}</span>
-            <span class="stock-symbol">${symbol}</span>
-          </td>
-
-          <td>
-            <div class="score ${scoreClass(row.bigMoveScore)}">
-              ${fmtInt(row.bigMoveScore)}
-            </div>
-          </td>
-
-          <td>
-            <span class="setup ${setupClass(setup)}">
-              ${setup}
-            </span>
-          </td>
-
-          <td class="number">
-            ${fmt(row.price, 2)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.return1M, 1)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.return3M, 1)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.return6M, 1)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.return1Y, 1)}
-          </td>
-
-          <td class="number">
-            ${fmtInt(row.rsRating)}
-          </td>
-
-          <td class="number">
-            ${fmtInt(row.stockMomentumRating)}
-          </td>
-
-          <td class="number">
-            ${fmtInt(row.industryRating)}
-          </td>
-
-          <td class="number">
-            ${fmtInt(row.freeFloatShares)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.priorMovePct, 1)}
-          </td>
-
-          <td class="number">
-            ${fmt(row.retracementPct, 1)}
-          </td>
-
-          <td class="number">
-            ${fmtInt(row.consolidationDays)}
-          </td>
-
-          <td>
-            ${yesNo(row.volumeContraction)}
-          </td>
-
-          <td>
-            ${yesNo(row.volatilityContraction)}
-          </td>
-
-          <td>
-            ${breakout}
-          </td>
-
-          <td>
-            ${yesNo(row.turnoverExpansion)}
-          </td>
-
-          <td>
-            ${yesNo(row.fundamentalTrigger)}
-          </td>
-
-          <td>
-            ${keyTrigger}
-          </td>
-
-          <td>
-            ${missing}
-          </td>
-
-        </tr>
-      `;
-
-    }).join("");
-
-
-  tbody.querySelectorAll("tr[data-index]")
-    .forEach(tr => {
-
-      tr.addEventListener("click", () => {
-
-        const index =
-          Number(tr.dataset.index);
-
-        openDrawer(filteredRows[index]);
-      });
-
-    });
-}
-
-
-/* ---------------- DRAWER ---------------- */
-
-function detailItem(label, value) {
-
-  return `
-    <div class="detail-item">
-      <div class="detail-item-label">
-        ${escapeHtml(label)}
-      </div>
-
-      <div class="detail-item-value">
-        ${value}
-      </div>
-    </div>
-  `;
-}
-
-
-function openDrawer(row) {
-
-  document.getElementById("drawerTitle").textContent =
-    row.stock || row.name || row.symbol || "Stock";
-
-  document.getElementById("drawerSymbol").textContent =
-    row.symbol || "";
-
-  document.getElementById("detailScore").textContent =
-    fmtInt(row.bigMoveScore);
-
-  document.getElementById("detailRS").textContent =
-    fmtInt(row.rsRating);
-
-  document.getElementById("detailMomentum").textContent =
-    fmtInt(row.stockMomentumRating);
-
-  document.getElementById("detailIndustry").textContent =
-    fmtInt(row.industryRating);
-
-  document.getElementById("detailSetup").textContent =
-    row.setupStatus || "Pending";
-
-
-  document.getElementById("priceMomentumDetails").innerHTML =
-
-    detailItem("Price", fmt(row.price, 2)) +
-
-    detailItem("1M Return", `${fmt(row.return1M, 1)}%`) +
-
-    detailItem("3M Return", `${fmt(row.return3M, 1)}%`) +
-
-    detailItem("6M Return", `${fmt(row.return6M, 1)}%`) +
-
-    detailItem("1Y Return", `${fmt(row.return1Y, 1)}%`) +
-
-    detailItem("Industry Rating", fmtInt(row.industryRating));
-
-
-  document.getElementById("chartDetails").innerHTML =
-
-    detailItem("Prior Move", `${fmt(row.priorMovePct, 1)}%`) +
-
-    detailItem("Move Period", escapeHtml(row.movePeriod || "—")) +
-
-    detailItem("Retracement", `${fmt(row.retracementPct, 1)}%`) +
-
-    detailItem("Consolidation Days", fmtInt(row.consolidationDays)) +
-
-    detailItem(
-      "Volume Contraction",
-      yesNo(row.volumeContraction)
-    ) +
-
-    detailItem(
-      "Volatility Contraction",
-      yesNo(row.volatilityContraction)
-    ) +
-
-    detailItem(
-      "Breakout Status",
-      escapeHtml(row.breakoutStatus || "—")
-    );
-
-
-  document.getElementById("supplyDetails").innerHTML =
-
-    detailItem(
-      "Free Float Shares",
-      fmtInt(row.freeFloatShares)
-    ) +
-
-    detailItem(
-      "Turnover Expansion",
-      yesNo(row.turnoverExpansion)
-    ) +
-
-    detailItem(
-      "Market Cap ₹ Cr",
-      fmt(row.marketCapCr, 0)
-    );
-
-
-  const triggers =
-    Array.isArray(row.triggers)
-      ? row.triggers
-      : [];
-
-
-  document.getElementById("triggerList").innerHTML =
-    triggers.length
-      ? triggers
-          .map(
-            t =>
-              `<span class="trigger">${escapeHtml(t)}</span>`
-          )
-          .join("")
-      : `<span class="pending">No confirmed trigger</span>`;
-
-
-  document.getElementById("missingConditions").textContent =
-    row.missingConditions || "None";
-
-
-  document
-    .getElementById("drawerOverlay")
-    .classList
-    .add("open");
-}
-
-
-function closeDrawer() {
-
-  document
-    .getElementById("drawerOverlay")
-    .classList
-    .remove("open");
-}
-
-
-/* ---------------- EXPORT ---------------- */
-
-function exportCSV() {
-
-  if (!filteredRows.length) return;
-
-
-  const headers = [
-
-    "Stock",
-    "Symbol",
-    "Big Move Score",
-    "Setup Status",
-    "Price",
-
-    "1M Return %",
-    "3M Return %",
-    "6M Return %",
-    "1Y Return %",
-
-    "RS Rating",
-    "Stock Momentum Rating",
-    "Industry Rating",
-
-    "Free Float Shares",
-
-    "Prior Move %",
-    "Move Period",
-
-    "Retracement %",
-    "Consolidation Days",
-
-    "Volume Contraction",
-    "Volatility Contraction",
-
-    "Breakout Status",
-    "Turnover Expansion",
-
-    "Fundamental Trigger",
-    "Key Trigger",
-
-    "Missing Conditions"
-
-  ];
-
-
-  const rows =
-    filteredRows.map(row => [
-
-      row.stock || row.name || "",
-      row.symbol || "",
-      row.bigMoveScore ?? "",
-      row.setupStatus || "",
-      row.price ?? "",
-
-      row.return1M ?? "",
-      row.return3M ?? "",
-      row.return6M ?? "",
-      row.return1Y ?? "",
-
-      row.rsRating ?? "",
-      row.stockMomentumRating ?? "",
-      row.industryRating ?? "",
-
-      row.freeFloatShares ?? "",
-
-      row.priorMovePct ?? "",
-      row.movePeriod || "",
-
-      row.retracementPct ?? "",
-      row.consolidationDays ?? "",
-
-      row.volumeContraction ?? "",
-      row.volatilityContraction ?? "",
-
-      row.breakoutStatus || "",
-      row.turnoverExpansion ?? "",
-
-      row.fundamentalTrigger ?? "",
-      row.keyTrigger || "",
-
-      row.missingConditions || ""
-
-    ]);
-
-
-  const csv =
-    [headers, ...rows]
-      .map(row =>
-        row.map(value =>
-          `"${String(value).replaceAll('"', '""')}"`
-        ).join(",")
-      )
-      .join("\n");
-
-
-  const blob =
-    new Blob(
-      [csv],
-      {
-        type: "text/csv;charset=utf-8;"
-      }
-    );
-
-
-  const url =
-    URL.createObjectURL(blob);
-
-
-  const a =
-    document.createElement("a");
-
-
-  a.href = url;
-
-  a.download =
-    `BIG_MOVE_SCANNER_${new Date()
-      .toISOString()
-      .slice(0, 10)}.csv`;
-
-
-  document.body.appendChild(a);
-
-  a.click();
-
-  a.remove();
-
-  URL.revokeObjectURL(url);
-}
-
-
-/* ---------------- EVENTS ---------------- */
-
-document
-  .getElementById("applyFilters")
-  .addEventListener(
-    "click",
-    applyFilters
-  );
-
-
-document
-  .getElementById("resetFilters")
-  .addEventListener(
-    "click",
-    () => {
-
-      document
-        .querySelectorAll(
-          ".filters input"
-        )
-        .forEach(input => {
-          input.value = "";
-        });
-
-
-      document
-        .querySelectorAll(
-          ".filters select"
-        )
-        .forEach(select => {
-          select.selectedIndex = 0;
-        });
-
-
-      applyFilters();
     }
-  );
 
 
-document
-  .getElementById("searchInput")
-  .addEventListener(
-    "input",
-    applyFilters
-  );
+    /* =====================================================
+       FILTER NUMBER
+    ===================================================== */
 
+    function inputNumber(id) {
 
-document
-  .getElementById("sortBy")
-  .addEventListener(
-    "change",
-    applyFilters
-  );
+      const element =
+        el(id);
 
-
-document
-  .getElementById("exportBtn")
-  .addEventListener(
-    "click",
-    exportCSV
-  );
-
-
-document
-  .getElementById("closeDrawer")
-  .addEventListener(
-    "click",
-    closeDrawer
-  );
-
-
-document
-  .getElementById("drawerOverlay")
-  .addEventListener(
-    "click",
-    event => {
 
       if (
-        event.target.id ===
-        "drawerOverlay"
+        !element ||
+        element.value === ""
       ) {
-        closeDrawer();
+
+        return null;
+
+      }
+
+
+      return num(
+        element.value
+      );
+
+    }
+
+
+    /* =====================================================
+       APPLY FILTERS
+
+       IMPORTANT:
+       If threshold is active and a stock has missing value,
+       stock is EXCLUDED.
+    ===================================================== */
+
+    function applyFilters() {
+
+      const query =
+        String(
+          el(
+            "searchInput"
+          )?.value ||
+          ""
+        )
+          .trim()
+          .toLowerCase();
+
+
+      const minScore =
+        inputNumber(
+          "minScore"
+        );
+
+
+      const minRS =
+        inputNumber(
+          "minRS"
+        );
+
+
+      const minMomentum =
+        inputNumber(
+          "minMomentum"
+        );
+
+
+      const minIndustry =
+        inputNumber(
+          "minIndustry"
+        );
+
+
+      const setup =
+        el(
+          "setupFilter"
+        )?.value ||
+        "";
+
+
+      const trigger =
+        el(
+          "triggerFilter"
+        )?.value ||
+        "";
+
+
+      filteredRows =
+        allRows.filter(
+          row => {
+
+            /* SEARCH */
+
+            if (
+              query
+            ) {
+
+              const searchText =
+                [
+                  row.stock,
+                  row.name,
+                  row.symbol,
+                  row.sector,
+                  row.industry
+                ]
+                  .filter(Boolean)
+                  .join(" ")
+                  .toLowerCase();
+
+
+              if (
+                !searchText.includes(
+                  query
+                )
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            /* BIG MOVE SCORE */
+
+            if (
+              minScore !== null
+            ) {
+
+              const value =
+                num(
+                  row.bigMoveScore
+                );
+
+
+              if (
+                value === null ||
+                value <
+                  minScore
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            /* RS */
+
+            if (
+              minRS !== null
+            ) {
+
+              const value =
+                num(
+                  row.rsRating
+                );
+
+
+              if (
+                value === null ||
+                value <
+                  minRS
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            /* STOCK MOMENTUM */
+
+            if (
+              minMomentum !== null
+            ) {
+
+              const value =
+                num(
+                  row.stockMomentumRating
+                );
+
+
+              if (
+                value === null ||
+                value <
+                  minMomentum
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            /* INDUSTRY */
+
+            if (
+              minIndustry !== null
+            ) {
+
+              const value =
+                num(
+                  row.industryRating
+                );
+
+
+              if (
+                value === null ||
+                value <
+                  minIndustry
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            /* SETUP */
+
+            if (
+              setup &&
+              row.setupStatus !==
+                setup
+            ) {
+
+              return false;
+
+            }
+
+
+            /* TRIGGER */
+
+            if (
+              trigger ===
+              "YES"
+            ) {
+
+              const yes =
+                row.fundamentalTrigger ===
+                  true ||
+                (
+                  Array.isArray(
+                    row.triggers
+                  ) &&
+                  row.triggers.length >
+                    0
+                );
+
+
+              if (
+                !yes
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            if (
+              trigger ===
+              "NO"
+            ) {
+
+              const yes =
+                row.fundamentalTrigger ===
+                  true ||
+                (
+                  Array.isArray(
+                    row.triggers
+                  ) &&
+                  row.triggers.length >
+                    0
+                );
+
+
+              if (
+                yes
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            return true;
+
+          }
+        );
+
+
+      sortRows();
+
+      renderRows();
+
+    }
+
+
+    /* =====================================================
+       SORT
+    ===================================================== */
+
+    function sortRows() {
+
+      const field =
+        el(
+          "sortBy"
+        )?.value ||
+        "bigMoveScore";
+
+
+      filteredRows.sort(
+        (
+          a,
+          b
+        ) => {
+
+          const av =
+            num(
+              a[
+                field
+              ]
+            );
+
+
+          const bv =
+            num(
+              b[
+                field
+              ]
+            );
+
+
+          if (
+            av === null &&
+            bv === null
+          ) {
+
+            return (
+              String(
+                a.stock ||
+                a.symbol ||
+                ""
+              )
+                .localeCompare(
+                  String(
+                    b.stock ||
+                    b.symbol ||
+                    ""
+                  )
+                )
+            );
+
+          }
+
+
+          if (
+            av === null
+          ) {
+
+            return 1;
+
+          }
+
+
+          if (
+            bv === null
+          ) {
+
+            return -1;
+
+          }
+
+
+          if (
+            bv !== av
+          ) {
+
+            return (
+              bv -
+              av
+            );
+
+          }
+
+
+          return (
+            String(
+              a.stock ||
+              ""
+            )
+              .localeCompare(
+                String(
+                  b.stock ||
+                  ""
+                )
+              )
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       RENDER
+    ===================================================== */
+
+    function renderRows() {
+
+      const tbody =
+        el(
+          "scannerRows"
+        );
+
+
+      if (
+        !tbody
+      ) {
+
+        return;
+
+      }
+
+
+      el(
+        "resultCount"
+      ).textContent =
+        `${filteredRows.length.toLocaleString(
+          "en-IN"
+        )} stocks found`;
+
+
+      if (
+        !filteredRows.length
+      ) {
+
+        tbody.innerHTML =
+          `
+            <tr>
+              <td colspan="22">
+                <div class="empty-state">
+                  <strong>
+                    No stocks matched.
+                  </strong>
+                  Change filters and try again.
+                </div>
+              </td>
+            </tr>
+          `;
+
+
+        updateTopScrollbar();
+
+        return;
+
+      }
+
+
+      tbody.innerHTML =
+        filteredRows
+          .map(
+            (
+              row,
+              index
+            ) => {
+
+              const company =
+                escapeHtml(
+                  row.stock ||
+                  row.name ||
+                  row.symbol ||
+                  "—"
+                );
+
+
+              const symbol =
+                escapeHtml(
+                  row.symbol ||
+                  ""
+                );
+
+
+              const triggerPresent =
+                row.fundamentalTrigger ===
+                  true ||
+                (
+                  Array.isArray(
+                    row.triggers
+                  ) &&
+                  row.triggers.length >
+                    0
+                );
+
+
+              const keyTrigger =
+                row.keyTrigger
+                  ? escapeHtml(
+                      row.keyTrigger
+                    )
+                  : '<span class="pending">—</span>';
+
+
+              const missing =
+                row.missingConditions &&
+                row.missingConditions !==
+                  "None"
+                  ? escapeHtml(
+                      row.missingConditions
+                    )
+                  : "None";
+
+
+              return `
+                <tr
+                  data-row-index="${index}"
+                >
+
+                  <td>
+
+                    <span class="stock-name">
+                      ${company}
+                    </span>
+
+                    <span class="stock-symbol">
+                      ${symbol}
+                    </span>
+
+                  </td>
+
+
+                  <td>
+                    ${scoreBadge(
+                      row.bigMoveScore
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${setupBadge(
+                      row.setupStatus
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPrice(
+                      row.price
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPct(
+                      row.return1M
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPct(
+                      row.return3M
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPct(
+                      row.return6M
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPct(
+                      row.return1Y
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${scoreBadge(
+                      row.rsRating
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${scoreBadge(
+                      row.stockMomentumRating
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${scoreBadge(
+                      row.industryRating
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatFreeFloat(
+                      row.freeFloatShares
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatTechnicalPct(
+                      row.priorMovePct
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatTechnicalPct(
+                      row.retracementPct
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatTechnicalDays(
+                      row.consolidationDays
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatBoolean(
+                      row.volumeContraction
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatBoolean(
+                      row.volatilityContraction
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatBreakout(
+                      row.breakoutStatus
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatTimes(
+                      row.turnoverExpansion
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${
+                      triggerPresent
+                        ? '<span class="signal-yes">YES</span>'
+                        : '<span class="signal-no">NO</span>'
+                    }
+                  </td>
+
+
+                  <td>
+                    ${keyTrigger}
+                  </td>
+
+
+                  <td
+                    style="
+                      max-width:260px;
+                      white-space:normal;
+                      text-align:left;
+                    "
+                  >
+                    ${missing}
+                  </td>
+
+                </tr>
+              `;
+
+            }
+          )
+          .join("");
+
+
+      tbody
+        .querySelectorAll(
+          "tr[data-row-index]"
+        )
+        .forEach(
+          rowElement => {
+
+            rowElement
+              .addEventListener(
+                "click",
+                () => {
+
+                  const index =
+                    Number(
+                      rowElement.dataset
+                        .rowIndex
+                    );
+
+
+                  const row =
+                    filteredRows[
+                      index
+                    ];
+
+
+                  if (
+                    row
+                  ) {
+
+                    openDrawer(
+                      row
+                    );
+
+                  }
+
+                }
+              );
+
+          }
+        );
+
+
+      requestAnimationFrame(
+        updateTopScrollbar
+      );
+
+    }
+
+
+    /* =====================================================
+       DETAIL VALUE
+    ===================================================== */
+
+    function detailItem(
+      label,
+      value
+    ) {
+
+      return `
+        <div class="detail-item">
+
+          <div class="detail-label">
+            ${escapeHtml(label)}
+          </div>
+
+          <div class="detail-value">
+            ${value}
+          </div>
+
+        </div>
+      `;
+
+    }
+
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    function openDrawer(row) {
+
+      el(
+        "drawerTitle"
+      ).textContent =
+        row.stock ||
+        row.name ||
+        row.symbol ||
+        "Stock Details";
+
+
+      el(
+        "drawerSymbol"
+      ).textContent =
+        [
+          row.symbol,
+          row.industry
+        ]
+          .filter(Boolean)
+          .join(" • ");
+
+
+      const triggers =
+        Array.isArray(
+          row.triggers
+        )
+          ? row.triggers
+          : [];
+
+
+      const triggerHtml =
+        triggers.length
+          ? triggers
+              .map(
+                item =>
+                  `
+                    <span class="trigger-chip">
+                      ${escapeHtml(item)}
+                    </span>
+                  `
+              )
+              .join("")
+          : '<span class="pending">No confirmed trigger</span>';
+
+
+      const missing =
+        Array.isArray(
+          row.missingConditionsList
+        )
+          ? row.missingConditionsList
+          : (
+              row.missingConditions &&
+              row.missingConditions !==
+                "None"
+                ? String(
+                    row.missingConditions
+                  )
+                    .split("|")
+                    .map(
+                      x =>
+                        x.trim()
+                    )
+                    .filter(Boolean)
+                : []
+            );
+
+
+      const missingHtml =
+        missing.length
+          ? missing
+              .map(
+                item =>
+                  `• ${escapeHtml(item)}`
+              )
+              .join("<br>")
+          : (
+              '<span class="signal-yes">' +
+              'No missing conditions' +
+              '</span>'
+            );
+
+
+      const components =
+        row.scoreComponents ||
+        {};
+
+
+      el(
+        "drawerContent"
+      ).innerHTML =
+        `
+
+          <section class="drawer-section">
+
+            <h3>
+              Quick Decision
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Big Move Score",
+                scoreBadge(
+                  row.bigMoveScore
+                )
+              )}
+
+              ${detailItem(
+                "Setup",
+                setupBadge(
+                  row.setupStatus
+                )
+              )}
+
+              ${detailItem(
+                "RS Rating",
+                scoreBadge(
+                  row.rsRating
+                )
+              )}
+
+              ${detailItem(
+                "Stock Momentum",
+                scoreBadge(
+                  row.stockMomentumRating
+                )
+              )}
+
+              ${detailItem(
+                "Industry Rating",
+                scoreBadge(
+                  row.industryRating
+                )
+              )}
+
+              ${detailItem(
+                "Score Phase",
+                escapeHtml(
+                  row.scorePhase ||
+                  scannerMeta.phase ||
+                  "—"
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Price & Momentum
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Price",
+                formatPrice(
+                  row.price
+                )
+              )}
+
+              ${detailItem(
+                "Market Cap ₹ Cr",
+                formatNumber(
+                  row.marketCapCr,
+                  0
+                )
+              )}
+
+              ${detailItem(
+                "1M Return",
+                formatPct(
+                  row.return1M
+                )
+              )}
+
+              ${detailItem(
+                "3M Return",
+                formatPct(
+                  row.return3M
+                )
+              )}
+
+              ${detailItem(
+                "6M Return",
+                formatPct(
+                  row.return6M
+                )
+              )}
+
+              ${detailItem(
+                "1Y Return",
+                formatPct(
+                  row.return1Y
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Chart Structure
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Prior Move",
+                formatTechnicalPct(
+                  row.priorMovePct
+                )
+              )}
+
+              ${detailItem(
+                "Move Period",
+                row.movePeriod
+                  ? escapeHtml(
+                      row.movePeriod
+                    )
+                  : '<span class="pending">—</span>'
+              )}
+
+              ${detailItem(
+                "Retracement",
+                formatTechnicalPct(
+                  row.retracementPct
+                )
+              )}
+
+              ${detailItem(
+                "Consolidation Days",
+                formatTechnicalDays(
+                  row.consolidationDays
+                )
+              )}
+
+              ${detailItem(
+                "Volume Contraction",
+                formatBoolean(
+                  row.volumeContraction
+                )
+              )}
+
+              ${detailItem(
+                "Volatility Contraction",
+                formatBoolean(
+                  row.volatilityContraction
+                )
+              )}
+
+              ${detailItem(
+                "Breakout",
+                formatBreakout(
+                  row.breakoutStatus
+                )
+              )}
+
+              ${detailItem(
+                "Turnover Expansion",
+                formatTimes(
+                  row.turnoverExpansion
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Supply & Participation
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Free Float Shares",
+                formatFreeFloat(
+                  row.freeFloatShares
+                )
+              )}
+
+              ${detailItem(
+                "Price Date",
+                escapeHtml(
+                  row.priceDate ||
+                  scannerMeta.marketDate ||
+                  "—"
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Fundamental / Business Triggers
+            </h3>
+
+            <div class="trigger-list">
+              ${triggerHtml}
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Existing Research Scores
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Tailwind",
+                formatInteger(
+                  row.tailwindScore
+                )
+              )}
+
+              ${detailItem(
+                "Macro",
+                formatInteger(
+                  row.macroSupport
+                )
+              )}
+
+              ${detailItem(
+                "Value Migration",
+                formatInteger(
+                  row.valueMigration
+                )
+              )}
+
+              ${detailItem(
+                "Future Growth",
+                formatInteger(
+                  row.futureGrowth
+                )
+              )}
+
+              ${detailItem(
+                "Fundamental Quality",
+                formatInteger(
+                  row.fundamentalQuality
+                )
+              )}
+
+              ${detailItem(
+                "CAPEX",
+                formatInteger(
+                  row.capexScore
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Phase-1 Score Breakdown
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Momentum / 35",
+                formatNumber(
+                  components.momentum,
+                  2
+                )
+              )}
+
+              ${detailItem(
+                "Return Quality / 15",
+                formatNumber(
+                  components.returnQuality,
+                  2
+                )
+              )}
+
+              ${detailItem(
+                "Fundamental / 30",
+                formatNumber(
+                  components.fundamental,
+                  2
+                )
+              )}
+
+              ${detailItem(
+                "Business Triggers / 20",
+                formatNumber(
+                  components.businessTriggers,
+                  0
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Missing Conditions
+            </h3>
+
+            <div class="missing-text">
+              ${missingHtml}
+            </div>
+
+          </section>
+
+        `;
+
+
+      el(
+        "drawerOverlay"
+      )
+        .classList
+        .add(
+          "open"
+        );
+
+
+      el(
+        "detailDrawer"
+      )
+        .classList
+        .add(
+          "open"
+        );
+
+    }
+
+
+    function closeDrawer() {
+
+      el(
+        "drawerOverlay"
+      )
+        .classList
+        .remove(
+          "open"
+        );
+
+
+      el(
+        "detailDrawer"
+      )
+        .classList
+        .remove(
+          "open"
+        );
+
+    }
+
+
+    /* =====================================================
+       TOP SCROLLBAR SYNC
+    ===================================================== */
+
+    let syncingFromTop =
+      false;
+
+
+    let syncingFromTable =
+      false;
+
+
+    function updateTopScrollbar() {
+
+      const tableWrap =
+        el(
+          "tableWrap"
+        );
+
+
+      const table =
+        el(
+          "scannerTable"
+        );
+
+
+      const inner =
+        el(
+          "topScrollInner"
+        );
+
+
+      if (
+        !tableWrap ||
+        !table ||
+        !inner
+      ) {
+
+        return;
+
+      }
+
+
+      const width =
+        Math.max(
+          table.scrollWidth,
+          tableWrap.clientWidth
+        );
+
+
+      inner.style.width =
+        `${width}px`;
+
+    }
+
+
+    function setupScrollSync() {
+
+      const top =
+        el(
+          "topScroll"
+        );
+
+
+      const tableWrap =
+        el(
+          "tableWrap"
+        );
+
+
+      if (
+        !top ||
+        !tableWrap
+      ) {
+
+        return;
+
+      }
+
+
+      top.addEventListener(
+        "scroll",
+        () => {
+
+          if (
+            syncingFromTable
+          ) {
+
+            return;
+
+          }
+
+
+          syncingFromTop =
+            true;
+
+
+          tableWrap.scrollLeft =
+            top.scrollLeft;
+
+
+          requestAnimationFrame(
+            () => {
+
+              syncingFromTop =
+                false;
+
+            }
+          );
+
+        }
+      );
+
+
+      tableWrap.addEventListener(
+        "scroll",
+        () => {
+
+          if (
+            syncingFromTop
+          ) {
+
+            return;
+
+          }
+
+
+          syncingFromTable =
+            true;
+
+
+          top.scrollLeft =
+            tableWrap.scrollLeft;
+
+
+          requestAnimationFrame(
+            () => {
+
+              syncingFromTable =
+                false;
+
+            }
+          );
+
+        }
+      );
+
+
+      window.addEventListener(
+        "resize",
+        updateTopScrollbar
+      );
+
+    }
+
+
+    /* =====================================================
+       CSV
+    ===================================================== */
+
+    function csvCell(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+
+        return "";
+
+      }
+
+
+      const text =
+        String(value);
+
+
+      if (
+        text.includes(",") ||
+        text.includes('"') ||
+        text.includes("\n")
+      ) {
+
+        return (
+          '"' +
+          text.replace(
+            /"/g,
+            '""'
+          ) +
+          '"'
+        );
+
+      }
+
+
+      return text;
+
+    }
+
+
+    function rawExportNumber(value) {
+
+      const n =
+        num(value);
+
+
+      return n === null
+        ? ""
+        : n;
+
+    }
+
+
+    function rawPositiveNumber(value) {
+
+      const n =
+        num(value);
+
+
+      return (
+        n === null ||
+        n <= 0
+      )
+        ? ""
+        : n;
+
+    }
+
+
+    function exportCSV() {
+
+      if (
+        !filteredRows.length
+      ) {
+
+        alert(
+          "No matched stocks to export."
+        );
+
+        return;
+
+      }
+
+
+      const exportRows =
+        filteredRows.map(
+          row => ({
+
+            "Stock":
+              row.stock ||
+              row.name ||
+              "",
+
+            "Symbol":
+              row.symbol ||
+              "",
+
+            "Big Move Score":
+              rawExportNumber(
+                row.bigMoveScore
+              ),
+
+            "Setup Status":
+              row.setupStatus ||
+              "",
+
+            "Price":
+              rawExportNumber(
+                row.price
+              ),
+
+            "1M Return %":
+              rawExportNumber(
+                row.return1M
+              ),
+
+            "3M Return %":
+              rawExportNumber(
+                row.return3M
+              ),
+
+            "6M Return %":
+              rawExportNumber(
+                row.return6M
+              ),
+
+            "1Y Return %":
+              rawExportNumber(
+                row.return1Y
+              ),
+
+            "RS Rating":
+              rawExportNumber(
+                row.rsRating
+              ),
+
+            "Stock Momentum Rating":
+              rawExportNumber(
+                row.stockMomentumRating
+              ),
+
+            "Industry Rating":
+              rawExportNumber(
+                row.industryRating
+              ),
+
+            "Free Float Shares":
+              rawPositiveNumber(
+                row.freeFloatShares
+              ),
+
+            "Prior Move %":
+              rawPositiveNumber(
+                row.priorMovePct
+              ),
+
+            "Move Period":
+              row.movePeriod ||
+              "",
+
+            "Retracement %":
+              (
+                num(
+                  row.retracementPct
+                ) === 0
+                  ? ""
+                  : rawExportNumber(
+                      row.retracementPct
+                    )
+              ),
+
+            "Consolidation Days":
+              rawPositiveNumber(
+                row.consolidationDays
+              ),
+
+            "Volume Contraction":
+              row.volumeContraction ??
+              "",
+
+            "Volatility Contraction":
+              row.volatilityContraction ??
+              "",
+
+            "Breakout Status":
+              (
+                String(
+                  row.breakoutStatus ||
+                  ""
+                )
+                  .toLowerCase() ===
+                    "pending"
+                  ? ""
+                  : (
+                      row.breakoutStatus ||
+                      ""
+                    )
+              ),
+
+            "Turnover Expansion":
+              rawPositiveNumber(
+                row.turnoverExpansion
+              ),
+
+            "Fundamental Trigger":
+              row.fundamentalTrigger
+                ? "YES"
+                : "NO",
+
+            "Key Trigger":
+              row.keyTrigger ||
+              "",
+
+            "Missing Conditions":
+              row.missingConditions ||
+              ""
+
+          })
+        );
+
+
+      const headers =
+        Object.keys(
+          exportRows[0]
+        );
+
+
+      const lines =
+        [
+          headers
+            .map(
+              csvCell
+            )
+            .join(",")
+        ];
+
+
+      exportRows.forEach(
+        row => {
+
+          lines.push(
+            headers
+              .map(
+                header =>
+                  csvCell(
+                    row[
+                      header
+                    ]
+                  )
+              )
+              .join(",")
+          );
+
+        }
+      );
+
+
+      const blob =
+        new Blob(
+          [
+            "\ufeff" +
+            lines.join(
+              "\n"
+            )
+          ],
+          {
+            type:
+              "text/csv;charset=utf-8;"
+          }
+        );
+
+
+      const url =
+        URL.createObjectURL(
+          blob
+        );
+
+
+      const link =
+        document.createElement(
+          "a"
+        );
+
+
+      const date =
+        scannerMeta.marketDate ||
+        scannerMeta.updated ||
+        "latest";
+
+
+      link.href =
+        url;
+
+
+      link.download =
+        `BIG_MOVE_SCANNER_${date}_${filteredRows.length}_stocks.csv`;
+
+
+      document.body.appendChild(
+        link
+      );
+
+
+      link.click();
+
+
+      link.remove();
+
+
+      setTimeout(
+        () => {
+
+          URL.revokeObjectURL(
+            url
+          );
+
+        },
+        1000
+      );
+
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    function resetFilters() {
+
+      [
+        "searchInput",
+        "minScore",
+        "minRS",
+        "minMomentum",
+        "minIndustry"
+      ]
+        .forEach(
+          id => {
+
+            const element =
+              el(id);
+
+
+            if (
+              element
+            ) {
+
+              element.value =
+                "";
+
+            }
+
+          }
+        );
+
+
+      if (
+        el(
+          "setupFilter"
+        )
+      ) {
+
+        el(
+          "setupFilter"
+        ).value =
+          "";
+
+      }
+
+
+      if (
+        el(
+          "triggerFilter"
+        )
+      ) {
+
+        el(
+          "triggerFilter"
+        ).value =
+          "";
+
+      }
+
+
+      if (
+        el(
+          "sortBy"
+        )
+      ) {
+
+        el(
+          "sortBy"
+        ).value =
+          "bigMoveScore";
+
+      }
+
+
+      filteredRows =
+        [
+          ...allRows
+        ];
+
+
+      sortRows();
+
+      renderRows();
+
+    }
+
+
+    /* =====================================================
+       EVENTS
+    ===================================================== */
+
+    function setupEvents() {
+
+      el(
+        "applyFilters"
+      )
+        ?.addEventListener(
+          "click",
+          applyFilters
+        );
+
+
+      el(
+        "resetFilters"
+      )
+        ?.addEventListener(
+          "click",
+          resetFilters
+        );
+
+
+      el(
+        "exportCsv"
+      )
+        ?.addEventListener(
+          "click",
+          exportCSV
+        );
+
+
+      el(
+        "sortBy"
+      )
+        ?.addEventListener(
+          "change",
+          applyFilters
+        );
+
+
+      el(
+        "searchInput"
+      )
+        ?.addEventListener(
+          "keydown",
+          event => {
+
+            if (
+              event.key ===
+              "Enter"
+            ) {
+
+              applyFilters();
+
+            }
+
+          }
+        );
+
+
+      el(
+        "drawerClose"
+      )
+        ?.addEventListener(
+          "click",
+          closeDrawer
+        );
+
+
+      el(
+        "drawerOverlay"
+      )
+        ?.addEventListener(
+          "click",
+          closeDrawer
+        );
+
+
+      document.addEventListener(
+        "keydown",
+        event => {
+
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            closeDrawer();
+
+          }
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
+
+    function showLoadError(
+      error
+    ) {
+
+      console.error(
+        error
+      );
+
+
+      const tbody =
+        el(
+          "scannerRows"
+        );
+
+
+      if (
+        tbody
+      ) {
+
+        tbody.innerHTML =
+          `
+            <tr>
+              <td colspan="22">
+
+                <div class="empty-state">
+
+                  <strong>
+                    Scanner backend data could not be loaded.
+                  </strong>
+
+                  Check data/big_move_scanner.json
+                  and workflow status.
+
+                </div>
+
+              </td>
+            </tr>
+          `;
+
+      }
+
+
+      el(
+        "resultCount"
+      ).textContent =
+        "Scanner unavailable";
+
+    }
+
+
+    /* =====================================================
+       INIT
+    ===================================================== */
+
+    async function init() {
+
+      try {
+
+        const payload =
+          await fetchScanner();
+
+
+        allRows =
+          normalizePayload(
+            payload
+          );
+
+
+        filteredRows =
+          [
+            ...allRows
+          ];
+
+
+        updateSummary();
+
+
+        sortRows();
+
+
+        renderRows();
+
+
+        setupEvents();
+
+
+        setupScrollSync();
+
+
+        requestAnimationFrame(
+          updateTopScrollbar
+        );
+
+
+        console.log(
+          `Big Move Scanner loaded: ${allRows.length} stocks`
+        );
+
+      }
+
+      catch (
+        error
+      ) {
+
+        showLoadError(
+          error
+        );
+
+
+        setupEvents();
+
+
+        setupScrollSync();
+
       }
 
     }
-  );
 
 
-document.addEventListener(
-  "keydown",
-  event => {
+    /* =====================================================
+       START
+    ===================================================== */
 
-    if (event.key === "Escape") {
-      closeDrawer();
-    }
+    document.addEventListener(
+      "DOMContentLoaded",
+      init
+    );
 
-  }
-);
-
-
-/* ---------------- START ---------------- */
-
-loadData();
-
-</script>
+  </script>
 
 </body>
 </html>
