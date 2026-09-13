@@ -75,6 +75,9 @@ jobs:
       - name: Build Big Move Scanner
         run: python scripts/build_big_move_scanner.py
 
+      - name: Build Big Move Technical
+        run: python scripts/build_big_move_technical.py
+
       - name: Commit updated NSE data
         run: |
           git config user.name "market-data-bot"
