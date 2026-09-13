@@ -1,10 +1,10 @@
 import io
 import json
-import math
 import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urljoin, urlencode
 
 import pandas as pd
 import requests
@@ -16,16 +16,14 @@ from bs4 import BeautifulSoup
 # =========================================================
 
 ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
 
-DATA = ROOT / "data"
-
-STOCKS_PATH = DATA / "stocks.json"
-
-CACHE_PATH = DATA / "free_float_cache.json"
+STOCKS_PATH = DATA_DIR / "stocks.json"
+CACHE_PATH = DATA_DIR / "free_float_cache.json"
 
 
 # =========================================================
-# CONFIG
+# NSE CONFIG
 # =========================================================
 
 BASE_URL = "https://www.nseindia.com"
@@ -37,36 +35,25 @@ SHAREHOLDING_PAGE = (
 )
 
 REQUEST_TIMEOUT = 35
-
 REQUEST_DELAY = 0.18
 
 CACHE_MAX_AGE_DAYS = 120
 
 
-# =========================================================
-# HEADERS
-# =========================================================
-
 HEADERS = {
-
-    "User-Agent":
-        "Mozilla/5.0 "
-        "(Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "(KHTML, like Gecko) "
-        "Chrome/152.0.0.0 "
-        "Safari/537.36",
-
-    "Accept":
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/152.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
         "text/html,application/xhtml+xml,"
-        "application/xml;q=0.9,*/*;q=0.8",
-
-    "Accept-Language":
-        "en-US,en;q=0.9",
-
-    "Referer":
-        "https://www.nseindia.com/",
-
+        "application/xml;q=0.9,image/avif,"
+        "image/webp,*/*;q=0.8"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Connection": "keep-alive",
+    "Referer": "https://www.nseindia.com/",
 }
 
 
@@ -78,9 +65,7 @@ def load_json(
     path,
     default,
 ):
-
     try:
-
         return json.loads(
             path.read_text(
                 encoding="utf-8"
@@ -88,7 +73,6 @@ def load_json(
         )
 
     except Exception:
-
         return default
 
 
@@ -96,7 +80,6 @@ def save_json(
     path,
     data,
 ):
-
     path.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -112,63 +95,59 @@ def save_json(
     )
 
 
-def safe_float(value):
+def safe_float(
+    value,
+):
+    if value is None:
+        return None
 
-    try:
+    if isinstance(
+        value,
+        str,
+    ):
+        cleaned = (
+            value
+            .replace(",", "")
+            .replace("%", "")
+            .replace("₹", "")
+            .strip()
+        )
 
-        if value is None:
+        if not cleaned:
             return None
 
-        if isinstance(
-            value,
-            str,
-        ):
+        if cleaned.lower() in {
+            "-",
+            "—",
+            "na",
+            "n/a",
+            "none",
+            "null",
+            "pending",
+        }:
+            return None
 
-            text = (
-                value
-                .replace(",", "")
-                .replace("%", "")
-                .replace("₹", "")
-                .strip()
-            )
+        value = cleaned
 
-            if (
-                not text
-                or
-                text.lower()
-                in {
-                    "-",
-                    "—",
-                    "na",
-                    "n/a",
-                    "none",
-                    "nil",
-                }
-            ):
-
-                return None
-
-            value = text
-
-        result = float(
+    try:
+        number = float(
             value
         )
 
-        if not math.isfinite(
-            result
+        if pd.isna(
+            number
         ):
-
             return None
 
-        return result
+        return number
 
     except Exception:
-
         return None
 
 
-def safe_int(value):
-
+def safe_int(
+    value,
+):
     number = safe_float(
         value
     )
@@ -183,127 +162,260 @@ def safe_int(value):
     )
 
 
-def normalize_symbol(value):
+def clean_text(
+    value,
+):
+    if value is None:
+        return ""
 
-    return str(
+    text = str(
         value
-        or ""
-    ).strip().upper()
-
-
-def normalize_text(value):
-
-    return (
-        str(
-            value
-            or ""
-        )
-        .replace("\xa0", " ")
-        .replace("\n", " ")
-        .replace("\r", " ")
-        .strip()
     )
 
-
-def normalized_column(value):
-
-    return re.sub(
-        r"[^a-z0-9]+",
+    text = re.sub(
+        r"\s+",
         " ",
-        normalize_text(
-            value
-        ).lower(),
-    ).strip()
-
-
-def parse_date(value):
-
-    text = normalize_text(
-        value
+        text,
     )
 
-    if not text:
+    return text.strip()
+
+
+def normalized_text(
+    value,
+):
+    return (
+        clean_text(
+            value
+        )
+        .lower()
+        .replace("\xa0", " ")
+    )
+
+
+def normalize_column(
+    column,
+):
+    if isinstance(
+        column,
+        tuple,
+    ):
+        column = " ".join(
+            clean_text(
+                item
+            )
+            for item in column
+            if clean_text(
+                item
+            )
+        )
+
+    column = normalized_text(
+        column
+    )
+
+    column = re.sub(
+        r"[^a-z0-9%]+",
+        " ",
+        column,
+    )
+
+    column = re.sub(
+        r"\s+",
+        " ",
+        column,
+    )
+
+    return column.strip()
+
+
+def row_text(
+    row,
+):
+    values = []
+
+    try:
+        iterator = row.tolist()
+
+    except Exception:
+        iterator = list(
+            row
+        )
+
+    for value in iterator:
+        text = normalized_text(
+            value
+        )
+
+        if text:
+            values.append(
+                text
+            )
+
+    return " ".join(
+        values
+    )
+
+
+# =========================================================
+# DATE HELPERS
+# =========================================================
+
+def parse_date(
+    value,
+):
+    if not value:
         return None
 
+    text = clean_text(
+        value
+    )
+
     formats = [
-
-        "%d-%b-%Y",
-
-        "%d-%B-%Y",
-
         "%Y-%m-%d",
-
+        "%d-%m-%Y",
         "%d/%m/%Y",
-
+        "%d-%b-%Y",
+        "%d %b %Y",
+        "%d-%B-%Y",
+        "%d %B %Y",
     ]
 
     for fmt in formats:
-
         try:
-
             return datetime.strptime(
                 text,
                 fmt,
-            ).date()
+            )
 
         except Exception:
-
             pass
 
+    match = re.search(
+        r"(\d{1,2})[-/ ]"
+        r"([A-Za-z]{3,9}|\d{1,2})[-/ ]"
+        r"(\d{4})",
+        text,
+    )
+
+    if match:
+        raw = match.group(
+            0
+        )
+
+        for fmt in formats:
+            try:
+                return datetime.strptime(
+                    raw,
+                    fmt,
+                )
+
+            except Exception:
+                pass
+
     return None
+
+
+def extract_date_from_text(
+    value,
+):
+    text = clean_text(
+        value
+    )
+
+    patterns = [
+        r"\b\d{4}-\d{2}-\d{2}\b",
+        r"\b\d{1,2}-[A-Za-z]{3,9}-\d{4}\b",
+        r"\b\d{1,2}/\d{1,2}/\d{4}\b",
+        r"\b\d{1,2}-\d{1,2}-\d{4}\b",
+    ]
+
+    for pattern in patterns:
+        match = re.search(
+            pattern,
+            text,
+        )
+
+        if match:
+            return match.group(
+                0
+            )
+
+    return None
+
+
+def utc_now_iso():
+    return (
+        datetime.now(
+            timezone.utc
+        )
+        .replace(
+            microsecond=0
+        )
+        .isoformat()
+    )
 
 
 # =========================================================
 # CACHE
 # =========================================================
 
-def cache_is_fresh(
-    record,
+def cache_entry_is_fresh(
+    entry,
 ):
+    if not isinstance(
+        entry,
+        dict,
+    ):
+        return False
 
-    fetched_at = (
-        record.get(
-            "fetchedAt"
-        )
+    if entry.get(
+        "status"
+    ) != "READY":
+        return False
+
+    cached_at = entry.get(
+        "cachedAt"
     )
 
-    if not fetched_at:
+    if not cached_at:
         return False
 
     try:
-
-        dt = datetime.fromisoformat(
-            fetched_at.replace(
+        timestamp = datetime.fromisoformat(
+            cached_at.replace(
                 "Z",
                 "+00:00",
             )
         )
+
+        if timestamp.tzinfo is None:
+            timestamp = timestamp.replace(
+                tzinfo=timezone.utc
+            )
 
         age = (
             datetime.now(
                 timezone.utc
             )
             -
-            dt
+            timestamp
         ).days
 
         return (
-            age
-            <=
+            age <=
             CACHE_MAX_AGE_DAYS
         )
 
     except Exception:
-
         return False
 
 
 # =========================================================
-# HTTP SESSION
+# SESSION
 # =========================================================
 
 def build_session():
-
     session = requests.Session()
 
     session.headers.update(
@@ -311,49 +423,117 @@ def build_session():
     )
 
     try:
-
         session.get(
-            "https://www.nseindia.com/",
-            timeout=
-                REQUEST_TIMEOUT,
+            BASE_URL,
+            timeout=REQUEST_TIMEOUT,
         )
 
-    except Exception:
-
-        pass
+    except Exception as exc:
+        print(
+            f"NSE warmup warning: {exc}"
+        )
 
     return session
 
 
 # =========================================================
-# SHAREHOLDING PAGE URL
+# BOARD / TAB
 # =========================================================
 
-def shareholding_url(
+def preferred_tab(
+    stock,
+):
+    board = normalized_text(
+        stock.get(
+            "board"
+        )
+    )
+
+    series = normalized_text(
+        stock.get(
+            "series"
+        )
+    )
+
+    if (
+        "sme"
+        in board
+        or
+        series in {
+            "sm",
+            "st",
+        }
+    ):
+        return "sme"
+
+    return "equity"
+
+
+# =========================================================
+# SHAREHOLDING PAGE
+# =========================================================
+
+def shareholding_urls(
     symbol,
     tab,
 ):
+    candidates = []
 
-    return (
+    query_sets = [
+        {
+            "symbol":
+                symbol,
+            "tabIndex":
+                tab,
+        },
+        {
+            "symbol":
+                symbol,
+            "tab":
+                tab,
+        },
+        {
+            "symbol":
+                symbol,
+        },
+    ]
 
-        SHAREHOLDING_PAGE
+    for params in query_sets:
+        candidates.append(
+            SHAREHOLDING_PAGE
+            +
+            "?"
+            +
+            urlencode(
+                params
+            )
+        )
 
-        +
-        f"?symbol={symbol}"
-        +
-        f"&tabIndex={tab}"
+    return candidates
 
+
+def fetch_html(
+    session,
+    url,
+):
+    response = session.get(
+        url,
+        timeout=REQUEST_TIMEOUT,
     )
+
+    response.raise_for_status()
+
+    return response.text
 
 
 # =========================================================
-# EXTRACT XBRL LINKS
+# XBRL LINK EXTRACTION
 # =========================================================
 
 def extract_xbrl_candidates(
     html,
+    page_url,
 ):
-
     soup = BeautifulSoup(
         html,
         "html.parser",
@@ -361,13 +541,11 @@ def extract_xbrl_candidates(
 
     candidates = []
 
-
-    for link in soup.find_all(
+    for anchor in soup.find_all(
         "a"
     ):
-
-        href = normalize_text(
-            link.get(
+        href = clean_text(
+            anchor.get(
                 "href"
             )
         )
@@ -375,389 +553,271 @@ def extract_xbrl_candidates(
         if not href:
             continue
 
-
-        href_lower = (
-            href.lower()
+        context = clean_text(
+            anchor.get_text(
+                " ",
+                strip=True,
+            )
         )
 
+        parent = anchor.parent
 
-        if (
-            "ixbrl"
-            not in href_lower
-            and
-            "xbrl"
-            not in href_lower
-        ):
-
-            continue
-
-
-        if href.startswith(
-            "//"
-        ):
-
-            href = (
-                "https:"
-                +
-                href
-            )
-
-        elif href.startswith(
-            "/"
-        ):
-
-            href = (
-                BASE_URL
-                +
-                href
-            )
-
-
-        if not href.startswith(
-            "http"
-        ):
-
-            continue
-
-
-        parent_text = ""
-
-        parent = (
-            link.parent
-        )
-
-        for _ in range(
-            4
-        ):
-
-            if parent is None:
-                break
-
-            parent_text += (
-                " "
-                +
-                normalize_text(
-                    parent.get_text(
-                        " ",
-                        strip=True,
-                    )
+        if parent is not None:
+            context += " " + clean_text(
+                parent.get_text(
+                    " ",
+                    strip=True,
                 )
             )
 
-            parent = (
-                parent.parent
-            )
+        href_lower = href.lower()
 
+        context_lower = context.lower()
 
-        candidates.append({
+        looks_xbrl = (
+            "xbrl"
+            in href_lower
+            or
+            "ixbrl"
+            in href_lower
+            or
+            "xbrl"
+            in context_lower
+            or
+            "xml"
+            in href_lower
+        )
 
-            "url":
-                href,
-
-            "context":
-                parent_text,
-
-        })
-
-
-    # De-duplicate URLs.
-    final = []
-
-    seen = set()
-
-
-    for item in candidates:
-
-        url = item[
-            "url"
-        ]
-
-        if url in seen:
+        if not looks_xbrl:
             continue
 
-        seen.add(
-            url
+        absolute = urljoin(
+            page_url,
+            href,
         )
 
-        final.append(
-            item
+        date_text = extract_date_from_text(
+            context
         )
 
+        parsed = parse_date(
+            date_text
+        )
 
-    return final
+        candidates.append(
+            {
+                "url":
+                    absolute,
 
+                "context":
+                    context,
 
-# =========================================================
-# GET LATEST XBRL
-# =========================================================
+                "dateText":
+                    date_text,
+
+                "date":
+                    parsed,
+            }
+        )
+
+    # -----------------------------------------------------
+    # Also scan raw HTML for absolute/relative XBRL URLs
+    # -----------------------------------------------------
+
+    raw_links = re.findall(
+        r"""(?:href=["']?)?([^"'<> ]+(?:xbrl|ixbrl)[^"'<> ]*)""",
+        html,
+        flags=re.IGNORECASE,
+    )
+
+    for raw in raw_links:
+        raw = clean_text(
+            raw
+        )
+
+        if not raw:
+            continue
+
+        absolute = urljoin(
+            page_url,
+            raw,
+        )
+
+        if any(
+            item["url"] ==
+            absolute
+            for item in candidates
+        ):
+            continue
+
+        candidates.append(
+            {
+                "url":
+                    absolute,
+
+                "context":
+                    "",
+
+                "dateText":
+                    None,
+
+                "date":
+                    None,
+            }
+        )
+
+    return candidates
+
 
 def choose_latest_xbrl(
     candidates,
 ):
-
     if not candidates:
         return None
 
+    dated = [
+        item
+        for item in candidates
+        if item.get(
+            "date"
+        )
+        is not None
+    ]
 
-    scored = []
-
-
-    for item in candidates:
-
-        context = (
-            item.get(
-                "context"
-            )
-            or ""
+    if dated:
+        dated.sort(
+            key=lambda item:
+                item[
+                    "date"
+                ],
+            reverse=True,
         )
 
-
-        dates = []
-
-
-        patterns = [
-
-            r"\b\d{2}-[A-Za-z]{3}-\d{4}\b",
-
-            r"\b\d{2}/\d{2}/\d{4}\b",
-
-            r"\b\d{4}-\d{2}-\d{2}\b",
-
+        return dated[
+            0
         ]
 
-
-        for pattern in patterns:
-
-            for match in re.findall(
-                pattern,
-                context,
-            ):
-
-                parsed = (
-                    parse_date(
-                        match
-                    )
-                )
-
-                if parsed:
-
-                    dates.append(
-                        parsed
-                    )
-
-
-        filing_date = (
-            max(
-                dates
-            )
-            if dates
-            else None
-        )
-
-
-        scored.append(
-            (
-                filing_date,
-                item,
-            )
-        )
-
-
-    dated = [
-
-        item
-
-        for item
-        in scored
-
-        if item[0]
-        is not None
-
+    return candidates[
+        0
     ]
 
 
-    if dated:
-
-        return max(
-            dated,
-            key=lambda x:
-                x[0]
-        )[1]
-
-
-    # NSE normally displays latest filing first.
-    return candidates[0]
-
-
 # =========================================================
-# FLATTEN TABLE
+# TABLE READING
 # =========================================================
 
-def flatten_columns(
-    dataframe,
+def read_html_tables(
+    html,
 ):
-
-    df = dataframe.copy()
-
-
-    if isinstance(
-        df.columns,
-        pd.MultiIndex,
-    ):
-
-        df.columns = [
-
-            " | ".join(
-
-                normalize_text(
-                    part
-                )
-
-                for part
-                in column
-
-                if normalize_text(
-                    part
-                )
-                and
-                not normalize_text(
-                    part
-                ).lower()
-                .startswith(
-                    "unnamed"
-                )
-
+    try:
+        tables = pd.read_html(
+            io.StringIO(
+                html
             )
+        )
 
-            for column
-            in df.columns
+        return tables
 
-        ]
-
-    else:
-
-        df.columns = [
-
-            normalize_text(
-                column
-            )
-
-            for column
-            in df.columns
-
-        ]
+    except Exception:
+        return []
 
 
-    return df
-
-
-# =========================================================
-# FIND COLUMN
-# =========================================================
-
-def find_column(
+def table_score(
     df,
-    required_terms,
 ):
+    if df is None:
+        return 0
 
-    for column in df.columns:
+    try:
+        if df.empty:
+            return 0
 
-        normalized = (
-            normalized_column(
-                column
+    except Exception:
+        return 0
+
+    column_text = " ".join(
+        normalize_column(
+            column
+        )
+        for column in df.columns
+    )
+
+    sample_rows = []
+
+    try:
+        for _, row in df.head(
+            20
+        ).iterrows():
+            sample_rows.append(
+                row_text(
+                    row
+                )
             )
-        )
+
+    except Exception:
+        pass
+
+    body_text = " ".join(
+        sample_rows
+    )
+
+    combined = (
+        column_text
+        +
+        " "
+        +
+        body_text
+    )
+
+    score = 0
+
+    if "public" in combined:
+        score += 5
+
+    if "shareholder" in combined:
+        score += 4
+
+    if "total no" in combined:
+        score += 4
+
+    if "shares held" in combined:
+        score += 4
+
+    if "locked" in combined:
+        score += 3
+
+    if "% of total" in combined:
+        score += 2
+
+    if "table iii" in combined:
+        score += 6
+
+    return score
 
 
-        if all(
-            term
-            in normalized
-            for term
-            in required_terms
-        ):
-
-            return column
-
-
-    return None
-
-
-# =========================================================
-# ROW TEXT
-# =========================================================
-
-def row_text(row):
-
-    return " ".join(
-
-        normalize_text(
-            value
-        )
-
-        for value
-        in row.tolist()
-
-    ).lower()
-
-
-# =========================================================
-# FIND PUBLIC TABLE
-# =========================================================
-
-def find_public_table(
+def choose_public_table(
     tables,
 ):
+    best_table = None
+    best_score = 0
 
-    for table in tables:
-
-        df = flatten_columns(
-            table
+    for df in tables:
+        score = table_score(
+            df
         )
 
+        if score > best_score:
+            best_score = score
+            best_table = df
 
-        columns_text = " ".join(
-            normalized_column(
-                column
-            )
-            for column
-            in df.columns
-        )
+    if (
+        best_table is None
+        or
+        best_score < 5
+    ):
+        return None
 
-
-        body_text = " ".join(
-
-            row_text(
-                row
-            )
-
-            for _,
-            row
-            in df.iterrows()
-
-        )
-
-
-        combined = (
-            columns_text
-            +
-            " "
-            +
-            body_text
-        )
-
-
-        if (
-            "public shareholder"
-            in combined
-            and
-            "total nos shares held"
-            in combined
-        ):
-
-            return df
-
-
-    return None
+    return best_table
 
 
 # =========================================================
@@ -767,287 +827,398 @@ def find_public_table(
 def find_public_total_row(
     df,
 ):
+    if df is None:
+        return None
+
+    try:
+        if df.empty:
+            return None
+
+    except Exception:
+        return None
 
     preferred_phrases = [
-
         "total public shareholding",
-
         "total public shareholder",
-
         "public shareholding b",
-
         "total b",
-
     ]
 
+    # -----------------------------------------------------
+    # Preferred phrases
+    # -----------------------------------------------------
 
     for phrase in preferred_phrases:
 
-        for _,
-        row in df.iterrows():
+        for _, row in df.iterrows():
 
             text = row_text(
                 row
             )
 
-            if phrase in text:
-
+            if (
+                phrase
+                in text
+            ):
                 return row
 
+    # -----------------------------------------------------
+    # Public + Total
+    # -----------------------------------------------------
 
-    # Fallback:
-    # usually final row of Table III is total.
-    for index in range(
-        len(df) - 1,
-        -1,
-        -1,
-    ):
-
-        row = df.iloc[
-            index
-        ]
+    for _, row in df.iterrows():
 
         text = row_text(
             row
         )
 
-
         if (
-            "total"
-            in text
-            and
             "public"
             in text
+            and
+            "total"
+            in text
         ):
-
             return row
 
+    # -----------------------------------------------------
+    # Search backwards
+    # -----------------------------------------------------
+
+    try:
+        for index in range(
+            len(df) - 1,
+            -1,
+            -1,
+        ):
+
+            row = df.iloc[
+                index
+            ]
+
+            text = row_text(
+                row
+            )
+
+            if (
+                "total"
+                in text
+                and
+                (
+                    "public"
+                    in text
+                    or
+                    "shareholding"
+                    in text
+                    or
+                    "shareholder"
+                    in text
+                )
+            ):
+                return row
+
+    except Exception:
+        pass
 
     return None
 
 
 # =========================================================
-# EXTRACT PUBLIC SHARES
+# COLUMN MATCHING
 # =========================================================
 
-def extract_public_metrics(
-    xbrl_html,
+def column_map(
+    df,
 ):
+    result = {}
+
+    for column in df.columns:
+        result[
+            column
+        ] = normalize_column(
+            column
+        )
+
+    return result
+
+
+def find_column(
+    df,
+    groups,
+):
+    mapping = column_map(
+        df
+    )
+
+    # Every string in a group must be present.
+    for group in groups:
+
+        for original, normalized in mapping.items():
+
+            if all(
+                token
+                in normalized
+                for token in group
+            ):
+                return original
+
+    return None
+
+
+# =========================================================
+# ROW NUMERIC EXTRACTION
+# =========================================================
+
+def numeric_from_row(
+    row,
+    column,
+):
+    if column is None:
+        return None
 
     try:
+        value = row[
+            column
+        ]
 
-        tables = pd.read_html(
-            io.StringIO(
-                xbrl_html
+    except Exception:
+        return None
+
+    # MultiIndex / duplicate columns can yield Series.
+    if isinstance(
+        value,
+        pd.Series,
+    ):
+        for item in value.tolist():
+            number = safe_float(
+                item
             )
-        )
 
-    except Exception as exc:
+            if number is not None:
+                return number
 
-        raise RuntimeError(
-            f"Unable to parse XBRL tables: {exc}"
-        )
+        return None
 
-
-    if not tables:
-
-        raise RuntimeError(
-            "No XBRL tables found"
-        )
-
-
-    public_df = (
-        find_public_table(
-            tables
-        )
+    return safe_float(
+        value
     )
 
 
-    if public_df is None:
+def extract_public_values(
+    df,
+    row,
+):
+    # -----------------------------------------------------
+    # Total no. shares held
+    # -----------------------------------------------------
 
-        raise RuntimeError(
-            "Public Shareholder table not found"
-        )
-
-
-    total_row = (
-        find_public_total_row(
-            public_df
-        )
-    )
-
-
-    if total_row is None:
-
-        raise RuntimeError(
-            "Public total row not found"
-        )
-
-
-    total_shares_column = (
-        find_column(
-            public_df,
-            [
+    shares_column = find_column(
+        df,
+        [
+            (
                 "total",
                 "shares",
                 "held",
-            ],
-        )
+            ),
+            (
+                "total no",
+                "shares",
+            ),
+            (
+                "total nos",
+                "shares",
+            ),
+            (
+                "shares held",
+            ),
+        ],
     )
 
+    # -----------------------------------------------------
+    # Public holding %
+    # -----------------------------------------------------
 
-    holding_pct_column = (
-        find_column(
-            public_df,
-            [
-                "shareholding",
+    pct_column = find_column(
+        df,
+        [
+            (
+                "% of total",
+                "shares",
+            ),
+            (
+                "shareholding %",
+            ),
+            (
+                "% calculated",
+            ),
+            (
                 "percentage",
-            ],
-        )
+                "shares",
+            ),
+        ],
     )
 
+    # -----------------------------------------------------
+    # Locked shares
+    # -----------------------------------------------------
 
-    if holding_pct_column is None:
-
-        holding_pct_column = (
-            find_column(
-                public_df,
-                [
-                    "shareholding",
-                ],
-            )
-        )
-
-
-    locked_column = (
-        find_column(
-            public_df,
-            [
+    locked_column = find_column(
+        df,
+        [
+            (
+                "locked",
+                "number",
+                "shares",
+            ),
+            (
+                "locked",
+                "no",
+                "shares",
+            ),
+            (
                 "locked",
                 "shares",
-            ],
+            ),
+        ],
+    )
+
+    public_shares = safe_int(
+        numeric_from_row(
+            row,
+            shares_column,
         )
     )
 
-
-    public_shares = None
-
-    public_pct = None
-
-    locked_public_shares = 0
-
-
-    if total_shares_column:
-
-        public_shares = (
-            safe_int(
-                total_row[
-                    total_shares_column
-                ]
-            )
+    public_pct = safe_float(
+        numeric_from_row(
+            row,
+            pct_column,
         )
+    )
 
-
-    if holding_pct_column:
-
-        public_pct = (
-            safe_float(
-                total_row[
-                    holding_pct_column
-                ]
-            )
+    locked_shares = safe_int(
+        numeric_from_row(
+            row,
+            locked_column,
         )
+    )
 
+    if locked_shares is None:
+        locked_shares = 0
 
-    if locked_column:
+    # -----------------------------------------------------
+    # If exact columns failed, intelligently scan row values.
+    # -----------------------------------------------------
 
-        locked_value = (
-            safe_int(
-                total_row[
-                    locked_column
-                ]
+    if public_shares is None:
+
+        candidate_numbers = []
+
+        for value in row.tolist():
+
+            number = safe_float(
+                value
             )
-        )
 
-        if locked_value is not None:
+            if number is None:
+                continue
 
-            locked_public_shares = (
-                max(
-                    0,
-                    locked_value,
+            candidate_numbers.append(
+                number
+            )
+
+        large_numbers = [
+            number
+            for number in candidate_numbers
+            if number >= 1000
+        ]
+
+        if large_numbers:
+            public_shares = int(
+                round(
+                    max(
+                        large_numbers
+                    )
                 )
             )
 
-
-    # -----------------------------------------------------
-    # FALLBACK:
-    # if locked column extraction accidentally points to
-    # a % field, protect against impossible values.
-    # -----------------------------------------------------
-
     if (
-        public_shares is not None
-        and
-        locked_public_shares
-        >
-        public_shares
+        public_pct is None
+        or
+        public_pct < 0
+        or
+        public_pct > 100
     ):
+        pct_candidates = []
 
-        locked_public_shares = 0
+        for value in row.tolist():
 
+            number = safe_float(
+                value
+            )
 
-    tradable_public_shares = None
+            if (
+                number is not None
+                and
+                0 <= number <= 100
+            ):
+                pct_candidates.append(
+                    number
+                )
 
+        if pct_candidates:
+            # Shareholding % is normally a meaningful %
+            # rather than zero.
+            positive = [
+                value
+                for value in pct_candidates
+                if value > 0
+            ]
 
-    if public_shares is not None:
+            if positive:
+                public_pct = positive[
+                    0
+                ]
 
-        tradable_public_shares = max(
+    if public_shares is None:
+        return None
 
-            0,
+    if public_shares <= 0:
+        return None
 
-            public_shares
-            -
-            locked_public_shares,
+    if locked_shares < 0:
+        locked_shares = 0
 
-        )
+    if locked_shares > public_shares:
+        locked_shares = 0
 
+    tradable_public_shares = (
+        public_shares
+        -
+        locked_shares
+    )
 
-    tradable_pct = None
+    if tradable_public_shares <= 0:
+        return None
 
+    tradable_public_pct = None
 
     if (
         public_pct is not None
         and
-        public_shares
-        not in (
-            None,
-            0,
-        )
-        and
-        tradable_public_shares
-        is not None
+        public_shares > 0
     ):
-
-        unlocked_ratio = (
-
-            tradable_public_shares
-            /
-            public_shares
-
-        )
-
-
-        tradable_pct = (
-
+        tradable_public_pct = (
             public_pct
             *
-            unlocked_ratio
-
+            (
+                tradable_public_shares
+                /
+                public_shares
+            )
         )
 
-
     return {
-
         "publicShares":
             public_shares,
 
@@ -1057,537 +1228,341 @@ def extract_public_metrics(
                     public_pct,
                     4,
                 )
-                if
-                public_pct
-                is not None
+                if public_pct is not None
                 else None
             ),
 
         "publicLockedShares":
-            locked_public_shares,
+            locked_shares,
 
-        "tradablePublicShares":
+        "freeFloatShares":
             tradable_public_shares,
 
-        "tradablePublicPct":
+        "freeFloatPct":
             (
                 round(
-                    tradable_pct,
+                    tradable_public_pct,
                     4,
                 )
-                if
-                tradable_pct
-                is not None
+                if tradable_public_pct is not None
                 else None
             ),
-
     }
 
 
 # =========================================================
-# FETCH ONE COMPANY
+# XBRL PROCESSING
 # =========================================================
 
-def fetch_company_float(
-    session,
-    symbol,
-    preferred_tab,
+def parse_xbrl_document(
+    html,
 ):
+    tables = read_html_tables(
+        html
+    )
 
-    tabs = []
+    if not tables:
+        return None
+
+    public_table = choose_public_table(
+        tables
+    )
+
+    if public_table is None:
+        return None
+
+    public_row = find_public_total_row(
+        public_table
+    )
+
+    if public_row is None:
+        return None
+
+    return extract_public_values(
+        public_table,
+        public_row,
+    )
 
 
-    if preferred_tab:
+# =========================================================
+# ONE STOCK FETCH
+# =========================================================
 
-        tabs.append(
-            preferred_tab
+def fetch_free_float_for_stock(
+    session,
+    stock,
+):
+    symbol = clean_text(
+        stock.get(
+            "symbol"
         )
+    ).upper()
 
+    if not symbol:
+        return {
+            "status":
+                "PENDING",
 
-    for fallback_tab in [
-        "equity",
-        "sme",
-    ]:
+            "reason":
+                "Missing symbol",
+        }
 
-        if fallback_tab not in tabs:
+    tab = preferred_tab(
+        stock
+    )
 
-            tabs.append(
-                fallback_tab
-            )
+    page_urls = shareholding_urls(
+        symbol,
+        tab,
+    )
 
+    last_reason = (
+        "No XBRL filing found"
+    )
 
-    page_error = None
-
-
-    for tab in tabs:
-
-        url = shareholding_url(
-            symbol,
-            tab,
-        )
-
+    for page_url in page_urls:
 
         try:
-
-            response = session.get(
-
-                url,
-
-                timeout=
-                    REQUEST_TIMEOUT,
-
+            html = fetch_html(
+                session,
+                page_url,
             )
-
-
-            response.raise_for_status()
-
-
-            candidates = (
-                extract_xbrl_candidates(
-                    response.text
-                )
-            )
-
-
-            latest = (
-                choose_latest_xbrl(
-                    candidates
-                )
-            )
-
-
-            if latest is None:
-
-                continue
-
-
-            xbrl_url = (
-                latest[
-                    "url"
-                ]
-            )
-
-
-            time.sleep(
-                REQUEST_DELAY
-            )
-
-
-            xbrl_response = (
-                session.get(
-
-                    xbrl_url,
-
-                    timeout=
-                        REQUEST_TIMEOUT,
-
-                )
-            )
-
-
-            xbrl_response.raise_for_status()
-
-
-            metrics = (
-                extract_public_metrics(
-                    xbrl_response.text
-                )
-            )
-
-
-            if (
-                metrics.get(
-                    "publicShares"
-                )
-                is None
-            ):
-
-                continue
-
-
-            # ---------------------------------------------
-            # Extract filing date from context where possible.
-            # ---------------------------------------------
-
-            filing_date = None
-
-
-            context = (
-                latest.get(
-                    "context"
-                )
-                or ""
-            )
-
-
-            for pattern in [
-
-                r"\b\d{2}-[A-Za-z]{3}-\d{4}\b",
-
-                r"\b\d{4}-\d{2}-\d{2}\b",
-
-                r"\b\d{2}/\d{2}/\d{4}\b",
-
-            ]:
-
-                matches = (
-                    re.findall(
-                        pattern,
-                        context,
-                    )
-                )
-
-
-                parsed_dates = [
-
-                    parse_date(
-                        item
-                    )
-
-                    for item
-                    in matches
-
-                ]
-
-
-                parsed_dates = [
-
-                    item
-
-                    for item
-                    in parsed_dates
-
-                    if item
-                    is not None
-
-                ]
-
-
-                if parsed_dates:
-
-                    filing_date = max(
-                        parsed_dates
-                    )
-
-                    break
-
-
-            now = (
-                datetime.now(
-                    timezone.utc
-                )
-                .replace(
-                    microsecond=0
-                )
-                .isoformat()
-            )
-
-
-            return {
-
-                "symbol":
-                    symbol,
-
-                "status":
-                    "READY",
-
-                "tab":
-                    tab,
-
-                "publicShares":
-                    metrics[
-                        "publicShares"
-                    ],
-
-                "publicHoldingPct":
-                    metrics[
-                        "publicHoldingPct"
-                    ],
-
-                "publicLockedShares":
-                    metrics[
-                        "publicLockedShares"
-                    ],
-
-                "tradablePublicShares":
-                    metrics[
-                        "tradablePublicShares"
-                    ],
-
-                "tradablePublicPct":
-                    metrics[
-                        "tradablePublicPct"
-                    ],
-
-                "filingDate":
-                    (
-                        filing_date
-                        .isoformat()
-                        if filing_date
-                        else None
-                    ),
-
-                "xbrlUrl":
-                    xbrl_url,
-
-                "source":
-                    "NSE Shareholding Pattern XBRL",
-
-                "method":
-                    (
-                        "Exact Public Shares less "
-                        "Locked-in Public Shares"
-                    ),
-
-                "isOfficialIndexFreeFloatFactor":
-                    False,
-
-                "fetchedAt":
-                    now,
-
-            }
-
 
         except Exception as exc:
-
-            page_error = str(
-                exc
+            last_reason = (
+                "Shareholding page request failed: "
+                +
+                str(exc)
             )
 
+            continue
 
-        time.sleep(
-            REQUEST_DELAY
+        candidates = extract_xbrl_candidates(
+            html,
+            page_url,
         )
 
+        if not candidates:
+            last_reason = (
+                "No XBRL link in shareholding page"
+            )
+
+            continue
+
+        candidate = choose_latest_xbrl(
+            candidates
+        )
+
+        if candidate is None:
+            continue
+
+        source_url = candidate[
+            "url"
+        ]
+
+        try:
+            xbrl_html = fetch_html(
+                session,
+                source_url,
+            )
+
+        except Exception as exc:
+            last_reason = (
+                "XBRL request failed: "
+                +
+                str(exc)
+            )
+
+            continue
+
+        values = parse_xbrl_document(
+            xbrl_html
+        )
+
+        if values is None:
+            last_reason = (
+                "Could not parse public shareholding table"
+            )
+
+            continue
+
+        filing_date = (
+            candidate.get(
+                "dateText"
+            )
+        )
+
+        if (
+            not filing_date
+            and
+            candidate.get(
+                "date"
+            )
+            is not None
+        ):
+            filing_date = (
+                candidate[
+                    "date"
+                ]
+                .date()
+                .isoformat()
+            )
+
+        return {
+            "status":
+                "READY",
+
+            **values,
+
+            "freeFloatDate":
+                filing_date,
+
+            "freeFloatSource":
+                "NSE Shareholding Pattern XBRL",
+
+            "freeFloatSourceUrl":
+                source_url,
+
+            "freeFloatMethod":
+                (
+                    "Exact Public Shares less "
+                    "Locked-in Public Shares"
+                ),
+
+            "freeFloatMethodologyNote":
+                (
+                    "Filing-derived tradable public shares proxy. "
+                    "Not the NSE Indices official free-float factor."
+                ),
+
+            "freeFloatEstimated":
+                False,
+
+            "cachedAt":
+                utc_now_iso(),
+        }
 
     return {
-
-        "symbol":
-            symbol,
-
         "status":
-            "UNAVAILABLE",
+            "PENDING",
 
-        "error":
-            page_error,
+        "reason":
+            last_reason,
 
-        "fetchedAt":
-            (
-                datetime.now(
-                    timezone.utc
-                )
-                .replace(
-                    microsecond=0
-                )
-                .isoformat()
-            ),
+        "freeFloatEstimated":
+            False,
 
+        "cachedAt":
+            utc_now_iso(),
     }
 
 
 # =========================================================
-# BOARD / TAB
+# APPLY RESULT TO STOCK
 # =========================================================
 
-def preferred_tab_for_stock(
-    row,
-):
-
-    board = (
-        normalize_text(
-            row.get(
-                "board"
-            )
-        )
-        .upper()
-    )
-
-
-    series = (
-        normalize_text(
-            row.get(
-                "series"
-            )
-        )
-        .upper()
-    )
+FREE_FLOAT_FIELDS = [
+    "publicShares",
+    "publicHoldingPct",
+    "publicLockedShares",
+    "freeFloatShares",
+    "freeFloatPct",
+    "freeFloatDate",
+    "freeFloatSource",
+    "freeFloatSourceUrl",
+    "freeFloatMethod",
+    "freeFloatMethodologyNote",
+    "freeFloatEstimated",
+]
 
 
-    if (
-        board == "SME"
-        or
-        "SME"
-        in board
-        or
-        series
-        in {
-            "SM",
-            "ST",
-        }
-    ):
-
-        return "sme"
-
-
-    return "equity"
-
-
-# =========================================================
-# APPLY TO STOCK
-# =========================================================
-
-def apply_float_to_stock(
+def apply_result_to_stock(
     stock,
-    record,
+    result,
 ):
-
-    status = (
-        record.get(
-            "status"
-        )
+    status = result.get(
+        "status",
+        "PENDING",
     )
-
-
-    if status != "READY":
-
-        stock[
-            "freeFloatStatus"
-        ] = "PENDING"
-
-        return False
-
-
-    public_shares = safe_int(
-        record.get(
-            "publicShares"
-        )
-    )
-
-
-    public_pct = safe_float(
-        record.get(
-            "publicHoldingPct"
-        )
-    )
-
-
-    locked_shares = safe_int(
-        record.get(
-            "publicLockedShares"
-        )
-    )
-
-
-    tradable_shares = safe_int(
-        record.get(
-            "tradablePublicShares"
-        )
-    )
-
-
-    tradable_pct = safe_float(
-        record.get(
-            "tradablePublicPct"
-        )
-    )
-
-
-    # =====================================================
-    # RAW OFFICIAL FILING VALUES
-    # =====================================================
-
-    stock[
-        "publicShares"
-    ] = public_shares
-
-
-    stock[
-        "publicHoldingPct"
-    ] = public_pct
-
-
-    stock[
-        "publicLockedShares"
-    ] = (
-        locked_shares
-        if locked_shares
-        is not None
-        else 0
-    )
-
-
-    # =====================================================
-    # SCANNER FLOAT VALUES
-    #
-    # IMPORTANT:
-    # These are NOT derived from market cap / price.
-    #
-    # Quantity comes directly from official shareholding
-    # filing and locked public shares are removed.
-    # =====================================================
-
-    stock[
-        "freeFloatShares"
-    ] = tradable_shares
-
-
-    stock[
-        "freeFloatPct"
-    ] = tradable_pct
-
-
-    stock[
-        "freeFloatDate"
-    ] = (
-        record.get(
-            "filingDate"
-        )
-    )
-
-
-    stock[
-        "freeFloatSource"
-    ] = (
-        "NSE Shareholding Pattern XBRL"
-    )
-
-
-    stock[
-        "freeFloatSourceUrl"
-    ] = (
-        record.get(
-            "xbrlUrl"
-        )
-    )
-
-
-    stock[
-        "freeFloatMethod"
-    ] = (
-        "Exact Public Shares less "
-        "Locked-in Public Shares"
-    )
-
-
-    stock[
-        "freeFloatMethodologyNote"
-    ] = (
-        "Filing-derived tradable public shares proxy. "
-        "Not the NSE Indices official free-float factor."
-    )
-
-
-    stock[
-        "freeFloatEstimated"
-    ] = False
-
 
     stock[
         "freeFloatStatus"
-    ] = "READY"
+    ] = status
+
+    if status == "READY":
+
+        for field in FREE_FLOAT_FIELDS:
+            stock[
+                field
+            ] = result.get(
+                field
+            )
+
+        stock.pop(
+            "freeFloatReason",
+            None,
+        )
+
+    else:
+
+        # Do not convert unavailable values to zero.
+        for field in FREE_FLOAT_FIELDS:
+            if field == "freeFloatEstimated":
+                stock[
+                    field
+                ] = False
+
+            else:
+                stock[
+                    field
+                ] = None
+
+        stock[
+            "freeFloatReason"
+        ] = result.get(
+            "reason"
+        )
 
 
-    return True
+# =========================================================
+# STOCKS PAYLOAD
+# =========================================================
+
+def normalize_stocks_payload(
+    payload,
+):
+    if isinstance(
+        payload,
+        list,
+    ):
+        return payload, None
+
+    if isinstance(
+        payload,
+        dict,
+    ):
+        for key in [
+            "stocks",
+            "rows",
+            "data",
+        ]:
+            if isinstance(
+                payload.get(
+                    key
+                ),
+                list,
+            ):
+                return (
+                    payload[
+                        key
+                    ],
+                    key,
+                )
+
+    raise RuntimeError(
+        "data/stocks.json must contain a list "
+        "or a dict containing stocks/rows/data list"
+    )
 
 
 # =========================================================
@@ -1601,57 +1576,45 @@ def main():
     )
 
     print(
-        "BUILD FREE FLOAT / PUBLIC FLOAT"
+        "BUILD FREE FLOAT"
     )
 
     print(
         "=============================================="
     )
 
-
-    stocks = load_json(
+    stocks_payload = load_json(
         STOCKS_PATH,
-        [],
+        None,
     )
 
-
-    if (
-        not isinstance(
-            stocks,
-            list,
-        )
-        or
-        not stocks
-    ):
-
+    if stocks_payload is None:
         raise RuntimeError(
-            "stocks.json is missing or empty"
+            "data/stocks.json not found or invalid"
         )
 
+    stocks, list_key = normalize_stocks_payload(
+        stocks_payload
+    )
 
     cache = load_json(
         CACHE_PATH,
         {},
     )
 
-
     if not isinstance(
         cache,
         dict,
     ):
-
         cache = {}
 
-
-    session = (
-        build_session()
-    )
-
+    session = build_session()
 
     stats = {
-
         "stocks":
-            len(stocks),
+            len(
+                stocks
+            ),
 
         "cacheUsed":
             0,
@@ -1665,33 +1628,39 @@ def main():
         "pending":
             0,
 
-        "main":
+        "errors":
             0,
-
-        "sme":
-            0,
-
     }
-
-
-    total = len(
-        stocks
-    )
-
 
     for index, stock in enumerate(
         stocks,
         start=1,
     ):
 
-        symbol = normalize_symbol(
+        if not isinstance(
+            stock,
+            dict,
+        ):
+            stats[
+                "pending"
+            ] += 1
+
+            continue
+
+        symbol = clean_text(
             stock.get(
                 "symbol"
             )
-        )
-
+        ).upper()
 
         if not symbol:
+            stock[
+                "freeFloatStatus"
+            ] = "PENDING"
+
+            stock[
+                "freeFloatReason"
+            ] = "Missing symbol"
 
             stats[
                 "pending"
@@ -1699,195 +1668,147 @@ def main():
 
             continue
 
-
-        preferred_tab = (
-            preferred_tab_for_stock(
-                stock
-            )
+        cached = cache.get(
+            symbol
         )
 
-
-        if preferred_tab == "sme":
-
-            stats[
-                "sme"
-            ] += 1
-
-        else:
-
-            stats[
-                "main"
-            ] += 1
-
-
-        cached = (
-            cache.get(
-                symbol
-            )
-        )
-
-
-        if (
-            isinstance(
-                cached,
-                dict,
-            )
-            and
-            cached.get(
-                "status"
-            )
-            ==
-            "READY"
-            and
-            cache_is_fresh(
-                cached
-            )
+        if cache_entry_is_fresh(
+            cached
         ):
 
-            record = cached
+            result = cached
 
             stats[
                 "cacheUsed"
             ] += 1
 
-
         else:
 
-            record = (
-                fetch_company_float(
-
+            try:
+                result = fetch_free_float_for_stock(
                     session,
-
-                    symbol,
-
-                    preferred_tab,
-
+                    stock,
                 )
-            )
 
+                stats[
+                    "fetched"
+                ] += 1
+
+            except Exception as exc:
+
+                result = {
+                    "status":
+                        "PENDING",
+
+                    "reason":
+                        str(exc),
+
+                    "freeFloatEstimated":
+                        False,
+
+                    "cachedAt":
+                        utc_now_iso(),
+                }
+
+                stats[
+                    "errors"
+                ] += 1
 
             cache[
                 symbol
-            ] = record
+            ] = result
 
+            time.sleep(
+                REQUEST_DELAY
+            )
 
-            stats[
-                "fetched"
-            ] += 1
-
+        apply_result_to_stock(
+            stock,
+            result,
+        )
 
         if (
-            apply_float_to_stock(
-                stock,
-                record,
+            result.get(
+                "status"
             )
+            ==
+            "READY"
         ):
-
             stats[
                 "ready"
             ] += 1
 
         else:
-
             stats[
                 "pending"
             ] += 1
 
-
         if (
-            index % 50
+            index % 25
             ==
             0
         ):
+            print(
+                f"[{index}/{len(stocks)}] "
+                f"ready={stats['ready']} "
+                f"pending={stats['pending']} "
+                f"cache={stats['cacheUsed']} "
+                f"fetched={stats['fetched']}"
+            )
 
-            print({
-
-                "progress":
-                    f"{index}/{total}",
-
-                "ready":
-                    stats[
-                        "ready"
-                    ],
-
-                "pending":
-                    stats[
-                        "pending"
-                    ],
-
-                "cacheUsed":
-                    stats[
-                        "cacheUsed"
-                    ],
-
-                "fetched":
-                    stats[
-                        "fetched"
-                    ],
-
-            })
-
-
-            # Save progress.
             save_json(
                 CACHE_PATH,
                 cache,
             )
 
+    # -----------------------------------------------------
+    # Save stocks
+    # -----------------------------------------------------
 
-            save_json(
-                STOCKS_PATH,
-                stocks,
-            )
+    if list_key is None:
+        output_payload = stocks
 
+    else:
+        stocks_payload[
+            list_key
+        ] = stocks
 
-    # =====================================================
-    # FINAL SAVE
-    # =====================================================
+        output_payload = (
+            stocks_payload
+        )
+
+    save_json(
+        STOCKS_PATH,
+        output_payload,
+    )
 
     save_json(
         CACHE_PATH,
         cache,
     )
 
-
-    save_json(
-        STOCKS_PATH,
-        stocks,
-    )
-
-
-    coverage = (
-
-        stats[
-            "ready"
-        ]
-        /
-        stats[
-            "stocks"
-        ]
-        *
-        100
-
+    coverage_pct = (
+        round(
+            (
+                stats[
+                    "ready"
+                ]
+                /
+                stats[
+                    "stocks"
+                ]
+                *
+                100
+            ),
+            2,
+        )
         if stats[
             "stocks"
         ]
-
         else 0
-
     )
-
-
-    stats[
-        "coveragePct"
-    ] = round(
-        coverage,
-        2,
-    )
-
 
     print()
-
     print(
         "=============================================="
     )
@@ -1900,43 +1821,36 @@ def main():
         "=============================================="
     )
 
-
     print(
         json.dumps(
-            stats,
+            {
+                **stats,
+                "coveragePct":
+                    coverage_pct,
+            },
             indent=2,
         )
     )
 
-
     print()
-
     print(
-        "IMPORTANT:"
+        "Method:"
     )
 
-
     print(
-        "freeFloatShares is NOT estimated "
-        "from Market Cap / Price."
+        "Free Float Shares = Exact Public Shares "
+        "- Locked-in Public Shares"
     )
 
-
     print(
-        "Source quantity is NSE Shareholding Pattern XBRL."
+        "Source: NSE Shareholding Pattern XBRL"
     )
 
-
     print(
-        "Method = Public Shares - Locked-in Public Shares."
+        "Important: this is a filing-derived tradable-public-"
+        "shares proxy, NOT the NSE Indices official "
+        "free-float factor."
     )
-
-
-    print(
-        "This is a filing-derived tradable-public-float proxy, "
-        "not the NSE Indices official free-float factor."
-    )
-
 
     print(
         "=============================================="
@@ -1944,5 +1858,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()
