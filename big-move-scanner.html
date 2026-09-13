@@ -14,10 +14,6 @@
 
   <style>
 
-    /* =====================================================
-       ROOT
-    ===================================================== */
-
     :root {
       --bg: #07111f;
       --panel: #0c192b;
@@ -44,14 +40,8 @@
 
       --red: #ff5e72;
       --red-soft: rgba(255, 94, 114, 0.13);
-
-      --header-height: 54px;
     }
 
-
-    /* =====================================================
-       BASE
-    ===================================================== */
 
     * {
       box-sizing: border-box;
@@ -62,14 +52,10 @@
     body {
       margin: 0;
       padding: 0;
-
       min-height: 100%;
 
-      background:
-        var(--bg);
-
-      color:
-        var(--text);
+      background: var(--bg);
+      color: var(--text);
 
       font-family:
         Arial,
@@ -97,37 +83,24 @@
 
 
     /* =====================================================
-       TOP HEADER — COMPACT
+       HEADER
     ===================================================== */
 
     .site-header {
-      min-height:
-        var(--header-height);
+      min-height: 54px;
 
       display: flex;
-
       align-items: center;
       justify-content: space-between;
 
       gap: 20px;
 
-      padding:
-        8px 18px;
+      padding: 8px 18px;
 
       border-bottom:
         1px solid var(--border-soft);
 
-      background:
-        #081321;
-
-      position: relative;
-
-      z-index: 20;
-    }
-
-
-    .brand-wrap {
-      min-width: 0;
+      background: #081321;
     }
 
 
@@ -138,9 +111,7 @@
       line-height: 1;
 
       font-weight: 900;
-
-      letter-spacing:
-        0.4px;
+      letter-spacing: 0.4px;
 
       white-space: nowrap;
     }
@@ -149,81 +120,61 @@
     .brand-subtitle {
       margin-top: 4px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       font-size: 10px;
-
       white-space: nowrap;
     }
 
 
     .main-nav {
       display: flex;
-
       align-items: center;
 
       gap: 7px;
-
-      flex-wrap: nowrap;
     }
 
 
     .nav-link {
-      padding:
-        9px 13px;
+      padding: 9px 13px;
 
       border:
         1px solid transparent;
 
-      border-radius:
-        7px;
+      border-radius: 7px;
 
-      color:
-        #aebed2;
+      color: #aebed2;
 
-      font-size:
-        12px;
-
-      font-weight:
-        700;
+      font-size: 12px;
+      font-weight: 700;
 
       white-space: nowrap;
     }
 
 
     .nav-link:hover {
-      color:
-        var(--text);
-
-      background:
-        var(--panel);
+      color: var(--text);
+      background: var(--panel);
     }
 
 
     .nav-link.active {
-      color:
-        var(--text);
+      color: var(--text);
 
-      background:
-        var(--panel-2);
+      background: var(--panel-2);
 
-      border-color:
-        var(--border);
+      border-color: var(--border);
     }
 
 
     .nav-link.disabled {
-      opacity:
-        0.45;
-
-      cursor:
-        default;
+      opacity: 0.45;
+      cursor: default;
     }
 
 
     /* =====================================================
-       MAIN
+       PAGE
     ===================================================== */
 
     .page {
@@ -235,24 +186,17 @@
 
 
     /* =====================================================
-       TITLE BAR — COMPACT
+       TITLE
     ===================================================== */
 
     .scanner-title-row {
       display: flex;
-
       align-items: center;
       justify-content: space-between;
 
       gap: 20px;
 
-      margin-bottom:
-        8px;
-    }
-
-
-    .scanner-heading {
-      min-width: 0;
+      margin-bottom: 8px;
     }
 
 
@@ -260,41 +204,23 @@
       margin: 0;
 
       font-size: 22px;
+      line-height: 1.05;
 
-      line-height:
-        1.05;
-
-      letter-spacing:
-        0.2px;
-
-      font-weight:
-        900;
+      font-weight: 900;
     }
 
 
     .scanner-heading p {
-      margin:
-        4px 0 0;
+      margin: 4px 0 0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        11px;
-
-      line-height:
-        1.3;
+      font-size: 11px;
     }
 
 
     .scanner-active {
-      flex: 0 0 auto;
-
-      padding:
-        7px 12px;
-
-      border-radius:
-        999px;
+      padding: 7px 12px;
 
       border:
         1px solid rgba(
@@ -304,25 +230,20 @@
           0.27
         );
 
-      background:
-        var(--green-soft);
+      border-radius: 999px;
 
-      color:
-        var(--green);
+      background: var(--green-soft);
+      color: var(--green);
 
-      font-size:
-        11px;
+      font-size: 11px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
     /* =====================================================
-       SUMMARY — COMPACT
+       SUMMARY
     ===================================================== */
 
     .summary-grid {
@@ -334,117 +255,88 @@
           minmax(125px, 1fr)
         );
 
-      gap:
-        8px;
+      gap: 8px;
 
-      margin-bottom:
-        8px;
+      margin-bottom: 8px;
     }
 
 
     .summary-card {
-      min-height:
-        70px;
+      min-height: 70px;
 
-      padding:
-        9px 12px;
+      padding: 9px 12px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     .summary-label {
-      color:
-        #91a7c3;
+      color: #91a7c3;
 
-      font-size:
-        9px;
+      font-size: 9px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        0.55px;
+      letter-spacing: 0.55px;
     }
 
 
     .summary-value {
-      margin-top:
-        5px;
+      margin-top: 5px;
 
-      font-size:
-        21px;
+      font-size: 21px;
+      line-height: 1;
 
-      line-height:
-        1;
-
-      font-weight:
-        900;
+      font-weight: 900;
     }
 
 
     .summary-note {
-      margin-top:
-        5px;
+      margin-top: 5px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        9px;
+      font-size: 9px;
     }
 
 
     /* =====================================================
-       FILTERS — COMPACT
+       GENERAL FILTER
     ===================================================== */
 
     .filters-panel {
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
 
-      padding:
-        9px;
+      padding: 9px;
 
-      margin-bottom:
-        7px;
+      margin-bottom: 7px;
     }
 
 
-    .filters-grid {
+    .general-filter-grid {
       display: grid;
 
       grid-template-columns:
-        minmax(170px, 1.7fr)
+        minmax(180px, 1.7fr)
         repeat(
-          4,
-          minmax(105px, 0.9fr)
-        )
-        minmax(130px, 1fr)
-        minmax(130px, 1fr)
-        minmax(130px, 1fr);
+          5,
+          minmax(125px, 1fr)
+        );
 
-      gap:
-        7px;
+      gap: 7px;
 
-      align-items:
-        end;
+      align-items: end;
     }
 
 
@@ -456,119 +348,207 @@
     .filter-group label {
       display: block;
 
-      margin:
-        0 0 4px;
+      margin: 0 0 4px;
 
-      color:
-        #94aac5;
+      color: #94aac5;
 
-      font-size:
-        8px;
+      font-size: 8px;
+      font-weight: 900;
 
-      font-weight:
-        900;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        0.4px;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
     .filter-control {
       width: 100%;
+      height: 34px;
 
-      height:
-        34px;
-
-      padding:
-        0 10px;
+      padding: 0 9px;
 
       border:
         1px solid #29415e;
 
-      border-radius:
-        6px;
+      border-radius: 6px;
 
-      outline:
-        none;
+      outline: none;
 
-      background:
-        #0b1829;
+      background: #0b1829;
+      color: var(--text);
 
-      color:
-        var(--text);
-
-      font-size:
-        11px;
+      font-size: 11px;
     }
 
 
     .filter-control:focus {
-      border-color:
-        #3f7fd3;
+      border-color: #3f7fd3;
+    }
+
+
+    /* =====================================================
+       COLUMN FILTERS
+    ===================================================== */
+
+    .column-filter-title {
+      margin:
+        9px 0 6px;
+
+      padding-top: 8px;
+
+      border-top:
+        1px solid var(--border-soft);
+
+      color: #a9bdd6;
+
+      font-size: 9px;
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+
+    .column-filter-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          5,
+          minmax(230px, 1fr)
+        );
+
+      gap: 6px;
+    }
+
+
+    .numeric-filter {
+      padding: 6px;
+
+      border:
+        1px solid var(--border-soft);
+
+      border-radius: 7px;
+
+      background: #091625;
+    }
+
+
+    .numeric-filter-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 8px;
+
+      margin-bottom: 5px;
+    }
+
+
+    .numeric-filter-name {
+      color: #c9d8e9;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+
+    .active-wrap {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 4px;
+
+      color: #97aac1;
+
+      font-size: 8px;
+
+      white-space: nowrap;
+    }
+
+
+    .active-wrap input {
+      width: 14px;
+      height: 14px;
+
+      margin: 0;
+
+      accent-color: #3b8de3;
+    }
+
+
+    .numeric-filter-controls {
+      display: grid;
+
+      grid-template-columns:
+        82px
+        minmax(55px, 1fr)
+        105px;
+
+      gap: 4px;
+    }
+
+
+    .mini-control {
+      width: 100%;
+      height: 28px;
+
+      padding: 0 6px;
+
+      border:
+        1px solid #29415e;
+
+      border-radius: 5px;
+
+      outline: none;
+
+      background: #0b1829;
+      color: var(--text);
+
+      font-size: 9px;
     }
 
 
     .filter-actions {
-      margin-top:
-        7px;
+      margin-top: 8px;
 
       display: flex;
-
       align-items: center;
 
-      gap:
-        7px;
+      gap: 7px;
     }
 
 
     .btn {
-      min-height:
-        33px;
+      min-height: 33px;
 
-      padding:
-        0 13px;
+      padding: 0 13px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        6px;
+      border-radius: 6px;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      color:
-        var(--text);
+      color: var(--text);
+      background: var(--panel-2);
 
-      background:
-        var(--panel-2);
-
-      font-size:
-        11px;
-
-      font-weight:
-        800;
+      font-size: 11px;
+      font-weight: 800;
     }
 
 
     .btn:hover {
-      filter:
-        brightness(1.13);
+      filter: brightness(1.13);
     }
 
 
     .btn-primary {
-      background:
-        #245e9e;
+      background: #245e9e;
 
-      border-color:
-        #377fc9;
+      border-color: #377fc9;
     }
 
 
@@ -578,273 +558,195 @@
 
     .legend {
       display: flex;
-
       align-items: center;
 
-      gap:
-        13px;
+      gap: 13px;
 
-      min-height:
-        25px;
+      min-height: 25px;
 
-      padding:
-        0 2px;
+      padding: 0 2px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        9px;
+      font-size: 9px;
 
-      margin-bottom:
-        4px;
+      margin-bottom: 4px;
 
-      flex-wrap:
-        wrap;
+      flex-wrap: wrap;
     }
 
 
     .legend-item {
       display: inline-flex;
-
       align-items: center;
 
-      gap:
-        4px;
+      gap: 4px;
     }
 
 
     .legend-dot {
-      width:
-        7px;
+      width: 7px;
+      height: 7px;
 
-      height:
-        7px;
-
-      border-radius:
-        50%;
+      border-radius: 50%;
     }
 
 
     .dot-green {
-      background:
-        var(--green);
+      background: var(--green);
     }
 
 
     .dot-yellow {
-      background:
-        var(--yellow);
+      background: var(--yellow);
     }
 
 
     .dot-orange {
-      background:
-        var(--orange);
+      background: var(--orange);
     }
 
 
     .dot-red {
-      background:
-        var(--red);
+      background: var(--red);
     }
 
 
     /* =====================================================
-       TABLE PANEL
+       TABLE
     ===================================================== */
 
     .table-panel {
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
 
-      overflow:
-        hidden;
+      overflow: hidden;
     }
 
 
     .table-toolbar {
-      min-height:
-        42px;
+      min-height: 42px;
 
-      padding:
-        6px 10px;
+      padding: 6px 10px;
 
       display: flex;
-
       align-items: center;
       justify-content: space-between;
 
-      gap:
-        12px;
+      gap: 12px;
 
       border-bottom:
         1px solid var(--border);
 
-      background:
-        #0b1829;
+      background: #0b1829;
     }
 
 
     .result-count {
-      color:
-        #9eb0c6;
+      color: #9eb0c6;
 
-      font-size:
-        10px;
-    }
-
-
-    .export-btn {
-      min-height:
-        32px;
+      font-size: 10px;
     }
 
 
     /* =====================================================
-       TOP HORIZONTAL SCROLLBAR
+       TOP SCROLLBAR
     ===================================================== */
 
     .top-scroll-wrap {
-      width:
-        100%;
+      width: 100%;
+      height: 18px;
 
-      overflow-x:
-        auto;
+      overflow-x: auto;
+      overflow-y: hidden;
 
-      overflow-y:
-        hidden;
-
-      background:
-        #081422;
+      background: #081422;
 
       border-bottom:
         1px solid var(--border-soft);
-
-      height:
-        18px;
     }
 
 
     .top-scroll-inner {
-      height:
-        1px;
-
-      min-width:
-        100%;
+      height: 1px;
+      min-width: 100%;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar,
     .table-wrap::-webkit-scrollbar {
-      height:
-        12px;
-
-      width:
-        11px;
+      height: 12px;
+      width: 11px;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-track,
     .table-wrap::-webkit-scrollbar-track {
-      background:
-        #07111f;
+      background: #07111f;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-thumb,
     .table-wrap::-webkit-scrollbar-thumb {
-      background:
-        #455f82;
+      background: #455f82;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
       border:
         2px solid #07111f;
     }
 
 
-    .top-scroll-wrap::-webkit-scrollbar-thumb:hover,
-    .table-wrap::-webkit-scrollbar-thumb:hover {
-      background:
-        #5b79a1;
-    }
-
-
     /* =====================================================
-       TABLE WRAPPER
+       TABLE WRAP
     ===================================================== */
 
     .table-wrap {
-      width:
-        100%;
+      width: 100%;
 
       max-height:
-        calc(100vh - 315px);
+        calc(100vh - 350px);
 
-      min-height:
-        360px;
+      min-height: 360px;
 
-      overflow:
-        auto;
+      overflow: auto;
 
-      position:
-        relative;
+      position: relative;
     }
 
 
     table {
-      border-collapse:
-        separate;
+      border-collapse: separate;
+      border-spacing: 0;
 
-      border-spacing:
-        0;
+      min-width: 2800px;
+      width: max-content;
 
-      min-width:
-        2600px;
-
-      width:
-        max-content;
-
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     thead {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
-
-      z-index:
-        8;
+      z-index: 8;
     }
 
 
     th {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
+      z-index: 8;
 
-      z-index:
-        8;
+      min-width: 88px;
 
-      min-width:
-        85px;
-
-      padding:
-        7px 7px;
+      padding: 8px 7px;
 
       border-right:
         1px solid var(--border);
@@ -852,47 +754,37 @@
       border-bottom:
         1px solid var(--border);
 
-      background:
-        #10223a;
+      background: #10223a;
 
-      color:
-        #f7f9fc;
+      color: #f7f9fc;
 
-      font-size:
-        9px;
+      font-size: 9.5px;
+      font-weight: 900;
 
-      font-weight:
-        900;
+      text-align: center;
+      vertical-align: middle;
 
-      text-align:
-        center;
+      white-space: normal;
 
-      vertical-align:
-        middle;
-
-      white-space:
-        normal;
-
-      line-height:
-        1.1;
+      line-height: 1.1;
     }
 
 
     th:first-child {
-      min-width:
-        275px;
+      min-width: 275px;
 
-      text-align:
-        left;
+      text-align: left;
+
+      left: 0;
+
+      z-index: 12;
     }
 
 
     td {
-      height:
-        46px;
+      height: 48px;
 
-      padding:
-        6px 7px;
+      padding: 6px 8px;
 
       border-right:
         1px solid #1c314b;
@@ -900,331 +792,225 @@
       border-bottom:
         1px solid #1c314b;
 
-      color:
-        #edf3fb;
+      color: #edf3fb;
 
-      font-size:
-        10px;
+      font-size: 11.5px;
+      font-weight: 600;
 
-      text-align:
-        center;
+      text-align: center;
+      vertical-align: middle;
 
-      vertical-align:
-        middle;
+      white-space: nowrap;
+    }
 
-      white-space:
-        nowrap;
+
+    .number-cell {
+      font-size: 12px;
+      font-weight: 750;
     }
 
 
     tbody tr {
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      background:
-        #0b192b;
+      background: #0b192b;
     }
 
 
     tbody tr:nth-child(even) {
-      background:
-        #0c1b2e;
+      background: #0c1b2e;
     }
 
 
     tbody tr:hover {
-      background:
-        #132944;
+      background: #132944;
     }
 
 
     td:first-child {
-      text-align:
-        left;
+      text-align: left;
 
-      position:
-        sticky;
+      position: sticky;
+      left: 0;
 
-      left:
-        0;
+      z-index: 4;
 
-      z-index:
-        4;
+      min-width: 275px;
+      max-width: 275px;
 
-      min-width:
-        275px;
-
-      max-width:
-        275px;
-
-      background:
-        inherit;
-    }
-
-
-    th:first-child {
-      left:
-        0;
-
-      z-index:
-        12;
+      background: inherit;
     }
 
 
     .stock-name {
-      display:
-        block;
+      display: block;
 
-      max-width:
-        245px;
+      max-width: 245px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      text-overflow:
-        ellipsis;
+      text-overflow: ellipsis;
 
-      font-size:
-        11px;
+      font-size: 12px;
+      font-weight: 850;
 
-      font-weight:
-        800;
-
-      color:
-        #ffffff;
+      color: #ffffff;
     }
 
 
     .stock-symbol {
-      display:
-        block;
+      display: block;
 
-      margin-top:
-        2px;
+      margin-top: 2px;
 
-      font-size:
-        8px;
+      font-size: 9px;
 
-      color:
-        #8fa4be;
+      color: #8fa4be;
     }
 
 
-    /* =====================================================
-       NUMBER FORMATTING
-    ===================================================== */
-
     .positive {
-      color:
-        #ffffff;
+      color: #ffffff;
 
-      font-weight:
-        700;
+      font-weight: 750;
     }
 
 
     .negative {
-      color:
-        var(--red);
+      color: var(--red);
 
-      font-weight:
-        700;
+      font-weight: 750;
     }
 
 
     .pending {
-      color:
-        #72869f;
+      color: #72869f;
     }
 
 
     /* =====================================================
-       SCORE BADGES
+       SCORE
     ===================================================== */
 
     .score-badge {
-      display:
-        inline-flex;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-      align-items:
-        center;
-      justify-content:
-        center;
+      min-width: 54px;
+      min-height: 28px;
 
-      min-width:
-        54px;
-
-      min-height:
-        27px;
-
-      padding:
-        4px 8px;
+      padding: 4px 8px;
 
       border:
         1px solid transparent;
 
-      border-radius:
-        6px;
+      border-radius: 6px;
 
-      font-size:
-        11px;
-
-      font-weight:
-        900;
+      font-size: 12px;
+      font-weight: 900;
     }
 
 
     .score-elite {
-      color:
-        var(--green);
+      color: var(--green);
 
-      background:
-        var(--green-soft);
+      background: var(--green-soft);
 
       border-color:
-        rgba(
-          39,
-          217,
-          128,
-          0.18
-        );
+        rgba(39, 217, 128, 0.18);
     }
 
 
     .score-strong {
-      color:
-        #74bfff;
+      color: #74bfff;
 
-      background:
-        var(--blue-soft);
+      background: var(--blue-soft);
 
       border-color:
-        rgba(
-          77,
-          163,
-          255,
-          0.18
-        );
+        rgba(77, 163, 255, 0.18);
     }
 
 
     .score-developing {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      background:
-        var(--yellow-soft);
+      background: var(--yellow-soft);
 
       border-color:
-        rgba(
-          240,
-          189,
-          78,
-          0.18
-        );
+        rgba(240, 189, 78, 0.18);
     }
 
 
     .score-weak {
-      color:
-        var(--red);
+      color: var(--red);
 
-      background:
-        var(--red-soft);
+      background: var(--red-soft);
 
       border-color:
-        rgba(
-          255,
-          94,
-          114,
-          0.18
-        );
+        rgba(255, 94, 114, 0.18);
     }
 
 
     /* =====================================================
-       SETUP BADGES
+       SETUP
     ===================================================== */
 
     .setup-badge {
-      display:
-        inline-block;
+      display: inline-block;
 
-      max-width:
-        190px;
+      max-width: 190px;
 
-      padding:
-        5px 8px;
+      padding: 5px 8px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      font-size:
-        8px;
+      font-size: 9px;
+      font-weight: 900;
 
-      font-weight:
-        900;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
     .setup-green {
-      color:
-        var(--green);
+      color: var(--green);
 
-      background:
-        var(--green-soft);
+      background: var(--green-soft);
     }
 
 
     .setup-yellow {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      background:
-        var(--yellow-soft);
+      background: var(--yellow-soft);
     }
 
 
     .setup-orange {
-      color:
-        var(--orange);
+      color: var(--orange);
 
-      background:
-        var(--orange-soft);
+      background: var(--orange-soft);
     }
 
 
     .setup-red {
-      color:
-        var(--red);
+      color: var(--red);
 
-      background:
-        var(--red-soft);
+      background: var(--red-soft);
     }
 
 
-    /* =====================================================
-       YES / NO
-    ===================================================== */
-
     .signal-yes {
-      color:
-        var(--green);
+      color: var(--green);
 
-      font-weight:
-        800;
+      font-weight: 850;
     }
 
 
     .signal-no {
-      color:
-        var(--red);
+      color: var(--red);
 
-      font-weight:
-        800;
+      font-weight: 850;
     }
 
 
@@ -1233,55 +1019,35 @@
     ===================================================== */
 
     .drawer-overlay {
-      position:
-        fixed;
+      position: fixed;
 
-      inset:
-        0;
+      inset: 0;
 
-      z-index:
-        100;
+      z-index: 100;
 
       background:
-        rgba(
-          0,
-          0,
-          0,
-          0.52
-        );
+        rgba(0, 0, 0, 0.52);
 
-      opacity:
-        0;
+      opacity: 0;
+      visibility: hidden;
 
-      visibility:
-        hidden;
-
-      transition:
-        0.2s;
+      transition: 0.2s;
     }
 
 
     .drawer-overlay.open {
-      opacity:
-        1;
-
-      visibility:
-        visible;
+      opacity: 1;
+      visibility: visible;
     }
 
 
     .drawer {
-      position:
-        fixed;
+      position: fixed;
 
-      top:
-        0;
+      top: 0;
+      right: -520px;
 
-      right:
-        -520px;
-
-      z-index:
-        101;
+      z-index: 101;
 
       width:
         min(
@@ -1289,64 +1055,44 @@
           96vw
         );
 
-      height:
-        100vh;
+      height: 100vh;
 
-      background:
-        #0a1626;
+      background: #0a1626;
 
       border-left:
         1px solid #28405d;
 
       box-shadow:
         -12px 0 35px
-        rgba(
-          0,
-          0,
-          0,
-          0.35
-        );
+        rgba(0, 0, 0, 0.35);
 
       transition:
         right 0.23s ease;
 
-      overflow-y:
-        auto;
+      overflow-y: auto;
     }
 
 
     .drawer.open {
-      right:
-        0;
+      right: 0;
     }
 
 
     .drawer-header {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
+      z-index: 3;
 
-      z-index:
-        3;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
 
-      display:
-        flex;
+      gap: 15px;
 
-      align-items:
-        flex-start;
-      justify-content:
-        space-between;
+      padding: 15px;
 
-      gap:
-        15px;
-
-      padding:
-        15px;
-
-      background:
-        #0a1626;
+      background: #0a1626;
 
       border-bottom:
         1px solid var(--border);
@@ -1354,98 +1100,74 @@
 
 
     .drawer-title {
-      margin:
-        0;
+      margin: 0;
 
-      font-size:
-        17px;
+      font-size: 17px;
     }
 
 
     .drawer-symbol {
-      margin-top:
-        4px;
+      margin-top: 4px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        10px;
+      font-size: 10px;
     }
 
 
     .drawer-close {
-      width:
-        31px;
-
-      height:
-        31px;
+      width: 31px;
+      height: 31px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        6px;
+      border-radius: 6px;
 
-      background:
-        var(--panel-2);
+      background: var(--panel-2);
 
-      color:
-        #fff;
+      color: #fff;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      font-size:
-        17px;
+      font-size: 17px;
     }
 
 
     .drawer-content {
-      padding:
-        13px;
+      padding: 13px;
     }
 
 
     .drawer-section {
-      margin-bottom:
-        12px;
+      margin-bottom: 12px;
 
-      padding:
-        11px;
+      padding: 11px;
 
       border:
         1px solid var(--border-soft);
 
-      border-radius:
-        8px;
+      border-radius: 8px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     .drawer-section h3 {
-      margin:
-        0 0 9px;
+      margin: 0 0 9px;
 
-      color:
-        #9fb5d0;
+      color: #9fb5d0;
 
-      font-size:
-        10px;
+      font-size: 10px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
-      letter-spacing:
-        0.5px;
+      letter-spacing: 0.5px;
     }
 
 
     .detail-grid {
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         repeat(
@@ -1453,141 +1175,106 @@
           minmax(0, 1fr)
         );
 
-      gap:
-        7px;
+      gap: 7px;
     }
 
 
     .detail-item {
-      padding:
-        8px;
+      padding: 8px;
 
-      border-radius:
-        6px;
+      border-radius: 6px;
 
-      background:
-        #0a1728;
+      background: #0a1728;
     }
 
 
     .detail-label {
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
     .detail-value {
-      margin-top:
-        4px;
+      margin-top: 4px;
 
-      font-size:
-        11px;
+      font-size: 12px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      word-break:
-        break-word;
+      word-break: break-word;
     }
 
 
     .trigger-list {
-      display:
-        flex;
+      display: flex;
+      flex-wrap: wrap;
 
-      flex-wrap:
-        wrap;
-
-      gap:
-        5px;
+      gap: 5px;
     }
 
 
     .trigger-chip {
-      padding:
-        5px 7px;
+      padding: 5px 7px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      color:
-        #8fc6ff;
+      color: #8fc6ff;
 
-      background:
-        var(--blue-soft);
+      background: var(--blue-soft);
 
       border:
-        1px solid rgba(
-          77,
-          163,
-          255,
-          0.18
-        );
+        1px solid
+        rgba(77, 163, 255, 0.18);
 
-      font-size:
-        9px;
-
-      font-weight:
-        700;
+      font-size: 9px;
+      font-weight: 700;
     }
 
 
     .missing-text {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      font-size:
-        10px;
-
-      line-height:
-        1.5;
+      font-size: 10px;
+      line-height: 1.5;
     }
 
 
-    /* =====================================================
-       EMPTY / ERROR
-    ===================================================== */
-
     .empty-state {
-      padding:
-        35px;
+      padding: 35px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--muted);
+      color: var(--muted);
     }
 
 
     .empty-state strong {
-      display:
-        block;
+      display: block;
 
-      margin-bottom:
-        7px;
+      margin-bottom: 7px;
 
-      color:
-        #dce7f5;
+      color: #dce7f5;
 
-      font-size:
-        15px;
+      font-size: 15px;
     }
 
 
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
+    @media (max-width: 1500px) {
 
-    @media (
-      max-width: 1250px
-    ) {
+      .column-filter-grid {
+        grid-template-columns:
+          repeat(
+            4,
+            minmax(230px, 1fr)
+          );
+      }
+
+    }
+
+
+    @media (max-width: 1250px) {
 
       .summary-grid {
         grid-template-columns:
@@ -1598,51 +1285,50 @@
       }
 
 
-      .filters-grid {
+      .general-filter-grid {
         grid-template-columns:
           repeat(
-            4,
+            3,
             minmax(140px, 1fr)
+          );
+      }
+
+
+      .column-filter-grid {
+        grid-template-columns:
+          repeat(
+            3,
+            minmax(230px, 1fr)
           );
       }
 
     }
 
 
-    @media (
-      max-width: 800px
-    ) {
+    @media (max-width: 850px) {
 
       .site-header {
-        align-items:
-          flex-start;
+        align-items: flex-start;
 
-        flex-direction:
-          column;
+        flex-direction: column;
 
-        gap:
-          7px;
+        gap: 7px;
       }
 
 
       .main-nav {
-        width:
-          100%;
+        width: 100%;
 
-        overflow-x:
-          auto;
+        overflow-x: auto;
       }
 
 
       .scanner-title-row {
-        align-items:
-          flex-start;
+        align-items: flex-start;
 
-        flex-direction:
-          column;
+        flex-direction: column;
 
-        gap:
-          7px;
+        gap: 7px;
       }
 
 
@@ -1655,37 +1341,29 @@
       }
 
 
-      .filters-grid {
+      .general-filter-grid,
+      .column-filter-grid {
         grid-template-columns:
           repeat(
             2,
-            minmax(130px, 1fr)
+            minmax(180px, 1fr)
           );
       }
 
 
       .page {
-        padding:
-          8px;
-      }
-
-
-      .table-wrap {
-        max-height:
-          calc(100vh - 370px);
+        padding: 8px;
       }
 
     }
 
 
-    @media (
-      max-width: 500px
-    ) {
+    @media (max-width: 550px) {
 
       .summary-grid,
-      .filters-grid {
-        grid-template-columns:
-          1fr;
+      .general-filter-grid,
+      .column-filter-grid {
+        grid-template-columns: 1fr;
       }
 
     }
@@ -1696,13 +1374,9 @@
 
 <body>
 
-  <!-- =====================================================
-       COMPACT HEADER
-  ====================================================== -->
-
   <header class="site-header">
 
-    <div class="brand-wrap">
+    <div>
 
       <h1 class="brand">
         MY MARKET RESEARCH
@@ -1745,10 +1419,6 @@
 
 
   <main class="page">
-
-    <!-- ===================================================
-         TITLE
-    ==================================================== -->
 
     <section class="scanner-title-row">
 
@@ -1813,7 +1483,7 @@
         </div>
 
         <div class="summary-note">
-          Phase-1 high potential
+          High potential setups
         </div>
 
       </div>
@@ -1862,18 +1532,18 @@
       <div class="summary-card">
 
         <div class="summary-label">
-          Trigger Present
+          Free Float Ready
         </div>
 
         <div
           class="summary-value"
-          id="summaryTrigger"
+          id="summaryFreeFloat"
         >
           —
         </div>
 
         <div class="summary-note">
-          Fundamental / business catalyst
+          Filing-derived supply data
         </div>
 
       </div>
@@ -1907,7 +1577,7 @@
 
     <section class="filters-panel">
 
-      <div class="filters-grid">
+      <div class="general-filter-grid">
 
         <div class="filter-group">
 
@@ -1927,78 +1597,6 @@
 
         <div class="filter-group">
 
-          <label for="minScore">
-            Minimum Big Move Score
-          </label>
-
-          <input
-            id="minScore"
-            class="filter-control"
-            type="number"
-            min="0"
-            max="100"
-            placeholder="e.g. 70"
-          >
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="minRS">
-            Minimum RS
-          </label>
-
-          <input
-            id="minRS"
-            class="filter-control"
-            type="number"
-            min="1"
-            max="99"
-            placeholder="e.g. 80"
-          >
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="minMomentum">
-            Stock Momentum
-          </label>
-
-          <input
-            id="minMomentum"
-            class="filter-control"
-            type="number"
-            min="1"
-            max="99"
-            placeholder="e.g. 70"
-          >
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="minIndustry">
-            Industry Rating
-          </label>
-
-          <input
-            id="minIndustry"
-            class="filter-control"
-            type="number"
-            min="1"
-            max="99"
-            placeholder="e.g. 70"
-          >
-
-        </div>
-
-
-        <div class="filter-group">
-
           <label for="setupFilter">
             Setup Status
           </label>
@@ -2007,43 +1605,79 @@
             id="setupFilter"
             class="filter-control"
           >
+            <option value="">
+              All
+            </option>
+          </select>
 
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="breakoutFilter">
+            Breakout Status
+          </label>
+
+          <select
+            id="breakoutFilter"
+            class="filter-control"
+          >
+            <option value="">
+              All
+            </option>
+          </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="volumeFilter">
+            Volume Contraction
+          </label>
+
+          <select
+            id="volumeFilter"
+            class="filter-control"
+          >
             <option value="">
               All
             </option>
 
-            <option value="Strong Setup">
-              Strong Setup
+            <option value="YES">
+              YES
             </option>
 
-            <option value="Near Breakout">
-              Near Breakout
+            <option value="NO">
+              NO
+            </option>
+          </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="volatilityFilter">
+            Volatility Contraction
+          </label>
+
+          <select
+            id="volatilityFilter"
+            class="filter-control"
+          >
+            <option value="">
+              All
             </option>
 
-            <option value="Breakout">
-              Breakout
+            <option value="YES">
+              YES
             </option>
 
-            <option value="High Potential / Technical Pending">
-              High Potential / Technical Pending
+            <option value="NO">
+              NO
             </option>
-
-            <option value="Watchlist / Technical Pending">
-              Watchlist / Technical Pending
-            </option>
-
-            <option value="Data Building">
-              Data Building
-            </option>
-
-            <option value="Watchlist">
-              Watchlist
-            </option>
-
-            <option value="Developing">
-              Developing
-            </option>
-
           </select>
 
         </div>
@@ -2059,7 +1693,6 @@
             id="triggerFilter"
             class="filter-control"
           >
-
             <option value="">
               All
             </option>
@@ -2071,64 +1704,22 @@
             <option value="NO">
               No Trigger
             </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="sortBy">
-            Sort By
-          </label>
-
-          <select
-            id="sortBy"
-            class="filter-control"
-          >
-
-            <option value="bigMoveScore">
-              Big Move Score
-            </option>
-
-            <option value="rsRating">
-              RS Rating
-            </option>
-
-            <option value="stockMomentumRating">
-              Stock Momentum
-            </option>
-
-            <option value="industryRating">
-              Industry Rating
-            </option>
-
-            <option value="return1M">
-              1M Return
-            </option>
-
-            <option value="return3M">
-              3M Return
-            </option>
-
-            <option value="return6M">
-              6M Return
-            </option>
-
-            <option value="return1Y">
-              1Y Return
-            </option>
-
-            <option value="priorMovePct">
-              Prior Move
-            </option>
-
           </select>
 
         </div>
 
       </div>
+
+
+      <div class="column-filter-title">
+        Column Filters • Active + Above/Below + Value + Sort
+      </div>
+
+
+      <div
+        id="columnFilterGrid"
+        class="column-filter-grid"
+      ></div>
 
 
       <div class="filter-actions">
@@ -2154,53 +1745,26 @@
     </section>
 
 
-    <!-- ===================================================
-         LEGEND
-    ==================================================== -->
-
     <section class="legend">
 
       <span class="legend-item">
-
-        <span
-          class="legend-dot dot-green"
-        ></span>
-
+        <span class="legend-dot dot-green"></span>
         Strong / Confirmed
-
       </span>
 
-
       <span class="legend-item">
-
-        <span
-          class="legend-dot dot-yellow"
-        ></span>
-
+        <span class="legend-dot dot-yellow"></span>
         Near / Developing
-
       </span>
 
-
       <span class="legend-item">
-
-        <span
-          class="legend-dot dot-orange"
-        ></span>
-
+        <span class="legend-dot dot-orange"></span>
         Watch
-
       </span>
 
-
       <span class="legend-item">
-
-        <span
-          class="legend-dot dot-red"
-        ></span>
-
+        <span class="legend-dot dot-red"></span>
         Weak / Missing
-
       </span>
 
     </section>
@@ -2224,7 +1788,7 @@
 
         <button
           id="exportCsv"
-          class="btn export-btn"
+          class="btn"
           type="button"
         >
           Export CSV
@@ -2233,20 +1797,14 @@
       </div>
 
 
-      <!-- ===============================================
-           TOP SCROLLBAR
-      ================================================ -->
-
       <div
         id="topScroll"
         class="top-scroll-wrap"
       >
-
         <div
           id="topScrollInner"
           class="top-scroll-inner"
         ></div>
-
       </div>
 
 
@@ -2255,9 +1813,7 @@
         class="table-wrap"
       >
 
-        <table
-          id="scannerTable"
-        >
+        <table id="scannerTable">
 
           <thead>
 
@@ -2311,6 +1867,12 @@
                 Industry
                 <br>
                 Rating
+              </th>
+
+              <th>
+                Free Float
+                <br>
+                %
               </th>
 
               <th>
@@ -2384,7 +1946,7 @@
 
             <tr>
 
-              <td colspan="22">
+              <td colspan="23">
 
                 <div class="empty-state">
                   Loading scanner data...
@@ -2468,21 +2030,105 @@
       "data/big_move_scanner.json";
 
 
-    let allRows =
-      [];
+    let allRows = [];
+
+    let filteredRows = [];
+
+    let scannerMeta = {};
 
 
-    let filteredRows =
-      [];
+    let activeSortField =
+      "bigMoveScore";
 
 
-    let scannerMeta =
-      {};
+    let activeSortDirection =
+      "desc";
 
 
     /* =====================================================
-       ELEMENT
+       NUMERIC FILTER CONFIG
     ===================================================== */
+
+    const numericFilters = [
+
+      {
+        field: "bigMoveScore",
+        label: "Big Move Score",
+        defaultSort: "desc"
+      },
+
+      {
+        field: "price",
+        label: "Price ₹"
+      },
+
+      {
+        field: "return1M",
+        label: "1M %"
+      },
+
+      {
+        field: "return3M",
+        label: "3M %"
+      },
+
+      {
+        field: "return6M",
+        label: "6M %"
+      },
+
+      {
+        field: "return1Y",
+        label: "1Y %"
+      },
+
+      {
+        field: "rsRating",
+        label: "RS Rating"
+      },
+
+      {
+        field: "stockMomentumRating",
+        label: "Stock Momentum"
+      },
+
+      {
+        field: "industryRating",
+        label: "Industry Rating"
+      },
+
+      {
+        field: "freeFloatPct",
+        label: "Free Float %"
+      },
+
+      {
+        field: "freeFloatShares",
+        label: "Free Float Shares"
+      },
+
+      {
+        field: "priorMovePct",
+        label: "Prior Move %"
+      },
+
+      {
+        field: "retracementPct",
+        label: "Retracement %"
+      },
+
+      {
+        field: "consolidationDays",
+        label: "Consolidation Days"
+      },
+
+      {
+        field: "turnoverExpansion",
+        label: "Turnover Expansion"
+      }
+
+    ];
+
 
     function el(id) {
 
@@ -2495,12 +2141,6 @@
 
     /* =====================================================
        SAFE NUMBER
-
-       IMPORTANT:
-       null / undefined / "" must remain NULL.
-
-       Number(null) = 0 in JavaScript.
-       That caused Pending fields to display as 0 earlier.
     ===================================================== */
 
     function num(value) {
@@ -2533,7 +2173,9 @@
           !cleaned ||
           cleaned === "—" ||
           cleaned.toLowerCase() ===
-            "pending"
+            "pending" ||
+          cleaned.toLowerCase() ===
+            "none"
         ) {
 
           return null;
@@ -2567,35 +2209,16 @@
     }
 
 
-    /* =====================================================
-       ESCAPE HTML
-    ===================================================== */
-
     function escapeHtml(value) {
 
       return String(
         value ?? ""
       )
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
     }
 
@@ -2603,6 +2226,15 @@
     /* =====================================================
        FORMATTERS
     ===================================================== */
+
+    function pendingDash() {
+
+      return (
+        '<span class="pending">—</span>'
+      );
+
+    }
+
 
     function formatInteger(value) {
 
@@ -2614,9 +2246,7 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -2643,9 +2273,7 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -2674,9 +2302,7 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -2686,11 +2312,8 @@
         n.toLocaleString(
           "en-IN",
           {
-            minimumFractionDigits:
-              2,
-
-            maximumFractionDigits:
-              2
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
           }
         )
       );
@@ -2708,9 +2331,7 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -2746,15 +2367,13 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
 
       return (
-        `${n.toFixed(1)}%`
+        `${n.toFixed(2)}%`
       );
 
     }
@@ -2770,9 +2389,7 @@
         n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -2785,8 +2402,7 @@
 
 
     function formatBoolean(
-      value,
-      pendingAllowed = true
+      value
     ) {
 
       if (
@@ -2795,9 +2411,7 @@
         value === ""
       ) {
 
-        return pendingAllowed
-          ? '<span class="pending">—</span>'
-          : "NO";
+        return pendingDash();
 
       }
 
@@ -2819,10 +2433,6 @@
 
     }
 
-
-    /* =====================================================
-       SCORE BADGE
-    ===================================================== */
 
     function scoreBadge(value) {
 
@@ -2882,13 +2492,9 @@
     }
 
 
-    /* =====================================================
-       SETUP BADGE
-    ===================================================== */
-
     function setupBadge(value) {
 
-      const text =
+      const label =
         String(
           value ||
           "Pending"
@@ -2896,7 +2502,7 @@
 
 
       const lower =
-        text.toLowerCase();
+        label.toLowerCase();
 
 
       let cls =
@@ -2950,41 +2556,32 @@
 
       return (
         `<span class="setup-badge ${cls}">` +
-        `${escapeHtml(text)}` +
+        `${escapeHtml(label)}` +
         `</span>`
       );
 
     }
 
 
-    /* =====================================================
-       BREAKOUT
-    ===================================================== */
-
     function formatBreakout(value) {
 
       if (
         value === null ||
         value === undefined ||
-        value === "" ||
-        String(value)
-          .toLowerCase() ===
-            "pending"
+        value === ""
       ) {
 
-        return (
-          '<span class="pending">Pending</span>'
-        );
+        return pendingDash();
 
       }
 
 
-      const text =
+      const label =
         String(value);
 
 
       const lower =
-        text.toLowerCase();
+        label.toLowerCase();
 
 
       if (
@@ -2998,7 +2595,7 @@
 
         return (
           `<span class="signal-yes">` +
-          `${escapeHtml(text)}` +
+          `${escapeHtml(label)}` +
           `</span>`
         );
 
@@ -3012,8 +2609,8 @@
       ) {
 
         return (
-          `<span style="color:var(--yellow);font-weight:800;">` +
-          `${escapeHtml(text)}` +
+          `<span style="color:var(--yellow);font-weight:850;">` +
+          `${escapeHtml(label)}` +
           `</span>`
         );
 
@@ -3021,20 +2618,15 @@
 
 
       return escapeHtml(
-        text
+        label
       );
 
     }
 
 
-    /* =====================================================
-       FREE FLOAT
-
-       0 is treated as unavailable because Free Float Shares
-       cannot meaningfully be zero for a normally traded stock.
-    ===================================================== */
-
-    function formatFreeFloat(value) {
+    function formatFreeFloatShares(
+      value
+    ) {
 
       const n =
         num(value);
@@ -3045,9 +2637,7 @@
         n <= 0
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -3061,28 +2651,19 @@
     }
 
 
-    /* =====================================================
-       TECHNICAL VALUE
-
-       Phase-1 accidentally surfaced some unavailable fields
-       as numeric zero. Until technical engine populates them,
-       zero is displayed as Pending.
-    ===================================================== */
-
-    function formatTechnicalPct(value) {
+    function formatTechnicalPct(
+      value
+    ) {
 
       const n =
         num(value);
 
 
       if (
-        n === null ||
-        n === 0
+        n === null
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -3094,7 +2675,9 @@
     }
 
 
-    function formatTechnicalDays(value) {
+    function formatTechnicalDays(
+      value
+    ) {
 
       const n =
         num(value);
@@ -3102,12 +2685,10 @@
 
       if (
         n === null ||
-        n <= 0
+        n < 0
       ) {
 
-        return (
-          '<span class="pending">—</span>'
-        );
+        return pendingDash();
 
       }
 
@@ -3122,18 +2703,212 @@
 
 
     /* =====================================================
+       FILTER UI
+    ===================================================== */
+
+    function renderNumericFilters() {
+
+      const container =
+        el(
+          "columnFilterGrid"
+        );
+
+
+      container.innerHTML =
+        numericFilters
+          .map(
+            config => {
+
+              const field =
+                config.field;
+
+
+              const defaultSort =
+                config.defaultSort ||
+                "";
+
+
+              return `
+                <div
+                  class="numeric-filter"
+                  data-filter-field="${field}"
+                >
+
+                  <div class="numeric-filter-head">
+
+                    <div class="numeric-filter-name">
+                      ${escapeHtml(config.label)}
+                    </div>
+
+                    <label class="active-wrap">
+
+                      <input
+                        id="active_${field}"
+                        type="checkbox"
+                      >
+
+                      Active
+
+                    </label>
+
+                  </div>
+
+
+                  <div class="numeric-filter-controls">
+
+                    <select
+                      id="operator_${field}"
+                      class="mini-control"
+                    >
+                      <option value="above">
+                        Above
+                      </option>
+
+                      <option value="below">
+                        Below
+                      </option>
+                    </select>
+
+
+                    <input
+                      id="value_${field}"
+                      class="mini-control"
+                      type="number"
+                      step="any"
+                      placeholder="Value"
+                    >
+
+
+                    <select
+                      id="sort_${field}"
+                      class="mini-control sort-control"
+                      data-field="${field}"
+                    >
+
+                      <option value="">
+                        No Sort
+                      </option>
+
+                      <option
+                        value="asc"
+                        ${defaultSort === "asc"
+                          ? "selected"
+                          : ""}
+                      >
+                        Ascending
+                      </option>
+
+                      <option
+                        value="desc"
+                        ${defaultSort === "desc"
+                          ? "selected"
+                          : ""}
+                      >
+                        Descending
+                      </option>
+
+                    </select>
+
+                  </div>
+
+                </div>
+              `;
+
+            }
+          )
+          .join("");
+
+    }
+
+
+    function populateStatusFilters() {
+
+      populateSelectFromField(
+        "setupFilter",
+        "setupStatus"
+      );
+
+
+      populateSelectFromField(
+        "breakoutFilter",
+        "breakoutStatus"
+      );
+
+    }
+
+
+    function populateSelectFromField(
+      selectId,
+      field
+    ) {
+
+      const select =
+        el(selectId);
+
+
+      const current =
+        select.value;
+
+
+      const values =
+        [
+          ...new Set(
+            allRows
+              .map(
+                row =>
+                  row[field]
+              )
+              .filter(
+                value =>
+                  value !== null &&
+                  value !== undefined &&
+                  String(value).trim() !== ""
+              )
+              .map(
+                value =>
+                  String(value)
+              )
+          )
+        ]
+          .sort(
+            (a, b) =>
+              a.localeCompare(b)
+          );
+
+
+      select.innerHTML =
+        `<option value="">All</option>` +
+        values
+          .map(
+            value =>
+              `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`
+          )
+          .join("");
+
+
+      if (
+        values.includes(
+          current
+        )
+      ) {
+
+        select.value =
+          current;
+
+      }
+
+    }
+
+
+    /* =====================================================
        FETCH
     ===================================================== */
 
     async function fetchScanner() {
 
-      const url =
-        `${DATA_URL}?v=${Date.now()}`;
-
-
       const response =
         await fetch(
-          url,
+          `${DATA_URL}?v=${Date.now()}`,
           {
             cache:
               "no-store"
@@ -3156,10 +2931,6 @@
 
     }
 
-
-    /* =====================================================
-       NORMALIZE PAYLOAD
-    ===================================================== */
 
     function normalizePayload(
       payload
@@ -3215,6 +2986,29 @@
        SUMMARY
     ===================================================== */
 
+    function hasTrigger(row) {
+
+      return (
+        row.fundamentalTrigger === true ||
+        (
+          Array.isArray(
+            row.fundamentalTriggers
+          ) &&
+          row.fundamentalTriggers.length >
+            0
+        ) ||
+        (
+          Array.isArray(
+            row.triggers
+          ) &&
+          row.triggers.length >
+            0
+        )
+      );
+
+    }
+
+
     function updateSummary() {
 
       const total =
@@ -3225,15 +3019,15 @@
         allRows.filter(
           row => {
 
-            const v =
+            const value =
               num(
                 row.bigMoveScore
               );
 
 
             return (
-              v !== null &&
-              v >= 80
+              value !== null &&
+              value >= 80
             );
 
           }
@@ -3242,21 +3036,15 @@
 
       const near =
         allRows.filter(
-          row => {
-
-            const text =
-              String(
-                row.breakoutStatus ||
-                ""
+          row =>
+            String(
+              row.breakoutStatus ||
+              ""
+            )
+              .toLowerCase()
+              .includes(
+                "near"
               )
-                .toLowerCase();
-
-
-            return text.includes(
-              "near"
-            );
-
-          }
         ).length;
 
 
@@ -3264,7 +3052,7 @@
         allRows.filter(
           row => {
 
-            const text =
+            const value =
               String(
                 row.breakoutStatus ||
                 ""
@@ -3273,10 +3061,10 @@
 
 
             return (
-              text.includes(
+              value.includes(
                 "breakout"
               ) &&
-              !text.includes(
+              !value.includes(
                 "near"
               )
             );
@@ -3285,18 +3073,15 @@
         ).length;
 
 
-      const trigger =
+      const freeFloatReady =
         allRows.filter(
           row =>
-            row.fundamentalTrigger ===
-              true ||
-            (
-              Array.isArray(
-                row.triggers
-              ) &&
-              row.triggers.length >
-                0
-            )
+            num(
+              row.freeFloatShares
+            ) !== null ||
+            num(
+              row.freeFloatPct
+            ) !== null
         ).length;
 
 
@@ -3333,9 +3118,9 @@
 
 
       el(
-        "summaryTrigger"
+        "summaryFreeFloat"
       ).textContent =
-        trigger.toLocaleString(
+        freeFloatReady.toLocaleString(
           "en-IN"
         );
 
@@ -3351,18 +3136,17 @@
 
 
     /* =====================================================
-       FILTER NUMBER
+       BOOL MATCH
     ===================================================== */
 
-    function inputNumber(id) {
-
-      const element =
-        el(id);
-
+    function booleanValue(
+      value
+    ) {
 
       if (
-        !element ||
-        element.value === ""
+        value === null ||
+        value === undefined ||
+        value === ""
       ) {
 
         return null;
@@ -3370,8 +3154,135 @@
       }
 
 
-      return num(
-        element.value
+      if (
+        value === true ||
+        value === 1
+      ) {
+
+        return true;
+
+      }
+
+
+      if (
+        value === false ||
+        value === 0
+      ) {
+
+        return false;
+
+      }
+
+
+      const text =
+        String(value)
+          .trim()
+          .toLowerCase();
+
+
+      if (
+        text === "yes" ||
+        text === "true"
+      ) {
+
+        return true;
+
+      }
+
+
+      if (
+        text === "no" ||
+        text === "false"
+      ) {
+
+        return false;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    /* =====================================================
+       COLUMN FILTER
+    ===================================================== */
+
+    function rowPassesNumericFilter(
+      row,
+      config
+    ) {
+
+      const active =
+        el(
+          `active_${config.field}`
+        )?.checked;
+
+
+      if (
+        !active
+      ) {
+
+        return true;
+
+      }
+
+
+      const threshold =
+        num(
+          el(
+            `value_${config.field}`
+          )?.value
+        );
+
+
+      if (
+        threshold === null
+      ) {
+
+        return true;
+
+      }
+
+
+      const value =
+        num(
+          row[
+            config.field
+          ]
+        );
+
+
+      if (
+        value === null
+      ) {
+
+        return false;
+
+      }
+
+
+      const operator =
+        el(
+          `operator_${config.field}`
+        )?.value ||
+        "above";
+
+
+      if (
+        operator === "below"
+      ) {
+
+        return (
+          value <= threshold
+        );
+
+      }
+
+
+      return (
+        value >= threshold
       );
 
     }
@@ -3379,10 +3290,6 @@
 
     /* =====================================================
        APPLY FILTERS
-
-       IMPORTANT:
-       If threshold is active and a stock has missing value,
-       stock is EXCLUDED.
     ===================================================== */
 
     function applyFilters() {
@@ -3398,33 +3305,30 @@
           .toLowerCase();
 
 
-      const minScore =
-        inputNumber(
-          "minScore"
-        );
-
-
-      const minRS =
-        inputNumber(
-          "minRS"
-        );
-
-
-      const minMomentum =
-        inputNumber(
-          "minMomentum"
-        );
-
-
-      const minIndustry =
-        inputNumber(
-          "minIndustry"
-        );
-
-
       const setup =
         el(
           "setupFilter"
+        )?.value ||
+        "";
+
+
+      const breakout =
+        el(
+          "breakoutFilter"
+        )?.value ||
+        "";
+
+
+      const volume =
+        el(
+          "volumeFilter"
+        )?.value ||
+        "";
+
+
+      const volatility =
+        el(
+          "volatilityFilter"
         )?.value ||
         "";
 
@@ -3440,8 +3344,6 @@
         allRows.filter(
           row => {
 
-            /* SEARCH */
-
             if (
               query
             ) {
@@ -3452,7 +3354,8 @@
                   row.name,
                   row.symbol,
                   row.sector,
-                  row.industry
+                  row.industry,
+                  row.keyTrigger
                 ]
                   .filter(Boolean)
                   .join(" ")
@@ -3472,112 +3375,12 @@
             }
 
 
-            /* BIG MOVE SCORE */
-
-            if (
-              minScore !== null
-            ) {
-
-              const value =
-                num(
-                  row.bigMoveScore
-                );
-
-
-              if (
-                value === null ||
-                value <
-                  minScore
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            /* RS */
-
-            if (
-              minRS !== null
-            ) {
-
-              const value =
-                num(
-                  row.rsRating
-                );
-
-
-              if (
-                value === null ||
-                value <
-                  minRS
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            /* STOCK MOMENTUM */
-
-            if (
-              minMomentum !== null
-            ) {
-
-              const value =
-                num(
-                  row.stockMomentumRating
-                );
-
-
-              if (
-                value === null ||
-                value <
-                  minMomentum
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            /* INDUSTRY */
-
-            if (
-              minIndustry !== null
-            ) {
-
-              const value =
-                num(
-                  row.industryRating
-                );
-
-
-              if (
-                value === null ||
-                value <
-                  minIndustry
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            /* SETUP */
-
             if (
               setup &&
-              row.setupStatus !==
-                setup
+              String(
+                row.setupStatus ||
+                ""
+              ) !== setup
             ) {
 
               return false;
@@ -3585,27 +3388,42 @@
             }
 
 
-            /* TRIGGER */
-
             if (
-              trigger ===
-              "YES"
+              breakout &&
+              String(
+                row.breakoutStatus ||
+                ""
+              ) !== breakout
             ) {
 
-              const yes =
-                row.fundamentalTrigger ===
-                  true ||
-                (
-                  Array.isArray(
-                    row.triggers
-                  ) &&
-                  row.triggers.length >
-                    0
+              return false;
+
+            }
+
+
+            if (
+              volume
+            ) {
+
+              const value =
+                booleanValue(
+                  row.volumeContraction
                 );
 
 
               if (
-                !yes
+                volume === "YES" &&
+                value !== true
+              ) {
+
+                return false;
+
+              }
+
+
+              if (
+                volume === "NO" &&
+                value !== false
               ) {
 
                 return false;
@@ -3616,24 +3434,67 @@
 
 
             if (
-              trigger ===
-              "NO"
+              volatility
             ) {
 
-              const yes =
-                row.fundamentalTrigger ===
-                  true ||
-                (
-                  Array.isArray(
-                    row.triggers
-                  ) &&
-                  row.triggers.length >
-                    0
+              const value =
+                booleanValue(
+                  row.volatilityContraction
                 );
 
 
               if (
-                yes
+                volatility === "YES" &&
+                value !== true
+              ) {
+
+                return false;
+
+              }
+
+
+              if (
+                volatility === "NO" &&
+                value !== false
+              ) {
+
+                return false;
+
+              }
+
+            }
+
+
+            if (
+              trigger === "YES" &&
+              !hasTrigger(row)
+            ) {
+
+              return false;
+
+            }
+
+
+            if (
+              trigger === "NO" &&
+              hasTrigger(row)
+            ) {
+
+              return false;
+
+            }
+
+
+            for (
+              const config
+              of numericFilters
+            ) {
+
+              if (
+                !rowPassesNumericFilter(
+                  row,
+                  config
+                )
               ) {
 
                 return false;
@@ -3660,13 +3521,64 @@
        SORT
     ===================================================== */
 
+    function setSort(
+      field,
+      direction
+    ) {
+
+      if (
+        !direction
+      ) {
+
+        return;
+
+      }
+
+
+      activeSortField =
+        field;
+
+
+      activeSortDirection =
+        direction;
+
+
+      document
+        .querySelectorAll(
+          ".sort-control"
+        )
+        .forEach(
+          control => {
+
+            if (
+              control.dataset.field !==
+                field
+            ) {
+
+              control.value =
+                "";
+
+            }
+
+          }
+        );
+
+
+      applyFilters();
+
+    }
+
+
     function sortRows() {
 
       const field =
-        el(
-          "sortBy"
-        )?.value ||
+        activeSortField ||
         "bigMoveScore";
+
+
+      const direction =
+        activeSortDirection ||
+        "desc";
 
 
       filteredRows.sort(
@@ -3677,17 +3589,13 @@
 
           const av =
             num(
-              a[
-                field
-              ]
+              a[field]
             );
 
 
           const bv =
             num(
-              b[
-                field
-              ]
+              b[field]
             );
 
 
@@ -3696,20 +3604,20 @@
             bv === null
           ) {
 
-            return (
-              String(
-                a.stock ||
-                a.symbol ||
-                ""
-              )
-                .localeCompare(
-                  String(
-                    b.stock ||
-                    b.symbol ||
-                    ""
-                  )
+            return String(
+              a.name ||
+              a.stock ||
+              a.symbol ||
+              ""
+            )
+              .localeCompare(
+                String(
+                  b.name ||
+                  b.stock ||
+                  b.symbol ||
+                  ""
                 )
-            );
+              );
 
           }
 
@@ -3733,32 +3641,128 @@
 
 
           if (
-            bv !== av
+            av !== bv
           ) {
 
-            return (
-              bv -
-              av
-            );
+            return direction ===
+              "asc"
+              ? av - bv
+              : bv - av;
 
           }
 
 
-          return (
-            String(
-              a.stock ||
-              ""
-            )
-              .localeCompare(
-                String(
-                  b.stock ||
-                  ""
-                )
+          return String(
+            a.name ||
+            a.symbol ||
+            ""
+          )
+            .localeCompare(
+              String(
+                b.name ||
+                b.symbol ||
+                ""
               )
-          );
+            );
 
         }
       );
+
+    }
+
+
+    /* =====================================================
+       MISSING CONDITIONS
+    ===================================================== */
+
+    function missingArray(row) {
+
+      if (
+        Array.isArray(
+          row.missingConditions
+        )
+      ) {
+
+        return row.missingConditions;
+
+      }
+
+
+      if (
+        Array.isArray(
+          row.missingConditionsList
+        )
+      ) {
+
+        return row.missingConditionsList;
+
+      }
+
+
+      if (
+        row.missingConditions
+      ) {
+
+        return String(
+          row.missingConditions
+        )
+          .split(
+            /\||,/
+          )
+          .map(
+            value =>
+              value.trim()
+          )
+          .filter(Boolean);
+
+      }
+
+
+      return [];
+
+    }
+
+
+    function missingText(row) {
+
+      const list =
+        missingArray(row);
+
+
+      return list.length
+        ? list.join(
+            " | "
+          )
+        : "None";
+
+    }
+
+
+    function triggerList(row) {
+
+      if (
+        Array.isArray(
+          row.fundamentalTriggers
+        )
+      ) {
+
+        return row.fundamentalTriggers;
+
+      }
+
+
+      if (
+        Array.isArray(
+          row.triggers
+        )
+      ) {
+
+        return row.triggers;
+
+      }
+
+
+      return [];
 
     }
 
@@ -3773,15 +3777,6 @@
         el(
           "scannerRows"
         );
-
-
-      if (
-        !tbody
-      ) {
-
-        return;
-
-      }
 
 
       el(
@@ -3799,14 +3794,21 @@
         tbody.innerHTML =
           `
             <tr>
-              <td colspan="22">
+
+              <td colspan="23">
+
                 <div class="empty-state">
+
                   <strong>
                     No stocks matched.
                   </strong>
+
                   Change filters and try again.
+
                 </div>
+
               </td>
+
             </tr>
           `;
 
@@ -3842,34 +3844,12 @@
                 );
 
 
-              const triggerPresent =
-                row.fundamentalTrigger ===
-                  true ||
-                (
-                  Array.isArray(
-                    row.triggers
-                  ) &&
-                  row.triggers.length >
-                    0
-                );
-
-
               const keyTrigger =
                 row.keyTrigger
                   ? escapeHtml(
                       row.keyTrigger
                     )
-                  : '<span class="pending">—</span>';
-
-
-              const missing =
-                row.missingConditions &&
-                row.missingConditions !==
-                  "None"
-                  ? escapeHtml(
-                      row.missingConditions
-                    )
-                  : "None";
+                  : pendingDash();
 
 
               return `
@@ -3890,7 +3870,7 @@
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${scoreBadge(
                       row.bigMoveScore
                     )}
@@ -3904,84 +3884,91 @@
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatPrice(
                       row.price
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatPct(
                       row.return1M
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatPct(
                       row.return3M
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatPct(
                       row.return6M
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatPct(
                       row.return1Y
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${scoreBadge(
                       row.rsRating
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${scoreBadge(
                       row.stockMomentumRating
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${scoreBadge(
                       row.industryRating
                     )}
                   </td>
 
 
-                  <td>
-                    ${formatFreeFloat(
+                  <td class="number-cell">
+                    ${formatPlainPct(
+                      row.freeFloatPct
+                    )}
+                  </td>
+
+
+                  <td class="number-cell">
+                    ${formatFreeFloatShares(
                       row.freeFloatShares
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatTechnicalPct(
                       row.priorMovePct
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatTechnicalPct(
                       row.retracementPct
                     )}
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatTechnicalDays(
                       row.consolidationDays
                     )}
@@ -4009,7 +3996,7 @@
                   </td>
 
 
-                  <td>
+                  <td class="number-cell">
                     ${formatTimes(
                       row.turnoverExpansion
                     )}
@@ -4018,7 +4005,7 @@
 
                   <td>
                     ${
-                      triggerPresent
+                      hasTrigger(row)
                         ? '<span class="signal-yes">YES</span>'
                         : '<span class="signal-no">NO</span>'
                     }
@@ -4032,12 +4019,14 @@
 
                   <td
                     style="
-                      max-width:260px;
+                      max-width:280px;
                       white-space:normal;
                       text-align:left;
                     "
                   >
-                    ${missing}
+                    ${escapeHtml(
+                      missingText(row)
+                    )}
                   </td>
 
                 </tr>
@@ -4055,36 +4044,35 @@
         .forEach(
           rowElement => {
 
-            rowElement
-              .addEventListener(
-                "click",
-                () => {
+            rowElement.addEventListener(
+              "click",
+              () => {
 
-                  const index =
-                    Number(
-                      rowElement.dataset
-                        .rowIndex
-                    );
-
-
-                  const row =
-                    filteredRows[
-                      index
-                    ];
+                const index =
+                  Number(
+                    rowElement.dataset
+                      .rowIndex
+                  );
 
 
-                  if (
+                const row =
+                  filteredRows[
+                    index
+                  ];
+
+
+                if (
+                  row
+                ) {
+
+                  openDrawer(
                     row
-                  ) {
-
-                    openDrawer(
-                      row
-                    );
-
-                  }
+                  );
 
                 }
-              );
+
+              }
+            );
 
           }
         );
@@ -4098,7 +4086,7 @@
 
 
     /* =====================================================
-       DETAIL VALUE
+       DRAWER
     ===================================================== */
 
     function detailItem(
@@ -4123,10 +4111,6 @@
     }
 
 
-    /* =====================================================
-       DRAWER
-    ===================================================== */
-
     function openDrawer(row) {
 
       el(
@@ -4150,11 +4134,7 @@
 
 
       const triggers =
-        Array.isArray(
-          row.triggers
-        )
-          ? row.triggers
-          : [];
+        triggerList(row);
 
 
       const triggerHtml =
@@ -4169,29 +4149,15 @@
                   `
               )
               .join("")
-          : '<span class="pending">No confirmed trigger</span>';
+          : (
+              '<span class="pending">' +
+              'No confirmed trigger' +
+              '</span>'
+            );
 
 
       const missing =
-        Array.isArray(
-          row.missingConditionsList
-        )
-          ? row.missingConditionsList
-          : (
-              row.missingConditions &&
-              row.missingConditions !==
-                "None"
-                ? String(
-                    row.missingConditions
-                  )
-                    .split("|")
-                    .map(
-                      x =>
-                        x.trim()
-                    )
-                    .filter(Boolean)
-                : []
-            );
+        missingArray(row);
 
 
       const missingHtml =
@@ -4207,11 +4173,6 @@
               'No missing conditions' +
               '</span>'
             );
-
-
-      const components =
-        row.scoreComponents ||
-        {};
 
 
       el(
@@ -4263,11 +4224,10 @@
               )}
 
               ${detailItem(
-                "Score Phase",
-                escapeHtml(
-                  row.scorePhase ||
-                  scannerMeta.phase ||
-                  "—"
+                "Technical Score",
+                formatNumber(
+                  row.technicalScore,
+                  0
                 )
               )}
 
@@ -4353,7 +4313,7 @@
                   ? escapeHtml(
                       row.movePeriod
                     )
-                  : '<span class="pending">—</span>'
+                  : pendingDash()
               )}
 
               ${detailItem(
@@ -4392,6 +4352,13 @@
               )}
 
               ${detailItem(
+                "Breakout Distance",
+                formatTechnicalPct(
+                  row.breakoutDistancePct
+                )
+              )}
+
+              ${detailItem(
                 "Turnover Expansion",
                 formatTimes(
                   row.turnoverExpansion
@@ -4406,23 +4373,66 @@
           <section class="drawer-section">
 
             <h3>
-              Supply & Participation
+              Supply / Free Float
             </h3>
 
             <div class="detail-grid">
 
               ${detailItem(
+                "Free Float %",
+                formatPlainPct(
+                  row.freeFloatPct
+                )
+              )}
+
+              ${detailItem(
                 "Free Float Shares",
-                formatFreeFloat(
+                formatFreeFloatShares(
                   row.freeFloatShares
                 )
               )}
 
               ${detailItem(
-                "Price Date",
+                "Public Shares",
+                formatFreeFloatShares(
+                  row.publicShares
+                )
+              )}
+
+              ${detailItem(
+                "Public Holding %",
+                formatPlainPct(
+                  row.publicHoldingPct
+                )
+              )}
+
+              ${detailItem(
+                "Locked Public Shares",
+                formatInteger(
+                  row.publicLockedShares
+                )
+              )}
+
+              ${detailItem(
+                "Free Float Date",
                 escapeHtml(
-                  row.priceDate ||
-                  scannerMeta.marketDate ||
+                  row.freeFloatDate ||
+                  "—"
+                )
+              )}
+
+              ${detailItem(
+                "Free Float Status",
+                escapeHtml(
+                  row.freeFloatStatus ||
+                  "Pending"
+                )
+              )}
+
+              ${detailItem(
+                "Method",
+                escapeHtml(
+                  row.freeFloatMethod ||
                   "—"
                 )
               )}
@@ -4440,106 +4450,6 @@
 
             <div class="trigger-list">
               ${triggerHtml}
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Existing Research Scores
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Tailwind",
-                formatInteger(
-                  row.tailwindScore
-                )
-              )}
-
-              ${detailItem(
-                "Macro",
-                formatInteger(
-                  row.macroSupport
-                )
-              )}
-
-              ${detailItem(
-                "Value Migration",
-                formatInteger(
-                  row.valueMigration
-                )
-              )}
-
-              ${detailItem(
-                "Future Growth",
-                formatInteger(
-                  row.futureGrowth
-                )
-              )}
-
-              ${detailItem(
-                "Fundamental Quality",
-                formatInteger(
-                  row.fundamentalQuality
-                )
-              )}
-
-              ${detailItem(
-                "CAPEX",
-                formatInteger(
-                  row.capexScore
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Phase-1 Score Breakdown
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Momentum / 35",
-                formatNumber(
-                  components.momentum,
-                  2
-                )
-              )}
-
-              ${detailItem(
-                "Return Quality / 15",
-                formatNumber(
-                  components.returnQuality,
-                  2
-                )
-              )}
-
-              ${detailItem(
-                "Fundamental / 30",
-                formatNumber(
-                  components.fundamental,
-                  2
-                )
-              )}
-
-              ${detailItem(
-                "Business Triggers / 20",
-                formatNumber(
-                  components.businessTriggers,
-                  0
-                )
-              )}
-
             </div>
 
           </section>
@@ -4603,7 +4513,7 @@
 
 
     /* =====================================================
-       TOP SCROLLBAR SYNC
+       SCROLL SYNC
     ===================================================== */
 
     let syncingFromTop =
@@ -4645,15 +4555,11 @@
       }
 
 
-      const width =
-        Math.max(
+      inner.style.width =
+        `${Math.max(
           table.scrollWidth,
           tableWrap.clientWidth
-        );
-
-
-      inner.style.width =
-        `${width}px`;
+        )}px`;
 
     }
 
@@ -4670,16 +4576,6 @@
         el(
           "tableWrap"
         );
-
-
-      if (
-        !top ||
-        !tableWrap
-      ) {
-
-        return;
-
-      }
 
 
       top.addEventListener(
@@ -4801,29 +4697,13 @@
     }
 
 
-    function rawExportNumber(value) {
+    function rawNumber(value) {
 
       const n =
         num(value);
 
 
       return n === null
-        ? ""
-        : n;
-
-    }
-
-
-    function rawPositiveNumber(value) {
-
-      const n =
-        num(value);
-
-
-      return (
-        n === null ||
-        n <= 0
-      )
         ? ""
         : n;
 
@@ -4859,7 +4739,7 @@
               "",
 
             "Big Move Score":
-              rawExportNumber(
+              rawNumber(
                 row.bigMoveScore
               ),
 
@@ -4868,52 +4748,61 @@
               "",
 
             "Price":
-              rawExportNumber(
+              rawNumber(
                 row.price
               ),
 
             "1M Return %":
-              rawExportNumber(
+              rawNumber(
                 row.return1M
               ),
 
             "3M Return %":
-              rawExportNumber(
+              rawNumber(
                 row.return3M
               ),
 
             "6M Return %":
-              rawExportNumber(
+              rawNumber(
                 row.return6M
               ),
 
             "1Y Return %":
-              rawExportNumber(
+              rawNumber(
                 row.return1Y
               ),
 
             "RS Rating":
-              rawExportNumber(
+              rawNumber(
                 row.rsRating
               ),
 
             "Stock Momentum Rating":
-              rawExportNumber(
+              rawNumber(
                 row.stockMomentumRating
               ),
 
             "Industry Rating":
-              rawExportNumber(
+              rawNumber(
                 row.industryRating
               ),
 
+            "Free Float %":
+              rawNumber(
+                row.freeFloatPct
+              ),
+
             "Free Float Shares":
-              rawPositiveNumber(
+              rawNumber(
                 row.freeFloatShares
               ),
 
+            "Free Float Date":
+              row.freeFloatDate ||
+              "",
+
             "Prior Move %":
-              rawPositiveNumber(
+              rawNumber(
                 row.priorMovePct
               ),
 
@@ -4922,18 +4811,12 @@
               "",
 
             "Retracement %":
-              (
-                num(
-                  row.retracementPct
-                ) === 0
-                  ? ""
-                  : rawExportNumber(
-                      row.retracementPct
-                    )
+              rawNumber(
+                row.retracementPct
               ),
 
             "Consolidation Days":
-              rawPositiveNumber(
+              rawNumber(
                 row.consolidationDays
               ),
 
@@ -4946,27 +4829,16 @@
               "",
 
             "Breakout Status":
-              (
-                String(
-                  row.breakoutStatus ||
-                  ""
-                )
-                  .toLowerCase() ===
-                    "pending"
-                  ? ""
-                  : (
-                      row.breakoutStatus ||
-                      ""
-                    )
-              ),
+              row.breakoutStatus ||
+              "",
 
             "Turnover Expansion":
-              rawPositiveNumber(
+              rawNumber(
                 row.turnoverExpansion
               ),
 
             "Fundamental Trigger":
-              row.fundamentalTrigger
+              hasTrigger(row)
                 ? "YES"
                 : "NO",
 
@@ -4975,8 +4847,7 @@
               "",
 
             "Missing Conditions":
-              row.missingConditions ||
-              ""
+              missingText(row)
 
           })
         );
@@ -5066,7 +4937,6 @@
 
       link.click();
 
-
       link.remove();
 
 
@@ -5090,73 +4960,68 @@
 
     function resetFilters() {
 
+      el(
+        "searchInput"
+      ).value =
+        "";
+
+
       [
-        "searchInput",
-        "minScore",
-        "minRS",
-        "minMomentum",
-        "minIndustry"
+        "setupFilter",
+        "breakoutFilter",
+        "volumeFilter",
+        "volatilityFilter",
+        "triggerFilter"
       ]
         .forEach(
           id => {
 
-            const element =
-              el(id);
-
-
-            if (
-              element
-            ) {
-
-              element.value =
-                "";
-
-            }
+            el(id).value =
+              "";
 
           }
         );
 
 
-      if (
-        el(
-          "setupFilter"
-        )
-      ) {
+      numericFilters.forEach(
+        config => {
 
-        el(
-          "setupFilter"
-        ).value =
-          "";
-
-      }
+          el(
+            `active_${config.field}`
+          ).checked =
+            false;
 
 
-      if (
-        el(
-          "triggerFilter"
-        )
-      ) {
-
-        el(
-          "triggerFilter"
-        ).value =
-          "";
-
-      }
+          el(
+            `operator_${config.field}`
+          ).value =
+            "above";
 
 
-      if (
-        el(
-          "sortBy"
-        )
-      ) {
+          el(
+            `value_${config.field}`
+          ).value =
+            "";
 
-        el(
-          "sortBy"
-        ).value =
-          "bigMoveScore";
 
-      }
+          el(
+            `sort_${config.field}`
+          ).value =
+            config.field ===
+              "bigMoveScore"
+              ? "desc"
+              : "";
+
+        }
+      );
+
+
+      activeSortField =
+        "bigMoveScore";
+
+
+      activeSortDirection =
+        "desc";
 
 
       filteredRows =
@@ -5181,7 +5046,7 @@
       el(
         "applyFilters"
       )
-        ?.addEventListener(
+        .addEventListener(
           "click",
           applyFilters
         );
@@ -5190,7 +5055,7 @@
       el(
         "resetFilters"
       )
-        ?.addEventListener(
+        .addEventListener(
           "click",
           resetFilters
         );
@@ -5199,25 +5064,16 @@
       el(
         "exportCsv"
       )
-        ?.addEventListener(
+        .addEventListener(
           "click",
           exportCSV
         );
 
 
       el(
-        "sortBy"
-      )
-        ?.addEventListener(
-          "change",
-          applyFilters
-        );
-
-
-      el(
         "searchInput"
       )
-        ?.addEventListener(
+        .addEventListener(
           "keydown",
           event => {
 
@@ -5234,10 +5090,104 @@
         );
 
 
+      [
+        "setupFilter",
+        "breakoutFilter",
+        "volumeFilter",
+        "volatilityFilter",
+        "triggerFilter"
+      ]
+        .forEach(
+          id => {
+
+            el(id)
+              .addEventListener(
+                "change",
+                applyFilters
+              );
+
+          }
+        );
+
+
+      numericFilters.forEach(
+        config => {
+
+          const field =
+            config.field;
+
+
+          el(
+            `sort_${field}`
+          )
+            .addEventListener(
+              "change",
+              event => {
+
+                const direction =
+                  event.target.value;
+
+
+                if (
+                  direction
+                ) {
+
+                  setSort(
+                    field,
+                    direction
+                  );
+
+                }
+
+              }
+            );
+
+
+          el(
+            `active_${field}`
+          )
+            .addEventListener(
+              "change",
+              applyFilters
+            );
+
+
+          el(
+            `operator_${field}`
+          )
+            .addEventListener(
+              "change",
+              applyFilters
+            );
+
+
+          el(
+            `value_${field}`
+          )
+            .addEventListener(
+              "keydown",
+              event => {
+
+                if (
+                  event.key ===
+                  "Enter"
+                ) {
+
+                  applyFilters();
+
+                }
+
+              }
+            );
+
+        }
+      );
+
+
       el(
         "drawerClose"
       )
-        ?.addEventListener(
+        .addEventListener(
           "click",
           closeDrawer
         );
@@ -5246,7 +5196,7 @@
       el(
         "drawerOverlay"
       )
-        ?.addEventListener(
+        .addEventListener(
           "click",
           closeDrawer
         );
@@ -5284,37 +5234,29 @@
       );
 
 
-      const tbody =
-        el(
-          "scannerRows"
-        );
+      el(
+        "scannerRows"
+      ).innerHTML =
+        `
+          <tr>
 
+            <td colspan="23">
 
-      if (
-        tbody
-      ) {
+              <div class="empty-state">
 
-        tbody.innerHTML =
-          `
-            <tr>
-              <td colspan="22">
+                <strong>
+                  Scanner backend data could not be loaded.
+                </strong>
 
-                <div class="empty-state">
+                Check data/big_move_scanner.json
+                and workflow status.
 
-                  <strong>
-                    Scanner backend data could not be loaded.
-                  </strong>
+              </div>
 
-                  Check data/big_move_scanner.json
-                  and workflow status.
+            </td>
 
-                </div>
-
-              </td>
-            </tr>
-          `;
-
-      }
+          </tr>
+        `;
 
 
       el(
@@ -5331,6 +5273,15 @@
 
     async function init() {
 
+      renderNumericFilters();
+
+
+      setupEvents();
+
+
+      setupScrollSync();
+
+
       try {
 
         const payload =
@@ -5341,6 +5292,9 @@
           normalizePayload(
             payload
           );
+
+
+        populateStatusFilters();
 
 
         filteredRows =
@@ -5356,12 +5310,6 @@
 
 
         renderRows();
-
-
-        setupEvents();
-
-
-        setupScrollSync();
 
 
         requestAnimationFrame(
@@ -5383,20 +5331,10 @@
           error
         );
 
-
-        setupEvents();
-
-
-        setupScrollSync();
-
       }
 
     }
 
-
-    /* =====================================================
-       START
-    ===================================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
