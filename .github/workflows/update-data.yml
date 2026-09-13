@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
 
   schedule:
-    # 4:00 PM IST - First automatic update
+    # India time 4:00 PM
     - cron: "30 10 * * 1-5"
 
-    # 5:00 PM IST - Safety / second automatic update
+    # India time 5:00 PM
     - cron: "30 11 * * 1-5"
 
 
@@ -25,7 +25,11 @@ permissions:
 jobs:
 
   update:
+
     runs-on: ubuntu-latest
+
+    env:
+      TZ: Asia/Kolkata
 
     steps:
 
@@ -34,95 +38,114 @@ jobs:
         with:
           fetch-depth: 0
 
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+
       - name: Install requirements
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
 
       - name: Build sector map
         run: python scripts/build_sector_map.py
 
+
       - name: Refresh NSE universe
         run: python scripts/refresh_data.py
+
 
       - name: Build delivery volume
         run: python scripts/build_delivery_volume.py
 
+
       - name: Build market cap category
         run: python scripts/build_market_cap_category.py
 
+
       - name: Build current market cap
         run: python scripts/build_current_market_cap.py
-        - name: Build free float
+
+
+      - name: Build free float
         run: python scripts/build_free_float.py
+
 
       - name: Build RS rating
         run: python scripts/build_rs_rating.py
 
+
       - name: Build company research
         run: python scripts/build_company_research.py
+
 
       - name: Build market regime
         run: python scripts/build_market_regime.py
 
+
       - name: Build research scores
         run: python scripts/build_research_scores.py
+
 
       - name: Apply research scores
         run: python scripts/apply_research_scores.py
 
+
       - name: Build Big Move Scanner
         run: python scripts/build_big_move_scanner.py
+
 
       - name: Build Big Move Technical
         run: python scripts/build_big_move_technical.py
 
+
       - name: Commit updated NSE data
+        shell: bash
         run: |
-          git config user.name "market-data-bot"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/
 
           if git diff --cached --quiet; then
             echo "No data changes to commit."
-            exit 0
+          else
+            git commit -m "Daily NSE data refresh"
+
+            git fetch origin main
+
+            git rebase origin/main
+
+            git push origin HEAD:main
           fi
 
-          git commit -m "Daily NSE data refresh"
 
-          echo "Fetching latest remote main..."
-          git fetch origin main
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-          echo "Rebasing data commit on latest remote main..."
-          git rebase origin/main
 
-          echo "Pushing updated data..."
-          git push origin HEAD:main
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: "."
 
 
   deploy:
+
     needs: update
+
     runs-on: ubuntu-latest
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    permissions:
-      pages: write
-      id-token: write
-
     steps:
 
-      - name: Deploy GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
