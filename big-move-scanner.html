@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -12,13 +14,14 @@
     Big Move Scanner | MY MARKET RESEARCH
   </title>
 
+
   <style>
 
     :root {
       --bg: #07111f;
       --panel: #0c192b;
-      --panel-2: #102039;
-      --panel-3: #132640;
+      --panel2: #102039;
+      --panel3: #132640;
 
       --border: #223651;
       --border-soft: #192c45;
@@ -52,6 +55,7 @@
     body {
       margin: 0;
       padding: 0;
+
       min-height: 100%;
 
       background: var(--bg);
@@ -82,6 +86,7 @@
     }
 
 
+
     /* =====================================================
        HEADER
     ===================================================== */
@@ -93,14 +98,16 @@
       align-items: center;
       justify-content: space-between;
 
-      gap: 20px;
+      gap: 18px;
 
-      padding: 8px 18px;
+      padding:
+        8px 18px;
 
       border-bottom:
         1px solid var(--border-soft);
 
-      background: #081321;
+      background:
+        #081321;
     }
 
 
@@ -111,19 +118,21 @@
       line-height: 1;
 
       font-weight: 900;
-      letter-spacing: 0.4px;
 
-      white-space: nowrap;
+      letter-spacing:
+        0.4px;
     }
 
 
     .brand-subtitle {
-      margin-top: 4px;
+      margin-top:
+        4px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 10px;
-      white-space: nowrap;
+      font-size:
+        10px;
     }
 
 
@@ -131,46 +140,64 @@
       display: flex;
       align-items: center;
 
-      gap: 7px;
+      gap:
+        7px;
     }
 
 
     .nav-link {
-      padding: 9px 13px;
+      padding:
+        9px 13px;
 
       border:
         1px solid transparent;
 
-      border-radius: 7px;
+      border-radius:
+        7px;
 
-      color: #aebed2;
+      color:
+        #aebed2;
 
-      font-size: 12px;
-      font-weight: 700;
+      font-size:
+        12px;
 
-      white-space: nowrap;
+      font-weight:
+        700;
+
+      white-space:
+        nowrap;
     }
 
 
     .nav-link:hover {
-      color: var(--text);
-      background: var(--panel);
+      background:
+        var(--panel);
+
+      color:
+        #fff;
     }
 
 
     .nav-link.active {
-      color: var(--text);
+      background:
+        var(--panel2);
 
-      background: var(--panel-2);
+      border-color:
+        var(--border);
 
-      border-color: var(--border);
+      color:
+        #fff;
     }
 
 
     .nav-link.disabled {
-      opacity: 0.45;
-      cursor: default;
+      opacity:
+        0.45;
+
+      cursor:
+        default;
     }
+
 
 
     /* =====================================================
@@ -185,6 +212,7 @@
     }
 
 
+
     /* =====================================================
        TITLE
     ===================================================== */
@@ -194,52 +222,66 @@
       align-items: center;
       justify-content: space-between;
 
-      gap: 20px;
+      gap:
+        18px;
 
-      margin-bottom: 8px;
+      margin-bottom:
+        8px;
     }
 
 
     .scanner-heading h1 {
       margin: 0;
 
-      font-size: 22px;
-      line-height: 1.05;
+      font-size:
+        22px;
 
-      font-weight: 900;
+      font-weight:
+        900;
+
+      line-height:
+        1.05;
     }
 
 
     .scanner-heading p {
-      margin: 4px 0 0;
+      margin:
+        4px 0 0;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 11px;
+      font-size:
+        11px;
     }
 
 
     .scanner-active {
-      padding: 7px 12px;
+      padding:
+        7px 12px;
 
       border:
-        1px solid rgba(
-          39,
-          217,
-          128,
-          0.27
-        );
+        1px solid rgba(39, 217, 128, 0.27);
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      background: var(--green-soft);
-      color: var(--green);
+      background:
+        var(--green-soft);
 
-      font-size: 11px;
-      font-weight: 800;
+      color:
+        var(--green);
 
-      white-space: nowrap;
+      font-size:
+        11px;
+
+      font-weight:
+        900;
+
+      white-space:
+        nowrap;
     }
+
 
 
     /* =====================================================
@@ -255,301 +297,202 @@
           minmax(125px, 1fr)
         );
 
-      gap: 8px;
+      gap:
+        8px;
 
-      margin-bottom: 8px;
+      margin-bottom:
+        8px;
     }
 
 
     .summary-card {
-      min-height: 70px;
+      min-height:
+        70px;
 
-      padding: 9px 12px;
+      padding:
+        9px 12px;
 
       border:
         1px solid var(--border);
 
-      border-radius: 9px;
+      border-radius:
+        9px;
 
-      background: var(--panel);
+      background:
+        var(--panel);
     }
 
 
     .summary-label {
-      color: #91a7c3;
+      color:
+        #91a7c3;
 
-      font-size: 9px;
-      font-weight: 800;
+      font-size:
+        9px;
 
-      text-transform: uppercase;
+      font-weight:
+        900;
 
-      letter-spacing: 0.55px;
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.5px;
     }
 
 
     .summary-value {
-      margin-top: 5px;
+      margin-top:
+        5px;
 
-      font-size: 21px;
-      line-height: 1;
+      font-size:
+        21px;
 
-      font-weight: 900;
+      font-weight:
+        900;
+
+      line-height:
+        1;
     }
 
 
     .summary-note {
-      margin-top: 5px;
+      margin-top:
+        5px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 9px;
+      font-size:
+        9px;
     }
+
 
 
     /* =====================================================
-       GENERAL FILTER
+       SEARCH BAR ONLY
     ===================================================== */
 
-    .filters-panel {
-      border:
-        1px solid var(--border);
-
-      border-radius: 9px;
-
-      background: var(--panel);
-
-      padding: 9px;
-
-      margin-bottom: 7px;
-    }
-
-
-    .general-filter-grid {
-      display: grid;
-
-      grid-template-columns:
-        minmax(180px, 1.7fr)
-        repeat(
-          5,
-          minmax(125px, 1fr)
-        );
-
-      gap: 7px;
-
-      align-items: end;
-    }
-
-
-    .filter-group {
-      min-width: 0;
-    }
-
-
-    .filter-group label {
-      display: block;
-
-      margin: 0 0 4px;
-
-      color: #94aac5;
-
-      font-size: 8px;
-      font-weight: 900;
-
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-
-      white-space: nowrap;
-    }
-
-
-    .filter-control {
-      width: 100%;
-      height: 34px;
-
-      padding: 0 9px;
-
-      border:
-        1px solid #29415e;
-
-      border-radius: 6px;
-
-      outline: none;
-
-      background: #0b1829;
-      color: var(--text);
-
-      font-size: 11px;
-    }
-
-
-    .filter-control:focus {
-      border-color: #3f7fd3;
-    }
-
-
-    /* =====================================================
-       COLUMN FILTERS
-    ===================================================== */
-
-    .column-filter-title {
-      margin:
-        9px 0 6px;
-
-      padding-top: 8px;
-
-      border-top:
-        1px solid var(--border-soft);
-
-      color: #a9bdd6;
-
-      font-size: 9px;
-      font-weight: 900;
-
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-
-    .column-filter-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          5,
-          minmax(230px, 1fr)
-        );
-
-      gap: 6px;
-    }
-
-
-    .numeric-filter {
-      padding: 6px;
-
-      border:
-        1px solid var(--border-soft);
-
-      border-radius: 7px;
-
-      background: #091625;
-    }
-
-
-    .numeric-filter-head {
+    .search-toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 8px;
+      gap:
+        10px;
 
-      margin-bottom: 5px;
-    }
+      margin-bottom:
+        7px;
 
-
-    .numeric-filter-name {
-      color: #c9d8e9;
-
-      font-size: 9px;
-      font-weight: 900;
-    }
-
-
-    .active-wrap {
-      display: inline-flex;
-      align-items: center;
-
-      gap: 4px;
-
-      color: #97aac1;
-
-      font-size: 8px;
-
-      white-space: nowrap;
-    }
-
-
-    .active-wrap input {
-      width: 14px;
-      height: 14px;
-
-      margin: 0;
-
-      accent-color: #3b8de3;
-    }
-
-
-    .numeric-filter-controls {
-      display: grid;
-
-      grid-template-columns:
-        82px
-        minmax(55px, 1fr)
-        105px;
-
-      gap: 4px;
-    }
-
-
-    .mini-control {
-      width: 100%;
-      height: 28px;
-
-      padding: 0 6px;
-
-      border:
-        1px solid #29415e;
-
-      border-radius: 5px;
-
-      outline: none;
-
-      background: #0b1829;
-      color: var(--text);
-
-      font-size: 9px;
-    }
-
-
-    .filter-actions {
-      margin-top: 8px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 7px;
-    }
-
-
-    .btn {
-      min-height: 33px;
-
-      padding: 0 13px;
+      padding:
+        7px;
 
       border:
         1px solid var(--border);
 
-      border-radius: 6px;
+      border-radius:
+        8px;
 
-      cursor: pointer;
+      background:
+        var(--panel);
+    }
 
-      color: var(--text);
-      background: var(--panel-2);
 
-      font-size: 11px;
-      font-weight: 800;
+    .search-left {
+      display: flex;
+      align-items: center;
+
+      gap:
+        7px;
+
+      min-width:
+        0;
+
+      flex:
+        1;
+    }
+
+
+    #searchInput {
+      width:
+        min(430px, 100%);
+
+      height:
+        34px;
+
+      padding:
+        0 10px;
+
+      border:
+        1px solid #29415e;
+
+      border-radius:
+        6px;
+
+      outline:
+        none;
+
+      background:
+        #0b1829;
+
+      color:
+        #fff;
+
+      font-size:
+        11px;
+    }
+
+
+    #searchInput:focus {
+      border-color:
+        #3f7fd3;
+    }
+
+
+    .btn {
+      min-height:
+        33px;
+
+      padding:
+        0 13px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        6px;
+
+      background:
+        var(--panel2);
+
+      color:
+        #fff;
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      cursor:
+        pointer;
     }
 
 
     .btn:hover {
-      filter: brightness(1.13);
+      filter:
+        brightness(1.13);
     }
 
 
     .btn-primary {
-      background: #245e9e;
+      background:
+        #245e9e;
 
-      border-color: #377fc9;
+      border-color:
+        #377fc9;
     }
+
 
 
     /* =====================================================
@@ -560,19 +503,23 @@
       display: flex;
       align-items: center;
 
-      gap: 13px;
+      gap:
+        13px;
 
-      min-height: 25px;
+      min-height:
+        24px;
 
-      padding: 0 2px;
+      padding:
+        0 2px;
 
-      color: var(--muted);
+      margin-bottom:
+        4px;
 
-      font-size: 9px;
+      color:
+        var(--muted);
 
-      margin-bottom: 4px;
-
-      flex-wrap: wrap;
+      font-size:
+        9px;
     }
 
 
@@ -580,77 +527,97 @@
       display: inline-flex;
       align-items: center;
 
-      gap: 4px;
+      gap:
+        4px;
     }
 
 
     .legend-dot {
-      width: 7px;
-      height: 7px;
+      width:
+        7px;
 
-      border-radius: 50%;
+      height:
+        7px;
+
+      border-radius:
+        50%;
     }
 
 
-    .dot-green {
-      background: var(--green);
+    .green {
+      background:
+        var(--green);
     }
 
 
-    .dot-yellow {
-      background: var(--yellow);
+    .yellow {
+      background:
+        var(--yellow);
     }
 
 
-    .dot-orange {
-      background: var(--orange);
+    .orange {
+      background:
+        var(--orange);
     }
 
 
-    .dot-red {
-      background: var(--red);
+    .red {
+      background:
+        var(--red);
     }
+
 
 
     /* =====================================================
-       TABLE
+       TABLE PANEL
     ===================================================== */
 
     .table-panel {
       border:
         1px solid var(--border);
 
-      border-radius: 9px;
+      border-radius:
+        9px;
 
-      background: var(--panel);
+      background:
+        var(--panel);
 
-      overflow: hidden;
+      overflow:
+        hidden;
     }
 
 
     .table-toolbar {
-      min-height: 42px;
+      min-height:
+        40px;
 
-      padding: 6px 10px;
+      padding:
+        5px 10px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 12px;
+      gap:
+        10px;
 
       border-bottom:
         1px solid var(--border);
 
-      background: #0b1829;
+      background:
+        #0b1829;
     }
 
 
     .result-count {
-      color: #9eb0c6;
+      color:
+        #9eb0c6;
 
-      font-size: 10px;
+      font-size:
+        10px;
     }
+
 
 
     /* =====================================================
@@ -659,12 +626,18 @@
 
     .top-scroll-wrap {
       width: 100%;
-      height: 18px;
 
-      overflow-x: auto;
-      overflow-y: hidden;
+      height:
+        18px;
 
-      background: #081422;
+      overflow-x:
+        auto;
+
+      overflow-y:
+        hidden;
+
+      background:
+        #081422;
 
       border-bottom:
         1px solid var(--border-soft);
@@ -672,81 +645,103 @@
 
 
     .top-scroll-inner {
-      height: 1px;
-      min-width: 100%;
+      height:
+        1px;
+
+      min-width:
+        100%;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar,
     .table-wrap::-webkit-scrollbar {
-      height: 12px;
-      width: 11px;
+      height:
+        12px;
+
+      width:
+        11px;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-track,
     .table-wrap::-webkit-scrollbar-track {
-      background: #07111f;
+      background:
+        #07111f;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-thumb,
     .table-wrap::-webkit-scrollbar-thumb {
-      background: #455f82;
+      background:
+        #455f82;
 
-      border-radius: 10px;
+      border-radius:
+        10px;
 
       border:
         2px solid #07111f;
     }
 
 
+
     /* =====================================================
-       TABLE WRAP
+       TABLE
     ===================================================== */
 
     .table-wrap {
-      width: 100%;
+      width:
+        100%;
 
       max-height:
-        calc(100vh - 350px);
+        calc(100vh - 290px);
 
-      min-height: 360px;
+      min-height:
+        430px;
 
-      overflow: auto;
+      overflow:
+        auto;
 
-      position: relative;
+      position:
+        relative;
     }
 
 
     table {
-      border-collapse: separate;
-      border-spacing: 0;
+      border-collapse:
+        separate;
 
-      min-width: 2800px;
-      width: max-content;
+      border-spacing:
+        0;
 
-      background: var(--panel);
+      width:
+        max-content;
+
+      min-width:
+        3350px;
+
+      background:
+        var(--panel);
     }
 
 
     thead {
-      position: sticky;
-      top: 0;
+      position:
+        sticky;
 
-      z-index: 8;
+      top:
+        0;
+
+      z-index:
+        10;
     }
 
 
     th {
-      position: sticky;
-      top: 0;
+      min-width:
+        115px;
 
-      z-index: 8;
-
-      min-width: 88px;
-
-      padding: 8px 7px;
+      padding:
+        7px 6px;
 
       border-right:
         1px solid var(--border);
@@ -754,37 +749,77 @@
       border-bottom:
         1px solid var(--border);
 
-      background: #10223a;
+      background:
+        #10223a;
 
-      color: #f7f9fc;
+      color:
+        #f7f9fc;
 
-      font-size: 9.5px;
-      font-weight: 900;
+      font-size:
+        9.5px;
 
-      text-align: center;
-      vertical-align: middle;
+      font-weight:
+        900;
 
-      white-space: normal;
+      line-height:
+        1.1;
 
-      line-height: 1.1;
+      text-align:
+        center;
+
+      vertical-align:
+        middle;
+    }
+
+
+    thead tr:first-child th {
+      position:
+        sticky;
+
+      top:
+        0;
+
+      z-index:
+        12;
+    }
+
+
+    thead tr.filter-row th {
+      position:
+        sticky;
+
+      top:
+        43px;
+
+      z-index:
+        11;
+
+      padding:
+        5px;
+
+      background:
+        #0c1c30;
+
+      vertical-align:
+        top;
     }
 
 
     th:first-child {
-      min-width: 275px;
+      min-width:
+        275px;
 
-      text-align: left;
-
-      left: 0;
-
-      z-index: 12;
+      text-align:
+        left;
     }
 
 
     td {
-      height: 48px;
+      height:
+        48px;
 
-      padding: 6px 8px;
+      padding:
+        6px 8px;
 
       border-right:
         1px solid #1c314b;
@@ -792,226 +827,440 @@
       border-bottom:
         1px solid #1c314b;
 
-      color: #edf3fb;
+      color:
+        #edf3fb;
 
-      font-size: 11.5px;
-      font-weight: 600;
+      font-size:
+        12px;
 
-      text-align: center;
-      vertical-align: middle;
+      font-weight:
+        600;
 
-      white-space: nowrap;
-    }
+      text-align:
+        center;
 
-
-    .number-cell {
-      font-size: 12px;
-      font-weight: 750;
+      white-space:
+        nowrap;
     }
 
 
     tbody tr {
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      background: #0b192b;
+      background:
+        #0b192b;
     }
 
 
     tbody tr:nth-child(even) {
-      background: #0c1b2e;
+      background:
+        #0c1b2e;
     }
 
 
     tbody tr:hover {
-      background: #132944;
+      background:
+        #132944;
     }
 
 
     td:first-child {
-      text-align: left;
+      position:
+        sticky;
 
-      position: sticky;
-      left: 0;
+      left:
+        0;
 
-      z-index: 4;
+      z-index:
+        4;
 
-      min-width: 275px;
-      max-width: 275px;
+      min-width:
+        275px;
 
-      background: inherit;
+      max-width:
+        275px;
+
+      text-align:
+        left;
+
+      background:
+        inherit;
     }
 
 
+    thead th:first-child {
+      position:
+        sticky;
+
+      left:
+        0;
+
+      z-index:
+        20;
+    }
+
+
+    thead tr.filter-row th:first-child {
+      z-index:
+        19;
+    }
+
+
+
+    /* =====================================================
+       FILTERS INSIDE EACH COLUMN
+    ===================================================== */
+
+    .col-filter {
+      display: flex;
+      flex-direction: column;
+
+      gap:
+        4px;
+
+      min-width:
+        105px;
+    }
+
+
+    .filter-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap:
+        4px;
+
+      color:
+        #a9bdd6;
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+    }
+
+
+    .filter-active input {
+      width:
+        13px;
+
+      height:
+        13px;
+
+      margin:
+        0;
+
+      accent-color:
+        #3b8de3;
+    }
+
+
+    .filter-line {
+      display: flex;
+
+      gap:
+        3px;
+    }
+
+
+    .mini-control {
+      width:
+        100%;
+
+      min-width:
+        0;
+
+      height:
+        25px;
+
+      padding:
+        0 4px;
+
+      border:
+        1px solid #29415e;
+
+      border-radius:
+        4px;
+
+      outline:
+        none;
+
+      background:
+        #0a1728;
+
+      color:
+        #fff;
+
+      font-size:
+        8px;
+    }
+
+
+    .mini-operator {
+      width:
+        53px;
+    }
+
+
+    .mini-sort {
+      width:
+        65px;
+    }
+
+
+    .text-filter {
+      width:
+        100%;
+
+      height:
+        28px;
+
+      padding:
+        0 5px;
+
+      border:
+        1px solid #29415e;
+
+      border-radius:
+        4px;
+
+      background:
+        #0a1728;
+
+      color:
+        #fff;
+
+      font-size:
+        8px;
+    }
+
+
+    .no-filter {
+      color:
+        #627791;
+
+      font-size:
+        10px;
+
+      padding-top:
+        8px;
+    }
+
+
+
+    /* =====================================================
+       STOCK / BADGES
+    ===================================================== */
+
     .stock-name {
-      display: block;
+      display:
+        block;
 
-      max-width: 245px;
+      max-width:
+        245px;
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
-      text-overflow: ellipsis;
+      text-overflow:
+        ellipsis;
 
-      font-size: 12px;
-      font-weight: 850;
+      font-size:
+        12px;
 
-      color: #ffffff;
+      font-weight:
+        900;
+
+      color:
+        #fff;
     }
 
 
     .stock-symbol {
-      display: block;
+      display:
+        block;
 
-      margin-top: 2px;
+      margin-top:
+        2px;
 
-      font-size: 9px;
+      color:
+        #8fa4be;
 
-      color: #8fa4be;
+      font-size:
+        9px;
     }
 
 
     .positive {
-      color: #ffffff;
+      color:
+        #fff;
 
-      font-weight: 750;
+      font-weight:
+        800;
     }
 
 
     .negative {
-      color: var(--red);
+      color:
+        var(--red);
 
-      font-weight: 750;
+      font-weight:
+        800;
     }
 
 
     .pending {
-      color: #72869f;
+      color:
+        #70849d;
     }
 
 
-    /* =====================================================
-       SCORE
-    ===================================================== */
-
     .score-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display:
+        inline-flex;
 
-      min-width: 54px;
-      min-height: 28px;
+      align-items:
+        center;
 
-      padding: 4px 8px;
+      justify-content:
+        center;
+
+      min-width:
+        54px;
+
+      min-height:
+        28px;
+
+      padding:
+        4px 8px;
 
       border:
         1px solid transparent;
 
-      border-radius: 6px;
+      border-radius:
+        6px;
 
-      font-size: 12px;
-      font-weight: 900;
+      font-size:
+        12px;
+
+      font-weight:
+        900;
     }
 
 
     .score-elite {
-      color: var(--green);
+      color:
+        var(--green);
 
-      background: var(--green-soft);
+      background:
+        var(--green-soft);
 
       border-color:
-        rgba(39, 217, 128, 0.18);
+        rgba(39,217,128,0.18);
     }
 
 
     .score-strong {
-      color: #74bfff;
+      color:
+        #74bfff;
 
-      background: var(--blue-soft);
-
-      border-color:
-        rgba(77, 163, 255, 0.18);
+      background:
+        var(--blue-soft);
     }
 
 
     .score-developing {
-      color: var(--yellow);
+      color:
+        var(--yellow);
 
-      background: var(--yellow-soft);
-
-      border-color:
-        rgba(240, 189, 78, 0.18);
+      background:
+        var(--yellow-soft);
     }
 
 
     .score-weak {
-      color: var(--red);
+      color:
+        var(--red);
 
-      background: var(--red-soft);
-
-      border-color:
-        rgba(255, 94, 114, 0.18);
+      background:
+        var(--red-soft);
     }
 
 
-    /* =====================================================
-       SETUP
-    ===================================================== */
-
     .setup-badge {
-      display: inline-block;
+      display:
+        inline-block;
 
-      max-width: 190px;
+      padding:
+        5px 8px;
 
-      padding: 5px 8px;
+      border-radius:
+        999px;
 
-      border-radius: 999px;
+      font-size:
+        9px;
 
-      font-size: 9px;
-      font-weight: 900;
-
-      white-space: nowrap;
+      font-weight:
+        900;
     }
 
 
     .setup-green {
-      color: var(--green);
+      color:
+        var(--green);
 
-      background: var(--green-soft);
+      background:
+        var(--green-soft);
     }
 
 
     .setup-yellow {
-      color: var(--yellow);
+      color:
+        var(--yellow);
 
-      background: var(--yellow-soft);
+      background:
+        var(--yellow-soft);
     }
 
 
     .setup-orange {
-      color: var(--orange);
+      color:
+        var(--orange);
 
-      background: var(--orange-soft);
+      background:
+        var(--orange-soft);
     }
 
 
     .setup-red {
-      color: var(--red);
+      color:
+        var(--red);
 
-      background: var(--red-soft);
+      background:
+        var(--red-soft);
     }
 
 
     .signal-yes {
-      color: var(--green);
+      color:
+        var(--green);
 
-      font-weight: 850;
+      font-weight:
+        900;
     }
 
 
     .signal-no {
-      color: var(--red);
+      color:
+        var(--red);
 
-      font-weight: 850;
+      font-weight:
+        900;
     }
+
 
 
     /* =====================================================
@@ -1019,80 +1268,107 @@
     ===================================================== */
 
     .drawer-overlay {
-      position: fixed;
+      position:
+        fixed;
 
-      inset: 0;
+      inset:
+        0;
 
-      z-index: 100;
+      z-index:
+        100;
 
       background:
-        rgba(0, 0, 0, 0.52);
+        rgba(0,0,0,0.52);
 
-      opacity: 0;
-      visibility: hidden;
+      opacity:
+        0;
 
-      transition: 0.2s;
+      visibility:
+        hidden;
+
+      transition:
+        0.2s;
     }
 
 
     .drawer-overlay.open {
-      opacity: 1;
-      visibility: visible;
+      opacity:
+        1;
+
+      visibility:
+        visible;
     }
 
 
     .drawer {
-      position: fixed;
+      position:
+        fixed;
 
-      top: 0;
-      right: -520px;
+      top:
+        0;
 
-      z-index: 101;
+      right:
+        -520px;
+
+      z-index:
+        101;
 
       width:
-        min(
-          500px,
-          96vw
-        );
+        min(500px, 96vw);
 
-      height: 100vh;
+      height:
+        100vh;
 
-      background: #0a1626;
+      overflow-y:
+        auto;
+
+      background:
+        #0a1626;
 
       border-left:
         1px solid #28405d;
 
       box-shadow:
-        -12px 0 35px
-        rgba(0, 0, 0, 0.35);
+        -12px 0 35px rgba(0,0,0,0.35);
 
       transition:
         right 0.23s ease;
-
-      overflow-y: auto;
     }
 
 
     .drawer.open {
-      right: 0;
+      right:
+        0;
     }
 
 
     .drawer-header {
-      position: sticky;
-      top: 0;
+      position:
+        sticky;
 
-      z-index: 3;
+      top:
+        0;
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      z-index:
+        3;
 
-      gap: 15px;
+      display:
+        flex;
 
-      padding: 15px;
+      align-items:
+        flex-start;
 
-      background: #0a1626;
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      padding:
+        15px;
+
+      background:
+        #0a1626;
 
       border-bottom:
         1px solid var(--border);
@@ -1100,279 +1376,249 @@
 
 
     .drawer-title {
-      margin: 0;
+      margin:
+        0;
 
-      font-size: 17px;
+      font-size:
+        17px;
     }
 
 
     .drawer-symbol {
-      margin-top: 4px;
+      margin-top:
+        4px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 10px;
+      font-size:
+        10px;
     }
 
 
     .drawer-close {
-      width: 31px;
-      height: 31px;
+      width:
+        31px;
+
+      height:
+        31px;
 
       border:
         1px solid var(--border);
 
-      border-radius: 6px;
+      border-radius:
+        6px;
 
-      background: var(--panel-2);
+      background:
+        var(--panel2);
 
-      color: #fff;
+      color:
+        #fff;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      font-size: 17px;
+      font-size:
+        17px;
     }
 
 
     .drawer-content {
-      padding: 13px;
+      padding:
+        13px;
     }
 
 
     .drawer-section {
-      margin-bottom: 12px;
+      margin-bottom:
+        12px;
 
-      padding: 11px;
+      padding:
+        11px;
 
       border:
         1px solid var(--border-soft);
 
-      border-radius: 8px;
+      border-radius:
+        8px;
 
-      background: var(--panel);
+      background:
+        var(--panel);
     }
 
 
     .drawer-section h3 {
-      margin: 0 0 9px;
+      margin:
+        0 0 9px;
 
-      color: #9fb5d0;
+      color:
+        #9fb5d0;
 
-      font-size: 10px;
+      font-size:
+        10px;
 
-      text-transform: uppercase;
-
-      letter-spacing: 0.5px;
+      text-transform:
+        uppercase;
     }
 
 
     .detail-grid {
-      display: grid;
+      display:
+        grid;
 
       grid-template-columns:
-        repeat(
-          2,
-          minmax(0, 1fr)
-        );
+        repeat(2, minmax(0,1fr));
 
-      gap: 7px;
+      gap:
+        7px;
     }
 
 
     .detail-item {
-      padding: 8px;
+      padding:
+        8px;
 
-      border-radius: 6px;
+      border-radius:
+        6px;
 
-      background: #0a1728;
+      background:
+        #0a1728;
     }
 
 
     .detail-label {
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 8px;
+      font-size:
+        8px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
 
     .detail-value {
-      margin-top: 4px;
+      margin-top:
+        4px;
 
-      font-size: 12px;
-      font-weight: 800;
+      font-size:
+        12px;
 
-      word-break: break-word;
+      font-weight:
+        800;
+
+      word-break:
+        break-word;
     }
 
 
     .trigger-list {
-      display: flex;
-      flex-wrap: wrap;
+      display:
+        flex;
 
-      gap: 5px;
+      flex-wrap:
+        wrap;
+
+      gap:
+        5px;
     }
 
 
     .trigger-chip {
-      padding: 5px 7px;
+      padding:
+        5px 7px;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      color: #8fc6ff;
+      color:
+        #8fc6ff;
 
-      background: var(--blue-soft);
+      background:
+        var(--blue-soft);
 
-      border:
-        1px solid
-        rgba(77, 163, 255, 0.18);
+      font-size:
+        9px;
 
-      font-size: 9px;
-      font-weight: 700;
+      font-weight:
+        700;
     }
 
 
     .missing-text {
-      color: var(--yellow);
+      color:
+        var(--yellow);
 
-      font-size: 10px;
-      line-height: 1.5;
+      font-size:
+        10px;
+
+      line-height:
+        1.5;
     }
 
 
     .empty-state {
-      padding: 35px;
+      padding:
+        35px;
 
-      text-align: center;
+      text-align:
+        center;
 
-      color: var(--muted);
+      color:
+        var(--muted);
     }
 
 
-    .empty-state strong {
-      display: block;
 
-      margin-bottom: 7px;
-
-      color: #dce7f5;
-
-      font-size: 15px;
-    }
-
-
-    @media (max-width: 1500px) {
-
-      .column-filter-grid {
-        grid-template-columns:
-          repeat(
-            4,
-            minmax(230px, 1fr)
-          );
-      }
-
-    }
-
-
-    @media (max-width: 1250px) {
+    @media (max-width: 1200px) {
 
       .summary-grid {
         grid-template-columns:
-          repeat(
-            3,
-            minmax(150px, 1fr)
-          );
-      }
-
-
-      .general-filter-grid {
-        grid-template-columns:
-          repeat(
-            3,
-            minmax(140px, 1fr)
-          );
-      }
-
-
-      .column-filter-grid {
-        grid-template-columns:
-          repeat(
-            3,
-            minmax(230px, 1fr)
-          );
+          repeat(3, minmax(150px,1fr));
       }
 
     }
 
 
-    @media (max-width: 850px) {
+    @media (max-width: 700px) {
+
+      .summary-grid {
+        grid-template-columns:
+          repeat(2, minmax(130px,1fr));
+      }
+
 
       .site-header {
-        align-items: flex-start;
+        flex-direction:
+          column;
 
-        flex-direction: column;
-
-        gap: 7px;
+        align-items:
+          flex-start;
       }
 
 
       .main-nav {
-        width: 100%;
+        overflow-x:
+          auto;
 
-        overflow-x: auto;
-      }
-
-
-      .scanner-title-row {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 7px;
-      }
-
-
-      .summary-grid {
-        grid-template-columns:
-          repeat(
-            2,
-            minmax(135px, 1fr)
-          );
-      }
-
-
-      .general-filter-grid,
-      .column-filter-grid {
-        grid-template-columns:
-          repeat(
-            2,
-            minmax(180px, 1fr)
-          );
-      }
-
-
-      .page {
-        padding: 8px;
-      }
-
-    }
-
-
-    @media (max-width: 550px) {
-
-      .summary-grid,
-      .general-filter-grid,
-      .column-filter-grid {
-        grid-template-columns: 1fr;
+        width:
+          100%;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
   <header class="site-header">
 
@@ -1418,7 +1664,13 @@
   </header>
 
 
+
   <main class="page">
+
+
+    <!-- ===================================================
+         TITLE
+    ==================================================== -->
 
     <section class="scanner-title-row">
 
@@ -1443,6 +1695,7 @@
     </section>
 
 
+
     <!-- ===================================================
          SUMMARY
     ==================================================== -->
@@ -1456,8 +1709,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryUniverse"
+          class="summary-value"
         >
           —
         </div>
@@ -1476,8 +1729,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryStrong"
+          class="summary-value"
         >
           —
         </div>
@@ -1496,8 +1749,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryNear"
+          class="summary-value"
         >
           —
         </div>
@@ -1516,8 +1769,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryBreakout"
+          class="summary-value"
         >
           —
         </div>
@@ -1536,8 +1789,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryFreeFloat"
+          class="summary-value"
         >
           —
         </div>
@@ -1556,8 +1809,8 @@
         </div>
 
         <div
-          class="summary-value"
           id="summaryUpdated"
+          class="summary-value"
         >
           —
         </div>
@@ -1571,170 +1824,32 @@
     </section>
 
 
+
     <!-- ===================================================
-         FILTERS
+         SEARCH ONLY
     ==================================================== -->
 
-    <section class="filters-panel">
+    <section class="search-toolbar">
 
-      <div class="general-filter-grid">
+      <div class="search-left">
 
-        <div class="filter-group">
-
-          <label for="searchInput">
-            Search Stock / Symbol
-          </label>
-
-          <input
-            id="searchInput"
-            class="filter-control"
-            type="search"
-            placeholder="e.g. CYIENTDLM"
-          >
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="setupFilter">
-            Setup Status
-          </label>
-
-          <select
-            id="setupFilter"
-            class="filter-control"
-          >
-            <option value="">
-              All
-            </option>
-          </select>
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="breakoutFilter">
-            Breakout Status
-          </label>
-
-          <select
-            id="breakoutFilter"
-            class="filter-control"
-          >
-            <option value="">
-              All
-            </option>
-          </select>
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="volumeFilter">
-            Volume Contraction
-          </label>
-
-          <select
-            id="volumeFilter"
-            class="filter-control"
-          >
-            <option value="">
-              All
-            </option>
-
-            <option value="YES">
-              YES
-            </option>
-
-            <option value="NO">
-              NO
-            </option>
-          </select>
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="volatilityFilter">
-            Volatility Contraction
-          </label>
-
-          <select
-            id="volatilityFilter"
-            class="filter-control"
-          >
-            <option value="">
-              All
-            </option>
-
-            <option value="YES">
-              YES
-            </option>
-
-            <option value="NO">
-              NO
-            </option>
-          </select>
-
-        </div>
-
-
-        <div class="filter-group">
-
-          <label for="triggerFilter">
-            Fundamental Trigger
-          </label>
-
-          <select
-            id="triggerFilter"
-            class="filter-control"
-          >
-            <option value="">
-              All
-            </option>
-
-            <option value="YES">
-              Trigger Present
-            </option>
-
-            <option value="NO">
-              No Trigger
-            </option>
-          </select>
-
-        </div>
-
-      </div>
-
-
-      <div class="column-filter-title">
-        Column Filters • Active + Above/Below + Value + Sort
-      </div>
-
-
-      <div
-        id="columnFilterGrid"
-        class="column-filter-grid"
-      ></div>
-
-
-      <div class="filter-actions">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search stock / symbol..."
+        >
 
         <button
-          class="btn btn-primary"
           id="applyFilters"
+          class="btn btn-primary"
           type="button"
         >
           Apply Filters
         </button>
 
         <button
-          class="btn"
           id="resetFilters"
+          class="btn"
           type="button"
         >
           Reset
@@ -1745,29 +1860,35 @@
     </section>
 
 
+
+    <!-- ===================================================
+         LEGEND
+    ==================================================== -->
+
     <section class="legend">
 
       <span class="legend-item">
-        <span class="legend-dot dot-green"></span>
+        <span class="legend-dot green"></span>
         Strong / Confirmed
       </span>
 
       <span class="legend-item">
-        <span class="legend-dot dot-yellow"></span>
+        <span class="legend-dot yellow"></span>
         Near / Developing
       </span>
 
       <span class="legend-item">
-        <span class="legend-dot dot-orange"></span>
+        <span class="legend-dot orange"></span>
         Watch
       </span>
 
       <span class="legend-item">
-        <span class="legend-dot dot-red"></span>
+        <span class="legend-dot red"></span>
         Weak / Missing
       </span>
 
     </section>
+
 
 
     <!-- ===================================================
@@ -1797,15 +1918,19 @@
       </div>
 
 
+
       <div
         id="topScroll"
         class="top-scroll-wrap"
       >
+
         <div
           id="topScrollInner"
           class="top-scroll-inner"
         ></div>
+
       </div>
+
 
 
       <div
@@ -1817,9 +1942,13 @@
 
           <thead>
 
+            <!-- HEADINGS -->
+
             <tr>
 
-              <th>Stock</th>
+              <th>
+                Stock
+              </th>
 
               <th>
                 Big Move
@@ -1934,9 +2063,20 @@
               </th>
 
               <th>
-                Missing Conditions
+                Missing
+                <br>
+                Conditions
               </th>
 
+            </tr>
+
+
+            <!-- INDIVIDUAL COLUMN FILTERS -->
+
+            <tr
+              id="columnFilterRow"
+              class="filter-row"
+            >
             </tr>
 
           </thead>
@@ -1967,8 +2107,9 @@
   </main>
 
 
+
   <!-- =====================================================
-       DRAWER
+       DETAIL DRAWER
   ====================================================== -->
 
   <div
@@ -2020,21 +2161,27 @@
   </aside>
 
 
+
   <script>
 
     /* =====================================================
-       CONFIG
+       DATA
     ===================================================== */
 
     const DATA_URL =
       "data/big_move_scanner.json";
 
 
-    let allRows = [];
+    let allRows =
+      [];
 
-    let filteredRows = [];
 
-    let scannerMeta = {};
+    let filteredRows =
+      [];
+
+
+    let scannerMeta =
+      {};
 
 
     let activeSortField =
@@ -2045,92 +2192,134 @@
       "desc";
 
 
+
     /* =====================================================
-       NUMERIC FILTER CONFIG
+       COLUMN CONFIG
     ===================================================== */
 
-    const numericFilters = [
+    const columns = [
 
       {
+        type: "none"
+      },
+
+      {
+        type: "number",
         field: "bigMoveScore",
-        label: "Big Move Score",
         defaultSort: "desc"
       },
 
       {
-        field: "price",
-        label: "Price ₹"
+        type: "select",
+        field: "setupStatus"
       },
 
       {
-        field: "return1M",
-        label: "1M %"
+        type: "number",
+        field: "price"
       },
 
       {
-        field: "return3M",
-        label: "3M %"
+        type: "number",
+        field: "return1M"
       },
 
       {
-        field: "return6M",
-        label: "6M %"
+        type: "number",
+        field: "return3M"
       },
 
       {
-        field: "return1Y",
-        label: "1Y %"
+        type: "number",
+        field: "return6M"
       },
 
       {
-        field: "rsRating",
-        label: "RS Rating"
+        type: "number",
+        field: "return1Y"
       },
 
       {
-        field: "stockMomentumRating",
-        label: "Stock Momentum"
+        type: "number",
+        field: "rsRating"
       },
 
       {
-        field: "industryRating",
-        label: "Industry Rating"
+        type: "number",
+        field: "stockMomentumRating"
       },
 
       {
-        field: "freeFloatPct",
-        label: "Free Float %"
+        type: "number",
+        field: "industryRating"
       },
 
       {
-        field: "freeFloatShares",
-        label: "Free Float Shares"
+        type: "number",
+        field: "freeFloatPct"
       },
 
       {
-        field: "priorMovePct",
-        label: "Prior Move %"
+        type: "number",
+        field: "freeFloatShares"
       },
 
       {
-        field: "retracementPct",
-        label: "Retracement %"
+        type: "number",
+        field: "priorMovePct"
       },
 
       {
-        field: "consolidationDays",
-        label: "Consolidation Days"
+        type: "number",
+        field: "retracementPct"
       },
 
       {
-        field: "turnoverExpansion",
-        label: "Turnover Expansion"
+        type: "number",
+        field: "consolidationDays"
+      },
+
+      {
+        type: "boolean",
+        field: "volumeContraction"
+      },
+
+      {
+        type: "boolean",
+        field: "volatilityContraction"
+      },
+
+      {
+        type: "select",
+        field: "breakoutStatus"
+      },
+
+      {
+        type: "number",
+        field: "turnoverExpansion"
+      },
+
+      {
+        type: "trigger",
+        field: "fundamentalTrigger"
+      },
+
+      {
+        type: "select",
+        field: "keyTrigger"
+      },
+
+      {
+        type: "none"
       }
 
     ];
 
 
-    function el(id) {
+
+    function el(
+      id
+    ) {
 
       return document.getElementById(
         id
@@ -2139,11 +2328,14 @@
     }
 
 
+
     /* =====================================================
-       SAFE NUMBER
+       NUMBER
     ===================================================== */
 
-    function num(value) {
+    function num(
+      value
+    ) {
 
       if (
         value === null ||
@@ -2157,7 +2349,8 @@
 
 
       if (
-        typeof value === "string"
+        typeof value ===
+        "string"
       ) {
 
         const cleaned =
@@ -2172,10 +2365,7 @@
         if (
           !cleaned ||
           cleaned === "—" ||
-          cleaned.toLowerCase() ===
-            "pending" ||
-          cleaned.toLowerCase() ===
-            "none"
+          cleaned.toLowerCase() === "pending"
         ) {
 
           return null;
@@ -2184,7 +2374,9 @@
 
 
         const parsed =
-          Number(cleaned);
+          Number(
+            cleaned
+          );
 
 
         return Number.isFinite(
@@ -2197,7 +2389,9 @@
 
 
       const parsed =
-        Number(value);
+        Number(
+          value
+        );
 
 
       return Number.isFinite(
@@ -2209,7 +2403,10 @@
     }
 
 
-    function escapeHtml(value) {
+
+    function escapeHtml(
+      value
+    ) {
 
       return String(
         value ?? ""
@@ -2223,11 +2420,12 @@
     }
 
 
+
     /* =====================================================
-       FORMATTERS
+       FORMAT
     ===================================================== */
 
-    function pendingDash() {
+    function dash() {
 
       return (
         '<span class="pending">—</span>'
@@ -2236,73 +2434,22 @@
     }
 
 
-    function formatInteger(value) {
 
-      const n =
-        num(value);
-
-
-      if (
-        n === null
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return Math.round(
-        n
-      ).toLocaleString(
-        "en-IN"
-      );
-
-    }
-
-
-    function formatNumber(
-      value,
-      decimals = 2
+    function formatPrice(
+      value
     ) {
 
       const n =
-        num(value);
+        num(
+          value
+        );
 
 
       if (
         n === null
       ) {
 
-        return pendingDash();
-
-      }
-
-
-      return n.toLocaleString(
-        "en-IN",
-        {
-          minimumFractionDigits:
-            decimals,
-
-          maximumFractionDigits:
-            decimals
-        }
-      );
-
-    }
-
-
-    function formatPrice(value) {
-
-      const n =
-        num(value);
-
-
-      if (
-        n === null
-      ) {
-
-        return pendingDash();
+        return dash();
 
       }
 
@@ -2312,8 +2459,11 @@
         n.toLocaleString(
           "en-IN",
           {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+            minimumFractionDigits:
+              2,
+
+            maximumFractionDigits:
+              2
           }
         )
       );
@@ -2321,17 +2471,22 @@
     }
 
 
-    function formatPct(value) {
+
+    function formatPct(
+      value
+    ) {
 
       const n =
-        num(value);
+        num(
+          value
+        );
 
 
       if (
         n === null
       ) {
 
-        return pendingDash();
+        return dash();
 
       }
 
@@ -2357,51 +2512,106 @@
     }
 
 
-    function formatPlainPct(value) {
+
+    function formatPlainPct(
+      value
+    ) {
 
       const n =
-        num(value);
+        num(
+          value
+        );
 
 
-      if (
-        n === null
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return (
-        `${n.toFixed(2)}%`
-      );
+      return n === null
+        ? dash()
+        : `${n.toFixed(2)}%`;
 
     }
 
 
-    function formatTimes(value) {
+
+    function formatShares(
+      value
+    ) {
 
       const n =
-        num(value);
+        num(
+          value
+        );
 
 
-      if (
-        n === null
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return (
-        `${n.toFixed(2)}x`
-      );
+      return n === null
+        ? dash()
+        : Math.round(
+            n
+          ).toLocaleString(
+            "en-IN"
+          );
 
     }
 
 
-    function formatBoolean(
+
+    function formatTimes(
+      value
+    ) {
+
+      const n =
+        num(
+          value
+        );
+
+
+      return n === null
+        ? dash()
+        : `${n.toFixed(2)}x`;
+
+    }
+
+
+
+    function formatTechnicalPct(
+      value
+    ) {
+
+      const n =
+        num(
+          value
+        );
+
+
+      return n === null
+        ? dash()
+        : `${n.toFixed(1)}%`;
+
+    }
+
+
+
+    function formatInteger(
+      value
+    ) {
+
+      const n =
+        num(
+          value
+        );
+
+
+      return n === null
+        ? dash()
+        : Math.round(
+            n
+          ).toLocaleString(
+            "en-IN"
+          );
+
+    }
+
+
+
+    function booleanValue(
       value
     ) {
 
@@ -2411,42 +2621,107 @@
         value === ""
       ) {
 
-        return pendingDash();
+        return null;
 
       }
 
 
-      const yes =
+      if (
         value === true ||
-        value === 1 ||
-        String(value)
-          .toLowerCase()
-          .trim() === "true" ||
-        String(value)
-          .toLowerCase()
-          .trim() === "yes";
+        value === 1
+      ) {
+
+        return true;
+
+      }
 
 
-      return yes
+      if (
+        value === false ||
+        value === 0
+      ) {
+
+        return false;
+
+      }
+
+
+      const text =
+        String(
+          value
+        )
+          .toLowerCase()
+          .trim();
+
+
+      if (
+        text === "yes" ||
+        text === "true"
+      ) {
+
+        return true;
+
+      }
+
+
+      if (
+        text === "no" ||
+        text === "false"
+      ) {
+
+        return false;
+
+      }
+
+
+      return null;
+
+    }
+
+
+
+    function formatBoolean(
+      value
+    ) {
+
+      const b =
+        booleanValue(
+          value
+        );
+
+
+      if (
+        b === null
+      ) {
+
+        return dash();
+
+      }
+
+
+      return b
         ? '<span class="signal-yes">YES</span>'
         : '<span class="signal-no">NO</span>';
 
     }
 
 
-    function scoreBadge(value) {
+
+    function scoreBadge(
+      value
+    ) {
 
       const n =
-        num(value);
+        num(
+          value
+        );
 
 
       if (
         n === null
       ) {
 
-        return (
-          '<span class="pending">Pending</span>'
-        );
+        return dash();
 
       }
 
@@ -2492,7 +2767,10 @@
     }
 
 
-    function setupBadge(value) {
+
+    function setupBadge(
+      value
+    ) {
 
       const label =
         String(
@@ -2511,15 +2789,21 @@
 
       if (
         lower.includes(
+          "breakout"
+        ) &&
+        !lower.includes(
+          "near"
+        )
+      ) {
+
+        cls =
+          "setup-green";
+
+      }
+
+      else if (
+        lower.includes(
           "strong"
-        ) ||
-        (
-          lower.includes(
-            "breakout"
-          ) &&
-          !lower.includes(
-            "near"
-          )
         )
       ) {
 
@@ -2563,21 +2847,24 @@
     }
 
 
-    function formatBreakout(value) {
+
+    function formatBreakout(
+      value
+    ) {
 
       if (
-        value === null ||
-        value === undefined ||
-        value === ""
+        !value
       ) {
 
-        return pendingDash();
+        return dash();
 
       }
 
 
       const label =
-        String(value);
+        String(
+          value
+        );
 
 
       const lower =
@@ -2609,7 +2896,7 @@
       ) {
 
         return (
-          `<span style="color:var(--yellow);font-weight:850;">` +
+          `<span style="color:var(--yellow);font-weight:900;">` +
           `${escapeHtml(label)}` +
           `</span>`
         );
@@ -2624,280 +2911,120 @@
     }
 
 
-    function formatFreeFloatShares(
-      value
-    ) {
-
-      const n =
-        num(value);
-
-
-      if (
-        n === null ||
-        n <= 0
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return Math.round(
-        n
-      ).toLocaleString(
-        "en-IN"
-      );
-
-    }
-
-
-    function formatTechnicalPct(
-      value
-    ) {
-
-      const n =
-        num(value);
-
-
-      if (
-        n === null
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return (
-        `${n.toFixed(1)}%`
-      );
-
-    }
-
-
-    function formatTechnicalDays(
-      value
-    ) {
-
-      const n =
-        num(value);
-
-
-      if (
-        n === null ||
-        n < 0
-      ) {
-
-        return pendingDash();
-
-      }
-
-
-      return Math.round(
-        n
-      ).toLocaleString(
-        "en-IN"
-      );
-
-    }
-
 
     /* =====================================================
-       FILTER UI
+       TRIGGER
     ===================================================== */
 
-    function renderNumericFilters() {
-
-      const container =
-        el(
-          "columnFilterGrid"
-        );
-
-
-      container.innerHTML =
-        numericFilters
-          .map(
-            config => {
-
-              const field =
-                config.field;
-
-
-              const defaultSort =
-                config.defaultSort ||
-                "";
-
-
-              return `
-                <div
-                  class="numeric-filter"
-                  data-filter-field="${field}"
-                >
-
-                  <div class="numeric-filter-head">
-
-                    <div class="numeric-filter-name">
-                      ${escapeHtml(config.label)}
-                    </div>
-
-                    <label class="active-wrap">
-
-                      <input
-                        id="active_${field}"
-                        type="checkbox"
-                      >
-
-                      Active
-
-                    </label>
-
-                  </div>
-
-
-                  <div class="numeric-filter-controls">
-
-                    <select
-                      id="operator_${field}"
-                      class="mini-control"
-                    >
-                      <option value="above">
-                        Above
-                      </option>
-
-                      <option value="below">
-                        Below
-                      </option>
-                    </select>
-
-
-                    <input
-                      id="value_${field}"
-                      class="mini-control"
-                      type="number"
-                      step="any"
-                      placeholder="Value"
-                    >
-
-
-                    <select
-                      id="sort_${field}"
-                      class="mini-control sort-control"
-                      data-field="${field}"
-                    >
-
-                      <option value="">
-                        No Sort
-                      </option>
-
-                      <option
-                        value="asc"
-                        ${defaultSort === "asc"
-                          ? "selected"
-                          : ""}
-                      >
-                        Ascending
-                      </option>
-
-                      <option
-                        value="desc"
-                        ${defaultSort === "desc"
-                          ? "selected"
-                          : ""}
-                      >
-                        Descending
-                      </option>
-
-                    </select>
-
-                  </div>
-
-                </div>
-              `;
-
-            }
-          )
-          .join("");
-
-    }
-
-
-    function populateStatusFilters() {
-
-      populateSelectFromField(
-        "setupFilter",
-        "setupStatus"
-      );
-
-
-      populateSelectFromField(
-        "breakoutFilter",
-        "breakoutStatus"
-      );
-
-    }
-
-
-    function populateSelectFromField(
-      selectId,
-      field
+    function triggerList(
+      row
     ) {
 
-      const select =
-        el(selectId);
-
-
-      const current =
-        select.value;
-
-
-      const values =
-        [
-          ...new Set(
-            allRows
-              .map(
-                row =>
-                  row[field]
-              )
-              .filter(
-                value =>
-                  value !== null &&
-                  value !== undefined &&
-                  String(value).trim() !== ""
-              )
-              .map(
-                value =>
-                  String(value)
-              )
-          )
-        ]
-          .sort(
-            (a, b) =>
-              a.localeCompare(b)
-          );
-
-
-      select.innerHTML =
-        `<option value="">All</option>` +
-        values
-          .map(
-            value =>
-              `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`
-          )
-          .join("");
-
-
       if (
-        values.includes(
-          current
+        Array.isArray(
+          row.fundamentalTriggers
         )
       ) {
 
-        select.value =
-          current;
+        return row.fundamentalTriggers;
 
       }
 
+
+      if (
+        Array.isArray(
+          row.triggers
+        )
+      ) {
+
+        return row.triggers;
+
+      }
+
+
+      return [];
+
     }
+
+
+
+    function hasTrigger(
+      row
+    ) {
+
+      return (
+        row.fundamentalTrigger ===
+          true ||
+        triggerList(
+          row
+        ).length >
+          0
+      );
+
+    }
+
+
+
+    function missingArray(
+      row
+    ) {
+
+      if (
+        Array.isArray(
+          row.missingConditions
+        )
+      ) {
+
+        return row.missingConditions;
+
+      }
+
+
+      if (
+        row.missingConditions
+      ) {
+
+        return String(
+          row.missingConditions
+        )
+          .split(
+            /\||,/
+          )
+          .map(
+            item =>
+              item.trim()
+          )
+          .filter(
+            Boolean
+          );
+
+      }
+
+
+      return [];
+
+    }
+
+
+
+    function missingText(
+      row
+    ) {
+
+      const list =
+        missingArray(
+          row
+        );
+
+
+      return list.length
+        ? list.join(
+            " | "
+          )
+        : "None";
+
+    }
+
 
 
     /* =====================================================
@@ -2930,6 +3057,7 @@
       return response.json();
 
     }
+
 
 
     function normalizePayload(
@@ -2982,32 +3110,10 @@
     }
 
 
+
     /* =====================================================
        SUMMARY
     ===================================================== */
-
-    function hasTrigger(row) {
-
-      return (
-        row.fundamentalTrigger === true ||
-        (
-          Array.isArray(
-            row.fundamentalTriggers
-          ) &&
-          row.fundamentalTriggers.length >
-            0
-        ) ||
-        (
-          Array.isArray(
-            row.triggers
-          ) &&
-          row.triggers.length >
-            0
-        )
-      );
-
-    }
-
 
     function updateSummary() {
 
@@ -3017,20 +3123,13 @@
 
       const score80 =
         allRows.filter(
-          row => {
-
-            const value =
-              num(
-                row.bigMoveScore
-              );
-
-
-            return (
-              value !== null &&
-              value >= 80
-            );
-
-          }
+          row =>
+            num(
+              row.bigMoveScore
+            ) !== null &&
+            num(
+              row.bigMoveScore
+            ) >= 80
         ).length;
 
 
@@ -3073,14 +3172,11 @@
         ).length;
 
 
-      const freeFloatReady =
+      const freeFloat =
         allRows.filter(
           row =>
             num(
               row.freeFloatShares
-            ) !== null ||
-            num(
-              row.freeFloatPct
             ) !== null
         ).length;
 
@@ -3120,7 +3216,7 @@
       el(
         "summaryFreeFloat"
       ).textContent =
-        freeFloatReady.toLocaleString(
+        freeFloat.toLocaleString(
           "en-IN"
         );
 
@@ -3135,81 +3231,330 @@
     }
 
 
+
     /* =====================================================
-       BOOL MATCH
+       CREATE COLUMN FILTERS
     ===================================================== */
 
-    function booleanValue(
-      value
+    function uniqueValues(
+      field
     ) {
 
-      if (
-        value === null ||
-        value === undefined ||
-        value === ""
-      ) {
-
-        return null;
-
-      }
-
-
-      if (
-        value === true ||
-        value === 1
-      ) {
-
-        return true;
-
-      }
-
-
-      if (
-        value === false ||
-        value === 0
-      ) {
-
-        return false;
-
-      }
-
-
-      const text =
-        String(value)
-          .trim()
-          .toLowerCase();
-
-
-      if (
-        text === "yes" ||
-        text === "true"
-      ) {
-
-        return true;
-
-      }
-
-
-      if (
-        text === "no" ||
-        text === "false"
-      ) {
-
-        return false;
-
-      }
-
-
-      return null;
+      return [
+        ...new Set(
+          allRows
+            .map(
+              row =>
+                row[
+                  field
+                ]
+            )
+            .filter(
+              value =>
+                value !== null &&
+                value !== undefined &&
+                String(
+                  value
+                ).trim() !==
+                  ""
+            )
+            .map(
+              value =>
+                String(
+                  value
+                )
+            )
+        )
+      ]
+        .sort(
+          (
+            a,
+            b
+          ) =>
+            a.localeCompare(
+              b
+            )
+        );
 
     }
 
 
+
+    function numericFilterHtml(
+      config
+    ) {
+
+      const field =
+        config.field;
+
+
+      return `
+        <div class="col-filter">
+
+          <label class="filter-active">
+
+            <input
+              id="active_${field}"
+              type="checkbox"
+            >
+
+            Active
+
+          </label>
+
+
+          <div class="filter-line">
+
+            <select
+              id="operator_${field}"
+              class="mini-control mini-operator"
+            >
+
+              <option value="above">
+                ≥
+              </option>
+
+              <option value="below">
+                ≤
+              </option>
+
+            </select>
+
+
+            <input
+              id="value_${field}"
+              class="mini-control"
+              type="number"
+              step="any"
+              placeholder="Value"
+            >
+
+          </div>
+
+
+          <select
+            id="sort_${field}"
+            class="mini-control"
+            data-sort-field="${field}"
+          >
+
+            <option value="">
+              No Sort
+            </option>
+
+            <option value="asc">
+              Ascending
+            </option>
+
+            <option
+              value="desc"
+              ${
+                config.defaultSort ===
+                  "desc"
+                  ? "selected"
+                  : ""
+              }
+            >
+              Descending
+            </option>
+
+          </select>
+
+        </div>
+      `;
+
+    }
+
+
+
+    function selectFilterHtml(
+      config
+    ) {
+
+      const values =
+        uniqueValues(
+          config.field
+        );
+
+
+      return `
+        <select
+          id="select_${config.field}"
+          class="text-filter"
+        >
+
+          <option value="">
+            All
+          </option>
+
+          ${
+            values
+              .map(
+                value =>
+                  `
+                    <option value="${escapeHtml(value)}">
+                      ${escapeHtml(value)}
+                    </option>
+                  `
+              )
+              .join("")
+          }
+
+        </select>
+      `;
+
+    }
+
+
+
+    function booleanFilterHtml(
+      config
+    ) {
+
+      return `
+        <select
+          id="select_${config.field}"
+          class="text-filter"
+        >
+
+          <option value="">
+            All
+          </option>
+
+          <option value="YES">
+            YES
+          </option>
+
+          <option value="NO">
+            NO
+          </option>
+
+        </select>
+      `;
+
+    }
+
+
+
+    function triggerFilterHtml() {
+
+      return `
+        <select
+          id="select_fundamentalTrigger"
+          class="text-filter"
+        >
+
+          <option value="">
+            All
+          </option>
+
+          <option value="YES">
+            YES
+          </option>
+
+          <option value="NO">
+            NO
+          </option>
+
+        </select>
+      `;
+
+    }
+
+
+
+    function renderColumnFilters() {
+
+      const row =
+        el(
+          "columnFilterRow"
+        );
+
+
+      row.innerHTML =
+        columns
+          .map(
+            config => {
+
+              if (
+                config.type ===
+                "number"
+              ) {
+
+                return (
+                  `<th>` +
+                  numericFilterHtml(
+                    config
+                  ) +
+                  `</th>`
+                );
+
+              }
+
+
+              if (
+                config.type ===
+                "select"
+              ) {
+
+                return (
+                  `<th>` +
+                  selectFilterHtml(
+                    config
+                  ) +
+                  `</th>`
+                );
+
+              }
+
+
+              if (
+                config.type ===
+                "boolean"
+              ) {
+
+                return (
+                  `<th>` +
+                  booleanFilterHtml(
+                    config
+                  ) +
+                  `</th>`
+                );
+
+              }
+
+
+              if (
+                config.type ===
+                "trigger"
+              ) {
+
+                return (
+                  `<th>` +
+                  triggerFilterHtml() +
+                  `</th>`
+                );
+
+              }
+
+
+              return (
+                '<th><div class="no-filter">—</div></th>'
+              );
+
+            }
+          )
+          .join("");
+
+    }
+
+
+
     /* =====================================================
-       COLUMN FILTER
+       FILTER LOGIC
     ===================================================== */
 
-    function rowPassesNumericFilter(
+    function passesNumeric(
       row,
       config
     ) {
@@ -3217,11 +3562,12 @@
       const active =
         el(
           `active_${config.field}`
-        )?.checked;
+        );
 
 
       if (
-        !active
+        !active ||
+        !active.checked
       ) {
 
         return true;
@@ -3270,74 +3616,28 @@
         "above";
 
 
-      if (
-        operator === "below"
-      ) {
-
-        return (
-          value <= threshold
-        );
-
-      }
-
-
-      return (
-        value >= threshold
-      );
+      return operator ===
+        "below"
+        ? value <=
+          threshold
+        : value >=
+          threshold;
 
     }
 
 
-    /* =====================================================
-       APPLY FILTERS
-    ===================================================== */
 
     function applyFilters() {
 
-      const query =
+      const search =
         String(
           el(
             "searchInput"
-          )?.value ||
+          ).value ||
           ""
         )
           .trim()
           .toLowerCase();
-
-
-      const setup =
-        el(
-          "setupFilter"
-        )?.value ||
-        "";
-
-
-      const breakout =
-        el(
-          "breakoutFilter"
-        )?.value ||
-        "";
-
-
-      const volume =
-        el(
-          "volumeFilter"
-        )?.value ||
-        "";
-
-
-      const volatility =
-        el(
-          "volatilityFilter"
-        )?.value ||
-        "";
-
-
-      const trigger =
-        el(
-          "triggerFilter"
-        )?.value ||
-        "";
 
 
       filteredRows =
@@ -3345,7 +3645,7 @@
           row => {
 
             if (
-              query
+              search
             ) {
 
               const searchText =
@@ -3357,147 +3657,170 @@
                   row.industry,
                   row.keyTrigger
                 ]
-                  .filter(Boolean)
-                  .join(" ")
+                  .filter(
+                    Boolean
+                  )
+                  .join(
+                    " "
+                  )
                   .toLowerCase();
 
 
               if (
                 !searchText.includes(
-                  query
+                  search
                 )
               ) {
 
                 return false;
 
               }
-
-            }
-
-
-            if (
-              setup &&
-              String(
-                row.setupStatus ||
-                ""
-              ) !== setup
-            ) {
-
-              return false;
-
-            }
-
-
-            if (
-              breakout &&
-              String(
-                row.breakoutStatus ||
-                ""
-              ) !== breakout
-            ) {
-
-              return false;
-
-            }
-
-
-            if (
-              volume
-            ) {
-
-              const value =
-                booleanValue(
-                  row.volumeContraction
-                );
-
-
-              if (
-                volume === "YES" &&
-                value !== true
-              ) {
-
-                return false;
-
-              }
-
-
-              if (
-                volume === "NO" &&
-                value !== false
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            if (
-              volatility
-            ) {
-
-              const value =
-                booleanValue(
-                  row.volatilityContraction
-                );
-
-
-              if (
-                volatility === "YES" &&
-                value !== true
-              ) {
-
-                return false;
-
-              }
-
-
-              if (
-                volatility === "NO" &&
-                value !== false
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            if (
-              trigger === "YES" &&
-              !hasTrigger(row)
-            ) {
-
-              return false;
-
-            }
-
-
-            if (
-              trigger === "NO" &&
-              hasTrigger(row)
-            ) {
-
-              return false;
 
             }
 
 
             for (
               const config
-              of numericFilters
+              of columns
             ) {
 
               if (
-                !rowPassesNumericFilter(
-                  row,
-                  config
-                )
+                config.type ===
+                "number"
               ) {
 
-                return false;
+                if (
+                  !passesNumeric(
+                    row,
+                    config
+                  )
+                ) {
+
+                  return false;
+
+                }
+
+              }
+
+
+              else if (
+                config.type ===
+                "select"
+              ) {
+
+                const selected =
+                  el(
+                    `select_${config.field}`
+                  )?.value ||
+                  "";
+
+
+                if (
+                  selected &&
+                  String(
+                    row[
+                      config.field
+                    ] ||
+                    ""
+                  ) !==
+                    selected
+                ) {
+
+                  return false;
+
+                }
+
+              }
+
+
+              else if (
+                config.type ===
+                "boolean"
+              ) {
+
+                const selected =
+                  el(
+                    `select_${config.field}`
+                  )?.value ||
+                  "";
+
+
+                if (
+                  selected
+                ) {
+
+                  const value =
+                    booleanValue(
+                      row[
+                        config.field
+                      ]
+                    );
+
+
+                  if (
+                    selected ===
+                      "YES" &&
+                    value !==
+                      true
+                  ) {
+
+                    return false;
+
+                  }
+
+
+                  if (
+                    selected ===
+                      "NO" &&
+                    value !==
+                      false
+                  ) {
+
+                    return false;
+
+                  }
+
+                }
+
+              }
+
+
+              else if (
+                config.type ===
+                "trigger"
+              ) {
+
+                const selected =
+                  el(
+                    "select_fundamentalTrigger"
+                  )?.value ||
+                  "";
+
+
+                if (
+                  selected ===
+                    "YES" &&
+                  !hasTrigger(
+                    row
+                  )
+                ) {
+
+                  return false;
+
+                }
+
+
+                if (
+                  selected ===
+                    "NO" &&
+                  hasTrigger(
+                    row
+                  )
+                ) {
+
+                  return false;
+
+                }
 
               }
 
@@ -3517,11 +3840,12 @@
     }
 
 
+
     /* =====================================================
        SORT
     ===================================================== */
 
-    function setSort(
+    function changeSort(
       field,
       direction
     ) {
@@ -3545,17 +3869,18 @@
 
       document
         .querySelectorAll(
-          ".sort-control"
+          "[data-sort-field]"
         )
         .forEach(
-          control => {
+          select => {
 
             if (
-              control.dataset.field !==
-                field
+              select.dataset
+                .sortField !==
+              field
             ) {
 
-              control.value =
+              select.value =
                 "";
 
             }
@@ -3567,6 +3892,7 @@
       applyFilters();
 
     }
+
 
 
     function sortRows() {
@@ -3589,13 +3915,17 @@
 
           const av =
             num(
-              a[field]
+              a[
+                field
+              ]
             );
 
 
           const bv =
             num(
-              b[field]
+              b[
+                field
+              ]
             );
 
 
@@ -3604,20 +3934,7 @@
             bv === null
           ) {
 
-            return String(
-              a.name ||
-              a.stock ||
-              a.symbol ||
-              ""
-            )
-              .localeCompare(
-                String(
-                  b.name ||
-                  b.stock ||
-                  b.symbol ||
-                  ""
-                )
-              );
+            return 0;
 
           }
 
@@ -3640,30 +3957,12 @@
           }
 
 
-          if (
-            av !== bv
-          ) {
-
-            return direction ===
-              "asc"
-              ? av - bv
-              : bv - av;
-
-          }
-
-
-          return String(
-            a.name ||
-            a.symbol ||
-            ""
-          )
-            .localeCompare(
-              String(
-                b.name ||
-                b.symbol ||
-                ""
-              )
-            );
+          return direction ===
+            "asc"
+            ? av -
+              bv
+            : bv -
+              av;
 
         }
       );
@@ -3671,104 +3970,9 @@
     }
 
 
-    /* =====================================================
-       MISSING CONDITIONS
-    ===================================================== */
-
-    function missingArray(row) {
-
-      if (
-        Array.isArray(
-          row.missingConditions
-        )
-      ) {
-
-        return row.missingConditions;
-
-      }
-
-
-      if (
-        Array.isArray(
-          row.missingConditionsList
-        )
-      ) {
-
-        return row.missingConditionsList;
-
-      }
-
-
-      if (
-        row.missingConditions
-      ) {
-
-        return String(
-          row.missingConditions
-        )
-          .split(
-            /\||,/
-          )
-          .map(
-            value =>
-              value.trim()
-          )
-          .filter(Boolean);
-
-      }
-
-
-      return [];
-
-    }
-
-
-    function missingText(row) {
-
-      const list =
-        missingArray(row);
-
-
-      return list.length
-        ? list.join(
-            " | "
-          )
-        : "None";
-
-    }
-
-
-    function triggerList(row) {
-
-      if (
-        Array.isArray(
-          row.fundamentalTriggers
-        )
-      ) {
-
-        return row.fundamentalTriggers;
-
-      }
-
-
-      if (
-        Array.isArray(
-          row.triggers
-        )
-      ) {
-
-        return row.triggers;
-
-      }
-
-
-      return [];
-
-    }
-
 
     /* =====================================================
-       RENDER
+       RENDER ROWS
     ===================================================== */
 
     function renderRows() {
@@ -3798,13 +4002,7 @@
               <td colspan="23">
 
                 <div class="empty-state">
-
-                  <strong>
-                    No stocks matched.
-                  </strong>
-
-                  Change filters and try again.
-
+                  No stocks matched filters.
                 </div>
 
               </td>
@@ -3844,14 +4042,6 @@
                 );
 
 
-              const keyTrigger =
-                row.keyTrigger
-                  ? escapeHtml(
-                      row.keyTrigger
-                    )
-                  : pendingDash();
-
-
               return `
                 <tr
                   data-row-index="${index}"
@@ -3870,7 +4060,7 @@
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${scoreBadge(
                       row.bigMoveScore
                     )}
@@ -3884,92 +4074,92 @@
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPrice(
                       row.price
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPct(
                       row.return1M
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPct(
                       row.return3M
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPct(
                       row.return6M
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPct(
                       row.return1Y
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${scoreBadge(
                       row.rsRating
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${scoreBadge(
                       row.stockMomentumRating
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${scoreBadge(
                       row.industryRating
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatPlainPct(
                       row.freeFloatPct
                     )}
                   </td>
 
 
-                  <td class="number-cell">
-                    ${formatFreeFloatShares(
+                  <td>
+                    ${formatShares(
                       row.freeFloatShares
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatTechnicalPct(
                       row.priorMovePct
                     )}
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatTechnicalPct(
                       row.retracementPct
                     )}
                   </td>
 
 
-                  <td class="number-cell">
-                    ${formatTechnicalDays(
+                  <td>
+                    ${formatInteger(
                       row.consolidationDays
                     )}
                   </td>
@@ -3996,7 +4186,7 @@
                   </td>
 
 
-                  <td class="number-cell">
+                  <td>
                     ${formatTimes(
                       row.turnoverExpansion
                     )}
@@ -4005,7 +4195,9 @@
 
                   <td>
                     ${
-                      hasTrigger(row)
+                      hasTrigger(
+                        row
+                      )
                         ? '<span class="signal-yes">YES</span>'
                         : '<span class="signal-no">NO</span>'
                     }
@@ -4013,19 +4205,27 @@
 
 
                   <td>
-                    ${keyTrigger}
+                    ${
+                      row.keyTrigger
+                        ? escapeHtml(
+                            row.keyTrigger
+                          )
+                        : dash()
+                    }
                   </td>
 
 
                   <td
                     style="
-                      max-width:280px;
+                      max-width:270px;
                       white-space:normal;
                       text-align:left;
                     "
                   >
                     ${escapeHtml(
-                      missingText(row)
+                      missingText(
+                        row
+                      )
                     )}
                   </td>
 
@@ -4044,35 +4244,37 @@
         .forEach(
           rowElement => {
 
-            rowElement.addEventListener(
-              "click",
-              () => {
+            rowElement
+              .addEventListener(
+                "click",
+                () => {
 
-                const index =
-                  Number(
-                    rowElement.dataset
-                      .rowIndex
-                  );
-
-
-                const row =
-                  filteredRows[
-                    index
-                  ];
+                  const index =
+                    Number(
+                      rowElement
+                        .dataset
+                        .rowIndex
+                    );
 
 
-                if (
-                  row
-                ) {
+                  const row =
+                    filteredRows[
+                      index
+                    ];
 
-                  openDrawer(
+
+                  if (
                     row
-                  );
+                  ) {
+
+                    openDrawer(
+                      row
+                    );
+
+                  }
 
                 }
-
-              }
-            );
+              );
 
           }
         );
@@ -4083,6 +4285,7 @@
       );
 
     }
+
 
 
     /* =====================================================
@@ -4111,7 +4314,10 @@
     }
 
 
-    function openDrawer(row) {
+
+    function openDrawer(
+      row
+    ) {
 
       el(
         "drawerTitle"
@@ -4129,12 +4335,18 @@
           row.symbol,
           row.industry
         ]
-          .filter(Boolean)
-          .join(" • ");
+          .filter(
+            Boolean
+          )
+          .join(
+            " • "
+          );
 
 
       const triggers =
-        triggerList(row);
+        triggerList(
+          row
+        );
 
 
       const triggerHtml =
@@ -4149,15 +4361,13 @@
                   `
               )
               .join("")
-          : (
-              '<span class="pending">' +
-              'No confirmed trigger' +
-              '</span>'
-            );
+          : dash();
 
 
       const missing =
-        missingArray(row);
+        missingArray(
+          row
+        );
 
 
       const missingHtml =
@@ -4167,7 +4377,9 @@
                 item =>
                   `• ${escapeHtml(item)}`
               )
-              .join("<br>")
+              .join(
+                "<br>"
+              )
           : (
               '<span class="signal-yes">' +
               'No missing conditions' +
@@ -4196,7 +4408,7 @@
               )}
 
               ${detailItem(
-                "Setup",
+                "Setup Status",
                 setupBadge(
                   row.setupStatus
                 )
@@ -4225,9 +4437,8 @@
 
               ${detailItem(
                 "Technical Score",
-                formatNumber(
-                  row.technicalScore,
-                  0
+                formatInteger(
+                  row.technicalScore
                 )
               )}
 
@@ -4252,38 +4463,86 @@
               )}
 
               ${detailItem(
-                "Market Cap ₹ Cr",
-                formatNumber(
-                  row.marketCapCr,
-                  0
-                )
-              )}
-
-              ${detailItem(
-                "1M Return",
+                "1M",
                 formatPct(
                   row.return1M
                 )
               )}
 
               ${detailItem(
-                "3M Return",
+                "3M",
                 formatPct(
                   row.return3M
                 )
               )}
 
               ${detailItem(
-                "6M Return",
+                "6M",
                 formatPct(
                   row.return6M
                 )
               )}
 
               ${detailItem(
-                "1Y Return",
+                "1Y",
                 formatPct(
                   row.return1Y
+                )
+              )}
+
+            </div>
+
+          </section>
+
+
+          <section class="drawer-section">
+
+            <h3>
+              Free Float / Supply
+            </h3>
+
+            <div class="detail-grid">
+
+              ${detailItem(
+                "Free Float %",
+                formatPlainPct(
+                  row.freeFloatPct
+                )
+              )}
+
+              ${detailItem(
+                "Free Float Shares",
+                formatShares(
+                  row.freeFloatShares
+                )
+              )}
+
+              ${detailItem(
+                "Public Shares",
+                formatShares(
+                  row.publicShares
+                )
+              )}
+
+              ${detailItem(
+                "Public Holding %",
+                formatPlainPct(
+                  row.publicHoldingPct
+                )
+              )}
+
+              ${detailItem(
+                "Locked Public Shares",
+                formatShares(
+                  row.publicLockedShares
+                )
+              )}
+
+              ${detailItem(
+                "Free Float Date",
+                escapeHtml(
+                  row.freeFloatDate ||
+                  "—"
                 )
               )}
 
@@ -4308,15 +4567,6 @@
               )}
 
               ${detailItem(
-                "Move Period",
-                row.movePeriod
-                  ? escapeHtml(
-                      row.movePeriod
-                    )
-                  : pendingDash()
-              )}
-
-              ${detailItem(
                 "Retracement",
                 formatTechnicalPct(
                   row.retracementPct
@@ -4325,7 +4575,7 @@
 
               ${detailItem(
                 "Consolidation Days",
-                formatTechnicalDays(
+                formatInteger(
                   row.consolidationDays
                 )
               )}
@@ -4345,7 +4595,7 @@
               )}
 
               ${detailItem(
-                "Breakout",
+                "Breakout Status",
                 formatBreakout(
                   row.breakoutStatus
                 )
@@ -4362,78 +4612,6 @@
                 "Turnover Expansion",
                 formatTimes(
                   row.turnoverExpansion
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Supply / Free Float
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Free Float %",
-                formatPlainPct(
-                  row.freeFloatPct
-                )
-              )}
-
-              ${detailItem(
-                "Free Float Shares",
-                formatFreeFloatShares(
-                  row.freeFloatShares
-                )
-              )}
-
-              ${detailItem(
-                "Public Shares",
-                formatFreeFloatShares(
-                  row.publicShares
-                )
-              )}
-
-              ${detailItem(
-                "Public Holding %",
-                formatPlainPct(
-                  row.publicHoldingPct
-                )
-              )}
-
-              ${detailItem(
-                "Locked Public Shares",
-                formatInteger(
-                  row.publicLockedShares
-                )
-              )}
-
-              ${detailItem(
-                "Free Float Date",
-                escapeHtml(
-                  row.freeFloatDate ||
-                  "—"
-                )
-              )}
-
-              ${detailItem(
-                "Free Float Status",
-                escapeHtml(
-                  row.freeFloatStatus ||
-                  "Pending"
-                )
-              )}
-
-              ${detailItem(
-                "Method",
-                escapeHtml(
-                  row.freeFloatMethod ||
-                  "—"
                 )
               )}
 
@@ -4490,6 +4668,7 @@
     }
 
 
+
     function closeDrawer() {
 
       el(
@@ -4512,153 +4691,116 @@
     }
 
 
+
     /* =====================================================
-       SCROLL SYNC
+       RESET
     ===================================================== */
 
-    let syncingFromTop =
-      false;
+    function resetFilters() {
+
+      el(
+        "searchInput"
+      ).value =
+        "";
 
 
-    let syncingFromTable =
-      false;
-
-
-    function updateTopScrollbar() {
-
-      const tableWrap =
-        el(
-          "tableWrap"
-        );
-
-
-      const table =
-        el(
-          "scannerTable"
-        );
-
-
-      const inner =
-        el(
-          "topScrollInner"
-        );
-
-
-      if (
-        !tableWrap ||
-        !table ||
-        !inner
-      ) {
-
-        return;
-
-      }
-
-
-      inner.style.width =
-        `${Math.max(
-          table.scrollWidth,
-          tableWrap.clientWidth
-        )}px`;
-
-    }
-
-
-    function setupScrollSync() {
-
-      const top =
-        el(
-          "topScroll"
-        );
-
-
-      const tableWrap =
-        el(
-          "tableWrap"
-        );
-
-
-      top.addEventListener(
-        "scroll",
-        () => {
+      columns.forEach(
+        config => {
 
           if (
-            syncingFromTable
+            config.type ===
+            "number"
           ) {
 
-            return;
+            el(
+              `active_${config.field}`
+            ).checked =
+              false;
+
+
+            el(
+              `operator_${config.field}`
+            ).value =
+              "above";
+
+
+            el(
+              `value_${config.field}`
+            ).value =
+              "";
+
+
+            el(
+              `sort_${config.field}`
+            ).value =
+              config.field ===
+                "bigMoveScore"
+                ? "desc"
+                : "";
 
           }
 
 
-          syncingFromTop =
-            true;
+          else if (
+            config.type ===
+              "select" ||
+            config.type ===
+              "boolean"
+          ) {
+
+            el(
+              `select_${config.field}`
+            ).value =
+              "";
+
+          }
 
 
-          tableWrap.scrollLeft =
-            top.scrollLeft;
+          else if (
+            config.type ===
+            "trigger"
+          ) {
 
+            el(
+              "select_fundamentalTrigger"
+            ).value =
+              "";
 
-          requestAnimationFrame(
-            () => {
-
-              syncingFromTop =
-                false;
-
-            }
-          );
+          }
 
         }
       );
 
 
-      tableWrap.addEventListener(
-        "scroll",
-        () => {
-
-          if (
-            syncingFromTop
-          ) {
-
-            return;
-
-          }
+      activeSortField =
+        "bigMoveScore";
 
 
-          syncingFromTable =
-            true;
+      activeSortDirection =
+        "desc";
 
 
-          top.scrollLeft =
-            tableWrap.scrollLeft;
+      filteredRows =
+        [
+          ...allRows
+        ];
 
 
-          requestAnimationFrame(
-            () => {
+      sortRows();
 
-              syncingFromTable =
-                false;
-
-            }
-          );
-
-        }
-      );
-
-
-      window.addEventListener(
-        "resize",
-        updateTopScrollbar
-      );
+      renderRows();
 
     }
+
 
 
     /* =====================================================
        CSV
     ===================================================== */
 
-    function csvCell(value) {
+    function csvCell(
+      value
+    ) {
 
       if (
         value === null ||
@@ -4671,13 +4813,21 @@
 
 
       const text =
-        String(value);
+        String(
+          value
+        );
 
 
       if (
-        text.includes(",") ||
-        text.includes('"') ||
-        text.includes("\n")
+        text.includes(
+          ","
+        ) ||
+        text.includes(
+          '"'
+        ) ||
+        text.includes(
+          "\n"
+        )
       ) {
 
         return (
@@ -4697,18 +4847,6 @@
     }
 
 
-    function rawNumber(value) {
-
-      const n =
-        num(value);
-
-
-      return n === null
-        ? ""
-        : n;
-
-    }
-
 
     function exportCSV() {
 
@@ -4716,173 +4854,127 @@
         !filteredRows.length
       ) {
 
-        alert(
-          "No matched stocks to export."
-        );
-
         return;
 
       }
 
 
-      const exportRows =
-        filteredRows.map(
-          row => ({
+      const headers = [
 
-            "Stock":
-              row.stock ||
+        "Stock",
+        "Symbol",
+        "Big Move Score",
+        "Setup Status",
+        "Price",
+        "1M %",
+        "3M %",
+        "6M %",
+        "1Y %",
+        "RS",
+        "Stock Momentum",
+        "Industry Rating",
+        "Free Float %",
+        "Free Float Shares",
+        "Prior Move %",
+        "Retracement %",
+        "Consolidation Days",
+        "Volume Contraction",
+        "Volatility Contraction",
+        "Breakout Status",
+        "Turnover Expansion",
+        "Fundamental Trigger",
+        "Key Trigger",
+        "Missing Conditions"
+
+      ];
+
+
+      const lines = [
+
+        headers
+          .map(
+            csvCell
+          )
+          .join(
+            ","
+          )
+
+      ];
+
+
+      filteredRows.forEach(
+        row => {
+
+          const values = [
+
+            row.stock ||
               row.name ||
               "",
 
-            "Symbol":
-              row.symbol ||
+            row.symbol ||
               "",
 
-            "Big Move Score":
-              rawNumber(
-                row.bigMoveScore
-              ),
+            row.bigMoveScore,
 
-            "Setup Status":
-              row.setupStatus ||
-              "",
+            row.setupStatus,
 
-            "Price":
-              rawNumber(
-                row.price
-              ),
+            row.price,
 
-            "1M Return %":
-              rawNumber(
-                row.return1M
-              ),
+            row.return1M,
 
-            "3M Return %":
-              rawNumber(
-                row.return3M
-              ),
+            row.return3M,
 
-            "6M Return %":
-              rawNumber(
-                row.return6M
-              ),
+            row.return6M,
 
-            "1Y Return %":
-              rawNumber(
-                row.return1Y
-              ),
+            row.return1Y,
 
-            "RS Rating":
-              rawNumber(
-                row.rsRating
-              ),
+            row.rsRating,
 
-            "Stock Momentum Rating":
-              rawNumber(
-                row.stockMomentumRating
-              ),
+            row.stockMomentumRating,
 
-            "Industry Rating":
-              rawNumber(
-                row.industryRating
-              ),
+            row.industryRating,
 
-            "Free Float %":
-              rawNumber(
-                row.freeFloatPct
-              ),
+            row.freeFloatPct,
 
-            "Free Float Shares":
-              rawNumber(
-                row.freeFloatShares
-              ),
+            row.freeFloatShares,
 
-            "Free Float Date":
-              row.freeFloatDate ||
-              "",
+            row.priorMovePct,
 
-            "Prior Move %":
-              rawNumber(
-                row.priorMovePct
-              ),
+            row.retracementPct,
 
-            "Move Period":
-              row.movePeriod ||
-              "",
+            row.consolidationDays,
 
-            "Retracement %":
-              rawNumber(
-                row.retracementPct
-              ),
+            row.volumeContraction,
 
-            "Consolidation Days":
-              rawNumber(
-                row.consolidationDays
-              ),
+            row.volatilityContraction,
 
-            "Volume Contraction":
-              row.volumeContraction ??
-              "",
+            row.breakoutStatus,
 
-            "Volatility Contraction":
-              row.volatilityContraction ??
-              "",
+            row.turnoverExpansion,
 
-            "Breakout Status":
-              row.breakoutStatus ||
-              "",
-
-            "Turnover Expansion":
-              rawNumber(
-                row.turnoverExpansion
-              ),
-
-            "Fundamental Trigger":
-              hasTrigger(row)
-                ? "YES"
-                : "NO",
-
-            "Key Trigger":
-              row.keyTrigger ||
-              "",
-
-            "Missing Conditions":
-              missingText(row)
-
-          })
-        );
-
-
-      const headers =
-        Object.keys(
-          exportRows[0]
-        );
-
-
-      const lines =
-        [
-          headers
-            .map(
-              csvCell
+            hasTrigger(
+              row
             )
-            .join(",")
-        ];
+              ? "YES"
+              : "NO",
 
+            row.keyTrigger,
 
-      exportRows.forEach(
-        row => {
+            missingText(
+              row
+            )
+
+          ];
+
 
           lines.push(
-            headers
+            values
               .map(
-                header =>
-                  csvCell(
-                    row[
-                      header
-                    ]
-                  )
+                csvCell
               )
-              .join(",")
+              .join(
+                ","
+              )
           );
 
         }
@@ -4916,18 +5008,17 @@
         );
 
 
-      const date =
-        scannerMeta.marketDate ||
-        scannerMeta.updated ||
-        "latest";
-
-
       link.href =
         url;
 
 
       link.download =
-        `BIG_MOVE_SCANNER_${date}_${filteredRows.length}_stocks.csv`;
+        `BIG_MOVE_SCANNER_${
+          scannerMeta.marketDate ||
+          "latest"
+        }_${
+          filteredRows.length
+        }_stocks.csv`;
 
 
       document.body.appendChild(
@@ -4940,106 +5031,259 @@
       link.remove();
 
 
-      setTimeout(
-        () => {
-
-          URL.revokeObjectURL(
-            url
-          );
-
-        },
-        1000
+      URL.revokeObjectURL(
+        url
       );
 
     }
 
 
+
     /* =====================================================
-       RESET
+       SCROLL SYNC
     ===================================================== */
 
-    function resetFilters() {
-
-      el(
-        "searchInput"
-      ).value =
-        "";
+    let syncingTop =
+      false;
 
 
-      [
-        "setupFilter",
-        "breakoutFilter",
-        "volumeFilter",
-        "volatilityFilter",
-        "triggerFilter"
-      ]
-        .forEach(
-          id => {
+    let syncingTable =
+      false;
 
-            el(id).value =
-              "";
 
-          }
+
+    function updateTopScrollbar() {
+
+      const table =
+        el(
+          "scannerTable"
         );
 
 
-      numericFilters.forEach(
-        config => {
-
-          el(
-            `active_${config.field}`
-          ).checked =
-            false;
+      const wrap =
+        el(
+          "tableWrap"
+        );
 
 
-          el(
-            `operator_${config.field}`
-          ).value =
-            "above";
+      el(
+        "topScrollInner"
+      ).style.width =
+        `${Math.max(
+          table.scrollWidth,
+          wrap.clientWidth
+        )}px`;
+
+    }
 
 
-          el(
-            `value_${config.field}`
-          ).value =
-            "";
+
+    function setupScrollSync() {
+
+      const top =
+        el(
+          "topScroll"
+        );
 
 
-          el(
-            `sort_${config.field}`
-          ).value =
-            config.field ===
-              "bigMoveScore"
-              ? "desc"
-              : "";
+      const wrap =
+        el(
+          "tableWrap"
+        );
+
+
+      top.addEventListener(
+        "scroll",
+        () => {
+
+          if (
+            syncingTable
+          ) {
+
+            return;
+
+          }
+
+
+          syncingTop =
+            true;
+
+
+          wrap.scrollLeft =
+            top.scrollLeft;
+
+
+          requestAnimationFrame(
+            () => {
+
+              syncingTop =
+                false;
+
+            }
+          );
 
         }
       );
 
 
-      activeSortField =
-        "bigMoveScore";
+      wrap.addEventListener(
+        "scroll",
+        () => {
+
+          if (
+            syncingTop
+          ) {
+
+            return;
+
+          }
 
 
-      activeSortDirection =
-        "desc";
+          syncingTable =
+            true;
 
 
-      filteredRows =
-        [
-          ...allRows
-        ];
+          top.scrollLeft =
+            wrap.scrollLeft;
 
 
-      sortRows();
+          requestAnimationFrame(
+            () => {
 
-      renderRows();
+              syncingTable =
+                false;
+
+            }
+          );
+
+        }
+      );
+
+
+      window.addEventListener(
+        "resize",
+        updateTopScrollbar
+      );
 
     }
+
 
 
     /* =====================================================
        EVENTS
     ===================================================== */
+
+    function setupFilterEvents() {
+
+      columns.forEach(
+        config => {
+
+          if (
+            config.type ===
+            "number"
+          ) {
+
+            el(
+              `active_${config.field}`
+            )
+              ?.addEventListener(
+                "change",
+                applyFilters
+              );
+
+
+            el(
+              `operator_${config.field}`
+            )
+              ?.addEventListener(
+                "change",
+                applyFilters
+              );
+
+
+            el(
+              `value_${config.field}`
+            )
+              ?.addEventListener(
+                "keydown",
+                event => {
+
+                  if (
+                    event.key ===
+                    "Enter"
+                  ) {
+
+                    applyFilters();
+
+                  }
+
+                }
+              );
+
+
+            el(
+              `sort_${config.field}`
+            )
+              ?.addEventListener(
+                "change",
+                event => {
+
+                  if (
+                    event.target.value
+                  ) {
+
+                    changeSort(
+                      config.field,
+                      event.target.value
+                    );
+
+                  }
+
+                }
+              );
+
+          }
+
+
+          else if (
+            config.type ===
+              "select" ||
+            config.type ===
+              "boolean"
+          ) {
+
+            el(
+              `select_${config.field}`
+            )
+              ?.addEventListener(
+                "change",
+                applyFilters
+              );
+
+          }
+
+
+          else if (
+            config.type ===
+            "trigger"
+          ) {
+
+            el(
+              "select_fundamentalTrigger"
+            )
+              ?.addEventListener(
+                "change",
+                applyFilters
+              );
+
+          }
+
+        }
+      );
+
+    }
+
+
 
     function setupEvents() {
 
@@ -5074,114 +5318,9 @@
         "searchInput"
       )
         .addEventListener(
-          "keydown",
-          event => {
-
-            if (
-              event.key ===
-              "Enter"
-            ) {
-
-              applyFilters();
-
-            }
-
-          }
+          "input",
+          applyFilters
         );
-
-
-      [
-        "setupFilter",
-        "breakoutFilter",
-        "volumeFilter",
-        "volatilityFilter",
-        "triggerFilter"
-      ]
-        .forEach(
-          id => {
-
-            el(id)
-              .addEventListener(
-                "change",
-                applyFilters
-              );
-
-          }
-        );
-
-
-      numericFilters.forEach(
-        config => {
-
-          const field =
-            config.field;
-
-
-          el(
-            `sort_${field}`
-          )
-            .addEventListener(
-              "change",
-              event => {
-
-                const direction =
-                  event.target.value;
-
-
-                if (
-                  direction
-                ) {
-
-                  setSort(
-                    field,
-                    direction
-                  );
-
-                }
-
-              }
-            );
-
-
-          el(
-            `active_${field}`
-          )
-            .addEventListener(
-              "change",
-              applyFilters
-            );
-
-
-          el(
-            `operator_${field}`
-          )
-            .addEventListener(
-              "change",
-              applyFilters
-            );
-
-
-          el(
-            `value_${field}`
-          )
-            .addEventListener(
-              "keydown",
-              event => {
-
-                if (
-                  event.key ===
-                  "Enter"
-                ) {
-
-                  applyFilters();
-
-                }
-
-              }
-            );
-
-        }
-      );
 
 
       el(
@@ -5221,66 +5360,12 @@
     }
 
 
-    /* =====================================================
-       ERROR
-    ===================================================== */
-
-    function showLoadError(
-      error
-    ) {
-
-      console.error(
-        error
-      );
-
-
-      el(
-        "scannerRows"
-      ).innerHTML =
-        `
-          <tr>
-
-            <td colspan="23">
-
-              <div class="empty-state">
-
-                <strong>
-                  Scanner backend data could not be loaded.
-                </strong>
-
-                Check data/big_move_scanner.json
-                and workflow status.
-
-              </div>
-
-            </td>
-
-          </tr>
-        `;
-
-
-      el(
-        "resultCount"
-      ).textContent =
-        "Scanner unavailable";
-
-    }
-
 
     /* =====================================================
        INIT
     ===================================================== */
 
     async function init() {
-
-      renderNumericFilters();
-
-
-      setupEvents();
-
-
-      setupScrollSync();
-
 
       try {
 
@@ -5294,9 +5379,6 @@
           );
 
 
-        populateStatusFilters();
-
-
         filteredRows =
           [
             ...allRows
@@ -5304,6 +5386,18 @@
 
 
         updateSummary();
+
+
+        renderColumnFilters();
+
+
+        setupFilterEvents();
+
+
+        setupEvents();
+
+
+        setupScrollSync();
 
 
         sortRows();
@@ -5327,13 +5421,32 @@
         error
       ) {
 
-        showLoadError(
+        console.error(
           error
         );
+
+
+        el(
+          "scannerRows"
+        ).innerHTML =
+          `
+            <tr>
+
+              <td colspan="23">
+
+                <div class="empty-state">
+                  Scanner backend data could not be loaded.
+                </div>
+
+              </td>
+
+            </tr>
+          `;
 
       }
 
     }
+
 
 
     document.addEventListener(
@@ -5344,4 +5457,5 @@
   </script>
 
 </body>
+
 </html>
