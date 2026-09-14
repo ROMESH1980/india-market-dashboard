@@ -172,8 +172,8 @@
       "historyRows": 1257,
       "daily": 40,
       "weekly": 42,
-      "monthly": 40,
-      "overall": 41,
+      "monthly": 65,
+      "overall": 53,
       "dailySignal": {
         "label": "Weak / Correction",
         "signal": "reduce",
@@ -185,39 +185,39 @@
         "emoji": "🟠"
       },
       "monthlySignal": {
-        "label": "Weak / Correction",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Strong",
+        "signal": "overweight",
+        "emoji": "🟢"
       },
       "overallSignal": {
-        "label": "Weak / Correction",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Neutral / Cautious",
+        "signal": "warning",
+        "emoji": "🟡"
       },
       "details": {
         "daily": {
-          "latest": 4333.0,
-          "fastMA": 4465.95,
-          "slowMA": 4270.36,
-          "momentumPct": -2.19,
-          "rsi14": 26.88,
-          "distanceFromHighPct": -6.63
+          "latest": 4352.0,
+          "fastMA": 4466.9,
+          "slowMA": 4270.74,
+          "momentumPct": -1.76,
+          "rsi14": 27.67,
+          "distanceFromHighPct": -6.22
         },
         "weekly": {
-          "latest": 4333.0,
-          "fastMA": 4308.17,
-          "slowMA": 4487.53,
-          "momentumPct": -6.3,
-          "rsi14": 54.8,
-          "distanceFromHighPct": -6.3
+          "latest": 4352.0,
+          "fastMA": 4310.07,
+          "slowMA": 4488.16,
+          "momentumPct": -5.88,
+          "rsi14": 55.67,
+          "distanceFromHighPct": -5.88
         },
         "monthly": {
-          "latest": 4333.0,
-          "fastMA": 4335.22,
-          "slowMA": 4492.89,
-          "momentumPct": 7.71,
-          "rsi14": 64.24,
-          "distanceFromHighPct": -17.16
+          "latest": 4352.0,
+          "fastMA": 4338.38,
+          "slowMA": 4494.79,
+          "momentumPct": 8.18,
+          "rsi14": 64.58,
+          "distanceFromHighPct": -16.8
         }
       },
       "error": null
@@ -367,5 +367,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-14T12:20:27.297909+00:00"
+  "marketRegimeGeneratedAt": "2026-09-14T17:42:32.952965+00:00"
 }
