@@ -21,12 +21,147 @@
     src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
     defer
   ></script>
+
+  <!-- =====================================================
+       PAGE NAVIGATION
+       Kept here so styles.css does not need modification.
+  ====================================================== -->
+
+  <style>
+
+    .page-nav {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        8px 10px;
+
+      background:
+        #081321;
+
+      border-bottom:
+        1px solid #223651;
+
+      position: relative;
+
+      z-index: 50;
+    }
+
+
+    .page-nav-link {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 34px;
+
+      padding:
+        0 14px;
+
+      border:
+        1px solid #29415e;
+
+      border-radius:
+        7px;
+
+      background:
+        #0c192b;
+
+      color:
+        #aebed2;
+
+      text-decoration:
+        none;
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+      white-space:
+        nowrap;
+
+      transition:
+        0.15s ease;
+    }
+
+
+    .page-nav-link:hover {
+      color:
+        #ffffff;
+
+      background:
+        #102039;
+
+      border-color:
+        #3c5e84;
+    }
+
+
+    .page-nav-link.active {
+      color:
+        #ffffff;
+
+      background:
+        #245e9e;
+
+      border-color:
+        #377fc9;
+    }
+
+
+    @media (max-width: 700px) {
+
+      .page-nav {
+        overflow-x:
+          auto;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
 <body>
 
   <div class="app-shell">
+
+
+    <!-- =================================================
+         PAGE NAVIGATION
+    ================================================== -->
+
+    <nav
+      class="page-nav"
+      aria-label="Research pages"
+    >
+
+      <a
+        class="page-nav-link active"
+        href="index.html"
+      >
+        Market Research
+      </a>
+
+
+      <a
+        class="page-nav-link"
+        href="big-move-scanner.html"
+      >
+        Big Move Scanner
+      </a>
+
+    </nav>
+
+
 
     <!-- =================================================
          HEADER
@@ -497,7 +632,8 @@
             <th>
 
               <div class="filter-box">
-                                <label class="filter-toggle">
+
+                <label class="filter-toggle">
 
                   <input
                     id="activeMarketCap"
@@ -830,7 +966,7 @@
 
 
 
-                      <!-- RS RATING -->
+            <!-- RS RATING -->
 
             <th>
 
@@ -862,6 +998,7 @@
               </div>
 
             </th>
+
 
 
             <!-- SECTOR -->
@@ -932,9 +1069,7 @@
 
 
 
-            <!-- =================================================
-                 INDUSTRY 1M
-            ================================================== -->
+            <!-- INDUSTRY 1M -->
 
             <th>
 
@@ -1033,10 +1168,7 @@
 
 
 
-            <!-- =================================================
-                 INDUSTRY RATING
-                 ABOVE / ASCENDING / DESCENDING
-            ================================================== -->
+            <!-- INDUSTRY RATING -->
 
             <th>
 
@@ -1091,9 +1223,7 @@
 
 
 
-            <!-- =================================================
-                 STOCK 1M
-            ================================================== -->
+            <!-- STOCK 1M -->
 
             <th>
 
@@ -1192,10 +1322,7 @@
 
 
 
-            <!-- =================================================
-                 STOCK MOMENTUM RATING
-                 ABOVE / ASCENDING / DESCENDING
-            ================================================== -->
+            <!-- STOCK MOMENTUM RATING -->
 
             <th>
 
@@ -1247,7 +1374,10 @@
               </div>
 
             </th>
-                        <!-- TMV -->
+
+
+
+            <!-- TMV -->
 
             <th>
 
