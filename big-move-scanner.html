@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -10,10 +9,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    Big Move Scanner | MY MARKET RESEARCH
-  </title>
-
+  <title>Big Move Scanner | MY MARKET RESEARCH</title>
 
   <style>
 
@@ -21,8 +17,6 @@
       --bg: #07111f;
       --panel: #0c192b;
       --panel2: #102039;
-      --panel3: #132640;
-
       --border: #223651;
       --border-soft: #192c45;
 
@@ -92,47 +86,40 @@
     ===================================================== */
 
     .site-header {
-      min-height: 54px;
+      min-height: 50px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 18px;
+      gap: 14px;
 
-      padding:
-        8px 18px;
+      padding: 6px 14px;
 
       border-bottom:
         1px solid var(--border-soft);
 
-      background:
-        #081321;
+      background: #081321;
     }
 
 
     .brand {
       margin: 0;
 
-      font-size: 21px;
+      font-size: 19px;
       line-height: 1;
 
       font-weight: 900;
-
-      letter-spacing:
-        0.4px;
+      letter-spacing: 0.3px;
     }
 
 
     .brand-subtitle {
-      margin-top:
-        4px;
+      margin-top: 3px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        10px;
+      font-size: 9px;
     }
 
 
@@ -140,62 +127,44 @@
       display: flex;
       align-items: center;
 
-      gap:
-        7px;
+      gap: 5px;
     }
 
 
     .nav-link {
-      padding:
-        9px 13px;
+      padding: 7px 10px;
 
       border:
         1px solid transparent;
 
-      border-radius:
-        7px;
+      border-radius: 6px;
 
-      color:
-        #aebed2;
+      color: #aebed2;
 
-      font-size:
-        12px;
+      font-size: 11px;
+      font-weight: 700;
 
-      font-weight:
-        700;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
     .nav-link:hover {
-      background:
-        var(--panel);
-
-      color:
-        #fff;
+      background: var(--panel);
+      color: #fff;
     }
 
 
     .nav-link.active {
-      background:
-        var(--panel2);
+      background: var(--panel2);
+      border-color: var(--border);
 
-      border-color:
-        var(--border);
-
-      color:
-        #fff;
+      color: #fff;
     }
 
 
     .nav-link.disabled {
-      opacity:
-        0.45;
-
-      cursor:
-        default;
+      opacity: 0.4;
+      cursor: default;
     }
 
 
@@ -207,8 +176,7 @@
     .page {
       width: 100%;
 
-      padding:
-        10px 18px 18px;
+      padding: 8px 12px 14px;
     }
 
 
@@ -222,64 +190,47 @@
       align-items: center;
       justify-content: space-between;
 
-      gap:
-        18px;
+      gap: 14px;
 
-      margin-bottom:
-        8px;
+      margin-bottom: 6px;
     }
 
 
     .scanner-heading h1 {
       margin: 0;
 
-      font-size:
-        22px;
+      font-size: 20px;
+      font-weight: 900;
 
-      font-weight:
-        900;
-
-      line-height:
-        1.05;
+      line-height: 1;
     }
 
 
     .scanner-heading p {
-      margin:
-        4px 0 0;
+      margin: 3px 0 0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        11px;
+      font-size: 10px;
     }
 
 
     .scanner-active {
-      padding:
-        7px 12px;
+      padding: 6px 10px;
 
       border:
         1px solid rgba(39, 217, 128, 0.27);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      background:
-        var(--green-soft);
+      background: var(--green-soft);
 
-      color:
-        var(--green);
+      color: var(--green);
 
-      font-size:
-        11px;
+      font-size: 10px;
+      font-weight: 900;
 
-      font-weight:
-        900;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
@@ -294,83 +245,63 @@
       grid-template-columns:
         repeat(
           6,
-          minmax(125px, 1fr)
+          minmax(105px, 1fr)
         );
 
-      gap:
-        8px;
+      gap: 5px;
 
-      margin-bottom:
-        8px;
+      margin-bottom: 6px;
     }
 
 
     .summary-card {
-      min-height:
-        70px;
+      min-height: 58px;
 
-      padding:
-        9px 12px;
+      padding: 7px 9px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 7px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     .summary-label {
-      color:
-        #91a7c3;
+      color: #91a7c3;
 
-      font-size:
-        9px;
+      font-size: 8px;
+      font-weight: 900;
 
-      font-weight:
-        900;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        0.5px;
+      letter-spacing: 0.4px;
     }
 
 
     .summary-value {
-      margin-top:
-        5px;
+      margin-top: 4px;
 
-      font-size:
-        21px;
+      font-size: 18px;
+      font-weight: 900;
 
-      font-weight:
-        900;
-
-      line-height:
-        1;
+      line-height: 1;
     }
 
 
     .summary-note {
-      margin-top:
-        5px;
+      margin-top: 3px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        9px;
+      font-size: 8px;
     }
 
 
 
     /* =====================================================
-       SEARCH BAR ONLY
+       SEARCH
     ===================================================== */
 
     .search-toolbar {
@@ -378,23 +309,18 @@
       align-items: center;
       justify-content: space-between;
 
-      gap:
-        10px;
+      gap: 8px;
 
-      margin-bottom:
-        7px;
+      margin-bottom: 5px;
 
-      padding:
-        7px;
+      padding: 5px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        8px;
+      border-radius: 7px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
@@ -402,95 +328,59 @@
       display: flex;
       align-items: center;
 
-      gap:
-        7px;
+      gap: 5px;
 
-      min-width:
-        0;
+      min-width: 0;
 
-      flex:
-        1;
+      flex: 1;
     }
 
 
     #searchInput {
       width:
-        min(430px, 100%);
+        min(360px, 100%);
 
-      height:
-        34px;
+      height: 30px;
 
-      padding:
-        0 10px;
+      padding: 0 8px;
 
       border:
         1px solid #29415e;
 
-      border-radius:
-        6px;
+      border-radius: 5px;
 
-      outline:
-        none;
+      outline: none;
 
-      background:
-        #0b1829;
+      background: #0b1829;
+      color: #fff;
 
-      color:
-        #fff;
-
-      font-size:
-        11px;
-    }
-
-
-    #searchInput:focus {
-      border-color:
-        #3f7fd3;
+      font-size: 10px;
     }
 
 
     .btn {
-      min-height:
-        33px;
+      min-height: 29px;
 
-      padding:
-        0 13px;
+      padding: 0 10px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        6px;
+      border-radius: 5px;
 
-      background:
-        var(--panel2);
+      background: var(--panel2);
+      color: #fff;
 
-      color:
-        #fff;
+      font-size: 10px;
+      font-weight: 800;
 
-      font-size:
-        11px;
-
-      font-weight:
-        800;
-
-      cursor:
-        pointer;
-    }
-
-
-    .btn:hover {
-      filter:
-        brightness(1.13);
+      cursor: pointer;
     }
 
 
     .btn-primary {
-      background:
-        #245e9e;
-
-      border-color:
-        #377fc9;
+      background: #245e9e;
+      border-color: #377fc9;
     }
 
 
@@ -503,23 +393,17 @@
       display: flex;
       align-items: center;
 
-      gap:
-        13px;
+      gap: 10px;
 
-      min-height:
-        24px;
+      min-height: 20px;
 
-      padding:
-        0 2px;
+      padding: 0 2px;
 
-      margin-bottom:
-        4px;
+      margin-bottom: 3px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        9px;
+      font-size: 8px;
     }
 
 
@@ -527,44 +411,35 @@
       display: inline-flex;
       align-items: center;
 
-      gap:
-        4px;
+      gap: 3px;
     }
 
 
     .legend-dot {
-      width:
-        7px;
+      width: 6px;
+      height: 6px;
 
-      height:
-        7px;
-
-      border-radius:
-        50%;
+      border-radius: 50%;
     }
 
 
     .green {
-      background:
-        var(--green);
+      background: var(--green);
     }
 
 
     .yellow {
-      background:
-        var(--yellow);
+      background: var(--yellow);
     }
 
 
     .orange {
-      background:
-        var(--orange);
+      background: var(--orange);
     }
 
 
     .red {
-      background:
-        var(--red);
+      background: var(--red);
     }
 
 
@@ -577,67 +452,50 @@
       border:
         1px solid var(--border);
 
-      border-radius:
-        9px;
+      border-radius: 7px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
 
-      overflow:
-        hidden;
+      overflow: hidden;
     }
 
 
     .table-toolbar {
-      min-height:
-        40px;
+      min-height: 34px;
 
-      padding:
-        5px 10px;
+      padding: 4px 8px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap:
-        10px;
-
       border-bottom:
         1px solid var(--border);
 
-      background:
-        #0b1829;
+      background: #0b1829;
     }
 
 
     .result-count {
-      color:
-        #9eb0c6;
+      color: #9eb0c6;
 
-      font-size:
-        10px;
+      font-size: 9px;
     }
 
 
 
     /* =====================================================
-       TOP SCROLLBAR
+       SCROLLBAR
     ===================================================== */
 
     .top-scroll-wrap {
       width: 100%;
+      height: 16px;
 
-      height:
-        18px;
+      overflow-x: auto;
+      overflow-y: hidden;
 
-      overflow-x:
-        auto;
-
-      overflow-y:
-        hidden;
-
-      background:
-        #081422;
+      background: #081422;
 
       border-bottom:
         1px solid var(--border-soft);
@@ -645,41 +503,31 @@
 
 
     .top-scroll-inner {
-      height:
-        1px;
-
-      min-width:
-        100%;
+      height: 1px;
+      min-width: 100%;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar,
     .table-wrap::-webkit-scrollbar {
-      height:
-        12px;
-
-      width:
-        11px;
+      height: 10px;
+      width: 10px;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-track,
     .table-wrap::-webkit-scrollbar-track {
-      background:
-        #07111f;
+      background: #07111f;
     }
 
 
     .top-scroll-wrap::-webkit-scrollbar-thumb,
     .table-wrap::-webkit-scrollbar-thumb {
-      background:
-        #455f82;
+      background: #455f82;
 
-      border-radius:
-        10px;
+      border-radius: 8px;
 
-      border:
-        2px solid #07111f;
+      border: 2px solid #07111f;
     }
 
 
@@ -689,59 +537,43 @@
     ===================================================== */
 
     .table-wrap {
-      width:
-        100%;
+      width: 100%;
 
       max-height:
-        calc(100vh - 290px);
+        calc(100vh - 245px);
 
-      min-height:
-        430px;
+      min-height: 430px;
 
-      overflow:
-        auto;
+      overflow: auto;
 
-      position:
-        relative;
+      position: relative;
     }
 
 
     table {
-      border-collapse:
-        separate;
+      border-collapse: separate;
+      border-spacing: 0;
 
-      border-spacing:
-        0;
+      width: max-content;
 
-      width:
-        max-content;
+      min-width: 2450px;
 
-      min-width:
-        3350px;
-
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     thead {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
-
-      z-index:
-        10;
+      z-index: 10;
     }
 
 
     th {
-      min-width:
-        115px;
+      min-width: 82px;
 
-      padding:
-        7px 6px;
+      padding: 5px 4px;
 
       border-right:
         1px solid var(--border);
@@ -749,77 +581,214 @@
       border-bottom:
         1px solid var(--border);
 
-      background:
-        #10223a;
+      background: #10223a;
 
-      color:
-        #f7f9fc;
+      color: #f7f9fc;
 
-      font-size:
-        9.5px;
+      font-size: 8px;
+      font-weight: 900;
 
-      font-weight:
-        900;
+      line-height: 1.05;
 
-      line-height:
-        1.1;
+      text-align: center;
 
-      text-align:
-        center;
+      vertical-align: middle;
+    }
 
-      vertical-align:
-        middle;
+
+    /* STOCK */
+
+    th:nth-child(1),
+    td:nth-child(1) {
+      min-width: 205px;
+      width: 205px;
+      max-width: 205px;
+    }
+
+
+    /* SCORE */
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      min-width: 75px;
+      width: 75px;
+    }
+
+
+    /* SETUP */
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      min-width: 92px;
+      width: 92px;
+    }
+
+
+    /* PRICE */
+
+    th:nth-child(4),
+    td:nth-child(4) {
+      min-width: 82px;
+      width: 82px;
+    }
+
+
+    /* RETURNS */
+
+    th:nth-child(5),
+    td:nth-child(5),
+    th:nth-child(6),
+    td:nth-child(6),
+    th:nth-child(7),
+    td:nth-child(7),
+    th:nth-child(8),
+    td:nth-child(8) {
+      min-width: 72px;
+      width: 72px;
+    }
+
+
+    /* RATINGS */
+
+    th:nth-child(9),
+    td:nth-child(9),
+    th:nth-child(10),
+    td:nth-child(10),
+    th:nth-child(11),
+    td:nth-child(11) {
+      min-width: 82px;
+      width: 82px;
+    }
+
+
+    /* FREE FLOAT % */
+
+    th:nth-child(12),
+    td:nth-child(12) {
+      min-width: 82px;
+      width: 82px;
+    }
+
+
+    /* FREE FLOAT SHARES */
+
+    th:nth-child(13),
+    td:nth-child(13) {
+      min-width: 105px;
+      width: 105px;
+    }
+
+
+    /* PRIOR MOVE */
+
+    th:nth-child(14),
+    td:nth-child(14) {
+      min-width: 82px;
+      width: 82px;
+    }
+
+
+    /* RETRACEMENT */
+
+    th:nth-child(15),
+    td:nth-child(15) {
+      min-width: 82px;
+      width: 82px;
+    }
+
+
+    /* CONSOLIDATION */
+
+    th:nth-child(16),
+    td:nth-child(16) {
+      min-width: 90px;
+      width: 90px;
+    }
+
+
+    /* VOLUME / VOLATILITY */
+
+    th:nth-child(17),
+    td:nth-child(17),
+    th:nth-child(18),
+    td:nth-child(18) {
+      min-width: 88px;
+      width: 88px;
+    }
+
+
+    /* BREAKOUT */
+
+    th:nth-child(19),
+    td:nth-child(19) {
+      min-width: 94px;
+      width: 94px;
+    }
+
+
+    /* TURNOVER */
+
+    th:nth-child(20),
+    td:nth-child(20) {
+      min-width: 90px;
+      width: 90px;
+    }
+
+
+    /* FUNDAMENTAL */
+
+    th:nth-child(21),
+    td:nth-child(21) {
+      min-width: 86px;
+      width: 86px;
+    }
+
+
+    /* KEY TRIGGER */
+
+    th:nth-child(22),
+    td:nth-child(22) {
+      min-width: 125px;
+      width: 125px;
+    }
+
+
+    /* MISSING */
+
+    th:nth-child(23),
+    td:nth-child(23) {
+      min-width: 175px;
+      width: 175px;
+      max-width: 175px;
     }
 
 
     thead tr:first-child th {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
-
-      z-index:
-        12;
+      z-index: 12;
     }
 
 
     thead tr.filter-row th {
-      position:
-        sticky;
+      position: sticky;
+      top: 34px;
 
-      top:
-        43px;
+      z-index: 11;
 
-      z-index:
-        11;
+      padding: 3px;
 
-      padding:
-        5px;
+      background: #0c1c30;
 
-      background:
-        #0c1c30;
-
-      vertical-align:
-        top;
-    }
-
-
-    th:first-child {
-      min-width:
-        275px;
-
-      text-align:
-        left;
+      vertical-align: top;
     }
 
 
     td {
-      height:
-        48px;
+      height: 42px;
 
-      padding:
-        6px 8px;
+      padding: 5px 5px;
 
       border-right:
         1px solid #1c314b;
@@ -827,100 +796,73 @@
       border-bottom:
         1px solid #1c314b;
 
-      color:
-        #edf3fb;
+      color: #edf3fb;
 
-      font-size:
-        12px;
+      font-size: 10.5px;
+      font-weight: 600;
 
-      font-weight:
-        600;
+      text-align: center;
 
-      text-align:
-        center;
+      vertical-align: middle;
 
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
 
     tbody tr {
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      background:
-        #0b192b;
+      background: #0b192b;
     }
 
 
     tbody tr:nth-child(even) {
-      background:
-        #0c1b2e;
+      background: #0c1b2e;
     }
 
 
     tbody tr:hover {
-      background:
-        #132944;
+      background: #132944;
     }
 
 
     td:first-child {
-      position:
-        sticky;
+      position: sticky;
+      left: 0;
 
-      left:
-        0;
+      z-index: 4;
 
-      z-index:
-        4;
+      text-align: left;
 
-      min-width:
-        275px;
-
-      max-width:
-        275px;
-
-      text-align:
-        left;
-
-      background:
-        inherit;
+      background: inherit;
     }
 
 
     thead th:first-child {
-      position:
-        sticky;
+      position: sticky;
+      left: 0;
 
-      left:
-        0;
-
-      z-index:
-        20;
+      z-index: 20;
     }
 
 
     thead tr.filter-row th:first-child {
-      z-index:
-        19;
+      z-index: 19;
     }
 
 
 
     /* =====================================================
-       FILTERS INSIDE EACH COLUMN
+       FILTER CONTROLS
     ===================================================== */
 
     .col-filter {
       display: flex;
       flex-direction: column;
 
-      gap:
-        4px;
+      gap: 2px;
 
-      min-width:
-        105px;
+      min-width: 0;
     }
 
 
@@ -929,336 +871,253 @@
       align-items: center;
       justify-content: center;
 
-      gap:
-        4px;
+      gap: 2px;
 
-      color:
-        #a9bdd6;
+      color: #a9bdd6;
 
-      font-size:
-        8px;
-
-      font-weight:
-        700;
+      font-size: 7px;
+      font-weight: 700;
     }
 
 
     .filter-active input {
-      width:
-        13px;
+      width: 11px;
+      height: 11px;
 
-      height:
-        13px;
+      margin: 0;
 
-      margin:
-        0;
-
-      accent-color:
-        #3b8de3;
+      accent-color: #3b8de3;
     }
 
 
     .filter-line {
       display: flex;
 
-      gap:
-        3px;
+      gap: 2px;
     }
 
 
     .mini-control {
-      width:
-        100%;
+      width: 100%;
+      min-width: 0;
 
-      min-width:
-        0;
+      height: 21px;
 
-      height:
-        25px;
-
-      padding:
-        0 4px;
+      padding: 0 2px;
 
       border:
         1px solid #29415e;
 
-      border-radius:
-        4px;
+      border-radius: 3px;
 
-      outline:
-        none;
+      outline: none;
 
-      background:
-        #0a1728;
+      background: #0a1728;
+      color: #fff;
 
-      color:
-        #fff;
-
-      font-size:
-        8px;
+      font-size: 7px;
     }
 
 
     .mini-operator {
-      width:
-        53px;
-    }
-
-
-    .mini-sort {
-      width:
-        65px;
+      width: 32px;
+      flex: 0 0 32px;
     }
 
 
     .text-filter {
-      width:
-        100%;
+      width: 100%;
 
-      height:
-        28px;
+      height: 23px;
 
-      padding:
-        0 5px;
+      padding: 0 2px;
 
       border:
         1px solid #29415e;
 
-      border-radius:
-        4px;
+      border-radius: 3px;
 
-      background:
-        #0a1728;
+      background: #0a1728;
+      color: #fff;
 
-      color:
-        #fff;
-
-      font-size:
-        8px;
+      font-size: 7px;
     }
 
 
     .no-filter {
-      color:
-        #627791;
+      color: #627791;
 
-      font-size:
-        10px;
+      font-size: 8px;
 
-      padding-top:
-        8px;
+      padding-top: 5px;
     }
 
 
 
     /* =====================================================
-       STOCK / BADGES
+       STOCK
     ===================================================== */
 
     .stock-name {
-      display:
-        block;
+      display: block;
 
-      max-width:
-        245px;
+      max-width: 190px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      text-overflow:
-        ellipsis;
+      text-overflow: ellipsis;
 
-      font-size:
-        12px;
+      font-size: 10.5px;
+      font-weight: 900;
 
-      font-weight:
-        900;
-
-      color:
-        #fff;
+      color: #fff;
     }
 
 
     .stock-symbol {
-      display:
-        block;
+      display: block;
 
-      margin-top:
-        2px;
+      margin-top: 1px;
 
-      color:
-        #8fa4be;
+      color: #8fa4be;
 
-      font-size:
-        9px;
+      font-size: 8px;
     }
 
 
-    .positive {
-      color:
-        #fff;
 
-      font-weight:
-        800;
+    /* =====================================================
+       VALUES
+    ===================================================== */
+
+    .positive {
+      color: #fff;
+
+      font-weight: 800;
     }
 
 
     .negative {
-      color:
-        var(--red);
+      color: var(--red);
 
-      font-weight:
-        800;
+      font-weight: 800;
     }
 
 
     .pending {
-      color:
-        #70849d;
+      color: #70849d;
     }
 
 
+
+    /* =====================================================
+       SCORE
+    ===================================================== */
+
     .score-badge {
-      display:
-        inline-flex;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-      align-items:
-        center;
+      min-width: 42px;
+      min-height: 24px;
 
-      justify-content:
-        center;
-
-      min-width:
-        54px;
-
-      min-height:
-        28px;
-
-      padding:
-        4px 8px;
+      padding: 3px 6px;
 
       border:
         1px solid transparent;
 
-      border-radius:
-        6px;
+      border-radius: 5px;
 
-      font-size:
-        12px;
-
-      font-weight:
-        900;
+      font-size: 10px;
+      font-weight: 900;
     }
 
 
     .score-elite {
-      color:
-        var(--green);
+      color: var(--green);
 
-      background:
-        var(--green-soft);
-
-      border-color:
-        rgba(39,217,128,0.18);
+      background: var(--green-soft);
     }
 
 
     .score-strong {
-      color:
-        #74bfff;
+      color: #74bfff;
 
-      background:
-        var(--blue-soft);
+      background: var(--blue-soft);
     }
 
 
     .score-developing {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      background:
-        var(--yellow-soft);
+      background: var(--yellow-soft);
     }
 
 
     .score-weak {
-      color:
-        var(--red);
+      color: var(--red);
 
-      background:
-        var(--red-soft);
+      background: var(--red-soft);
     }
 
 
+
+    /* =====================================================
+       SETUP
+    ===================================================== */
+
     .setup-badge {
-      display:
-        inline-block;
+      display: inline-block;
 
-      padding:
-        5px 8px;
+      padding: 4px 6px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      font-size:
-        9px;
-
-      font-weight:
-        900;
+      font-size: 8px;
+      font-weight: 900;
     }
 
 
     .setup-green {
-      color:
-        var(--green);
+      color: var(--green);
 
-      background:
-        var(--green-soft);
+      background: var(--green-soft);
     }
 
 
     .setup-yellow {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      background:
-        var(--yellow-soft);
+      background: var(--yellow-soft);
     }
 
 
     .setup-orange {
-      color:
-        var(--orange);
+      color: var(--orange);
 
-      background:
-        var(--orange-soft);
+      background: var(--orange-soft);
     }
 
 
     .setup-red {
-      color:
-        var(--red);
+      color: var(--red);
 
-      background:
-        var(--red-soft);
+      background: var(--red-soft);
     }
 
 
     .signal-yes {
-      color:
-        var(--green);
+      color: var(--green);
 
-      font-weight:
-        900;
+      font-weight: 900;
     }
 
 
     .signal-no {
-      color:
-        var(--red);
+      color: var(--red);
 
-      font-weight:
-        900;
+      font-weight: 900;
     }
 
 
@@ -1268,62 +1127,44 @@
     ===================================================== */
 
     .drawer-overlay {
-      position:
-        fixed;
+      position: fixed;
 
-      inset:
-        0;
+      inset: 0;
 
-      z-index:
-        100;
+      z-index: 100;
 
       background:
         rgba(0,0,0,0.52);
 
-      opacity:
-        0;
+      opacity: 0;
+      visibility: hidden;
 
-      visibility:
-        hidden;
-
-      transition:
-        0.2s;
+      transition: 0.2s;
     }
 
 
     .drawer-overlay.open {
-      opacity:
-        1;
-
-      visibility:
-        visible;
+      opacity: 1;
+      visibility: visible;
     }
 
 
     .drawer {
-      position:
-        fixed;
+      position: fixed;
 
-      top:
-        0;
+      top: 0;
+      right: -520px;
 
-      right:
-        -520px;
-
-      z-index:
-        101;
+      z-index: 101;
 
       width:
         min(500px, 96vw);
 
-      height:
-        100vh;
+      height: 100vh;
 
-      overflow-y:
-        auto;
+      overflow-y: auto;
 
-      background:
-        #0a1626;
+      background: #0a1626;
 
       border-left:
         1px solid #28405d;
@@ -1337,38 +1178,25 @@
 
 
     .drawer.open {
-      right:
-        0;
+      right: 0;
     }
 
 
     .drawer-header {
-      position:
-        sticky;
+      position: sticky;
+      top: 0;
 
-      top:
-        0;
+      z-index: 3;
 
-      z-index:
-        3;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
 
-      display:
-        flex;
+      gap: 15px;
 
-      align-items:
-        flex-start;
+      padding: 13px;
 
-      justify-content:
-        space-between;
-
-      gap:
-        15px;
-
-      padding:
-        15px;
-
-      background:
-        #0a1626;
+      background: #0a1626;
 
       border-bottom:
         1px solid var(--border);
@@ -1376,206 +1204,153 @@
 
 
     .drawer-title {
-      margin:
-        0;
+      margin: 0;
 
-      font-size:
-        17px;
+      font-size: 16px;
     }
 
 
     .drawer-symbol {
-      margin-top:
-        4px;
+      margin-top: 3px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        10px;
+      font-size: 9px;
     }
 
 
     .drawer-close {
-      width:
-        31px;
-
-      height:
-        31px;
+      width: 29px;
+      height: 29px;
 
       border:
         1px solid var(--border);
 
-      border-radius:
-        6px;
+      border-radius: 5px;
 
-      background:
-        var(--panel2);
+      background: var(--panel2);
+      color: #fff;
 
-      color:
-        #fff;
+      cursor: pointer;
 
-      cursor:
-        pointer;
-
-      font-size:
-        17px;
+      font-size: 16px;
     }
 
 
     .drawer-content {
-      padding:
-        13px;
+      padding: 11px;
     }
 
 
     .drawer-section {
-      margin-bottom:
-        12px;
+      margin-bottom: 10px;
 
-      padding:
-        11px;
+      padding: 9px;
 
       border:
         1px solid var(--border-soft);
 
-      border-radius:
-        8px;
+      border-radius: 7px;
 
-      background:
-        var(--panel);
+      background: var(--panel);
     }
 
 
     .drawer-section h3 {
-      margin:
-        0 0 9px;
+      margin: 0 0 7px;
 
-      color:
-        #9fb5d0;
+      color: #9fb5d0;
 
-      font-size:
-        10px;
+      font-size: 9px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
     .detail-grid {
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         repeat(2, minmax(0,1fr));
 
-      gap:
-        7px;
+      gap: 5px;
     }
 
 
     .detail-item {
-      padding:
-        8px;
+      padding: 7px;
 
-      border-radius:
-        6px;
+      border-radius: 5px;
 
-      background:
-        #0a1728;
+      background: #0a1728;
     }
 
 
     .detail-label {
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        8px;
+      font-size: 7px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
     .detail-value {
-      margin-top:
-        4px;
+      margin-top: 3px;
 
-      font-size:
-        12px;
+      font-size: 11px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      word-break:
-        break-word;
+      word-break: break-word;
     }
 
 
     .trigger-list {
-      display:
-        flex;
+      display: flex;
+      flex-wrap: wrap;
 
-      flex-wrap:
-        wrap;
-
-      gap:
-        5px;
+      gap: 4px;
     }
 
 
     .trigger-chip {
-      padding:
-        5px 7px;
+      padding: 4px 6px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      color:
-        #8fc6ff;
+      color: #8fc6ff;
 
-      background:
-        var(--blue-soft);
+      background: var(--blue-soft);
 
-      font-size:
-        9px;
-
-      font-weight:
-        700;
+      font-size: 8px;
+      font-weight: 700;
     }
 
 
     .missing-text {
-      color:
-        var(--yellow);
+      color: var(--yellow);
 
-      font-size:
-        10px;
+      font-size: 9px;
 
-      line-height:
-        1.5;
+      line-height: 1.4;
     }
 
 
     .empty-state {
-      padding:
-        35px;
+      padding: 30px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--muted);
+      color: var(--muted);
     }
 
 
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1150px) {
 
       .summary-grid {
         grid-template-columns:
-          repeat(3, minmax(150px,1fr));
+          repeat(3, minmax(130px, 1fr));
       }
 
     }
@@ -1585,25 +1360,20 @@
 
       .summary-grid {
         grid-template-columns:
-          repeat(2, minmax(130px,1fr));
+          repeat(2, minmax(120px, 1fr));
       }
 
 
       .site-header {
-        flex-direction:
-          column;
-
-        align-items:
-          flex-start;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
 
       .main-nav {
-        overflow-x:
-          auto;
+        width: 100%;
 
-        width:
-          100%;
+        overflow-x: auto;
       }
 
     }
@@ -1615,10 +1385,6 @@
 
 <body>
 
-
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
 
   <header class="site-header">
 
@@ -1668,10 +1434,6 @@
   <main class="page">
 
 
-    <!-- ===================================================
-         TITLE
-    ==================================================== -->
-
     <section class="scanner-title-row">
 
       <div class="scanner-heading">
@@ -1695,10 +1457,6 @@
     </section>
 
 
-
-    <!-- ===================================================
-         SUMMARY
-    ==================================================== -->
 
     <section class="summary-grid">
 
@@ -1736,7 +1494,7 @@
         </div>
 
         <div class="summary-note">
-          High potential setups
+          High potential
         </div>
 
       </div>
@@ -1776,7 +1534,7 @@
         </div>
 
         <div class="summary-note">
-          Price confirmation
+          Confirmed
         </div>
 
       </div>
@@ -1796,7 +1554,7 @@
         </div>
 
         <div class="summary-note">
-          Filing-derived supply data
+          Supply data
         </div>
 
       </div>
@@ -1816,7 +1574,7 @@
         </div>
 
         <div class="summary-note">
-          Scanner data date
+          Market date
         </div>
 
       </div>
@@ -1824,10 +1582,6 @@
     </section>
 
 
-
-    <!-- ===================================================
-         SEARCH ONLY
-    ==================================================== -->
 
     <section class="search-toolbar">
 
@@ -1844,7 +1598,7 @@
           class="btn btn-primary"
           type="button"
         >
-          Apply Filters
+          Apply
         </button>
 
         <button
@@ -1861,20 +1615,16 @@
 
 
 
-    <!-- ===================================================
-         LEGEND
-    ==================================================== -->
-
     <section class="legend">
 
       <span class="legend-item">
         <span class="legend-dot green"></span>
-        Strong / Confirmed
+        Strong
       </span>
 
       <span class="legend-item">
         <span class="legend-dot yellow"></span>
-        Near / Developing
+        Developing
       </span>
 
       <span class="legend-item">
@@ -1884,16 +1634,12 @@
 
       <span class="legend-item">
         <span class="legend-dot red"></span>
-        Weak / Missing
+        Weak
       </span>
 
     </section>
 
 
-
-    <!-- ===================================================
-         TABLE
-    ==================================================== -->
 
     <section class="table-panel">
 
@@ -1903,7 +1649,7 @@
           id="resultCount"
           class="result-count"
         >
-          Loading scanner...
+          Loading...
         </div>
 
 
@@ -1942,13 +1688,9 @@
 
           <thead>
 
-            <!-- HEADINGS -->
-
             <tr>
 
-              <th>
-                Stock
-              </th>
+              <th>Stock</th>
 
               <th>
                 Big Move
@@ -1962,29 +1704,17 @@
                 Status
               </th>
 
-              <th>
-                Price
-              </th>
+              <th>Price</th>
 
-              <th>
-                1M %
-              </th>
+              <th>1M %</th>
 
-              <th>
-                3M %
-              </th>
+              <th>3M %</th>
 
-              <th>
-                6M %
-              </th>
+              <th>6M %</th>
 
-              <th>
-                1Y %
-              </th>
+              <th>1Y %</th>
 
-              <th>
-                RS
-              </th>
+              <th>RS</th>
 
               <th>
                 Stock
@@ -2017,13 +1747,13 @@
               </th>
 
               <th>
-                Retracement
+                Retrace
                 <br>
                 %
               </th>
 
               <th>
-                Consolidation
+                Consolid.
                 <br>
                 Days
               </th>
@@ -2031,13 +1761,13 @@
               <th>
                 Volume
                 <br>
-                Contraction
+                Contract.
               </th>
 
               <th>
                 Volatility
                 <br>
-                Contraction
+                Contract.
               </th>
 
               <th>
@@ -2070,8 +1800,6 @@
 
             </tr>
 
-
-            <!-- INDIVIDUAL COLUMN FILTERS -->
 
             <tr
               id="columnFilterRow"
@@ -2107,10 +1835,6 @@
   </main>
 
 
-
-  <!-- =====================================================
-       DETAIL DRAWER
-  ====================================================== -->
 
   <div
     id="drawerOverlay"
@@ -2164,24 +1888,13 @@
 
   <script>
 
-    /* =====================================================
-       DATA
-    ===================================================== */
-
     const DATA_URL =
       "data/big_move_scanner.json";
 
 
-    let allRows =
-      [];
-
-
-    let filteredRows =
-      [];
-
-
-    let scannerMeta =
-      {};
+    let allRows = [];
+    let filteredRows = [];
+    let scannerMeta = {};
 
 
     let activeSortField =
@@ -2192,10 +1905,6 @@
       "desc";
 
 
-
-    /* =====================================================
-       COLUMN CONFIG
-    ===================================================== */
 
     const columns = [
 
@@ -2329,10 +2038,6 @@
 
 
 
-    /* =====================================================
-       NUMBER
-    ===================================================== */
-
     function num(
       value
     ) {
@@ -2365,7 +2070,8 @@
         if (
           !cleaned ||
           cleaned === "—" ||
-          cleaned.toLowerCase() === "pending"
+          cleaned.toLowerCase() ===
+            "pending"
         ) {
 
           return null;
@@ -2421,10 +2127,6 @@
 
 
 
-    /* =====================================================
-       FORMAT
-    ===================================================== */
-
     function dash() {
 
       return (
@@ -2459,11 +2161,8 @@
         n.toLocaleString(
           "en-IN",
           {
-            minimumFractionDigits:
-              2,
-
-            maximumFractionDigits:
-              2
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
           }
         )
       );
@@ -2912,10 +2611,6 @@
 
 
 
-    /* =====================================================
-       TRIGGER
-    ===================================================== */
-
     function triggerList(
       row
     ) {
@@ -3027,10 +2722,6 @@
 
 
 
-    /* =====================================================
-       FETCH
-    ===================================================== */
-
     async function fetchScanner() {
 
       const response =
@@ -3111,10 +2802,6 @@
 
 
 
-    /* =====================================================
-       SUMMARY
-    ===================================================== */
-
     function updateSummary() {
 
       const total =
@@ -3123,13 +2810,20 @@
 
       const score80 =
         allRows.filter(
-          row =>
-            num(
-              row.bigMoveScore
-            ) !== null &&
-            num(
-              row.bigMoveScore
-            ) >= 80
+          row => {
+
+            const v =
+              num(
+                row.bigMoveScore
+              );
+
+
+            return (
+              v !== null &&
+              v >= 80
+            );
+
+          }
         ).length;
 
 
@@ -3231,10 +2925,6 @@
     }
 
 
-
-    /* =====================================================
-       CREATE COLUMN FILTERS
-    ===================================================== */
 
     function uniqueValues(
       field
@@ -3339,11 +3029,11 @@
           >
 
             <option value="">
-              No Sort
+              Sort
             </option>
 
             <option value="asc">
-              Ascending
+              Asc
             </option>
 
             <option
@@ -3355,7 +3045,7 @@
                   : ""
               }
             >
-              Descending
+              Desc
             </option>
 
           </select>
@@ -3550,10 +3240,6 @@
 
 
 
-    /* =====================================================
-       FILTER LOGIC
-    ===================================================== */
-
     function passesNumeric(
       row,
       config
@@ -3618,10 +3304,8 @@
 
       return operator ===
         "below"
-        ? value <=
-          threshold
-        : value >=
-          threshold;
+        ? value <= threshold
+        : value >= threshold;
 
     }
 
@@ -3722,8 +3406,7 @@
                       config.field
                     ] ||
                     ""
-                  ) !==
-                    selected
+                  ) !== selected
                 ) {
 
                   return false;
@@ -3841,10 +3524,6 @@
 
 
 
-    /* =====================================================
-       SORT
-    ===================================================== */
-
     function changeSort(
       field,
       direction
@@ -3959,10 +3638,8 @@
 
           return direction ===
             "asc"
-            ? av -
-              bv
-            : bv -
-              av;
+            ? av - bv
+            : bv - av;
 
         }
       );
@@ -3970,10 +3647,6 @@
     }
 
 
-
-    /* =====================================================
-       RENDER ROWS
-    ===================================================== */
 
     function renderRows() {
 
@@ -4002,7 +3675,7 @@
               <td colspan="23">
 
                 <div class="empty-state">
-                  No stocks matched filters.
+                  No stocks matched.
                 </div>
 
               </td>
@@ -4217,7 +3890,6 @@
 
                   <td
                     style="
-                      max-width:270px;
                       white-space:normal;
                       text-align:left;
                     "
@@ -4287,10 +3959,6 @@
     }
 
 
-
-    /* =====================================================
-       DRAWER
-    ===================================================== */
 
     function detailItem(
       label,
@@ -4408,14 +4076,14 @@
               )}
 
               ${detailItem(
-                "Setup Status",
+                "Setup",
                 setupBadge(
                   row.setupStatus
                 )
               )}
 
               ${detailItem(
-                "RS Rating",
+                "RS",
                 scoreBadge(
                   row.rsRating
                 )
@@ -4450,55 +4118,7 @@
           <section class="drawer-section">
 
             <h3>
-              Price & Momentum
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Price",
-                formatPrice(
-                  row.price
-                )
-              )}
-
-              ${detailItem(
-                "1M",
-                formatPct(
-                  row.return1M
-                )
-              )}
-
-              ${detailItem(
-                "3M",
-                formatPct(
-                  row.return3M
-                )
-              )}
-
-              ${detailItem(
-                "6M",
-                formatPct(
-                  row.return6M
-                )
-              )}
-
-              ${detailItem(
-                "1Y",
-                formatPct(
-                  row.return1Y
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Free Float / Supply
+              Free Float
             </h3>
 
             <div class="detail-grid">
@@ -4532,7 +4152,7 @@
               )}
 
               ${detailItem(
-                "Locked Public Shares",
+                "Locked Shares",
                 formatShares(
                   row.publicLockedShares
                 )
@@ -4574,7 +4194,7 @@
               )}
 
               ${detailItem(
-                "Consolidation Days",
+                "Consolidation",
                 formatInteger(
                   row.consolidationDays
                 )
@@ -4595,16 +4215,9 @@
               )}
 
               ${detailItem(
-                "Breakout Status",
+                "Breakout",
                 formatBreakout(
                   row.breakoutStatus
-                )
-              )}
-
-              ${detailItem(
-                "Breakout Distance",
-                formatTechnicalPct(
-                  row.breakoutDistancePct
                 )
               )}
 
@@ -4623,7 +4236,7 @@
           <section class="drawer-section">
 
             <h3>
-              Fundamental / Business Triggers
+              Triggers
             </h3>
 
             <div class="trigger-list">
@@ -4691,10 +4304,6 @@
     }
 
 
-
-    /* =====================================================
-       RESET
-    ===================================================== */
 
     function resetFilters() {
 
@@ -4793,10 +4402,6 @@
     }
 
 
-
-    /* =====================================================
-       CSV
-    ===================================================== */
 
     function csvCell(
       value
@@ -5039,10 +4644,6 @@
 
 
 
-    /* =====================================================
-       SCROLL SYNC
-    ===================================================== */
-
     let syncingTop =
       false;
 
@@ -5168,10 +4769,6 @@
     }
 
 
-
-    /* =====================================================
-       EVENTS
-    ===================================================== */
 
     function setupFilterEvents() {
 
@@ -5361,10 +4958,6 @@
 
 
 
-    /* =====================================================
-       INIT
-    ===================================================== */
-
     async function init() {
 
       try {
@@ -5410,11 +5003,6 @@
           updateTopScrollbar
         );
 
-
-        console.log(
-          `Big Move Scanner loaded: ${allRows.length} stocks`
-        );
-
       }
 
       catch (
@@ -5435,7 +5023,7 @@
               <td colspan="23">
 
                 <div class="empty-state">
-                  Scanner backend data could not be loaded.
+                  Scanner data could not be loaded.
                 </div>
 
               </td>
