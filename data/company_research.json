@@ -22520,7 +22520,7 @@
     "ADVIKCA": {
       "tailwindScore": 78.0,
       "futureGrowth": null,
-      "fundamentalQuality": 65.22,
+      "fundamentalQuality": 52.97,
       "capexScore": 50.0,
       "researchReasons": {
         "tailwind": {
@@ -22536,7 +22536,7 @@
           "mode": "AUTOMATED"
         },
         "fundamentalQuality": {
-          "reason": "Automated screening proxy based on ROE -14.3%, profit margin 0.0%, operating margin 24.1%, debt/equity 100.8, current ratio 32.31, positive free cash flow, positive operating cash flow.",
+          "reason": "Automated screening proxy based on ROE -14.3%, profit margin 0.0%, operating margin -8.6%, debt/equity 100.8, current ratio 1.63, positive free cash flow, positive operating cash flow.",
           "source": "methodology.html#fundamental",
           "sourceDate": "2026-09-15",
           "mode": "AUTOMATED"
@@ -27536,7 +27536,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.29× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-14",
+          "sourceDate": "2026-09-15",
           "mode": "AUTOMATED"
         }
       },
@@ -100155,6 +100155,45 @@
           "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-09-14",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "PRANAV": {
+      "tailwindScore": 72.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: urbanisation and housing/commercial demand provide positive but cyclical support.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-09-15",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-09-15",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-09-15",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-09-15",
           "mode": "AUTOMATED"
         }
       },
