@@ -13155,9 +13155,9 @@
     "source": "Unavailable"
   },
   "AUSTENG": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Industrials",
+    "industry": "Tools & Accessories",
+    "source": "Yahoo Finance"
   },
   "APS": {
     "sector": "Unclassified",
@@ -13505,9 +13505,9 @@
     "source": "Unavailable"
   },
   "DHATRE": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
   },
   "DTL": {
     "sector": "Unclassified",
@@ -13615,9 +13615,9 @@
     "source": "Unavailable"
   },
   "ELPROINTL": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Real Estate",
+    "industry": "Real Estate Services",
+    "source": "Yahoo Finance"
   },
   "EMAPARTNER": {
     "sector": "Unclassified",
@@ -13895,9 +13895,9 @@
     "source": "Unavailable"
   },
   "HBESD": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
   },
   "HIGREEN": {
     "sector": "Unclassified",
@@ -14115,9 +14115,9 @@
     "source": "Unavailable"
   },
   "KAMANWALA": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
   },
   "KANDARP": {
     "sector": "Unclassified",
@@ -14245,9 +14245,9 @@
     "source": "Unavailable"
   },
   "MAFATIND": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
   },
   "MAGSON": {
     "sector": "Unclassified",
@@ -14520,9 +14520,9 @@
     "source": "Unavailable"
   },
   "NIMBSPROJ": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
   },
   "NIRMAN": {
     "sector": "Unclassified",
@@ -14830,9 +14830,9 @@
     "source": "Unavailable"
   },
   "RAJPALAYAM": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
   },
   "RCDL": {
     "sector": "Unclassified",
@@ -15165,9 +15165,9 @@
     "source": "Unavailable"
   },
   "SHRIKRISH": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
   },
   "SHRITECH": {
     "sector": "Unclassified",
@@ -15400,9 +15400,9 @@
     "source": "Unavailable"
   },
   "TANAA": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
   },
   "TANKUP": {
     "sector": "Unclassified",
@@ -15655,9 +15655,9 @@
     "source": "Unavailable"
   },
   "VIJSOLX": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Defensive",
+    "industry": "Packaged Foods",
+    "source": "Yahoo Finance"
   },
   "VIJAYPD": {
     "sector": "Unclassified",
