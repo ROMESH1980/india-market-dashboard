@@ -15813,5 +15813,20 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "GLASSWALL": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "KANOHAR": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "PRASOLCHEM": {
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
   }
 }
