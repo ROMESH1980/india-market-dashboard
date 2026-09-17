@@ -15828,5 +15828,40 @@
     "sector": "Basic Materials",
     "industry": "Specialty Chemicals",
     "source": "Yahoo Finance"
+  },
+  "ARCIL": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "KARAMTARA": {
+    "sector": "Technology",
+    "industry": "Solar",
+    "source": "Yahoo Finance"
+  },
+  "MPIMANIPAL": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "RENTOMOJO": {
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "source": "Yahoo Finance"
+  },
+  "STEAMHOUSE": {
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "source": "Yahoo Finance"
+  },
+  "LCCPROJECT": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "VINOD": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
