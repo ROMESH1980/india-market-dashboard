@@ -1,15 +1,16 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3142,
-  "uniqueCount": 3142,
+  "nseCount": 3149,
+  "uniqueCount": 3149,
   "eodPriceCount": 3669,
-  "matchedPriceCount": 3021,
+  "matchedPriceCount": 3010,
   "marketDate": "2026-09-16",
-  "lastUpdated": "2026-09-16",
+  "lastUpdated": "2026-09-17",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
-  "deliveryDate": "2026-09-15",
+  "deliveryDate": "2026-09-16",
   "deliverySessionsUsed": [
+    "2026-09-16",
     "2026-09-15",
     "2026-09-11",
     "2026-09-10",
@@ -28,15 +29,14 @@
     "2026-08-24",
     "2026-08-21",
     "2026-08-20",
-    "2026-08-19",
-    "2026-08-18"
+    "2026-08-19"
   ],
-  "todayVolumeCount": 2767,
-  "deliveryVolumeCount": 2767,
-  "deliveryRatioCount": 2732,
-  "deliveryPctCount": 2767,
-  "full5DayDeliveryAverageCount": 2858,
-  "incomplete5DayDeliveryCount": 284,
+  "todayVolumeCount": 2754,
+  "deliveryVolumeCount": 2754,
+  "deliveryRatioCount": 2712,
+  "deliveryPctCount": 2754,
+  "full5DayDeliveryAverageCount": 2852,
+  "incomplete5DayDeliveryCount": 297,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -48,7 +48,7 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "historyRows": 1236,
       "daily": 15,
       "weekly": 37,
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 23217.6,
-          "fastMA": 23873.48,
-          "slowMA": 24103.56,
-          "momentumPct": -1.77,
-          "rsi14": 16.97,
-          "distanceFromHighPct": -4.59
+          "latest": 23270.6,
+          "fastMA": 23833.1,
+          "slowMA": 24091.33,
+          "momentumPct": -0.69,
+          "rsi14": 21.42,
+          "distanceFromHighPct": -4.37
         },
         "weekly": {
-          "latest": 23217.6,
-          "fastMA": 24036.3,
-          "slowMA": 23890.44,
-          "momentumPct": -4.27,
-          "rsi14": 44.31,
-          "distanceFromHighPct": -5.51
+          "latest": 23270.6,
+          "fastMA": 24041.6,
+          "slowMA": 23892.21,
+          "momentumPct": -4.05,
+          "rsi14": 44.98,
+          "distanceFromHighPct": -5.29
         },
         "monthly": {
-          "latest": 23217.6,
-          "fastMA": 23848.78,
-          "slowMA": 24205.3,
-          "momentumPct": -2.72,
-          "rsi14": 42.33,
-          "distanceFromHighPct": -11.39
+          "latest": 23270.6,
+          "fastMA": 23857.61,
+          "slowMA": 24210.6,
+          "momentumPct": -2.49,
+          "rsi14": 42.55,
+          "distanceFromHighPct": -11.19
         }
       },
       "error": null
@@ -141,12 +141,12 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "historyRows": 1258,
-      "daily": 40,
+      "daily": 37,
       "weekly": 42,
-      "monthly": 65,
-      "overall": 53,
+      "monthly": 40,
+      "overall": 40,
       "dailySignal": {
         "label": "Weak / Correction",
         "signal": "reduce",
@@ -158,39 +158,39 @@
         "emoji": "🟠"
       },
       "monthlySignal": {
-        "label": "Strong",
-        "signal": "overweight",
-        "emoji": "🟢"
+        "label": "Weak / Correction",
+        "signal": "reduce",
+        "emoji": "🟠"
       },
       "overallSignal": {
-        "label": "Neutral / Cautious",
-        "signal": "warning",
-        "emoji": "🟡"
+        "label": "Weak / Correction",
+        "signal": "reduce",
+        "emoji": "🟠"
       },
       "details": {
         "daily": {
-          "latest": 4392.3,
-          "fastMA": 4506.93,
-          "slowMA": 4313.32,
-          "momentumPct": -1.53,
-          "rsi14": 32.24,
-          "distanceFromHighPct": -6.5
+          "latest": 4354.0,
+          "fastMA": 4497.13,
+          "slowMA": 4318.65,
+          "momentumPct": -1.21,
+          "rsi14": 29.42,
+          "distanceFromHighPct": -7.32
         },
         "weekly": {
-          "latest": 4392.3,
-          "fastMA": 4352.19,
-          "slowMA": 4512.81,
-          "momentumPct": -6.16,
-          "rsi14": 56.17,
-          "distanceFromHighPct": -6.16
+          "latest": 4354.0,
+          "fastMA": 4348.36,
+          "slowMA": 4511.53,
+          "momentumPct": -6.98,
+          "rsi14": 54.5,
+          "distanceFromHighPct": -6.98
         },
         "monthly": {
-          "latest": 4392.3,
-          "fastMA": 4373.65,
-          "slowMA": 4522.36,
-          "momentumPct": 8.76,
-          "rsi14": 64.87,
-          "distanceFromHighPct": -16.3
+          "latest": 4354.0,
+          "fastMA": 4367.27,
+          "slowMA": 4518.53,
+          "momentumPct": 7.81,
+          "rsi14": 64.2,
+          "distanceFromHighPct": -17.03
         }
       },
       "error": null
@@ -261,7 +261,7 @@
       "source": "Official NSE SME board dashboard breadth proxy",
       "sourceSymbol": null,
       "date": "2026-09-16",
-      "universeSize": 571,
+      "universeSize": 572,
       "daily": 37,
       "weekly": null,
       "monthly": null,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-16T11:44:23.707977+00:00"
+  "marketRegimeGeneratedAt": "2026-09-17T10:37:49.163401+00:00"
 }
