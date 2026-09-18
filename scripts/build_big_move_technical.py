@@ -1,4 +1,4 @@
-import csv
+
 import io
 import json
 import math
@@ -982,6 +982,46 @@ def build_stock_history(
 
 
     return rows
+
+
+# =========================================================
+# 1 WEEK RETURN
+# =========================================================
+#
+# Latest close vs close 5 trading sessions earlier.
+# Uses the same official NSE UDiFF history already loaded.
+#
+# =========================================================
+
+def calculate_return_1w(history):
+
+    if not history or len(history) < 6:
+        return None
+
+    current_close = safe_float(
+        history[-1].get("close")
+    )
+
+    close_5_sessions_ago = safe_float(
+        history[-6].get("close")
+    )
+
+    if (
+        current_close is None
+        or close_5_sessions_ago is None
+        or close_5_sessions_ago <= 0
+    ):
+        return None
+
+    return (
+        (
+            current_close
+            /
+            close_5_sessions_ago
+        )
+        -
+        1
+    ) * 100
 
 
 # =========================================================
@@ -2416,6 +2456,16 @@ def analyze_stock(
             stock,
             sessions,
         )
+    )
+
+
+    scanner_row[
+        "return1W"
+    ] = round_or_none(
+        calculate_return_1w(
+            history
+        ),
+        2,
     )
 
 
