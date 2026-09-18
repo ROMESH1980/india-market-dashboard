@@ -15855,9 +15855,9 @@
     "source": "Yahoo Finance"
   },
   "LCCPROJECT": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Industrials",
+    "industry": "Infrastructure Operations",
+    "source": "Yahoo Finance"
   },
   "VINOD": {
     "sector": "Unclassified",
