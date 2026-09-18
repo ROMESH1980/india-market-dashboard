@@ -3323,13 +3323,40 @@ def main():
     # DOWNLOAD HISTORY
     # =====================================================
 
-    sessions = load_history(
+        try:
 
-        market_date,
+        sessions = load_history(
 
-        scanner_symbols,
+            market_date,
 
-    )
+            scanner_symbols,
+
+        )
+
+    except Exception as exc:
+
+        print()
+
+        print(
+            "WARNING: Fresh NSE technical history "
+            "could not be downloaded."
+        )
+
+        print(
+            "Reason:",
+            exc,
+        )
+
+        print(
+            "Preserving previous Big Move Technical "
+            "data and allowing workflow to continue."
+        )
+
+        print()
+
+        # Do not overwrite the existing scanner JSON.
+        # The previous valid technical calculations remain intact.
+        return
 
 
     # =====================================================
