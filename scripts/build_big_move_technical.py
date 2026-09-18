@@ -1,4 +1,4 @@
-
+import csv
 import io
 import json
 import math
@@ -661,9 +661,61 @@ def parse_bhavcopy(
 # DOWNLOAD ONE SESSION
 # =========================================================
 
+def build_nse_session():
+
+    session = requests.Session()
+
+    session.headers.update({
+        "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/153.0.0.0 Safari/537.36",
+
+        "Accept":
+            "text/html,application/xhtml+xml,application/xml;q=0.9,"
+            "image/avif,image/webp,image/apng,*/*;q=0.8",
+
+        "Accept-Language":
+            "en-US,en;q=0.9",
+
+        "Cache-Control":
+            "no-cache",
+
+        "Pragma":
+            "no-cache",
+
+        "Referer":
+            "https://www.nseindia.com/all-reports",
+    })
+
+    # Warm up NSE cookies before requesting archive files.
+    for warmup_url in (
+        "https://www.nseindia.com/",
+        "https://www.nseindia.com/all-reports",
+    ):
+
+        try:
+
+            session.get(
+                warmup_url,
+                timeout=REQUEST_TIMEOUT,
+            )
+
+        except Exception:
+
+            pass
+
+    return session
+
+
+# =========================================================
+# DOWNLOAD ONE SESSION
+# =========================================================
+
 def fetch_session(
     date_obj,
     wanted_symbols,
+    session=None,
 ):
 
     if date_obj.weekday() >= 5:
@@ -676,57 +728,112 @@ def fetch_session(
     )
 
 
+    own_session = False
+
+    if session is None:
+
+        session = build_nse_session()
+
+        own_session = True
+
+
+    archive_headers = {
+        "Accept":
+            "application/zip,application/octet-stream,*/*",
+
+        "Referer":
+            "https://www.nseindia.com/all-reports",
+
+        "Sec-Fetch-Dest":
+            "document",
+
+        "Sec-Fetch-Mode":
+            "navigate",
+
+        "Sec-Fetch-Site":
+            "same-site",
+    }
+
+
     try:
 
-        response = requests.get(
+        for attempt in range(1, 4):
 
-            url,
+            try:
 
-            headers=HEADERS,
-
-            timeout=
-                REQUEST_TIMEOUT,
-
-        )
-
-
-        if response.status_code != 200:
-
-            return None
+                response = session.get(
+                    url,
+                    headers=archive_headers,
+                    timeout=REQUEST_TIMEOUT,
+                    allow_redirects=True,
+                )
 
 
-        if len(
-            response.content
-        ) < 1000:
+                if response.status_code == 200:
 
-            return None
+                    content = response.content
 
+                    if (
+                        len(content) >= 1000
+                        and
+                        content[:2] == b"PK"
+                    ):
 
-        parsed = parse_bhavcopy(
+                        parsed = parse_bhavcopy(
+                            content,
+                            date_obj,
+                            wanted_symbols,
+                        )
 
-            response.content,
-
-            date_obj,
-
-            wanted_symbols,
-
-        )
-
-
-        return {
-
-            "date":
-                date_obj,
-
-            "records":
-                parsed,
-
-        }
+                        return {
+                            "date": date_obj,
+                            "records": parsed,
+                        }
 
 
-    except Exception:
+                # NSE sometimes refreshes its anti-bot cookie.
+                if response.status_code in (
+                    401,
+                    403,
+                    429,
+                ):
+
+                    try:
+
+                        session.get(
+                            "https://www.nseindia.com/all-reports",
+                            timeout=REQUEST_TIMEOUT,
+                        )
+
+                    except Exception:
+
+                        pass
+
+
+                time.sleep(
+                    0.8 * attempt
+                )
+
+
+            except (
+                requests.RequestException,
+                zipfile.BadZipFile,
+                ValueError,
+            ):
+
+                time.sleep(
+                    0.8 * attempt
+                )
+
 
         return None
+
+
+    finally:
+
+        if own_session:
+
+            session.close()
 
 
 # =========================================================
@@ -774,100 +881,97 @@ def load_history(
 
     sessions = []
 
-
-    # Download in batches so we do not send hundreds of
-    # archive requests at exactly the same instant.
-    batch_size = 32
+    session = build_nse_session()
 
 
-    for batch_start in range(
-        0,
-        len(candidate_dates),
-        batch_size,
-    ):
+    try:
 
-        if (
-            len(sessions)
-            >= REQUIRED_SESSIONS
+        consecutive_failures = 0
+
+
+        for index, date_obj in enumerate(
+            candidate_dates,
+            start=1,
         ):
 
-            break
-
-
-        batch = (
-            candidate_dates[
-                batch_start:
-                batch_start
-                +
-                batch_size
-            ]
-        )
-
-
-        with ThreadPoolExecutor(
-            max_workers=MAX_WORKERS
-        ) as executor:
-
-            futures = {
-
-                executor.submit(
-                    fetch_session,
-                    date_obj,
-                    wanted_symbols,
-                ):
-                    date_obj
-
-                for date_obj
-                in batch
-
-            }
-
-
-            for future in as_completed(
-                futures
+            if (
+                len(sessions)
+                >= REQUIRED_SESSIONS
             ):
+
+                break
+
+
+            result = fetch_session(
+                date_obj,
+                wanted_symbols,
+                session=session,
+            )
+
+
+            if result:
+
+                sessions.append(
+                    result
+                )
+
+                consecutive_failures = 0
+
+
+            else:
+
+                consecutive_failures += 1
+
+
+            if (
+                index == 1
+                or
+                index % 10 == 0
+                or
+                result
+            ):
+
+                print(
+                    f"History progress: "
+                    f"{len(sessions)}/"
+                    f"{REQUIRED_SESSIONS} sessions "
+                    f"(checked {index})"
+                )
+
+
+            # If GitHub runner receives repeated 403/429 responses,
+            # refresh cookies rather than hammering the archive host.
+            if consecutive_failures >= 8:
 
                 try:
 
-                    result = (
-                        future.result()
-                    )
+                    session.close()
 
                 except Exception:
 
-                    result = None
+                    pass
 
 
-                if result:
+                time.sleep(2.0)
 
-                    sessions.append(
-                        result
-                    )
+                session = build_nse_session()
 
-
-        sessions.sort(
-            key=lambda x:
-                x["date"],
-            reverse=True,
-        )
+                consecutive_failures = 0
 
 
-        # Keep only most recent sessions.
-        sessions = sessions[
-            :REQUIRED_SESSIONS
-        ]
+            # Gentle pacing is more reliable on NSE archive endpoints.
+            time.sleep(0.12)
 
 
-        print(
-            f"History progress: "
-            f"{len(sessions)}/"
-            f"{REQUIRED_SESSIONS} sessions"
-        )
+    finally:
 
+        try:
 
-        time.sleep(
-            0.15
-        )
+            session.close()
+
+        except Exception:
+
+            pass
 
 
     sessions.sort(
@@ -3323,40 +3427,13 @@ def main():
     # DOWNLOAD HISTORY
     # =====================================================
 
-        try:
+    sessions = load_history(
 
-        sessions = load_history(
+        market_date,
 
-            market_date,
+        scanner_symbols,
 
-            scanner_symbols,
-
-        )
-
-    except Exception as exc:
-
-        print()
-
-        print(
-            "WARNING: Fresh NSE technical history "
-            "could not be downloaded."
-        )
-
-        print(
-            "Reason:",
-            exc,
-        )
-
-        print(
-            "Preserving previous Big Move Technical "
-            "data and allowing workflow to continue."
-        )
-
-        print()
-
-        # Do not overwrite the existing scanner JSON.
-        # The previous valid technical calculations remain intact.
-        return
+    )
 
 
     # =====================================================
