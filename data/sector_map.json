@@ -15863,5 +15863,10 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "VEEGALAND": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Diversified",
+    "source": "Yahoo Finance"
   }
 }
