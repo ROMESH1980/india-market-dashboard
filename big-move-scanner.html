@@ -396,7 +396,7 @@
       border-collapse: separate;
       border-spacing: 0;
       width: max-content;
-      min-width: 2320px;
+      min-width: 2400px;
       background: var(--panel);
     }
 
@@ -523,6 +523,12 @@
 
     th:nth-child(22),
     td:nth-child(22) {
+      min-width: 125px;
+      width: 125px;
+    }
+
+    th:nth-child(23),
+    td:nth-child(23) {
       min-width: 175px;
       width: 175px;
       max-width: 175px;
@@ -981,8 +987,7 @@
       }
 
     }
-
-  </style>
+      </style>
 
 </head>
 
@@ -1098,7 +1103,7 @@
         </div>
 
         <div class="summary-note">
-          High potential
+          High ranked setups
         </div>
 
       </div>
@@ -1111,14 +1116,14 @@
         </div>
 
         <div
-          id="summaryNear"
+          id="summaryBreakout"
           class="summary-value"
         >
           —
         </div>
 
         <div class="summary-note">
-          Close to trigger
+          Breakout / near breakout
         </div>
 
       </div>
@@ -1127,18 +1132,18 @@
       <div class="summary-card">
 
         <div class="summary-label">
-          Breakout
+          RS ≥ 80
         </div>
 
         <div
-          id="summaryBreakout"
+          id="summaryRS"
           class="summary-value"
         >
           —
         </div>
 
         <div class="summary-note">
-          Confirmed
+          Relative strength leaders
         </div>
 
       </div>
@@ -1158,7 +1163,7 @@
         </div>
 
         <div class="summary-note">
-          Low float value
+          Lower tradable public float value
         </div>
 
       </div>
@@ -1167,18 +1172,19 @@
       <div class="summary-card">
 
         <div class="summary-label">
-          Updated
+          Market Date
         </div>
 
         <div
-          id="summaryUpdated"
+          id="summaryDate"
           class="summary-value"
+          style="font-size:14px;"
         >
           —
         </div>
 
         <div class="summary-note">
-          Market date
+          Latest scanner data
         </div>
 
       </div>
@@ -1193,24 +1199,29 @@
 
         <input
           id="searchInput"
-          type="search"
+          type="text"
           placeholder="Search stock / symbol..."
         >
 
         <button
-          id="applyFilters"
-          class="btn btn-primary"
-          type="button"
-        >
-          Apply
-        </button>
-
-        <button
-          id="resetFilters"
+          id="clearFiltersBtn"
           class="btn"
           type="button"
         >
-          Reset
+          Clear Filters
+        </button>
+
+      </div>
+
+
+      <div>
+
+        <button
+          id="exportCsvBtn"
+          class="btn btn-primary"
+          type="button"
+        >
+          Export CSV
         </button>
 
       </div>
@@ -1219,7 +1230,7 @@
 
 
 
-    <section class="legend">
+    <div class="legend">
 
       <span class="legend-item">
         <span class="legend-dot green"></span>
@@ -1238,14 +1249,15 @@
 
       <span class="legend-item">
         <span class="legend-dot red"></span>
-        Weak
+        Weak / Missing
       </span>
 
-    </section>
+    </div>
 
 
 
     <section class="table-panel">
+
 
       <div class="table-toolbar">
 
@@ -1253,17 +1265,8 @@
           id="resultCount"
           class="result-count"
         >
-          Loading...
+          Loading scanner data...
         </div>
-
-
-        <button
-          id="exportCsv"
-          class="btn"
-          type="button"
-        >
-          Export CSV
-        </button>
 
       </div>
 
@@ -1290,145 +1293,142 @@
 
         <table id="scannerTable">
 
+
           <thead>
+
 
             <tr>
 
-              <th>Stock</th>
-
-              <th>
-                Big Move
-                <br>
-                Score
-              </th>
-
-              <th>
-                Setup
-                <br>
-                Status
-              </th>
-
-              <th>Price</th>
-
-              <th>1M %</th>
-
-              <th>3M %</th>
-
-              <th>6M %</th>
-
-              <th>1Y %</th>
-
-              <th>RS</th>
-
               <th>
                 Stock
-                <br>
-                Momentum
               </th>
 
               <th>
-                Industry
-                <br>
-                Rating
+                Big Move<br>Score
               </th>
 
               <th>
-                Free Float
-                <br>
-                ₹ Cr
+                Setup<br>Status
               </th>
 
               <th>
-                Prior
-                <br>
-                Move %
+                Price
               </th>
 
               <th>
-                Retrace
-                <br>
-                %
+                1W %
               </th>
 
               <th>
-                Consolid.
-                <br>
-                Days
+                1M %
               </th>
 
               <th>
-                Volume
-                <br>
-                Contract.
+                3M %
               </th>
 
               <th>
-                Volatility
-                <br>
-                Contract.
+                6M %
               </th>
 
               <th>
-                Breakout
-                <br>
-                Status
+                1Y %
               </th>
 
               <th>
-                Turnover
-                <br>
-                Expansion
+                RS
               </th>
 
               <th>
-                Fundamental
-                <br>
-                Trigger
+                Stock<br>Momentum
               </th>
 
               <th>
-                Key Trigger
+                Industry<br>Rating
               </th>
 
               <th>
-                Missing
-                <br>
-                Conditions
+                Free Float<br>₹ Cr
+              </th>
+
+              <th>
+                Prior<br>Move %
+              </th>
+
+              <th>
+                Retracement<br>%
+              </th>
+
+              <th>
+                Consolidation<br>Days
+              </th>
+
+              <th>
+                Volume<br>Contraction
+              </th>
+
+              <th>
+                Volatility<br>Contraction
+              </th>
+
+              <th>
+                Breakout<br>Status
+              </th>
+
+              <th>
+                Turnover<br>Expansion
+              </th>
+
+              <th>
+                Fundamental<br>Trigger
+              </th>
+
+              <th>
+                Key<br>Trigger
+              </th>
+
+              <th>
+                Missing<br>Conditions
               </th>
 
             </tr>
 
 
+
             <tr
-              id="columnFilterRow"
+              id="filterRow"
               class="filter-row"
             >
             </tr>
 
+
           </thead>
 
 
-          <tbody id="scannerRows">
+
+          <tbody id="scannerBody">
 
             <tr>
 
-              <td colspan="22">
-
-                <div class="empty-state">
-                  Loading scanner data...
-                </div>
-
+              <td
+                colspan="23"
+                class="empty-state"
+              >
+                Loading Big Move Scanner...
               </td>
 
             </tr>
 
           </tbody>
 
+
         </table>
 
       </div>
 
+
     </section>
+
 
   </main>
 
@@ -1440,10 +1440,12 @@
   ></div>
 
 
+
   <aside
     id="detailDrawer"
     class="drawer"
   >
+
 
     <div class="drawer-header">
 
@@ -1453,13 +1455,15 @@
           id="drawerTitle"
           class="drawer-title"
         >
-          Stock Details
+          Stock Detail
         </h2>
 
         <div
           id="drawerSymbol"
           class="drawer-symbol"
-        ></div>
+        >
+          —
+        </div>
 
       </div>
 
@@ -1468,6 +1472,7 @@
         id="drawerClose"
         class="drawer-close"
         type="button"
+        aria-label="Close"
       >
         ×
       </button>
@@ -1475,10 +1480,13 @@
     </div>
 
 
+
     <div
       id="drawerContent"
       class="drawer-content"
-    ></div>
+    >
+    </div>
+
 
   </aside>
 
@@ -1486,46 +1494,606 @@
 
   <script>
 
+
+    /* =========================================================
+       CONFIG
+    ========================================================= */
+
+
     const DATA_URL =
       "data/big_move_scanner.json";
 
 
+    const FREE_FLOAT_GREEN_LIMIT =
+      5000;
+
+
+
+    /* =========================================================
+       STATE
+    ========================================================= */
+
+
     let allRows = [];
+
     let filteredRows = [];
-    let scannerMeta = {};
+
+    let metadata = {};
+
+    let activeSortField = null;
+
+    let activeSortDirection = null;
 
 
-    let activeSortField =
-      "bigMoveScore";
+
+    const filterState = {};
 
 
-    let activeSortDirection =
-      "desc";
+
+    /* =========================================================
+       COLUMN CONFIGURATION
+    ========================================================= */
 
 
-    /*
-      IMPORTANT:
+    const columns = [
 
-      freeFloatCr is calculated from:
 
-      Free Float ₹ Cr =
-      Free Float Shares × Current Price / 1,00,00,000
-    */
+      {
+        field: "stock",
+        type: "text",
+        filterable: true
+      },
 
-    function calculateFreeFloatCr(
-      row
+
+      {
+        field: "bigMoveScore",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "setupStatus",
+        type: "text",
+        filterable: true
+      },
+
+
+      {
+        field: "price",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "return1W",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "return1M",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "return3M",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "return6M",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "return1Y",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "rsRating",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "stockMomentumRating",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "industryRating",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "freeFloatCr",
+        type: "number",
+        filterable: true,
+        computed: true
+      },
+
+
+      {
+        field: "priorMovePct",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "retracementPct",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "consolidationDays",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "volumeContraction",
+        type: "boolean",
+        filterable: true
+      },
+
+
+      {
+        field: "volatilityContraction",
+        type: "boolean",
+        filterable: true
+      },
+
+
+      {
+        field: "breakoutStatus",
+        type: "text",
+        filterable: true
+      },
+
+
+      {
+        field: "turnoverExpansion",
+        type: "number",
+        filterable: true
+      },
+
+
+      {
+        field: "fundamentalTrigger",
+        type: "text",
+        filterable: true
+      },
+
+
+      {
+        field: "keyTrigger",
+        type: "text",
+        filterable: true
+      },
+
+
+      {
+        field: "missingConditions",
+        type: "text",
+        filterable: true
+      }
+
+
+    ];
+
+
+
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+
+    const scannerBody =
+      document.getElementById(
+        "scannerBody"
+      );
+
+
+    const filterRow =
+      document.getElementById(
+        "filterRow"
+      );
+
+
+    const resultCount =
+      document.getElementById(
+        "resultCount"
+      );
+
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    const clearFiltersBtn =
+      document.getElementById(
+        "clearFiltersBtn"
+      );
+
+
+    const exportCsvBtn =
+      document.getElementById(
+        "exportCsvBtn"
+      );
+
+
+    const tableWrap =
+      document.getElementById(
+        "tableWrap"
+      );
+
+
+    const topScroll =
+      document.getElementById(
+        "topScroll"
+      );
+
+
+    const topScrollInner =
+      document.getElementById(
+        "topScrollInner"
+      );
+
+
+    const detailDrawer =
+      document.getElementById(
+        "detailDrawer"
+      );
+
+
+    const drawerOverlay =
+      document.getElementById(
+        "drawerOverlay"
+      );
+
+
+    const drawerClose =
+      document.getElementById(
+        "drawerClose"
+      );
+
+
+    const drawerTitle =
+      document.getElementById(
+        "drawerTitle"
+      );
+
+
+    const drawerSymbol =
+      document.getElementById(
+        "drawerSymbol"
+      );
+
+
+    const drawerContent =
+      document.getElementById(
+        "drawerContent"
+      );
+
+
+
+    /* =========================================================
+       BASIC HELPERS
+    ========================================================= */
+
+
+    function num(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+        return null;
+      }
+
+
+      const parsed =
+        Number(value);
+
+
+      return Number.isFinite(parsed)
+        ? parsed
+        : null;
+
+    }
+
+
+
+    function text(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "";
+      }
+
+
+      return String(value);
+
+    }
+
+
+
+    function escapeHtml(value) {
+
+      return text(value)
+
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+
+    function formatNumber(
+      value,
+      decimals = 0
     ) {
 
+      const n =
+        num(value);
+
+
+      if (n === null) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      return n.toLocaleString(
+        "en-IN",
+        {
+          minimumFractionDigits:
+            decimals,
+
+          maximumFractionDigits:
+            decimals
+        }
+      );
+
+    }
+
+
+
+    function formatPrice(value) {
+
+      const n =
+        num(value);
+
+
+      if (n === null) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      return n.toLocaleString(
+        "en-IN",
+        {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }
+      );
+
+    }
+
+
+
+    function formatPct(value) {
+
+      const n =
+        num(value);
+
+
+      if (n === null) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      const cls =
+        n < 0
+          ? "negative"
+          : "positive";
+
+
+      return `
+        <span class="${cls}">
+          ${n.toFixed(2)}%
+        </span>
+      `;
+
+    }
+
+
+
+    function formatTimes(value) {
+
+      const n =
+        num(value);
+
+
+      if (n === null) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      return `${n.toFixed(2)}x`;
+
+    }
+
+
+
+    function normalizeBoolean(value) {
+
+      if (
+        value === true ||
+        value === 1
+      ) {
+        return true;
+      }
+
+
+      const v =
+        text(value)
+          .trim()
+          .toLowerCase();
+
+
+      return [
+        "true",
+        "yes",
+        "y",
+        "1",
+        "pass",
+        "passed"
+      ].includes(v);
+
+    }
+
+
+
+    function formatBoolean(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      const yes =
+        normalizeBoolean(value);
+
+
+      return yes
+
+        ? `<span class="signal-yes">YES</span>`
+
+        : `<span class="signal-no">NO</span>`;
+
+    }
+
+
+
+    function getStockName(row) {
+
+      return (
+        row.name ||
+        row.companyName ||
+        row.symbol ||
+        "—"
+      );
+
+    }
+
+
+
+    function getSymbol(row) {
+
+      return (
+        row.symbol ||
+        row.stock ||
+        ""
+      );
+
+    }
+
+
+
+    function getSearchText(row) {
+
+      return [
+        getStockName(row),
+        getSymbol(row),
+        row.industry,
+        row.sector,
+        row.setupStatus,
+        row.keyTrigger,
+        row.fundamentalTrigger
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+    }
+
+
+
+    /* =========================================================
+       FREE FLOAT
+    ========================================================= */
+
+
+    function calculateFreeFloatCr(row) {
+
       const shares =
-        num(
-          row.freeFloatShares
-        );
+        num(row.freeFloatShares);
 
 
       const price =
-        num(
-          row.price
-        );
+        num(row.price);
 
 
       if (
@@ -1547,1402 +2115,635 @@
 
 
 
-    const columns = [
+    function attachComputedFields(row) {
 
-      {
-        type: "none"
-      },
+      return {
 
-      {
-        type: "number",
-        field: "bigMoveScore",
-        defaultSort: "desc"
-      },
+        ...row,
 
-      {
-        type: "select",
-        field: "setupStatus"
-      },
+        freeFloatCr:
+          calculateFreeFloatCr(row)
 
-      {
-        type: "number",
-        field: "price"
-      },
-
-      {
-        type: "number",
-        field: "return1M"
-      },
-
-      {
-        type: "number",
-        field: "return3M"
-      },
-
-      {
-        type: "number",
-        field: "return6M"
-      },
-
-      {
-        type: "number",
-        field: "return1Y"
-      },
-
-      {
-        type: "number",
-        field: "rsRating"
-      },
-
-      {
-        type: "number",
-        field: "stockMomentumRating"
-      },
-
-      {
-        type: "number",
-        field: "industryRating"
-      },
-
-      {
-        type: "number",
-        field: "freeFloatCr"
-      },
-
-      {
-        type: "number",
-        field: "priorMovePct"
-      },
-
-      {
-        type: "number",
-        field: "retracementPct"
-      },
-
-      {
-        type: "number",
-        field: "consolidationDays"
-      },
-
-      {
-        type: "boolean",
-        field: "volumeContraction"
-      },
-
-      {
-        type: "boolean",
-        field: "volatilityContraction"
-      },
-
-      {
-        type: "select",
-        field: "breakoutStatus"
-      },
-
-      {
-        type: "number",
-        field: "turnoverExpansion"
-      },
-
-      {
-        type: "trigger",
-        field: "fundamentalTrigger"
-      },
-
-      {
-        type: "select",
-        field: "keyTrigger"
-      },
-
-      {
-        type: "none"
-      }
-
-    ];
-
-
-
-    function el(
-      id
-    ) {
-
-      return document.getElementById(
-        id
-      );
+      };
 
     }
 
 
 
-    function num(
-      value
-    ) {
-
-      if (
-        value === null ||
-        value === undefined ||
-        value === ""
-      ) {
-
-        return null;
-
-      }
-
-
-      if (
-        typeof value ===
-        "string"
-      ) {
-
-        const cleaned =
-          value
-            .replace(/,/g, "")
-            .replace(/%/g, "")
-            .replace(/₹/g, "")
-            .replace(/x/gi, "")
-            .trim();
-
-
-        if (
-          !cleaned ||
-          cleaned === "—" ||
-          cleaned.toLowerCase() ===
-            "pending"
-        ) {
-
-          return null;
-
-        }
-
-
-        const parsed =
-          Number(
-            cleaned
-          );
-
-
-        return Number.isFinite(
-          parsed
-        )
-          ? parsed
-          : null;
-
-      }
-
-
-      const parsed =
-        Number(
-          value
-        );
-
-
-      return Number.isFinite(
-        parsed
-      )
-        ? parsed
-        : null;
-
-    }
-
-
-
-    function rowValue(
-      row,
-      field
-    ) {
-
-      if (
-        field ===
-        "freeFloatCr"
-      ) {
-
-        return calculateFreeFloatCr(
-          row
-        );
-
-      }
-
-
-      return row[
-        field
-      ];
-
-    }
-
-
-
-    function escapeHtml(
-      value
-    ) {
-
-      return String(
-        value ?? ""
-      )
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-    }
-
-
-
-    function dash() {
-
-      return (
-        '<span class="pending">—</span>'
-      );
-
-    }
-
-
-
-    function formatPrice(
-      value
-    ) {
-
-      const n =
-        num(
-          value
-        );
-
-
-      if (
-        n === null
-      ) {
-
-        return dash();
-
-      }
-
-
-      return (
-        "₹" +
-        n.toLocaleString(
-          "en-IN",
-          {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          }
-        )
-      );
-
-    }
-
-
-
-    function formatPct(
-      value
-    ) {
-
-      const n =
-        num(
-          value
-        );
-
-
-      if (
-        n === null
-      ) {
-
-        return dash();
-
-      }
-
-
-      const cls =
-        n < 0
-          ? "negative"
-          : "positive";
-
-
-      const sign =
-        n > 0
-          ? "+"
-          : "";
-
-
-      return (
-        `<span class="${cls}">` +
-        `${sign}${n.toFixed(1)}%` +
-        `</span>`
-      );
-
-    }
-
-
-
-    function formatTimes(
-      value
-    ) {
-
-      const n =
-        num(
-          value
-        );
-
-
-      return n === null
-        ? dash()
-        : `${n.toFixed(2)}x`;
-
-    }
-
-
-
-    function formatTechnicalPct(
-      value
-    ) {
-
-      const n =
-        num(
-          value
-        );
-
-
-      return n === null
-        ? dash()
-        : `${n.toFixed(1)}%`;
-
-    }
-
-
-
-    function formatInteger(
-      value
-    ) {
-
-      const n =
-        num(
-          value
-        );
-
-
-      return n === null
-        ? dash()
-        : Math.round(
-            n
-          ).toLocaleString(
-            "en-IN"
-          );
-
-    }
-
-
-
-    function formatFreeFloatCr(
-      row
-    ) {
+    function formatFreeFloatCr(row) {
 
       const value =
-        calculateFreeFloatCr(
-          row
-        );
+        num(row.freeFloatCr);
 
 
-      if (
-        value === null
-      ) {
+      if (value === null) {
 
-        return dash();
+        return `<span class="pending">—</span>`;
 
       }
 
 
-      const display =
+      const formatted =
         value.toLocaleString(
           "en-IN",
           {
+            minimumFractionDigits: 0,
             maximumFractionDigits: 0
           }
         );
 
 
-      /*
-        FINAL RULE:
-
-        ₹5,000 Cr AND BELOW
-        = GREEN STICKER
-      */
-
       if (
-        value <= 5000
+        value <=
+        FREE_FLOAT_GREEN_LIMIT
       ) {
 
-        return (
-          `<span class="free-float-low">` +
-          `${display}` +
-          `</span>`
-        );
+        return `
+          <span class="free-float-low">
+            ${formatted}
+          </span>
+        `;
 
       }
 
 
-      return (
-        `<span class="free-float-normal">` +
-        `${display}` +
-        `</span>`
-      );
+      return `
+        <span class="free-float-normal">
+          ${formatted}
+        </span>
+      `;
 
     }
 
 
 
-    function booleanValue(
-      value
-    ) {
-
-      if (
-        value === null ||
-        value === undefined ||
-        value === ""
-      ) {
-
-        return null;
-
-      }
+    /* =========================================================
+       SCORE / STATUS
+    ========================================================= */
 
 
-      if (
-        value === true ||
-        value === 1
-      ) {
-
-        return true;
-
-      }
-
-
-      if (
-        value === false ||
-        value === 0
-      ) {
-
-        return false;
-
-      }
-
-
-      const text =
-        String(
-          value
-        )
-          .toLowerCase()
-          .trim();
-
-
-      if (
-        text === "yes" ||
-        text === "true"
-      ) {
-
-        return true;
-
-      }
-
-
-      if (
-        text === "no" ||
-        text === "false"
-      ) {
-
-        return false;
-
-      }
-
-
-      return null;
-
-    }
-
-
-
-    function formatBoolean(
-      value
-    ) {
-
-      const b =
-        booleanValue(
-          value
-        );
-
-
-      if (
-        b === null
-      ) {
-
-        return dash();
-
-      }
-
-
-      return b
-        ? '<span class="signal-yes">YES</span>'
-        : '<span class="signal-no">NO</span>';
-
-    }
-
-
-
-    function scoreBadge(
-      value
-    ) {
+    function scoreClass(value) {
 
       const n =
-        num(
-          value
-        );
+        num(value);
 
 
-      if (
-        n === null
-      ) {
+      if (n === null) {
 
-        return dash();
+        return "score-weak";
 
       }
 
 
-      let cls =
-        "score-weak";
+      if (n >= 80) {
 
-
-      if (
-        n >= 80
-      ) {
-
-        cls =
-          "score-elite";
-
-      }
-
-      else if (
-        n >= 70
-      ) {
-
-        cls =
-          "score-strong";
-
-      }
-
-      else if (
-        n >= 55
-      ) {
-
-        cls =
-          "score-developing";
+        return "score-elite";
 
       }
 
 
-      return (
-        `<span class="score-badge ${cls}">` +
-        `${Math.round(n)}` +
-        `</span>`
-      );
+      if (n >= 65) {
+
+        return "score-strong";
+
+      }
+
+
+      if (n >= 50) {
+
+        return "score-developing";
+
+      }
+
+
+      return "score-weak";
 
     }
 
 
 
-    function setupBadge(
-      value
-    ) {
+    function formatScore(value) {
 
-      const label =
-        String(
-          value ||
-          "Pending"
-        );
+      const n =
+        num(value);
 
 
-      const lower =
-        label.toLowerCase();
+      if (n === null) {
 
-
-      let cls =
-        "setup-red";
-
-
-      if (
-        lower.includes(
-          "breakout"
-        ) &&
-        !lower.includes(
-          "near"
-        )
-      ) {
-
-        cls =
-          "setup-green";
-
-      }
-
-      else if (
-        lower.includes(
-          "strong"
-        )
-      ) {
-
-        cls =
-          "setup-green";
-
-      }
-
-      else if (
-        lower.includes(
-          "near"
-        ) ||
-        lower.includes(
-          "developing"
-        )
-      ) {
-
-        cls =
-          "setup-yellow";
-
-      }
-
-      else if (
-        lower.includes(
-          "watch"
-        )
-      ) {
-
-        cls =
-          "setup-orange";
+        return `<span class="pending">—</span>`;
 
       }
 
 
-      return (
-        `<span class="setup-badge ${cls}">` +
-        `${escapeHtml(label)}` +
-        `</span>`
-      );
+      return `
+        <span
+          class="
+            score-badge
+            ${scoreClass(n)}
+          "
+        >
+          ${Math.round(n)}
+        </span>
+      `;
 
     }
 
 
 
-    function formatBreakout(
-      value
-    ) {
+    function setupClass(value) {
 
-      if (
-        !value
-      ) {
-
-        return dash();
-
-      }
-
-
-      const label =
-        String(
-          value
-        );
-
-
-      const lower =
-        label.toLowerCase();
+      const v =
+        text(value)
+          .toLowerCase();
 
 
       if (
-        lower.includes(
-          "breakout"
-        ) &&
-        !lower.includes(
-          "near"
-        )
+        v.includes("strong") ||
+        v.includes("ready") ||
+        v.includes("pass")
       ) {
 
-        return (
-          `<span class="signal-yes">` +
-          `${escapeHtml(label)}` +
-          `</span>`
-        );
+        return "setup-green";
 
       }
 
 
       if (
-        lower.includes(
-          "near"
-        )
+        v.includes("develop") ||
+        v.includes("near")
       ) {
 
-        return (
-          `<span style="color:var(--yellow);font-weight:900;">` +
-          `${escapeHtml(label)}` +
-          `</span>`
-        );
+        return "setup-yellow";
 
       }
 
 
-      return escapeHtml(
-        label
-      );
+      if (
+        v.includes("watch")
+      ) {
+
+        return "setup-orange";
+
+      }
+
+
+      return "setup-red";
 
     }
 
 
 
-    function triggerList(
-      row
-    ) {
+    function formatSetup(value) {
 
-      if (
-        Array.isArray(
-          row.fundamentalTriggers
-        )
-      ) {
+      const v =
+        text(value).trim();
 
-        return row.fundamentalTriggers;
+
+      if (!v) {
+
+        return `<span class="pending">—</span>`;
 
       }
 
 
-      if (
-        Array.isArray(
-          row.triggers
-        )
-      ) {
-
-        return row.triggers;
-
-      }
-
-
-      return [];
+      return `
+        <span
+          class="
+            setup-badge
+            ${setupClass(v)}
+          "
+        >
+          ${escapeHtml(v)}
+        </span>
+      `;
 
     }
 
 
 
-    function hasTrigger(
-      row
-    ) {
+    /* =========================================================
+       FIELD VALUE
+    ========================================================= */
 
-      return (
-        row.fundamentalTrigger ===
-          true ||
-        triggerList(
-          row
-        ).length >
-          0
-      );
 
-    }
-
-
-
-    function missingArray(
-      row
-    ) {
-
-      if (
-        Array.isArray(
-          row.missingConditions
-        )
-      ) {
-
-        return row.missingConditions;
-
-      }
-
-
-      if (
-        row.missingConditions
-      ) {
-
-        return String(
-          row.missingConditions
-        )
-          .split(
-            /\||,/
-          )
-          .map(
-            item =>
-              item.trim()
-          )
-          .filter(
-            Boolean
-          );
-
-      }
-
-
-      return [];
-
-    }
-
-
-
-    function missingText(
-      row
-    ) {
-
-      const list =
-        missingArray(
-          row
-        );
-
-
-      return list.length
-        ? list.join(
-            " | "
-          )
-        : "None";
-
-    }
-
-
-
-    async function fetchScanner() {
-
-      const response =
-        await fetch(
-          `${DATA_URL}?v=${Date.now()}`,
-          {
-            cache:
-              "no-store"
-          }
-        );
-
-
-      if (
-        !response.ok
-      ) {
-
-        throw new Error(
-          `Scanner data HTTP ${response.status}`
-        );
-
-      }
-
-
-      return response.json();
-
-    }
-
-
-
-    function normalizePayload(
-      payload
-    ) {
-
-      scannerMeta =
-        payload &&
-        typeof payload ===
-          "object"
-          ? payload
-          : {};
-
-
-      if (
-        Array.isArray(
-          payload
-        )
-      ) {
-
-        return payload;
-
-      }
-
-
-      if (
-        Array.isArray(
-          payload?.rows
-        )
-      ) {
-
-        return payload.rows;
-
-      }
-
-
-      if (
-        Array.isArray(
-          payload?.stocks
-        )
-      ) {
-
-        return payload.stocks;
-
-      }
-
-
-      return [];
-
-    }
-
-
-
-    function updateSummary() {
-
-      const total =
-        allRows.length;
-
-
-      const score80 =
-        allRows.filter(
-          row => {
-
-            const v =
-              num(
-                row.bigMoveScore
-              );
-
-
-            return (
-              v !== null &&
-              v >= 80
-            );
-
-          }
-        ).length;
-
-
-      const near =
-        allRows.filter(
-          row =>
-            String(
-              row.breakoutStatus ||
-              ""
-            )
-              .toLowerCase()
-              .includes(
-                "near"
-              )
-        ).length;
-
-
-      const breakout =
-        allRows.filter(
-          row => {
-
-            const value =
-              String(
-                row.breakoutStatus ||
-                ""
-              )
-                .toLowerCase();
-
-
-            return (
-              value.includes(
-                "breakout"
-              ) &&
-              !value.includes(
-                "near"
-              )
-            );
-
-          }
-        ).length;
-
-
-      const lowFreeFloat =
-        allRows.filter(
-          row => {
-
-            const value =
-              calculateFreeFloatCr(
-                row
-              );
-
-
-            return (
-              value !== null &&
-              value <= 5000
-            );
-
-          }
-        ).length;
-
-
-      el(
-        "summaryUniverse"
-      ).textContent =
-        total.toLocaleString(
-          "en-IN"
-        );
-
-
-      el(
-        "summaryStrong"
-      ).textContent =
-        score80.toLocaleString(
-          "en-IN"
-        );
-
-
-      el(
-        "summaryNear"
-      ).textContent =
-        near.toLocaleString(
-          "en-IN"
-        );
-
-
-      el(
-        "summaryBreakout"
-      ).textContent =
-        breakout.toLocaleString(
-          "en-IN"
-        );
-
-
-      el(
-        "summaryFreeFloat"
-      ).textContent =
-        lowFreeFloat.toLocaleString(
-          "en-IN"
-        );
-
-
-      el(
-        "summaryUpdated"
-      ).textContent =
-        scannerMeta.marketDate ||
-        scannerMeta.updated ||
-        "—";
-
-    }
-
-
-
-    function uniqueValues(
+    function getFieldValue(
+      row,
       field
     ) {
 
-      return [
-        ...new Set(
-          allRows
-            .map(
-              row =>
-                row[
-                  field
-                ]
-            )
-            .filter(
-              value =>
-                value !== null &&
-                value !== undefined &&
-                String(
-                  value
-                ).trim() !==
-                  ""
-            )
-            .map(
-              value =>
-                String(
-                  value
-                )
-            )
-        )
-      ]
-        .sort(
-          (
-            a,
-            b
-          ) =>
-            a.localeCompare(
-              b
-            )
-        );
+      if (
+        field === "stock"
+      ) {
+
+        return getStockName(row);
+
+      }
+
+
+      if (
+        field === "freeFloatCr"
+      ) {
+
+        return row.freeFloatCr;
+
+      }
+
+
+      return row[field];
 
     }
 
 
 
-    function numericFilterHtml(
-      config
-    ) {
-
-      const field =
-        config.field;
+    /* =========================================================
+       FILTER UI
+    ========================================================= */
 
 
-      return `
-        <div class="col-filter">
+    function createFilterState() {
 
-          <label class="filter-active">
+      columns.forEach(
+        (column) => {
 
-            <input
-              id="active_${field}"
-              type="checkbox"
-            >
+          filterState[column.field] = {
 
-            Active
+            active: false,
 
-          </label>
+            operator: ">=",
 
+            value: "",
 
-          <div class="filter-line">
+            direction: "desc"
 
-            <select
-              id="operator_${field}"
-              class="mini-control mini-operator"
-            >
+          };
 
-              <option value="above">
-                ≥
-              </option>
-
-              <option value="below">
-                ≤
-              </option>
-
-            </select>
-
-
-            <input
-              id="value_${field}"
-              class="mini-control"
-              type="number"
-              step="any"
-              placeholder="Value"
-            >
-
-          </div>
-
-
-          <select
-            id="sort_${field}"
-            class="mini-control"
-            data-sort-field="${field}"
-          >
-
-            <option value="">
-              Sort
-            </option>
-
-            <option value="asc">
-              Asc
-            </option>
-
-            <option
-              value="desc"
-              ${
-                config.defaultSort ===
-                  "desc"
-                  ? "selected"
-                  : ""
-              }
-            >
-              Desc
-            </option>
-
-          </select>
-
-        </div>
-      `;
+        }
+      );
 
     }
 
 
 
-    function selectFilterHtml(
-      config
-    ) {
+    function buildFilterRow() {
 
-      const values =
-        uniqueValues(
-          config.field
-        );
+      filterRow.innerHTML = "";
 
 
-      return `
-        <select
-          id="select_${config.field}"
-          class="text-filter"
-        >
+      columns.forEach(
+        (column) => {
 
-          <option value="">
-            All
-          </option>
 
-          ${
-            values
-              .map(
-                value =>
-                  `
-                    <option value="${escapeHtml(value)}">
-                      ${escapeHtml(value)}
-                    </option>
-                  `
-              )
-              .join("")
+          const th =
+            document.createElement(
+              "th"
+            );
+
+
+          if (
+            !column.filterable
+          ) {
+
+            th.innerHTML =
+              `<div class="no-filter">—</div>`;
+
+            filterRow.appendChild(th);
+
+            return;
+
           }
 
-        </select>
-      `;
+
+          if (
+            column.type ===
+            "number"
+          ) {
+
+            th.innerHTML = `
+
+              <div class="col-filter">
+
+                <label class="filter-active">
+
+                  <input
+                    type="checkbox"
+                    data-action="active"
+                    data-field="${column.field}"
+                  >
+
+                  Active
+
+                </label>
+
+
+                <div class="filter-line">
+
+                  <select
+                    class="mini-control mini-operator"
+                    data-action="operator"
+                    data-field="${column.field}"
+                  >
+
+                    <option value=">=">
+                      ≥
+                    </option>
+
+                    <option value="<=">
+                      ≤
+                    </option>
+
+                  </select>
+
+
+                  <input
+                    class="mini-control"
+                    type="number"
+                    step="any"
+                    placeholder="Value"
+                    data-action="value"
+                    data-field="${column.field}"
+                  >
+
+                </div>
+
+
+                <select
+                  class="mini-control"
+                  data-action="direction"
+                  data-field="${column.field}"
+                >
+
+                  <option value="desc">
+                    Desc
+                  </option>
+
+                  <option value="asc">
+                    Asc
+                  </option>
+
+                </select>
+
+              </div>
+
+            `;
+
+          }
+
+
+          else if (
+            column.type ===
+            "boolean"
+          ) {
+
+            th.innerHTML = `
+
+              <div class="col-filter">
+
+                <label class="filter-active">
+
+                  <input
+                    type="checkbox"
+                    data-action="active"
+                    data-field="${column.field}"
+                  >
+
+                  Active
+
+                </label>
+
+
+                <select
+                  class="mini-control"
+                  data-action="value"
+                  data-field="${column.field}"
+                >
+
+                  <option value="">
+                    Any
+                  </option>
+
+                  <option value="true">
+                    YES
+                  </option>
+
+                  <option value="false">
+                    NO
+                  </option>
+
+                </select>
+
+
+                <select
+                  class="mini-control"
+                  data-action="direction"
+                  data-field="${column.field}"
+                >
+
+                  <option value="desc">
+                    YES First
+                  </option>
+
+                  <option value="asc">
+                    NO First
+                  </option>
+
+                </select>
+
+              </div>
+
+            `;
+
+          }
+
+
+          else {
+
+            th.innerHTML = `
+
+              <div class="col-filter">
+
+                <label class="filter-active">
+
+                  <input
+                    type="checkbox"
+                    data-action="active"
+                    data-field="${column.field}"
+                  >
+
+                  Active
+
+                </label>
+
+
+                <input
+                  class="text-filter"
+                  type="text"
+                  placeholder="Contains"
+                  data-action="value"
+                  data-field="${column.field}"
+                >
+
+
+                <select
+                  class="mini-control"
+                  data-action="direction"
+                  data-field="${column.field}"
+                >
+
+                  <option value="asc">
+                    A → Z
+                  </option>
+
+                  <option value="desc">
+                    Z → A
+                  </option>
+
+                </select>
+
+              </div>
+
+            `;
+
+          }
+
+
+          filterRow.appendChild(th);
+
+        }
+      );
+
+
+      bindFilterEvents();
 
     }
 
 
 
-    function booleanFilterHtml(
-      config
-    ) {
+    function bindFilterEvents() {
 
-      return `
-        <select
-          id="select_${config.field}"
-          class="text-filter"
-        >
+      filterRow
+        .querySelectorAll(
+          "[data-action]"
+        )
+        .forEach(
+          (element) => {
 
-          <option value="">
-            All
-          </option>
-
-          <option value="YES">
-            YES
-          </option>
-
-          <option value="NO">
-            NO
-          </option>
-
-        </select>
-      `;
-
-    }
+            element.addEventListener(
+              "change",
+              handleFilterControl
+            );
 
 
+            if (
+              element.tagName ===
+              "INPUT"
+            ) {
 
-    function triggerFilterHtml() {
-
-      return `
-        <select
-          id="select_fundamentalTrigger"
-          class="text-filter"
-        >
-
-          <option value="">
-            All
-          </option>
-
-          <option value="YES">
-            YES
-          </option>
-
-          <option value="NO">
-            NO
-          </option>
-
-        </select>
-      `;
-
-    }
-
-
-
-    function renderColumnFilters() {
-
-      const row =
-        el(
-          "columnFilterRow"
-        );
-
-
-      row.innerHTML =
-        columns
-          .map(
-            config => {
-
-              if (
-                config.type ===
-                "number"
-              ) {
-
-                return (
-                  `<th>` +
-                  numericFilterHtml(
-                    config
-                  ) +
-                  `</th>`
-                );
-
-              }
-
-
-              if (
-                config.type ===
-                "select"
-              ) {
-
-                return (
-                  `<th>` +
-                  selectFilterHtml(
-                    config
-                  ) +
-                  `</th>`
-                );
-
-              }
-
-
-              if (
-                config.type ===
-                "boolean"
-              ) {
-
-                return (
-                  `<th>` +
-                  booleanFilterHtml(
-                    config
-                  ) +
-                  `</th>`
-                );
-
-              }
-
-
-              if (
-                config.type ===
-                "trigger"
-              ) {
-
-                return (
-                  `<th>` +
-                  triggerFilterHtml() +
-                  `</th>`
-                );
-
-              }
-
-
-              return (
-                '<th><div class="no-filter">—</div></th>'
+              element.addEventListener(
+                "input",
+                handleFilterControl
               );
 
             }
-          )
-          .join("");
+
+          }
+        );
 
     }
 
 
 
-    function passesNumeric(
+    function handleFilterControl(event) {
+
+      const element =
+        event.target;
+
+
+      const field =
+        element.dataset.field;
+
+
+      const action =
+        element.dataset.action;
+
+
+      if (
+        !field ||
+        !action
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        action === "active"
+      ) {
+
+        filterState[field].active =
+          element.checked;
+
+      }
+
+
+      else {
+
+        filterState[field][action] =
+          element.value;
+
+      }
+
+
+      if (
+        action === "direction"
+      ) {
+
+        activeSortField =
+          field;
+
+        activeSortDirection =
+          element.value;
+
+      }
+
+
+      else if (
+        filterState[field].active
+      ) {
+
+        activeSortField =
+          field;
+
+        activeSortDirection =
+          filterState[field]
+            .direction;
+
+      }
+
+
+      applyFilters();
+
+    }
+
+
+
+    /* =========================================================
+       FILTER LOGIC
+    ========================================================= */
+
+
+    function rowPassesColumnFilter(
       row,
-      config
+      column
     ) {
 
-      const active =
-        el(
-          `active_${config.field}`
-        );
+      const state =
+        filterState[column.field];
 
 
       if (
-        !active ||
-        !active.checked
+        !state ||
+        !state.active
       ) {
 
         return true;
@@ -2950,52 +2751,108 @@
       }
 
 
-      const threshold =
-        num(
-          el(
-            `value_${config.field}`
-          )?.value
+      const raw =
+        getFieldValue(
+          row,
+          column.field
         );
 
 
       if (
-        threshold === null
+        column.type ===
+        "number"
       ) {
+
+        const rowValue =
+          num(raw);
+
+
+        const threshold =
+          num(state.value);
+
+
+        if (
+          threshold === null
+        ) {
+
+          return true;
+
+        }
+
+
+        if (
+          rowValue === null
+        ) {
+
+          return false;
+
+        }
+
+
+        if (
+          state.operator ===
+          "<="
+        ) {
+
+          return (
+            rowValue <=
+            threshold
+          );
+
+        }
+
+
+        return (
+          rowValue >=
+          threshold
+        );
+
+      }
+
+
+      if (
+        column.type ===
+        "boolean"
+      ) {
+
+        if (
+          state.value === ""
+        ) {
+
+          return true;
+
+        }
+
+
+        const target =
+          state.value ===
+          "true";
+
+
+        return (
+          normalizeBoolean(raw) ===
+          target
+        );
+
+      }
+
+
+      const needle =
+        text(state.value)
+          .trim()
+          .toLowerCase();
+
+
+      if (!needle) {
 
         return true;
 
       }
 
 
-      const value =
-        num(
-          rowValue(
-            row,
-            config.field
-          )
-        );
-
-
-      if (
-        value === null
-      ) {
-
-        return false;
-
-      }
-
-
-      const operator =
-        el(
-          `operator_${config.field}`
-        )?.value ||
-        "above";
-
-
-      return operator ===
-        "below"
-        ? value <= threshold
-        : value >= threshold;
+      return text(raw)
+        .toLowerCase()
+        .includes(needle);
 
     }
 
@@ -3003,197 +2860,40 @@
 
     function applyFilters() {
 
-      const search =
-        String(
-          el(
-            "searchInput"
-          ).value ||
-          ""
-        )
+      const globalSearch =
+        searchInput.value
           .trim()
           .toLowerCase();
 
 
       filteredRows =
         allRows.filter(
-          row => {
+          (row) => {
+
 
             if (
-              search
+              globalSearch &&
+              !getSearchText(row)
+                .includes(globalSearch)
             ) {
 
-              const searchText =
-                [
-                  row.stock,
-                  row.name,
-                  row.symbol,
-                  row.sector,
-                  row.industry,
-                  row.keyTrigger
-                ]
-                  .filter(
-                    Boolean
-                  )
-                  .join(
-                    " "
-                  )
-                  .toLowerCase();
-
-
-              if (
-                !searchText.includes(
-                  search
-                )
-              ) {
-
-                return false;
-
-              }
+              return false;
 
             }
 
 
             for (
-              const config
-              of columns
+              const column of columns
             ) {
 
               if (
-                config.type ===
-                "number"
+                !rowPassesColumnFilter(
+                  row,
+                  column
+                )
               ) {
 
-                if (
-                  !passesNumeric(
-                    row,
-                    config
-                  )
-                ) {
-
-                  return false;
-
-                }
-
-              }
-
-
-              else if (
-                config.type ===
-                "select"
-              ) {
-
-                const selected =
-                  el(
-                    `select_${config.field}`
-                  )?.value ||
-                  "";
-
-
-                if (
-                  selected &&
-                  String(
-                    row[
-                      config.field
-                    ] ||
-                    ""
-                  ) !== selected
-                ) {
-
-                  return false;
-
-                }
-
-              }
-
-
-              else if (
-                config.type ===
-                "boolean"
-              ) {
-
-                const selected =
-                  el(
-                    `select_${config.field}`
-                  )?.value ||
-                  "";
-
-
-                if (
-                  selected
-                ) {
-
-                  const value =
-                    booleanValue(
-                      row[
-                        config.field
-                      ]
-                    );
-
-
-                  if (
-                    selected ===
-                      "YES" &&
-                    value !==
-                      true
-                  ) {
-
-                    return false;
-
-                  }
-
-
-                  if (
-                    selected ===
-                      "NO" &&
-                    value !==
-                      false
-                  ) {
-
-                    return false;
-
-                  }
-
-                }
-
-              }
-
-
-              else if (
-                config.type ===
-                "trigger"
-              ) {
-
-                const selected =
-                  el(
-                    "select_fundamentalTrigger"
-                  )?.value ||
-                  "";
-
-
-                if (
-                  selected ===
-                    "YES" &&
-                  !hasTrigger(
-                    row
-                  )
-                ) {
-
-                  return false;
-
-                }
-
-
-                if (
-                  selected ===
-                    "NO" &&
-                  hasTrigger(
-                    row
-                  )
-                ) {
-
-                  return false;
-
-                }
+                return false;
 
               }
 
@@ -3206,132 +2906,205 @@
         );
 
 
-      sortRows();
+      sortFilteredRows();
 
       renderRows();
 
+      updateResultCount();
+
     }
+    
+    /* =========================================================
+       SORTING
+    ========================================================= */
 
 
-
-    function changeSort(
-      field,
-      direction
-    ) {
+    function sortFilteredRows() {
 
       if (
-        !direction
+        !activeSortField ||
+        !activeSortDirection
       ) {
+
+        filteredRows.sort(
+          (a, b) => {
+
+            const scoreA =
+              num(a.bigMoveScore);
+
+            const scoreB =
+              num(b.bigMoveScore);
+
+
+            if (
+              scoreA === null &&
+              scoreB === null
+            ) {
+
+              return 0;
+
+            }
+
+
+            if (
+              scoreA === null
+            ) {
+
+              return 1;
+
+            }
+
+
+            if (
+              scoreB === null
+            ) {
+
+              return -1;
+
+            }
+
+
+            return (
+              scoreB -
+              scoreA
+            );
+
+          }
+        );
+
 
         return;
 
       }
 
 
-      activeSortField =
-        field;
-
-
-      activeSortDirection =
-        direction;
-
-
-      document
-        .querySelectorAll(
-          "[data-sort-field]"
-        )
-        .forEach(
-          select => {
-
-            if (
-              select.dataset
-                .sortField !==
-              field
-            ) {
-
-              select.value =
-                "";
-
-            }
-
-          }
+      const column =
+        columns.find(
+          (item) =>
+            item.field ===
+            activeSortField
         );
 
 
-      applyFilters();
+      if (!column) {
 
-    }
+        return;
 
-
-
-    function sortRows() {
-
-      const field =
-        activeSortField ||
-        "bigMoveScore";
+      }
 
 
-      const direction =
-        activeSortDirection ||
-        "desc";
+      const multiplier =
+        activeSortDirection ===
+        "asc"
+          ? 1
+          : -1;
 
 
       filteredRows.sort(
-        (
-          a,
-          b
-        ) => {
+        (a, b) => {
 
-          const av =
-            num(
-              rowValue(
-                a,
-                field
-              )
+
+          const valueA =
+            getFieldValue(
+              a,
+              activeSortField
             );
 
 
-          const bv =
-            num(
-              rowValue(
-                b,
-                field
-              )
+          const valueB =
+            getFieldValue(
+              b,
+              activeSortField
             );
 
 
           if (
-            av === null &&
-            bv === null
+            column.type ===
+            "number"
           ) {
 
-            return 0;
+            const numberA =
+              num(valueA);
+
+
+            const numberB =
+              num(valueB);
+
+
+            if (
+              numberA === null &&
+              numberB === null
+            ) {
+
+              return 0;
+
+            }
+
+
+            if (
+              numberA === null
+            ) {
+
+              return 1;
+
+            }
+
+
+            if (
+              numberB === null
+            ) {
+
+              return -1;
+
+            }
+
+
+            return (
+              numberA -
+              numberB
+            ) * multiplier;
 
           }
 
 
           if (
-            av === null
+            column.type ===
+            "boolean"
           ) {
 
-            return 1;
+            const boolA =
+              normalizeBoolean(
+                valueA
+              )
+                ? 1
+                : 0;
+
+
+            const boolB =
+              normalizeBoolean(
+                valueB
+              )
+                ? 1
+                : 0;
+
+
+            return (
+              boolA -
+              boolB
+            ) * multiplier;
 
           }
 
 
-          if (
-            bv === null
-          ) {
-
-            return -1;
-
-          }
-
-
-          return direction ===
-            "asc"
-            ? av - bv
-            : bv - av;
+          return text(valueA)
+            .localeCompare(
+              text(valueB),
+              undefined,
+              {
+                numeric: true,
+                sensitivity: "base"
+              }
+            ) * multiplier;
 
         }
       );
@@ -3340,100 +3113,354 @@
 
 
 
-    function renderRows() {
-
-      const tbody =
-        el(
-          "scannerRows"
-        );
+    /* =========================================================
+       ROW DISPLAY HELPERS
+    ========================================================= */
 
 
-      el(
-        "resultCount"
-      ).textContent =
-        `${filteredRows.length.toLocaleString(
-          "en-IN"
-        )} stocks found`;
+    function formatTextCell(
+      value,
+      maxLength = 24
+    ) {
+
+      const valueText =
+        text(value).trim();
+
+
+      if (!valueText) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      const display =
+        valueText.length >
+        maxLength
+
+          ? (
+              valueText.slice(
+                0,
+                maxLength
+              ) + "…"
+            )
+
+          : valueText;
+
+
+      return `
+        <span
+          title="${escapeHtml(valueText)}"
+        >
+          ${escapeHtml(display)}
+        </span>
+      `;
+
+    }
+
+
+
+    function formatBreakoutStatus(value) {
+
+      const v =
+        text(value).trim();
+
+
+      if (!v) {
+
+        return `<span class="pending">—</span>`;
+
+      }
+
+
+      const lower =
+        v.toLowerCase();
 
 
       if (
-        !filteredRows.length
+        lower.includes("breakout") &&
+        !lower.includes("no")
       ) {
 
-        tbody.innerHTML =
-          `
-            <tr>
+        return `
+          <span class="signal-yes">
+            ${escapeHtml(v)}
+          </span>
+        `;
 
-              <td colspan="22">
-
-                <div class="empty-state">
-                  No stocks matched.
-                </div>
-
-              </td>
-
-            </tr>
-          `;
+      }
 
 
-        updateTopScrollbar();
+      if (
+        lower.includes("near")
+      ) {
+
+        return `
+          <span style="color:var(--yellow);font-weight:900;">
+            ${escapeHtml(v)}
+          </span>
+        `;
+
+      }
+
+
+      return escapeHtml(v);
+
+    }
+
+
+
+    function getFundamentalTrigger(row) {
+
+      const direct =
+        text(
+          row.fundamentalTrigger
+        ).trim();
+
+
+      if (direct) {
+
+        return direct;
+
+      }
+
+
+      const triggers = [];
+
+
+      const checks = [
+
+        [
+          "earningsAcceleration",
+          "Earnings Acceleration"
+        ],
+
+        [
+          "marginExpansion",
+          "Margin Expansion"
+        ],
+
+        [
+          "orderWin",
+          "Order Win"
+        ],
+
+        [
+          "orderBook",
+          "Order Book"
+        ],
+
+        [
+          "capex",
+          "CAPEX"
+        ],
+
+        [
+          "capacityExpansion",
+          "Capacity Expansion"
+        ],
+
+        [
+          "newProduct",
+          "New Product"
+        ],
+
+        [
+          "corporateAction",
+          "Corporate Action"
+        ],
+
+        [
+          "industryTailwind",
+          "Industry Tailwind"
+        ]
+
+      ];
+
+
+      checks.forEach(
+        ([field, label]) => {
+
+          if (
+            normalizeBoolean(
+              row[field]
+            )
+          ) {
+
+            triggers.push(
+              label
+            );
+
+          }
+
+        }
+      );
+
+
+      return triggers.join(
+        ", "
+      );
+
+    }
+
+
+
+    function getKeyTrigger(row) {
+
+      const direct =
+        text(
+          row.keyTrigger
+        ).trim();
+
+
+      if (direct) {
+
+        return direct;
+
+      }
+
+
+      const fundamental =
+        getFundamentalTrigger(
+          row
+        );
+
+
+      if (fundamental) {
+
+        return fundamental;
+
+      }
+
+
+      return "";
+
+    }
+
+
+
+    function getMissingConditions(row) {
+
+      const raw =
+        row.missingConditions;
+
+
+      if (
+        Array.isArray(raw)
+      ) {
+
+        return raw.join(
+          ", "
+        );
+
+      }
+
+
+      return text(raw);
+
+    }
+
+
+
+    /* =========================================================
+       RENDER TABLE
+    ========================================================= */
+
+
+    function renderRows() {
+
+      if (
+        filteredRows.length ===
+        0
+      ) {
+
+        scannerBody.innerHTML = `
+
+          <tr>
+
+            <td
+              colspan="23"
+              class="empty-state"
+            >
+              No stocks match the active filters.
+            </td>
+
+          </tr>
+
+        `;
+
+
+        syncTopScrollbar();
 
         return;
 
       }
 
 
-      tbody.innerHTML =
+      scannerBody.innerHTML =
         filteredRows
           .map(
-            (
-              row,
-              index
-            ) => {
+            (row, index) => {
 
-              const company =
-                escapeHtml(
-                  row.stock ||
-                  row.name ||
-                  row.symbol ||
-                  "—"
-                );
+
+              const stockName =
+                getStockName(row);
 
 
               const symbol =
-                escapeHtml(
-                  row.symbol ||
-                  ""
+                getSymbol(row);
+
+
+              const fundamentalTrigger =
+                getFundamentalTrigger(
+                  row
+                );
+
+
+              const keyTrigger =
+                getKeyTrigger(
+                  row
+                );
+
+
+              const missing =
+                getMissingConditions(
+                  row
                 );
 
 
               return `
+
                 <tr
                   data-row-index="${index}"
                 >
 
+
                   <td>
 
-                    <span class="stock-name">
-                      ${company}
+                    <span
+                      class="stock-name"
+                      title="${escapeHtml(stockName)}"
+                    >
+                      ${escapeHtml(stockName)}
                     </span>
 
                     <span class="stock-symbol">
-                      ${symbol}
+                      ${escapeHtml(symbol)}
                     </span>
 
                   </td>
 
 
                   <td>
-                    ${scoreBadge(
+                    ${formatScore(
                       row.bigMoveScore
                     )}
                   </td>
 
 
                   <td>
-                    ${setupBadge(
+                    ${formatSetup(
                       row.setupStatus
                     )}
                   </td>
@@ -3442,6 +3469,13 @@
                   <td>
                     ${formatPrice(
                       row.price
+                    )}
+                  </td>
+
+
+                  <td>
+                    ${formatPct(
+                      row.return1W
                     )}
                   </td>
 
@@ -3475,21 +3509,21 @@
 
 
                   <td>
-                    ${scoreBadge(
+                    ${formatScore(
                       row.rsRating
                     )}
                   </td>
 
 
                   <td>
-                    ${scoreBadge(
+                    ${formatScore(
                       row.stockMomentumRating
                     )}
                   </td>
 
 
                   <td>
-                    ${scoreBadge(
+                    ${formatScore(
                       row.industryRating
                     )}
                   </td>
@@ -3503,22 +3537,23 @@
 
 
                   <td>
-                    ${formatTechnicalPct(
+                    ${formatPct(
                       row.priorMovePct
                     )}
                   </td>
 
 
                   <td>
-                    ${formatTechnicalPct(
+                    ${formatPct(
                       row.retracementPct
                     )}
                   </td>
 
 
                   <td>
-                    ${formatInteger(
-                      row.consolidationDays
+                    ${formatNumber(
+                      row.consolidationDays,
+                      0
                     )}
                   </td>
 
@@ -3538,7 +3573,7 @@
 
 
                   <td>
-                    ${formatBreakout(
+                    ${formatBreakoutStatus(
                       row.breakoutStatus
                     )}
                   </td>
@@ -3552,41 +3587,31 @@
 
 
                   <td>
-                    ${
-                      hasTrigger(
-                        row
-                      )
-                        ? '<span class="signal-yes">YES</span>'
-                        : '<span class="signal-no">NO</span>'
-                    }
+                    ${formatTextCell(
+                      fundamentalTrigger,
+                      22
+                    )}
                   </td>
 
 
                   <td>
-                    ${
-                      row.keyTrigger
-                        ? escapeHtml(
-                            row.keyTrigger
-                          )
-                        : dash()
-                    }
-                  </td>
-
-
-                  <td
-                    style="
-                      white-space:normal;
-                      text-align:left;
-                    "
-                  >
-                    ${escapeHtml(
-                      missingText(
-                        row
-                      )
+                    ${formatTextCell(
+                      keyTrigger,
+                      22
                     )}
                   </td>
 
+
+                  <td>
+                    ${formatTextCell(
+                      missing,
+                      32
+                    )}
+                  </td>
+
+
                 </tr>
+
               `;
 
             }
@@ -3594,55 +3619,233 @@
           .join("");
 
 
-      tbody
+      bindRowEvents();
+
+      syncTopScrollbar();
+
+    }
+
+
+
+    function bindRowEvents() {
+
+      scannerBody
         .querySelectorAll(
           "tr[data-row-index]"
         )
         .forEach(
-          rowElement => {
+          (tr) => {
 
-            rowElement
-              .addEventListener(
-                "click",
-                () => {
+            tr.addEventListener(
+              "click",
+              () => {
 
-                  const index =
-                    Number(
-                      rowElement
-                        .dataset
-                        .rowIndex
-                    );
+                const index =
+                  Number(
+                    tr.dataset.rowIndex
+                  );
 
 
-                  const row =
-                    filteredRows[
-                      index
-                    ];
+                const row =
+                  filteredRows[index];
 
 
-                  if (
-                    row
-                  ) {
+                if (row) {
 
-                    openDrawer(
-                      row
-                    );
-
-                  }
+                  openDrawer(row);
 
                 }
-              );
+
+              }
+            );
 
           }
         );
 
+    }
 
-      requestAnimationFrame(
-        updateTopScrollbar
+
+
+    function updateResultCount() {
+
+      resultCount.textContent =
+        `${filteredRows.length.toLocaleString(
+          "en-IN"
+        )} of ${allRows.length.toLocaleString(
+          "en-IN"
+        )} stocks`;
+
+    }
+
+
+
+    /* =========================================================
+       SUMMARY
+    ========================================================= */
+
+
+    function setSummary(
+      id,
+      value
+    ) {
+
+      const element =
+        document.getElementById(id);
+
+
+      if (element) {
+
+        element.textContent =
+          value;
+
+      }
+
+    }
+
+
+
+    function updateSummary() {
+
+      const universe =
+        allRows.length;
+
+
+      const strong =
+        allRows.filter(
+          (row) => {
+
+            const score =
+              num(row.bigMoveScore);
+
+
+            return (
+              score !== null &&
+              score >= 80
+            );
+
+          }
+        ).length;
+
+
+      const breakout =
+        allRows.filter(
+          (row) => {
+
+            const status =
+              text(
+                row.breakoutStatus
+              )
+                .toLowerCase();
+
+
+            return (
+              status.includes(
+                "breakout"
+              ) ||
+              status.includes(
+                "near"
+              )
+            );
+
+          }
+        ).length;
+
+
+      const rs =
+        allRows.filter(
+          (row) => {
+
+            const rating =
+              num(row.rsRating);
+
+
+            return (
+              rating !== null &&
+              rating >= 80
+            );
+
+          }
+        ).length;
+
+
+      const freeFloat =
+        allRows.filter(
+          (row) => {
+
+            const value =
+              num(
+                row.freeFloatCr
+              );
+
+
+            return (
+              value !== null &&
+              value <=
+              FREE_FLOAT_GREEN_LIMIT
+            );
+
+          }
+        ).length;
+
+
+      setSummary(
+        "summaryUniverse",
+        universe.toLocaleString(
+          "en-IN"
+        )
+      );
+
+
+      setSummary(
+        "summaryStrong",
+        strong.toLocaleString(
+          "en-IN"
+        )
+      );
+
+
+      setSummary(
+        "summaryBreakout",
+        breakout.toLocaleString(
+          "en-IN"
+        )
+      );
+
+
+      setSummary(
+        "summaryRS",
+        rs.toLocaleString(
+          "en-IN"
+        )
+      );
+
+
+      setSummary(
+        "summaryFreeFloat",
+        freeFloat.toLocaleString(
+          "en-IN"
+        )
+      );
+
+
+      const marketDate =
+        metadata.marketDate ||
+        metadata.date ||
+        "—";
+
+
+      setSummary(
+        "summaryDate",
+        marketDate
       );
 
     }
 
+
+
+    /* =========================================================
+       DRAWER HELPERS
+    ========================================================= */
 
 
     function detailItem(
@@ -3651,6 +3854,7 @@
     ) {
 
       return `
+
         <div class="detail-item">
 
           <div class="detail-label">
@@ -3662,367 +3866,92 @@
           </div>
 
         </div>
+
       `;
 
     }
 
 
 
-    function openDrawer(
-      row
-    ) {
+    function triggerChip(label) {
 
-      el(
-        "drawerTitle"
-      ).textContent =
-        row.stock ||
-        row.name ||
-        row.symbol ||
-        "Stock Details";
+      return `
+
+        <span class="trigger-chip">
+          ${escapeHtml(label)}
+        </span>
+
+      `;
+
+    }
 
 
-      el(
-        "drawerSymbol"
-      ).textContent =
+
+    function collectTriggers(row) {
+
+      const result = [];
+
+
+      const definitions = [
+
         [
-          row.symbol,
-          row.industry
+          "earningsAcceleration",
+          "Earnings Acceleration"
+        ],
+
+        [
+          "marginExpansion",
+          "Margin Expansion"
+        ],
+
+        [
+          "orderWin",
+          "Order Win"
+        ],
+
+        [
+          "orderBook",
+          "Order Book"
+        ],
+
+        [
+          "capex",
+          "CAPEX"
+        ],
+
+        [
+          "capacityExpansion",
+          "Capacity Expansion"
+        ],
+
+        [
+          "newProduct",
+          "New Product"
+        ],
+
+        [
+          "corporateAction",
+          "Corporate Action"
+        ],
+
+        [
+          "industryTailwind",
+          "Industry Tailwind"
         ]
-          .filter(
-            Boolean
-          )
-          .join(
-            " • "
-          );
 
+      ];
 
-      const triggers =
-        triggerList(
-          row
-        );
 
-
-      const triggerHtml =
-        triggers.length
-          ? triggers
-              .map(
-                item =>
-                  `
-                    <span class="trigger-chip">
-                      ${escapeHtml(item)}
-                    </span>
-                  `
-              )
-              .join("")
-          : dash();
-
-
-      const missing =
-        missingArray(
-          row
-        );
-
-
-      const missingHtml =
-        missing.length
-          ? missing
-              .map(
-                item =>
-                  `• ${escapeHtml(item)}`
-              )
-              .join(
-                "<br>"
-              )
-          : (
-              '<span class="signal-yes">' +
-              'No missing conditions' +
-              '</span>'
-            );
-
-
-      el(
-        "drawerContent"
-      ).innerHTML =
-        `
-
-          <section class="drawer-section">
-
-            <h3>
-              Quick Decision
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Big Move Score",
-                scoreBadge(
-                  row.bigMoveScore
-                )
-              )}
-
-              ${detailItem(
-                "Setup",
-                setupBadge(
-                  row.setupStatus
-                )
-              )}
-
-              ${detailItem(
-                "RS",
-                scoreBadge(
-                  row.rsRating
-                )
-              )}
-
-              ${detailItem(
-                "Stock Momentum",
-                scoreBadge(
-                  row.stockMomentumRating
-                )
-              )}
-
-              ${detailItem(
-                "Industry Rating",
-                scoreBadge(
-                  row.industryRating
-                )
-              )}
-
-              ${detailItem(
-                "Technical Score",
-                formatInteger(
-                  row.technicalScore
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Free Float
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Free Float ₹ Cr",
-                formatFreeFloatCr(
-                  row
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Chart Structure
-            </h3>
-
-            <div class="detail-grid">
-
-              ${detailItem(
-                "Prior Move",
-                formatTechnicalPct(
-                  row.priorMovePct
-                )
-              )}
-
-              ${detailItem(
-                "Retracement",
-                formatTechnicalPct(
-                  row.retracementPct
-                )
-              )}
-
-              ${detailItem(
-                "Consolidation",
-                formatInteger(
-                  row.consolidationDays
-                )
-              )}
-
-              ${detailItem(
-                "Volume Contraction",
-                formatBoolean(
-                  row.volumeContraction
-                )
-              )}
-
-              ${detailItem(
-                "Volatility Contraction",
-                formatBoolean(
-                  row.volatilityContraction
-                )
-              )}
-
-              ${detailItem(
-                "Breakout",
-                formatBreakout(
-                  row.breakoutStatus
-                )
-              )}
-
-              ${detailItem(
-                "Turnover Expansion",
-                formatTimes(
-                  row.turnoverExpansion
-                )
-              )}
-
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Triggers
-            </h3>
-
-            <div class="trigger-list">
-              ${triggerHtml}
-            </div>
-
-          </section>
-
-
-          <section class="drawer-section">
-
-            <h3>
-              Missing Conditions
-            </h3>
-
-            <div class="missing-text">
-              ${missingHtml}
-            </div>
-
-          </section>
-
-        `;
-
-
-      el(
-        "drawerOverlay"
-      )
-        .classList
-        .add(
-          "open"
-        );
-
-
-      el(
-        "detailDrawer"
-      )
-        .classList
-        .add(
-          "open"
-        );
-
-    }
-
-
-
-    function closeDrawer() {
-
-      el(
-        "drawerOverlay"
-      )
-        .classList
-        .remove(
-          "open"
-        );
-
-
-      el(
-        "detailDrawer"
-      )
-        .classList
-        .remove(
-          "open"
-        );
-
-    }
-
-
-
-    function resetFilters() {
-
-      el(
-        "searchInput"
-      ).value =
-        "";
-
-
-      columns.forEach(
-        config => {
+      definitions.forEach(
+        ([field, label]) => {
 
           if (
-            config.type ===
-            "number"
+            normalizeBoolean(
+              row[field]
+            )
           ) {
 
-            el(
-              `active_${config.field}`
-            ).checked =
-              false;
-
-
-            el(
-              `operator_${config.field}`
-            ).value =
-              "above";
-
-
-            el(
-              `value_${config.field}`
-            ).value =
-              "";
-
-
-            el(
-              `sort_${config.field}`
-            ).value =
-              config.field ===
-                "bigMoveScore"
-                ? "desc"
-                : "";
-
-          }
-
-
-          else if (
-            config.type ===
-              "select" ||
-            config.type ===
-              "boolean"
-          ) {
-
-            el(
-              `select_${config.field}`
-            ).value =
-              "";
-
-          }
-
-
-          else if (
-            config.type ===
-            "trigger"
-          ) {
-
-            el(
-              "select_fundamentalTrigger"
-            ).value =
-              "";
+            result.push(label);
 
           }
 
@@ -4030,31 +3959,649 @@
       );
 
 
-      activeSortField =
-        "bigMoveScore";
+      const direct =
+        getFundamentalTrigger(
+          row
+        );
 
 
-      activeSortDirection =
-        "desc";
+      if (
+        result.length === 0 &&
+        direct
+      ) {
+
+        direct
+          .split(/[,|;]/)
+          .map(
+            (item) =>
+              item.trim()
+          )
+          .filter(Boolean)
+          .forEach(
+            (item) =>
+              result.push(item)
+          );
+
+      }
 
 
-      filteredRows =
-        [
-          ...allRows
-        ];
-
-
-      sortRows();
-
-      renderRows();
+      return [
+        ...new Set(result)
+      ];
 
     }
 
 
 
-    function csvCell(
-      value
-    ) {
+    /* =========================================================
+       DRAWER
+    ========================================================= */
+
+
+    function openDrawer(row) {
+
+      const stockName =
+        getStockName(row);
+
+
+      const symbol =
+        getSymbol(row);
+
+
+      drawerTitle.textContent =
+        stockName;
+
+
+      drawerSymbol.textContent =
+        symbol;
+
+
+      const triggers =
+        collectTriggers(row);
+
+
+      const missing =
+        getMissingConditions(row);
+
+
+      drawerContent.innerHTML = `
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Quick Decision
+          </h3>
+
+
+          <div class="detail-grid">
+
+            ${detailItem(
+              "Big Move Score",
+              formatScore(
+                row.bigMoveScore
+              )
+            )}
+
+
+            ${detailItem(
+              "Setup Status",
+              formatSetup(
+                row.setupStatus
+              )
+            )}
+
+
+            ${detailItem(
+              "RS Rating",
+              formatScore(
+                row.rsRating
+              )
+            )}
+
+
+            ${detailItem(
+              "Stock Momentum",
+              formatScore(
+                row.stockMomentumRating
+              )
+            )}
+
+
+            ${detailItem(
+              "Industry Rating",
+              formatScore(
+                row.industryRating
+              )
+            )}
+
+
+            ${detailItem(
+              "Price",
+              formatPrice(
+                row.price
+              )
+            )}
+
+          </div>
+
+        </section>
+
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Returns
+          </h3>
+
+
+          <div class="detail-grid">
+
+            ${detailItem(
+              "1W Return",
+              formatPct(
+                row.return1W
+              )
+            )}
+
+
+            ${detailItem(
+              "1M Return",
+              formatPct(
+                row.return1M
+              )
+            )}
+
+
+            ${detailItem(
+              "3M Return",
+              formatPct(
+                row.return3M
+              )
+            )}
+
+
+            ${detailItem(
+              "6M Return",
+              formatPct(
+                row.return6M
+              )
+            )}
+
+
+            ${detailItem(
+              "1Y Return",
+              formatPct(
+                row.return1Y
+              )
+            )}
+
+          </div>
+
+        </section>
+
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Free Float
+          </h3>
+
+
+          <div class="detail-grid">
+
+            ${detailItem(
+              "Free Float ₹ Cr",
+              formatFreeFloatCr(
+                row
+              )
+            )}
+
+
+            ${detailItem(
+              "₹5,000 Cr Rule",
+              (
+                num(
+                  row.freeFloatCr
+                ) !== null &&
+                num(
+                  row.freeFloatCr
+                ) <=
+                FREE_FLOAT_GREEN_LIMIT
+              )
+
+                ? `<span class="signal-yes">≤ ₹5,000 Cr</span>`
+
+                : (
+                    num(
+                      row.freeFloatCr
+                    ) === null
+
+                      ? `<span class="pending">—</span>`
+
+                      : `> ₹5,000 Cr`
+                  )
+            )}
+
+          </div>
+
+        </section>
+
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Chart Structure
+          </h3>
+
+
+          <div class="detail-grid">
+
+            ${detailItem(
+              "Prior Big Move",
+              formatPct(
+                row.priorMovePct
+              )
+            )}
+
+
+            ${detailItem(
+              "Move Period",
+              formatTextCell(
+                row.movePeriod,
+                50
+              )
+            )}
+
+
+            ${detailItem(
+              "Retracement",
+              formatPct(
+                row.retracementPct
+              )
+            )}
+
+
+            ${detailItem(
+              "Consolidation Days",
+              formatNumber(
+                row.consolidationDays,
+                0
+              )
+            )}
+
+
+            ${detailItem(
+              "Volume Contraction",
+              formatBoolean(
+                row.volumeContraction
+              )
+            )}
+
+
+            ${detailItem(
+              "Volatility Contraction",
+              formatBoolean(
+                row.volatilityContraction
+              )
+            )}
+
+
+            ${detailItem(
+              "Breakout Status",
+              formatBreakoutStatus(
+                row.breakoutStatus
+              )
+            )}
+
+
+            ${detailItem(
+              "Turnover Expansion",
+              formatTimes(
+                row.turnoverExpansion
+              )
+            )}
+
+          </div>
+
+        </section>
+        
+        <section class="drawer-section">
+
+          <h3>
+            Triggers
+          </h3>
+
+
+          <div class="trigger-list">
+
+            ${
+              triggers.length
+
+                ? triggers
+                    .map(
+                      (trigger) =>
+                        triggerChip(trigger)
+                    )
+                    .join("")
+
+                : `<span class="pending">No trigger data</span>`
+            }
+
+          </div>
+
+
+          ${
+            getKeyTrigger(row)
+
+              ? `
+
+                <div
+                  style="
+                    margin-top:8px;
+                    color:#dce9f8;
+                    font-size:9px;
+                    line-height:1.4;
+                  "
+                >
+
+                  <strong>
+                    Key Trigger:
+                  </strong>
+
+                  ${escapeHtml(
+                    getKeyTrigger(row)
+                  )}
+
+                </div>
+
+              `
+
+              : ""
+          }
+
+        </section>
+
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Missing Conditions
+          </h3>
+
+
+          <div class="missing-text">
+
+            ${
+              missing
+
+                ? escapeHtml(missing)
+
+                : "No missing-condition data available."
+            }
+
+          </div>
+
+        </section>
+
+
+
+        <section class="drawer-section">
+
+          <h3>
+            Classification
+          </h3>
+
+
+          <div class="detail-grid">
+
+
+            ${detailItem(
+              "Sector",
+              formatTextCell(
+                row.sector,
+                60
+              )
+            )}
+
+
+            ${detailItem(
+              "Industry",
+              formatTextCell(
+                row.industry,
+                60
+              )
+            )}
+
+
+          </div>
+
+        </section>
+
+
+      `;
+
+
+      detailDrawer.classList.add(
+        "open"
+      );
+
+
+      drawerOverlay.classList.add(
+        "open"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+
+    function closeDrawer() {
+
+      detailDrawer.classList.remove(
+        "open"
+      );
+
+
+      drawerOverlay.classList.remove(
+        "open"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+
+    drawerClose.addEventListener(
+      "click",
+      closeDrawer
+    );
+
+
+    drawerOverlay.addEventListener(
+      "click",
+      closeDrawer
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          closeDrawer();
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================================
+       CLEAR FILTERS
+    ========================================================= */
+
+
+    function clearFilters() {
+
+      searchInput.value =
+        "";
+
+
+      activeSortField =
+        null;
+
+
+      activeSortDirection =
+        null;
+
+
+      Object.keys(
+        filterState
+      ).forEach(
+        (field) => {
+
+          filterState[field] = {
+
+            active: false,
+
+            operator: ">=",
+
+            value: "",
+
+            direction: "desc"
+
+          };
+
+        }
+      );
+
+
+      filterRow
+        .querySelectorAll(
+          "[data-action='active']"
+        )
+        .forEach(
+          (element) => {
+
+            element.checked =
+              false;
+
+          }
+        );
+
+
+      filterRow
+        .querySelectorAll(
+          "[data-action='value']"
+        )
+        .forEach(
+          (element) => {
+
+            element.value =
+              "";
+
+          }
+        );
+
+
+      filterRow
+        .querySelectorAll(
+          "[data-action='operator']"
+        )
+        .forEach(
+          (element) => {
+
+            element.value =
+              ">=";
+
+          }
+        );
+
+
+      filterRow
+        .querySelectorAll(
+          "[data-action='direction']"
+        )
+        .forEach(
+          (element) => {
+
+            const field =
+              element.dataset.field;
+
+
+            const column =
+              columns.find(
+                (item) =>
+                  item.field ===
+                  field
+              );
+
+
+            if (
+              column &&
+              column.type ===
+              "text"
+            ) {
+
+              element.value =
+                "asc";
+
+            }
+
+
+            else {
+
+              element.value =
+                "desc";
+
+            }
+
+          }
+        );
+
+
+      applyFilters();
+
+    }
+
+
+
+    clearFiltersBtn.addEventListener(
+      "click",
+      clearFilters
+    );
+
+
+
+    searchInput.addEventListener(
+      "input",
+      applyFilters
+    );
+
+
+
+    /* =========================================================
+       CSV EXPORT
+    ========================================================= */
+
+
+    function csvEscape(value) {
 
       if (
         value === null ||
@@ -4066,47 +4613,41 @@
       }
 
 
-      const text =
-        String(
-          value
-        );
+      let stringValue =
+        String(value);
 
 
       if (
-        text.includes(
-          ","
-        ) ||
-        text.includes(
-          '"'
-        ) ||
-        text.includes(
-          "\n"
-        )
+        stringValue.includes(",") ||
+        stringValue.includes('"') ||
+        stringValue.includes("\n")
       ) {
 
-        return (
-          '"' +
-          text.replace(
-            /"/g,
+        stringValue =
+          `"${stringValue.replaceAll(
+            '"',
             '""'
-          ) +
-          '"'
-        );
+          )}"`;
 
       }
 
 
-      return text;
+      return stringValue;
 
     }
 
 
 
-    function exportCSV() {
+    function exportCsv() {
 
       if (
-        !filteredRows.length
+        filteredRows.length ===
+        0
       ) {
+
+        alert(
+          "No filtered rows available for export."
+        );
 
         return;
 
@@ -4116,62 +4657,78 @@
       const headers = [
 
         "Stock",
+
         "Symbol",
+
         "Big Move Score",
+
         "Setup Status",
+
         "Price",
+
+        "1W %",
+
         "1M %",
+
         "3M %",
+
         "6M %",
+
         "1Y %",
+
         "RS",
+
         "Stock Momentum",
+
         "Industry Rating",
+
         "Free Float ₹ Cr",
+
         "Prior Move %",
+
+        "Move Period",
+
         "Retracement %",
+
         "Consolidation Days",
+
         "Volume Contraction",
+
         "Volatility Contraction",
+
         "Breakout Status",
+
         "Turnover Expansion",
+
         "Fundamental Trigger",
+
         "Key Trigger",
-        "Missing Conditions"
+
+        "Missing Conditions",
+
+        "Sector",
+
+        "Industry"
 
       ];
 
 
-      const lines = [
 
-        headers
-          .map(
-            csvCell
-          )
-          .join(
-            ","
-          )
+      const rows =
+        filteredRows.map(
+          (row) => [
 
-      ];
+            getStockName(row),
 
-
-      filteredRows.forEach(
-        row => {
-
-          const values = [
-
-            row.stock ||
-              row.name ||
-              "",
-
-            row.symbol ||
-              "",
+            getSymbol(row),
 
             row.bigMoveScore,
 
             row.setupStatus,
 
             row.price,
+
+            row.return1W,
 
             row.return1M,
 
@@ -4187,11 +4744,18 @@
 
             row.industryRating,
 
-            calculateFreeFloatCr(
-              row
-            ),
+            row.freeFloatCr !== null &&
+            row.freeFloatCr !== undefined
+
+              ? Number(
+                  row.freeFloatCr
+                ).toFixed(2)
+
+              : "",
 
             row.priorMovePct,
+
+            row.movePeriod,
 
             row.retracementPct,
 
@@ -4205,43 +4769,48 @@
 
             row.turnoverExpansion,
 
-            hasTrigger(
+            getFundamentalTrigger(
               row
-            )
-              ? "YES"
-              : "NO",
+            ),
 
-            row.keyTrigger,
-
-            missingText(
+            getKeyTrigger(
               row
-            )
+            ),
 
-          ];
+            getMissingConditions(
+              row
+            ),
+
+            row.sector,
+
+            row.industry
+
+          ]
+        );
 
 
-          lines.push(
-            values
-              .map(
-                csvCell
-              )
-              .join(
-                ","
-              )
-          );
 
-        }
-      );
+      const csv =
+        [
+
+          headers,
+
+          ...rows
+
+        ]
+          .map(
+            (row) =>
+              row
+                .map(csvEscape)
+                .join(",")
+          )
+          .join("\n");
+
 
 
       const blob =
         new Blob(
-          [
-            "\ufeff" +
-            lines.join(
-              "\n"
-            )
-          ],
+          [csv],
           {
             type:
               "text/csv;charset=utf-8;"
@@ -4261,17 +4830,18 @@
         );
 
 
+      const marketDate =
+        metadata.marketDate ||
+        metadata.date ||
+        "latest";
+
+
       link.href =
         url;
 
 
       link.download =
-        `BIG_MOVE_SCANNER_${
-          scannerMeta.marketDate ||
-          "latest"
-        }_${
-          filteredRows.length
-        }_stocks.csv`;
+        `BIG_MOVE_SCANNER_${marketDate}_${filteredRows.length}_stocks.csv`;
 
 
       document.body.appendChild(
@@ -4280,6 +4850,7 @@
 
 
       link.click();
+
 
       link.remove();
 
@@ -4292,6 +4863,18 @@
 
 
 
+    exportCsvBtn.addEventListener(
+      "click",
+      exportCsv
+    );
+
+
+
+    /* =========================================================
+       TOP HORIZONTAL SCROLLBAR
+    ========================================================= */
+
+
     let syncingTop =
       false;
 
@@ -4301,396 +4884,568 @@
 
 
 
-    function updateTopScrollbar() {
+    function syncTopScrollbar() {
 
       const table =
-        el(
+        document.getElementById(
           "scannerTable"
         );
 
 
-      const wrap =
-        el(
-          "tableWrap"
-        );
+      if (!table) {
+
+        return;
+
+      }
 
 
-      el(
-        "topScrollInner"
-      ).style.width =
-        `${Math.max(
-          table.scrollWidth,
-          wrap.clientWidth
-        )}px`;
+      topScrollInner.style.width =
+        `${table.scrollWidth}px`;
 
     }
 
 
 
-    function setupScrollSync() {
+    topScroll.addEventListener(
+      "scroll",
+      () => {
 
-      const top =
-        el(
-          "topScroll"
-        );
-
-
-      const wrap =
-        el(
-          "tableWrap"
-        );
-
-
-      top.addEventListener(
-        "scroll",
-        () => {
-
-          if (
-            syncingTable
-          ) {
-
-            return;
-
-          }
-
-
-          syncingTop =
-            true;
-
-
-          wrap.scrollLeft =
-            top.scrollLeft;
-
-
-          requestAnimationFrame(
-            () => {
-
-              syncingTop =
-                false;
-
-            }
-          );
-
-        }
-      );
-
-
-      wrap.addEventListener(
-        "scroll",
-        () => {
-
-          if (
-            syncingTop
-          ) {
-
-            return;
-
-          }
-
+        if (syncingTable) {
 
           syncingTable =
-            true;
+            false;
+
+          return;
+
+        }
 
 
-          top.scrollLeft =
-            wrap.scrollLeft;
+        syncingTop =
+          true;
 
 
-          requestAnimationFrame(
-            () => {
+        tableWrap.scrollLeft =
+          topScroll.scrollLeft;
 
-              syncingTable =
-                false;
+    });
+
+
+
+    tableWrap.addEventListener(
+      "scroll",
+      () => {
+
+        if (syncingTop) {
+
+          syncingTop =
+            false;
+
+          return;
+
+        }
+
+
+        syncingTable =
+          true;
+
+
+        topScroll.scrollLeft =
+          tableWrap.scrollLeft;
+
+    });
+
+
+
+    window.addEventListener(
+      "resize",
+      syncTopScrollbar
+    );
+
+
+
+    /* =========================================================
+       DATA NORMALIZATION
+    ========================================================= */
+
+
+    function normalizeRows(
+      rawRows
+    ) {
+
+      if (
+        !Array.isArray(
+          rawRows
+        )
+      ) {
+
+        return [];
+
+      }
+
+
+      return rawRows
+        .map(
+          (row) => {
+
+            const normalized =
+              attachComputedFields(
+                row || {}
+              );
+
+
+            /*
+              Compatibility aliases.
+
+              Existing backend versions may use
+              slightly different field names.
+
+              These aliases do NOT change scoring.
+              They only allow the frontend to read
+              the available value.
+            */
+
+
+            if (
+              normalized.bigMoveScore ===
+              undefined
+            ) {
+
+              normalized.bigMoveScore =
+                normalized.score;
 
             }
-          );
-
-        }
-      );
 
 
-      window.addEventListener(
-        "resize",
-        updateTopScrollbar
-      );
+            if (
+              normalized.setupStatus ===
+              undefined
+            ) {
+
+              normalized.setupStatus =
+                normalized.setup;
+
+            }
+
+
+            if (
+              normalized.stockMomentumRating ===
+              undefined
+            ) {
+
+              normalized.stockMomentumRating =
+                normalized.stockMomentum;
+
+            }
+
+
+            if (
+              normalized.industryRating ===
+              undefined
+            ) {
+
+              normalized.industryRating =
+                normalized.industryScore;
+
+            }
+
+
+            if (
+              normalized.priorMovePct ===
+              undefined
+            ) {
+
+              normalized.priorMovePct =
+                normalized.priorBigMovePct;
+
+            }
+
+
+            if (
+              normalized.retracementPct ===
+              undefined
+            ) {
+
+              normalized.retracementPct =
+                normalized.retracePct;
+
+            }
+
+
+            if (
+              normalized.turnoverExpansion ===
+              undefined
+            ) {
+
+              normalized.turnoverExpansion =
+                normalized.turnoverExpansionX;
+
+            }
+
+
+            if (
+              normalized.return1W ===
+              undefined
+            ) {
+
+              normalized.return1W =
+                normalized.return1w;
+
+            }
+
+
+            if (
+              normalized.return1M ===
+              undefined
+            ) {
+
+              normalized.return1M =
+                normalized.return1m;
+
+            }
+
+
+            if (
+              normalized.return3M ===
+              undefined
+            ) {
+
+              normalized.return3M =
+                normalized.return3m;
+
+            }
+
+
+            if (
+              normalized.return6M ===
+              undefined
+            ) {
+
+              normalized.return6M =
+                normalized.return6m;
+
+            }
+
+
+            if (
+              normalized.return1Y ===
+              undefined
+            ) {
+
+              normalized.return1Y =
+                normalized.return1y;
+
+            }
+
+
+            return normalized;
+
+          }
+        );
 
     }
 
 
 
-    function setupFilterEvents() {
-
-      columns.forEach(
-        config => {
-
-          if (
-            config.type ===
-            "number"
-          ) {
-
-            el(
-              `active_${config.field}`
-            )
-              ?.addEventListener(
-                "change",
-                applyFilters
-              );
+    /* =========================================================
+       DATA EXTRACTION
+    ========================================================= */
 
 
-            el(
-              `operator_${config.field}`
-            )
-              ?.addEventListener(
-                "change",
-                applyFilters
-              );
+    function extractPayload(
+      payload
+    ) {
+
+      if (
+        Array.isArray(payload)
+      ) {
+
+        return {
+
+          rows: payload,
+
+          metadata: {}
+
+        };
+
+      }
 
 
-            el(
-              `value_${config.field}`
-            )
-              ?.addEventListener(
-                "keydown",
-                event => {
+      if (
+        !payload ||
+        typeof payload !==
+        "object"
+      ) {
 
-                  if (
-                    event.key ===
-                    "Enter"
-                  ) {
+        return {
 
-                    applyFilters();
+          rows: [],
 
-                  }
+          metadata: {}
 
-                }
-              );
+        };
+
+      }
 
 
-            el(
-              `sort_${config.field}`
-            )
-              ?.addEventListener(
-                "change",
-                event => {
+      const possibleRows = [
 
-                  if (
-                    event.target.value
-                  ) {
+        payload.stocks,
 
-                    changeSort(
-                      config.field,
-                      event.target.value
-                    );
+        payload.rows,
 
-                  }
+        payload.data,
 
-                }
-              );
+        payload.scanner,
 
-          }
+        payload.results
+
+      ];
 
 
-          else if (
-            config.type ===
-              "select" ||
-            config.type ===
-              "boolean"
-          ) {
-
-            el(
-              `select_${config.field}`
-            )
-              ?.addEventListener(
-                "change",
-                applyFilters
-              );
-
-          }
+      let rows =
+        [];
 
 
-          else if (
-            config.type ===
-            "trigger"
-          ) {
+      for (
+        const candidate of
+        possibleRows
+      ) {
 
-            el(
-              "select_fundamentalTrigger"
-            )
-              ?.addEventListener(
-                "change",
-                applyFilters
-              );
+        if (
+          Array.isArray(
+            candidate
+          )
+        ) {
 
-          }
+          rows =
+            candidate;
+
+          break;
 
         }
-      );
+
+      }
+
+
+      const payloadMetadata = {
+
+        ...(
+          payload.metadata ||
+          {}
+        )
+
+      };
+
+
+      if (
+        payload.marketDate &&
+        !payloadMetadata.marketDate
+      ) {
+
+        payloadMetadata.marketDate =
+          payload.marketDate;
+
+      }
+
+
+      if (
+        payload.lastUpdated &&
+        !payloadMetadata.lastUpdated
+      ) {
+
+        payloadMetadata.lastUpdated =
+          payload.lastUpdated;
+
+      }
+
+
+      return {
+
+        rows,
+
+        metadata:
+          payloadMetadata
+
+      };
 
     }
 
 
 
-    function setupEvents() {
-
-      el(
-        "applyFilters"
-      )
-        .addEventListener(
-          "click",
-          applyFilters
-        );
+    /* =========================================================
+       LOAD DATA
+    ========================================================= */
 
 
-      el(
-        "resetFilters"
-      )
-        .addEventListener(
-          "click",
-          resetFilters
-        );
-
-
-      el(
-        "exportCsv"
-      )
-        .addEventListener(
-          "click",
-          exportCSV
-        );
-
-
-      el(
-        "searchInput"
-      )
-        .addEventListener(
-          "input",
-          applyFilters
-        );
-
-
-      el(
-        "drawerClose"
-      )
-        .addEventListener(
-          "click",
-          closeDrawer
-        );
-
-
-      el(
-        "drawerOverlay"
-      )
-        .addEventListener(
-          "click",
-          closeDrawer
-        );
-
-
-      document.addEventListener(
-        "keydown",
-        event => {
-
-          if (
-            event.key ===
-            "Escape"
-          ) {
-
-            closeDrawer();
-
-          }
-
-        }
-      );
-
-    }
-
-
-
-    async function init() {
+    async function loadScannerData() {
 
       try {
 
+
+        resultCount.textContent =
+          "Loading scanner data...";
+
+
+        const response =
+          await fetch(
+            `${DATA_URL}?v=${Date.now()}`,
+            {
+              cache: "no-store"
+            }
+          );
+
+
+        if (
+          !response.ok
+        ) {
+
+          throw new Error(
+            `HTTP ${response.status}`
+          );
+
+        }
+
+
         const payload =
-          await fetchScanner();
+          await response.json();
 
 
-        allRows =
-          normalizePayload(
+        const extracted =
+          extractPayload(
             payload
           );
 
 
+        metadata =
+          extracted.metadata;
+
+
+        allRows =
+          normalizeRows(
+            extracted.rows
+          );
+
+
         filteredRows =
-          [
-            ...allRows
-          ];
+          [...allRows];
 
 
         updateSummary();
 
 
-        renderColumnFilters();
+        applyFilters();
 
 
-        setupFilterEvents();
+        syncTopScrollbar();
 
-
-        setupEvents();
-
-
-        setupScrollSync();
-
-
-        sortRows();
-
-
-        renderRows();
-
-
-        requestAnimationFrame(
-          updateTopScrollbar
-        );
 
       }
 
-      catch (
-        error
-      ) {
+
+      catch (error) {
+
 
         console.error(
+          "Big Move Scanner load error:",
           error
         );
 
 
-        el(
-          "scannerRows"
-        ).innerHTML =
-          `
-            <tr>
+        resultCount.textContent =
+          "Scanner data could not be loaded.";
 
-              <td colspan="22">
 
-                <div class="empty-state">
-                  Scanner data could not be loaded.
-                </div>
+        scannerBody.innerHTML = `
 
-              </td>
+          <tr>
 
-            </tr>
-          `;
+            <td
+              colspan="23"
+              class="empty-state"
+            >
+
+              Big Move Scanner data could not be loaded.
+
+              <br><br>
+
+              Check:
+
+              <strong>
+                data/big_move_scanner.json
+              </strong>
+
+            </td>
+
+          </tr>
+
+        `;
+
+
+        setSummary(
+          "summaryUniverse",
+          "—"
+        );
+
+
+        setSummary(
+          "summaryStrong",
+          "—"
+        );
+
+
+        setSummary(
+          "summaryBreakout",
+          "—"
+        );
+
+
+        setSummary(
+          "summaryRS",
+          "—"
+        );
+
+
+        setSummary(
+          "summaryFreeFloat",
+          "—"
+        );
+
+
+        setSummary(
+          "summaryDate",
+          "—"
+        );
+
+
+        syncTopScrollbar();
 
       }
+
+    }
+  
+    /* =========================================================
+       INITIALIZE
+    ========================================================= */
+
+
+    function initializeScanner() {
+
+      createFilterState();
+
+      buildFilterRow();
+
+      loadScannerData();
 
     }
 
 
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      init
-    );
+    initializeScanner();
+
+
 
   </script>
+
 
 </body>
 
