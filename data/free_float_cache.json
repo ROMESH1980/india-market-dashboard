@@ -38846,5 +38846,11 @@
     "reason": "No NSE shareholding filing returned",
     "cachedAt": "2026-09-17T10:37:19+00:00",
     "freeFloatEstimated": false
+  },
+  "VEEGALAND": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-18T10:36:53+00:00",
+    "freeFloatEstimated": false
   }
 }
