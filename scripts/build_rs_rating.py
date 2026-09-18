@@ -3,6 +3,7 @@ import csv
 import io
 import json
 import math
+import time
 import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -16,7 +17,6 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-
 STOCKS_PATH = DATA / "stocks.json"
 
 
@@ -24,48 +24,59 @@ STOCKS_PATH = DATA / "stocks.json"
 # SETTINGS
 # =========================================================
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept": "text/csv,*/*",
-}
+MAX_LOOKBACK_DAYS = 15
+REQUEST_TIMEOUT = 45
+MAX_RETRIES = 3
 
-
-# Search backward around any target date.
-MAX_LOOKBACK_DAYS = 10
-
-
-# MarketSmith-style recent-performance weighting.
 WEIGHT_3M = 0.40
 WEIGHT_6M = 0.20
 WEIGHT_9M = 0.20
 WEIGHT_12M = 0.20
 
 
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,"
+        "image/avif,image/webp,image/apng,*/*;q=0.8"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Referer": "https://www.nseindia.com/all-reports",
+}
+
 
 # =========================================================
-# JSON HELPERS
+# SESSION
+# =========================================================
+
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
+
+# =========================================================
+# JSON
 # =========================================================
 
 def load_json(path, default):
-
     try:
-
         return json.loads(
-            path.read_text(
-                encoding="utf-8"
-            )
+            path.read_text(encoding="utf-8")
         )
-
     except Exception:
-
         return default
 
 
 def save_json(path, data):
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
     path.write_text(
         json.dumps(
@@ -78,14 +89,23 @@ def save_json(path, data):
 
 
 # =========================================================
-# NUMBER HELPERS
+# NUMBERS
 # =========================================================
 
 def safe_float(value):
-
     try:
-
         if value is None:
+            return None
+
+        if isinstance(value, str):
+            value = (
+                value
+                .replace(",", "")
+                .replace("%", "")
+                .strip()
+            )
+
+        if value == "":
             return None
 
         value = float(value)
@@ -99,14 +119,11 @@ def safe_float(value):
         return value
 
     except Exception:
-
         return None
 
 
 def safe_numeric(value):
-
     try:
-
         if value is None:
             return None
 
@@ -118,51 +135,32 @@ def safe_numeric(value):
         return value
 
     except Exception:
-
         return None
 
 
-def round_or_none(
-    value,
-    decimals=2,
-):
-
+def round_or_none(value, decimals=2):
     if value is None:
         return None
 
     try:
-
         return round(
             float(value),
             decimals,
         )
-
     except Exception:
-
         return None
 
 
 # =========================================================
-# DATE HELPERS
+# DATE
 # =========================================================
 
-def subtract_months(
-    date_obj,
-    months,
-):
-
+def subtract_months(date_obj, months):
     year = date_obj.year
-
-    month = (
-        date_obj.month
-        -
-        months
-    )
+    month = date_obj.month - months
 
     while month <= 0:
-
         month += 12
-
         year -= 1
 
     day = min(
@@ -181,52 +179,38 @@ def subtract_months(
 
 
 def get_latest_stock_date(stocks):
-
     dates = []
 
     for row in stocks:
-
-        value = row.get(
-            "priceDate"
-        )
+        value = row.get("priceDate")
 
         if not value:
             continue
 
         try:
-
-            d = datetime.strptime(
-                value,
-                "%Y-%m-%d",
-            ).date()
-
-            dates.append(d)
-
+            dates.append(
+                datetime.strptime(
+                    str(value)[:10],
+                    "%Y-%m-%d",
+                ).date()
+            )
         except Exception:
-
             pass
 
     if dates:
-
         return max(dates)
 
-    return (
-        datetime.now(
-            timezone.utc
-        )
-        .date()
-    )
+    return datetime.now(
+        timezone.utc
+    ).date()
 
 
 # =========================================================
-# NSE UDIF BHAVCOPY URL
+# NSE URL
 # =========================================================
 
 def bhavcopy_url(date_obj):
-
-    yyyymmdd = date_obj.strftime(
-        "%Y%m%d"
-    )
+    yyyymmdd = date_obj.strftime("%Y%m%d")
 
     return (
         "https://nsearchives.nseindia.com/"
@@ -236,227 +220,303 @@ def bhavcopy_url(date_obj):
 
 
 # =========================================================
-# DOWNLOAD + PARSE BHAVCOPY
+# NSE SESSION WARMUP
 # =========================================================
 
-def download_bhavcopy(date_obj):
+def warmup_nse_session():
+    urls = [
+        "https://www.nseindia.com/",
+        "https://www.nseindia.com/all-reports",
+    ]
 
-    url = bhavcopy_url(
-        date_obj
-    )
-
-    response = requests.get(
-        url,
-        headers=HEADERS,
-        timeout=45,
-    )
-
-    response.raise_for_status()
-
-    with zipfile.ZipFile(
-        io.BytesIO(
-            response.content
-        )
-    ) as z:
-
-        names = z.namelist()
-
-        if not names:
-
-            raise RuntimeError(
-                "Empty NSE bhavcopy ZIP"
+    for url in urls:
+        try:
+            response = SESSION.get(
+                url,
+                timeout=20,
             )
 
-        csv_name = names[0]
+            print(
+                "NSE warmup:",
+                url,
+                response.status_code,
+            )
+
+            if response.status_code == 200:
+                return True
+
+        except Exception as exc:
+            print(
+                "NSE warmup warning:",
+                exc,
+            )
+
+    return False
+
+
+# =========================================================
+# PARSE BHAVCOPY ZIP
+# =========================================================
+
+def parse_bhavcopy_zip(content, date_obj, url):
+    if not content:
+        raise RuntimeError(
+            "Empty NSE response"
+        )
+
+    if len(content) < 500:
+        raise RuntimeError(
+            f"NSE response too small: {len(content)} bytes"
+        )
+
+    try:
+        archive = zipfile.ZipFile(
+            io.BytesIO(content)
+        )
+    except Exception as exc:
+        raise RuntimeError(
+            f"Invalid NSE ZIP: {exc}"
+        )
+
+    with archive:
+        names = archive.namelist()
+
+        csv_names = [
+            name
+            for name in names
+            if name.lower().endswith(".csv")
+        ]
+
+        if not csv_names:
+            raise RuntimeError(
+                "CSV not found in NSE ZIP"
+            )
 
         text = (
-            z.read(
-                csv_name
-            )
+            archive
+            .read(csv_names[0])
             .decode(
                 "utf-8-sig",
                 errors="ignore",
             )
         )
 
-    rows = list(
-        csv.DictReader(
-            io.StringIO(text)
-        )
+    reader = csv.DictReader(
+        io.StringIO(text)
     )
 
     prices = {}
-
     symbol_only = {}
 
-    for record in rows:
-
+    for record in reader:
         clean = {
-
-            str(k)
-            .strip()
-            .upper():
-                str(v)
-                .strip()
-
-            for k, v
-            in record.items()
+            str(k).strip().upper():
+            str(v).strip()
+            for k, v in record.items()
         }
 
         symbol = (
-            clean.get(
-                "TCKRSYMB"
-            )
-            or
-            clean.get(
-                "SYMBOL"
-            )
-            or
-            ""
-        ).strip()
+            clean.get("TCKRSYMB")
+            or clean.get("SYMBOL")
+            or ""
+        ).strip().upper()
 
         series = (
-            clean.get(
-                "SCTYSRS"
-            )
-            or
-            clean.get(
-                "SERIES"
-            )
-            or
-            ""
-        ).strip()
+            clean.get("SCTYSRS")
+            or clean.get("SERIES")
+            or ""
+        ).strip().upper()
 
         close = (
-            clean.get(
-                "CLSPRIC"
-            )
-            or
-            clean.get(
-                "CLOSE"
-            )
-            or
-            clean.get(
-                "CLOSE_PRICE"
-            )
+            clean.get("CLSPRIC")
+            or clean.get("CLOSE")
+            or clean.get("CLOSE_PRICE")
         )
 
-        close = safe_float(
-            close
-        )
+        close = safe_float(close)
 
-        if (
-            not symbol
-            or
-            close is None
-        ):
-
+        if not symbol or close is None:
             continue
 
-        key = (
-            symbol.upper(),
-            series.upper(),
-        )
-
         prices[
-            key
+            (
+                symbol,
+                series,
+            )
         ] = close
 
-        # -------------------------------------------------
-        # SYMBOL-ONLY FALLBACK
-        #
-        # Prefer EQ series when same symbol appears
-        # in multiple series.
-        # -------------------------------------------------
-
-        sym = symbol.upper()
+        existing = symbol_only.get(
+            symbol
+        )
 
         if (
-            sym not in symbol_only
-            or
-            series.upper() == "EQ"
+            existing is None
+            or series == "EQ"
         ):
-
             symbol_only[
-                sym
+                symbol
             ] = close
 
+    if not prices:
+        raise RuntimeError(
+            "No valid securities found in NSE bhavcopy"
+        )
+
     return {
-
-        "date":
-            date_obj,
-
-        "url":
-            url,
-
-        "prices":
-            prices,
-
-        "symbolOnly":
-            symbol_only,
-
-        "count":
-            len(prices),
+        "date": date_obj,
+        "url": url,
+        "prices": prices,
+        "symbolOnly": symbol_only,
+        "count": len(prices),
     }
-    # =========================================================
-# BHAVCOPY CACHE
+
+
+# =========================================================
+# DOWNLOAD BHAVCOPY
+# =========================================================
+
+def download_bhavcopy(date_obj):
+    url = bhavcopy_url(date_obj)
+
+    last_error = None
+
+    for attempt in range(
+        1,
+        MAX_RETRIES + 1,
+    ):
+        try:
+            response = SESSION.get(
+                url,
+                headers={
+                    **HEADERS,
+                    "Accept": (
+                        "application/zip,"
+                        "application/octet-stream,"
+                        "*/*"
+                    ),
+                    "Referer":
+                        "https://www.nseindia.com/all-reports",
+                },
+                timeout=REQUEST_TIMEOUT,
+                allow_redirects=True,
+            )
+
+            status = response.status_code
+
+            if status == 200:
+                return parse_bhavcopy_zip(
+                    response.content,
+                    date_obj,
+                    url,
+                )
+
+            last_error = RuntimeError(
+                f"HTTP {status}"
+            )
+
+            print(
+                f"NSE archive attempt "
+                f"{attempt}/{MAX_RETRIES} "
+                f"{date_obj}: HTTP {status}"
+            )
+
+            if status in (
+                401,
+                403,
+                429,
+            ):
+                warmup_nse_session()
+
+            time.sleep(
+                min(
+                    2 * attempt,
+                    6,
+                )
+            )
+
+        except Exception as exc:
+            last_error = exc
+
+            print(
+                f"NSE archive attempt "
+                f"{attempt}/{MAX_RETRIES} "
+                f"{date_obj}: {exc}"
+            )
+
+            time.sleep(
+                min(
+                    2 * attempt,
+                    6,
+                )
+            )
+
+    raise RuntimeError(
+        f"NSE bhavcopy download failed "
+        f"for {date_obj}: {last_error}"
+    )
+
+
+# =========================================================
+# CACHE
 # =========================================================
 
 BHAVCOPY_CACHE = {}
 
 
-def load_exact_bhavcopy_cached(
-    date_obj,
-):
-
+def load_exact_bhavcopy_cached(date_obj):
     key = date_obj.isoformat()
 
     if key in BHAVCOPY_CACHE:
+        cached = BHAVCOPY_CACHE[key]
 
-        return BHAVCOPY_CACHE[
+        if isinstance(
+            cached,
+            Exception,
+        ):
+            raise cached
+
+        return cached
+
+    try:
+        result = download_bhavcopy(
+            date_obj
+        )
+
+        BHAVCOPY_CACHE[
             key
-        ]
+        ] = result
 
-    result = download_bhavcopy(
-        date_obj
-    )
+        return result
 
-    BHAVCOPY_CACHE[
-        key
-    ] = result
+    except Exception as exc:
+        BHAVCOPY_CACHE[
+            key
+        ] = exc
 
-    return result
+        raise
 
 
 # =========================================================
-# FIND NEAREST AVAILABLE BHAVCOPY
+# FIND NEAREST BHAVCOPY
 # =========================================================
 
-def load_nearest_bhavcopy(
-    target_date,
-):
-
+def load_nearest_bhavcopy(target_date):
     last_error = None
 
     for back in range(
         0,
         MAX_LOOKBACK_DAYS + 1,
     ):
-
         d = (
             target_date
             -
-            timedelta(
-                days=back
-            )
+            timedelta(days=back)
         )
 
-        # Saturday / Sunday
         if d.weekday() >= 5:
             continue
 
         try:
-
             result = (
                 load_exact_bhavcopy_cached(
                     d
@@ -472,12 +532,12 @@ def load_nearest_bhavcopy(
             return result
 
         except Exception as exc:
-
             last_error = exc
 
             print(
                 f"Bhavcopy unavailable "
-                f"{d.isoformat()}: {exc}"
+                f"{d.isoformat()}: "
+                f"{exc}"
             )
 
     raise RuntimeError(
@@ -488,40 +548,28 @@ def load_nearest_bhavcopy(
 
 
 # =========================================================
-# STOCK PRICE LOOKUP
+# PRICE LOOKUP
 # =========================================================
 
-def lookup_price(
-    stock,
-    bhavcopy,
-):
-
+def lookup_price(stock, bhavcopy):
     symbol = str(
-        stock.get(
-            "symbol"
-        )
+        stock.get("symbol")
         or ""
     ).strip().upper()
 
     series = str(
-        stock.get(
-            "series"
-        )
+        stock.get("series")
         or ""
     ).strip().upper()
 
     if not symbol:
         return None
 
-    prices = bhavcopy[
-        "prices"
-    ]
-
+    prices = bhavcopy["prices"]
     symbol_only = bhavcopy[
         "symbolOnly"
     ]
 
-    # Exact symbol + series.
     exact = prices.get(
         (
             symbol,
@@ -532,7 +580,6 @@ def lookup_price(
     if exact is not None:
         return exact
 
-    # EQ fallback.
     eq = prices.get(
         (
             symbol,
@@ -543,21 +590,19 @@ def lookup_price(
     if eq is not None:
         return eq
 
-    # Symbol-only fallback.
     return symbol_only.get(
         symbol
     )
 
 
 # =========================================================
-# RETURN CALCULATION
+# RETURN
 # =========================================================
 
 def calculate_return(
     current_price,
     old_price,
 ):
-
     current_price = safe_float(
         current_price
     )
@@ -568,10 +613,8 @@ def calculate_return(
 
     if (
         current_price is None
-        or
-        old_price is None
+        or old_price is None
     ):
-
         return None
 
     return (
@@ -586,7 +629,7 @@ def calculate_return(
 
 
 # =========================================================
-# RAW RS SCORE
+# RAW RS
 # =========================================================
 
 def calculate_raw_rs(
@@ -595,7 +638,6 @@ def calculate_raw_rs(
     return_9m,
     return_12m,
 ):
-
     values = [
         return_3m,
         return_6m,
@@ -607,33 +649,21 @@ def calculate_raw_rs(
         value is None
         for value in values
     ):
-
         return None
 
     return (
-        WEIGHT_3M
-        *
-        return_3m
-
+        WEIGHT_3M * return_3m
         +
-        WEIGHT_6M
-        *
-        return_6m
-
+        WEIGHT_6M * return_6m
         +
-        WEIGHT_9M
-        *
-        return_9m
-
+        WEIGHT_9M * return_9m
         +
-        WEIGHT_12M
-        *
-        return_12m
+        WEIGHT_12M * return_12m
     )
 
 
 # =========================================================
-# GENERIC PERCENTILE RATING
+# PERCENTILE
 # =========================================================
 
 def assign_percentile_ratings(
@@ -641,29 +671,16 @@ def assign_percentile_ratings(
     raw_field,
     rating_field,
 ):
-
     eligible = []
 
     for index, row in enumerate(
         records
     ):
-
-        raw = row.get(
-            raw_field
+        raw = safe_numeric(
+            row.get(raw_field)
         )
 
         if raw is None:
-            continue
-
-        try:
-
-            raw = float(raw)
-
-        except Exception:
-
-            continue
-
-        if not math.isfinite(raw):
             continue
 
         eligible.append(
@@ -677,74 +694,51 @@ def assign_percentile_ratings(
         key=lambda x: x[0]
     )
 
-    total = len(
-        eligible
-    )
+    total = len(eligible)
 
     if total == 0:
         return 0
 
     if total == 1:
-
         records[
             eligible[0][1]
-        ][
-            rating_field
-        ] = 99
+        ][rating_field] = 99
 
         return 1
-
-    # -----------------------------------------------------
-    # TIE-AWARE AVERAGE RANK
-    # -----------------------------------------------------
 
     position = 0
 
     while position < total:
-
         start = position
-
         raw_score = eligible[
             position
         ][0]
 
         while (
-            position + 1
-            <
-            total
-            and
-            eligible[
+            position + 1 < total
+            and eligible[
                 position + 1
-            ][0]
-            ==
-            raw_score
+            ][0] == raw_score
         ):
-
             position += 1
 
         end = position
 
         average_rank = (
-            start
-            +
-            end
+            start + end
         ) / 2
 
         percentile = (
             average_rank
             /
-            (
-                total - 1
-            )
+            (total - 1)
         )
 
         rating = (
             1
             +
             round(
-                percentile
-                *
-                98
+                percentile * 98
             )
         )
 
@@ -760,32 +754,20 @@ def assign_percentile_ratings(
             start,
             end + 1,
         ):
-
             stock_index = (
-                eligible[
-                    i
-                ][1]
+                eligible[i][1]
             )
 
             records[
                 stock_index
-            ][
-                rating_field
-            ] = rating
+            ][rating_field] = rating
 
         position += 1
 
     return total
 
 
-# =========================================================
-# CURRENT RS WRAPPER
-# =========================================================
-
-def assign_rs_ratings(
-    stocks,
-):
-
+def assign_rs_ratings(stocks):
     return assign_percentile_ratings(
         stocks,
         "rsRawScore",
@@ -794,11 +776,10 @@ def assign_rs_ratings(
 
 
 # =========================================================
-# RS LABEL
+# LABEL
 # =========================================================
 
 def rs_label(rating):
-
     if rating is None:
         return "Pending"
 
@@ -818,15 +799,70 @@ def rs_label(rating):
         return "Weak"
 
     return "Very Weak"
-    # =========================================================
-# CURRENT RS CALCULATION
+
+
+# =========================================================
+# PRESERVE EXISTING RS
+# =========================================================
+
+RS_FIELDS = [
+    "rsRating",
+    "rsRawScore",
+    "rsReturn3M",
+    "rsReturn6M",
+    "rsReturn9M",
+    "rsReturn12M",
+    "rsLabel",
+    "rsStatus",
+    "rsDate",
+    "rsMethod",
+    "rsSource",
+    "rsBenchmarkUniverse",
+]
+
+
+def snapshot_existing_rs(stocks):
+    snapshots = []
+
+    for row in stocks:
+        snapshots.append({
+            field: row.get(field)
+            for field in RS_FIELDS
+        })
+
+    return snapshots
+
+
+def restore_existing_rs(
+    stocks,
+    snapshots,
+):
+    for row, snapshot in zip(
+        stocks,
+        snapshots,
+    ):
+        for field, value in (
+            snapshot.items()
+        ):
+            if value is None:
+                row.pop(
+                    field,
+                    None,
+                )
+            else:
+                row[
+                    field
+                ] = value
+
+
+# =========================================================
+# CALCULATE CURRENT RS
 # =========================================================
 
 def calculate_current_rs(
     stocks,
     latest_date,
 ):
-
     target_3m = subtract_months(
         latest_date,
         3,
@@ -847,27 +883,20 @@ def calculate_current_rs(
         12,
     )
 
-
     print({
         "latest":
             latest_date.isoformat(),
-
         "3M":
             target_3m.isoformat(),
-
         "6M":
             target_6m.isoformat(),
-
         "9M":
             target_9m.isoformat(),
-
         "12M":
             target_12m.isoformat(),
     })
 
-
     print()
-
 
     bhav_3m = load_nearest_bhavcopy(
         target_3m
@@ -885,86 +914,41 @@ def calculate_current_rs(
         target_12m
     )
 
-
     print()
 
-
     stats = {
-
-        "stocks":
-            len(stocks),
-
-        "eligible":
-            0,
-
-        "missingCurrentPrice":
-            0,
-
-        "missing3M":
-            0,
-
-        "missing6M":
-            0,
-
-        "missing9M":
-            0,
-
-        "missing12M":
-            0,
+        "stocks": len(stocks),
+        "eligible": 0,
+        "missingCurrentPrice": 0,
+        "missing3M": 0,
+        "missing6M": 0,
+        "missing9M": 0,
+        "missing12M": 0,
     }
 
-
     for row in stocks:
-
-        row[
-            "rsRating"
-        ] = None
-
-        row[
-            "rsRawScore"
-        ] = None
-
-        row[
-            "rsReturn3M"
-        ] = None
-
-        row[
-            "rsReturn6M"
-        ] = None
-
-        row[
-            "rsReturn9M"
-        ] = None
-
-        row[
-            "rsReturn12M"
-        ] = None
-
-        row[
-            "rsLabel"
-        ] = "Pending"
-
+        row["rsRating"] = None
+        row["rsRawScore"] = None
+        row["rsReturn3M"] = None
+        row["rsReturn6M"] = None
+        row["rsReturn9M"] = None
+        row["rsReturn12M"] = None
+        row["rsLabel"] = "Pending"
 
         current_price = safe_float(
-            row.get(
-                "price"
-            )
+            row.get("price")
         )
 
-
         if current_price is None:
-
             stats[
                 "missingCurrentPrice"
             ] += 1
-
 
             row[
                 "rsStatus"
             ] = "MISSING_CURRENT_PRICE"
 
             continue
-
 
         price_3m = lookup_price(
             row,
@@ -986,34 +970,17 @@ def calculate_current_rs(
             bhav_12m,
         )
 
-
         if price_3m is None:
-
-            stats[
-                "missing3M"
-            ] += 1
-
+            stats["missing3M"] += 1
 
         if price_6m is None:
-
-            stats[
-                "missing6M"
-            ] += 1
-
+            stats["missing6M"] += 1
 
         if price_9m is None:
-
-            stats[
-                "missing9M"
-            ] += 1
-
+            stats["missing9M"] += 1
 
         if price_12m is None:
-
-            stats[
-                "missing12M"
-            ] += 1
-
+            stats["missing12M"] += 1
 
         return_3m = calculate_return(
             current_price,
@@ -1035,14 +1002,12 @@ def calculate_current_rs(
             price_12m,
         )
 
-
         raw_rs = calculate_raw_rs(
             return_3m,
             return_6m,
             return_9m,
             return_12m,
         )
-
 
         row[
             "rsReturn3M"
@@ -1075,9 +1040,7 @@ def calculate_current_rs(
             4,
         )
 
-
         if raw_rs is not None:
-
             row[
                 "rsStatus"
             ] = "READY"
@@ -1087,19 +1050,15 @@ def calculate_current_rs(
             ] += 1
 
         else:
-
             row[
                 "rsStatus"
             ] = "INSUFFICIENT_HISTORY"
-
 
     rated_count = assign_rs_ratings(
         stocks
     )
 
-
     for row in stocks:
-
         rating = row.get(
             "rsRating"
         )
@@ -1112,10 +1071,7 @@ def calculate_current_rs(
 
         row[
             "rsDate"
-        ] = (
-            latest_date
-            .isoformat()
-        )
+        ] = latest_date.isoformat()
 
         row[
             "rsMethod"
@@ -1138,79 +1094,39 @@ def calculate_current_rs(
             "NSE Equity + NSE SME dashboard universe"
         )
 
-
-        # -------------------------------------------------
-        # REMOVE OLD RS IMPROVING FIELDS IF THEY EXIST
-        # -------------------------------------------------
-
-        row.pop(
+        # Remove old RS Improving fields.
+        for field in [
             "rsRating1MAgo",
-            None,
-        )
-
-        row.pop(
             "rsRating2WAgo",
-            None,
-        )
-
-        row.pop(
             "rsRating1WAgo",
-            None,
-        )
-
-        row.pop(
             "rsImprovement",
-            None,
-        )
-
-        row.pop(
             "rsImproving",
-            None,
-        )
-
-        row.pop(
             "rsImprovingStatus",
-            None,
-        )
-
-        row.pop(
             "rsImprovingMethod",
-            None,
-        )
-
-        row.pop(
             "rsImprovingSource",
-            None,
-        )
+        ]:
+            row.pop(
+                field,
+                None,
+            )
 
-
-    stats[
-        "rated"
-    ] = rated_count
-
+    stats["rated"] = rated_count
 
     return {
-
-        "stats":
-            stats,
-
+        "stats": stats,
         "historyDates": {
-
             "3M":
                 bhav_3m[
                     "date"
                 ].isoformat(),
-
             "6M":
                 bhav_6m[
                     "date"
                 ].isoformat(),
-
             "9M":
                 bhav_9m[
                     "date"
                 ].isoformat(),
-
             "12M":
                 bhav_12m[
                     "date"
@@ -1220,123 +1136,83 @@ def calculate_current_rs(
 
 
 # =========================================================
-# DISTRIBUTION HELPER
+# DISTRIBUTION
 # =========================================================
 
-def build_distribution(
-    stocks,
-):
-
+def build_distribution(stocks):
     distribution = {
-
-        "RS90-99":
-            0,
-
-        "RS80-89":
-            0,
-
-        "RS70-79":
-            0,
-
-        "RS50-69":
-            0,
-
-        "RS30-49":
-            0,
-
-        "RS1-29":
-            0,
-
-        "Pending":
-            0,
+        "RS90-99": 0,
+        "RS80-89": 0,
+        "RS70-79": 0,
+        "RS50-69": 0,
+        "RS30-49": 0,
+        "RS1-29": 0,
+        "Pending": 0,
     }
 
-
     for row in stocks:
-
         rating = row.get(
             "rsRating"
         )
 
-
         if rating is None:
-
             distribution[
                 "Pending"
             ] += 1
 
-
         elif rating >= 90:
-
             distribution[
                 "RS90-99"
             ] += 1
 
-
         elif rating >= 80:
-
             distribution[
                 "RS80-89"
             ] += 1
 
-
         elif rating >= 70:
-
             distribution[
                 "RS70-79"
             ] += 1
 
-
         elif rating >= 50:
-
             distribution[
                 "RS50-69"
             ] += 1
 
-
         elif rating >= 30:
-
             distribution[
                 "RS30-49"
             ] += 1
 
-
         else:
-
             distribution[
                 "RS1-29"
             ] += 1
 
-
     return distribution
-    # =========================================================
+
+
+# =========================================================
 # MAIN
 # =========================================================
 
 def main():
-
     stocks = load_json(
         STOCKS_PATH,
         [],
     )
 
-
-    if not isinstance(
-        stocks,
-        list,
+    if (
+        not isinstance(
+            stocks,
+            list,
+        )
+        or not stocks
     ):
-
         raise RuntimeError(
-            "stocks.json must contain a list"
+            "stocks.json is missing or empty"
         )
-
-
-    if not stocks:
-
-        raise RuntimeError(
-            "stocks.json is empty"
-        )
-
 
     print(
         "=============================================="
@@ -1350,68 +1226,134 @@ def main():
         "=============================================="
     )
 
-
     latest_date = (
         get_latest_stock_date(
             stocks
         )
     )
 
-
     print(
         "Latest market date:",
         latest_date,
     )
 
-
     print()
 
-
-    # =====================================================
-    # CURRENT RS ONLY
-    # =====================================================
-
-    current_result = calculate_current_rs(
-        stocks,
-        latest_date,
+    # Save existing valid RS before any download.
+    existing_rs = (
+        snapshot_existing_rs(
+            stocks
+        )
     )
 
+    warmup_nse_session()
 
-    # =====================================================
-    # SAVE
-    # =====================================================
+    try:
+        current_result = (
+            calculate_current_rs(
+                stocks,
+                latest_date,
+            )
+        )
 
-    save_json(
-        STOCKS_PATH,
-        stocks,
-    )
+        rs_update_status = (
+            "UPDATED"
+        )
 
+        save_json(
+            STOCKS_PATH,
+            stocks,
+        )
 
-    # =====================================================
-    # SUMMARY
-    # =====================================================
+    except Exception as exc:
+        # -------------------------------------------------
+        # IMPORTANT:
+        # Temporary NSE 403/429/server failure must NOT
+        # erase the last valid RS data and must NOT stop
+        # the complete dashboard workflow.
+        # -------------------------------------------------
+
+        print()
+        print(
+            "WARNING: RS update unavailable."
+        )
+
+        print(
+            "Reason:",
+            exc,
+        )
+
+        print(
+            "Preserving previous valid RS data."
+        )
+
+        restore_existing_rs(
+            stocks,
+            existing_rs,
+        )
+
+        save_json(
+            STOCKS_PATH,
+            stocks,
+        )
+
+        current_result = {
+            "stats": {
+                "stocks":
+                    len(stocks),
+                "eligible":
+                    sum(
+                        1
+                        for row in stocks
+                        if row.get(
+                            "rsRating"
+                        )
+                        is not None
+                    ),
+                "rated":
+                    sum(
+                        1
+                        for row in stocks
+                        if row.get(
+                            "rsRating"
+                        )
+                        is not None
+                    ),
+                "missingCurrentPrice":
+                    0,
+                "missing3M":
+                    0,
+                "missing6M":
+                    0,
+                "missing9M":
+                    0,
+                "missing12M":
+                    0,
+            },
+            "historyDates": {},
+        }
+
+        rs_update_status = (
+            "PRESERVED_PREVIOUS"
+        )
 
     current_stats = (
         current_result.get(
             "stats",
-            {}
+            {},
         )
     )
-
 
     rated_count = (
         current_stats.get(
             "rated",
-            0
+            0,
         )
     )
 
-
     coverage = 0
 
-
     if stocks:
-
         coverage = (
             rated_count
             /
@@ -1420,23 +1362,20 @@ def main():
             100
         )
 
-
     distribution = (
         build_distribution(
             stocks
         )
     )
 
-
     stats = {
-
         "stocks":
             len(stocks),
 
         "eligible":
             current_stats.get(
                 "eligible",
-                0
+                0,
             ),
 
         "rated":
@@ -1451,31 +1390,31 @@ def main():
         "missingCurrentPrice":
             current_stats.get(
                 "missingCurrentPrice",
-                0
+                0,
             ),
 
         "missing3M":
             current_stats.get(
                 "missing3M",
-                0
+                0,
             ),
 
         "missing6M":
             current_stats.get(
                 "missing6M",
-                0
+                0,
             ),
 
         "missing9M":
             current_stats.get(
                 "missing9M",
-                0
+                0,
             ),
 
         "missing12M":
             current_stats.get(
                 "missing12M",
-                0
+                0,
             ),
 
         "distribution":
@@ -1484,14 +1423,12 @@ def main():
         "historyDates":
             current_result.get(
                 "historyDates",
-                {}
+                {},
             ),
+
+        "updateStatus":
+            rs_update_status,
     }
-
-
-    # =====================================================
-    # LOG SUMMARY
-    # =====================================================
 
     print()
 
@@ -1507,7 +1444,6 @@ def main():
         "=============================================="
     )
 
-
     print(
         json.dumps(
             stats,
@@ -1515,65 +1451,45 @@ def main():
         )
     )
 
-
     print()
-
-
-    # =====================================================
-    # RS SCALE
-    # =====================================================
 
     print(
         "RS SCALE:"
     )
 
-
     print(
         "90-99 = Elite"
     )
-
 
     print(
         "80-89 = Leader"
     )
 
-
     print(
         "70-79 = Strong"
     )
-
 
     print(
         "50-69 = Average"
     )
 
-
     print(
         "30-49 = Weak"
     )
-
 
     print(
         "1-29 = Very Weak"
     )
 
-
     print()
-
-
-    # =====================================================
-    # IMPORTANT
-    # =====================================================
 
     print(
         "IMPORTANT:"
     )
 
-
     print(
         "RS Rating uses official NSE UDiFF EOD bhavcopy."
     )
-
 
     print(
         "Current RS is based on "
@@ -1581,24 +1497,25 @@ def main():
         "20% 9M + 20% 12M returns."
     )
 
-
     print(
         "Rating is converted to a "
         "cross-sectional percentile from 1 to 99."
     )
 
+    print(
+        "Temporary NSE archive failure preserves "
+        "the previous valid RS instead of deleting it."
+    )
 
     print(
         "MarketSmith's exact proprietary "
         "formula is not claimed or copied."
     )
 
-
     print(
         "RS Improving and historical "
         "RS snapshot logic are removed."
     )
-
 
     print(
         "=============================================="
@@ -1607,4 +1524,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
