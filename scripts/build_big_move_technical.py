@@ -1245,146 +1245,98 @@ def record_turnover(record):
 
 def detect_prior_move(history):
 
-    n = len(
-        history
-    )
-
+    n = len(history)
 
     if n < 30:
-
         return None
 
-
-    current_index = (
-        n - 1
-    )
-
+    current_index = n - 1
 
     latest_peak_index = (
         current_index
-        -
-        MIN_POST_PEAK_SESSIONS
+        - MIN_POST_PEAK_SESSIONS
     )
-
 
     if latest_peak_index < 10:
-
         return None
 
-
     earliest_peak_index = max(
-
         10,
-
         latest_peak_index
-        -
-        PEAK_SEARCH_SESSIONS,
-
+        - PEAK_SEARCH_SESSIONS,
     )
-
 
     candidates = []
 
+    # Detect the move from a meaningful recent swing low instead of
+    # blindly using the absolute lowest low in the whole lookback.
+    #
+    # A swing low is a local low relative to nearby sessions. For each
+    # candidate prior peak we prefer the most recent valid swing low that
+    # still produced the required >=30% advance. This better represents:
+    #
+    # swing low -> strong move -> prior peak -> base -> breakout
+    #
+    # If no local swing low qualifies, we fall back to the lowest valid
+    # low so that genuine straight-line advances are not lost.
+    SWING_RADIUS = 3
 
     for peak_index in range(
         earliest_peak_index,
         latest_peak_index + 1,
     ):
 
-        peak_record = (
-            history[
-                peak_index
-            ]
-        )
-
+        peak_record = history[peak_index]
 
         peak_price = safe_float(
-            peak_record.get(
-                "high"
-            )
+            peak_record.get("high")
         )
-
 
         if (
             peak_price is None
-            or
-            peak_price <= 0
+            or peak_price <= 0
         ):
-
             continue
 
-
         start_search_index = max(
-
             0,
-
-            peak_index
-            -
-            MOVE_START_LOOKBACK,
-
+            peak_index - MOVE_START_LOOKBACK,
         )
-
 
         if (
             peak_index
-            -
-            start_search_index
-            <
-            5
+            - start_search_index
+            < 5
         ):
-
             continue
 
-
-        start_slice = (
-            history[
-                start_search_index:
-                peak_index
-            ]
-        )
-
-
         valid_lows = []
+        swing_lows = []
 
-
-        for offset, record in enumerate(
-            start_slice
+        for actual_index in range(
+            start_search_index,
+            peak_index,
         ):
 
-            low_price = safe_float(
-                record.get(
-                    "low"
-                )
-            )
+            record = history[actual_index]
 
+            low_price = safe_float(
+                record.get("low")
+            )
 
             if (
                 low_price is None
-                or
-                low_price <= 0
+                or low_price <= 0
             ):
-
                 continue
-
-
-            actual_index = (
-                start_search_index
-                +
-                offset
-            )
-
 
             # Need some real move duration.
             if (
                 peak_index
-                -
-                actual_index
-                <
-                4
+                - actual_index
+                < 4
             ):
-
                 continue
-
 
             valid_lows.append(
                 (
@@ -1393,114 +1345,148 @@ def detect_prior_move(history):
                 )
             )
 
+            left_index = max(
+                start_search_index,
+                actual_index - SWING_RADIUS,
+            )
+
+            right_index = min(
+                peak_index - 1,
+                actual_index + SWING_RADIUS,
+            )
+
+            neighbour_lows = []
+
+            for neighbour_index in range(
+                left_index,
+                right_index + 1,
+            ):
+
+                if neighbour_index == actual_index:
+                    continue
+
+                neighbour_low = safe_float(
+                    history[neighbour_index].get("low")
+                )
+
+                if (
+                    neighbour_low is not None
+                    and neighbour_low > 0
+                ):
+                    neighbour_lows.append(
+                        neighbour_low
+                    )
+
+            is_swing_low = (
+                neighbour_lows
+                and
+                low_price <= min(neighbour_lows)
+            )
+
+            if not is_swing_low:
+                continue
+
+            move_pct = (
+                (
+                    peak_price
+                    / low_price
+                )
+                - 1
+            ) * 100
+
+            if move_pct >= MIN_PRIOR_MOVE_PCT:
+                swing_lows.append(
+                    (
+                        low_price,
+                        actual_index,
+                        move_pct,
+                    )
+                )
 
         if not valid_lows:
             continue
 
-
-        start_price, start_index = min(
-            valid_lows,
-            key=lambda x:
-                x[0]
-        )
-
-
-        prior_move_pct = (
-            (
-                peak_price
-                /
-                start_price
+        if swing_lows:
+            # Prefer the most recent qualifying swing low. If two lows
+            # occur on the same session (defensive tie handling), prefer
+            # the stronger move.
+            start_price, start_index, prior_move_pct = max(
+                swing_lows,
+                key=lambda x: (
+                    x[1],
+                    x[2],
+                ),
             )
-            -
-            1
-        ) * 100
+        else:
+            # Fallback for clean advances where a textbook local swing
+            # low is not present in the available history.
+            start_price, start_index = min(
+                valid_lows,
+                key=lambda x: x[0],
+            )
 
+            prior_move_pct = (
+                (
+                    peak_price
+                    / start_price
+                )
+                - 1
+            ) * 100
 
-        if (
-            prior_move_pct
-            <
-            MIN_PRIOR_MOVE_PCT
-        ):
-
+        if prior_move_pct < MIN_PRIOR_MOVE_PCT:
             continue
-
 
         sessions_since_peak = (
             current_index
-            -
-            peak_index
+            - peak_index
         )
-
 
         move_duration = (
             peak_index
-            -
-            start_index
+            - start_index
         )
 
-
-        # A massive move can be older, but recent patterns get
-        # a modest preference.
+        # Prefer a strong move, but give recent prior peaks a meaningful
+        # advantage so an old giant move does not dominate a cleaner and
+        # more relevant recent setup.
         recency_factor = max(
-
-            0.65,
-
+            0.50,
             1.0
-            -
-            (
+            - (
                 sessions_since_peak
-                *
-                0.003
+                * 0.005
             ),
-
         )
 
+        # Avoid allowing extremely large historical advances to dominate
+        # candidate selection purely because of their percentage size.
+        capped_move_for_quality = min(
+            prior_move_pct,
+            150.0,
+        )
 
         quality = (
-            prior_move_pct
-            *
-            recency_factor
+            capped_move_for_quality
+            * recency_factor
         )
 
-
         candidates.append({
-
-            "quality":
-                quality,
-
-            "startIndex":
-                start_index,
-
-            "peakIndex":
-                peak_index,
-
-            "startPrice":
-                start_price,
-
-            "peakPrice":
-                peak_price,
-
-            "priorMovePct":
-                prior_move_pct,
-
-            "moveDuration":
-                move_duration,
-
-            "sessionsSincePeak":
-                sessions_since_peak,
-
+            "quality": quality,
+            "startIndex": start_index,
+            "peakIndex": peak_index,
+            "startPrice": start_price,
+            "peakPrice": peak_price,
+            "priorMovePct": prior_move_pct,
+            "moveDuration": move_duration,
+            "sessionsSincePeak": sessions_since_peak,
         })
 
-
     if not candidates:
-
         return None
-
 
     return max(
         candidates,
-        key=lambda x:
-            x["quality"]
+        key=lambda x: x["quality"]
     )
 
 
@@ -3635,7 +3621,7 @@ def main():
         "priorMove":
             (
                 "Detect prior price advance >=30% "
-                "from a preceding swing low to a prior peak."
+                "from the most recent qualifying local swing low to a prior peak."
             ),
 
         "retracement":
