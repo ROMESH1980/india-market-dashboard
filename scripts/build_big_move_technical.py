@@ -1616,6 +1616,64 @@ def calculate_retracement(
 
 
 # =========================================================
+# CONSOLIDATION DAYS
+# =========================================================
+#
+# Count the completed base sessions after the detected prior peak.
+#
+# IMPORTANT:
+# - The prior peak day itself is not a consolidation day.
+# - The current session is excluded because it may be the breakout day.
+# - Therefore:
+#       prior peak -> completed base sessions -> current/breakout session
+#
+# Example:
+# peak on day 0, 8 completed base sessions, breakout today
+# => Consolidation Days = 8
+#
+# =========================================================
+
+def calculate_consolidation_days(
+    history,
+    move,
+):
+
+    if (
+        not history
+        or not move
+    ):
+
+        return None
+
+    peak_index = move.get(
+        "peakIndex"
+    )
+
+    if peak_index is None:
+
+        return None
+
+    current_index = (
+        len(history)
+        - 1
+    )
+
+    # Sessions strictly between the prior peak and current session.
+    completed_base_sessions = (
+        current_index
+        -
+        peak_index
+        -
+        1
+    )
+
+    return max(
+        0,
+        completed_base_sessions,
+    )
+
+
+# =========================================================
 # VOLUME CONTRACTION
 # =========================================================
 
@@ -2818,9 +2876,10 @@ def analyze_stock(
 
 
     consolidation_days = (
-        move[
-            "sessionsSincePeak"
-        ]
+        calculate_consolidation_days(
+            history,
+            move,
+        )
     )
 
 
@@ -3687,6 +3746,13 @@ def main():
                 "Poor base quality",
 
         },
+
+        "consolidationDays":
+            (
+                "Completed trading sessions strictly between the detected "
+                "prior peak and the current session. Prior peak day and "
+                "current/breakout day are excluded."
+            ),
 
         "volumeContraction":
             (
