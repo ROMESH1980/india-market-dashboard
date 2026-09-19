@@ -246,8 +246,8 @@
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 99,
           "positiveBreadthPct": 76.77,
-          "medianReturnPct": 19.31,
-          "returnStrengthScore": 98.29
+          "medianReturnPct": 19.13,
+          "returnStrengthScore": 97.82
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-19T13:21:38.940539+00:00"
+  "marketRegimeGeneratedAt": "2026-09-19T15:36:32.078337+00:00"
 }

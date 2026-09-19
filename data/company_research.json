@@ -601,7 +601,7 @@
     },
     "ADANIENSOL": {
       "tailwindScore": 90.0,
-      "futureGrowth": 90.79,
+      "futureGrowth": 90.78,
       "fundamentalQuality": 51.36,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1615,7 +1615,7 @@
     },
     "APOLLOTYRE": {
       "tailwindScore": 80.0,
-      "futureGrowth": 81.82,
+      "futureGrowth": 81.76,
       "fundamentalQuality": 67.06,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1927,7 +1927,7 @@
     },
     "ASTRAL": {
       "tailwindScore": 88.0,
-      "futureGrowth": 84.61,
+      "futureGrowth": 84.6,
       "fundamentalQuality": 73.78,
       "capexScore": 80.0,
       "researchReasons": {
@@ -2118,7 +2118,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJ-AUTO": {
       "tailwindScore": 80.0,
@@ -22675,7 +22675,7 @@
     },
     "AETHER": {
       "tailwindScore": 76.0,
-      "futureGrowth": 89.12,
+      "futureGrowth": 89.09,
       "fundamentalQuality": 87.61,
       "capexScore": 90.0,
       "researchReasons": {
@@ -25405,7 +25405,7 @@
     },
     "APCOTEXIND": {
       "tailwindScore": 76.0,
-      "futureGrowth": 86.39,
+      "futureGrowth": 86.4,
       "fundamentalQuality": 79.11,
       "capexScore": 70.0,
       "researchReasons": {
@@ -27394,7 +27394,7 @@
     },
     "ATLANTAELE": {
       "tailwindScore": 90.0,
-      "futureGrowth": 89.51,
+      "futureGrowth": 89.53,
       "fundamentalQuality": 78.19,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27819,7 +27819,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AVANCE": {
       "tailwindScore": 75.0,
@@ -27887,7 +27887,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 9.23× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
+          "sourceDate": "2026-09-19",
           "mode": "AUTOMATED"
         }
       },
@@ -27936,7 +27936,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AVG": {
       "tailwindScore": 80.0,
