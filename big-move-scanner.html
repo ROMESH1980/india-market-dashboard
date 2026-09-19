@@ -1,59 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Big Move Scanner | MY MARKET RESEARCH</title>
 
   <style>
-
     :root {
       --bg: #07111f;
-      --panel: #0c192b;
-      --panel2: #102039;
-      --border: #223651;
-      --border-soft: #192c45;
-
-      --text: #f4f7fb;
-      --muted: #91a3bb;
-
-      --green: #27d980;
-      --green-dark: #137a3f;
-      --green-border: #1c9c52;
-
-      --green-soft: rgba(39, 217, 128, 0.13);
-      --blue: #4da3ff;
-      --blue-soft: rgba(77, 163, 255, 0.13);
-      --yellow: #f0bd4e;
-      --yellow-soft: rgba(240, 189, 78, 0.13);
-      --orange: #ff944d;
-      --orange-soft: rgba(255, 148, 77, 0.13);
-      --red: #ff5e72;
-      --red-soft: rgba(255, 94, 114, 0.13);
+      --panel: #0c1728;
+      --panel-2: #111d30;
+      --border: #25344b;
+      --text: #eef4ff;
+      --muted: #94a3b8;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --red: #ef4444;
+      --blue: #38bdf8;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      overflow-x: hidden;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
     }
 
     button,
@@ -67,787 +47,398 @@
       text-decoration: none;
     }
 
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 16px;
+    }
 
-    /* =========================
-       HEADER
-    ========================= */
-
-    .site-header {
-      min-height: 50px;
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      padding: 6px 14px;
-      border-bottom: 1px solid var(--border-soft);
-      background: #081321;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
     .brand {
       margin: 0;
-      font-size: 19px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.3px;
-    }
-
-    .brand-subtitle {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 9px;
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .nav-link {
-      padding: 7px 10px;
-      border: 1px solid transparent;
-      border-radius: 6px;
-      color: #aebed2;
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .nav-link:hover {
-      background: var(--panel);
-      color: #fff;
-    }
-
-    .nav-link.active {
-      background: var(--panel2);
-      border-color: var(--border);
-      color: #fff;
-    }
-
-    .nav-link.disabled {
-      opacity: 0.4;
-      cursor: default;
-    }
-
-
-    /* =========================
-       PAGE
-    ========================= */
-
-    .page {
-      width: 100%;
-      padding: 8px 12px 14px;
-    }
-
-
-    /* =========================
-       TITLE
-    ========================= */
-
-    .scanner-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 6px;
-    }
-
-    .scanner-heading h1 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .scanner-heading p {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .scanner-active {
-      padding: 6px 10px;
-      border: 1px solid rgba(39, 217, 128, 0.27);
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-
-    /* =========================
-       SUMMARY
-    ========================= */
-
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(105px, 1fr));
-      gap: 5px;
-      margin-bottom: 6px;
-    }
-
-    .summary-card {
-      min-height: 58px;
-      padding: 7px 9px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      background: var(--panel);
-    }
-
-    .summary-label {
-      color: #91a7c3;
-      font-size: 8px;
-      font-weight: 900;
-      text-transform: uppercase;
+      font-size: 26px;
+      font-weight: 800;
       letter-spacing: 0.4px;
     }
 
-    .summary-value {
-      margin-top: 4px;
-      font-size: 18px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .summary-note {
-      margin-top: 3px;
+    .subtitle {
       color: var(--muted);
-      font-size: 8px;
+      font-size: 13px;
     }
 
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-    /* =========================
-       SEARCH
-    ========================= */
+    .nav a,
+    .nav span {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel);
+      color: #dbeafe;
+      font-weight: 700;
+    }
 
-    .search-toolbar {
+    .nav a.active {
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .nav .disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .summary-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      min-height: 78px;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .summary-value {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 5px;
-      padding: 5px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 11px;
+      margin-bottom: 10px;
       background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
     }
 
-    .search-left {
+    .toolbar-left,
+    .toolbar-right {
       display: flex;
       align-items: center;
-      gap: 5px;
-      min-width: 0;
-      flex: 1;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    #searchInput {
-      width: min(360px, 100%);
-      height: 30px;
-      padding: 0 8px;
-      border: 1px solid #29415e;
-      border-radius: 5px;
+    .search-input,
+    .page-size-select {
+      background: #091426;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 8px 10px;
       outline: none;
-      background: #0b1829;
-      color: #fff;
-      font-size: 10px;
+    }
+
+    .search-input {
+      width: 260px;
     }
 
     .btn {
-      min-height: 29px;
-      padding: 0 10px;
       border: 1px solid var(--border);
-      border-radius: 5px;
-      background: var(--panel2);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #245e9e;
-      border-color: #377fc9;
-    }
-
-
-    /* =========================
-       LEGEND
-    ========================= */
-
-    .legend {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 20px;
-      padding: 0 2px;
-      margin-bottom: 3px;
-      color: var(--muted);
-      font-size: 8px;
-    }
-
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .legend-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-    }
-
-    .green {
-      background: var(--green);
-    }
-
-    .yellow {
-      background: var(--yellow);
-    }
-
-    .orange {
-      background: var(--orange);
-    }
-
-    .red {
-      background: var(--red);
-    }
-
-
-    /* =========================
-       TABLE PANEL
-    ========================= */
-
-    .table-panel {
-      border: 1px solid var(--border);
+      background: #132238;
+      color: var(--text);
       border-radius: 7px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: #1b2d47;
+    }
+
+    .market-date {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .table-shell {
+      width: 100%;
       background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       overflow: hidden;
     }
 
-    .table-toolbar {
-      min-height: 34px;
-      padding: 4px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      background: #0b1829;
-    }
-
-    .result-count {
-      color: #9eb0c6;
-      font-size: 9px;
-    }
-
-
-    /* =========================
-       SCROLLBAR
-    ========================= */
-
-    .top-scroll-wrap {
+    .top-scroll {
       width: 100%;
-      height: 16px;
       overflow-x: auto;
       overflow-y: hidden;
-      background: #081422;
-      border-bottom: 1px solid var(--border-soft);
+      height: 15px;
+      border-bottom: 1px solid var(--border);
     }
 
     .top-scroll-inner {
       height: 1px;
-      min-width: 100%;
+      width: 2400px;
     }
-
-    .top-scroll-wrap::-webkit-scrollbar,
-    .table-wrap::-webkit-scrollbar {
-      height: 10px;
-      width: 10px;
-    }
-
-    .top-scroll-wrap::-webkit-scrollbar-track,
-    .table-wrap::-webkit-scrollbar-track {
-      background: #07111f;
-    }
-
-    .top-scroll-wrap::-webkit-scrollbar-thumb,
-    .table-wrap::-webkit-scrollbar-thumb {
-      background: #455f82;
-      border-radius: 8px;
-      border: 2px solid #07111f;
-    }
-
-
-    /* =========================
-       TABLE
-    ========================= */
 
     .table-wrap {
       width: 100%;
-      max-height: calc(100vh - 245px);
-      min-height: 430px;
       overflow: auto;
-      position: relative;
+      max-height: calc(100vh - 285px);
     }
 
     table {
+      width: 100%;
+      min-width: 2400px;
       border-collapse: separate;
       border-spacing: 0;
-      width: max-content;
-      min-width: 2400px;
-      background: var(--panel);
     }
 
-    thead {
+    thead th {
       position: sticky;
       top: 0;
-      z-index: 10;
-    }
-
-    th {
-      min-width: 82px;
-      padding: 5px 4px;
+      z-index: 5;
+      background: #122036;
+      color: #f8fafc;
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: #10223a;
-      color: #f7f9fc;
-      font-size: 8px;
-      font-weight: 900;
-      line-height: 1.05;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    th:nth-child(1),
-    td:nth-child(1) {
-      min-width: 205px;
-      width: 205px;
-      max-width: 205px;
-    }
-
-    th:nth-child(2),
-    td:nth-child(2) {
-      min-width: 75px;
-      width: 75px;
-    }
-
-    th:nth-child(3),
-    td:nth-child(3) {
-      min-width: 92px;
-      width: 92px;
-    }
-
-    th:nth-child(4),
-    td:nth-child(4) {
-      min-width: 82px;
-      width: 82px;
-    }
-
-    th:nth-child(5),
-    td:nth-child(5),
-    th:nth-child(6),
-    td:nth-child(6),
-    th:nth-child(7),
-    td:nth-child(7),
-    th:nth-child(8),
-    td:nth-child(8) {
-      min-width: 72px;
-      width: 72px;
-    }
-
-    th:nth-child(9),
-    td:nth-child(9),
-    th:nth-child(10),
-    td:nth-child(10),
-    th:nth-child(11),
-    td:nth-child(11) {
-      min-width: 82px;
-      width: 82px;
-    }
-
-    /* FREE FLOAT ₹ CR */
-
-    th:nth-child(12),
-    td:nth-child(12) {
-      min-width: 100px;
-      width: 100px;
-    }
-
-    th:nth-child(13),
-    td:nth-child(13),
-    th:nth-child(14),
-    td:nth-child(14) {
-      min-width: 82px;
-      width: 82px;
-    }
-
-    th:nth-child(15),
-    td:nth-child(15) {
-      min-width: 90px;
-      width: 90px;
-    }
-
-    th:nth-child(16),
-    td:nth-child(16),
-    th:nth-child(17),
-    td:nth-child(17) {
-      min-width: 88px;
-      width: 88px;
-    }
-
-    th:nth-child(18),
-    td:nth-child(18) {
-      min-width: 94px;
-      width: 94px;
-    }
-
-    th:nth-child(19),
-    td:nth-child(19) {
-      min-width: 90px;
-      width: 90px;
-    }
-
-    th:nth-child(20),
-    td:nth-child(20) {
-      min-width: 86px;
-      width: 86px;
-    }
-
-    th:nth-child(21),
-    td:nth-child(21) {
-      min-width: 125px;
-      width: 125px;
-    }
-
-    th:nth-child(22),
-    td:nth-child(22) {
-      min-width: 125px;
-      width: 125px;
-    }
-
-    th:nth-child(23),
-    td:nth-child(23) {
-      min-width: 175px;
-      width: 175px;
-      max-width: 175px;
-    }
-
-    thead tr:first-child th {
-      position: sticky;
-      top: 0;
-      z-index: 12;
-    }
-
-    thead tr.filter-row th {
-      position: sticky;
-      top: 34px;
-      z-index: 11;
-      padding: 3px;
-      background: #0c1c30;
+      padding: 9px 8px;
+      text-align: left;
+      white-space: nowrap;
       vertical-align: top;
     }
 
-    td {
-      height: 42px;
-      padding: 5px 5px;
-      border-right: 1px solid #1c314b;
-      border-bottom: 1px solid #1c314b;
-      color: #edf3fb;
-      font-size: 10.5px;
-      font-weight: 600;
-      text-align: center;
-      vertical-align: middle;
+    tbody td {
+      border-right: 1px solid #1e2d43;
+      border-bottom: 1px solid #1e2d43;
+      padding: 8px;
       white-space: nowrap;
-    }
-
-    tbody tr {
-      cursor: pointer;
-      background: #0b192b;
-    }
-
-    tbody tr:nth-child(even) {
-      background: #0c1b2e;
+      vertical-align: middle;
     }
 
     tbody tr:hover {
-      background: #132944;
+      background: #101d30;
     }
 
-    td:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 4;
-      text-align: left;
-      background: inherit;
+    th:last-child,
+    td:last-child {
+      border-right: none;
     }
 
-    thead th:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 20;
+    .stock-cell {
+      min-width: 155px;
     }
 
-    thead tr.filter-row th:first-child {
-      z-index: 19;
+    .stock-link {
+      color: #7dd3fc;
+      font-weight: 800;
+      cursor: pointer;
     }
 
+    .stock-link:hover {
+      text-decoration: underline;
+    }
 
-    /* =========================
-       FILTER CONTROLS
-    ========================= */
-
-    .col-filter {
+    .filter-box {
+      margin-top: 7px;
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .filter-active {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      color: #a9bdd6;
-      font-size: 7px;
-      font-weight: 700;
-    }
-
-    .filter-active input {
-      width: 11px;
-      height: 11px;
-      margin: 0;
-      accent-color: #3b8de3;
+      gap: 5px;
+      min-width: 115px;
     }
 
     .filter-line {
       display: flex;
-      gap: 2px;
+      align-items: center;
+      gap: 4px;
     }
 
-    .mini-control {
-      width: 100%;
+    .filter-box input[type="number"],
+    .filter-box select {
+      width: 72px;
       min-width: 0;
-      height: 21px;
-      padding: 0 2px;
-      border: 1px solid #29415e;
-      border-radius: 3px;
-      outline: none;
-      background: #0a1728;
-      color: #fff;
-      font-size: 7px;
-    }
-
-    .mini-operator {
-      width: 32px;
-      flex: 0 0 32px;
-    }
-
-    .text-filter {
-      width: 100%;
-      height: 23px;
-      padding: 0 2px;
-      border: 1px solid #29415e;
-      border-radius: 3px;
-      background: #0a1728;
-      color: #fff;
-      font-size: 7px;
-    }
-
-    .no-filter {
-      color: #627791;
-      font-size: 8px;
-      padding-top: 5px;
-    }
-
-
-    /* =========================
-       STOCK
-    ========================= */
-
-    .stock-name {
-      display: block;
-      max-width: 190px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 10.5px;
-      font-weight: 900;
+      padding: 4px 5px;
+      border-radius: 5px;
+      border: 1px solid #334155;
+      background: #07111f;
       color: #fff;
     }
 
-    .stock-symbol {
-      display: block;
-      margin-top: 1px;
-      color: #8fa4be;
-      font-size: 8px;
+    .filter-box select.operator {
+      width: 50px;
     }
 
+    .filter-box select.sort-select {
+      width: 96px;
+    }
 
-    /* =========================
-       VALUES
-    ========================= */
+    .filter-box label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .number {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
 
     .positive {
-      color: #fff;
-      font-weight: 800;
+      color: #4ade80;
+      font-weight: 700;
     }
 
     .negative {
-      color: var(--red);
-      font-weight: 800;
+      color: #f87171;
+      font-weight: 700;
     }
 
-    .pending {
-      color: #70849d;
+    .muted {
+      color: var(--muted);
     }
 
-
-    /* =========================
-       FREE FLOAT STICKER
-    ========================= */
-
-    .free-float-low {
+    .badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
-      min-width: 48px;
-
-      padding: 4px 7px;
-
-      border: 1px solid var(--green-border);
-      border-radius: 5px;
-
-      background: var(--green-dark);
-
-      color: #ffffff;
-
-      font-size: 10px;
-      font-weight: 900;
-
-      line-height: 1;
-    }
-
-    .free-float-normal {
-      color: #edf3fb;
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       SCORE
-    ========================= */
-
-    .score-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 42px;
-      min-height: 24px;
-      padding: 3px 6px;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .score-elite {
-      color: var(--green);
-      background: var(--green-soft);
-    }
-
-    .score-strong {
-      color: #74bfff;
-      background: var(--blue-soft);
-    }
-
-    .score-developing {
-      color: var(--yellow);
-      background: var(--yellow-soft);
-    }
-
-    .score-weak {
-      color: var(--red);
-      background: var(--red-soft);
-    }
-
-
-    /* =========================
-       SETUP
-    ========================= */
-
-    .setup-badge {
-      display: inline-block;
-      padding: 4px 6px;
       border-radius: 999px;
-      font-size: 8px;
-      font-weight: 900;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      border: 1px solid transparent;
     }
 
-    .setup-green {
-      color: var(--green);
-      background: var(--green-soft);
+    .badge-green {
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.12);
+      border-color: rgba(34, 197, 94, 0.35);
     }
 
-    .setup-yellow {
-      color: var(--yellow);
-      background: var(--yellow-soft);
+    .badge-yellow {
+      color: #fde047;
+      background: rgba(234, 179, 8, 0.12);
+      border-color: rgba(234, 179, 8, 0.35);
     }
 
-    .setup-orange {
-      color: var(--orange);
-      background: var(--orange-soft);
+    .badge-orange {
+      color: #fdba74;
+      background: rgba(249, 115, 22, 0.12);
+      border-color: rgba(249, 115, 22, 0.35);
     }
 
-    .setup-red {
-      color: var(--red);
-      background: var(--red-soft);
+    .badge-red {
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.35);
     }
 
-    .signal-yes {
-      color: var(--green);
-      font-weight: 900;
+    .badge-blue {
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.35);
     }
 
-    .signal-no {
-      color: var(--red);
-      font-weight: 900;
+    .free-float-green {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      padding: 5px 8px;
+      border-radius: 7px;
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.14);
+      border: 1px solid rgba(34, 197, 94, 0.45);
+      font-weight: 800;
     }
 
+    .missing {
+      max-width: 260px;
+      white-space: normal;
+      line-height: 1.3;
+      color: #fca5a5;
+    }
 
-    /* =========================
-       DRAWER
-    ========================= */
+    .trigger-cell {
+      max-width: 230px;
+      white-space: normal;
+      line-height: 1.3;
+    }
 
-    .drawer-overlay {
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 11px;
+      border-top: 1px solid var(--border);
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .pagination-info {
+      color: var(--muted);
+    }
+
+    .drawer-backdrop {
       position: fixed;
       inset: 0;
-      z-index: 100;
-      background: rgba(0,0,0,0.52);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.2s;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.58);
+      display: none;
     }
 
-    .drawer-overlay.open {
-      opacity: 1;
-      visibility: visible;
+    .drawer-backdrop.open {
+      display: block;
     }
 
     .drawer {
       position: fixed;
       top: 0;
-      right: -520px;
-      z-index: 101;
-      width: min(500px, 96vw);
+      right: -620px;
+      z-index: 60;
+      width: min(600px, 94vw);
       height: 100vh;
       overflow-y: auto;
-      background: #0a1626;
-      border-left: 1px solid #28405d;
-      box-shadow: -12px 0 35px rgba(0,0,0,0.35);
-      transition: right 0.23s ease;
+      background: #091426;
+      border-left: 1px solid var(--border);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35);
+      transition: right 0.2s ease;
     }
 
     .drawer.open {
@@ -857,4596 +448,2401 @@
     .drawer-header {
       position: sticky;
       top: 0;
-      z-index: 3;
+      z-index: 2;
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      gap: 15px;
-      padding: 13px;
-      background: #0a1626;
+      align-items: center;
+      gap: 10px;
+      padding: 16px;
+      background: #0d1a2c;
       border-bottom: 1px solid var(--border);
     }
 
     .drawer-title {
-      margin: 0;
-      font-size: 16px;
-    }
-
-    .drawer-symbol {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 9px;
+      font-size: 21px;
+      font-weight: 800;
     }
 
     .drawer-close {
-      width: 29px;
-      height: 29px;
       border: 1px solid var(--border);
-      border-radius: 5px;
-      background: var(--panel2);
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .drawer-content {
-      padding: 11px;
-    }
-
-    .drawer-section {
-      margin-bottom: 10px;
-      padding: 9px;
-      border: 1px solid var(--border-soft);
+      background: #17263d;
+      color: white;
+      width: 34px;
+      height: 34px;
       border-radius: 7px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .drawer-body {
+      padding: 16px;
+    }
+
+    .detail-section {
+      margin-bottom: 18px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
       background: var(--panel);
     }
 
-    .drawer-section h3 {
-      margin: 0 0 7px;
-      color: #9fb5d0;
-      font-size: 9px;
-      text-transform: uppercase;
+    .detail-section h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
     }
 
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 5px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
     }
 
     .detail-item {
-      padding: 7px;
-      border-radius: 5px;
-      background: #0a1728;
+      background: #091426;
+      border: 1px solid #22334a;
+      border-radius: 7px;
+      padding: 9px;
     }
 
     .detail-label {
       color: var(--muted);
-      font-size: 7px;
-      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 5px;
     }
 
     .detail-value {
-      margin-top: 3px;
-      font-size: 11px;
       font-weight: 800;
-      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
-    .trigger-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .trigger-chip {
-      padding: 4px 6px;
-      border-radius: 999px;
-      color: #8fc6ff;
-      background: var(--blue-soft);
-      font-size: 8px;
-      font-weight: 700;
-    }
-
-    .missing-text {
-      color: var(--yellow);
-      font-size: 9px;
-      line-height: 1.4;
-    }
-
-    .empty-state {
-      padding: 30px;
+    .loading-row td,
+    .empty-row td {
       text-align: center;
+      padding: 30px 10px;
       color: var(--muted);
     }
 
-
-    @media (max-width: 1150px) {
-
+    @media (max-width: 1000px) {
       .summary-grid {
-        grid-template-columns: repeat(3, minmax(130px, 1fr));
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
       }
 
+      .table-wrap {
+        max-height: calc(100vh - 350px);
+      }
     }
 
-
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
+      .page {
+        padding: 10px;
+      }
 
       .summary-grid {
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        grid-template-columns: 1fr;
       }
 
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .main-nav {
+      .search-input {
         width: 100%;
-        overflow-x: auto;
       }
 
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
     }
-      </style>
-
+  </style>
 </head>
 
-
 <body>
+  <div class="page">
 
-
-  <header class="site-header">
-
-    <div>
-
-      <h1 class="brand">
-        MY MARKET RESEARCH
-      </h1>
-
-      <div class="brand-subtitle">
-        NSE Main + SME • Research & Momentum Intelligence
+    <div class="topbar">
+      <div class="brand-wrap">
+        <h1 class="brand">MY MARKET RESEARCH</h1>
+        <div class="subtitle">
+          Big Move Scanner • Momentum • Consolidation • Breakout • Turnover • Fundamental Triggers
+        </div>
       </div>
 
+      <nav class="nav">
+        <a href="index.html">Market Research</a>
+        <a href="big-move-scanner.html" class="active">Big Move Scanner</a>
+        <span class="disabled">Industry Heat Map</span>
+      </nav>
     </div>
 
-
-    <nav class="main-nav">
-
-      <a
-        class="nav-link"
-        href="index.html"
-      >
-        Market Research
-      </a>
-
-      <a
-        class="nav-link active"
-        href="big-move-scanner.html"
-      >
-        Big Move Scanner
-      </a>
-
-      <a
-        class="nav-link disabled"
-        href="#"
-        onclick="return false;"
-      >
-        Industry Heat Map
-      </a>
-
-    </nav>
-
-  </header>
-
-
-
-  <main class="page">
-
-
-    <section class="scanner-title-row">
-
-      <div class="scanner-heading">
-
-        <h1>
-          BIG MOVE SCANNER
-        </h1>
-
-        <p>
-          Momentum + Chart Structure + Supply +
-          Fundamental Trigger + Industry Strength
-        </p>
-
-      </div>
-
-
-      <div class="scanner-active">
-        ● Scanner Active
-      </div>
-
-    </section>
-
-
-
     <section class="summary-grid">
-
       <div class="summary-card">
-
-        <div class="summary-label">
-          Scanner Universe
-        </div>
-
-        <div
-          id="summaryUniverse"
-          class="summary-value"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          Eligible NSE stocks
-        </div>
-
+        <div class="summary-label">Scanner Universe</div>
+        <div class="summary-value" id="summaryUniverse">—</div>
       </div>
 
-
       <div class="summary-card">
-
-        <div class="summary-label">
-          Score ≥ 80
-        </div>
-
-        <div
-          id="summaryStrong"
-          class="summary-value"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          High ranked setups
-        </div>
-
+        <div class="summary-label">Score ≥ 80</div>
+        <div class="summary-value" id="summaryScore80">—</div>
       </div>
 
-
       <div class="summary-card">
-
-        <div class="summary-label">
-          Near Breakout
-        </div>
-
-        <div
-          id="summaryBreakout"
-          class="summary-value"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          Breakout / near breakout
-        </div>
-
+        <div class="summary-label">Near Breakout</div>
+        <div class="summary-value" id="summaryNearBreakout">—</div>
       </div>
 
-
       <div class="summary-card">
-
-        <div class="summary-label">
-          RS ≥ 80
-        </div>
-
-        <div
-          id="summaryRS"
-          class="summary-value"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          Relative strength leaders
-        </div>
-
+        <div class="summary-label">RS ≥ 80</div>
+        <div class="summary-value" id="summaryRS80">—</div>
       </div>
 
-
       <div class="summary-card">
-
-        <div class="summary-label">
-          Free Float ≤ ₹5,000 Cr
-        </div>
-
-        <div
-          id="summaryFreeFloat"
-          class="summary-value"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          Lower tradable public float value
-        </div>
-
+        <div class="summary-label">Free Float ≤ ₹5,000 Cr</div>
+        <div class="summary-value" id="summaryFreeFloat5000">—</div>
       </div>
-
-
-      <div class="summary-card">
-
-        <div class="summary-label">
-          Market Date
-        </div>
-
-        <div
-          id="summaryDate"
-          class="summary-value"
-          style="font-size:14px;"
-        >
-          —
-        </div>
-
-        <div class="summary-note">
-          Latest scanner data
-        </div>
-
-      </div>
-
     </section>
 
-
-
-    <section class="search-toolbar">
-
-      <div class="search-left">
-
+    <section class="toolbar">
+      <div class="toolbar-left">
         <input
           id="searchInput"
-          type="text"
+          class="search-input"
+          type="search"
           placeholder="Search stock / symbol..."
-        >
+        />
 
-        <button
-          id="clearFiltersBtn"
-          class="btn"
-          type="button"
-        >
+        <button class="btn" id="clearFiltersBtn" type="button">
           Clear Filters
         </button>
 
-      </div>
-
-
-      <div>
-
-        <button
-          id="exportCsvBtn"
-          class="btn btn-primary"
-          type="button"
-        >
+        <button class="btn" id="exportCsvBtn" type="button">
           Export CSV
         </button>
-
       </div>
 
+      <div class="toolbar-right">
+        <span class="market-date" id="marketDateLabel">
+          Market Date: —
+        </span>
+
+        <label>
+          Rows:
+          <select id="pageSizeSelect" class="page-size-select">
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="200">200</option>
+          </select>
+        </label>
+      </div>
     </section>
 
-
-
-    <div class="legend">
-
-      <span class="legend-item">
-        <span class="legend-dot green"></span>
-        Strong
-      </span>
-
-      <span class="legend-item">
-        <span class="legend-dot yellow"></span>
-        Developing
-      </span>
-
-      <span class="legend-item">
-        <span class="legend-dot orange"></span>
-        Watch
-      </span>
-
-      <span class="legend-item">
-        <span class="legend-dot red"></span>
-        Weak / Missing
-      </span>
-
-    </div>
-
-
-
-    <section class="table-panel">
-
-
-      <div class="table-toolbar">
-
-        <div
-          id="resultCount"
-          class="result-count"
-        >
-          Loading scanner data...
-        </div>
-
+    <section class="table-shell">
+      <div class="top-scroll" id="topScroll">
+        <div class="top-scroll-inner" id="topScrollInner"></div>
       </div>
 
-
-
-      <div
-        id="topScroll"
-        class="top-scroll-wrap"
-      >
-
-        <div
-          id="topScrollInner"
-          class="top-scroll-inner"
-        ></div>
-
-      </div>
-
-
-
-      <div
-        id="tableWrap"
-        class="table-wrap"
-      >
-
+      <div class="table-wrap" id="tableWrap">
         <table id="scannerTable">
-
-
           <thead>
-
-
-            <tr>
-
-              <th>
-                Stock
-              </th>
-
-              <th>
-                Big Move<br>Score
-              </th>
-
-              <th>
-                Setup<br>Status
-              </th>
-
-              <th>
-                Price
-              </th>
-
-              <th>
-                1W %
-              </th>
-
-              <th>
-                1M %
-              </th>
-
-              <th>
-                3M %
-              </th>
-
-              <th>
-                6M %
-              </th>
-
-              <th>
-                1Y %
-              </th>
-
-              <th>
-                RS
-              </th>
-
-              <th>
-                Stock<br>Momentum
-              </th>
-
-              <th>
-                Industry<br>Rating
-              </th>
-
-              <th>
-                Free Float<br>₹ Cr
-              </th>
-
-              <th>
-                Prior<br>Move %
-              </th>
-
-              <th>
-                Retracement<br>%
-              </th>
-
-              <th>
-                Consolidation<br>Days
-              </th>
-
-              <th>
-                Volume<br>Contraction
-              </th>
-
-              <th>
-                Volatility<br>Contraction
-              </th>
-
-              <th>
-                Breakout<br>Status
-              </th>
-
-              <th>
-                Turnover<br>Expansion
-              </th>
-
-              <th>
-                Fundamental<br>Trigger
-              </th>
-
-              <th>
-                Key<br>Trigger
-              </th>
-
-              <th>
-                Missing<br>Conditions
-              </th>
-
-            </tr>
-
-
-
-            <tr
-              id="filterRow"
-              class="filter-row"
-            >
-            </tr>
-
-
+            <tr id="tableHeadRow"></tr>
           </thead>
 
-
-
-          <tbody id="scannerBody">
-
-            <tr>
-
-              <td
-                colspan="23"
-                class="empty-state"
-              >
-                Loading Big Move Scanner...
-              </td>
-
+          <tbody id="tableBody">
+            <tr class="loading-row">
+              <td colspan="22">Loading Big Move Scanner...</td>
             </tr>
-
           </tbody>
-
-
         </table>
-
       </div>
 
-
-    </section>
-
-
-  </main>
-
-
-
-  <div
-    id="drawerOverlay"
-    class="drawer-overlay"
-  ></div>
-
-
-
-  <aside
-    id="detailDrawer"
-    class="drawer"
-  >
-
-
-    <div class="drawer-header">
-
-      <div>
-
-        <h2
-          id="drawerTitle"
-          class="drawer-title"
-        >
-          Stock Detail
-        </h2>
-
-        <div
-          id="drawerSymbol"
-          class="drawer-symbol"
-        >
+      <div class="pagination">
+        <div class="pagination-info" id="paginationInfo">
           —
         </div>
 
+        <div class="pagination-controls">
+          <button class="btn" id="prevPageBtn" type="button">
+            Previous
+          </button>
+
+          <span id="pageNumberLabel">Page 1</span>
+
+          <button class="btn" id="nextPageBtn" type="button">
+            Next
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <aside class="drawer" id="detailDrawer">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawerTitle">Stock Details</div>
+        <div class="muted" id="drawerSubtitle"></div>
       </div>
 
-
       <button
-        id="drawerClose"
         class="drawer-close"
+        id="drawerCloseBtn"
         type="button"
         aria-label="Close"
       >
         ×
       </button>
-
     </div>
 
-
-
-    <div
-      id="drawerContent"
-      class="drawer-content"
-    >
-    </div>
-
-
+    <div class="drawer-body" id="drawerBody"></div>
   </aside>
 
-
-
   <script>
+    "use strict";
 
-
-    /* =========================================================
-       CONFIG
-    ========================================================= */
-
-
-    const DATA_URL =
-      "data/big_move_scanner.json";
-
-
-    const FREE_FLOAT_GREEN_LIMIT =
-      5000;
-
-
-
-    /* =========================================================
-       STATE
-    ========================================================= */
-
+    const DATA_URL = "data/big_move_scanner.json";
 
     let allRows = [];
-
     let filteredRows = [];
-
-    let metadata = {};
-
-    let activeSortField = null;
-
-    let activeSortDirection = null;
-
-
+    let currentPage = 1;
+    let pageSize = 100;
+    let marketDate = "";
 
     const filterState = {};
-
-
-
-    /* =========================================================
-       COLUMN CONFIGURATION
-    ========================================================= */
-
-
-    const columns = [
-
-
+        const columns = [
       {
-        field: "stock",
+        field: "symbol",
+        label: "Stock",
         type: "text",
-        filterable: true
+        filterable: false
       },
-
-
       {
         field: "bigMoveScore",
+        label: "Big Move Score",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "setupStatus",
+        label: "Setup Status",
         type: "text",
-        filterable: true
+        filterable: false
       },
-
-
       {
         field: "price",
+        label: "Price",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "return1W",
+        label: "1W %",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "return1M",
+        label: "1M %",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "return3M",
+        label: "3M %",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "return6M",
+        label: "6M %",
         type: "number",
         filterable: true
       },
-
-
-      {
-        field: "return1Y",
-        type: "number",
-        filterable: true
-      },
-
-
       {
         field: "rsRating",
+        label: "RS",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "stockMomentumRating",
+        label: "Stock Momentum",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "industryRating",
+        label: "Industry Rating",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "freeFloatCr",
+        label: "Free Float ₹ Cr",
         type: "number",
-        filterable: true,
-        computed: true
+        filterable: true
       },
-
-
       {
         field: "priorMovePct",
+        label: "Prior Move %",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "retracementPct",
+        label: "Retracement %",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "consolidationDays",
+        label: "Consolidation Days",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "volumeContraction",
-        type: "boolean",
-        filterable: true
+        label: "Volume Contraction",
+        type: "text",
+        filterable: false
       },
-
-
       {
         field: "volatilityContraction",
-        type: "boolean",
-        filterable: true
+        label: "Volatility Contraction",
+        type: "text",
+        filterable: false
       },
-
-
       {
         field: "breakoutStatus",
+        label: "Breakout Status",
         type: "text",
-        filterable: true
+        filterable: false
       },
-
-
       {
         field: "turnoverExpansion",
+        label: "Turnover Expansion",
         type: "number",
         filterable: true
       },
-
-
       {
         field: "fundamentalTrigger",
+        label: "Fundamental Trigger",
         type: "text",
-        filterable: true
+        filterable: false
       },
-
-
       {
         field: "keyTrigger",
+        label: "Key Trigger",
         type: "text",
-        filterable: true
+        filterable: false
       },
-
-
       {
         field: "missingConditions",
+        label: "Missing Conditions",
         type: "text",
-        filterable: true
+        filterable: false
       }
-
-
     ];
 
+    const $ = (id) => document.getElementById(id);
 
+    function firstDefined(...values) {
+      for (const value of values) {
+        if (value !== undefined && value !== null && value !== "") {
+          return value;
+        }
+      }
+      return null;
+    }
 
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
-
-
-    const scannerBody =
-      document.getElementById(
-        "scannerBody"
-      );
-
-
-    const filterRow =
-      document.getElementById(
-        "filterRow"
-      );
-
-
-    const resultCount =
-      document.getElementById(
-        "resultCount"
-      );
-
-
-    const searchInput =
-      document.getElementById(
-        "searchInput"
-      );
-
-
-    const clearFiltersBtn =
-      document.getElementById(
-        "clearFiltersBtn"
-      );
-
-
-    const exportCsvBtn =
-      document.getElementById(
-        "exportCsvBtn"
-      );
-
-
-    const tableWrap =
-      document.getElementById(
-        "tableWrap"
-      );
-
-
-    const topScroll =
-      document.getElementById(
-        "topScroll"
-      );
-
-
-    const topScrollInner =
-      document.getElementById(
-        "topScrollInner"
-      );
-
-
-    const detailDrawer =
-      document.getElementById(
-        "detailDrawer"
-      );
-
-
-    const drawerOverlay =
-      document.getElementById(
-        "drawerOverlay"
-      );
-
-
-    const drawerClose =
-      document.getElementById(
-        "drawerClose"
-      );
-
-
-    const drawerTitle =
-      document.getElementById(
-        "drawerTitle"
-      );
-
-
-    const drawerSymbol =
-      document.getElementById(
-        "drawerSymbol"
-      );
-
-
-    const drawerContent =
-      document.getElementById(
-        "drawerContent"
-      );
-
-
-
-    /* =========================================================
-       BASIC HELPERS
-    ========================================================= */
-
-
-    function num(value) {
-
-      if (
-        value === null ||
-        value === undefined ||
-        value === ""
-      ) {
+    function toNumber(value) {
+      if (value === null || value === undefined || value === "") {
         return null;
       }
 
+      if (typeof value === "number") {
+        return Number.isFinite(value) ? value : null;
+      }
 
-      const parsed =
-        Number(value);
+      const cleaned = String(value)
+        .replace(/,/g, "")
+        .replace(/₹/g, "")
+        .replace(/%/g, "")
+        .replace(/x$/i, "")
+        .trim();
 
+      if (!cleaned) {
+        return null;
+      }
 
-      return Number.isFinite(parsed)
-        ? parsed
-        : null;
-
+      const parsed = Number(cleaned);
+      return Number.isFinite(parsed) ? parsed : null;
     }
 
+    function roundNumber(value, decimals = 2) {
+      const n = toNumber(value);
 
+      if (n === null) {
+        return null;
+      }
 
-    function text(value) {
+      const factor = 10 ** decimals;
+      return Math.round((n + Number.EPSILON) * factor) / factor;
+    }
 
-      if (
-        value === null ||
-        value === undefined
-      ) {
+    function formatNumber(value, decimals = 2) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return "—";
+      }
+
+      return n.toLocaleString("en-IN", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
+
+    function formatInteger(value) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return "—";
+      }
+
+      return Math.round(n).toLocaleString("en-IN");
+    }
+
+    function formatPct(value) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return "—";
+      }
+
+      return `${n.toFixed(2)}%`;
+    }
+
+    function formatX(value) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return "—";
+      }
+
+      return `${n.toFixed(2)}x`;
+    }
+
+    function escapeHtml(value) {
+      if (value === null || value === undefined) {
         return "";
       }
 
-
-      return String(value);
-
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
 
-
-
-    function escapeHtml(value) {
-
-      return text(value)
-
-        .replaceAll(
-          "&",
-          "&amp;"
-        )
-
-        .replaceAll(
-          "<",
-          "&lt;"
-        )
-
-        .replaceAll(
-          ">",
-          "&gt;"
-        )
-
-        .replaceAll(
-          '"',
-          "&quot;"
-        )
-
-        .replaceAll(
-          "'",
-          "&#039;"
-        );
-
-    }
-
-
-
-    function formatNumber(
-      value,
-      decimals = 0
-    ) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return `<span class="pending">—</span>`;
-
+    function normalizeText(value) {
+      if (value === null || value === undefined) {
+        return "";
       }
 
+      if (Array.isArray(value)) {
+        return value
+          .filter(Boolean)
+          .map((item) => String(item).trim())
+          .filter(Boolean)
+          .join(", ");
+      }
 
-      return n.toLocaleString(
-        "en-IN",
-        {
-          minimumFractionDigits:
-            decimals,
-
-          maximumFractionDigits:
-            decimals
+      if (typeof value === "object") {
+        try {
+          return JSON.stringify(value);
+        } catch (error) {
+          return String(value);
         }
-      );
-
-    }
-
-
-
-    function formatPrice(value) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return `<span class="pending">—</span>`;
-
       }
 
-
-      return n.toLocaleString(
-        "en-IN",
-        {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        }
-      );
-
+      return String(value).trim();
     }
 
-
-
-    function formatPct(value) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      const cls =
-        n < 0
-          ? "negative"
-          : "positive";
-
-
-      return `
-        <span class="${cls}">
-          ${n.toFixed(2)}%
-        </span>
-      `;
-
-    }
-
-
-
-    function formatTimes(value) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      return `${n.toFixed(2)}x`;
-
-    }
-
-
-
-    function normalizeBoolean(value) {
-
-      if (
-        value === true ||
-        value === 1
-      ) {
+    function isTruthyFlag(value) {
+      if (value === true || value === 1) {
         return true;
       }
 
-
-      const v =
-        text(value)
-          .trim()
-          .toLowerCase();
-
+      const text = String(value ?? "")
+        .trim()
+        .toLowerCase();
 
       return [
-        "true",
         "yes",
-        "y",
+        "true",
         "1",
         "pass",
-        "passed"
-      ].includes(v);
-
+        "passed",
+        "strong",
+        "contracting",
+        "contraction"
+      ].includes(text);
     }
 
+    function getSymbol(row) {
+      return normalizeText(
+        firstDefined(
+          row.symbol,
+          row.stock,
+          row.ticker,
+          row.Symbol,
+          row.SYMBOL
+        )
+      );
+    }
 
+    function getCompanyName(row) {
+      return normalizeText(
+        firstDefined(
+          row.companyName,
+          row.company,
+          row.name,
+          row.company_name,
+          row.NAME_OF_COMPANY
+        )
+      );
+    }
 
-    function formatBoolean(value) {
+    function getPrice(row) {
+      return toNumber(
+        firstDefined(
+          row.price,
+          row.close,
+          row.lastPrice,
+          row.last_price,
+          row.ltp
+        )
+      );
+    }
 
+    function getFreeFloatShares(row) {
+      return toNumber(
+        firstDefined(
+          row.freeFloatShares,
+          row.free_float_shares,
+          row.tradablePublicShares,
+          row.tradable_public_shares
+        )
+      );
+    }
+
+    function getFreeFloatCr(row) {
+      const direct = toNumber(
+        firstDefined(
+          row.freeFloatCr,
+          row.freeFloatMcapCr,
+          row.freeFloatMarketCapCr,
+          row.free_float_cr,
+          row.free_float_mcap_cr
+        )
+      );
+
+      if (direct !== null) {
+        return direct;
+      }
+
+      const shares = getFreeFloatShares(row);
+      const price = getPrice(row);
+
+      if (shares === null || price === null) {
+        return null;
+      }
+
+      return (shares * price) / 10000000;
+    }
+
+    function getBigMoveScore(row) {
+      return toNumber(
+        firstDefined(
+          row.bigMoveScore,
+          row.big_move_score,
+          row.score,
+          row.bigMoveTechnicalScore
+        )
+      );
+    }
+
+    function getSetupStatus(row) {
+      return normalizeText(
+        firstDefined(
+          row.setupStatus,
+          row.setup_status,
+          row.status
+        )
+      );
+    }
+
+    function getReturn1W(row) {
+      return toNumber(
+        firstDefined(
+          row.return1W,
+          row.return_1w,
+          row.ret1W,
+          row.ret_1w
+        )
+      );
+    }
+
+    function getReturn1M(row) {
+      return toNumber(
+        firstDefined(
+          row.return1M,
+          row.return_1m,
+          row.ret1M,
+          row.ret_1m
+        )
+      );
+    }
+
+    function getReturn3M(row) {
+      return toNumber(
+        firstDefined(
+          row.return3M,
+          row.return_3m,
+          row.ret3M,
+          row.ret_3m
+        )
+      );
+    }
+
+    function getReturn6M(row) {
+      return toNumber(
+        firstDefined(
+          row.return6M,
+          row.return_6m,
+          row.ret6M,
+          row.ret_6m
+        )
+      );
+    }
+
+    function getRSRating(row) {
+      return toNumber(
+        firstDefined(
+          row.rsRating,
+          row.rs_rating,
+          row.relativeStrengthRating
+        )
+      );
+    }
+
+    function getStockMomentumRating(row) {
+      return toNumber(
+        firstDefined(
+          row.stockMomentumRating,
+          row.stockMomentum,
+          row.stock_momentum_rating,
+          row.stockMomentumScore
+        )
+      );
+    }
+
+    function getIndustryRating(row) {
+      return toNumber(
+        firstDefined(
+          row.industryRating,
+          row.industry_rating,
+          row.industryScore
+        )
+      );
+    }
+
+    function getPriorMovePct(row) {
+      return toNumber(
+        firstDefined(
+          row.priorMovePct,
+          row.prior_move_pct,
+          row.priorMove,
+          row.prior_move
+        )
+      );
+    }
+
+    function getRetracementPct(row) {
+      return toNumber(
+        firstDefined(
+          row.retracementPct,
+          row.retracement_pct,
+          row.retracement
+        )
+      );
+    }
+
+    function getConsolidationDays(row) {
+      return toNumber(
+        firstDefined(
+          row.consolidationDays,
+          row.consolidation_days,
+          row.baseDays,
+          row.base_days
+        )
+      );
+    }
+
+    function getVolumeContraction(row) {
+      return firstDefined(
+        row.volumeContraction,
+        row.volume_contraction,
+        row.volumeDryUp,
+        row.volume_dry_up
+      );
+    }
+
+    function getVolatilityContraction(row) {
+      return firstDefined(
+        row.volatilityContraction,
+        row.volatility_contraction,
+        row.volatilityDryUp,
+        row.volatility_dry_up
+      );
+    }
+
+    function getBreakoutStatus(row) {
+      return normalizeText(
+        firstDefined(
+          row.breakoutStatus,
+          row.breakout_status,
+          row.breakout,
+          row.breakoutSignal
+        )
+      );
+    }
+
+    function getTurnoverExpansion(row) {
+      return toNumber(
+        firstDefined(
+          row.turnoverExpansion,
+          row.turnover_expansion,
+          row.turnoverTimes,
+          row.turnover_times
+        )
+      );
+    }
+
+    function getFundamentalTrigger(row) {
+      return normalizeText(
+        firstDefined(
+          row.fundamentalTrigger,
+          row.fundamental_trigger,
+          row.fundamentalTriggers,
+          row.fundamental_triggers
+        )
+      );
+    }
+
+    function getKeyTrigger(row) {
+      return normalizeText(
+        firstDefined(
+          row.keyTrigger,
+          row.key_trigger,
+          row.trigger,
+          row.mainTrigger
+        )
+      );
+    }
+
+    function getMissingConditions(row) {
+      return normalizeText(
+        firstDefined(
+          row.missingConditions,
+          row.missing_conditions,
+          row.missing,
+          row.missingCriteria
+        )
+      );
+    }
+
+    function enrichRow(row, index) {
+      return {
+        ...row,
+
+        __index: index,
+
+        symbol: getSymbol(row),
+        companyName: getCompanyName(row),
+
+        bigMoveScore: getBigMoveScore(row),
+        setupStatus: getSetupStatus(row),
+
+        price: getPrice(row),
+
+        return1W: getReturn1W(row),
+        return1M: getReturn1M(row),
+        return3M: getReturn3M(row),
+        return6M: getReturn6M(row),
+
+        rsRating: getRSRating(row),
+        stockMomentumRating: getStockMomentumRating(row),
+        industryRating: getIndustryRating(row),
+
+        freeFloatCr: getFreeFloatCr(row),
+
+        priorMovePct: getPriorMovePct(row),
+        retracementPct: getRetracementPct(row),
+        consolidationDays: getConsolidationDays(row),
+
+        volumeContraction: getVolumeContraction(row),
+        volatilityContraction: getVolatilityContraction(row),
+
+        breakoutStatus: getBreakoutStatus(row),
+        turnoverExpansion: getTurnoverExpansion(row),
+
+        fundamentalTrigger: getFundamentalTrigger(row),
+        keyTrigger: getKeyTrigger(row),
+        missingConditions: getMissingConditions(row)
+      };
+    }
+
+    function getRowsFromPayload(payload) {
+      if (Array.isArray(payload)) {
+        return payload;
+      }
+
+      const possibleArrays = [
+        payload?.rows,
+        payload?.stocks,
+        payload?.data,
+        payload?.scanner,
+        payload?.results,
+        payload?.items
+      ];
+
+      for (const item of possibleArrays) {
+        if (Array.isArray(item)) {
+          return item;
+        }
+      }
+
+      return [];
+    }
+
+    function getMarketDateFromPayload(payload) {
+      if (!payload || Array.isArray(payload)) {
+        return "";
+      }
+
+      return normalizeText(
+        firstDefined(
+          payload.marketDate,
+          payload.market_date,
+          payload.date,
+          payload.asOfDate,
+          payload.as_of_date
+        )
+      );
+    }
+
+    function makeFilterState() {
+      for (const column of columns) {
+        if (!column.filterable) {
+          continue;
+        }
+
+        filterState[column.field] = {
+          active: false,
+          operator: ">=",
+          value: "",
+          sort: ""
+        };
+      }
+    }
+
+    function buildTableHeader() {
+      const headRow = $("tableHeadRow");
+
+      headRow.innerHTML = columns
+        .map((column) => {
+          if (!column.filterable) {
+            return `
+              <th data-field="${escapeHtml(column.field)}">
+                ${escapeHtml(column.label)}
+              </th>
+            `;
+          }
+
+          return `
+            <th data-field="${escapeHtml(column.field)}">
+              <div>${escapeHtml(column.label)}</div>
+
+              <div class="filter-box">
+                <label>
+                  <input
+                    type="checkbox"
+                    class="filter-active"
+                    data-field="${escapeHtml(column.field)}"
+                  />
+                  Active
+                </label>
+
+                <div class="filter-line">
+                  <select
+                    class="operator"
+                    data-field="${escapeHtml(column.field)}"
+                  >
+                    <option value=">=">≥</option>
+                    <option value="<=">≤</option>
+                  </select>
+
+                  <input
+                    type="number"
+                    step="any"
+                    class="filter-value"
+                    data-field="${escapeHtml(column.field)}"
+                    placeholder="Value"
+                  />
+                </div>
+
+                <select
+                  class="sort-select"
+                  data-field="${escapeHtml(column.field)}"
+                >
+                  <option value="">Default</option>
+                  <option value="desc">Descending</option>
+                  <option value="asc">Ascending</option>
+                </select>
+              </div>
+            </th>
+          `;
+        })
+        .join("");
+
+      bindHeaderFilterEvents();
+    }
+
+    function bindHeaderFilterEvents() {
+      document.querySelectorAll(".filter-active").forEach((element) => {
+        element.addEventListener("change", (event) => {
+          const field = event.target.dataset.field;
+
+          if (!filterState[field]) {
+            return;
+          }
+
+          filterState[field].active = event.target.checked;
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      });
+
+      document.querySelectorAll(".operator").forEach((element) => {
+        element.addEventListener("change", (event) => {
+          const field = event.target.dataset.field;
+
+          if (!filterState[field]) {
+            return;
+          }
+
+          filterState[field].operator = event.target.value;
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      });
+
+      document.querySelectorAll(".filter-value").forEach((element) => {
+        element.addEventListener("input", (event) => {
+          const field = event.target.dataset.field;
+
+          if (!filterState[field]) {
+            return;
+          }
+
+          filterState[field].value = event.target.value;
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      });
+
+      document.querySelectorAll(".sort-select").forEach((element) => {
+        element.addEventListener("change", (event) => {
+          const field = event.target.dataset.field;
+
+          if (!filterState[field]) {
+            return;
+          }
+
+          filterState[field].sort = event.target.value;
+
+          if (event.target.value) {
+            for (const key of Object.keys(filterState)) {
+              if (key !== field) {
+                filterState[key].sort = "";
+
+                const otherSort = document.querySelector(
+                  `.sort-select[data-field="${key}"]`
+                );
+
+                if (otherSort) {
+                  otherSort.value = "";
+                }
+              }
+            }
+          }
+
+          currentPage = 1;
+          applyFiltersAndRender();
+        });
+      });
+    }
+
+    function clearFilters() {
+      for (const field of Object.keys(filterState)) {
+        filterState[field] = {
+          active: false,
+          operator: ">=",
+          value: "",
+          sort: ""
+        };
+      }
+
+      $("searchInput").value = "";
+
+      document.querySelectorAll(".filter-active").forEach((element) => {
+        element.checked = false;
+      });
+
+      document.querySelectorAll(".operator").forEach((element) => {
+        element.value = ">=";
+      });
+
+      document.querySelectorAll(".filter-value").forEach((element) => {
+        element.value = "";
+      });
+
+      document.querySelectorAll(".sort-select").forEach((element) => {
+        element.value = "";
+      });
+
+      currentPage = 1;
+      applyFiltersAndRender();
+    }
+
+    function passesNumericFilter(row, field, state) {
+      if (!state.active) {
+        return true;
+      }
+
+      const threshold = toNumber(state.value);
+
+      if (threshold === null) {
+        return true;
+      }
+
+      const value = toNumber(row[field]);
+
+      if (value === null) {
+        return false;
+      }
+
+      if (state.operator === "<=") {
+        return value <= threshold;
+      }
+
+      return value >= threshold;
+    }
+
+    function getActiveSort() {
+      for (const [field, state] of Object.entries(filterState)) {
+        if (state.sort === "asc" || state.sort === "desc") {
+          return {
+            field,
+            direction: state.sort
+          };
+        }
+      }
+
+      return null;
+    }
+        function applyFiltersAndRender() {
+      const searchText = $("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+      filteredRows = allRows.filter((row) => {
+        if (searchText) {
+          const searchable = [
+            row.symbol,
+            row.companyName,
+            row.setupStatus,
+            row.breakoutStatus,
+            row.fundamentalTrigger,
+            row.keyTrigger,
+            row.missingConditions
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+          if (!searchable.includes(searchText)) {
+            return false;
+          }
+        }
+
+        for (const [field, state] of Object.entries(filterState)) {
+          if (!passesNumericFilter(row, field, state)) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      const activeSort = getActiveSort();
+
+      if (activeSort) {
+        const { field, direction } = activeSort;
+
+        filteredRows.sort((a, b) => {
+          const aValue = toNumber(a[field]);
+          const bValue = toNumber(b[field]);
+
+          if (aValue === null && bValue === null) {
+            return a.__index - b.__index;
+          }
+
+          if (aValue === null) {
+            return 1;
+          }
+
+          if (bValue === null) {
+            return -1;
+          }
+
+          if (direction === "asc") {
+            return aValue - bValue;
+          }
+
+          return bValue - aValue;
+        });
+      } else {
+        filteredRows.sort((a, b) => {
+          const scoreA = toNumber(a.bigMoveScore);
+          const scoreB = toNumber(b.bigMoveScore);
+
+          if (scoreA === null && scoreB === null) {
+            return a.__index - b.__index;
+          }
+
+          if (scoreA === null) {
+            return 1;
+          }
+
+          if (scoreB === null) {
+            return -1;
+          }
+
+          return scoreB - scoreA;
+        });
+      }
+
+      const totalPages = Math.max(
+        1,
+        Math.ceil(filteredRows.length / pageSize)
+      );
+
+      if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      }
+
+      renderTable();
+      renderPagination();
+    }
+
+    function pctClass(value) {
+      const n = toNumber(value);
+
+      if (n === null || n === 0) {
+        return "";
+      }
+
+      return n > 0 ? "positive" : "negative";
+    }
+
+    function scoreBadge(value) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return `<span class="muted">—</span>`;
+      }
+
+      let badgeClass = "badge-red";
+
+      if (n >= 80) {
+        badgeClass = "badge-green";
+      } else if (n >= 65) {
+        badgeClass = "badge-blue";
+      } else if (n >= 50) {
+        badgeClass = "badge-yellow";
+      } else if (n >= 35) {
+        badgeClass = "badge-orange";
+      }
+
+      return `
+        <span class="badge ${badgeClass}">
+          ${escapeHtml(formatInteger(n))}
+        </span>
+      `;
+    }
+
+    function setupStatusBadge(value) {
+      const text = normalizeText(value);
+
+      if (!text) {
+        return `<span class="muted">—</span>`;
+      }
+
+      const lower = text.toLowerCase();
+
+      let badgeClass = "badge-blue";
+
+      if (
+        lower.includes("strong") ||
+        lower.includes("ready") ||
+        lower.includes("pass")
+      ) {
+        badgeClass = "badge-green";
+      } else if (
+        lower.includes("near") ||
+        lower.includes("watch")
+      ) {
+        badgeClass = "badge-yellow";
+      } else if (
+        lower.includes("weak") ||
+        lower.includes("fail")
+      ) {
+        badgeClass = "badge-red";
+      }
+
+      return `
+        <span class="badge ${badgeClass}">
+          ${escapeHtml(text)}
+        </span>
+      `;
+    }
+
+    function yesNoBadge(value) {
       if (
         value === null ||
         value === undefined ||
         value === ""
       ) {
-
-        return `<span class="pending">—</span>`;
-
+        return `<span class="muted">—</span>`;
       }
 
+      const text = normalizeText(value);
 
-      const yes =
-        normalizeBoolean(value);
-
-
-      return yes
-
-        ? `<span class="signal-yes">YES</span>`
-
-        : `<span class="signal-no">NO</span>`;
-
-    }
-
-
-
-    function getStockName(row) {
-
-      return (
-        row.name ||
-        row.companyName ||
-        row.symbol ||
-        "—"
-      );
-
-    }
-
-
-
-    function getSymbol(row) {
-
-      return (
-        row.symbol ||
-        row.stock ||
-        ""
-      );
-
-    }
-
-
-
-    function getSearchText(row) {
-
-      return [
-        getStockName(row),
-        getSymbol(row),
-        row.industry,
-        row.sector,
-        row.setupStatus,
-        row.keyTrigger,
-        row.fundamentalTrigger
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-
-    }
-
-
-
-    /* =========================================================
-       FREE FLOAT
-    ========================================================= */
-
-
-    function calculateFreeFloatCr(row) {
-
-      const shares =
-        num(row.freeFloatShares);
-
-
-      const price =
-        num(row.price);
-
-
-      if (
-        shares === null ||
-        price === null
-      ) {
-
-        return null;
-
-      }
-
-
-      return (
-        shares *
-        price
-      ) / 10000000;
-
-    }
-
-
-
-    function attachComputedFields(row) {
-
-      return {
-
-        ...row,
-
-        freeFloatCr:
-          calculateFreeFloatCr(row)
-
-      };
-
-    }
-
-
-
-    function formatFreeFloatCr(row) {
-
-      const value =
-        num(row.freeFloatCr);
-
-
-      if (value === null) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      const formatted =
-        value.toLocaleString(
-          "en-IN",
-          {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }
-        );
-
-
-      if (
-        value <=
-        FREE_FLOAT_GREEN_LIMIT
-      ) {
-
+      if (isTruthyFlag(value)) {
         return `
-          <span class="free-float-low">
-            ${formatted}
+          <span class="badge badge-green">
+            ${escapeHtml(text || "YES")}
           </span>
         `;
-
       }
 
+      const lower = text.toLowerCase();
+
+      if (
+        lower === "no" ||
+        lower === "false" ||
+        lower === "0" ||
+        lower.includes("not")
+      ) {
+        return `
+          <span class="badge badge-red">
+            ${escapeHtml(text || "NO")}
+          </span>
+        `;
+      }
 
       return `
-        <span class="free-float-normal">
-          ${formatted}
+        <span class="badge badge-blue">
+          ${escapeHtml(text)}
         </span>
       `;
-
     }
 
+    function breakoutBadge(value) {
+      const text = normalizeText(value);
 
-
-    /* =========================================================
-       SCORE / STATUS
-    ========================================================= */
-
-
-    function scoreClass(value) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return "score-weak";
-
+      if (!text) {
+        return `<span class="muted">—</span>`;
       }
 
+      const lower = text.toLowerCase();
 
-      if (n >= 80) {
-
-        return "score-elite";
-
-      }
-
-
-      if (n >= 65) {
-
-        return "score-strong";
-
-      }
-
-
-      if (n >= 50) {
-
-        return "score-developing";
-
-      }
-
-
-      return "score-weak";
-
-    }
-
-
-
-    function formatScore(value) {
-
-      const n =
-        num(value);
-
-
-      if (n === null) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      return `
-        <span
-          class="
-            score-badge
-            ${scoreClass(n)}
-          "
-        >
-          ${Math.round(n)}
-        </span>
-      `;
-
-    }
-
-
-
-    function setupClass(value) {
-
-      const v =
-        text(value)
-          .toLowerCase();
-
-
-      if (
-        v.includes("strong") ||
-        v.includes("ready") ||
-        v.includes("pass")
-      ) {
-
-        return "setup-green";
-
-      }
-
-
-      if (
-        v.includes("develop") ||
-        v.includes("near")
-      ) {
-
-        return "setup-yellow";
-
-      }
-
-
-      if (
-        v.includes("watch")
-      ) {
-
-        return "setup-orange";
-
-      }
-
-
-      return "setup-red";
-
-    }
-
-
-
-    function formatSetup(value) {
-
-      const v =
-        text(value).trim();
-
-
-      if (!v) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      return `
-        <span
-          class="
-            setup-badge
-            ${setupClass(v)}
-          "
-        >
-          ${escapeHtml(v)}
-        </span>
-      `;
-
-    }
-
-
-
-    /* =========================================================
-       FIELD VALUE
-    ========================================================= */
-
-
-    function getFieldValue(
-      row,
-      field
-    ) {
-
-      if (
-        field === "stock"
-      ) {
-
-        return getStockName(row);
-
-      }
-
-
-      if (
-        field === "freeFloatCr"
-      ) {
-
-        return row.freeFloatCr;
-
-      }
-
-
-      return row[field];
-
-    }
-
-
-
-    /* =========================================================
-       FILTER UI
-    ========================================================= */
-
-
-    function createFilterState() {
-
-      columns.forEach(
-        (column) => {
-
-          filterState[column.field] = {
-
-            active: false,
-
-            operator: ">=",
-
-            value: "",
-
-            direction: "desc"
-
-          };
-
-        }
-      );
-
-    }
-
-
-
-    function buildFilterRow() {
-
-      filterRow.innerHTML = "";
-
-
-      columns.forEach(
-        (column) => {
-
-
-          const th =
-            document.createElement(
-              "th"
-            );
-
-
-          if (
-            !column.filterable
-          ) {
-
-            th.innerHTML =
-              `<div class="no-filter">—</div>`;
-
-            filterRow.appendChild(th);
-
-            return;
-
-          }
-
-
-          if (
-            column.type ===
-            "number"
-          ) {
-
-            th.innerHTML = `
-
-              <div class="col-filter">
-
-                <label class="filter-active">
-
-                  <input
-                    type="checkbox"
-                    data-action="active"
-                    data-field="${column.field}"
-                  >
-
-                  Active
-
-                </label>
-
-
-                <div class="filter-line">
-
-                  <select
-                    class="mini-control mini-operator"
-                    data-action="operator"
-                    data-field="${column.field}"
-                  >
-
-                    <option value=">=">
-                      ≥
-                    </option>
-
-                    <option value="<=">
-                      ≤
-                    </option>
-
-                  </select>
-
-
-                  <input
-                    class="mini-control"
-                    type="number"
-                    step="any"
-                    placeholder="Value"
-                    data-action="value"
-                    data-field="${column.field}"
-                  >
-
-                </div>
-
-
-                <select
-                  class="mini-control"
-                  data-action="direction"
-                  data-field="${column.field}"
-                >
-
-                  <option value="desc">
-                    Desc
-                  </option>
-
-                  <option value="asc">
-                    Asc
-                  </option>
-
-                </select>
-
-              </div>
-
-            `;
-
-          }
-
-
-          else if (
-            column.type ===
-            "boolean"
-          ) {
-
-            th.innerHTML = `
-
-              <div class="col-filter">
-
-                <label class="filter-active">
-
-                  <input
-                    type="checkbox"
-                    data-action="active"
-                    data-field="${column.field}"
-                  >
-
-                  Active
-
-                </label>
-
-
-                <select
-                  class="mini-control"
-                  data-action="value"
-                  data-field="${column.field}"
-                >
-
-                  <option value="">
-                    Any
-                  </option>
-
-                  <option value="true">
-                    YES
-                  </option>
-
-                  <option value="false">
-                    NO
-                  </option>
-
-                </select>
-
-
-                <select
-                  class="mini-control"
-                  data-action="direction"
-                  data-field="${column.field}"
-                >
-
-                  <option value="desc">
-                    YES First
-                  </option>
-
-                  <option value="asc">
-                    NO First
-                  </option>
-
-                </select>
-
-              </div>
-
-            `;
-
-          }
-
-
-          else {
-
-            th.innerHTML = `
-
-              <div class="col-filter">
-
-                <label class="filter-active">
-
-                  <input
-                    type="checkbox"
-                    data-action="active"
-                    data-field="${column.field}"
-                  >
-
-                  Active
-
-                </label>
-
-
-                <input
-                  class="text-filter"
-                  type="text"
-                  placeholder="Contains"
-                  data-action="value"
-                  data-field="${column.field}"
-                >
-
-
-                <select
-                  class="mini-control"
-                  data-action="direction"
-                  data-field="${column.field}"
-                >
-
-                  <option value="asc">
-                    A → Z
-                  </option>
-
-                  <option value="desc">
-                    Z → A
-                  </option>
-
-                </select>
-
-              </div>
-
-            `;
-
-          }
-
-
-          filterRow.appendChild(th);
-
-        }
-      );
-
-
-      bindFilterEvents();
-
-    }
-
-
-
-    function bindFilterEvents() {
-
-      filterRow
-        .querySelectorAll(
-          "[data-action]"
-        )
-        .forEach(
-          (element) => {
-
-            element.addEventListener(
-              "change",
-              handleFilterControl
-            );
-
-
-            if (
-              element.tagName ===
-              "INPUT"
-            ) {
-
-              element.addEventListener(
-                "input",
-                handleFilterControl
-              );
-
-            }
-
-          }
-        );
-
-    }
-
-
-
-    function handleFilterControl(event) {
-
-      const element =
-        event.target;
-
-
-      const field =
-        element.dataset.field;
-
-
-      const action =
-        element.dataset.action;
-
-
-      if (
-        !field ||
-        !action
-      ) {
-
-        return;
-
-      }
-
-
-      if (
-        action === "active"
-      ) {
-
-        filterState[field].active =
-          element.checked;
-
-      }
-
-
-      else {
-
-        filterState[field][action] =
-          element.value;
-
-      }
-
-
-      if (
-        action === "direction"
-      ) {
-
-        activeSortField =
-          field;
-
-        activeSortDirection =
-          element.value;
-
-      }
-
-
-      else if (
-        filterState[field].active
-      ) {
-
-        activeSortField =
-          field;
-
-        activeSortDirection =
-          filterState[field]
-            .direction;
-
-      }
-
-
-      applyFilters();
-
-    }
-
-
-
-    /* =========================================================
-       FILTER LOGIC
-    ========================================================= */
-
-
-    function rowPassesColumnFilter(
-      row,
-      column
-    ) {
-
-      const state =
-        filterState[column.field];
-
-
-      if (
-        !state ||
-        !state.active
-      ) {
-
-        return true;
-
-      }
-
-
-      const raw =
-        getFieldValue(
-          row,
-          column.field
-        );
-
-
-      if (
-        column.type ===
-        "number"
-      ) {
-
-        const rowValue =
-          num(raw);
-
-
-        const threshold =
-          num(state.value);
-
-
-        if (
-          threshold === null
-        ) {
-
-          return true;
-
-        }
-
-
-        if (
-          rowValue === null
-        ) {
-
-          return false;
-
-        }
-
-
-        if (
-          state.operator ===
-          "<="
-        ) {
-
-          return (
-            rowValue <=
-            threshold
-          );
-
-        }
-
-
-        return (
-          rowValue >=
-          threshold
-        );
-
-      }
-
-
-      if (
-        column.type ===
-        "boolean"
-      ) {
-
-        if (
-          state.value === ""
-        ) {
-
-          return true;
-
-        }
-
-
-        const target =
-          state.value ===
-          "true";
-
-
-        return (
-          normalizeBoolean(raw) ===
-          target
-        );
-
-      }
-
-
-      const needle =
-        text(state.value)
-          .trim()
-          .toLowerCase();
-
-
-      if (!needle) {
-
-        return true;
-
-      }
-
-
-      return text(raw)
-        .toLowerCase()
-        .includes(needle);
-
-    }
-
-
-
-    function applyFilters() {
-
-      const globalSearch =
-        searchInput.value
-          .trim()
-          .toLowerCase();
-
-
-      filteredRows =
-        allRows.filter(
-          (row) => {
-
-
-            if (
-              globalSearch &&
-              !getSearchText(row)
-                .includes(globalSearch)
-            ) {
-
-              return false;
-
-            }
-
-
-            for (
-              const column of columns
-            ) {
-
-              if (
-                !rowPassesColumnFilter(
-                  row,
-                  column
-                )
-              ) {
-
-                return false;
-
-              }
-
-            }
-
-
-            return true;
-
-          }
-        );
-
-
-      sortFilteredRows();
-
-      renderRows();
-
-      updateResultCount();
-
-    }
-    
-    /* =========================================================
-       SORTING
-    ========================================================= */
-
-
-    function sortFilteredRows() {
-
-      if (
-        !activeSortField ||
-        !activeSortDirection
-      ) {
-
-        filteredRows.sort(
-          (a, b) => {
-
-            const scoreA =
-              num(a.bigMoveScore);
-
-            const scoreB =
-              num(b.bigMoveScore);
-
-
-            if (
-              scoreA === null &&
-              scoreB === null
-            ) {
-
-              return 0;
-
-            }
-
-
-            if (
-              scoreA === null
-            ) {
-
-              return 1;
-
-            }
-
-
-            if (
-              scoreB === null
-            ) {
-
-              return -1;
-
-            }
-
-
-            return (
-              scoreB -
-              scoreA
-            );
-
-          }
-        );
-
-
-        return;
-
-      }
-
-
-      const column =
-        columns.find(
-          (item) =>
-            item.field ===
-            activeSortField
-        );
-
-
-      if (!column) {
-
-        return;
-
-      }
-
-
-      const multiplier =
-        activeSortDirection ===
-        "asc"
-          ? 1
-          : -1;
-
-
-      filteredRows.sort(
-        (a, b) => {
-
-
-          const valueA =
-            getFieldValue(
-              a,
-              activeSortField
-            );
-
-
-          const valueB =
-            getFieldValue(
-              b,
-              activeSortField
-            );
-
-
-          if (
-            column.type ===
-            "number"
-          ) {
-
-            const numberA =
-              num(valueA);
-
-
-            const numberB =
-              num(valueB);
-
-
-            if (
-              numberA === null &&
-              numberB === null
-            ) {
-
-              return 0;
-
-            }
-
-
-            if (
-              numberA === null
-            ) {
-
-              return 1;
-
-            }
-
-
-            if (
-              numberB === null
-            ) {
-
-              return -1;
-
-            }
-
-
-            return (
-              numberA -
-              numberB
-            ) * multiplier;
-
-          }
-
-
-          if (
-            column.type ===
-            "boolean"
-          ) {
-
-            const boolA =
-              normalizeBoolean(
-                valueA
-              )
-                ? 1
-                : 0;
-
-
-            const boolB =
-              normalizeBoolean(
-                valueB
-              )
-                ? 1
-                : 0;
-
-
-            return (
-              boolA -
-              boolB
-            ) * multiplier;
-
-          }
-
-
-          return text(valueA)
-            .localeCompare(
-              text(valueB),
-              undefined,
-              {
-                numeric: true,
-                sensitivity: "base"
-              }
-            ) * multiplier;
-
-        }
-      );
-
-    }
-
-
-
-    /* =========================================================
-       ROW DISPLAY HELPERS
-    ========================================================= */
-
-
-    function formatTextCell(
-      value,
-      maxLength = 24
-    ) {
-
-      const valueText =
-        text(value).trim();
-
-
-      if (!valueText) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      const display =
-        valueText.length >
-        maxLength
-
-          ? (
-              valueText.slice(
-                0,
-                maxLength
-              ) + "…"
-            )
-
-          : valueText;
-
-
-      return `
-        <span
-          title="${escapeHtml(valueText)}"
-        >
-          ${escapeHtml(display)}
-        </span>
-      `;
-
-    }
-
-
-
-    function formatBreakoutStatus(value) {
-
-      const v =
-        text(value).trim();
-
-
-      if (!v) {
-
-        return `<span class="pending">—</span>`;
-
-      }
-
-
-      const lower =
-        v.toLowerCase();
-
+      let badgeClass = "badge-blue";
 
       if (
         lower.includes("breakout") &&
+        !lower.includes("near") &&
         !lower.includes("no")
       ) {
-
-        return `
-          <span class="signal-yes">
-            ${escapeHtml(v)}
-          </span>
-        `;
-
-      }
-
-
-      if (
-        lower.includes("near")
+        badgeClass = "badge-green";
+      } else if (
+        lower.includes("near") ||
+        lower.includes("approach")
       ) {
-
-        return `
-          <span style="color:var(--yellow);font-weight:900;">
-            ${escapeHtml(v)}
-          </span>
-        `;
-
-      }
-
-
-      return escapeHtml(v);
-
-    }
-
-
-
-    function getFundamentalTrigger(row) {
-
-      const direct =
-        text(
-          row.fundamentalTrigger
-        ).trim();
-
-
-      if (direct) {
-
-        return direct;
-
-      }
-
-
-      const triggers = [];
-
-
-      const checks = [
-
-        [
-          "earningsAcceleration",
-          "Earnings Acceleration"
-        ],
-
-        [
-          "marginExpansion",
-          "Margin Expansion"
-        ],
-
-        [
-          "orderWin",
-          "Order Win"
-        ],
-
-        [
-          "orderBook",
-          "Order Book"
-        ],
-
-        [
-          "capex",
-          "CAPEX"
-        ],
-
-        [
-          "capacityExpansion",
-          "Capacity Expansion"
-        ],
-
-        [
-          "newProduct",
-          "New Product"
-        ],
-
-        [
-          "corporateAction",
-          "Corporate Action"
-        ],
-
-        [
-          "industryTailwind",
-          "Industry Tailwind"
-        ]
-
-      ];
-
-
-      checks.forEach(
-        ([field, label]) => {
-
-          if (
-            normalizeBoolean(
-              row[field]
-            )
-          ) {
-
-            triggers.push(
-              label
-            );
-
-          }
-
-        }
-      );
-
-
-      return triggers.join(
-        ", "
-      );
-
-    }
-
-
-
-    function getKeyTrigger(row) {
-
-      const direct =
-        text(
-          row.keyTrigger
-        ).trim();
-
-
-      if (direct) {
-
-        return direct;
-
-      }
-
-
-      const fundamental =
-        getFundamentalTrigger(
-          row
-        );
-
-
-      if (fundamental) {
-
-        return fundamental;
-
-      }
-
-
-      return "";
-
-    }
-
-
-
-    function getMissingConditions(row) {
-
-      const raw =
-        row.missingConditions;
-
-
-      if (
-        Array.isArray(raw)
+        badgeClass = "badge-yellow";
+      } else if (
+        lower.includes("below") ||
+        lower.includes("far") ||
+        lower.includes("no")
       ) {
-
-        return raw.join(
-          ", "
-        );
-
+        badgeClass = "badge-red";
       }
-
-
-      return text(raw);
-
-    }
-
-
-
-    /* =========================================================
-       RENDER TABLE
-    ========================================================= */
-
-
-    function renderRows() {
-
-      if (
-        filteredRows.length ===
-        0
-      ) {
-
-        scannerBody.innerHTML = `
-
-          <tr>
-
-            <td
-              colspan="23"
-              class="empty-state"
-            >
-              No stocks match the active filters.
-            </td>
-
-          </tr>
-
-        `;
-
-
-        syncTopScrollbar();
-
-        return;
-
-      }
-
-
-      scannerBody.innerHTML =
-        filteredRows
-          .map(
-            (row, index) => {
-
-
-              const stockName =
-                getStockName(row);
-
-
-              const symbol =
-                getSymbol(row);
-
-
-              const fundamentalTrigger =
-                getFundamentalTrigger(
-                  row
-                );
-
-
-              const keyTrigger =
-                getKeyTrigger(
-                  row
-                );
-
-
-              const missing =
-                getMissingConditions(
-                  row
-                );
-
-
-              return `
-
-                <tr
-                  data-row-index="${index}"
-                >
-
-
-                  <td>
-
-                    <span
-                      class="stock-name"
-                      title="${escapeHtml(stockName)}"
-                    >
-                      ${escapeHtml(stockName)}
-                    </span>
-
-                    <span class="stock-symbol">
-                      ${escapeHtml(symbol)}
-                    </span>
-
-                  </td>
-
-
-                  <td>
-                    ${formatScore(
-                      row.bigMoveScore
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatSetup(
-                      row.setupStatus
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPrice(
-                      row.price
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.return1W
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.return1M
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.return3M
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.return6M
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.return1Y
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatScore(
-                      row.rsRating
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatScore(
-                      row.stockMomentumRating
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatScore(
-                      row.industryRating
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatFreeFloatCr(
-                      row
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.priorMovePct
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatPct(
-                      row.retracementPct
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatNumber(
-                      row.consolidationDays,
-                      0
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatBoolean(
-                      row.volumeContraction
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatBoolean(
-                      row.volatilityContraction
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatBreakoutStatus(
-                      row.breakoutStatus
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatTimes(
-                      row.turnoverExpansion
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatTextCell(
-                      fundamentalTrigger,
-                      22
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatTextCell(
-                      keyTrigger,
-                      22
-                    )}
-                  </td>
-
-
-                  <td>
-                    ${formatTextCell(
-                      missing,
-                      32
-                    )}
-                  </td>
-
-
-                </tr>
-
-              `;
-
-            }
-          )
-          .join("");
-
-
-      bindRowEvents();
-
-      syncTopScrollbar();
-
-    }
-
-
-
-    function bindRowEvents() {
-
-      scannerBody
-        .querySelectorAll(
-          "tr[data-row-index]"
-        )
-        .forEach(
-          (tr) => {
-
-            tr.addEventListener(
-              "click",
-              () => {
-
-                const index =
-                  Number(
-                    tr.dataset.rowIndex
-                  );
-
-
-                const row =
-                  filteredRows[index];
-
-
-                if (row) {
-
-                  openDrawer(row);
-
-                }
-
-              }
-            );
-
-          }
-        );
-
-    }
-
-
-
-    function updateResultCount() {
-
-      resultCount.textContent =
-        `${filteredRows.length.toLocaleString(
-          "en-IN"
-        )} of ${allRows.length.toLocaleString(
-          "en-IN"
-        )} stocks`;
-
-    }
-
-
-
-    /* =========================================================
-       SUMMARY
-    ========================================================= */
-
-
-    function setSummary(
-      id,
-      value
-    ) {
-
-      const element =
-        document.getElementById(id);
-
-
-      if (element) {
-
-        element.textContent =
-          value;
-
-      }
-
-    }
-
-
-
-    function updateSummary() {
-
-      const universe =
-        allRows.length;
-
-
-      const strong =
-        allRows.filter(
-          (row) => {
-
-            const score =
-              num(row.bigMoveScore);
-
-
-            return (
-              score !== null &&
-              score >= 80
-            );
-
-          }
-        ).length;
-
-
-      const breakout =
-        allRows.filter(
-          (row) => {
-
-            const status =
-              text(
-                row.breakoutStatus
-              )
-                .toLowerCase();
-
-
-            return (
-              status.includes(
-                "breakout"
-              ) ||
-              status.includes(
-                "near"
-              )
-            );
-
-          }
-        ).length;
-
-
-      const rs =
-        allRows.filter(
-          (row) => {
-
-            const rating =
-              num(row.rsRating);
-
-
-            return (
-              rating !== null &&
-              rating >= 80
-            );
-
-          }
-        ).length;
-
-
-      const freeFloat =
-        allRows.filter(
-          (row) => {
-
-            const value =
-              num(
-                row.freeFloatCr
-              );
-
-
-            return (
-              value !== null &&
-              value <=
-              FREE_FLOAT_GREEN_LIMIT
-            );
-
-          }
-        ).length;
-
-
-      setSummary(
-        "summaryUniverse",
-        universe.toLocaleString(
-          "en-IN"
-        )
-      );
-
-
-      setSummary(
-        "summaryStrong",
-        strong.toLocaleString(
-          "en-IN"
-        )
-      );
-
-
-      setSummary(
-        "summaryBreakout",
-        breakout.toLocaleString(
-          "en-IN"
-        )
-      );
-
-
-      setSummary(
-        "summaryRS",
-        rs.toLocaleString(
-          "en-IN"
-        )
-      );
-
-
-      setSummary(
-        "summaryFreeFloat",
-        freeFloat.toLocaleString(
-          "en-IN"
-        )
-      );
-
-
-      const marketDate =
-        metadata.marketDate ||
-        metadata.date ||
-        "—";
-
-
-      setSummary(
-        "summaryDate",
-        marketDate
-      );
-
-    }
-
-
-
-    /* =========================================================
-       DRAWER HELPERS
-    ========================================================= */
-
-
-    function detailItem(
-      label,
-      value
-    ) {
 
       return `
+        <span class="badge ${badgeClass}">
+          ${escapeHtml(text)}
+        </span>
+      `;
+    }
 
+    function freeFloatDisplay(value) {
+      const n = toNumber(value);
+
+      if (n === null) {
+        return `<span class="muted">—</span>`;
+      }
+
+      const formatted = formatNumber(n, 2);
+
+      if (n <= 5000) {
+        return `
+          <span class="free-float-green">
+            ${escapeHtml(formatted)}
+          </span>
+        `;
+      }
+
+      return escapeHtml(formatted);
+    }
+
+    function textOrDash(value) {
+      const text = normalizeText(value);
+
+      if (!text) {
+        return `<span class="muted">—</span>`;
+      }
+
+      return escapeHtml(text);
+    }
+
+    function renderTable() {
+      const body = $("tableBody");
+
+      if (!filteredRows.length) {
+        body.innerHTML = `
+          <tr class="empty-row">
+            <td colspan="22">
+              No stocks match the current filters.
+            </td>
+          </tr>
+        `;
+
+        syncTopScrollbar();
+        return;
+      }
+
+      const start = (currentPage - 1) * pageSize;
+      const end = Math.min(
+        start + pageSize,
+        filteredRows.length
+      );
+
+      const pageRows = filteredRows.slice(start, end);
+
+      body.innerHTML = pageRows
+        .map((row) => {
+          const symbol = row.symbol || "—";
+
+          return `
+            <tr>
+              <td class="stock-cell">
+                ${
+                  row.symbol
+                    ? `
+                      <span
+                        class="stock-link"
+                        data-row-index="${row.__index}"
+                      >
+                        ${escapeHtml(symbol)}
+                      </span>
+                    `
+                    : `<span class="muted">—</span>`
+                }
+              </td>
+
+              <td class="number">
+                ${scoreBadge(row.bigMoveScore)}
+              </td>
+
+              <td>
+                ${setupStatusBadge(row.setupStatus)}
+              </td>
+
+              <td class="number">
+                ${escapeHtml(formatNumber(row.price, 2))}
+              </td>
+
+              <td class="number ${pctClass(row.return1W)}">
+                ${escapeHtml(formatPct(row.return1W))}
+              </td>
+
+              <td class="number ${pctClass(row.return1M)}">
+                ${escapeHtml(formatPct(row.return1M))}
+              </td>
+
+              <td class="number ${pctClass(row.return3M)}">
+                ${escapeHtml(formatPct(row.return3M))}
+              </td>
+
+              <td class="number ${pctClass(row.return6M)}">
+                ${escapeHtml(formatPct(row.return6M))}
+              </td>
+
+              <td class="number">
+                ${scoreBadge(row.rsRating)}
+              </td>
+
+              <td class="number">
+                ${scoreBadge(row.stockMomentumRating)}
+              </td>
+
+              <td class="number">
+                ${scoreBadge(row.industryRating)}
+              </td>
+
+              <td class="number">
+                ${freeFloatDisplay(row.freeFloatCr)}
+              </td>
+
+              <td class="number ${pctClass(row.priorMovePct)}">
+                ${escapeHtml(formatPct(row.priorMovePct))}
+              </td>
+
+              <td class="number">
+                ${escapeHtml(formatPct(row.retracementPct))}
+              </td>
+
+              <td class="number">
+                ${escapeHtml(formatInteger(row.consolidationDays))}
+              </td>
+
+              <td>
+                ${yesNoBadge(row.volumeContraction)}
+              </td>
+
+              <td>
+                ${yesNoBadge(row.volatilityContraction)}
+              </td>
+
+              <td>
+                ${breakoutBadge(row.breakoutStatus)}
+              </td>
+
+              <td class="number">
+                ${escapeHtml(formatX(row.turnoverExpansion))}
+              </td>
+
+              <td class="trigger-cell">
+                ${textOrDash(row.fundamentalTrigger)}
+              </td>
+
+              <td class="trigger-cell">
+                ${textOrDash(row.keyTrigger)}
+              </td>
+
+              <td class="missing">
+                ${textOrDash(row.missingConditions)}
+              </td>
+            </tr>
+          `;
+        })
+        .join("");
+
+      bindStockRowEvents();
+      syncTopScrollbar();
+    }
+
+    function bindStockRowEvents() {
+      document.querySelectorAll(".stock-link").forEach((element) => {
+        element.addEventListener("click", () => {
+          const index = Number(element.dataset.rowIndex);
+
+          if (!Number.isInteger(index)) {
+            return;
+          }
+
+          const row = allRows.find(
+            (item) => item.__index === index
+          );
+
+          if (row) {
+            openDrawer(row);
+          }
+        });
+      });
+    }
+
+    function renderPagination() {
+      const total = filteredRows.length;
+
+      const totalPages = Math.max(
+        1,
+        Math.ceil(total / pageSize)
+      );
+
+      const start =
+        total === 0
+          ? 0
+          : (currentPage - 1) * pageSize + 1;
+
+      const end = Math.min(
+        currentPage * pageSize,
+        total
+      );
+
+      $("paginationInfo").textContent =
+        total === 0
+          ? "0 stocks"
+          : `${start.toLocaleString("en-IN")}–${end.toLocaleString(
+              "en-IN"
+            )} of ${total.toLocaleString("en-IN")} stocks`;
+
+      $("pageNumberLabel").textContent =
+        `Page ${currentPage} / ${totalPages}`;
+
+      $("prevPageBtn").disabled =
+        currentPage <= 1;
+
+      $("nextPageBtn").disabled =
+        currentPage >= totalPages;
+    }
+
+    function updateSummaryCards() {
+      const universe = allRows.length;
+
+      const score80 = allRows.filter((row) => {
+        const value = toNumber(row.bigMoveScore);
+        return value !== null && value >= 80;
+      }).length;
+
+      const nearBreakout = allRows.filter((row) => {
+        const value = normalizeText(
+          row.breakoutStatus
+        ).toLowerCase();
+
+        return value.includes("near");
+      }).length;
+
+      const rs80 = allRows.filter((row) => {
+        const value = toNumber(row.rsRating);
+        return value !== null && value >= 80;
+      }).length;
+
+      const freeFloat5000 = allRows.filter((row) => {
+        const value = toNumber(row.freeFloatCr);
+
+        return (
+          value !== null &&
+          value <= 5000
+        );
+      }).length;
+
+      $("summaryUniverse").textContent =
+        universe.toLocaleString("en-IN");
+
+      $("summaryScore80").textContent =
+        score80.toLocaleString("en-IN");
+
+      $("summaryNearBreakout").textContent =
+        nearBreakout.toLocaleString("en-IN");
+
+      $("summaryRS80").textContent =
+        rs80.toLocaleString("en-IN");
+
+      $("summaryFreeFloat5000").textContent =
+        freeFloat5000.toLocaleString("en-IN");
+    }
+
+    function detailItem(label, value) {
+      const display =
+        value === null ||
+        value === undefined ||
+        value === ""
+          ? "—"
+          : value;
+
+      return `
         <div class="detail-item">
-
           <div class="detail-label">
             ${escapeHtml(label)}
           </div>
 
           <div class="detail-value">
-            ${value}
+            ${display}
           </div>
-
         </div>
-
       `;
-
     }
 
-
-
-    function triggerChip(label) {
-
+    function detailSection(title, items) {
       return `
+        <section class="detail-section">
+          <h3>${escapeHtml(title)}</h3>
 
-        <span class="trigger-chip">
-          ${escapeHtml(label)}
-        </span>
-
+          <div class="detail-grid">
+            ${items.join("")}
+          </div>
+        </section>
       `;
-
     }
-
-
-
-    function collectTriggers(row) {
-
-      const result = [];
-
-
-      const definitions = [
-
-        [
-          "earningsAcceleration",
-          "Earnings Acceleration"
-        ],
-
-        [
-          "marginExpansion",
-          "Margin Expansion"
-        ],
-
-        [
-          "orderWin",
-          "Order Win"
-        ],
-
-        [
-          "orderBook",
-          "Order Book"
-        ],
-
-        [
-          "capex",
-          "CAPEX"
-        ],
-
-        [
-          "capacityExpansion",
-          "Capacity Expansion"
-        ],
-
-        [
-          "newProduct",
-          "New Product"
-        ],
-
-        [
-          "corporateAction",
-          "Corporate Action"
-        ],
-
-        [
-          "industryTailwind",
-          "Industry Tailwind"
-        ]
-
-      ];
-
-
-      definitions.forEach(
-        ([field, label]) => {
-
-          if (
-            normalizeBoolean(
-              row[field]
-            )
-          ) {
-
-            result.push(label);
-
-          }
-
-        }
-      );
-
-
-      const direct =
-        getFundamentalTrigger(
-          row
-        );
-
-
-      if (
-        result.length === 0 &&
-        direct
-      ) {
-
-        direct
-          .split(/[,|;]/)
-          .map(
-            (item) =>
-              item.trim()
-          )
-          .filter(Boolean)
-          .forEach(
-            (item) =>
-              result.push(item)
-          );
-
-      }
-
-
-      return [
-        ...new Set(result)
-      ];
-
-    }
-
-
-
-    /* =========================================================
-       DRAWER
-    ========================================================= */
-
 
     function openDrawer(row) {
+      $("drawerTitle").textContent =
+        row.symbol || "Stock Details";
 
-      const stockName =
-        getStockName(row);
+      $("drawerSubtitle").textContent =
+        row.companyName || "";
 
+      const body = [];
 
-      const symbol =
-        getSymbol(row);
-
-
-      drawerTitle.textContent =
-        stockName;
-
-
-      drawerSymbol.textContent =
-        symbol;
-
-
-      const triggers =
-        collectTriggers(row);
-
-
-      const missing =
-        getMissingConditions(row);
-
-
-      drawerContent.innerHTML = `
-
-
-        <section class="drawer-section">
-
-          <h3>
-            Quick Decision
-          </h3>
-
-
-          <div class="detail-grid">
-
-            ${detailItem(
+      body.push(
+        detailSection(
+          "Scanner Overview",
+          [
+            detailItem(
               "Big Move Score",
-              formatScore(
-                row.bigMoveScore
-              )
-            )}
-
-
-            ${detailItem(
+              scoreBadge(row.bigMoveScore)
+            ),
+            detailItem(
               "Setup Status",
-              formatSetup(
-                row.setupStatus
-              )
-            )}
-
-
-            ${detailItem(
-              "RS Rating",
-              formatScore(
-                row.rsRating
-              )
-            )}
-
-
-            ${detailItem(
-              "Stock Momentum",
-              formatScore(
-                row.stockMomentumRating
-              )
-            )}
-
-
-            ${detailItem(
-              "Industry Rating",
-              formatScore(
-                row.industryRating
-              )
-            )}
-
-
-            ${detailItem(
+              setupStatusBadge(row.setupStatus)
+            ),
+            detailItem(
               "Price",
-              formatPrice(
-                row.price
-              )
-            )}
+              escapeHtml(formatNumber(row.price, 2))
+            ),
+            detailItem(
+              "RS Rating",
+              scoreBadge(row.rsRating)
+            )
+          ]
+        )
+      );
 
-          </div>
-
-        </section>
-
-
-
-        <section class="drawer-section">
-
-          <h3>
-            Returns
-          </h3>
-
-
-          <div class="detail-grid">
-
-            ${detailItem(
+      body.push(
+        detailSection(
+          "Returns",
+          [
+            detailItem(
               "1W Return",
-              formatPct(
-                row.return1W
-              )
-            )}
-
-
-            ${detailItem(
+              `<span class="${pctClass(row.return1W)}">
+                ${escapeHtml(formatPct(row.return1W))}
+              </span>`
+            ),
+            detailItem(
               "1M Return",
-              formatPct(
-                row.return1M
-              )
-            )}
-
-
-            ${detailItem(
+              `<span class="${pctClass(row.return1M)}">
+                ${escapeHtml(formatPct(row.return1M))}
+              </span>`
+            ),
+            detailItem(
               "3M Return",
-              formatPct(
-                row.return3M
-              )
-            )}
-
-
-            ${detailItem(
+              `<span class="${pctClass(row.return3M)}">
+                ${escapeHtml(formatPct(row.return3M))}
+              </span>`
+            ),
+            detailItem(
               "6M Return",
-              formatPct(
-                row.return6M
-              )
-            )}
+              `<span class="${pctClass(row.return6M)}">
+                ${escapeHtml(formatPct(row.return6M))}
+              </span>`
+            )
+          ]
+        )
+      );
 
-
-            ${detailItem(
-              "1Y Return",
-              formatPct(
-                row.return1Y
-              )
-            )}
-
-          </div>
-
-        </section>
-
-
-
-        <section class="drawer-section">
-
-          <h3>
-            Free Float
-          </h3>
-
-
-          <div class="detail-grid">
-
-            ${detailItem(
+      body.push(
+        detailSection(
+          "Relative Strength",
+          [
+            detailItem(
+              "Stock Momentum",
+              scoreBadge(row.stockMomentumRating)
+            ),
+            detailItem(
+              "Industry Rating",
+              scoreBadge(row.industryRating)
+            ),
+            detailItem(
               "Free Float ₹ Cr",
-              formatFreeFloatCr(
-                row
-              )
-            )}
-
-
-            ${detailItem(
-              "₹5,000 Cr Rule",
-              (
-                num(
-                  row.freeFloatCr
-                ) !== null &&
-                num(
-                  row.freeFloatCr
-                ) <=
-                FREE_FLOAT_GREEN_LIMIT
-              )
-
-                ? `<span class="signal-yes">≤ ₹5,000 Cr</span>`
-
-                : (
-                    num(
-                      row.freeFloatCr
-                    ) === null
-
-                      ? `<span class="pending">—</span>`
-
-                      : `> ₹5,000 Cr`
-                  )
-            )}
-
-          </div>
-
-        </section>
-
-
-
-        <section class="drawer-section">
-
-          <h3>
-            Chart Structure
-          </h3>
-
-
-          <div class="detail-grid">
-
-            ${detailItem(
-              "Prior Big Move",
-              formatPct(
-                row.priorMovePct
-              )
-            )}
-
-
-            ${detailItem(
-              "Move Period",
-              formatTextCell(
-                row.movePeriod,
-                50
-              )
-            )}
-
-
-            ${detailItem(
-              "Retracement",
-              formatPct(
-                row.retracementPct
-              )
-            )}
-
-
-            ${detailItem(
+              freeFloatDisplay(row.freeFloatCr)
+            )
+          ]
+        )
+      );
+            body.push(
+        detailSection(
+          "Technical Setup",
+          [
+            detailItem(
+              "Prior Move %",
+              `<span class="${pctClass(row.priorMovePct)}">
+                ${escapeHtml(formatPct(row.priorMovePct))}
+              </span>`
+            ),
+            detailItem(
+              "Retracement %",
+              escapeHtml(formatPct(row.retracementPct))
+            ),
+            detailItem(
               "Consolidation Days",
-              formatNumber(
-                row.consolidationDays,
-                0
-              )
-            )}
-
-
-            ${detailItem(
+              escapeHtml(formatInteger(row.consolidationDays))
+            ),
+            detailItem(
               "Volume Contraction",
-              formatBoolean(
-                row.volumeContraction
-              )
-            )}
-
-
-            ${detailItem(
+              yesNoBadge(row.volumeContraction)
+            ),
+            detailItem(
               "Volatility Contraction",
-              formatBoolean(
-                row.volatilityContraction
-              )
-            )}
-
-
-            ${detailItem(
+              yesNoBadge(row.volatilityContraction)
+            ),
+            detailItem(
               "Breakout Status",
-              formatBreakoutStatus(
-                row.breakoutStatus
-              )
-            )}
-
-
-            ${detailItem(
+              breakoutBadge(row.breakoutStatus)
+            ),
+            detailItem(
               "Turnover Expansion",
-              formatTimes(
-                row.turnoverExpansion
-              )
-            )}
+              escapeHtml(formatX(row.turnoverExpansion))
+            )
+          ]
+        )
+      );
 
-          </div>
+      body.push(
+        detailSection(
+          "Triggers",
+          [
+            detailItem(
+              "Fundamental Trigger",
+              textOrDash(row.fundamentalTrigger)
+            ),
+            detailItem(
+              "Key Trigger",
+              textOrDash(row.keyTrigger)
+            ),
+            detailItem(
+              "Missing Conditions",
+              textOrDash(row.missingConditions)
+            )
+          ]
+        )
+      );
 
-        </section>
-        
-        <section class="drawer-section">
+      const optionalTriggerFields = [
+        ["Earnings Acceleration", firstDefined(
+          row.earningsAcceleration,
+          row.earnings_acceleration
+        )],
 
-          <h3>
-            Triggers
-          </h3>
+        ["Margin Expansion", firstDefined(
+          row.marginExpansion,
+          row.margin_expansion
+        )],
 
+        ["Order Win / Order Book", firstDefined(
+          row.orderWin,
+          row.orderBook,
+          row.order_win,
+          row.order_book
+        )],
 
-          <div class="trigger-list">
+        ["CAPEX", firstDefined(
+          row.capex,
+          row.capexTrigger,
+          row.capex_trigger
+        )],
 
-            ${
-              triggers.length
+        ["Capacity Expansion", firstDefined(
+          row.capacityExpansion,
+          row.capacity_expansion
+        )],
 
-                ? triggers
-                    .map(
-                      (trigger) =>
-                        triggerChip(trigger)
-                    )
-                    .join("")
+        ["New Product", firstDefined(
+          row.newProduct,
+          row.new_product
+        )],
 
-                : `<span class="pending">No trigger data</span>`
-            }
+        ["Corporate Action", firstDefined(
+          row.corporateAction,
+          row.corporate_action
+        )],
 
-          </div>
+        ["Industry Tailwind", firstDefined(
+          row.industryTailwind,
+          row.industry_tailwind,
+          row.tailwind
+        )]
+      ];
 
+      const availableTriggerItems = optionalTriggerFields
+        .filter(([, value]) => {
+          return (
+            value !== null &&
+            value !== undefined &&
+            normalizeText(value) !== ""
+          );
+        })
+        .map(([label, value]) => {
+          return detailItem(
+            label,
+            textOrDash(value)
+          );
+        });
 
-          ${
-            getKeyTrigger(row)
+      if (availableTriggerItems.length) {
+        body.push(
+          detailSection(
+            "Fundamental Detail",
+            availableTriggerItems
+          )
+        );
+      }
 
-              ? `
+      const optionalTechnicalFields = [
+        ["Prior Move Start", firstDefined(
+          row.priorMoveStartDate,
+          row.prior_move_start_date,
+          row.moveStartDate
+        )],
 
-                <div
-                  style="
-                    margin-top:8px;
-                    color:#dce9f8;
-                    font-size:9px;
-                    line-height:1.4;
-                  "
-                >
+        ["Prior Move End", firstDefined(
+          row.priorMoveEndDate,
+          row.prior_move_end_date,
+          row.moveEndDate
+        )],
 
-                  <strong>
-                    Key Trigger:
-                  </strong>
+        ["Prior Move Low", firstDefined(
+          row.priorMoveLow,
+          row.prior_move_low,
+          row.moveLow
+        )],
 
-                  ${escapeHtml(
-                    getKeyTrigger(row)
-                  )}
+        ["Prior Move High", firstDefined(
+          row.priorMoveHigh,
+          row.prior_move_high,
+          row.moveHigh
+        )],
 
-                </div>
+        ["Base High", firstDefined(
+          row.baseHigh,
+          row.base_high
+        )],
 
-              `
+        ["Base Low", firstDefined(
+          row.baseLow,
+          row.base_low
+        )],
 
-              : ""
+        ["Breakout Level", firstDefined(
+          row.breakoutLevel,
+          row.breakout_level
+        )],
+
+        ["Distance From Breakout %", firstDefined(
+          row.breakoutDistancePct,
+          row.breakout_distance_pct,
+          row.distanceFromBreakoutPct
+        )]
+      ];
+
+      const availableTechnicalItems = optionalTechnicalFields
+        .filter(([, value]) => {
+          return (
+            value !== null &&
+            value !== undefined &&
+            value !== ""
+          );
+        })
+        .map(([label, value]) => {
+          const lowerLabel = label.toLowerCase();
+
+          if (
+            lowerLabel.includes("low") ||
+            lowerLabel.includes("high") ||
+            lowerLabel.includes("level")
+          ) {
+            return detailItem(
+              label,
+              escapeHtml(formatNumber(value, 2))
+            );
           }
 
-        </section>
+          if (lowerLabel.includes("%")) {
+            return detailItem(
+              label,
+              escapeHtml(formatPct(value))
+            );
+          }
 
+          return detailItem(
+            label,
+            escapeHtml(normalizeText(value))
+          );
+        });
 
+      if (availableTechnicalItems.length) {
+        body.push(
+          detailSection(
+            "Technical Detail",
+            availableTechnicalItems
+          )
+        );
+      }
 
-        <section class="drawer-section">
+      $("drawerBody").innerHTML = body.join("");
 
-          <h3>
-            Missing Conditions
-          </h3>
+      $("drawerBackdrop").classList.add("open");
+      $("detailDrawer").classList.add("open");
 
-
-          <div class="missing-text">
-
-            ${
-              missing
-
-                ? escapeHtml(missing)
-
-                : "No missing-condition data available."
-            }
-
-          </div>
-
-        </section>
-
-
-
-        <section class="drawer-section">
-
-          <h3>
-            Classification
-          </h3>
-
-
-          <div class="detail-grid">
-
-
-            ${detailItem(
-              "Sector",
-              formatTextCell(
-                row.sector,
-                60
-              )
-            )}
-
-
-            ${detailItem(
-              "Industry",
-              formatTextCell(
-                row.industry,
-                60
-              )
-            )}
-
-
-          </div>
-
-        </section>
-
-
-      `;
-
-
-      detailDrawer.classList.add(
-        "open"
-      );
-
-
-      drawerOverlay.classList.add(
-        "open"
-      );
-
-
-      document.body.style.overflow =
-        "hidden";
-
+      document.body.style.overflow = "hidden";
     }
-
-
 
     function closeDrawer() {
+      $("drawerBackdrop").classList.remove("open");
+      $("detailDrawer").classList.remove("open");
 
-      detailDrawer.classList.remove(
-        "open"
-      );
-
-
-      drawerOverlay.classList.remove(
-        "open"
-      );
-
-
-      document.body.style.overflow =
-        "";
-
+      document.body.style.overflow = "";
     }
-
-
-
-    drawerClose.addEventListener(
-      "click",
-      closeDrawer
-    );
-
-
-    drawerOverlay.addEventListener(
-      "click",
-      closeDrawer
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (
-          event.key ===
-          "Escape"
-        ) {
-
-          closeDrawer();
-
-        }
-
-      }
-    );
-
-
-
-    /* =========================================================
-       CLEAR FILTERS
-    ========================================================= */
-
-
-    function clearFilters() {
-
-      searchInput.value =
-        "";
-
-
-      activeSortField =
-        null;
-
-
-      activeSortDirection =
-        null;
-
-
-      Object.keys(
-        filterState
-      ).forEach(
-        (field) => {
-
-          filterState[field] = {
-
-            active: false,
-
-            operator: ">=",
-
-            value: "",
-
-            direction: "desc"
-
-          };
-
-        }
-      );
-
-
-      filterRow
-        .querySelectorAll(
-          "[data-action='active']"
-        )
-        .forEach(
-          (element) => {
-
-            element.checked =
-              false;
-
-          }
-        );
-
-
-      filterRow
-        .querySelectorAll(
-          "[data-action='value']"
-        )
-        .forEach(
-          (element) => {
-
-            element.value =
-              "";
-
-          }
-        );
-
-
-      filterRow
-        .querySelectorAll(
-          "[data-action='operator']"
-        )
-        .forEach(
-          (element) => {
-
-            element.value =
-              ">=";
-
-          }
-        );
-
-
-      filterRow
-        .querySelectorAll(
-          "[data-action='direction']"
-        )
-        .forEach(
-          (element) => {
-
-            const field =
-              element.dataset.field;
-
-
-            const column =
-              columns.find(
-                (item) =>
-                  item.field ===
-                  field
-              );
-
-
-            if (
-              column &&
-              column.type ===
-              "text"
-            ) {
-
-              element.value =
-                "asc";
-
-            }
-
-
-            else {
-
-              element.value =
-                "desc";
-
-            }
-
-          }
-        );
-
-
-      applyFilters();
-
-    }
-
-
-
-    clearFiltersBtn.addEventListener(
-      "click",
-      clearFilters
-    );
-
-
-
-    searchInput.addEventListener(
-      "input",
-      applyFilters
-    );
-
-
-
-    /* =========================================================
-       CSV EXPORT
-    ========================================================= */
-
 
     function csvEscape(value) {
-
       if (
         value === null ||
         value === undefined
       ) {
-
         return "";
-
       }
 
-
-      let stringValue =
-        String(value);
-
+      const text = String(value);
 
       if (
-        stringValue.includes(",") ||
-        stringValue.includes('"') ||
-        stringValue.includes("\n")
+        text.includes(",") ||
+        text.includes('"') ||
+        text.includes("\n")
       ) {
-
-        stringValue =
-          `"${stringValue.replaceAll(
-            '"',
-            '""'
-          )}"`;
-
+        return `"${text.replace(/"/g, '""')}"`;
       }
 
-
-      return stringValue;
-
+      return text;
     }
-
-
 
     function exportCsv() {
+      const rowsToExport = filteredRows.length
+        ? filteredRows
+        : allRows;
 
-      if (
-        filteredRows.length ===
-        0
-      ) {
-
-        alert(
-          "No filtered rows available for export."
-        );
-
+      if (!rowsToExport.length) {
+        alert("No scanner data available for export.");
         return;
-
       }
-
 
       const headers = [
-
         "Stock",
-
-        "Symbol",
-
+        "Company Name",
         "Big Move Score",
-
         "Setup Status",
-
         "Price",
-
         "1W %",
-
         "1M %",
-
         "3M %",
-
         "6M %",
-
-        "1Y %",
-
         "RS",
-
         "Stock Momentum",
-
         "Industry Rating",
-
         "Free Float ₹ Cr",
-
         "Prior Move %",
-
-        "Move Period",
-
         "Retracement %",
-
         "Consolidation Days",
-
         "Volume Contraction",
-
         "Volatility Contraction",
-
         "Breakout Status",
-
         "Turnover Expansion",
-
         "Fundamental Trigger",
-
         "Key Trigger",
-
-        "Missing Conditions",
-
-        "Sector",
-
-        "Industry"
-
+        "Missing Conditions"
       ];
 
+      const csvRows = [
+        headers.map(csvEscape).join(",")
+      ];
 
+      for (const row of rowsToExport) {
+        const values = [
+          row.symbol,
+          row.companyName,
+          row.bigMoveScore,
+          row.setupStatus,
+          row.price,
+          row.return1W,
+          row.return1M,
+          row.return3M,
+          row.return6M,
+          row.rsRating,
+          row.stockMomentumRating,
+          row.industryRating,
+          row.freeFloatCr,
+          row.priorMovePct,
+          row.retracementPct,
+          row.consolidationDays,
+          normalizeText(row.volumeContraction),
+          normalizeText(row.volatilityContraction),
+          row.breakoutStatus,
+          row.turnoverExpansion,
+          row.fundamentalTrigger,
+          row.keyTrigger,
+          row.missingConditions
+        ];
 
-      const rows =
-        filteredRows.map(
-          (row) => [
-
-            getStockName(row),
-
-            getSymbol(row),
-
-            row.bigMoveScore,
-
-            row.setupStatus,
-
-            row.price,
-
-            row.return1W,
-
-            row.return1M,
-
-            row.return3M,
-
-            row.return6M,
-
-            row.return1Y,
-
-            row.rsRating,
-
-            row.stockMomentumRating,
-
-            row.industryRating,
-
-            row.freeFloatCr !== null &&
-            row.freeFloatCr !== undefined
-
-              ? Number(
-                  row.freeFloatCr
-                ).toFixed(2)
-
-              : "",
-
-            row.priorMovePct,
-
-            row.movePeriod,
-
-            row.retracementPct,
-
-            row.consolidationDays,
-
-            row.volumeContraction,
-
-            row.volatilityContraction,
-
-            row.breakoutStatus,
-
-            row.turnoverExpansion,
-
-            getFundamentalTrigger(
-              row
-            ),
-
-            getKeyTrigger(
-              row
-            ),
-
-            getMissingConditions(
-              row
-            ),
-
-            row.sector,
-
-            row.industry
-
-          ]
+        csvRows.push(
+          values.map(csvEscape).join(",")
         );
+      }
 
+      const csvContent =
+        "\uFEFF" + csvRows.join("\n");
 
+      const blob = new Blob(
+        [csvContent],
+        {
+          type: "text/csv;charset=utf-8;"
+        }
+      );
 
-      const csv =
-        [
+      const url = URL.createObjectURL(blob);
 
-          headers,
+      const link = document.createElement("a");
 
-          ...rows
+      const safeDate = marketDate
+        ? marketDate.replace(/[^\d-]/g, "")
+        : "latest";
 
-        ]
-          .map(
-            (row) =>
-              row
-                .map(csvEscape)
-                .join(",")
-          )
-          .join("\n");
-
-
-
-      const blob =
-        new Blob(
-          [csv],
-          {
-            type:
-              "text/csv;charset=utf-8;"
-          }
-        );
-
-
-      const url =
-        URL.createObjectURL(
-          blob
-        );
-
-
-      const link =
-        document.createElement(
-          "a"
-        );
-
-
-      const marketDate =
-        metadata.marketDate ||
-        metadata.date ||
-        "latest";
-
-
-      link.href =
-        url;
-
-
+      link.href = url;
       link.download =
-        `BIG_MOVE_SCANNER_${marketDate}_${filteredRows.length}_stocks.csv`;
+        `BIG_MOVE_SCANNER_${safeDate}_${rowsToExport.length}_stocks.csv`;
 
-
-      document.body.appendChild(
-        link
-      );
-
-
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
 
-
-      link.remove();
-
-
-      URL.revokeObjectURL(
-        url
-      );
-
+      URL.revokeObjectURL(url);
     }
-
-
-
-    exportCsvBtn.addEventListener(
-      "click",
-      exportCsv
-    );
-
-
-
-    /* =========================================================
-       TOP HORIZONTAL SCROLLBAR
-    ========================================================= */
-
-
-    let syncingTop =
-      false;
-
-
-    let syncingTable =
-      false;
-
-
 
     function syncTopScrollbar() {
-
-      const table =
-        document.getElementById(
-          "scannerTable"
-        );
-
-
-      if (!table) {
-
-        return;
-
-      }
-
-
-      topScrollInner.style.width =
-        `${table.scrollWidth}px`;
-
-    }
-
-
-
-    topScroll.addEventListener(
-      "scroll",
-      () => {
-
-        if (syncingTable) {
-
-          syncingTable =
-            false;
-
-          return;
-
-        }
-
-
-        syncingTop =
-          true;
-
-
-        tableWrap.scrollLeft =
-          topScroll.scrollLeft;
-
-    });
-
-
-
-    tableWrap.addEventListener(
-      "scroll",
-      () => {
-
-        if (syncingTop) {
-
-          syncingTop =
-            false;
-
-          return;
-
-        }
-
-
-        syncingTable =
-          true;
-
-
-        topScroll.scrollLeft =
-          tableWrap.scrollLeft;
-
-    });
-
-
-
-    window.addEventListener(
-      "resize",
-      syncTopScrollbar
-    );
-
-
-
-    /* =========================================================
-       DATA NORMALIZATION
-    ========================================================= */
-
-
-    function normalizeRows(
-      rawRows
-    ) {
+      const tableWrap = $("tableWrap");
+      const topScroll = $("topScroll");
+      const topScrollInner = $("topScrollInner");
+      const table = $("scannerTable");
 
       if (
-        !Array.isArray(
-          rawRows
-        )
+        !tableWrap ||
+        !topScroll ||
+        !topScrollInner ||
+        !table
       ) {
-
-        return [];
-
+        return;
       }
 
+      const tableWidth = Math.max(
+        table.scrollWidth,
+        2400
+      );
 
-      return rawRows
-        .map(
-          (row) => {
+      topScrollInner.style.width =
+        `${tableWidth}px`;
 
-            const normalized =
-              attachComputedFields(
-                row || {}
-              );
+      if (
+        Math.abs(
+          topScroll.scrollLeft -
+          tableWrap.scrollLeft
+        ) > 1
+      ) {
+        topScroll.scrollLeft =
+          tableWrap.scrollLeft;
+      }
+    }
 
+    function bindScrollbars() {
+      const tableWrap = $("tableWrap");
+      const topScroll = $("topScroll");
 
-            /*
-              Compatibility aliases.
+      let syncingFromTop = false;
+      let syncingFromTable = false;
 
-              Existing backend versions may use
-              slightly different field names.
+      topScroll.addEventListener(
+        "scroll",
+        () => {
+          if (syncingFromTable) {
+            return;
+          }
 
-              These aliases do NOT change scoring.
-              They only allow the frontend to read
-              the available value.
-            */
+          syncingFromTop = true;
 
+          tableWrap.scrollLeft =
+            topScroll.scrollLeft;
 
-            if (
-              normalized.bigMoveScore ===
-              undefined
-            ) {
+          requestAnimationFrame(() => {
+            syncingFromTop = false;
+          });
+        }
+      );
 
-              normalized.bigMoveScore =
-                normalized.score;
+      tableWrap.addEventListener(
+        "scroll",
+        () => {
+          if (syncingFromTop) {
+            return;
+          }
 
-            }
+          syncingFromTable = true;
 
+          topScroll.scrollLeft =
+            tableWrap.scrollLeft;
 
-            if (
-              normalized.setupStatus ===
-              undefined
-            ) {
+          requestAnimationFrame(() => {
+            syncingFromTable = false;
+          });
+        }
+      );
+    }
 
-              normalized.setupStatus =
-                normalized.setup;
+    function bindPageEvents() {
+      $("searchInput").addEventListener(
+        "input",
+        () => {
+          currentPage = 1;
+          applyFiltersAndRender();
+        }
+      );
 
-            }
+      $("clearFiltersBtn").addEventListener(
+        "click",
+        clearFilters
+      );
 
+      $("exportCsvBtn").addEventListener(
+        "click",
+        exportCsv
+      );
 
-            if (
-              normalized.stockMomentumRating ===
-              undefined
-            ) {
+      $("pageSizeSelect").addEventListener(
+        "change",
+        (event) => {
+          const nextSize = Number(
+            event.target.value
+          );
 
-              normalized.stockMomentumRating =
-                normalized.stockMomentum;
+          pageSize =
+            Number.isFinite(nextSize) &&
+            nextSize > 0
+              ? nextSize
+              : 100;
 
-            }
+          currentPage = 1;
+          applyFiltersAndRender();
+        }
+      );
 
+      $("prevPageBtn").addEventListener(
+        "click",
+        () => {
+          if (currentPage <= 1) {
+            return;
+          }
 
-            if (
-              normalized.industryRating ===
-              undefined
-            ) {
+          currentPage -= 1;
+          renderTable();
+          renderPagination();
 
-              normalized.industryRating =
-                normalized.industryScore;
+          $("tableWrap").scrollTop = 0;
+        }
+      );
 
-            }
+      $("nextPageBtn").addEventListener(
+        "click",
+        () => {
+          const totalPages = Math.max(
+            1,
+            Math.ceil(
+              filteredRows.length /
+              pageSize
+            )
+          );
 
+          if (currentPage >= totalPages) {
+            return;
+          }
 
-            if (
-              normalized.priorMovePct ===
-              undefined
-            ) {
+          currentPage += 1;
+          renderTable();
+          renderPagination();
 
-              normalized.priorMovePct =
-                normalized.priorBigMovePct;
+          $("tableWrap").scrollTop = 0;
+        }
+      );
 
-            }
+      $("drawerCloseBtn").addEventListener(
+        "click",
+        closeDrawer
+      );
 
+      $("drawerBackdrop").addEventListener(
+        "click",
+        closeDrawer
+      );
 
-            if (
-              normalized.retracementPct ===
-              undefined
-            ) {
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Escape") {
+            closeDrawer();
+          }
+        }
+      );
 
-              normalized.retracementPct =
-                normalized.retracePct;
+      window.addEventListener(
+        "resize",
+        () => {
+          syncTopScrollbar();
+        }
+      );
+    }
+        function showLoadError(error) {
+      console.error(
+        "Big Move Scanner load error:",
+        error
+      );
 
-            }
+      $("tableBody").innerHTML = `
+        <tr class="empty-row">
+          <td colspan="22">
+            Big Move Scanner data load nahi ho saka.
+            Please check data/big_move_scanner.json
+          </td>
+        </tr>
+      `;
 
+      $("summaryUniverse").textContent = "—";
+      $("summaryScore80").textContent = "—";
+      $("summaryNearBreakout").textContent = "—";
+      $("summaryRS80").textContent = "—";
+      $("summaryFreeFloat5000").textContent = "—";
 
-            if (
-              normalized.turnoverExpansion ===
-              undefined
-            ) {
+      $("marketDateLabel").textContent =
+        "Market Date: —";
 
-              normalized.turnoverExpansion =
-                normalized.turnoverExpansionX;
+      $("paginationInfo").textContent =
+        "Data unavailable";
 
-            }
+      $("pageNumberLabel").textContent =
+        "Page 1";
 
+      $("prevPageBtn").disabled = true;
+      $("nextPageBtn").disabled = true;
+    }
 
-            if (
-              normalized.return1W ===
-              undefined
-            ) {
-
-              normalized.return1W =
-                normalized.return1w;
-
-            }
-
-
-            if (
-              normalized.return1M ===
-              undefined
-            ) {
-
-              normalized.return1M =
-                normalized.return1m;
-
-            }
-
-
-            if (
-              normalized.return3M ===
-              undefined
-            ) {
-
-              normalized.return3M =
-                normalized.return3m;
-
-            }
-
-
-            if (
-              normalized.return6M ===
-              undefined
-            ) {
-
-              normalized.return6M =
-                normalized.return6m;
-
-            }
-
-
-            if (
-              normalized.return1Y ===
-              undefined
-            ) {
-
-              normalized.return1Y =
-                normalized.return1y;
-
-            }
-
-
-            return normalized;
-
+    async function loadScannerData() {
+      try {
+        const response = await fetch(
+          `${DATA_URL}?v=${Date.now()}`,
+          {
+            cache: "no-store"
           }
         );
 
-    }
-
-
-
-    /* =========================================================
-       DATA EXTRACTION
-    ========================================================= */
-
-
-    function extractPayload(
-      payload
-    ) {
-
-      if (
-        Array.isArray(payload)
-      ) {
-
-        return {
-
-          rows: payload,
-
-          metadata: {}
-
-        };
-
-      }
-
-
-      if (
-        !payload ||
-        typeof payload !==
-        "object"
-      ) {
-
-        return {
-
-          rows: [],
-
-          metadata: {}
-
-        };
-
-      }
-
-
-      const possibleRows = [
-
-        payload.stocks,
-
-        payload.rows,
-
-        payload.data,
-
-        payload.scanner,
-
-        payload.results
-
-      ];
-
-
-      let rows =
-        [];
-
-
-      for (
-        const candidate of
-        possibleRows
-      ) {
-
-        if (
-          Array.isArray(
-            candidate
-          )
-        ) {
-
-          rows =
-            candidate;
-
-          break;
-
-        }
-
-      }
-
-
-      const payloadMetadata = {
-
-        ...(
-          payload.metadata ||
-          {}
-        )
-
-      };
-
-
-      if (
-        payload.marketDate &&
-        !payloadMetadata.marketDate
-      ) {
-
-        payloadMetadata.marketDate =
-          payload.marketDate;
-
-      }
-
-
-      if (
-        payload.lastUpdated &&
-        !payloadMetadata.lastUpdated
-      ) {
-
-        payloadMetadata.lastUpdated =
-          payload.lastUpdated;
-
-      }
-
-
-      return {
-
-        rows,
-
-        metadata:
-          payloadMetadata
-
-      };
-
-    }
-
-
-
-    /* =========================================================
-       LOAD DATA
-    ========================================================= */
-
-
-    async function loadScannerData() {
-
-      try {
-
-
-        resultCount.textContent =
-          "Loading scanner data...";
-
-
-        const response =
-          await fetch(
-            `${DATA_URL}?v=${Date.now()}`,
-            {
-              cache: "no-store"
-            }
-          );
-
-
-        if (
-          !response.ok
-        ) {
-
+        if (!response.ok) {
           throw new Error(
-            `HTTP ${response.status}`
+            `HTTP ${response.status} while loading ${DATA_URL}`
           );
-
         }
-
 
         const payload =
           await response.json();
 
+        const rawRows =
+          getRowsFromPayload(payload);
 
-        const extracted =
-          extractPayload(
-            payload
+        marketDate =
+          getMarketDateFromPayload(payload);
+
+        allRows = rawRows
+          .map((row, index) => {
+            return enrichRow(
+              row,
+              index
+            );
+          })
+          .filter((row) => {
+            return Boolean(row.symbol);
+          });
+
+        if (!marketDate && allRows.length) {
+          marketDate = normalizeText(
+            firstDefined(
+              allRows[0].marketDate,
+              allRows[0].market_date,
+              allRows[0].date
+            )
           );
+        }
 
+        $("marketDateLabel").textContent =
+          marketDate
+            ? `Market Date: ${marketDate}`
+            : "Market Date: —";
 
-        metadata =
-          extracted.metadata;
+        updateSummaryCards();
 
+        currentPage = 1;
 
-        allRows =
-          normalizeRows(
-            extracted.rows
-          );
+        applyFiltersAndRender();
 
-
-        filteredRows =
-          [...allRows];
-
-
-        updateSummary();
-
-
-        applyFilters();
-
-
-        syncTopScrollbar();
-
-
+        requestAnimationFrame(() => {
+          syncTopScrollbar();
+        });
+      } catch (error) {
+        showLoadError(error);
       }
-
-
-      catch (error) {
-
-
-        console.error(
-          "Big Move Scanner load error:",
-          error
-        );
-
-
-        resultCount.textContent =
-          "Scanner data could not be loaded.";
-
-
-        scannerBody.innerHTML = `
-
-          <tr>
-
-            <td
-              colspan="23"
-              class="empty-state"
-            >
-
-              Big Move Scanner data could not be loaded.
-
-              <br><br>
-
-              Check:
-
-              <strong>
-                data/big_move_scanner.json
-              </strong>
-
-            </td>
-
-          </tr>
-
-        `;
-
-
-        setSummary(
-          "summaryUniverse",
-          "—"
-        );
-
-
-        setSummary(
-          "summaryStrong",
-          "—"
-        );
-
-
-        setSummary(
-          "summaryBreakout",
-          "—"
-        );
-
-
-        setSummary(
-          "summaryRS",
-          "—"
-        );
-
-
-        setSummary(
-          "summaryFreeFloat",
-          "—"
-        );
-
-
-        setSummary(
-          "summaryDate",
-          "—"
-        );
-
-
-        syncTopScrollbar();
-
-      }
-
     }
-  
-    /* =========================================================
-       INITIALIZE
-    ========================================================= */
-
 
     function initializeScanner() {
+      makeFilterState();
 
-      createFilterState();
+      buildTableHeader();
 
-      buildFilterRow();
+      bindPageEvents();
+
+      bindScrollbars();
 
       loadScannerData();
-
     }
 
-
-
-    initializeScanner();
-
-
-
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeScanner
+    );
   </script>
-
-
 </body>
-
 </html>
