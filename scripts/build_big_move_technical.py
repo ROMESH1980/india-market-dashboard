@@ -1515,21 +1515,36 @@ def classify_move_period(
 # =========================================================
 
 def calculate_retracement(
-    current_price,
-    start_price,
-    peak_price,
+    history,
+    move,
 ):
 
     if (
-        current_price is None
-        or
-        start_price is None
-        or
-        peak_price is None
+        not history
+        or not move
     ):
 
         return None
 
+    start_price = safe_float(
+        move.get("startPrice")
+    )
+
+    peak_price = safe_float(
+        move.get("peakPrice")
+    )
+
+    peak_index = move.get(
+        "peakIndex"
+    )
+
+    if (
+        start_price is None
+        or peak_price is None
+        or peak_index is None
+    ):
+
+        return None
 
     move_range = (
         peak_price
@@ -1537,17 +1552,51 @@ def calculate_retracement(
         start_price
     )
 
-
     if move_range <= 0:
 
         return None
 
+    # Measure the actual base pullback AFTER the prior peak.
+    # Exclude the current session so breakout-day intraday action
+    # does not rewrite the completed base retracement.
+    post_peak_rows = history[
+        peak_index + 1:
+        -1
+    ]
+
+    if not post_peak_rows:
+
+        return 0.0
+
+    post_peak_lows = [
+        safe_float(
+            row.get("low")
+        )
+        for row in post_peak_rows
+    ]
+
+    post_peak_lows = [
+        value
+        for value in post_peak_lows
+        if (
+            value is not None
+            and value > 0
+        )
+    ]
+
+    if not post_peak_lows:
+
+        return None
+
+    base_low = min(
+        post_peak_lows
+    )
 
     retracement = (
         (
             peak_price
             -
-            current_price
+            base_low
         )
         /
         move_range
@@ -1555,11 +1604,9 @@ def calculate_retracement(
         100
     )
 
-
-    # Above old peak = zero retracement / breakout.
     if retracement < 0:
-        retracement = 0
 
+        retracement = 0
 
     return clamp(
         retracement,
@@ -2764,17 +2811,8 @@ def analyze_stock(
 
     retracement = (
         calculate_retracement(
-
-            current_price,
-
-            move[
-                "startPrice"
-            ],
-
-            move[
-                "peakPrice"
-            ],
-
+            history,
+            move,
         )
     )
 
@@ -3626,8 +3664,9 @@ def main():
 
         "retracement":
             (
-                "(Prior Peak - Current Price) / "
-                "(Prior Peak - Move Start Price) × 100"
+                "(Prior Peak - Lowest Post-Peak Base Low) / "
+                "(Prior Peak - Move Start Price) × 100. "
+                "Current session is excluded."
             ),
 
         "retracementInterpretation": {
