@@ -204,7 +204,7 @@
       "date": "2026-09-18",
       "universeSize": 100,
       "daily": 75,
-      "weekly": 50,
+      "weekly": 48,
       "monthly": 85,
       "overall": 72,
       "dailySignal": {
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 99,
-          "positiveBreadthPct": 49.49,
-          "medianReturnPct": -0.01,
-          "returnStrengthScore": 49.96
+          "positiveBreadthPct": 48.48,
+          "medianReturnPct": -0.66,
+          "returnStrengthScore": 46.68
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 99,
           "positiveBreadthPct": 76.77,
-          "medianReturnPct": 19.13,
-          "returnStrengthScore": 97.82
+          "medianReturnPct": 18.97,
+          "returnStrengthScore": 97.42
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-19T15:36:32.078337+00:00"
+  "marketRegimeGeneratedAt": "2026-09-19T15:58:55.671216+00:00"
 }

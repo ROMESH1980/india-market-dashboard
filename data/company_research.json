@@ -2108,7 +2108,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 1.19× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
+          "sourceDate": "2026-09-19",
           "mode": "AUTOMATED"
         }
       },
@@ -2118,7 +2118,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "BAJAJ-AUTO": {
       "tailwindScore": 80.0,
@@ -27809,7 +27809,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 0.16× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
+          "sourceDate": "2026-09-19",
           "mode": "AUTOMATED"
         }
       },
@@ -27819,7 +27819,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "AVANCE": {
       "tailwindScore": 75.0,
@@ -27936,7 +27936,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "AVG": {
       "tailwindScore": 80.0,
