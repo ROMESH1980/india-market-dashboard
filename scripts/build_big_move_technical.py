@@ -1793,9 +1793,10 @@ def calculate_volatility_contraction(
     move,
 ):
 
-    if len(
-        history
-    ) < 20:
+    if (
+        not history
+        or not move
+    ):
 
         return (
             None,
@@ -1803,19 +1804,43 @@ def calculate_volatility_contraction(
         )
 
 
-    base_rows = (
-        history[
-            max(
-                0,
-                len(history)
-                -
-                BASE_WINDOW
-                -
-                1
-            ):
-            -1
-        ]
+    start_index = move.get(
+        "startIndex"
     )
+
+    peak_index = move.get(
+        "peakIndex"
+    )
+
+
+    if (
+        start_index is None
+        or peak_index is None
+    ):
+
+        return (
+            None,
+            None,
+        )
+
+
+    # Use the ACTUAL detected consolidation/base period.
+    #
+    # Exclude the prior peak day and the current/breakout day.
+    # This keeps volatility contraction aligned with
+    # Retracement %, Consolidation Days and Volume Contraction.
+    base_rows = history[
+        peak_index + 1:
+        -1
+    ]
+
+
+    if not base_rows:
+
+        return (
+            None,
+            None,
+        )
 
 
     base_range = mean(
@@ -1829,18 +1854,20 @@ def calculate_volatility_contraction(
     )
 
 
-    move_rows = (
-        history[
-            move[
-                "startIndex"
-            ]:
-            move[
-                "peakIndex"
-            ]
-            +
-            1
-        ]
-    )
+    # Prior-move volatility is measured from the detected
+    # move start through the prior peak.
+    move_rows = history[
+        start_index:
+        peak_index + 1
+    ]
+
+
+    if not move_rows:
+
+        return (
+            None,
+            None,
+        )
 
 
     move_range = mean(
