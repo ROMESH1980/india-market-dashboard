@@ -993,6 +993,122 @@ td:nth-child(21) {
   }
 }
 
+  
+/* =========================================================
+   FINAL DENSE ROWS + TOP PAGINATION + GO TO PAGE
+   ========================================================= */
+
+.pagination {
+  padding: 5px 8px !important;
+  margin-bottom: 6px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  background: var(--panel) !important;
+  min-height: 38px !important;
+}
+
+.pagination-controls {
+  gap: 6px !important;
+}
+
+.pagination .btn {
+  padding: 5px 9px !important;
+}
+
+.pagination-info,
+#pageNumberLabel {
+  font-size: 12px !important;
+  white-space: nowrap !important;
+}
+
+.goto-page {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: var(--muted) !important;
+  font-size: 11px !important;
+  white-space: nowrap !important;
+}
+
+#goToPageInput {
+  width: 48px !important;
+  height: 27px !important;
+  padding: 3px 5px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  background: #091426 !important;
+  color: var(--text) !important;
+  text-align: center !important;
+  outline: none !important;
+}
+
+.goto-btn {
+  min-width: 34px !important;
+}
+
+/* Smaller header/filter area */
+#scannerTable thead th {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  line-height: 1.05 !important;
+}
+
+#scannerTable .filter-box {
+  margin-top: 3px !important;
+  gap: 1px !important;
+}
+
+#scannerTable .filter-box label {
+  line-height: 1 !important;
+}
+
+#scannerTable .filter-box input[type="number"],
+#scannerTable .filter-box select.operator,
+#scannerTable .filter-box select.sort-select {
+  height: 23px !important;
+}
+
+/* Dense body: roughly twice as many stocks visible */
+#scannerTable tbody tr {
+  height: 30px !important;
+}
+
+#scannerTable tbody td {
+  height: 30px !important;
+  min-height: 30px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  line-height: 1.05 !important;
+}
+
+#scannerTable .badge {
+  padding: 2px 5px !important;
+  line-height: 1 !important;
+}
+
+#scannerTable .free-float-green {
+  padding: 2px 5px !important;
+}
+
+/* Pagination is now above table, so table gets more viewport height */
+.table-wrap {
+  max-height: calc(100vh - 205px) !important;
+}
+
+@media (max-width: 900px) {
+  .pagination {
+    gap: 5px !important;
+  }
+
+  .pagination-controls {
+    flex-wrap: wrap !important;
+  }
+
+  .table-wrap {
+    max-height: calc(100vh - 250px) !important;
+  }
+}
+
   </style>
 </head>
 
@@ -1047,6 +1163,41 @@ td:nth-child(21) {
       </div>
     </section>
 
+
+
+      <div class="pagination">
+        <div class="pagination-info" id="paginationInfo">
+          —
+        </div>
+
+        <div class="pagination-controls">
+          <button class="btn" id="prevPageBtn" type="button">
+            Previous
+          </button>
+
+          <span id="pageNumberLabel">Page 1</span>
+
+          <div class="goto-page">
+            <span>Go to</span>
+            <input
+              id="goToPageInput"
+              type="number"
+              min="1"
+              step="1"
+              inputmode="numeric"
+              aria-label="Go to page number"
+            />
+            <button class="btn goto-btn" id="goToPageBtn" type="button">
+              Go
+            </button>
+          </div>
+
+          <button class="btn" id="nextPageBtn" type="button">
+            Next
+          </button>
+        </div>
+      </div>
+
     <section class="table-shell">
       <div class="top-scroll" id="topScroll">
         <div class="top-scroll-inner" id="topScrollInner"></div>
@@ -1064,24 +1215,6 @@ td:nth-child(21) {
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="pagination">
-        <div class="pagination-info" id="paginationInfo">
-          —
-        </div>
-
-        <div class="pagination-controls">
-          <button class="btn" id="prevPageBtn" type="button">
-            Previous
-          </button>
-
-          <span id="pageNumberLabel">Page 1</span>
-
-          <button class="btn" id="nextPageBtn" type="button">
-            Next
-          </button>
-        </div>
       </div>
     </section>
   </div>
@@ -2428,6 +2561,16 @@ td:nth-child(21) {
       $("pageNumberLabel").textContent =
         `Page ${currentPage} / ${totalPages}`;
 
+      const goToInput = $("goToPageInput");
+
+      if (goToInput) {
+        goToInput.max = String(totalPages);
+
+        if (document.activeElement !== goToInput) {
+          goToInput.value = String(currentPage);
+        }
+      }
+
       $("prevPageBtn").disabled =
         currentPage <= 1;
 
@@ -2977,6 +3120,36 @@ td:nth-child(21) {
       );
     }
 
+
+    function goToRequestedPage() {
+      const input = $("goToPageInput");
+
+      if (!input) {
+        return;
+      }
+
+      const requested = Number(input.value);
+
+      const totalPages = Math.max(
+        1,
+        Math.ceil(filteredRows.length / pageSize)
+      );
+
+      if (!Number.isInteger(requested) || requested < 1) {
+        input.value = "";
+        input.focus();
+        return;
+      }
+
+      currentPage = Math.min(requested, totalPages);
+      input.value = currentPage;
+
+      renderTable();
+      renderPagination();
+
+      $("tableWrap").scrollTop = 0;
+    }
+
     function bindPageEvents() {
       $("searchInput").addEventListener(
         "input",
@@ -3011,6 +3184,20 @@ td:nth-child(21) {
 
           currentPage = 1;
           applyFiltersAndRender();
+        }
+      );
+
+      $("goToPageBtn").addEventListener(
+        "click",
+        goToRequestedPage
+      );
+
+      $("goToPageInput").addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Enter") {
+            goToRequestedPage();
+          }
         }
       );
 
