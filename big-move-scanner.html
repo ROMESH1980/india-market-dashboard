@@ -708,13 +708,6 @@ td:nth-child(21) {
   width: 125px;
 }
 
-/* Missing Conditions */
-th:nth-child(22),
-td:nth-child(22) {
-  min-width: 145px;
-  width: 145px;
-}
-
 /* Filter ko bhi compact rakho */
 .filter-box {
   min-width: 0;
@@ -759,6 +752,247 @@ td:nth-child(22) {
   min-width: 0;
   padding: 4px 5px;
 }
+  
+/* =========================================================
+   FINAL PAGE-2 LAYOUT
+   Compact Page-1 style top + frozen Stock + squeezed columns
+   ========================================================= */
+
+.page {
+  padding: 12px 16px !important;
+}
+
+.topbar {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 10px 16px !important;
+  margin-bottom: 10px !important;
+}
+
+.brand-wrap {
+  gap: 3px !important;
+}
+
+.brand {
+  font-size: 24px !important;
+  line-height: 1.05 !important;
+}
+
+.subtitle {
+  font-size: 12px !important;
+}
+
+.nav {
+  gap: 7px !important;
+}
+
+.nav a,
+.nav span {
+  padding: 7px 11px !important;
+  border-radius: 7px !important;
+  font-size: 12px !important;
+}
+
+.toolbar {
+  padding: 7px 8px !important;
+  margin-bottom: 8px !important;
+  border-radius: 8px !important;
+  gap: 8px !important;
+}
+
+.search-input,
+.page-size-select {
+  padding: 6px 8px !important;
+}
+
+.search-input {
+  width: 245px !important;
+}
+
+.btn {
+  padding: 6px 10px !important;
+}
+
+.market-date {
+  font-size: 12px !important;
+}
+
+/* More vertical room because summary cards are removed */
+.table-wrap {
+  max-height: calc(100vh - 190px) !important;
+}
+
+/* Use only required horizontal width */
+#scannerTable {
+  width: max-content !important;
+  min-width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+/* Compact header/body */
+#scannerTable thead th {
+  padding: 5px 4px !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  white-space: nowrap !important;
+}
+
+#scannerTable tbody tr {
+  height: 42px !important;
+}
+
+#scannerTable tbody td {
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 4px 5px !important;
+  line-height: 1.12 !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* All numeric cells centered */
+#scannerTable .number {
+  text-align: center !important;
+}
+
+/* Freeze Stock column */
+#scannerTable th:first-child,
+#scannerTable td:first-child {
+  position: sticky !important;
+  left: 0 !important;
+  min-width: 112px !important;
+  width: 112px !important;
+  max-width: 112px !important;
+  text-align: left !important;
+  background: #0b1a2b !important;
+  border-right: 1px solid #334155 !important;
+}
+
+#scannerTable thead th:first-child {
+  z-index: 30 !important;
+  background: #122036 !important;
+}
+
+#scannerTable tbody td:first-child {
+  z-index: 12 !important;
+}
+
+#scannerTable tbody tr:hover td:first-child {
+  background: #101d30 !important;
+}
+
+/* Squeezed widths: 21 visible columns */
+#scannerTable th:nth-child(2), #scannerTable td:nth-child(2)   { min-width: 88px !important; width: 88px !important; }
+#scannerTable th:nth-child(3), #scannerTable td:nth-child(3)   { min-width: 86px !important; width: 86px !important; }
+#scannerTable th:nth-child(4), #scannerTable td:nth-child(4)   { min-width: 66px !important; width: 66px !important; }
+#scannerTable th:nth-child(5), #scannerTable td:nth-child(5),
+#scannerTable th:nth-child(6), #scannerTable td:nth-child(6),
+#scannerTable th:nth-child(7), #scannerTable td:nth-child(7),
+#scannerTable th:nth-child(8), #scannerTable td:nth-child(8)   { min-width: 66px !important; width: 66px !important; }
+#scannerTable th:nth-child(9), #scannerTable td:nth-child(9)   { min-width: 58px !important; width: 58px !important; }
+#scannerTable th:nth-child(10), #scannerTable td:nth-child(10) { min-width: 90px !important; width: 90px !important; }
+#scannerTable th:nth-child(11), #scannerTable td:nth-child(11) { min-width: 86px !important; width: 86px !important; }
+#scannerTable th:nth-child(12), #scannerTable td:nth-child(12) { min-width: 96px !important; width: 96px !important; }
+#scannerTable th:nth-child(13), #scannerTable td:nth-child(13) { min-width: 82px !important; width: 82px !important; }
+#scannerTable th:nth-child(14), #scannerTable td:nth-child(14) { min-width: 82px !important; width: 82px !important; }
+#scannerTable th:nth-child(15), #scannerTable td:nth-child(15) { min-width: 92px !important; width: 92px !important; }
+#scannerTable th:nth-child(16), #scannerTable td:nth-child(16) { min-width: 100px !important; width: 100px !important; }
+#scannerTable th:nth-child(17), #scannerTable td:nth-child(17) { min-width: 104px !important; width: 104px !important; }
+#scannerTable th:nth-child(18), #scannerTable td:nth-child(18) { min-width: 96px !important; width: 96px !important; }
+#scannerTable th:nth-child(19), #scannerTable td:nth-child(19) { min-width: 98px !important; width: 98px !important; }
+#scannerTable th:nth-child(20), #scannerTable td:nth-child(20) { min-width: 118px !important; width: 118px !important; }
+#scannerTable th:nth-child(21), #scannerTable td:nth-child(21) {
+  min-width: 150px !important;
+  width: 150px !important;
+  max-width: 150px !important;
+}
+
+/* Trigger text may wrap without making all other columns wide */
+#scannerTable td:nth-child(20),
+#scannerTable td:nth-child(21) {
+  white-space: normal !important;
+  line-height: 1.15 !important;
+}
+
+/* Compact filters */
+#scannerTable .filter-box {
+  min-width: 0 !important;
+  width: 100% !important;
+  gap: 2px !important;
+  margin-top: 4px !important;
+}
+
+#scannerTable .filter-line {
+  justify-content: center !important;
+  gap: 2px !important;
+}
+
+#scannerTable .filter-box label {
+  justify-content: center !important;
+  font-size: 9px !important;
+}
+
+#scannerTable .filter-box input[type="number"] {
+  width: 50px !important;
+  padding: 2px 3px !important;
+  font-size: 10px !important;
+}
+
+#scannerTable .filter-box select.operator {
+  width: 37px !important;
+  padding: 2px !important;
+  font-size: 10px !important;
+}
+
+#scannerTable .filter-box select.sort-select {
+  width: 76px !important;
+  padding: 2px !important;
+  font-size: 9px !important;
+  margin: 0 auto !important;
+}
+
+/* Center badges/content except Stock */
+#scannerTable tbody td:not(:first-child) > * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#scannerTable tbody td:first-child > * {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Smaller badges */
+#scannerTable .badge {
+  padding: 3px 5px !important;
+  font-size: 9px !important;
+}
+
+#scannerTable .free-float-green {
+  min-width: 0 !important;
+  padding: 3px 5px !important;
+}
+
+/* Top scrollbar exactly follows table width */
+.top-scroll-inner {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    grid-template-columns: 1fr !important;
+  }
+
+  .table-wrap {
+    max-height: calc(100vh - 235px) !important;
+  }
+}
+
   </style>
 </head>
 
@@ -779,34 +1013,6 @@ td:nth-child(22) {
         <span class="disabled">Industry Heat Map</span>
       </nav>
     </div>
-
-    <section class="summary-grid">
-      <div class="summary-card">
-        <div class="summary-label">Scanner Universe</div>
-        <div class="summary-value" id="summaryUniverse">—</div>
-      </div>
-
-      <div class="summary-card">
-        <div class="summary-label">Score ≥ 80</div>
-        <div class="summary-value" id="summaryScore80">—</div>
-      </div>
-
-      <div class="summary-card">
-        <div class="summary-label">Near Breakout</div>
-        <div class="summary-value" id="summaryNearBreakout">—</div>
-      </div>
-
-      <div class="summary-card">
-        <div class="summary-label">RS ≥ 80</div>
-        <div class="summary-value" id="summaryRS80">—</div>
-      </div>
-
-      <div class="summary-card">
-        <div class="summary-label">Free Float ≤ ₹5,000 Cr</div>
-        <div class="summary-value" id="summaryFreeFloat5000">—</div>
-      </div>
-    </section>
-
     <section class="toolbar">
       <div class="toolbar-left">
         <input
@@ -854,7 +1060,7 @@ td:nth-child(22) {
 
           <tbody id="tableBody">
             <tr class="loading-row">
-              <td colspan="22">Loading Big Move Scanner...</td>
+              <td colspan="21">Loading Big Move Scanner...</td>
             </tr>
           </tbody>
         </table>
@@ -1038,12 +1244,6 @@ td:nth-child(22) {
       {
         field: "keyTrigger",
         label: "Key Trigger",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "missingConditions",
-        label: "Missing Conditions",
         type: "text",
         filterable: false
       }
@@ -1505,8 +1705,7 @@ td:nth-child(22) {
         turnoverExpansion: getTurnoverExpansion(row),
 
         fundamentalTrigger: getFundamentalTrigger(row),
-        keyTrigger: getKeyTrigger(row),
-        missingConditions: getMissingConditions(row)
+        keyTrigger: getKeyTrigger(row)
       };
     }
 
@@ -1783,8 +1982,7 @@ td:nth-child(22) {
             row.setupStatus,
             row.breakoutStatus,
             row.fundamentalTrigger,
-            row.keyTrigger,
-            row.missingConditions
+            row.keyTrigger
           ]
             .filter(Boolean)
             .join(" ")
@@ -2055,7 +2253,7 @@ td:nth-child(22) {
       if (!filteredRows.length) {
         body.innerHTML = `
           <tr class="empty-row">
-            <td colspan="22">
+            <td colspan="21">
               No stocks match the current filters.
             </td>
           </tr>
@@ -2173,10 +2371,6 @@ td:nth-child(22) {
               <td class="trigger-cell">
                 ${textOrDash(row.keyTrigger)}
               </td>
-
-              <td class="missing">
-                ${textOrDash(row.missingConditions)}
-              </td>
             </tr>
           `;
         })
@@ -2239,52 +2433,6 @@ td:nth-child(22) {
 
       $("nextPageBtn").disabled =
         currentPage >= totalPages;
-    }
-
-    function updateSummaryCards() {
-      const universe = allRows.length;
-
-      const score80 = allRows.filter((row) => {
-        const value = toNumber(row.bigMoveScore);
-        return value !== null && value >= 80;
-      }).length;
-
-      const nearBreakout = allRows.filter((row) => {
-        const value = normalizeText(
-          row.breakoutStatus
-        ).toLowerCase();
-
-        return value.includes("near");
-      }).length;
-
-      const rs80 = allRows.filter((row) => {
-        const value = toNumber(row.rsRating);
-        return value !== null && value >= 80;
-      }).length;
-
-      const freeFloat5000 = allRows.filter((row) => {
-        const value = toNumber(row.freeFloatCr);
-
-        return (
-          value !== null &&
-          value <= 5000
-        );
-      }).length;
-
-      $("summaryUniverse").textContent =
-        universe.toLocaleString("en-IN");
-
-      $("summaryScore80").textContent =
-        score80.toLocaleString("en-IN");
-
-      $("summaryNearBreakout").textContent =
-        nearBreakout.toLocaleString("en-IN");
-
-      $("summaryRS80").textContent =
-        rs80.toLocaleString("en-IN");
-
-      $("summaryFreeFloat5000").textContent =
-        freeFloat5000.toLocaleString("en-IN");
     }
 
     function detailItem(label, value) {
@@ -2453,10 +2601,6 @@ td:nth-child(22) {
             detailItem(
               "Key Trigger",
               textOrDash(row.keyTrigger)
-            ),
-            detailItem(
-              "Missing Conditions",
-              textOrDash(row.missingConditions)
             )
           ]
         )
@@ -2691,8 +2835,7 @@ td:nth-child(22) {
         "Breakout Status",
         "Turnover Expansion",
         "Fundamental Trigger",
-        "Key Trigger",
-        "Missing Conditions"
+        "Key Trigger"
       ];
 
       const csvRows = [
@@ -2722,8 +2865,7 @@ td:nth-child(22) {
           row.breakoutStatus,
           row.turnoverExpansion,
           row.fundamentalTrigger,
-          row.keyTrigger,
-          row.missingConditions
+          row.keyTrigger
         ];
 
         csvRows.push(
@@ -2944,18 +3086,12 @@ td:nth-child(22) {
 
       $("tableBody").innerHTML = `
         <tr class="empty-row">
-          <td colspan="22">
+          <td colspan="21">
             Big Move Scanner data load nahi ho saka.
             Please check data/big_move_scanner.json
           </td>
         </tr>
       `;
-
-      $("summaryUniverse").textContent = "—";
-      $("summaryScore80").textContent = "—";
-      $("summaryNearBreakout").textContent = "—";
-      $("summaryRS80").textContent = "—";
-      $("summaryFreeFloat5000").textContent = "—";
 
       $("marketDateLabel").textContent =
         "Market Date: —";
@@ -3020,7 +3156,6 @@ td:nth-child(22) {
             ? `Market Date: ${marketDate}`
             : "Market Date: —";
 
-        updateSummaryCards();
 
         currentPage = 1;
 
