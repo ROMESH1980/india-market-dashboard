@@ -1682,66 +1682,75 @@ def calculate_volume_contraction(
     move,
 ):
 
-    if len(
-        history
-    ) < 15:
+    if (
+        not history
+        or not move
+    ):
 
         return (
             None,
             None,
         )
 
-
-    # Exclude current session so breakout-day volume does not
-    # destroy the base-contraction reading.
-    base_rows = (
-        history[
-            max(
-                0,
-                len(history)
-                -
-                BASE_WINDOW
-                -
-                1
-            ):
-            -1
-        ]
+    start_index = move.get(
+        "startIndex"
     )
 
+    peak_index = move.get(
+        "peakIndex"
+    )
+
+    if (
+        start_index is None
+        or peak_index is None
+    ):
+
+        return (
+            None,
+            None,
+        )
+
+    # Actual detected consolidation/base period.
+    # Exclude prior peak day and current/breakout day.
+    base_rows = history[
+        peak_index + 1:
+        -1
+    ]
+
+    if not base_rows:
+
+        return (
+            None,
+            None,
+        )
 
     base_avg = mean(
         [
-            row.get(
-                "volume"
-            )
+            row.get("volume")
             for row in base_rows
         ]
     )
 
+    # Average volume during the detected prior move,
+    # including move start and prior peak.
+    move_rows = history[
+        start_index:
+        peak_index + 1
+    ]
 
-    move_rows = (
-        history[
-            move[
-                "startIndex"
-            ]:
-            move[
-                "peakIndex"
-            ]
-            +
-            1
-        ]
-    )
+    if not move_rows:
 
+        return (
+            None,
+            None,
+        )
 
     move_avg = mean(
         [
-            row.get(
-                "volume"
-            )
+            row.get("volume")
             for row in move_rows
         ]
     )
-
 
     if (
         base_avg is None
@@ -1757,20 +1766,17 @@ def calculate_volume_contraction(
             None,
         )
 
-
     ratio = (
         base_avg
         /
         move_avg
     )
 
-
     contraction = (
         ratio
         <=
         0.75
     )
-
 
     return (
         contraction,
@@ -3756,8 +3762,9 @@ def main():
 
         "volumeContraction":
             (
-                "Recent base average volume <=75% "
-                "of prior move average volume."
+                "Actual completed post-peak base average volume <=75% "
+                "of prior move average volume. Prior peak day and "
+                "current/breakout day are excluded from the base."
             ),
 
         "volatilityContraction":
