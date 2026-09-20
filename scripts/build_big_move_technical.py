@@ -2359,109 +2359,74 @@ def setup_status(
     breakout_status,
 ):
 
-    prior_move = safe_float(
-        prior_move
-    )
-
-    retracement = safe_float(
-        retracement
-    )
-
-    consolidation_days = safe_float(
-        consolidation_days
-    )
-
+    prior_move = safe_float(prior_move)
+    retracement = safe_float(retracement)
+    consolidation_days = safe_float(consolidation_days)
 
     if (
         prior_move is None
-        or
-        prior_move
-        <
-        MIN_PRIOR_MOVE_PCT
+        or prior_move < MIN_PRIOR_MOVE_PCT
     ):
-
         return "Developing"
-
 
     breakout_text = str(
-        breakout_status
-        or ""
+        breakout_status or ""
     ).lower()
 
+    healthy_retracement = (
+        retracement is not None
+        and 0 <= retracement <= 50
+    )
 
-    if (
-        "breakout confirmed"
-        in breakout_text
-    ):
+    enough_base = (
+        consolidation_days is not None
+        and consolidation_days >= 5
+    )
 
-        if score >= 65:
+    contraction_ready = (
+        volume_contraction is True
+        and volatility_contraction is True
+    )
 
-            return "Breakout"
-
-        return "Developing"
-
-
-    if (
-        "near breakout"
-        in breakout_text
-    ):
+    # Confirmed breakout must come from a healthy,
+    # completed and contracted base.
+    if "breakout confirmed" in breakout_text:
 
         if (
             score >= 65
-            and
-            volume_contraction
-            is True
-            and
-            volatility_contraction
-            is True
+            and healthy_retracement
+            and enough_base
+            and contraction_ready
         ):
+            return "Breakout"
 
+        if score >= 60:
+            return "Watchlist"
+
+        return "Developing"
+
+    # Near breakout uses the same base-quality gates.
+    if "near breakout" in breakout_text:
+
+        if (
+            score >= 65
+            and healthy_retracement
+            and enough_base
+            and contraction_ready
+        ):
             return "Near Breakout"
 
-
-    healthy_retracement = (
-        retracement
-        is not None
-        and
-        0
-        <=
-        retracement
-        <=
-        50
-    )
-
-
-    enough_base = (
-        consolidation_days
-        is not None
-        and
-        consolidation_days
-        >=
-        5
-    )
-
-
+    # Strong setup requires high score plus base quality.
     if (
         score >= 75
-        and
-        healthy_retracement
-        and
-        enough_base
-        and
-        volume_contraction
-        is True
-        and
-        volatility_contraction
-        is True
+        and healthy_retracement
+        and enough_base
+        and contraction_ready
     ):
-
         return "Strong Setup"
 
-
     if score >= 60:
-
         return "Watchlist"
-
 
     return "Developing"
 
