@@ -259,6 +259,76 @@ def positive_flag(value):
     return None
 
 
+# =========================================================
+# STRUCTURAL TRIGGERS
+# =========================================================
+STRUCTURAL_TRIGGER_RULES = [
+    ("Government / Regulation", ["government","regulation","regulatory","policy","scheme","pli","rera","subsidy","incentive","mandate","tariff","duty","government order","government spending"]),
+    ("Technology / Disruption", ["technology","technological","disruption","digital","artificial intelligence"," ai ","automation","robotics","electric vehicle"," ev ","5g","semiconductor","cloud","data center","digitisation","digitalisation"]),
+    ("Global / Supply Chain", ["china+1","china plus one","supply chain","supply-chain","global sourcing","export opportunity","import substitution","friendshoring","reshoring","global shift","us sourcing","europe sourcing"]),
+    ("Consumer Shift", ["premiumization","premiumisation","consumer shift","consumer habit","income growth","discretionary spending","formalization","formalisation","sip culture","financialization","financialisation","urbanisation","urbanization"]),
+    ("Industry Consolidation", ["industry consolidation","market consolidation","competitor exit","competitor exits","market share gain","market-share gain","share gain","organized players","organised players","weak competitor"]),
+    ("Raw Material Cycle", ["raw material","raw-material","commodity cycle","metal cycle","metal prices","crude oil","crude price","oil price","input cost","input costs","feedstock"]),
+    ("External Shock", ["covid","pandemic","external shock","geopolitical shock","geopolitical crisis","war disruption","supply disruption","natural disaster","lockdown"]),
+]
+
+def _flatten_research_text(value, parts):
+    if value is None:
+        return
+    if isinstance(value, dict):
+        for key, item in value.items():
+            k=str(key).lower()
+            if "url" in k or k in {"link","href"}:
+                continue
+            _flatten_research_text(item, parts)
+        return
+    if isinstance(value, (list, tuple, set)):
+        for item in value:
+            _flatten_research_text(item, parts)
+        return
+    if isinstance(value, str) and value.strip():
+        parts.append(value.strip())
+
+def structural_evidence_text(row):
+    parts=[]
+    fields=[
+        "researchReasons","researchEvidence","evidence","reasons","reason",
+        "tailwindReason","macroReason","valueMigrationReason","futureGrowthReason",
+        "fundamentalReason","capexReason","tailwindEvidence","macroEvidence",
+        "valueMigrationEvidence","futureGrowthEvidence","fundamentalEvidence",
+        "capexEvidence","triggerReason","triggerReasons","keyTriggerReason",
+        "businessTriggerReason","structuralTriggerReason","structuralTriggerReasons",
+    ]
+    for field in fields:
+        _flatten_research_text(row.get(field), parts)
+    for key,value in row.items():
+        kl=str(key).lower()
+        if key in fields:
+            continue
+        if "reason" in kl or "evidence" in kl:
+            _flatten_research_text(value, parts)
+    return " ".join(parts).lower()
+
+def detect_structural_triggers(row):
+    haystack=structural_evidence_text(row)
+    if not haystack:
+        return []
+    padded=f" {haystack} "
+    return [
+        name for name,keywords in STRUCTURAL_TRIGGER_RULES
+        if any(keyword in padded for keyword in keywords)
+    ]
+
+def merge_unique_triggers(*groups):
+    out=[]
+    seen=set()
+    for group in groups:
+        for item in group or []:
+            if item not in seen:
+                seen.add(item)
+                out.append(item)
+    return out
+
 def detect_triggers(row):
     """
     Build trigger list from existing research fields.
@@ -869,12 +939,23 @@ def build_scanner_row(stock):
         )
     )
 
-    triggers = detect_triggers(
+    business_triggers = detect_triggers(
         stock
     )
 
-    key_trigger = choose_key_trigger(
-        triggers
+    structural_triggers = detect_structural_triggers(
+        stock
+    )
+
+    triggers = merge_unique_triggers(
+        business_triggers,
+        structural_triggers,
+    )
+
+    key_trigger = (
+        " • ".join(triggers)
+        if triggers
+        else None
     )
 
     phase1_score = calculate_phase1_score(
@@ -885,7 +966,7 @@ def build_scanner_row(stock):
         return_3m=return_3m,
         return_6m=return_6m,
         return_1y=return_1y,
-        triggers=triggers,
+        triggers=business_triggers,
     )
 
     setup_status = preliminary_status(
@@ -1067,6 +1148,12 @@ def build_scanner_row(stock):
 
         "fundamentalTriggers":
             triggers,
+
+        "businessTriggers":
+            business_triggers,
+
+        "structuralTriggers":
+            structural_triggers,
 
         "keyTrigger":
             key_trigger,
