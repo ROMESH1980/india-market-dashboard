@@ -1109,6 +1109,68 @@ td:nth-child(21) {
   }
 }
 
+  
+/* =========================================================
+   ULTRA-COMPACT BODY ROWS
+   Force ~10 visible stock rows on desktop
+   ========================================================= */
+
+#scannerTable tbody tr:not(.loading-row):not(.empty-row) {
+  height: 27px !important;
+  min-height: 27px !important;
+  max-height: 27px !important;
+}
+
+#scannerTable tbody tr:not(.loading-row):not(.empty-row) > td {
+  height: 27px !important;
+  min-height: 0 !important;
+  max-height: 27px !important;
+  padding: 0 4px !important;
+  line-height: 1 !important;
+  font-size: 12px !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+}
+
+#scannerTable tbody tr:not(.loading-row):not(.empty-row) > td > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#scannerTable tbody .stock-link {
+  line-height: 1 !important;
+  font-size: 12px !important;
+}
+
+#scannerTable tbody .badge {
+  padding: 1px 4px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+}
+
+#scannerTable tbody .free-float-green {
+  padding: 1px 4px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  line-height: 1 !important;
+}
+
+/* Do not reserve excessive blank space below visible rows */
+.table-wrap {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: calc(100vh - 205px) !important;
+}
+
+/* Keep the two trigger text columns compact too */
+#scannerTable tbody td:nth-child(20),
+#scannerTable tbody td:nth-child(21) {
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
   </style>
 </head>
 
