@@ -15868,5 +15868,10 @@
     "sector": "Real Estate",
     "industry": "Real Estate - Diversified",
     "source": "Yahoo Finance"
+  },
+  "MANIKA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "source": "Yahoo Finance"
   }
 }

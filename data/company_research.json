@@ -27965,7 +27965,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 1.51× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-20",
+          "sourceDate": "2026-09-21",
           "mode": "AUTOMATED"
         }
       },
@@ -28004,7 +28004,7 @@
         "capex": {
           "reason": "Automated screening proxy: capital expenditure is 1.28× operating cash flow.",
           "source": "methodology.html#capex",
-          "sourceDate": "2026-09-20",
+          "sourceDate": "2026-09-21",
           "mode": "AUTOMATED"
         }
       },
@@ -100993,6 +100993,45 @@
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-09-21",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-09-21",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-09-21",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-09-21",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "MANIKA": {
+      "tailwindScore": 70.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
           "source": "methodology.html#tailwind",
           "sourceDate": "2026-09-21",
           "mode": "AUTOMATED"
