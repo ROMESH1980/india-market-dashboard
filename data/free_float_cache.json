@@ -40957,7 +40957,7 @@
   "SECL": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-15T10:37:18+00:00",
+    "cachedAt": "2026-09-21T10:36:29+00:00",
     "freeFloatEstimated": false
   },
   "PRANAV": {
@@ -40979,7 +40979,7 @@
   "RAJVIR": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-15T10:37:19+00:00",
+    "cachedAt": "2026-09-21T10:36:28+00:00",
     "freeFloatEstimated": false
   },
   "SELMC": {
@@ -41017,7 +41017,7 @@
   "SPELS": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-15T10:37:19+00:00",
+    "cachedAt": "2026-09-21T10:36:28+00:00",
     "freeFloatEstimated": false
   },
   "UNIVAFOODS": {
@@ -41126,6 +41126,12 @@
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
     "cachedAt": "2026-09-20T13:21:42+00:00",
+    "freeFloatEstimated": false
+  },
+  "MANIKA": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-21T10:36:28+00:00",
     "freeFloatEstimated": false
   }
 }
