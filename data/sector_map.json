@@ -15878,5 +15878,10 @@
     "sector": "Capital Goods",
     "industry": "Capital Goods",
     "source": "Nifty Indices"
+  },
+  "CENTEXT-RE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
