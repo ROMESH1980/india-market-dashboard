@@ -15873,5 +15873,10 @@
     "sector": "Consumer Cyclical",
     "industry": "Packaging & Containers",
     "source": "Yahoo Finance"
+  },
+  "HEGAM": {
+    "sector": "Capital Goods",
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
   }
 }
