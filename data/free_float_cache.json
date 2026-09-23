@@ -40161,7 +40161,7 @@
   "VRLLOG": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "VRAJ": {
@@ -40215,7 +40215,7 @@
   "VTMLTD": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WSI": {
@@ -40269,7 +40269,7 @@
   "WALPAR": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:17+00:00",
     "freeFloatEstimated": false
   },
   "WANBURY": {
@@ -40307,25 +40307,25 @@
   "WATERBASE": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:17+00:00",
     "freeFloatEstimated": false
   },
   "WEWIN": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:17+00:00",
     "freeFloatEstimated": false
   },
   "WARDINMOBI": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:17+00:00",
     "freeFloatEstimated": false
   },
   "VSTIND": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WEBELSOLAR": {
@@ -40347,7 +40347,7 @@
   "WELCORP": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WEIZMANIND": {
@@ -40369,13 +40369,13 @@
   "WEALTH": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:17+00:00",
     "freeFloatEstimated": false
   },
   "WELSPUNLIV": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WELENT": {
@@ -40429,7 +40429,7 @@
   "WESTLIFE": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WSTCSTPAPR": {
@@ -40451,13 +40451,13 @@
   "WCIL": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WHBRADY": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WHEELS": {
@@ -40559,7 +40559,7 @@
   "WOCKPHARMA": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WINSOL": {
@@ -40597,13 +40597,13 @@
   "WELSPLSOL": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:07+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WIPRO": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:18+00:00",
     "freeFloatEstimated": false
   },
   "WTICAB": {
@@ -40657,13 +40657,13 @@
   "WEL": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "WORTHPERI": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "WONDERLA": {
@@ -40747,15 +40747,25 @@
     "cachedAt": "2026-09-14T18:26:20+00:00"
   },
   "XTRANET": {
-    "status": "PENDING",
-    "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
-    "freeFloatEstimated": false
+    "status": "READY",
+    "publicShares": 13477830,
+    "publicHoldingPct": null,
+    "publicLockedShares": 10833430,
+    "freeFloatShares": 2644400,
+    "freeFloatPct": null,
+    "freeFloatDate": "29-JUL-2026",
+    "freeFloatSubmissionDate": "03-AUG-2026",
+    "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+    "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1726696_23092026113119_WEB.xml",
+    "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
+    "freeFloatMethodologyNote": "Filing-derived tradable public shares proxy. Not the NSE Indices official free-float factor.",
+    "freeFloatEstimated": false,
+    "cachedAt": "2026-09-23T15:33:19+00:00"
   },
   "YATHARTH": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "YAAP": {
@@ -40793,7 +40803,7 @@
   "YASHO": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "YCCL": {
@@ -40815,7 +40825,7 @@
   "YATRA": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "ZAGGLE": {
@@ -40853,7 +40863,7 @@
   "YUDIZ": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "YUKEN": {
@@ -40875,7 +40885,7 @@
   "WPIL": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:08+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "ZTECH": {
@@ -40913,13 +40923,13 @@
   "YOGI": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "ZEEL": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:19+00:00",
     "freeFloatEstimated": false
   },
   "ZEELEARN": {
@@ -40973,7 +40983,7 @@
   "ZENSARTECH": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:20+00:00",
     "freeFloatEstimated": false
   },
   "ZENITHSTL": {
@@ -41027,13 +41037,13 @@
   "ZFCVINDIA": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:20+00:00",
     "freeFloatEstimated": false
   },
   "ZFSTEERING": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:20+00:00",
     "freeFloatEstimated": false
   },
   "ZODIAC": {
@@ -41071,7 +41081,7 @@
   "ZYDUSLIFE": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:20+00:00",
     "freeFloatEstimated": false
   },
   "ZENITHDRUG": {
@@ -41125,7 +41135,7 @@
   "ZYDUSWELL": {
     "status": "PENDING",
     "reason": "Invalid tradable public share result",
-    "cachedAt": "2026-09-22T15:07:09+00:00",
+    "cachedAt": "2026-09-23T15:33:20+00:00",
     "freeFloatEstimated": false
   },
   "ZENITHEXPO": {
@@ -41137,7 +41147,7 @@
     "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/-",
     "reason": "XBRL download failed: 404 Client Error: Not Found for url: https://nsearchives.nseindia.com/corporate/xbrl/-",
     "freeFloatEstimated": false,
-    "cachedAt": "2026-09-22T15:07:10+00:00"
+    "cachedAt": "2026-09-23T15:33:21+00:00"
   },
   "CLCIND": {
     "status": "READY",

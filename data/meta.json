@@ -204,8 +204,8 @@
       "date": "2026-09-23",
       "universeSize": 100,
       "daily": 66,
-      "weekly": 54,
-      "monthly": 88,
+      "weekly": 55,
+      "monthly": 86,
       "overall": 73,
       "dailySignal": {
         "label": "Stocks Overweight",
@@ -213,9 +213,9 @@
         "emoji": "🟢"
       },
       "weeklySignal": {
-        "label": "Warning",
-        "signal": "warning",
-        "emoji": "🟡"
+        "label": "Selective Buying",
+        "signal": "selective",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Aggressive Stocks",
@@ -239,15 +239,15 @@
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 54.0,
-          "medianReturnPct": 0.66,
-          "returnStrengthScore": 53.3
+          "medianReturnPct": 1.37,
+          "returnStrengthScore": 56.85
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 80.0,
-          "medianReturnPct": 21.1,
-          "returnStrengthScore": 100
+          "positiveBreadthPct": 79.0,
+          "medianReturnPct": 18.22,
+          "returnStrengthScore": 95.54
         }
       },
       "proxy": true,
@@ -296,11 +296,11 @@
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         },
         "monthly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-23T15:10:45.586575+00:00"
+  "marketRegimeGeneratedAt": "2026-09-23T15:33:56.970374+00:00"
 }

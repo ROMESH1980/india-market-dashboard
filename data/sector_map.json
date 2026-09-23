@@ -15883,5 +15883,20 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "HEROMOTORS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "JSIPL": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "SSRETAIL": {
+    "sector": "Consumer Cyclical",
+    "industry": "Specialty Retail",
+    "source": "Yahoo Finance"
   }
 }
