@@ -1987,6 +1987,14 @@ def calculate_turnover_expansion(
 # BREAKOUT
 # =========================================================
 
+# BREAKOUT STATUS — VERIFIED / LOCKED
+# Current CLOSE is compared with detected PRIOR PEAK HIGH.
+# >= +0.5% above peak = Breakout Confirmed
+# >= -3.0% from peak = Near Breakout
+# >= -10.0% from peak = Base Building
+# below -10.0% = Below Trigger
+# Turnover Expansion remains a separate score component.
+
 def calculate_breakout(
     current_price,
     peak_price,
@@ -2432,209 +2440,6 @@ def setup_status(
 
 
 # =========================================================
-# MISSING CONDITIONS
-# =========================================================
-
-TECHNICAL_MISSING_NAMES = {
-
-    "Prior Move",
-    "Retracement",
-    "Consolidation",
-    "Volume Contraction",
-    "Volatility Contraction",
-    "Breakout Analysis",
-    "Turnover Expansion",
-
-}
-
-
-def rebuild_missing_conditions(
-    row,
-):
-
-    old_list = (
-        row.get(
-            "missingConditionsList"
-        )
-    )
-
-
-    if not isinstance(
-        old_list,
-        list,
-    ):
-
-        old_text = str(
-            row.get(
-                "missingConditions"
-            )
-            or ""
-        )
-
-
-        old_list = [
-
-            item.strip()
-
-            for item
-            in old_text.split(
-                "|"
-            )
-
-            if item.strip()
-            and
-            item.strip()
-            != "None"
-
-        ]
-
-
-    cleaned = [
-
-        item
-
-        for item
-        in old_list
-
-        if item
-        not in
-        TECHNICAL_MISSING_NAMES
-
-    ]
-
-
-    # Technical fields are now calculated only if data exists.
-
-    if (
-        safe_float(
-            row.get(
-                "priorMovePct"
-            )
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Prior Move"
-        )
-
-
-    if (
-        safe_float(
-            row.get(
-                "retracementPct"
-            )
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Retracement"
-        )
-
-
-    if (
-        safe_float(
-            row.get(
-                "consolidationDays"
-            )
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Consolidation"
-        )
-
-
-    if (
-        row.get(
-            "volumeContraction"
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Volume Contraction"
-        )
-
-
-    if (
-        row.get(
-            "volatilityContraction"
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Volatility Contraction"
-        )
-
-
-    breakout = str(
-        row.get(
-            "breakoutStatus"
-        )
-        or ""
-    )
-
-
-    if (
-        not breakout
-        or
-        breakout == "Pending"
-    ):
-
-        cleaned.append(
-            "Breakout Analysis"
-        )
-
-
-    if (
-        safe_float(
-            row.get(
-                "turnoverExpansion"
-            )
-        )
-        is None
-    ):
-
-        cleaned.append(
-            "Turnover Expansion"
-        )
-
-
-    # De-duplicate while preserving order.
-    final = []
-
-
-    for item in cleaned:
-
-        if item not in final:
-
-            final.append(
-                item
-            )
-
-
-    row[
-        "missingConditionsList"
-    ] = final
-
-
-    row[
-        "missingConditions"
-    ] = (
-        " | ".join(
-            final
-        )
-        if final
-        else
-        "None"
-    )
-
-
-# =========================================================
 # ANALYZE ONE STOCK
 # =========================================================
 
@@ -2746,9 +2551,6 @@ def analyze_stock(
             "technicalStatus"
         ] = "INSUFFICIENT_HISTORY"
 
-        rebuild_missing_conditions(
-            scanner_row
-        )
 
         return scanner_row
 
@@ -2844,9 +2646,6 @@ def analyze_stock(
             "setupStatus"
         ] = "Developing"
 
-        rebuild_missing_conditions(
-            scanner_row
-        )
 
         return scanner_row
 
@@ -3181,9 +2980,6 @@ def analyze_stock(
     }
 
 
-    rebuild_missing_conditions(
-        scanner_row
-    )
 
 
     return scanner_row
@@ -3579,9 +3375,6 @@ def main():
                 "technicalStatus"
             ] = "STOCK_NOT_FOUND"
 
-            rebuild_missing_conditions(
-                scanner_row
-            )
 
             updated_rows.append(
                 scanner_row
