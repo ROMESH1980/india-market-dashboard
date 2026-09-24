@@ -15898,5 +15898,20 @@
     "sector": "Consumer Cyclical",
     "industry": "Specialty Retail",
     "source": "Yahoo Finance"
+  },
+  "SONA": {
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "KHERIAAUTO": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "SPECTRAA": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
