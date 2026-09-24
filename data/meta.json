@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4284.1,
-          "fastMA": 4423.92,
-          "slowMA": 4347.69,
-          "momentumPct": -2.63,
-          "rsi14": 23.72,
-          "distanceFromHighPct": -8.15
+          "latest": 4290.6,
+          "fastMA": 4424.24,
+          "slowMA": 4347.82,
+          "momentumPct": -2.48,
+          "rsi14": 24.04,
+          "distanceFromHighPct": -8.01
         },
         "weekly": {
-          "latest": 4284.1,
-          "fastMA": 4381.98,
-          "slowMA": 4481.77,
-          "momentumPct": -5.43,
-          "rsi14": 51.39,
-          "distanceFromHighPct": -8.47
+          "latest": 4290.6,
+          "fastMA": 4382.63,
+          "slowMA": 4481.98,
+          "momentumPct": -5.28,
+          "rsi14": 51.63,
+          "distanceFromHighPct": -8.33
         },
         "monthly": {
-          "latest": 4284.1,
-          "fastMA": 4355.62,
-          "slowMA": 4511.54,
-          "momentumPct": 6.08,
-          "rsi14": 63.02,
-          "distanceFromHighPct": -18.37
+          "latest": 4290.6,
+          "fastMA": 4356.7,
+          "slowMA": 4512.19,
+          "momentumPct": 6.24,
+          "rsi14": 63.13,
+          "distanceFromHighPct": -18.24
         }
       },
       "error": null
@@ -239,15 +239,15 @@
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 46.0,
-          "medianReturnPct": -1.24,
-          "returnStrengthScore": 43.81
+          "medianReturnPct": -1.27,
+          "returnStrengthScore": 43.67
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 82.0,
-          "medianReturnPct": 18.66,
-          "returnStrengthScore": 96.66
+          "medianReturnPct": 18.81,
+          "returnStrengthScore": 97.03
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-24T15:22:13.128623+00:00"
+  "marketRegimeGeneratedAt": "2026-09-24T15:55:27.282038+00:00"
 }
