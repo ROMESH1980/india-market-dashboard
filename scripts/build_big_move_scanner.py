@@ -730,51 +730,6 @@ def preliminary_status(score):
 
 
 # =========================================================
-# MISSING CONDITIONS
-# =========================================================
-
-def initial_missing_conditions(
-    rs_rating,
-    stock_momentum,
-    industry_rating,
-    free_float_shares,
-    free_float_pct,
-):
-    missing = []
-
-    if rs_rating is None:
-        missing.append(
-            "RS"
-        )
-
-    if stock_momentum is None:
-        missing.append(
-            "Stock Momentum"
-        )
-
-    if industry_rating is None:
-        missing.append(
-            "Industry Rating"
-        )
-
-    if (
-        free_float_shares is None
-        and
-        free_float_pct is None
-    ):
-        missing.append(
-            "Free Float"
-        )
-
-    # Technical engine runs after this script.
-    missing.append(
-        "Technical Analysis"
-    )
-
-    return missing
-
-
-# =========================================================
 # BUILD ROW
 # =========================================================
 
@@ -973,14 +928,6 @@ def build_scanner_row(stock):
         phase1_score
     )
 
-    missing = initial_missing_conditions(
-        rs_rating=rs_rating,
-        stock_momentum=stock_momentum,
-        industry_rating=industry_rating,
-        free_float_shares=free_float_shares,
-        free_float_pct=free_float_pct,
-    )
-
     sector = text(
         stock.get(
             "sector"
@@ -1143,7 +1090,7 @@ def build_scanner_row(stock):
 
         "fundamentalTrigger":
             bool(
-                triggers
+                business_triggers
             ),
 
         "fundamentalTriggers":
@@ -1230,13 +1177,6 @@ def build_scanner_row(stock):
 
         "technicalDetails":
             None,
-
-        # -------------------------------------------------
-        # Missing
-        # -------------------------------------------------
-
-        "missingConditions":
-            missing,
     }
 
     return row
