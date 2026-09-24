@@ -1171,7 +1171,32 @@ td:nth-child(21) {
   text-overflow: ellipsis !important;
 }
 
-  </style>
+  
+/* FUNDAMENTAL TRIGGER — COMPACT SYMBOL COLUMN */
+#scannerTable th:nth-child(20),
+#scannerTable td:nth-child(20) {
+  min-width: 76px !important;
+  width: 76px !important;
+  max-width: 76px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+.fund-trigger-symbol {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+.fund-trigger-yes { color: #22c55e !important; background: rgba(34,197,94,.10) !important; }
+.fund-trigger-no { color: #ef4444 !important; background: rgba(239,68,68,.10) !important; }
+.fund-trigger-na { color: #94a3b8 !important; background: rgba(148,163,184,.08) !important; }
+
+</style>
 </head>
 
 <body>
@@ -1432,7 +1457,7 @@ td:nth-child(21) {
       },
       {
         field: "fundamentalTrigger",
-        label: "Fundamental Trigger",
+        label: "Fund. Trigger",
         type: "text",
         filterable: false
       },
