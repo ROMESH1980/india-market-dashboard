@@ -1,128 +1,96 @@
-    summary = build_summary(
-        rows
-    )
+import json
+import math
+from datetime import datetime, timezone
+from pathlib import Path
 
-    now = (
-        datetime.now(
-            timezone.utc
+
+# =========================================================
+# PATHS
+# =========================================================
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
+
+STOCKS_PATH = DATA_DIR / "stocks.json"
+OUTPUT_PATH = DATA_DIR / "big_move_scanner.json"
+
+
+# =========================================================
+# HELPERS
+# =========================================================
+
+def load_json(path, default):
+    try:
+        return json.loads(
+            path.read_text(encoding="utf-8")
         )
-        .replace(
-            microsecond=0
+    except Exception:
+        return default
+
+
+def save_json(path, data):
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    path.write_text(
+        json.dumps(
+            data,
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+
+def num(value):
+    """
+    Safe numeric conversion.
+
+    IMPORTANT:
+    None / blank / Pending / dash must remain None.
+    Do NOT convert missing values to zero.
+    """
+
+    if value is None:
+        return None
+
+    if isinstance(value, str):
+        text = (
+            value
+            .replace(",", "")
+            .replace("%", "")
+            .replace("₹", "")
+            .strip()
         )
-        .isoformat()
-    )
 
-    output = {
-        "marketDate":
-            market_date,
+        if not text:
+            return None
 
-        "generatedAt":
-            now,
+        if text.lower() in {
+            "-",
+            "—",
+            "na",
+            "n/a",
+            "none",
+            "null",
+            "pending",
+        }:
+            return None
 
-        "scannerVersion":
-            "2.1",
+        value = text
 
-        "methodology": {
-            "phase1":
-                (
-                    "RS + Stock Momentum + Industry Rating + "
-                    "multi-period price strength + existing "
-                    "fundamental/business triggers."
-                ),
+    try:
+        result = float(value)
 
-            "structuralTriggers":
-                (
-                    "Structural triggers are display-only and require a "
-                    "theme keyword plus company-specific action/impact "
-                    "evidence in the same research fragment. They do not "
-                    "add points to Big Move Score."
-                ),
+        if not math.isfinite(result):
+            return None
 
-            "technical":
-                (
-                    "Technical fields are added by "
-                    "build_big_move_technical.py after this step."
-                ),
+        return result
 
-            "freeFloat":
-                (
-                    "Free Float Shares and Free Float % are carried "
-                    "from build_free_float.py. Free Float Shares are "
-                    "filing-derived Public Shares less locked-in "
-                    "Public Shares; not estimated from Market Cap / Price."
-                ),
-
-            "freeFloatScore":
-                (
-                    "Free Float is currently displayed/filterable but "
-                    "NOT yet included in Big Move Score. Thresholds will "
-                    "be calibrated after coverage/distribution validation."
-                ),
-        },
-
-        "summary":
-            summary,
-
-        "rows":
-            rows,
-    }
-
-    save_json(
-        OUTPUT_PATH,
-        output,
-    )
-
-    print({
-        "stocksInput":
-            len(stocks),
-
-        "scannerRows":
-            len(rows),
-
-        "skipped":
-            skipped,
-
-        "score80Plus":
-            summary[
-                "score80Plus"
-            ],
-
-        "triggerPresent":
-            summary[
-                "triggerPresent"
-            ],
-
-        "freeFloatReady":
-            summary[
-                "freeFloatReady"
-            ],
-
-        "marketDate":
-            market_date,
-    })
-
-    print(
-        "Saved:"
-    )
-
-    print(
-        OUTPUT_PATH
-    )
-
-    print()
-    print(
-        "IMPORTANT:"
-    )
-    print(
-        "Free Float is NOT included in Big Move Score yet."
-    )
-    print(
-        "build_big_move_technical.py runs after this file and "
-        "adds technical score / breakout / consolidation fields."
-    )
-    print(
-        "=============================================="
-    )
+    except Exception:
+        return None
 
 
-if __name__ == "__main__":
+def integer(value):
