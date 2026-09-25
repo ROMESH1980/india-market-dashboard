@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4315.3,
-          "fastMA": 4407.18,
-          "slowMA": 4354.43,
-          "momentumPct": -2.48,
-          "rsi14": 31.1,
-          "distanceFromHighPct": -4.95
+          "latest": 4310.4,
+          "fastMA": 4406.93,
+          "slowMA": 4354.33,
+          "momentumPct": -2.59,
+          "rsi14": 30.3,
+          "distanceFromHighPct": -5.06
         },
         "weekly": {
-          "latest": 4315.3,
-          "fastMA": 4385.1,
-          "slowMA": 4482.81,
-          "momentumPct": -4.74,
-          "rsi14": 52.58,
-          "distanceFromHighPct": -7.8
+          "latest": 4310.4,
+          "fastMA": 4384.61,
+          "slowMA": 4482.64,
+          "momentumPct": -4.85,
+          "rsi14": 52.39,
+          "distanceFromHighPct": -7.91
         },
         "monthly": {
-          "latest": 4315.3,
-          "fastMA": 4360.82,
-          "slowMA": 4514.66,
-          "momentumPct": 6.85,
-          "rsi14": 63.54,
-          "distanceFromHighPct": -17.77
+          "latest": 4310.4,
+          "fastMA": 4360.0,
+          "slowMA": 4514.17,
+          "momentumPct": 6.73,
+          "rsi14": 63.46,
+          "distanceFromHighPct": -17.86
         }
       },
       "error": null
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 47.0,
-          "medianReturnPct": -1.29,
-          "returnStrengthScore": 43.53
+          "positiveBreadthPct": 49.0,
+          "medianReturnPct": -1.48,
+          "returnStrengthScore": 42.62
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 82.0,
-          "medianReturnPct": 20.46,
-          "returnStrengthScore": 100
+          "medianReturnPct": 19.84,
+          "returnStrengthScore": 99.59
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-25T15:27:12.905273+00:00"
+  "marketRegimeGeneratedAt": "2026-09-25T15:56:00.285526+00:00"
 }
