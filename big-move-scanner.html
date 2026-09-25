@@ -2457,6 +2457,20 @@ td:nth-child(21) {
       return escapeHtml(formatted);
     }
 
+    function fundamentalTriggerSymbol(value) {
+      if (value === null || value === undefined || value === "") {
+        return '<span class="fund-trigger-symbol fund-trigger-na" title="Data unavailable">—</span>';
+      }
+      if (isTruthyFlag(value)) {
+        return '<span class="fund-trigger-symbol fund-trigger-yes" title="Fundamental trigger present">✓</span>';
+      }
+      const text = normalizeText(value).toLowerCase();
+      if (text === "no" || text === "false" || text === "0" || text.includes("not")) {
+        return '<span class="fund-trigger-symbol fund-trigger-no" title="No fundamental trigger">✕</span>';
+      }
+      return '<span class="fund-trigger-symbol fund-trigger-na" title="Data unavailable">—</span>';
+    }
+
     function textOrDash(value) {
       const text = normalizeText(value);
 
@@ -2585,7 +2599,7 @@ td:nth-child(21) {
               </td>
 
               <td class="trigger-cell">
-                ${textOrDash(row.fundamentalTrigger)}
+                ${fundamentalTriggerSymbol(row.fundamentalTrigger)}
               </td>
 
               <td class="trigger-cell">
