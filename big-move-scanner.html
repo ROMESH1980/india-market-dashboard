@@ -1196,6 +1196,19 @@ td:nth-child(21) {
 .fund-trigger-no { color: #ef4444 !important; background: rgba(239,68,68,.10) !important; }
 .fund-trigger-na { color: #94a3b8 !important; background: rgba(148,163,184,.08) !important; }
 
+
+/* VOLUME + VOLATILITY CONTRACTION — COMPACT SYMBOL COLUMNS */
+#scannerTable th:nth-child(16),
+#scannerTable td:nth-child(16),
+#scannerTable th:nth-child(17),
+#scannerTable td:nth-child(17) {
+  min-width: 94px !important;
+  width: 94px !important;
+  max-width: 94px !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
 </style>
 </head>
 
@@ -2583,11 +2596,11 @@ td:nth-child(21) {
               </td>
 
               <td>
-                ${yesNoBadge(row.volumeContraction)}
+                ${fundamentalTriggerSymbol(row.volumeContraction)}
               </td>
 
               <td>
-                ${yesNoBadge(row.volatilityContraction)}
+                ${fundamentalTriggerSymbol(row.volatilityContraction)}
               </td>
 
               <td>
