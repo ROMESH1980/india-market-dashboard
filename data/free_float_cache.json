@@ -41592,19 +41592,41 @@
   "SPECTRAA": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-24T07:44:42+00:00",
+    "cachedAt": "2026-09-25T09:52:31+00:00",
     "freeFloatEstimated": false
   },
   "SONA": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-24T07:44:42+00:00",
+    "cachedAt": "2026-09-25T09:52:31+00:00",
     "freeFloatEstimated": false
   },
   "KHERIAAUTO": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-09-24T07:44:42+00:00",
+    "cachedAt": "2026-09-25T09:52:31+00:00",
     "freeFloatEstimated": false
+  },
+  "AXIOMGAS": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-25T09:52:31+00:00",
+    "freeFloatEstimated": false
+  },
+  "AGASTYAEN": {
+    "status": "READY",
+    "publicShares": 19313552,
+    "publicHoldingPct": null,
+    "publicLockedShares": 0,
+    "freeFloatShares": 19313552,
+    "freeFloatPct": null,
+    "freeFloatDate": "30-JUN-2026",
+    "freeFloatSubmissionDate": "18-JUL-2026",
+    "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+    "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1696156_18072026043003_WEB.xml",
+    "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
+    "freeFloatMethodologyNote": "Filing-derived tradable public shares proxy. Not the NSE Indices official free-float factor.",
+    "freeFloatEstimated": false,
+    "cachedAt": "2026-09-25T09:52:31+00:00"
   }
 }

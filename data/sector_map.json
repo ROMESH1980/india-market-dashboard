@@ -14615,9 +14615,9 @@
     "source": "Unavailable"
   },
   "PARIN": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
   },
   "PARTH": {
     "sector": "Unclassified",
