@@ -83,6 +83,10 @@ jobs:
         run: python scripts/build_company_research.py
 
 
+      - name: Build company evidence candidates
+        run: python scripts/build_company_evidence.py
+
+
       - name: Build market regime
         run: python scripts/build_market_regime.py
 
