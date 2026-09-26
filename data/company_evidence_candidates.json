@@ -1,21 +1,709 @@
 {
   "_meta": {
-    "description": "Candidate company-level evidence for Big Move Scanner review.",
+    "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
     "updated": "2026-09-26",
     "status": "REVIEW_REQUIRED",
-    "important": "Entries in this file are NOT verified Big Move triggers. Only approved evidence should be promoted to company_evidence.json.",
+    "lookbackDays": 365,
+    "maxSymbolsPerRun": 350,
+    "important": "Candidates are NOT verified triggers. Review source filing before promoting evidence to company_evidence.json.",
     "rules": {
-      "capex": "Requires company-specific expansion/capacity/plant/facility/commissioning language plus a usable HTTP source.",
-      "tailwind": "Requires structural industry-driver language plus a usable HTTP source.",
-      "rejected": "Methodology links, rate-limit/error text, generic CAPEX/OCF ratios and automated screening-proxy descriptions."
+      "capex": "Requires explicit company-specific capacity/plant/facility/commissioning/production expansion evidence.",
+      "tailwind": "Requires explicit structural driver such as PLI, import substitution, localisation, China+1, policy or regulatory change.",
+      "scoreRule": "CAPEX score or Tailwind score alone does NOT create a trigger."
     },
     "counts": {
-      "symbols": 0,
-      "capexCandidates": 0,
+      "symbolsScanned": 350,
+      "announcementsSeen": 11302,
+      "symbolsWithCandidates": 16,
+      "capexCandidates": 42,
       "tailwindCandidates": 0,
-      "verifiedCapexSkipped": 0,
-      "verifiedTailwindSkipped": 0
+      "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "SHANTIGOLD": {
+      "name": "Shanti Gold International Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SHANTIGOLD_08062026165035_Commencement_of_Operations_Marol_facility_SGIL.pdf",
+          "sourceDate": "08-Jun-2026 16:50:46",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "SDBL": {
+      "name": "Som Distilleries & Breweries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SDBL_11062026151803_PressRelease_.pdf",
+          "sourceDate": "11-Jun-2026 15:18:15",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "LORDSCHLO": {
+      "name": "Lords Chloro Alkali Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/LCAL_10112025192742_Outcome_of_BM.pdf",
+          "sourceDate": "10-Nov-2025 19:27:50",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "DAVANGERE": {
+      "name": "Davangere Sugar Company Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/DAVANGERESUGAR_30032026182901_IntimationCapacityExpansionSigned.pdf",
+          "sourceDate": "30-Mar-2026 18:29:49",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "ARTEMISMED": {
+      "name": "Artemis Medicare Services Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_03082026174428_Outcome_03082026.pdf",
+          "sourceDate": "03-Aug-2026 17:45:12",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_09072026130754_AMSL_Raipur_exchange_Intimation_09_07_2026.pdf",
+          "sourceDate": "09-Jul-2026 13:08:37",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_20022026150402_Intimation_VIMHANS_20_02_2026.pdf",
+          "sourceDate": "20-Feb-2026 15:04:54",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "NRAIL": {
+      "name": "N R Agarwal Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NRAIL_26022026162559_IntimationunderReg30EnhancementofProductionCapacity26022026.pdf",
+          "sourceDate": "26-Feb-2026 16:26:13",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "EMIL": {
+      "name": "Electronics Mart India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_21092026171349_Intimation.pdf",
+          "sourceDate": "21-Sep-2026 17:14:26",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_25072026191632_Intimation.pdf",
+          "sourceDate": "25-Jul-2026 19:16:48",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_10072026155701_Intimation.pdf",
+          "sourceDate": "10-Jul-2026 16:02:08",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_29062026190428_Intimation.pdf",
+          "sourceDate": "29-Jun-2026 19:04:39",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_22062026190451_Intimation.pdf",
+          "sourceDate": "22-Jun-2026 19:06:55",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_11062026163352_Intimation.pdf",
+          "sourceDate": "11-Jun-2026 16:48:07",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_08062026184455_Intimation.pdf",
+          "sourceDate": "08-Jun-2026 18:48:31",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_12052026185349_Intimation.pdf",
+          "sourceDate": "12-May-2026 18:54:02",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_02042026183859_Intimation.pdf",
+          "sourceDate": "02-Apr-2026 18:42:27",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_23032026191828_Intimation.pdf",
+          "sourceDate": "23-Mar-2026 19:18:41",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_09022026144619_Intimation.pdf",
+          "sourceDate": "09-Feb-2026 14:46:41",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_24012026160420_Intimation.pdf",
+          "sourceDate": "24-Jan-2026 16:09:35",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_14012026171429_Intimation.pdf",
+          "sourceDate": "14-Jan-2026 17:15:08",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_17122025180606_Intimation.pdf",
+          "sourceDate": "17-Dec-2025 18:11:03",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_17112025160257_Intimation.pdf",
+          "sourceDate": "17-Nov-2025 16:17:56",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_22102025171750_Intimation.pdf",
+          "sourceDate": "22-Oct-2025 17:24:12",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMILTD_17102025162628_Intimation.pdf",
+          "sourceDate": "17-Oct-2025 16:27:23",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "STEELCAS": {
+      "name": "Steelcast Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/STEELCAS_29072026171503_Outcome_Q1_Signed.pdf",
+          "sourceDate": "29-Jul-2026 17:15:27",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "WELCORP": {
+      "name": "Welspun Corp Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/WELCORP_06112025174540_SEDICAPACITY.pdf",
+          "sourceDate": "06-Nov-2025 17:45:54",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "VIDYAWIRES": {
+      "name": "Vidya Wires Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Postponement of commercial production/operations",
+          "subject": "",
+          "details": "Postponement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/VIDYAWIRESLTD_13012026145934_Intimation.pdf",
+          "sourceDate": "13-Jan-2026 14:59:44",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "ISGEC": {
+      "name": "Isgec Heavy Engineering Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ISGEC_27052026181032_Outcome.pdf",
+          "sourceDate": "27-May-2026 18:17:37",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ISGEC_02012026153720_Disclosure_to_NSE.pdf",
+          "sourceDate": "02-Jan-2026 15:37:39",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ISGEC_13112025192010_Signed_Outcome.pdf",
+          "sourceDate": "13-Nov-2025 19:20:34",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "GRWRHITECH": {
+      "name": "Garware Hi-Tech Films Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/GRWRHITECH_06052026135237_GHFL_Capacity_addition_Reg_30.pdf",
+          "sourceDate": "06-May-2026 13:53:17",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "GRADIENTE": {
+      "name": "Gradiente Infotainment Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/GRADIENTE_11062026120102_Reg_30_Announcement_Gradiente_Studio.pdf",
+          "sourceDate": "11-Jun-2026 12:01:36",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "SWELECTES": {
+      "name": "Swelect Energy Systems Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SWELECTES_16042026214041_Intimation_on_Sirungattur_commisioning_signed.pdf",
+          "sourceDate": "16-Apr-2026 21:41:10",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "TVSSRICHAK": {
+      "name": "TVS Srichakra Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/TVSSRICHAK_27052026184016_TVSSRICHAKRALIMITEDMaduraiPlantExpansion27052026.pdf",
+          "sourceDate": "27-May-2026 18:41:04",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/TVSSRICHAK_17012026143357_TVSSRICHAKRALIMITEDUKD2CapacityAddition.pdf",
+          "sourceDate": "17-Jan-2026 14:34:19",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    },
+    "SAMBHV": {
+      "name": "Sambhv Steel Tubes Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_03082026194638_June26.pdf",
+          "sourceDate": "03-Aug-2026 19:46:58",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_19052026202545_CTE.pdf",
+          "sourceDate": "19-May-2026 20:26:44",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_19052026201615_CTO.pdf",
+          "sourceDate": "19-May-2026 20:18:19",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_09052026171403_Outcome_for_filing_Signed.pdf",
+          "sourceDate": "09-May-2026 17:14:16",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_08122025195350_Capacity_Addition.pdf",
+          "sourceDate": "08-Dec-2025 19:54:04",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        },
+        {
+          "type": "capex",
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_08112025151134_Capacity_Addition.pdf",
+          "sourceDate": "08-Nov-2025 15:11:46",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-09-26"
+        }
+      ]
+    }
+  }
 }

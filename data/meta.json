@@ -45,35 +45,62 @@
     "nifty50": {
       "name": "NIFTY 50 / Largecap",
       "type": "equity",
-      "available": false,
+      "available": true,
       "source": "Yahoo Finance",
-      "sourceSymbol": null,
-      "date": null,
-      "daily": null,
-      "weekly": null,
-      "monthly": null,
-      "overall": null,
+      "sourceSymbol": "^NSEI",
+      "date": "2026-09-25",
+      "historyRows": 1236,
+      "daily": 15,
+      "weekly": 32,
+      "monthly": 9,
+      "overall": 17,
       "dailySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "G-Sec / Gold / Cash",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "weeklySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "G-Sec / Gold / Cash",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "monthlySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "G-Sec / Gold / Cash",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "overallSignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "G-Sec / Gold / Cash",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
-      "error": "^NSEI: 429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=5y&interval=1d&events=history&includeAdjustedClose=true"
+      "details": {
+        "daily": {
+          "latest": 23140.5,
+          "fastMA": 23553.3,
+          "slowMA": 23994.46,
+          "momentumPct": -0.88,
+          "rsi14": 29.33,
+          "distanceFromHighPct": -4.28
+        },
+        "weekly": {
+          "latest": 23140.5,
+          "fastMA": 23929.8,
+          "slowMA": 23826.8,
+          "momentumPct": -4.28,
+          "rsi14": 36.57,
+          "distanceFromHighPct": -5.82
+        },
+        "monthly": {
+          "latest": 23140.5,
+          "fastMA": 23835.93,
+          "slowMA": 24197.59,
+          "momentumPct": -3.04,
+          "rsi14": 42.01,
+          "distanceFromHighPct": -11.69
+        }
+      },
+      "error": null
     },
     "midcap100": {
       "name": "NIFTY Midcap 100",
@@ -106,40 +133,67 @@
         "signal": "pending",
         "emoji": "⚪"
       },
-      "error": "NIFTY_MIDCAP_100.NS: 429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/NIFTY_MIDCAP_100.NS?range=5y&interval=1d&events=history&includeAdjustedClose=true | ^CNXMIDCAP: 429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/%5ECNXMIDCAP?range=5y&interval=1d&events=history&includeAdjustedClose=true"
+      "error": "NIFTY_MIDCAP_100.NS: Insufficient Yahoo history for NIFTY_MIDCAP_100.NS: 1 rows | ^CNXMIDCAP: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/%5ECNXMIDCAP?range=5y&interval=1d&events=history&includeAdjustedClose=true"
     },
     "gold": {
       "name": "GOLD",
       "type": "gold",
-      "available": false,
+      "available": true,
       "source": "Yahoo Finance",
-      "sourceSymbol": null,
-      "date": null,
-      "daily": null,
-      "weekly": null,
-      "monthly": null,
-      "overall": null,
+      "sourceSymbol": "GC=F",
+      "date": "2026-09-25",
+      "historyRows": 1258,
+      "daily": 40,
+      "weekly": 14,
+      "monthly": 40,
+      "overall": 32,
       "dailySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Weak / Correction",
+        "signal": "reduce",
+        "emoji": "🟠"
       },
       "weeklySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Defensive Weak",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "monthlySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Weak / Correction",
+        "signal": "reduce",
+        "emoji": "🟠"
       },
       "overallSignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Defensive Weak",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
-      "error": "GC=F: 429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?range=5y&interval=1d&events=history&includeAdjustedClose=true"
+      "details": {
+        "daily": {
+          "latest": 4321.2,
+          "fastMA": 4407.47,
+          "slowMA": 4354.55,
+          "momentumPct": -2.34,
+          "rsi14": 32.04,
+          "distanceFromHighPct": -4.82
+        },
+        "weekly": {
+          "latest": 4321.2,
+          "fastMA": 4385.69,
+          "slowMA": 4483.0,
+          "momentumPct": -4.61,
+          "rsi14": 52.81,
+          "distanceFromHighPct": -7.68
+        },
+        "monthly": {
+          "latest": 4321.2,
+          "fastMA": 4361.8,
+          "slowMA": 4515.25,
+          "momentumPct": 7.0,
+          "rsi14": 63.64,
+          "distanceFromHighPct": -17.66
+        }
+      },
+      "error": null
     },
     "smallcap100": {
       "name": "NIFTY Smallcap 100",
@@ -254,13 +308,13 @@
       "error": null
     }
   },
-  "dailyRegimeScore": null,
-  "weeklyRegimeScore": null,
-  "monthlyRegimeScore": null,
+  "dailyRegimeScore": 15.0,
+  "weeklyRegimeScore": 32.0,
+  "monthlyRegimeScore": 9.0,
   "marketRegime": {
-    "daily": null,
-    "weekly": null,
-    "monthly": null
+    "daily": 15.0,
+    "weekly": 32.0,
+    "monthly": 9.0
   },
   "marketRegimeDate": "2026-09-25",
   "marketRegimeMethod": {
@@ -286,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-26T11:29:01.858275+00:00"
+  "marketRegimeGeneratedAt": "2026-09-26T12:06:29.835080+00:00"
 }
