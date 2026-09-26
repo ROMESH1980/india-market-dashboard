@@ -15915,9 +15915,9 @@
     "source": "Unavailable"
   },
   "AGASTYAEN": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Chemicals",
+    "source": "Yahoo Finance"
   },
   "AXIOMGAS": {
     "sector": "Unclassified",
