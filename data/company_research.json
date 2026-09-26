@@ -28404,7 +28404,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BNALTD": {
       "tailwindScore": 70.0,
@@ -28482,7 +28482,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BBTCL": {
       "tailwindScore": 70.0,
@@ -28521,7 +28521,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BLKASHYAP": {
       "tailwindScore": 87.0,
