@@ -5,7 +5,7 @@
   "eodPriceCount": 3654,
   "matchedPriceCount": 3040,
   "marketDate": "2026-09-25",
-  "lastUpdated": "2026-09-25",
+  "lastUpdated": "2026-09-26",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-09-25",
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4310.4,
-          "fastMA": 4406.93,
-          "slowMA": 4354.33,
-          "momentumPct": -2.59,
-          "rsi14": 30.3,
-          "distanceFromHighPct": -5.06
+          "latest": 4321.2,
+          "fastMA": 4407.47,
+          "slowMA": 4354.55,
+          "momentumPct": -2.34,
+          "rsi14": 32.04,
+          "distanceFromHighPct": -4.82
         },
         "weekly": {
-          "latest": 4310.4,
-          "fastMA": 4384.61,
-          "slowMA": 4482.64,
-          "momentumPct": -4.85,
-          "rsi14": 52.39,
-          "distanceFromHighPct": -7.91
+          "latest": 4321.2,
+          "fastMA": 4385.69,
+          "slowMA": 4483.0,
+          "momentumPct": -4.61,
+          "rsi14": 52.81,
+          "distanceFromHighPct": -7.68
         },
         "monthly": {
-          "latest": 4310.4,
-          "fastMA": 4360.0,
-          "slowMA": 4514.17,
-          "momentumPct": 6.73,
-          "rsi14": 63.46,
-          "distanceFromHighPct": -17.86
+          "latest": 4321.2,
+          "fastMA": 4361.8,
+          "slowMA": 4515.25,
+          "momentumPct": 7.0,
+          "rsi14": 63.64,
+          "distanceFromHighPct": -17.66
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-09-25T15:56:00.285526+00:00"
+  "marketRegimeGeneratedAt": "2026-09-26T07:03:34.869414+00:00"
 }
