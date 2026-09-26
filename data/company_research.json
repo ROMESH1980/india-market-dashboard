@@ -172,7 +172,7 @@
     },
     "ABB": {
       "tailwindScore": 88.0,
-      "futureGrowth": 59.66,
+      "futureGrowth": 59.65,
       "fundamentalQuality": 82.84,
       "capexScore": 70.0,
       "researchReasons": {
@@ -250,7 +250,7 @@
     },
     "ABBOTINDIA": {
       "tailwindScore": 82.0,
-      "futureGrowth": 66.03,
+      "futureGrowth": 66.06,
       "fundamentalQuality": 94.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -796,7 +796,7 @@
     },
     "ABCAPITAL": {
       "tailwindScore": 78.0,
-      "futureGrowth": 90.69,
+      "futureGrowth": 90.68,
       "fundamentalQuality": 48.68,
       "capexScore": 50.0,
       "researchReasons": {
@@ -835,7 +835,7 @@
     },
     "AFCONS": {
       "tailwindScore": 87.0,
-      "futureGrowth": 24.54,
+      "futureGrowth": 24.53,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -991,7 +991,7 @@
     },
     "AEGISLOG": {
       "tailwindScore": 58.0,
-      "futureGrowth": 89.06,
+      "futureGrowth": 89.03,
       "fundamentalQuality": 80.79,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1108,7 +1108,7 @@
     },
     "ABDL": {
       "tailwindScore": 70.0,
-      "futureGrowth": 47.49,
+      "futureGrowth": 47.53,
       "fundamentalQuality": 60.2,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1225,7 +1225,7 @@
     },
     "ANANDRATHI": {
       "tailwindScore": 78.0,
-      "futureGrowth": 89.28,
+      "futureGrowth": 89.47,
       "fundamentalQuality": 98.49,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1264,7 +1264,7 @@
     },
     "AMBER": {
       "tailwindScore": 70.0,
-      "futureGrowth": 38.37,
+      "futureGrowth": 38.36,
       "fundamentalQuality": 58.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1498,7 +1498,7 @@
     },
     "ANURAS": {
       "tailwindScore": 76.0,
-      "futureGrowth": 70.18,
+      "futureGrowth": 70.12,
       "fundamentalQuality": 70.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1537,7 +1537,7 @@
     },
     "APOLLOHOSP": {
       "tailwindScore": 82.0,
-      "futureGrowth": 86.08,
+      "futureGrowth": 86.07,
       "fundamentalQuality": 60.29,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1576,7 +1576,7 @@
     },
     "APLAPOLLO": {
       "tailwindScore": 88.0,
-      "futureGrowth": 64.47,
+      "futureGrowth": 64.43,
       "fundamentalQuality": 68.86,
       "capexScore": 80.0,
       "researchReasons": {
@@ -2083,7 +2083,7 @@
     },
     "DMART": {
       "tailwindScore": 70.0,
-      "futureGrowth": 67.39,
+      "futureGrowth": 67.31,
       "fundamentalQuality": 68.25,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2161,7 +2161,7 @@
     },
     "AXISBANK": {
       "tailwindScore": 78.0,
-      "futureGrowth": 75.04,
+      "futureGrowth": 74.19,
       "fundamentalQuality": 90.01,
       "capexScore": 50.0,
       "researchReasons": {
@@ -19906,7 +19906,7 @@
     },
     "ACI": {
       "tailwindScore": 76.0,
-      "futureGrowth": 44.06,
+      "futureGrowth": 44.15,
       "fundamentalQuality": 72.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -21622,7 +21622,7 @@
     },
     "AARTIPHARM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 88.71,
+      "futureGrowth": 88.65,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -22168,7 +22168,7 @@
     },
     "AVL": {
       "tailwindScore": 70.0,
-      "futureGrowth": 88.49,
+      "futureGrowth": 88.52,
       "fundamentalQuality": 56.89,
       "capexScore": 80.0,
       "researchReasons": {
@@ -22207,7 +22207,7 @@
     },
     "ADOR": {
       "tailwindScore": 88.0,
-      "futureGrowth": 71.25,
+      "futureGrowth": 71.26,
       "fundamentalQuality": 75.51,
       "capexScore": 70.0,
       "researchReasons": {
@@ -25444,7 +25444,7 @@
     },
     "APOLLO": {
       "tailwindScore": 92.0,
-      "futureGrowth": 93.11,
+      "futureGrowth": 93.16,
       "fundamentalQuality": 74.65,
       "capexScore": 50.0,
       "researchReasons": {
@@ -27121,7 +27121,7 @@
     },
     "ASALCBR": {
       "tailwindScore": 70.0,
-      "futureGrowth": 34.29,
+      "futureGrowth": 34.28,
       "fundamentalQuality": 71.71,
       "capexScore": 90.0,
       "researchReasons": {
@@ -28326,7 +28326,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AXITA": {
       "tailwindScore": 70.0,
@@ -28404,7 +28404,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BNALTD": {
       "tailwindScore": 70.0,
@@ -28443,7 +28443,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AZADIND": {
       "tailwindScore": null,
@@ -28482,7 +28482,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BBTCL": {
       "tailwindScore": 70.0,
@@ -28521,7 +28521,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BLKASHYAP": {
       "tailwindScore": 87.0,
@@ -28560,7 +28560,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAGFILMS": {
       "tailwindScore": 80.0,
@@ -28599,7 +28599,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "STYLEBAAZA": {
       "tailwindScore": 70.0,
@@ -28638,7 +28638,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAFNAPH": {
       "tailwindScore": 82.0,
@@ -28677,7 +28677,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAIDFIN": {
       "tailwindScore": 78.0,
@@ -28716,7 +28716,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BAJAJCON": {
       "tailwindScore": 70.0,
@@ -35781,7 +35781,7 @@
       "tailwindScore": 70.0,
       "futureGrowth": 36.0,
       "fundamentalQuality": 68.27,
-      "capexScore": 50.0,
+      "capexScore": 95.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -35802,17 +35802,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-26",
-          "mode": "AUTOMATED"
+          "reason": "Verified CAPEX / Capacity Expansion: Davangere Sugar approved expansion of distillery production capacity by 85 KLPD from an existing 65 KLPD. The proposed investment is Rs. 127.50 crore and the additional capacity is planned within 18 months.",
+          "source": "https://nsearchives.nseindia.com/corporate/DAVANGERESUGAR_30032026182901_IntimationCapacityExpansionSigned.pdf",
+          "sourceDate": "2026-03-30",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -42684,7 +42684,7 @@
       "tailwindScore": 76.0,
       "futureGrowth": 86.31,
       "fundamentalQuality": 89.76,
-      "capexScore": 90.0,
+      "capexScore": 95.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -42705,17 +42705,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.59× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-20",
-          "mode": "AUTOMATED"
+          "reason": "Verified CAPEX / Capacity Expansion: Garware Hi-Tech Films approved a new lamination line at Waluj with proposed capacity addition of 1,200 LSF per annum. The project amount is approximately Rs. 191 crore plus applicable taxes and is expected to be added within 14 months.",
+          "source": "https://nsearchives.nseindia.com/corporate/GRWRHITECH_06052026135237_GHFL_Capacity_addition_Reg_30.pdf",
+          "sourceDate": "2026-05-06",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -80748,7 +80748,7 @@
       "tailwindScore": 70.0,
       "futureGrowth": 89.79,
       "fundamentalQuality": 66.92,
-      "capexScore": 50.0,
+      "capexScore": 90.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -80769,17 +80769,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Verified CAPEX / Capacity Expansion: Shanti Gold International commenced commercial production at its new expanded Marol manufacturing facility on June 8, 2026. The expansion adds approximately 4,000 kg per annum to manufacturing capacity.",
+          "source": "https://nsearchives.nseindia.com/corporate/SHANTIGOLD_08062026165035_Commencement_of_Operations_Marol_facility_SGIL.pdf",
+          "sourceDate": "2026-06-08",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -83985,7 +83985,7 @@
       "tailwindScore": 70.0,
       "futureGrowth": 0,
       "fundamentalQuality": 57.99,
-      "capexScore": 90.0,
+      "capexScore": 85.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -84006,17 +84006,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.65× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Verified Capacity Expansion: Som Distilleries & Breweries' wholly owned subsidiary Woodpecker Green Agri Nutrients commenced commercial production at its brewery facility in Uttar Pradesh on June 10, 2026. The company states that the new brewery strengthens manufacturing capabilities and supports expansion in northern India.",
+          "source": "https://nsearchives.nseindia.com/corporate/SDBL_11062026151803_PressRelease_.pdf",
+          "sourceDate": "2026-06-11",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -92487,7 +92487,7 @@
       "tailwindScore": 70.0,
       "futureGrowth": null,
       "fundamentalQuality": null,
-      "capexScore": null,
+      "capexScore": 95.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -92508,17 +92508,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-26",
-          "mode": "AUTOMATED"
+          "reason": "Verified CAPEX / Capacity Expansion: TVS Srichakra approved capital investment of up to Rs. 220 crore for capacity expansion at its Madurai manufacturing units. Proposed capacity addition is about 5% for the 2W plant and about 25% for the Off Highway Tyre plant.",
+          "source": "https://nsearchives.nseindia.com/corporate/TVSSRICHAK_27052026184016_TVSSRICHAKRALIMITEDMaduraiPlantExpansion27052026.pdf",
+          "sourceDate": "2026-05-27",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
