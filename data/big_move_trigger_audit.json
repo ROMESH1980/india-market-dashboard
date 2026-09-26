@@ -1,0 +1,358 @@
+{
+  "purpose": "Audit CAPEX / Industry Tailwind / Fundamental Trigger evidence before tightening production trigger rules.",
+  "productionDataModified": false,
+  "symbols": [
+    "ANTELOPUS",
+    "KABRAEXTRU",
+    "GNA",
+    "BLISSGVS",
+    "BAFNAPH"
+  ],
+  "rows": [
+    {
+      "symbol": "ANTELOPUS",
+      "scannerOutput": {
+        "fundamentalTrigger": true,
+        "fundamentalTriggers": [
+          "CAPEX"
+        ],
+        "businessTriggers": [
+          "CAPEX"
+        ],
+        "structuralTriggers": [],
+        "keyTrigger": "CAPEX",
+        "phase1Score": 79,
+        "bigMoveScore": 79
+      },
+      "sourceResearchFields": {
+        "symbol": "ANTELOPUS",
+        "name": "Antelopus Selan Energy Limited",
+        "sector": "Energy",
+        "industry": "Oil & Gas E&P",
+        "capexScore": 90.0,
+        "tailwindScore": 58.0,
+        "researchReasons": {
+          "tailwind": {
+            "reason": "Automated screening proxy: energy demand remains supportive, although commodity cycles and energy transition limit structural visibility.",
+            "source": "methodology.html#tailwind",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "macro": {
+            "reason": "Automated Macro screening proxy: energy demand remains supportive, although commodity cycles reduce visibility.",
+            "source": "methodology.html#macro",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "valueMigration": {
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (100.0) and 40% turnover-percentile component (99.7). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "source": "methodology.html#value-migration",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED_PROXY"
+          },
+          "futureGrowth": {
+            "reason": "Automated screening proxy based on revenue growth 65.3%, earnings growth 158.9%, quarterly earnings growth 157.6%.",
+            "source": "methodology.html#future-growth",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "fundamentalQuality": {
+            "reason": "Automated screening proxy based on ROE 14.7%, profit margin 32.1%, operating margin 48.0%, debt/equity 0.5, current ratio 2.75, negative free cash flow, positive operating cash flow.",
+            "source": "methodology.html#fundamental",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "capex": {
+            "reason": "Automated screening proxy: capital expenditure is 1.85× operating cash flow.",
+            "source": "methodology.html#capex",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          }
+        }
+      },
+      "auditFlags": {
+        "capexHasEvidenceField": true,
+        "tailwindHasEvidenceField": true,
+        "capexShown": true,
+        "industryTailwindShown": false
+      }
+    },
+    {
+      "symbol": "KABRAEXTRU",
+      "scannerOutput": {
+        "fundamentalTrigger": true,
+        "fundamentalTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "businessTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "structuralTriggers": [],
+        "keyTrigger": "CAPEX • Industry Tailwind",
+        "phase1Score": 82,
+        "bigMoveScore": 82
+      },
+      "sourceResearchFields": {
+        "symbol": "KABRAEXTRU",
+        "name": "Kabra Extrusion Technik Limited",
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "capexScore": 90.0,
+        "tailwindScore": 88.0,
+        "researchReasons": {
+          "tailwind": {
+            "reason": "Automated screening proxy: domestic manufacturing and the investment cycle support capital-goods demand.",
+            "source": "methodology.html#tailwind",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "macro": {
+            "reason": "Automated Macro screening proxy unavailable: no mapped Macro-support rule for this sector/industry.",
+            "source": "methodology.html#macro",
+            "sourceDate": "2026-09-26",
+            "mode": "PENDING"
+          },
+          "valueMigration": {
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (85.0) and 40% turnover-percentile component (86.4). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "source": "methodology.html#value-migration",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED_PROXY"
+          },
+          "futureGrowth": {
+            "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
+            "source": "https://finance.yahoo.com/quote/KABRAEXTRU.NS/",
+            "mode": "AUTOMATED"
+          },
+          "fundamentalQuality": {
+            "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
+            "source": "https://finance.yahoo.com/quote/KABRAEXTRU.NS/",
+            "mode": "AUTOMATED"
+          },
+          "capex": {
+            "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
+            "source": "https://finance.yahoo.com/quote/KABRAEXTRU.NS/",
+            "mode": "AUTOMATED"
+          }
+        }
+      },
+      "auditFlags": {
+        "capexHasEvidenceField": true,
+        "tailwindHasEvidenceField": true,
+        "capexShown": true,
+        "industryTailwindShown": true
+      }
+    },
+    {
+      "symbol": "GNA",
+      "scannerOutput": {
+        "fundamentalTrigger": true,
+        "fundamentalTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "businessTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "structuralTriggers": [],
+        "keyTrigger": "CAPEX • Industry Tailwind",
+        "phase1Score": 77,
+        "bigMoveScore": 77
+      },
+      "sourceResearchFields": {
+        "symbol": "GNA",
+        "name": "GNA Axles Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "capexScore": 90.0,
+        "tailwindScore": 70.0,
+        "researchReasons": {
+          "tailwind": {
+            "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
+            "source": "methodology.html#tailwind",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "macro": {
+            "reason": "Automated Macro screening proxy: consumption growth, income growth and premiumisation provide moderate support.",
+            "source": "methodology.html#macro",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "valueMigration": {
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (46.8) and 40% turnover-percentile component (86.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "source": "methodology.html#value-migration",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED_PROXY"
+          },
+          "futureGrowth": {
+            "reason": "Automated screening proxy based on available historical and forward financial data.",
+            "source": "methodology.html#future-growth",
+            "sourceDate": "2026-09-02",
+            "mode": "AUTOMATED"
+          },
+          "fundamentalQuality": {
+            "reason": "Automated screening proxy based on ROE 12.3%, profit margin 8.1%, operating margin 12.6%, current ratio 2.37, positive free cash flow, positive operating cash flow.",
+            "source": "methodology.html#fundamental",
+            "sourceDate": "2026-09-02",
+            "mode": "AUTOMATED"
+          },
+          "capex": {
+            "reason": "Automated screening proxy: capital expenditure is 0.74× operating cash flow.",
+            "source": "methodology.html#capex",
+            "sourceDate": "2026-09-02",
+            "mode": "AUTOMATED"
+          }
+        }
+      },
+      "auditFlags": {
+        "capexHasEvidenceField": true,
+        "tailwindHasEvidenceField": true,
+        "capexShown": true,
+        "industryTailwindShown": true
+      }
+    },
+    {
+      "symbol": "BLISSGVS",
+      "scannerOutput": {
+        "fundamentalTrigger": true,
+        "fundamentalTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "businessTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "structuralTriggers": [],
+        "keyTrigger": "CAPEX • Industry Tailwind",
+        "phase1Score": 83,
+        "bigMoveScore": 83
+      },
+      "sourceResearchFields": {
+        "symbol": "BLISSGVS",
+        "name": "Bliss GVS Pharma Limited",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "capexScore": 80.0,
+        "tailwindScore": 82.0,
+        "researchReasons": {
+          "tailwind": {
+            "reason": "Automated screening proxy: healthcare demand, exports and rising healthcare penetration provide long-duration support.",
+            "source": "methodology.html#tailwind",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "macro": {
+            "reason": "Automated Macro screening proxy: healthcare demand, exports and rising healthcare penetration provide support.",
+            "source": "methodology.html#macro",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "valueMigration": {
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (68.0) and 40% turnover-percentile component (84.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "source": "methodology.html#value-migration",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED_PROXY"
+          },
+          "futureGrowth": {
+            "reason": "Automated screening proxy based on revenue growth 37.6%, earnings growth 15.1%, quarterly earnings growth 16.4%.",
+            "source": "methodology.html#future-growth",
+            "sourceDate": "2026-09-25",
+            "mode": "AUTOMATED"
+          },
+          "fundamentalQuality": {
+            "reason": "Automated screening proxy based on profit margin 13.5%, operating margin 23.3%, debt/equity 1.8.",
+            "source": "methodology.html#fundamental",
+            "sourceDate": "2026-09-25",
+            "mode": "AUTOMATED"
+          },
+          "capex": {
+            "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
+            "source": "methodology.html#capex",
+            "sourceDate": "2026-09-25",
+            "mode": "AUTOMATED"
+          }
+        }
+      },
+      "auditFlags": {
+        "capexHasEvidenceField": true,
+        "tailwindHasEvidenceField": true,
+        "capexShown": true,
+        "industryTailwindShown": true
+      }
+    },
+    {
+      "symbol": "BAFNAPH",
+      "scannerOutput": {
+        "fundamentalTrigger": true,
+        "fundamentalTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "businessTriggers": [
+          "CAPEX",
+          "Industry Tailwind"
+        ],
+        "structuralTriggers": [],
+        "keyTrigger": "CAPEX • Industry Tailwind",
+        "phase1Score": 84,
+        "bigMoveScore": 84
+      },
+      "sourceResearchFields": {
+        "symbol": "BAFNAPH",
+        "name": "Bafna Pharmaceuticals Limited",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "capexScore": 90.0,
+        "tailwindScore": 82.0,
+        "researchReasons": {
+          "tailwind": {
+            "reason": "Automated screening proxy: healthcare demand, exports and rising healthcare penetration provide long-duration support.",
+            "source": "methodology.html#tailwind",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "macro": {
+            "reason": "Automated Macro screening proxy: healthcare demand, exports and rising healthcare penetration provide support.",
+            "source": "methodology.html#macro",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "valueMigration": {
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (64.0) and 40% turnover-percentile component (23.4). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "source": "methodology.html#value-migration",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED_PROXY"
+          },
+          "futureGrowth": {
+            "reason": "Automated screening proxy based on revenue growth -23.2%, earnings growth -97.9%, quarterly earnings growth -97.8%.",
+            "source": "methodology.html#future-growth",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "fundamentalQuality": {
+            "reason": "Automated screening proxy based on profit margin 5.5%, operating margin -3.4%, debt/equity 38.9.",
+            "source": "methodology.html#fundamental",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          },
+          "capex": {
+            "reason": "Automated screening proxy: capital expenditure is 1.62× operating cash flow.",
+            "source": "methodology.html#capex",
+            "sourceDate": "2026-09-26",
+            "mode": "AUTOMATED"
+          }
+        }
+      },
+      "auditFlags": {
+        "capexHasEvidenceField": true,
+        "tailwindHasEvidenceField": true,
+        "capexShown": true,
+        "industryTailwindShown": true
+      }
+    }
+  ]
+}
