@@ -12,17 +12,13 @@
     {
       "symbol": "ANTELOPUS",
       "scannerOutput": {
-        "fundamentalTrigger": true,
-        "fundamentalTriggers": [
-          "CAPEX"
-        ],
-        "businessTriggers": [
-          "CAPEX"
-        ],
+        "fundamentalTrigger": false,
+        "fundamentalTriggers": [],
+        "businessTriggers": [],
         "structuralTriggers": [],
-        "keyTrigger": "CAPEX",
-        "phase1Score": 79,
-        "bigMoveScore": 79
+        "keyTrigger": null,
+        "phase1Score": 71,
+        "bigMoveScore": 71
       },
       "sourceResearchFields": {
         "symbol": "ANTELOPUS",
@@ -73,26 +69,20 @@
       "auditFlags": {
         "capexHasEvidenceField": true,
         "tailwindHasEvidenceField": true,
-        "capexShown": true,
+        "capexShown": false,
         "industryTailwindShown": false
       }
     },
     {
       "symbol": "KABRAEXTRU",
       "scannerOutput": {
-        "fundamentalTrigger": true,
-        "fundamentalTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
-        "businessTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
+        "fundamentalTrigger": false,
+        "fundamentalTriggers": [],
+        "businessTriggers": [],
         "structuralTriggers": [],
-        "keyTrigger": "CAPEX • Industry Tailwind",
-        "phase1Score": 83,
-        "bigMoveScore": 83
+        "keyTrigger": null,
+        "phase1Score": 70,
+        "bigMoveScore": 70
       },
       "sourceResearchFields": {
         "symbol": "KABRAEXTRU",
@@ -140,26 +130,20 @@
       "auditFlags": {
         "capexHasEvidenceField": true,
         "tailwindHasEvidenceField": true,
-        "capexShown": true,
-        "industryTailwindShown": true
+        "capexShown": false,
+        "industryTailwindShown": false
       }
     },
     {
       "symbol": "GNA",
       "scannerOutput": {
-        "fundamentalTrigger": true,
-        "fundamentalTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
-        "businessTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
+        "fundamentalTrigger": false,
+        "fundamentalTriggers": [],
+        "businessTriggers": [],
         "structuralTriggers": [],
-        "keyTrigger": "CAPEX • Industry Tailwind",
-        "phase1Score": 77,
-        "bigMoveScore": 77
+        "keyTrigger": null,
+        "phase1Score": 64,
+        "bigMoveScore": 64
       },
       "sourceResearchFields": {
         "symbol": "GNA",
@@ -210,26 +194,20 @@
       "auditFlags": {
         "capexHasEvidenceField": true,
         "tailwindHasEvidenceField": true,
-        "capexShown": true,
-        "industryTailwindShown": true
+        "capexShown": false,
+        "industryTailwindShown": false
       }
     },
     {
       "symbol": "BLISSGVS",
       "scannerOutput": {
-        "fundamentalTrigger": true,
-        "fundamentalTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
-        "businessTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
+        "fundamentalTrigger": false,
+        "fundamentalTriggers": [],
+        "businessTriggers": [],
         "structuralTriggers": [],
-        "keyTrigger": "CAPEX • Industry Tailwind",
-        "phase1Score": 83,
-        "bigMoveScore": 83
+        "keyTrigger": null,
+        "phase1Score": 70,
+        "bigMoveScore": 70
       },
       "sourceResearchFields": {
         "symbol": "BLISSGVS",
@@ -280,26 +258,20 @@
       "auditFlags": {
         "capexHasEvidenceField": true,
         "tailwindHasEvidenceField": true,
-        "capexShown": true,
-        "industryTailwindShown": true
+        "capexShown": false,
+        "industryTailwindShown": false
       }
     },
     {
       "symbol": "BAFNAPH",
       "scannerOutput": {
-        "fundamentalTrigger": true,
-        "fundamentalTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
-        "businessTriggers": [
-          "CAPEX",
-          "Industry Tailwind"
-        ],
+        "fundamentalTrigger": false,
+        "fundamentalTriggers": [],
+        "businessTriggers": [],
         "structuralTriggers": [],
-        "keyTrigger": "CAPEX • Industry Tailwind",
-        "phase1Score": 84,
-        "bigMoveScore": 84
+        "keyTrigger": null,
+        "phase1Score": 71,
+        "bigMoveScore": 71
       },
       "sourceResearchFields": {
         "symbol": "BAFNAPH",
@@ -350,8 +322,8 @@
       "auditFlags": {
         "capexHasEvidenceField": true,
         "tailwindHasEvidenceField": true,
-        "capexShown": true,
-        "industryTailwindShown": true
+        "capexShown": false,
+        "industryTailwindShown": false
       }
     }
   ]
