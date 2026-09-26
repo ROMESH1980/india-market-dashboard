@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "description": "Candidate company-level evidence for Big Move Scanner review.",
+    "updated": "2026-09-26",
+    "status": "REVIEW_REQUIRED",
+    "important": "Entries in this file are NOT verified Big Move triggers. Only approved evidence should be promoted to company_evidence.json.",
+    "rules": {
+      "capex": "Requires company-specific expansion/capacity/plant/facility/commissioning language plus a usable HTTP source.",
+      "tailwind": "Requires structural industry-driver language plus a usable HTTP source.",
+      "rejected": "Methodology links, rate-limit/error text, generic CAPEX/OCF ratios and automated screening-proxy descriptions."
+    },
+    "counts": {
+      "symbols": 0,
+      "capexCandidates": 0,
+      "tailwindCandidates": 0,
+      "verifiedCapexSkipped": 0,
+      "verifiedTailwindSkipped": 0
+    }
+  },
+  "stocks": {}
+}
