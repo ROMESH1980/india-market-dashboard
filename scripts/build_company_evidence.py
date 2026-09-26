@@ -3,7 +3,6 @@ import re
 import time
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from urllib.parse import quote
 
 import requests
 
@@ -17,26 +16,35 @@ DATA_DIR = ROOT / "data"
 
 STOCKS_PATH = DATA_DIR / "stocks.json"
 EVIDENCE_PATH = DATA_DIR / "company_evidence.json"
-CANDIDATES_PATH = DATA_DIR / "company_evidence_candidates.json"
+
+CANDIDATES_PATH = (
+    DATA_DIR /
+    "company_evidence_candidates.json"
+)
 
 
 # =========================================================
 # SETTINGS
 # =========================================================
 
-TODAY = datetime.now(timezone.utc).date()
+TODAY = datetime.now(
+    timezone.utc
+).date()
+
 RUN_DATE = TODAY.isoformat()
 
-# Keep first version conservative.
 LOOKBACK_DAYS = 365
 
-# Do not hammer NSE.
 REQUEST_DELAY = 0.15
 REQUEST_TIMEOUT = 20
 
-# Safety limit. We do NOT want thousands of NSE requests
-# to make the normal daily workflow extremely slow.
+# First production-safe batch.
 MAX_SYMBOLS_PER_RUN = 350
+
+# Keep only strongest/latest useful evidence
+# per company and trigger.
+MAX_CAPEX_EVENTS_PER_STOCK = 1
+MAX_TAILWIND_EVENTS_PER_STOCK = 1
 
 
 # =========================================================
@@ -51,44 +59,57 @@ NSE_ANNOUNCEMENT_API = (
 )
 
 NSE_ANNOUNCEMENT_PAGE = (
-    "https://www.nseindia.com/companies-listing/"
+    "https://www.nseindia.com/"
+    "companies-listing/"
     "corporate-filings-announcements"
 )
 
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
+        "Mozilla/5.0 "
+        "(Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/124.0.0.0 "
+        "Safari/537.36"
     ),
-    "Accept": "application/json,text/plain,*/*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": NSE_ANNOUNCEMENT_PAGE,
-    "Connection": "keep-alive",
+    "Accept": (
+        "application/json,"
+        "text/plain,*/*"
+    ),
+    "Accept-Language":
+        "en-US,en;q=0.9",
+    "Referer":
+        NSE_ANNOUNCEMENT_PAGE,
+    "Connection":
+        "keep-alive",
 }
 
 
 # =========================================================
-# STRONG EVENT PHRASES
+# CAPEX POSITIVE PHRASES
 # =========================================================
 
-CAPEX_STRONG = [
+CAPEX_VERY_STRONG = [
     "capacity expansion",
     "capacity addition",
     "capacity enhancement",
     "capacity augmentation",
+
     "increase in capacity",
     "enhancement of capacity",
     "expansion of capacity",
     "expanding capacity",
 
-    "new plant",
     "new manufacturing plant",
     "new manufacturing facility",
-    "new facility",
     "new manufacturing unit",
+
     "new production unit",
+    "new production line",
+    "additional production line",
+    "new manufacturing line",
 
     "greenfield project",
     "greenfield expansion",
@@ -98,33 +119,42 @@ CAPEX_STRONG = [
     "facility expansion",
     "manufacturing expansion",
 
+    "setting up a plant",
+    "setting up new plant",
+
+    "setting up a facility",
+    "setting up new facility",
+
+    "setting up a manufacturing unit",
+]
+
+
+CAPEX_OPERATIONAL = [
     "commissioned",
     "commissioning",
+
     "commercial production",
     "commercial operations",
+
     "commenced production",
     "commencement of production",
     "commence production",
+
     "production commenced",
+    "operations commenced",
+    "commencement of operations",
+]
 
-    "new production line",
-    "additional production line",
-    "new manufacturing line",
 
-    "setting up a plant",
-    "setting up new plant",
-    "setting up a facility",
-    "setting up new facility",
-    "setting up a manufacturing unit",
-
+CAPEX_MEDIUM = [
     "installed capacity",
     "production capacity",
+    "capital expenditure",
+    "capex",
 ]
 
 
 CAPEX_INVESTMENT = [
-    "capital expenditure",
-    "capex",
     "investment",
     "invest",
     "crore",
@@ -146,6 +176,67 @@ CAPEX_CONTEXT = [
 ]
 
 
+# =========================================================
+# NEGATIVE CAPEX EVENTS
+# =========================================================
+
+# If these occur in the filing summary, the filing should
+# NOT be treated as a positive expansion trigger.
+CAPEX_NEGATIVE = [
+    "postponement",
+    "postponed",
+
+    "delay",
+    "delayed",
+    "defer",
+    "deferred",
+
+    "cancel",
+    "cancelled",
+    "canceled",
+    "cancellation",
+
+    "withdraw",
+    "withdrawn",
+
+    "suspend",
+    "suspended",
+    "suspension",
+
+    "shutdown",
+    "shut down",
+
+    "closure",
+    "closed",
+
+    "discontinue",
+    "discontinued",
+    "discontinuation",
+
+    "abandon",
+    "abandoned",
+
+    "termination",
+    "terminated",
+
+    "halt",
+    "halted",
+
+    "temporary stoppage",
+    "stoppage of production",
+
+    "production stopped",
+    "operations stopped",
+
+    "plant closed",
+    "plant shutdown",
+]
+
+
+# =========================================================
+# TAILWIND PHRASES
+# =========================================================
+
 TAILWIND_STRONG = [
     "production linked incentive",
     "pli scheme",
@@ -156,6 +247,7 @@ TAILWIND_STRONG = [
 
     "localisation",
     "localization",
+
     "indigenisation",
     "indigenization",
 
@@ -165,6 +257,7 @@ TAILWIND_STRONG = [
 
     "anti-dumping duty",
     "anti dumping duty",
+
     "safeguard duty",
 
     "government incentive",
@@ -175,12 +268,11 @@ TAILWIND_STRONG = [
     "regulatory change",
 
     "domestic procurement",
+
     "defence localisation",
     "defense localization",
 
     "energy transition",
-    "renewable energy",
-    "renewable capacity",
 
     "grid expansion",
     "transmission expansion",
@@ -200,17 +292,20 @@ TAILWIND_STRONG = [
 
 
 # =========================================================
-# GENERIC / FALSE-POSITIVE TEXT
+# GENERIC / BAD TEXT
 # =========================================================
 
 REJECT_TEXT = [
     "too many requests",
     "rate limited",
     "rate limit",
+
     "automated screening proxy",
     "structural-tailwind proxy",
+
     "proxy unavailable",
     "methodology.html",
+
     "insufficient data",
 ]
 
@@ -220,15 +315,22 @@ REJECT_TEXT = [
 # =========================================================
 
 def load_json(path, default):
+
     try:
+
         return json.loads(
-            path.read_text(encoding="utf-8")
+            path.read_text(
+                encoding="utf-8"
+            )
         )
+
     except Exception:
+
         return default
 
 
 def save_json(path, data):
+
     path.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -245,6 +347,7 @@ def save_json(path, data):
 
 
 def clean(value):
+
     if value is None:
         return ""
 
@@ -256,10 +359,17 @@ def clean(value):
 
 
 def low(value):
-    return clean(value).lower()
+
+    return clean(
+        value
+    ).lower()
 
 
-def contains_any(text, phrases):
+def contains_any(
+    text,
+    phrases,
+):
+
     t = low(text)
 
     return any(
@@ -268,7 +378,22 @@ def contains_any(text, phrases):
     )
 
 
+def matched_phrases(
+    text,
+    phrases,
+):
+
+    t = low(text)
+
+    return [
+        phrase
+        for phrase in phrases
+        if phrase in t
+    ]
+
+
 def reject_text(text):
+
     return contains_any(
         text,
         REJECT_TEXT,
@@ -276,57 +401,89 @@ def reject_text(text):
 
 
 # =========================================================
-# DATE
+# DATE HELPERS
 # =========================================================
 
+DATE_FORMATS = [
+    "%d-%b-%Y %H:%M:%S",
+    "%d-%b-%Y",
+
+    "%d-%m-%Y %H:%M:%S",
+    "%d-%m-%Y",
+
+    "%Y-%m-%d %H:%M:%S",
+    "%Y-%m-%d",
+
+    "%d/%m/%Y %H:%M:%S",
+    "%d/%m/%Y",
+]
+
+
 def parse_date(value):
+
     value = clean(value)
 
     if not value:
         return None
 
-    formats = [
-        "%d-%b-%Y %H:%M:%S",
-        "%d-%b-%Y",
-        "%d-%m-%Y %H:%M:%S",
-        "%d-%m-%Y",
-        "%Y-%m-%d %H:%M:%S",
-        "%Y-%m-%d",
-        "%d/%m/%Y %H:%M:%S",
-        "%d/%m/%Y",
-    ]
+    for fmt in DATE_FORMATS:
 
-    for fmt in formats:
         try:
+
             return datetime.strptime(
                 value,
                 fmt,
-            ).date()
+            )
+
         except Exception:
+
             pass
 
-    # Sometimes NSE sends extra milliseconds/timezone.
     try:
+
         return datetime.fromisoformat(
-            value.replace("Z", "+00:00")
-        ).date()
+            value.replace(
+                "Z",
+                "+00:00",
+            )
+        )
+
     except Exception:
+
         return None
 
 
+def date_only(value):
+
+    dt = parse_date(value)
+
+    if dt is None:
+        return None
+
+    return dt.date()
+
+
 def within_lookback(value):
-    d = parse_date(value)
+
+    d = date_only(value)
 
     if d is None:
-        # We don't reject solely because date format changed.
         return True
 
-    return (
-        TODAY - timedelta(
+    minimum = (
+        TODAY -
+        timedelta(
             days=LOOKBACK_DAYS
         )
-    ) <= d <= (
-        TODAY + timedelta(days=1)
+    )
+
+    maximum = (
+        TODAY +
+        timedelta(days=1)
+    )
+
+    return (
+        minimum <= d <= maximum
     )
 
 
@@ -335,51 +492,70 @@ def within_lookback(value):
 # =========================================================
 
 def make_session():
-    s = requests.Session()
 
-    s.headers.update(HEADERS)
+    session = requests.Session()
+
+    session.headers.update(
+        HEADERS
+    )
 
     try:
-        r = s.get(
+
+        response = session.get(
             NSE_HOME,
             timeout=REQUEST_TIMEOUT,
         )
 
         print(
             "NSE session warm-up:",
-            r.status_code,
+            response.status_code,
         )
 
     except Exception as exc:
+
         print(
             "NSE session warm-up warning:",
             exc,
         )
 
-    return s
+    return session
 
 
 # =========================================================
-# ANNOUNCEMENT FIELD NORMALIZATION
+# NORMALIZE NSE ANNOUNCEMENT
 # =========================================================
 
-def first_value(row, keys):
-    if not isinstance(row, dict):
+def first_value(
+    row,
+    keys,
+):
+
+    if not isinstance(
+        row,
+        dict,
+    ):
         return ""
 
     for key in keys:
-        value = row.get(key)
+
+        value = row.get(
+            key
+        )
 
         if value not in (
             None,
             "",
         ):
-            return clean(value)
+
+            return clean(
+                value
+            )
 
     return ""
 
 
 def normalize_announcement(row):
+
     symbol = first_value(
         row,
         [
@@ -444,26 +620,39 @@ def normalize_announcement(row):
         ],
     )
 
-    # NSE often provides relative attachment paths.
     if attachment:
-        if attachment.startswith("//"):
+
+        if attachment.startswith(
+            "//"
+        ):
+
             attachment = (
-                "https:" + attachment
+                "https:" +
+                attachment
             )
 
-        elif attachment.startswith("/"):
+        elif attachment.startswith(
+            "/"
+        ):
+
             attachment = (
-                NSE_HOME + attachment
+                NSE_HOME +
+                attachment
             )
 
         elif not attachment.startswith(
-            ("http://", "https://")
+            (
+                "http://",
+                "https://",
+            )
         ):
-            # Common NSE announcement attachment host.
+
             attachment = (
-                "https://nsearchives.nseindia.com/"
+                "https://"
+                "nsearchives.nseindia.com/"
                 "corporate/"
-                + attachment.lstrip("/")
+                +
+                attachment.lstrip("/")
             )
 
     text = clean(
@@ -476,98 +665,134 @@ def normalize_announcement(row):
     )
 
     return {
-        "symbol": symbol.upper(),
-        "company": company,
-        "subject": subject,
-        "description": description,
-        "text": text,
-        "source": attachment,
-        "sourceDate": broadcast_date,
+        "symbol":
+            symbol.upper(),
+
+        "company":
+            company,
+
+        "subject":
+            subject,
+
+        "description":
+            description,
+
+        "text":
+            text,
+
+        "source":
+            attachment,
+
+        "sourceDate":
+            broadcast_date,
     }
 
 
 # =========================================================
-# FETCH NSE ANNOUNCEMENTS
+# FETCH ANNOUNCEMENTS
 # =========================================================
 
 def fetch_symbol_announcements(
     session,
     symbol,
 ):
-    """
-    Fetch recent corporate announcements for one symbol.
-
-    IMPORTANT:
-    Failure returns [] instead of stopping daily workflow.
-    """
 
     params = {
-        "index": "equities",
-        "symbol": symbol,
+        "index":
+            "equities",
+
+        "symbol":
+            symbol,
     }
 
     try:
-        r = session.get(
+
+        response = session.get(
             NSE_ANNOUNCEMENT_API,
             params=params,
             timeout=REQUEST_TIMEOUT,
         )
 
-        if r.status_code != 200:
+        if response.status_code != 200:
+
             print(
-                f"{symbol}: NSE HTTP "
-                f"{r.status_code}"
+                f"{symbol}: "
+                f"NSE HTTP "
+                f"{response.status_code}"
             )
+
             return []
 
-        data = r.json()
+        data = response.json()
 
-        if isinstance(data, list):
+        if isinstance(
+            data,
+            list,
+        ):
+
             rows = data
 
-        elif isinstance(data, dict):
+        elif isinstance(
+            data,
+            dict,
+        ):
+
             rows = (
                 data.get("data")
                 or data.get("rows")
-                or data.get("announcements")
+                or data.get(
+                    "announcements"
+                )
                 or []
             )
 
         else:
+
             rows = []
 
-        out = []
+        output = []
 
         for raw in rows:
-            item = normalize_announcement(
-                raw
+
+            item = (
+                normalize_announcement(
+                    raw
+                )
             )
 
-            # Protect against endpoint returning
-            # announcements for multiple symbols.
-            item_symbol = item.get(
-                "symbol",
-                "",
+            item_symbol = (
+                item.get(
+                    "symbol",
+                    ""
+                )
             )
 
             if (
                 item_symbol
-                and item_symbol != symbol.upper()
+                and
+                item_symbol !=
+                symbol.upper()
             ):
                 continue
 
             if not within_lookback(
-                item.get("sourceDate")
+                item.get(
+                    "sourceDate"
+                )
             ):
                 continue
 
-            out.append(item)
+            output.append(
+                item
+            )
 
-        return out
+        return output
 
     except Exception as exc:
+
         print(
-            f"{symbol}: NSE announcement "
+            f"{symbol}: "
+            "NSE announcement "
             f"fetch warning: {exc}"
         )
 
@@ -575,117 +800,233 @@ def fetch_symbol_announcements(
 
 
 # =========================================================
-# EVENT CLASSIFICATION
+# CAPEX CLASSIFICATION
 # =========================================================
 
 def detect_capex(text):
-    """
-    Conservative CAPEX detector.
-
-    Strong expansion language qualifies directly.
-
-    Generic 'investment/capex' requires plant/capacity/
-    manufacturing context.
-    """
 
     if reject_text(text):
-        return False, []
 
-    t = low(text)
-
-    matches = [
-        phrase
-        for phrase in CAPEX_STRONG
-        if phrase in t
-    ]
-
-    if matches:
-        return True, matches[:6]
-
-    investment_matches = [
-        phrase
-        for phrase in CAPEX_INVESTMENT
-        if phrase in t
-    ]
-
-    context_matches = [
-        phrase
-        for phrase in CAPEX_CONTEXT
-        if phrase in t
-    ]
-
-    if (
-        investment_matches
-        and context_matches
-    ):
-        matches = (
-            investment_matches[:3]
-            + context_matches[:3]
+        return (
+            False,
+            [],
+            0,
+            "REJECTED_GENERIC",
         )
 
-        return True, matches
+    # -----------------------------------------------------
+    # IMPORTANT:
+    # Negative operational events must override positive
+    # keyword matches.
+    #
+    # Example:
+    # "Postponement of commercial production"
+    # contains "commercial production", but is NOT
+    # a positive CAPEX trigger.
+    # -----------------------------------------------------
 
-    return False, []
+    negative_matches = (
+        matched_phrases(
+            text,
+            CAPEX_NEGATIVE,
+        )
+    )
 
+    if negative_matches:
 
-def detect_tailwind(text):
-    """
-    Tailwind must contain an explicit structural driver.
-    Generic sector growth language is NOT enough.
-    """
+        return (
+            False,
+            negative_matches,
+            0,
+            "REJECTED_NEGATIVE_EVENT",
+        )
 
-    if reject_text(text):
-        return False, []
+    very_strong = (
+        matched_phrases(
+            text,
+            CAPEX_VERY_STRONG,
+        )
+    )
 
-    t = low(text)
+    if very_strong:
 
-    matches = [
-        phrase
-        for phrase in TAILWIND_STRONG
-        if phrase in t
-    ]
+        return (
+            True,
+            very_strong[:6],
+            100,
+            "CAPACITY_EXPANSION",
+        )
 
-    if not matches:
-        return False, []
+    operational = (
+        matched_phrases(
+            text,
+            CAPEX_OPERATIONAL,
+        )
+    )
 
-    return True, matches[:6]
+    if operational:
+
+        return (
+            True,
+            operational[:6],
+            90,
+            "COMMISSIONING_OR_PRODUCTION",
+        )
+
+    medium = (
+        matched_phrases(
+            text,
+            CAPEX_MEDIUM,
+        )
+    )
+
+    context = (
+        matched_phrases(
+            text,
+            CAPEX_CONTEXT,
+        )
+    )
+
+    if (
+        medium
+        and context
+    ):
+
+        return (
+            True,
+            (
+                medium[:3]
+                +
+                context[:3]
+            ),
+            75,
+            "CAPEX_WITH_CONTEXT",
+        )
+
+    investment = (
+        matched_phrases(
+            text,
+            CAPEX_INVESTMENT,
+        )
+    )
+
+    if (
+        investment
+        and context
+    ):
+
+        return (
+            True,
+            (
+                investment[:3]
+                +
+                context[:3]
+            ),
+            65,
+            "INVESTMENT_WITH_CONTEXT",
+        )
+
+    return (
+        False,
+        [],
+        0,
+        "NO_CAPEX_EVENT",
+    )
 
 
 # =========================================================
-# CANDIDATE QUALITY
+# TAILWIND CLASSIFICATION
+# =========================================================
+
+def detect_tailwind(text):
+
+    if reject_text(text):
+
+        return (
+            False,
+            [],
+            0,
+        )
+
+    matches = (
+        matched_phrases(
+            text,
+            TAILWIND_STRONG,
+        )
+    )
+
+    if not matches:
+
+        return (
+            False,
+            [],
+            0,
+        )
+
+    return (
+        True,
+        matches[:6],
+        90,
+    )
+
+
+# =========================================================
+# SOURCE
 # =========================================================
 
 def valid_source(source):
-    source = clean(source)
+
+    source = clean(
+        source
+    )
 
     if not source:
         return False
 
     return source.startswith(
-        ("https://", "http://")
+        (
+            "https://",
+            "http://",
+        )
     )
 
+
+# =========================================================
+# BUILD REASON
+# =========================================================
 
 def build_reason(
     trigger_type,
     announcement,
     matches,
+    event_class,
 ):
+
     subject = clean(
-        announcement.get("subject")
+        announcement.get(
+            "subject"
+        )
     )
 
     description = clean(
-        announcement.get("description")
+        announcement.get(
+            "description"
+        )
     )
 
-    if subject and description:
-        base = (
-            f"{subject}: {description}"
+    if (
+        subject
+        and description
+    ):
+
+        filing_text = (
+            f"{subject}: "
+            f"{description}"
         )
 
     else:
-        base = (
+
+        filing_text = (
             subject
             or description
             or announcement.get(
@@ -694,73 +1035,115 @@ def build_reason(
             )
         )
 
-    base = clean(base)
+    filing_text = clean(
+        filing_text
+    )
 
-    # Keep JSON manageable.
-    if len(base) > 700:
-        base = base[:697] + "..."
+    if len(
+        filing_text
+    ) > 700:
+
+        filing_text = (
+            filing_text[:697]
+            +
+            "..."
+        )
 
     if trigger_type == "capex":
+
         prefix = (
-            "NSE filing indicates a possible "
-            "company-specific CAPEX/expansion event."
+            "NSE filing indicates "
+            "a possible company-specific "
+            "CAPEX/expansion event."
         )
 
     else:
+
         prefix = (
-            "NSE filing indicates a possible "
-            "structural industry tailwind event."
+            "NSE filing indicates "
+            "a possible structural "
+            "industry tailwind event."
         )
 
-    matched = ", ".join(matches)
+    matched = ", ".join(
+        matches
+    )
 
     return clean(
         f"{prefix} "
+        f"Event class: {event_class}. "
         f"Matched: {matched}. "
-        f"Filing: {base}"
+        f"Filing: {filing_text}"
     )
 
+
+# =========================================================
+# CANDIDATE RECORD
+# =========================================================
 
 def candidate_record(
     trigger_type,
     announcement,
     matches,
+    strength,
+    event_class,
 ):
+
     source = clean(
-        announcement.get("source")
+        announcement.get(
+            "source"
+        )
     )
 
-    if not valid_source(source):
+    if not valid_source(
+        source
+    ):
         return None
 
     return {
-        "type": trigger_type,
-
-        "reason": build_reason(
+        "type":
             trigger_type,
-            announcement,
+
+        "eventClass":
+            event_class,
+
+        "evidenceStrength":
+            strength,
+
+        "reason":
+            build_reason(
+                trigger_type,
+                announcement,
+                matches,
+                event_class,
+            ),
+
+        "subject":
+            clean(
+                announcement.get(
+                    "subject"
+                )
+            ),
+
+        "details":
+            clean(
+                announcement.get(
+                    "description"
+                )
+            ),
+
+        "source":
+            source,
+
+        "sourceDate":
+            clean(
+                announcement.get(
+                    "sourceDate"
+                )
+            ),
+
+        "matchedTerms":
             matches,
-        ),
-
-        "subject": clean(
-            announcement.get("subject")
-        ),
-
-        "details": clean(
-            announcement.get(
-                "description"
-            )
-        ),
-
-        "source": source,
-
-        "sourceDate": clean(
-            announcement.get(
-                "sourceDate"
-            )
-        ),
-
-        "matchedTerms": matches,
 
         "sourceType":
             "NSE_CORPORATE_ANNOUNCEMENT",
@@ -774,38 +1157,7 @@ def candidate_record(
 
 
 # =========================================================
-# DEDUPE
-# =========================================================
-
-def candidate_key(item):
-    return (
-        low(item.get("source")),
-        low(item.get("subject")),
-        low(item.get("sourceDate")),
-    )
-
-
-def add_unique(
-    container,
-    item,
-):
-    if item is None:
-        return
-
-    key = candidate_key(item)
-
-    existing = {
-        candidate_key(x)
-        for x in container
-        if isinstance(x, dict)
-    }
-
-    if key not in existing:
-        container.append(item)
-
-
-# =========================================================
-# VERIFIED EVIDENCE CHECK
+# VERIFIED EVIDENCE PROTECTION
 # =========================================================
 
 def verified_exists(
@@ -813,6 +1165,7 @@ def verified_exists(
     symbol,
     trigger_type,
 ):
+
     stock = (
         evidence_stocks.get(
             symbol,
@@ -821,7 +1174,10 @@ def verified_exists(
         or {}
     )
 
-    if not isinstance(stock, dict):
+    if not isinstance(
+        stock,
+        dict,
+    ):
         return False
 
     block = (
@@ -832,21 +1188,152 @@ def verified_exists(
         or {}
     )
 
-    if not isinstance(block, dict):
+    if not isinstance(
+        block,
+        dict,
+    ):
         return False
 
     reason = clean(
-        block.get("reason")
+        block.get(
+            "reason"
+        )
     )
 
     source = clean(
-        block.get("source")
+        block.get(
+            "source"
+        )
     )
 
     return bool(
         reason
-        and valid_source(source)
+        and
+        valid_source(
+            source
+        )
     )
+
+
+# =========================================================
+# DEDUPLICATION
+# =========================================================
+
+def candidate_identity(item):
+
+    return (
+        low(
+            item.get(
+                "source"
+            )
+        ),
+        low(
+            item.get(
+                "details"
+            )
+        ),
+    )
+
+
+def dedupe_candidates(items):
+
+    output = []
+    seen = set()
+
+    for item in items:
+
+        if not isinstance(
+            item,
+            dict,
+        ):
+            continue
+
+        key = (
+            candidate_identity(
+                item
+            )
+        )
+
+        if key in seen:
+            continue
+
+        seen.add(
+            key
+        )
+
+        output.append(
+            item
+        )
+
+    return output
+
+
+# =========================================================
+# BEST EVENT SELECTION
+# =========================================================
+
+def candidate_sort_key(item):
+
+    strength = item.get(
+        "evidenceStrength",
+        0,
+    )
+
+    try:
+
+        strength = int(
+            strength
+        )
+
+    except Exception:
+
+        strength = 0
+
+    dt = parse_date(
+        item.get(
+            "sourceDate"
+        )
+    )
+
+    if dt is None:
+
+        timestamp = 0
+
+    else:
+
+        try:
+
+            timestamp = (
+                dt.timestamp()
+            )
+
+        except Exception:
+
+            timestamp = 0
+
+    # Stronger evidence first.
+    # For same strength, latest first.
+    return (
+        strength,
+        timestamp,
+    )
+
+
+def select_best_candidates(
+    items,
+    limit,
+):
+
+    items = dedupe_candidates(
+        items
+    )
+
+    items.sort(
+        key=candidate_sort_key,
+        reverse=True,
+    )
+
+    return items[:limit]
 
 
 # =========================================================
@@ -854,6 +1341,7 @@ def verified_exists(
 # =========================================================
 
 def load_symbols():
+
     stocks = load_json(
         STOCKS_PATH,
         [],
@@ -862,11 +1350,17 @@ def load_symbols():
     rows = []
 
     for row in stocks:
-        if not isinstance(row, dict):
+
+        if not isinstance(
+            row,
+            dict,
+        ):
             continue
 
         symbol = clean(
-            row.get("symbol")
+            row.get(
+                "symbol"
+            )
         ).upper()
 
         if not symbol:
@@ -874,15 +1368,28 @@ def load_symbols():
 
         rows.append(
             {
-                "symbol": symbol,
-                "name": clean(
-                    row.get("name")
-                ),
-                "board": clean(
-                    row.get("board")
-                ),
+                "symbol":
+                    symbol,
+
+                "name":
+                    clean(
+                        row.get(
+                            "name"
+                        )
+                    ),
+
+                "board":
+                    clean(
+                        row.get(
+                            "board"
+                        )
+                    ),
+
                 "changePct":
-                    row.get("changePct"),
+                    row.get(
+                        "changePct"
+                    ),
+
                 "todayVolume":
                     row.get(
                         "todayVolume"
@@ -891,14 +1398,13 @@ def load_symbols():
         )
 
     # -----------------------------------------------------
-    # Priority:
-    # scan actively traded / moving names first.
-    #
-    # This keeps daily NSE API requests controlled.
-    # It does NOT decide whether a trigger is valid.
+    # Active/moving stocks first.
+    # This only controls request priority.
+    # It does NOT decide evidence validity.
     # -----------------------------------------------------
 
     def priority(row):
+
         change = row.get(
             "changePct"
         )
@@ -908,17 +1414,25 @@ def load_symbols():
         )
 
         try:
+
             change = abs(
-                float(change)
+                float(
+                    change
+                )
             )
+
         except Exception:
+
             change = 0.0
 
         try:
+
             volume = float(
                 volume
             )
+
         except Exception:
+
             volume = 0.0
 
         return (
@@ -941,6 +1455,7 @@ def load_symbols():
 # =========================================================
 
 def build():
+
     evidence = load_json(
         EVIDENCE_PATH,
         {},
@@ -954,17 +1469,26 @@ def build():
         or {}
     )
 
-    universe = load_symbols()
+    universe = (
+        load_symbols()
+    )
 
-    session = make_session()
+    session = (
+        make_session()
+    )
 
     stocks_out = {}
 
-    scanned = 0
+    symbols_scanned = 0
     announcements_seen = 0
 
-    capex_count = 0
-    tailwind_count = 0
+    raw_capex_matches = 0
+    raw_tailwind_matches = 0
+
+    negative_capex_rejected = 0
+
+    final_capex_candidates = 0
+    final_tailwind_candidates = 0
 
     fetch_failures = 0
 
@@ -977,9 +1501,13 @@ def build():
         universe,
         start=1,
     ):
-        symbol = stock["symbol"]
+
+        symbol = stock[
+            "symbol"
+        ]
 
         try:
+
             announcements = (
                 fetch_symbol_announcements(
                     session,
@@ -988,6 +1516,7 @@ def build():
             )
 
         except Exception as exc:
+
             print(
                 symbol,
                 "unexpected fetch error:",
@@ -995,24 +1524,10 @@ def build():
             )
 
             fetch_failures += 1
-            continue
-
-        scanned += 1
-
-        if not announcements:
-            if (
-                index % 50 == 0
-            ):
-                print(
-                    f"Progress {index}/"
-                    f"{len(universe)}"
-                )
-
-            time.sleep(
-                REQUEST_DELAY
-            )
 
             continue
+
+        symbols_scanned += 1
 
         announcements_seen += len(
             announcements
@@ -1021,113 +1536,194 @@ def build():
         capex_items = []
         tailwind_items = []
 
+        capex_already_verified = (
+            verified_exists(
+                evidence_stocks,
+                symbol,
+                "capex",
+            )
+        )
+
+        tailwind_already_verified = (
+            verified_exists(
+                evidence_stocks,
+                symbol,
+                "tailwind",
+            )
+        )
+
         for announcement in announcements:
+
             text = announcement.get(
                 "text",
                 "",
             )
 
-            # -----------------------------
+            # =============================================
             # CAPEX
-            # -----------------------------
+            # =============================================
 
-            if not verified_exists(
-                evidence_stocks,
-                symbol,
-                "capex",
-            ):
-                is_capex, matches = (
-                    detect_capex(text)
+            if not capex_already_verified:
+
+                (
+                    is_capex,
+                    capex_matches,
+                    capex_strength,
+                    capex_event_class,
+                ) = detect_capex(
+                    text
                 )
 
+                if (
+                    capex_event_class
+                    ==
+                    "REJECTED_NEGATIVE_EVENT"
+                ):
+
+                    negative_capex_rejected += 1
+
                 if is_capex:
-                    item = candidate_record(
-                        "capex",
-                        announcement,
-                        matches,
+
+                    raw_capex_matches += 1
+
+                    item = (
+                        candidate_record(
+                            "capex",
+                            announcement,
+                            capex_matches,
+                            capex_strength,
+                            capex_event_class,
+                        )
                     )
 
-                    add_unique(
-                        capex_items,
-                        item,
-                    )
+                    if item is not None:
 
-            # -----------------------------
+                        capex_items.append(
+                            item
+                        )
+
+            # =============================================
             # TAILWIND
-            # -----------------------------
+            # =============================================
 
-            if not verified_exists(
-                evidence_stocks,
-                symbol,
-                "tailwind",
-            ):
-                is_tailwind, matches = (
-                    detect_tailwind(text)
+            if not tailwind_already_verified:
+
+                (
+                    is_tailwind,
+                    tailwind_matches,
+                    tailwind_strength,
+                ) = detect_tailwind(
+                    text
                 )
 
                 if is_tailwind:
-                    item = candidate_record(
-                        "tailwind",
-                        announcement,
-                        matches,
+
+                    raw_tailwind_matches += 1
+
+                    item = (
+                        candidate_record(
+                            "tailwind",
+                            announcement,
+                            tailwind_matches,
+                            tailwind_strength,
+                            "STRUCTURAL_TAILWIND",
+                        )
                     )
 
-                    add_unique(
-                        tailwind_items,
-                        item,
-                    )
+                    if item is not None:
+
+                        tailwind_items.append(
+                            item
+                        )
+
+        # =================================================
+        # KEEP ONLY BEST EVENT(S)
+        # =================================================
+
+        capex_items = (
+            select_best_candidates(
+                capex_items,
+                MAX_CAPEX_EVENTS_PER_STOCK,
+            )
+        )
+
+        tailwind_items = (
+            select_best_candidates(
+                tailwind_items,
+                MAX_TAILWIND_EVENTS_PER_STOCK,
+            )
+        )
 
         if (
             capex_items
-            or tailwind_items
+            or
+            tailwind_items
         ):
-            stock_block = {
+
+            block = {
                 "name":
-                    stock.get("name"),
+                    stock.get(
+                        "name"
+                    ),
 
                 "board":
-                    stock.get("board"),
+                    stock.get(
+                        "board"
+                    ),
             }
 
             if capex_items:
-                stock_block[
+
+                block[
                     "capex"
                 ] = capex_items
 
-                capex_count += len(
+                final_capex_candidates += len(
                     capex_items
                 )
 
             if tailwind_items:
-                stock_block[
+
+                block[
                     "tailwind"
                 ] = tailwind_items
 
-                tailwind_count += len(
+                final_tailwind_candidates += len(
                     tailwind_items
                 )
 
             stocks_out[
                 symbol
-            ] = stock_block
+            ] = block
 
         if index % 50 == 0:
+
             print(
-                f"Progress {index}/"
+                f"Progress "
+                f"{index}/"
                 f"{len(universe)} | "
-                f"CAPEX={capex_count} | "
-                f"Tailwind={tailwind_count}"
+                f"CAPEX="
+                f"{final_capex_candidates} | "
+                f"Tailwind="
+                f"{final_tailwind_candidates} | "
+                f"Negative rejected="
+                f"{negative_capex_rejected}"
             )
 
         time.sleep(
             REQUEST_DELAY
         )
 
+    # =====================================================
+    # RESULT
+    # =====================================================
+
     result = {
         "_meta": {
             "description": (
-                "NSE corporate-announcement evidence "
-                "candidates for Big Move Scanner."
+                "NSE corporate-announcement "
+                "evidence candidates for "
+                "Big Move Scanner."
             ),
 
             "updated":
@@ -1142,47 +1738,84 @@ def build():
             "maxSymbolsPerRun":
                 MAX_SYMBOLS_PER_RUN,
 
+            "maxCapexEventsPerStock":
+                MAX_CAPEX_EVENTS_PER_STOCK,
+
+            "maxTailwindEventsPerStock":
+                MAX_TAILWIND_EVENTS_PER_STOCK,
+
             "important": (
-                "Candidates are NOT verified triggers. "
-                "Review source filing before promoting "
-                "evidence to company_evidence.json."
+                "Candidates are NOT verified "
+                "Big Move triggers. "
+                "Review the NSE source filing "
+                "before promoting evidence to "
+                "company_evidence.json."
             ),
 
             "rules": {
                 "capex": (
-                    "Requires explicit company-specific "
-                    "capacity/plant/facility/commissioning/"
-                    "production expansion evidence."
+                    "Requires explicit "
+                    "company-specific capacity, "
+                    "plant, facility, commissioning "
+                    "or production-expansion "
+                    "evidence."
+                ),
+
+                "negativeCapex": (
+                    "Postponed, delayed, deferred, "
+                    "cancelled, suspended, shutdown, "
+                    "closure and similar negative "
+                    "events are rejected before "
+                    "positive keyword matching."
+                ),
+
+                "deduplication": (
+                    "Repeated filings are reduced "
+                    "to the strongest/latest useful "
+                    "candidate for each company."
                 ),
 
                 "tailwind": (
-                    "Requires explicit structural driver "
-                    "such as PLI, import substitution, "
-                    "localisation, China+1, policy or "
-                    "regulatory change."
+                    "Requires an explicit structural "
+                    "driver such as PLI, import "
+                    "substitution, localisation, "
+                    "China+1, policy or regulatory "
+                    "change."
                 ),
 
                 "scoreRule": (
-                    "CAPEX score or Tailwind score alone "
-                    "does NOT create a trigger."
+                    "CAPEX score or Tailwind score "
+                    "alone does NOT create a "
+                    "Big Move trigger."
                 ),
             },
 
             "counts": {
                 "symbolsScanned":
-                    scanned,
+                    symbols_scanned,
 
                 "announcementsSeen":
                     announcements_seen,
 
+                "rawCapexMatches":
+                    raw_capex_matches,
+
+                "negativeCapexRejected":
+                    negative_capex_rejected,
+
+                "rawTailwindMatches":
+                    raw_tailwind_matches,
+
                 "symbolsWithCandidates":
-                    len(stocks_out),
+                    len(
+                        stocks_out
+                    ),
 
                 "capexCandidates":
-                    capex_count,
+                    final_capex_candidates,
 
                 "tailwindCandidates":
-                    tailwind_count,
+                    final_tailwind_candidates,
 
                 "fetchFailures":
                     fetch_failures,
@@ -1201,31 +1834,36 @@ def build():
 # =========================================================
 
 def main():
+
     print(
         "Starting NSE company evidence "
         "candidate scan..."
     )
 
     try:
+
         result = build()
 
     except Exception as exc:
-        # -------------------------------------------------
-        # FAIL-SAFE:
-        # Evidence collection must NOT destroy the normal
-        # daily NSE market-data workflow.
-        # -------------------------------------------------
+
+        # =================================================
+        # FAIL-SAFE
+        #
+        # Evidence collection must never destroy the
+        # normal daily market-data workflow.
+        # =================================================
 
         print(
-            "Company evidence collector warning:",
+            "Company evidence "
+            "collector warning:",
             exc,
         )
 
         result = {
             "_meta": {
                 "description": (
-                    "NSE corporate-announcement evidence "
-                    "candidate scan."
+                    "NSE corporate-announcement "
+                    "evidence candidate scan."
                 ),
 
                 "updated":
@@ -1235,12 +1873,15 @@ def main():
                     "FETCH_FAILED_SAFE",
 
                 "error":
-                    clean(exc),
+                    clean(
+                        exc
+                    ),
 
                 "important": (
-                    "Normal market-data workflow may "
-                    "continue. No verified evidence was "
-                    "modified."
+                    "Normal market-data workflow "
+                    "may continue. "
+                    "company_evidence.json was "
+                    "not modified."
                 ),
             },
 
@@ -1264,7 +1905,8 @@ def main():
     )
 
     print(
-        "Evidence candidate build complete."
+        "Evidence candidate "
+        "build complete."
     )
 
     print(
@@ -1280,7 +1922,8 @@ def main():
     )
 
     print(
-        "IMPORTANT: company_evidence.json "
+        "IMPORTANT: "
+        "company_evidence.json "
         "was NOT modified."
     )
 
