@@ -91,8 +91,8 @@
         ],
         "structuralTriggers": [],
         "keyTrigger": "CAPEX • Industry Tailwind",
-        "phase1Score": 82,
-        "bigMoveScore": 82
+        "phase1Score": 83,
+        "bigMoveScore": 83
       },
       "sourceResearchFields": {
         "symbol": "KABRAEXTRU",
@@ -260,19 +260,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 37.6%, earnings growth 15.1%, quarterly earnings growth 16.4%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-09-25",
+            "sourceDate": "2026-09-26",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on profit margin 13.5%, operating margin 23.3%, debt/equity 1.8.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-09-25",
+            "sourceDate": "2026-09-26",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-09-25",
+            "sourceDate": "2026-09-26",
             "mode": "AUTOMATED"
           }
         }
