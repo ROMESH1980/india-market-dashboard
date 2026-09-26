@@ -2,12 +2,12 @@
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
     "updated": "2026-09-26",
-    "status": "REVIEW_REQUIRED",
+    "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
     "maxCapexEventsPerStock": 1,
     "maxTailwindEventsPerStock": 1,
-    "important": "Candidates are NOT verified Big Move triggers. Review the NSE source filing before promoting evidence to company_evidence.json.",
+    "important": "Strong NSE CAPEX evidence may be AUTO_VERIFIED. Ambiguous CAPEX and all Tailwind evidence remain REVIEW_REQUIRED.",
     "rules": {
       "capex": "Requires explicit company-specific capacity, plant, facility, commissioning or production-expansion evidence.",
       "negativeCapex": "Postponed, delayed, deferred, cancelled, suspended, shutdown, closure and similar negative events are rejected before positive keyword matching.",
@@ -17,13 +17,14 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 11305,
+      "announcementsSeen": 11309,
       "rawCapexMatches": 32,
       "negativeCapexRejected": 402,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 9,
       "capexCandidates": 9,
       "tailwindCandidates": 0,
+      "autoVerifiedCapex": 9,
       "fetchFailures": 0
     }
   },
@@ -45,7 +46,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -67,7 +68,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -89,7 +90,7 @@
             "commercial production"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -111,7 +112,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -133,7 +134,7 @@
             "commercial production"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -155,7 +156,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -177,7 +178,7 @@
             "commercial production"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -199,7 +200,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]
@@ -221,7 +222,7 @@
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateStatus": "AUTO_VERIFIED",
           "candidateBuilt": "2026-09-26"
         }
       ]

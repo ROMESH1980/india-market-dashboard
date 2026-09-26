@@ -2,7 +2,8 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-09-26"
+    "updated": "2026-09-26",
+    "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
     "ACUTAAS": {
@@ -13,7 +14,6 @@
         "sourceDate": "2026-08-25"
       }
     },
-
     "SHANTIGOLD": {
       "capex": {
         "score": 90,
@@ -22,7 +22,6 @@
         "sourceDate": "2026-06-08"
       }
     },
-
     "SDBL": {
       "capex": {
         "score": 85,
@@ -31,7 +30,6 @@
         "sourceDate": "2026-06-11"
       }
     },
-
     "DAVANGERE": {
       "capex": {
         "score": 95,
@@ -40,7 +38,6 @@
         "sourceDate": "2026-03-30"
       }
     },
-
     "GRWRHITECH": {
       "capex": {
         "score": 95,
@@ -49,7 +46,6 @@
         "sourceDate": "2026-05-06"
       }
     },
-
     "TVSSRICHAK": {
       "capex": {
         "score": 95,
@@ -58,13 +54,120 @@
         "sourceDate": "2026-05-27"
       }
     },
-
     "ARTEMISMED": {
       "capex": {
         "score": 95,
         "reason": "Verified CAPEX / Capacity Expansion: Artemis Medicare approved expansion of Tower IV at its flagship Gurugram hospital. More than 200 beds are proposed to be added over approximately two years with estimated investment of Rs. 160-180 crore, funded through internal accruals and debt.",
         "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_03082026174428_Outcome_03082026.pdf",
         "sourceDate": "2026-08-03"
+      }
+    },
+    "LORDSCHLO": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/LCAL_10112025192742_Outcome_of_BM.pdf",
+        "sourceDate": "2025-11-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "NRAIL": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/NRAIL_26022026162559_IntimationunderReg30EnhancementofProductionCapacity26022026.pdf",
+        "sourceDate": "2026-02-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "EMIL": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/EMILTD_21092026171349_Intimation.pdf",
+        "sourceDate": "2026-09-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "STEELCAS": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/STEELCAS_29072026171503_Outcome_Q1_Signed.pdf",
+        "sourceDate": "2026-07-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "WELCORP": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/WELCORP_06112025174540_SEDICAPACITY.pdf",
+        "sourceDate": "2025-11-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "ISGEC": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ISGEC_27052026181032_Outcome.pdf",
+        "sourceDate": "2026-05-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "GRADIENTE": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/GRADIENTE_11062026120102_Reg_30_Announcement_Gradiente_Studio.pdf",
+        "sourceDate": "2026-06-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "SWELECTES": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SWELECTES_16042026214041_Intimation_on_Sirungattur_commisioning_signed.pdf",
+        "sourceDate": "2026-04-16",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
+      }
+    },
+    "SAMBHV": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_03082026194638_June26.pdf",
+        "sourceDate": "2026-08-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-26"
       }
     }
   }
