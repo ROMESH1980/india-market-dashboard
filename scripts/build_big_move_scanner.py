@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 STOCKS_PATH = DATA_DIR / "stocks.json"
+EVIDENCE_PATH = DATA_DIR / "company_evidence.json"
 OUTPUT_PATH = DATA_DIR / "big_move_scanner.json"
 
 
@@ -57,7 +58,7 @@ def num(value):
         return None
 
     if isinstance(value, str):
-        text = (
+        text_value = (
             value
             .replace(",", "")
             .replace("%", "")
@@ -65,10 +66,10 @@ def num(value):
             .strip()
         )
 
-        if not text:
+        if not text_value:
             return None
 
-        if text.lower() in {
+        if text_value.lower() in {
             "-",
             "—",
             "na",
@@ -79,7 +80,7 @@ def num(value):
         }:
             return None
 
-        value = text
+        value = text_value
 
     try:
         result = float(value)
@@ -145,6 +146,144 @@ def clamp(value, low, high):
             value,
         ),
     )
+
+
+# =========================================================
+# VERIFIED EVIDENCE HELPERS
+# =========================================================
+
+def valid_evidence_source(source):
+    """
+    Only real HTTP/HTTPS references qualify.
+
+    methodology.html and similar internal methodology
+    references must never create Big Move triggers.
+    """
+
+    source = text(source)
+
+    if not source:
+        return False
+
+    source_lower = source.lower()
+
+    if "methodology.html" in source_lower:
+        return False
+
+    if source_lower.startswith(
+        (
+            "http://",
+            "https://",
+        )
+    ):
+        return True
+
+    return False
+
+
+def get_verified_evidence(
+    evidence_stocks,
+    symbol,
+    evidence_type,
+):
+    """
+    Read verified evidence from data/company_evidence.json.
+
+    A trigger requires BOTH:
+      1. non-empty company-specific reason
+      2. usable HTTP/HTTPS source
+
+    company_evidence_candidates.json is intentionally
+    NOT read here.
+
+    REVIEW_REQUIRED candidates therefore cannot become
+    Big Move triggers automatically.
+    """
+
+    if not isinstance(
+        evidence_stocks,
+        dict,
+    ):
+        return None
+
+    symbol = text(
+        symbol
+    ).upper()
+
+    if not symbol:
+        return None
+
+    stock_evidence = (
+        evidence_stocks.get(
+            symbol,
+            {}
+        )
+        or {}
+    )
+
+    if not isinstance(
+        stock_evidence,
+        dict,
+    ):
+        return None
+
+    evidence = (
+        stock_evidence.get(
+            evidence_type,
+            {}
+        )
+        or {}
+    )
+
+    if not isinstance(
+        evidence,
+        dict,
+    ):
+        return None
+
+    reason = text(
+        evidence.get(
+            "reason"
+        )
+    )
+
+    source = text(
+        evidence.get(
+            "source"
+        )
+    )
+
+    source_date = text(
+        evidence.get(
+            "sourceDate"
+        )
+    )
+
+    if not reason:
+        return None
+
+    if not valid_evidence_source(
+        source
+    ):
+        return None
+
+    return {
+        "reason":
+            reason,
+
+        "source":
+            source,
+
+        "sourceDate":
+            source_date or None,
+
+        "score":
+            num(
+                evidence.get(
+                    "score"
+                )
+            ),
+    }
 
 
 # =========================================================
@@ -231,7 +370,9 @@ def positive_flag(value):
     if numeric is not None:
         return numeric >= 60
 
-    value = str(value).strip().lower()
+    value = str(
+        value
+    ).strip().lower()
 
     if value in {
         "yes",
@@ -339,9 +480,6 @@ STRUCTURAL_TRIGGER_RULES = [
 ]
 
 
-# Strong company-specific evidence/action words.
-# Generic words such as "growth", "opportunity", "positive", "tailwind"
-# are intentionally NOT enough by themselves.
 STRUCTURAL_ACTION_EVIDENCE = [
     "company announced",
     "company has",
@@ -403,7 +541,10 @@ STRUCTURAL_ACTION_EVIDENCE = [
 ]
 
 
-def _collect_research_fragments(value, fragments):
+def _collect_research_fragments(
+    value,
+    fragments,
+):
     """
     Preserve individual evidence/reason strings.
 
@@ -411,16 +552,25 @@ def _collect_research_fragments(value, fragments):
     a structural keyword in one unrelated reason must NOT combine with
     an action word found somewhere else in the stock record.
     """
+
     if value is None:
         return
 
-    if isinstance(value, dict):
+    if isinstance(
+        value,
+        dict,
+    ):
         for key, item in value.items():
-            key_lower = str(key).lower()
+            key_lower = str(
+                key
+            ).lower()
 
             if (
                 "url" in key_lower
-                or key_lower in {"link", "href"}
+                or key_lower in {
+                    "link",
+                    "href",
+                }
             ):
                 continue
 
@@ -433,7 +583,11 @@ def _collect_research_fragments(value, fragments):
 
     if isinstance(
         value,
-        (list, tuple, set),
+        (
+            list,
+            tuple,
+            set,
+        ),
     ):
         for item in value:
             _collect_research_fragments(
@@ -444,7 +598,10 @@ def _collect_research_fragments(value, fragments):
         return
 
     if (
-        isinstance(value, str)
+        isinstance(
+            value,
+            str,
+        )
         and value.strip()
     ):
         fragments.append(
@@ -457,6 +614,7 @@ def structural_evidence_fragments(row):
     Read only existing research reason/evidence fields.
     Sector/industry names alone are NOT treated as structural evidence.
     """
+
     fragments = []
 
     fields = [
@@ -491,10 +649,10 @@ def structural_evidence_fragments(row):
             fragments,
         )
 
-    # Preserve compatibility with future reason/evidence fields,
-    # but still ignore unrelated normal stock fields.
     for key, value in row.items():
-        key_lower = str(key).lower()
+        key_lower = str(
+            key
+        ).lower()
 
         if key in fields:
             continue
@@ -508,20 +666,28 @@ def structural_evidence_fragments(row):
                 fragments,
             )
 
-    # Remove duplicates while preserving order.
     unique = []
     seen = set()
 
     for fragment in fragments:
         if fragment not in seen:
-            seen.add(fragment)
-            unique.append(fragment)
+            seen.add(
+                fragment
+            )
+            unique.append(
+                fragment
+            )
 
     return unique
 
 
-def _contains_any(text_value, keywords):
-    padded = f" {text_value} "
+def _contains_any(
+    text_value,
+    keywords,
+):
+    padded = (
+        f" {text_value} "
+    )
 
     return any(
         keyword in padded
@@ -529,23 +695,25 @@ def _contains_any(text_value, keywords):
     )
 
 
-def _has_company_specific_action(fragment, row):
+def _has_company_specific_action(
+    fragment,
+    row,
+):
     """
     Require concrete action/impact evidence in the SAME fragment.
-
-    A company/symbol mention strengthens evidence, but is not mandatory
-    because many existing research reasons are written without repeating
-    the company name.
     """
-    padded = f" {fragment} "
+
+    padded = (
+        f" {fragment} "
+    )
 
     if any(
         action in padded
-        for action in STRUCTURAL_ACTION_EVIDENCE
+        for action
+        in STRUCTURAL_ACTION_EVIDENCE
     ):
         return True
 
-    # Extra strict company-name/symbol + measurable impact fallback.
     symbol = str(
         row.get("symbol")
         or ""
@@ -560,12 +728,14 @@ def _has_company_specific_action(fragment, row):
     company_mentioned = (
         (
             symbol
-            and f" {symbol} " in padded
+            and
+            f" {symbol} " in padded
         )
         or
         (
             company_name
-            and company_name in fragment
+            and
+            company_name in fragment
         )
     )
 
@@ -588,7 +758,8 @@ def _has_company_specific_action(fragment, row):
         company_mentioned
         and any(
             word in padded
-            for word in measurable_impact_words
+            for word
+            in measurable_impact_words
         )
     )
 
@@ -598,14 +769,12 @@ def detect_structural_triggers(row):
     STRICT RULE:
     Structural theme keyword + company-specific action/impact evidence
     must occur in the SAME research fragment.
-
-    This prevents examples such as:
-      - pharma industry text -> Technology trigger
-      - generic policy discussion -> Government trigger
-      - generic input-cost mention -> Raw Material trigger
     """
-    fragments = structural_evidence_fragments(
-        row
+
+    fragments = (
+        structural_evidence_fragments(
+            row
+        )
     )
 
     if not fragments:
@@ -613,10 +782,15 @@ def detect_structural_triggers(row):
 
     detected = []
 
-    for trigger_name, keywords in STRUCTURAL_TRIGGER_RULES:
+    for (
+        trigger_name,
+        keywords,
+    ) in STRUCTURAL_TRIGGER_RULES:
+
         matched = False
 
         for fragment in fragments:
+
             if not _contains_any(
                 fragment,
                 keywords,
@@ -640,25 +814,53 @@ def detect_structural_triggers(row):
     return detected
 
 
-def merge_unique_triggers(*groups):
-    out=[]
-    seen=set()
+def merge_unique_triggers(
+    *groups,
+):
+    out = []
+    seen = set()
+
     for group in groups:
         for item in group or []:
             if item not in seen:
-                seen.add(item)
-                out.append(item)
+                seen.add(
+                    item
+                )
+                out.append(
+                    item
+                )
+
     return out
 
-def detect_triggers(row):
-    """
-    Build trigger list from existing research fields.
 
-    This does NOT invent a trigger.
-    It only uses fields already available in stocks.json.
+# =========================================================
+# BUSINESS TRIGGER DETECTION
+# =========================================================
+
+def detect_triggers(
+    row,
+    evidence_stocks,
+):
+    """
+    Build business trigger list.
+
+    IMPORTANT CHANGE:
+    CAPEX and Industry Tailwind are NOT allowed to trigger
+    from capexScore / tailwindScore.
+
+    They require verified evidence from:
+        data/company_evidence.json
+
+    Candidate evidence is NOT accepted automatically.
     """
 
     triggers = []
+
+    symbol = text(
+        row.get(
+            "symbol"
+        )
+    ).upper()
 
     # -----------------------------------------------------
     # Earnings Acceleration
@@ -673,7 +875,9 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(earnings_flag) is True:
+    if positive_flag(
+        earnings_flag
+    ) is True:
         triggers.append(
             "Earnings Acceleration"
         )
@@ -690,7 +894,9 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(margin_flag) is True:
+    if positive_flag(
+        margin_flag
+    ) is True:
         triggers.append(
             "Margin Expansion"
         )
@@ -708,42 +914,47 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(order_flag) is True:
+    if positive_flag(
+        order_flag
+    ) is True:
         triggers.append(
             "Order Win / Order Book"
         )
 
     # -----------------------------------------------------
-    # CAPEX
+    # CAPEX — VERIFIED EVIDENCE ONLY
+    # -----------------------------------------------------
+    #
+    # OLD LOGIC REMOVED:
+    #
+    # capexScore >= 70
+    # capexTrigger score/flag
+    #
+    # A high automated CAPEX score alone must NOT create
+    # a Big Move trigger.
     # -----------------------------------------------------
 
-    capex_value = first_value(
-        row,
-        [
-            "capexTrigger",
+    capex_evidence = (
+        get_verified_evidence(
+            evidence_stocks,
+            symbol,
             "capex",
-            "capexScore",
-        ],
-    )
-
-    capex_score = score_like(
-        capex_value
-    )
-
-    if (
-        positive_flag(capex_value) is True
-        or
-        (
-            capex_score is not None
-            and capex_score >= 70
         )
-    ):
+    )
+
+    if capex_evidence is not None:
         triggers.append(
             "CAPEX"
         )
 
     # -----------------------------------------------------
     # Capacity Expansion
+    # -----------------------------------------------------
+    #
+    # Existing explicit stock field is preserved.
+    # Verified CAPEX evidence does NOT automatically create
+    # a separate Capacity Expansion trigger as well,
+    # preventing double counting.
     # -----------------------------------------------------
 
     capacity_flag = first_value(
@@ -754,7 +965,9 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(capacity_flag) is True:
+    if positive_flag(
+        capacity_flag
+    ) is True:
         triggers.append(
             "Capacity Expansion"
         )
@@ -771,7 +984,9 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(new_product) is True:
+    if positive_flag(
+        new_product
+    ) is True:
         triggers.append(
             "New Product"
         )
@@ -788,7 +1003,9 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(corporate_action) is True:
+    if positive_flag(
+        corporate_action
+    ) is True:
         triggers.append(
             "Corporate Action"
         )
@@ -808,53 +1025,60 @@ def detect_triggers(row):
         ],
     )
 
-    if positive_flag(fund_raise) is True:
+    if positive_flag(
+        fund_raise
+    ) is True:
         triggers.append(
             "Fund Raise / Warrants / QIP"
         )
 
     # -----------------------------------------------------
-    # Industry Tailwind
+    # INDUSTRY TAILWIND — VERIFIED EVIDENCE ONLY
+    # -----------------------------------------------------
+    #
+    # OLD LOGIC REMOVED:
+    #
+    # tailwindScore >= 70
+    # automated tailwind score/flag
+    #
+    # Generic sector strength or methodology text must NOT
+    # create a Big Move business trigger.
     # -----------------------------------------------------
 
-    tailwind = first_value(
-        row,
-        [
+    tailwind_evidence = (
+        get_verified_evidence(
+            evidence_stocks,
+            symbol,
             "tailwind",
-            "tailwindScore",
-            "industryTailwind",
-        ],
-    )
-
-    tailwind_score = score_like(
-        tailwind
-    )
-
-    if (
-        positive_flag(tailwind) is True
-        or
-        (
-            tailwind_score is not None
-            and tailwind_score >= 70
         )
-    ):
+    )
+
+    if tailwind_evidence is not None:
         triggers.append(
             "Industry Tailwind"
         )
 
-    # remove duplicates, preserve order
-    clean = []
+    # -----------------------------------------------------
+    # REMOVE DUPLICATES
+    # -----------------------------------------------------
 
+    clean_triggers = []
     seen = set()
 
     for item in triggers:
+
         if item in seen:
             continue
 
-        seen.add(item)
-        clean.append(item)
+        seen.add(
+            item
+        )
 
-    return clean
+        clean_triggers.append(
+            item
+        )
+
+    return clean_triggers
 
 
 def choose_key_trigger(triggers):
@@ -1038,6 +1262,7 @@ def calculate_phase1_score(
 # =========================================================
 
 def preliminary_status(score):
+
     if score >= 80:
         return "High Potential"
 
@@ -1087,7 +1312,6 @@ def initial_missing_conditions(
             "Free Float"
         )
 
-    # Technical engine runs after this script.
     missing.append(
         "Technical Analysis"
     )
@@ -1099,7 +1323,11 @@ def initial_missing_conditions(
 # BUILD ROW
 # =========================================================
 
-def build_scanner_row(stock):
+def build_scanner_row(
+    stock,
+    evidence_stocks,
+):
+
     symbol = text(
         stock.get(
             "symbol"
@@ -1180,14 +1408,6 @@ def build_scanner_row(stock):
 
     # =====================================================
     # FREE FLOAT
-    #
-    # Values originate from build_free_float.py.
-    #
-    # freeFloatShares:
-    # exact filing-derived Public Shares minus locked
-    # public shares.
-    #
-    # It is NOT estimated from Market Cap / Price.
     # =====================================================
 
     free_float_shares = integer(
@@ -1260,12 +1480,39 @@ def build_scanner_row(stock):
         )
     )
 
-    business_triggers = detect_triggers(
-        stock
+    # =====================================================
+    # VERIFIED CAPEX / TAILWIND EVIDENCE
+    # =====================================================
+
+    capex_evidence = (
+        get_verified_evidence(
+            evidence_stocks,
+            symbol,
+            "capex",
+        )
     )
 
-    structural_triggers = detect_structural_triggers(
-        stock
+    tailwind_evidence = (
+        get_verified_evidence(
+            evidence_stocks,
+            symbol,
+            "tailwind",
+        )
+    )
+
+    # =====================================================
+    # TRIGGERS
+    # =====================================================
+
+    business_triggers = detect_triggers(
+        stock,
+        evidence_stocks,
+    )
+
+    structural_triggers = (
+        detect_structural_triggers(
+            stock
+        )
     )
 
     triggers = merge_unique_triggers(
@@ -1274,7 +1521,9 @@ def build_scanner_row(stock):
     )
 
     key_trigger = (
-        " • ".join(triggers)
+        " • ".join(
+            triggers
+        )
         if triggers
         else None
     )
@@ -1448,7 +1697,6 @@ def build_scanner_row(stock):
         "freeFloatEstimated":
             free_float_estimated,
 
-        # Keep underlying filing values too.
         "publicShares":
             public_shares,
 
@@ -1480,6 +1728,31 @@ def build_scanner_row(stock):
             key_trigger,
 
         # -------------------------------------------------
+        # VERIFIED EVIDENCE DETAILS
+        #
+        # These allow Page 2 / drawer to show:
+        # reason + source + source date.
+        # -------------------------------------------------
+
+        "capexVerified":
+            (
+                capex_evidence
+                is not None
+            ),
+
+        "capexEvidence":
+            capex_evidence,
+
+        "industryTailwindVerified":
+            (
+                tailwind_evidence
+                is not None
+            ),
+
+        "industryTailwindEvidence":
+            tailwind_evidence,
+
+        # -------------------------------------------------
         # Phase-1 score
         # -------------------------------------------------
 
@@ -1494,8 +1767,6 @@ def build_scanner_row(stock):
 
         # -------------------------------------------------
         # Technical placeholders
-        #
-        # build_big_move_technical.py fills these afterward.
         # -------------------------------------------------
 
         "priorMovePct":
@@ -1568,9 +1839,11 @@ def build_scanner_row(stock):
 # =========================================================
 
 def detect_market_date(stocks):
+
     dates = []
 
     for stock in stocks:
+
         value = first_value(
             stock,
             [
@@ -1583,13 +1856,14 @@ def detect_market_date(stocks):
 
         if value:
             dates.append(
-                str(value)
+                str(
+                    value
+                )
             )
 
     if not dates:
         return None
 
-    # Most common / latest-looking value.
     return sorted(
         dates
     )[-1]
@@ -1600,6 +1874,7 @@ def detect_market_date(stocks):
 # =========================================================
 
 def build_summary(rows):
+
     total = len(
         rows
     )
@@ -1649,6 +1924,24 @@ def build_summary(rows):
         )
     )
 
+    verified_capex = sum(
+        1
+        for row in rows
+        if row.get(
+            "capexVerified"
+        )
+        is True
+    )
+
+    verified_tailwind = sum(
+        1
+        for row in rows
+        if row.get(
+            "industryTailwindVerified"
+        )
+        is True
+    )
+
     return {
         "scannerUniverse":
             total,
@@ -1662,7 +1955,12 @@ def build_summary(rows):
         "freeFloatReady":
             free_float_ready,
 
-        # Technical engine recalculates these later.
+        "verifiedCapex":
+            verified_capex,
+
+        "verifiedIndustryTailwind":
+            verified_tailwind,
+
         "nearBreakout":
             0,
 
@@ -1676,6 +1974,7 @@ def build_summary(rows):
 # =========================================================
 
 def main():
+
     print(
         "=============================================="
     )
@@ -1705,11 +2004,46 @@ def main():
             "data/stocks.json is missing or empty"
         )
 
+    # =====================================================
+    # VERIFIED EVIDENCE DATABASE
+    # =====================================================
+
+    evidence_data = load_json(
+        EVIDENCE_PATH,
+        {},
+    )
+
+    evidence_stocks = (
+        evidence_data.get(
+            "stocks",
+            {}
+        )
+        if isinstance(
+            evidence_data,
+            dict,
+        )
+        else {}
+    )
+
+    if not isinstance(
+        evidence_stocks,
+        dict,
+    ):
+        evidence_stocks = {}
+
+    print(
+        "Verified evidence stocks:",
+        len(
+            evidence_stocks
+        ),
+    )
+
     rows = []
 
     skipped = 0
 
     for stock in stocks:
+
         if not isinstance(
             stock,
             dict,
@@ -1728,7 +2062,8 @@ def main():
             continue
 
         row = build_scanner_row(
-            stock
+            stock,
+            evidence_stocks,
         )
 
         rows.append(
@@ -1780,7 +2115,7 @@ def main():
             now,
 
         "scannerVersion":
-            "2.1",
+            "2.2",
 
         "methodology": {
             "phase1":
@@ -1788,6 +2123,22 @@ def main():
                     "RS + Stock Momentum + Industry Rating + "
                     "multi-period price strength + existing "
                     "fundamental/business triggers."
+                ),
+
+            "verifiedEvidence":
+                (
+                    "CAPEX and Industry Tailwind business triggers "
+                    "require company-specific verified evidence with "
+                    "a valid source in company_evidence.json. "
+                    "Automated CAPEX/Tailwind scores alone cannot "
+                    "create these triggers."
+                ),
+
+            "candidateEvidence":
+                (
+                    "company_evidence_candidates.json is review-only "
+                    "and is not used directly to create Big Move "
+                    "business triggers."
                 ),
 
             "structuralTriggers":
@@ -1834,10 +2185,14 @@ def main():
 
     print({
         "stocksInput":
-            len(stocks),
+            len(
+                stocks
+            ),
 
         "scannerRows":
-            len(rows),
+            len(
+                rows
+            ),
 
         "skipped":
             skipped,
@@ -1850,6 +2205,16 @@ def main():
         "triggerPresent":
             summary[
                 "triggerPresent"
+            ],
+
+        "verifiedCapex":
+            summary[
+                "verifiedCapex"
+            ],
+
+        "verifiedIndustryTailwind":
+            summary[
+                "verifiedIndustryTailwind"
             ],
 
         "freeFloatReady":
@@ -1870,16 +2235,37 @@ def main():
     )
 
     print()
+
     print(
         "IMPORTANT:"
     )
+
     print(
-        "Free Float is NOT included in Big Move Score yet."
+        "CAPEX and Industry Tailwind scores "
+        "do NOT create Big Move triggers."
     )
+
     print(
-        "build_big_move_technical.py runs after this file and "
-        "adds technical score / breakout / consolidation fields."
+        "Only verified company_evidence.json "
+        "records with reason + valid source qualify."
     )
+
+    print(
+        "company_evidence_candidates.json remains "
+        "REVIEW_REQUIRED and cannot trigger automatically."
+    )
+
+    print(
+        "Free Float is NOT included in "
+        "Big Move Score yet."
+    )
+
+    print(
+        "build_big_move_technical.py runs after this file "
+        "and adds technical score / breakout / "
+        "consolidation fields."
+    )
+
     print(
         "=============================================="
     )
