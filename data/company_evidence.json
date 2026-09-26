@@ -1,22 +1,71 @@
 {
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
-    "rule": "Do not add a company-specific score without a supporting reason and source.",
-    "updated": "2026-08-25"
+    "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
+    "updated": "2026-09-26"
   },
-
   "stocks": {
-
     "ACUTAAS": {
-
       "valueMigration": {
         "score": 85,
         "reason": "Verified business Value Migration: Acutaas is expanding from pharmaceutical intermediates into higher-value CDMO, semiconductor chemicals and battery chemicals. The company states that it is India's only manufacturer of semiconductor-grade photoresist chemicals and the first company in India outside China to develop electrolyte additives on a commercial scale. This indicates localisation/import-substitution and a shift toward higher-value new-age specialty chemistry.",
         "source": "https://acutaas.com/products",
         "sourceDate": "2026-08-25"
       }
+    },
 
+    "SHANTIGOLD": {
+      "capex": {
+        "score": 90,
+        "reason": "Verified CAPEX / Capacity Expansion: Shanti Gold International commenced commercial production at its new expanded Marol manufacturing facility on June 8, 2026. The expansion adds approximately 4,000 kg per annum to manufacturing capacity.",
+        "source": "https://nsearchives.nseindia.com/corporate/SHANTIGOLD_08062026165035_Commencement_of_Operations_Marol_facility_SGIL.pdf",
+        "sourceDate": "2026-06-08"
+      }
+    },
+
+    "SDBL": {
+      "capex": {
+        "score": 85,
+        "reason": "Verified Capacity Expansion: Som Distilleries & Breweries' wholly owned subsidiary Woodpecker Green Agri Nutrients commenced commercial production at its brewery facility in Uttar Pradesh on June 10, 2026. The company states that the new brewery strengthens manufacturing capabilities and supports expansion in northern India.",
+        "source": "https://nsearchives.nseindia.com/corporate/SDBL_11062026151803_PressRelease_.pdf",
+        "sourceDate": "2026-06-11"
+      }
+    },
+
+    "DAVANGERE": {
+      "capex": {
+        "score": 95,
+        "reason": "Verified CAPEX / Capacity Expansion: Davangere Sugar approved expansion of distillery production capacity by 85 KLPD from an existing 65 KLPD. The proposed investment is Rs. 127.50 crore and the additional capacity is planned within 18 months.",
+        "source": "https://nsearchives.nseindia.com/corporate/DAVANGERESUGAR_30032026182901_IntimationCapacityExpansionSigned.pdf",
+        "sourceDate": "2026-03-30"
+      }
+    },
+
+    "GRWRHITECH": {
+      "capex": {
+        "score": 95,
+        "reason": "Verified CAPEX / Capacity Expansion: Garware Hi-Tech Films approved a new lamination line at Waluj with proposed capacity addition of 1,200 LSF per annum. The project amount is approximately Rs. 191 crore plus applicable taxes and is expected to be added within 14 months.",
+        "source": "https://nsearchives.nseindia.com/corporate/GRWRHITECH_06052026135237_GHFL_Capacity_addition_Reg_30.pdf",
+        "sourceDate": "2026-05-06"
+      }
+    },
+
+    "TVSSRICHAK": {
+      "capex": {
+        "score": 95,
+        "reason": "Verified CAPEX / Capacity Expansion: TVS Srichakra approved capital investment of up to Rs. 220 crore for capacity expansion at its Madurai manufacturing units. Proposed capacity addition is about 5% for the 2W plant and about 25% for the Off Highway Tyre plant.",
+        "source": "https://nsearchives.nseindia.com/corporate/TVSSRICHAK_27052026184016_TVSSRICHAKRALIMITEDMaduraiPlantExpansion27052026.pdf",
+        "sourceDate": "2026-05-27"
+      }
+    },
+
+    "ARTEMISMED": {
+      "capex": {
+        "score": 95,
+        "reason": "Verified CAPEX / Capacity Expansion: Artemis Medicare approved expansion of Tower IV at its flagship Gurugram hospital. More than 200 beds are proposed to be added over approximately two years with estimated investment of Rs. 160-180 crore, funded through internal accruals and debt.",
+        "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_03082026174428_Outcome_03082026.pdf",
+        "sourceDate": "2026-08-03"
+      }
     }
-
   }
 }
