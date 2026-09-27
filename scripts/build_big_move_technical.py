@@ -2354,6 +2354,32 @@ def phase2_score(
 
 
 # =========================================================
+# SCORE BREAKDOWN
+# =========================================================
+
+def phase2_score_breakdown(old_score, tech_score):
+    old_score = safe_float(old_score)
+    tech_score = safe_float(tech_score)
+    if old_score is None:
+        old_score = 0
+    if tech_score is None:
+        tech_score = 0
+
+    phase1_component = old_score / 100 * 55
+    technical_component = clamp(tech_score, 0, 45)
+
+    return {
+        "phase1Raw": round(old_score, 2),
+        "phase1Contribution": round(phase1_component, 2),
+        "phase1Max": 55,
+        "technicalRaw": round(tech_score, 2),
+        "technicalContribution": round(technical_component, 2),
+        "technicalMax": 45,
+        "finalScore": phase2_score(old_score, tech_score),
+    }
+
+
+# =========================================================
 # SETUP STATUS
 # =========================================================
 
@@ -2551,6 +2577,12 @@ def analyze_stock(
             "technicalStatus"
         ] = "INSUFFICIENT_HISTORY"
 
+        old_score = scanner_row.get("bigMoveScore")
+        scanner_row["phase1Score"] = old_score
+        scanner_row["bigMoveScore"] = phase2_score(old_score, 0)
+        scanner_row["scoreBreakdown"] = phase2_score_breakdown(old_score, 0)
+        scanner_row["scorePhase"] = "PHASE_2_TECHNICAL"
+        scanner_row["setupStatus"] = "Developing"
 
         return scanner_row
 
@@ -2629,14 +2661,10 @@ def analyze_stock(
             "technicalStatus"
         ] = "NO_PRIOR_30PCT_MOVE"
 
-        scanner_row[
-            "bigMoveScore"
-        ] = phase2_score(
-            scanner_row.get(
-                "bigMoveScore"
-            ),
-            0,
-        )
+        old_score = scanner_row.get("bigMoveScore")
+        scanner_row["phase1Score"] = old_score
+        scanner_row["bigMoveScore"] = phase2_score(old_score, 0)
+        scanner_row["scoreBreakdown"] = phase2_score_breakdown(old_score, 0)
 
         scanner_row[
             "scorePhase"
@@ -2893,6 +2921,13 @@ def analyze_stock(
     scanner_row[
         "bigMoveScore"
     ] = final_score
+
+    scanner_row[
+        "scoreBreakdown"
+    ] = phase2_score_breakdown(
+        old_score,
+        tech_score,
+    )
 
 
     scanner_row[
@@ -3170,6 +3205,27 @@ def build_summary(rows):
                 is True
             ),
 
+        "fundamentalTriggerPresent":
+            sum(1 for row in rows if row.get("fundamentalTrigger") is True),
+
+        "verifiedCapex":
+            sum(1 for row in rows if row.get("capexVerified") is True),
+
+        "verifiedIndustryTailwind":
+            sum(1 for row in rows if row.get("industryTailwindVerified") is True),
+
+        "capexTrigger":
+            sum(
+                1 for row in rows
+                if "CAPEX" in (row.get("businessTriggers") or [])
+            ),
+
+        "industryTailwindTrigger":
+            sum(
+                1 for row in rows
+                if "Industry Tailwind" in (row.get("businessTriggers") or [])
+            ),
+
     }
 
 
@@ -3443,9 +3499,9 @@ def main():
     )
 
 
-    scanner[
-        "scannerVersion"
-    ] = "2.0"
+    # Preserve version produced by build_big_move_scanner.py.
+    if not scanner.get("scannerVersion"):
+        scanner["scannerVersion"] = "2.2"
 
 
     scanner[
@@ -3496,9 +3552,11 @@ def main():
     ] = summary
 
 
-    scanner[
-        "methodology"
-    ] = {
+    base_methodology = scanner.get("methodology")
+    if not isinstance(base_methodology, dict):
+        base_methodology = {}
+
+    technical_methodology = {
 
         "phase":
             "PHASE_2_TECHNICAL",
@@ -3604,6 +3662,10 @@ def main():
         },
 
     }
+
+
+    base_methodology["technical"] = technical_methodology
+    scanner["methodology"] = base_methodology
 
 
     # =====================================================
