@@ -1,9 +1,16 @@
+import calendar
+import csv
+import io
 import json
+import math
+import time
+import zipfile
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from statistics import median
 
 import pandas as pd
+import requests
 import yfinance as yf
 
 
@@ -621,6 +628,188 @@ def macro_score(
 
 
 # =========================================================
+# OFFICIAL NSE UDiFF STOCK RETURN HISTORY
+# =========================================================
+# Stock 1M / 3M / 6M returns use the same official NSE
+# bhavcopy source as RS. Yahoo remains only for benchmark
+# indices because NSE index symbols are not equity bhavcopy rows.
+
+NSE_MAX_LOOKBACK_DAYS = 15
+NSE_REQUEST_TIMEOUT = 45
+NSE_MAX_RETRIES = 3
+
+NSE_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,"
+        "image/avif,image/webp,image/apng,*/*;q=0.8"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Referer": "https://www.nseindia.com/all-reports",
+}
+
+NSE_SESSION = requests.Session()
+NSE_SESSION.headers.update(NSE_HEADERS)
+NSE_BHAVCOPY_CACHE = {}
+
+
+def nse_subtract_months(date_obj, months):
+    year = date_obj.year
+    month = date_obj.month - months
+    while month <= 0:
+        month += 12
+        year -= 1
+    day = min(date_obj.day, calendar.monthrange(year, month)[1])
+    return date_obj.replace(year=year, month=month, day=day)
+
+
+def nse_latest_stock_date(stocks):
+    dates = []
+    for row in stocks:
+        value = row.get("priceDate")
+        if not value:
+            continue
+        try:
+            dates.append(datetime.strptime(str(value)[:10], "%Y-%m-%d").date())
+        except Exception:
+            pass
+    if dates:
+        return max(dates)
+    return datetime.now(timezone.utc).date()
+
+
+def nse_bhavcopy_url(date_obj):
+    yyyymmdd = date_obj.strftime("%Y%m%d")
+    return (
+        "https://nsearchives.nseindia.com/content/cm/"
+        f"BhavCopy_NSE_CM_0_0_0_{yyyymmdd}_F_0000.csv.zip"
+    )
+
+
+def nse_warmup():
+    for url in ("https://www.nseindia.com/", "https://www.nseindia.com/all-reports"):
+        try:
+            response = NSE_SESSION.get(url, timeout=20)
+            if response.status_code == 200:
+                return True
+        except Exception:
+            pass
+    return False
+
+
+def nse_parse_bhavcopy(content, date_obj, url):
+    if not content or len(content) < 500:
+        raise RuntimeError("Empty/invalid NSE response")
+    try:
+        archive = zipfile.ZipFile(io.BytesIO(content))
+    except Exception as exc:
+        raise RuntimeError(f"Invalid NSE ZIP: {exc}")
+    with archive:
+        csv_names = [name for name in archive.namelist() if name.lower().endswith(".csv")]
+        if not csv_names:
+            raise RuntimeError("CSV not found in NSE ZIP")
+        text = archive.read(csv_names[0]).decode("utf-8-sig", errors="ignore")
+    prices = {}
+    symbol_only = {}
+    for record in csv.DictReader(io.StringIO(text)):
+        clean = {str(k).strip().upper(): str(v).strip() for k, v in record.items()}
+        symbol = (clean.get("TCKRSYMB") or clean.get("SYMBOL") or "").strip().upper()
+        series = (clean.get("SCTYSRS") or clean.get("SERIES") or "").strip().upper()
+        close = safe_float(clean.get("CLSPRIC") or clean.get("CLOSE") or clean.get("CLOSE_PRICE"))
+        if not symbol or close is None or close <= 0:
+            continue
+        prices[(symbol, series)] = close
+        if symbol not in symbol_only or series == "EQ":
+            symbol_only[symbol] = close
+    if not prices:
+        raise RuntimeError("No valid securities found in NSE bhavcopy")
+    return {"date": date_obj, "url": url, "prices": prices, "symbolOnly": symbol_only, "count": len(prices)}
+
+
+def nse_download_bhavcopy(date_obj):
+    url = nse_bhavcopy_url(date_obj)
+    last_error = None
+    for attempt in range(1, NSE_MAX_RETRIES + 1):
+        try:
+            response = NSE_SESSION.get(
+                url,
+                headers={**NSE_HEADERS, "Accept": "application/zip,application/octet-stream,*/*"},
+                timeout=NSE_REQUEST_TIMEOUT,
+                allow_redirects=True,
+            )
+            if response.status_code == 200:
+                return nse_parse_bhavcopy(response.content, date_obj, url)
+            last_error = RuntimeError(f"HTTP {response.status_code}")
+            if response.status_code in (401, 403, 429):
+                nse_warmup()
+            time.sleep(min(2 * attempt, 6))
+        except Exception as exc:
+            last_error = exc
+            time.sleep(min(2 * attempt, 6))
+    raise RuntimeError(f"NSE bhavcopy download failed for {date_obj}: {last_error}")
+
+
+def nse_load_exact_cached(date_obj):
+    key = date_obj.isoformat()
+    if key in NSE_BHAVCOPY_CACHE:
+        cached = NSE_BHAVCOPY_CACHE[key]
+        if isinstance(cached, Exception):
+            raise cached
+        return cached
+    try:
+        result = nse_download_bhavcopy(date_obj)
+        NSE_BHAVCOPY_CACHE[key] = result
+        return result
+    except Exception as exc:
+        NSE_BHAVCOPY_CACHE[key] = exc
+        raise
+
+
+def nse_load_nearest_bhavcopy(target_date):
+    last_error = None
+    for back in range(NSE_MAX_LOOKBACK_DAYS + 1):
+        d = target_date - timedelta(days=back)
+        if d.weekday() >= 5:
+            continue
+        try:
+            result = nse_load_exact_cached(d)
+            print(f"Loaded NSE stock-return bhavcopy {d.isoformat()} ({result['count']} securities)")
+            return result
+        except Exception as exc:
+            last_error = exc
+    raise RuntimeError(f"No NSE bhavcopy available near {target_date}: {last_error}")
+
+
+def nse_lookup_price(stock, bhavcopy):
+    symbol = str(stock.get("symbol") or "").strip().upper()
+    series = str(stock.get("series") or "").strip().upper()
+    if not symbol:
+        return None
+    prices = bhavcopy["prices"]
+    exact = prices.get((symbol, series))
+    if exact is not None:
+        return exact
+    eq = prices.get((symbol, "EQ"))
+    if eq is not None:
+        return eq
+    return bhavcopy["symbolOnly"].get(symbol)
+
+
+def nse_return(current_price, old_price):
+    current_price = safe_float(current_price)
+    old_price = safe_float(old_price)
+    if current_price is None or old_price is None or old_price <= 0:
+        return None
+    return round(((current_price / old_price) - 1) * 100, 4)
+
+
+# =========================================================
 # YFINANCE HISTORY
 # =========================================================
 
@@ -955,10 +1144,9 @@ def main():
             )
 
 
+    # Stock returns now come from official NSE UDiFF bhavcopies.
+    # Yahoo is retained only for benchmark/sector indices.
     history = download_history(
-
-        stock_tickers
-        +
         list(index_tickers)
     )
 
@@ -1001,63 +1189,63 @@ def main():
 
 
     # =====================================================
-    # STOCK ACTUAL RETURNS
+    # STOCK ACTUAL RETURNS - OFFICIAL NSE UDiFF
     # =====================================================
 
     stock_growth_1m = {}
     stock_growth_3m = {}
     stock_growth_6m = {}
 
+    latest_stock_date = nse_latest_stock_date(stocks)
+    nse_warmup()
 
-    for row in classified:
+    nse_return_update_status = "UPDATED"
+    nse_history_dates = {}
 
-        symbol = row[
-            "symbol"
-        ]
+    try:
+        bhav_1m = nse_load_nearest_bhavcopy(nse_subtract_months(latest_stock_date, 1))
+        bhav_3m = nse_load_nearest_bhavcopy(nse_subtract_months(latest_stock_date, 3))
+        bhav_6m = nse_load_nearest_bhavcopy(nse_subtract_months(latest_stock_date, 6))
 
-        stock_series = history.get(
-            f"{symbol}.NS"
-        )
+        nse_history_dates = {
+            "1M": bhav_1m["date"].isoformat(),
+            "3M": bhav_3m["date"].isoformat(),
+            "6M": bhav_6m["date"].isoformat(),
+        }
 
-        if stock_series is None:
-            continue
+        for row in classified:
+            symbol = row["symbol"]
+            current_price = safe_float(row.get("price"))
+            if current_price is None or current_price <= 0:
+                continue
 
+            value_1m = nse_return(current_price, nse_lookup_price(row, bhav_1m))
 
-        stock_1m = period_return(
-            stock_series,
-            21
-        )
+            # Prefer the already-calculated RS NSE returns for 3M/6M.
+            # They use the same official NSE UDiFF source and avoid duplicate
+            # disagreement between the RS and Momentum pipelines.
+            value_3m = safe_float(row.get("rsReturn3M"))
+            value_6m = safe_float(row.get("rsReturn6M"))
 
-        stock_3m = period_return(
-            stock_series,
-            63
-        )
+            # If RS values are unavailable, calculate from the same NSE files.
+            if value_3m is None:
+                value_3m = nse_return(current_price, nse_lookup_price(row, bhav_3m))
+            if value_6m is None:
+                value_6m = nse_return(current_price, nse_lookup_price(row, bhav_6m))
 
-        stock_6m = period_return(
-            stock_series,
-            126
-        )
+            if value_1m is not None:
+                stock_growth_1m[symbol] = value_1m
+            if value_3m is not None:
+                stock_growth_3m[symbol] = value_3m
+            if value_6m is not None:
+                stock_growth_6m[symbol] = value_6m
 
-
-        if stock_1m is not None:
-
-            stock_growth_1m[
-                symbol
-            ] = stock_1m
-
-
-        if stock_3m is not None:
-
-            stock_growth_3m[
-                symbol
-            ] = stock_3m
-
-
-        if stock_6m is not None:
-
-            stock_growth_6m[
-                symbol
-            ] = stock_6m
+    except Exception as exc:
+        # Do not destroy previous valid research_scores values if NSE has a
+        # temporary archive/network problem. fallback_value() below preserves
+        # the last valid values stock-by-stock.
+        nse_return_update_status = "PRESERVED_PREVIOUS"
+        print("WARNING: NSE stock-return update unavailable:", exc)
 
 
     # =====================================================
@@ -2921,6 +3109,15 @@ def main():
             "methodologyPage":
                 "methodology.html",
 
+            "stockReturnSource":
+                "Official NSE UDiFF EOD bhavcopy",
+
+            "stockReturnUpdateStatus":
+                nse_return_update_status,
+
+            "stockReturnHistoryDates":
+                nse_history_dates,
+
             "historyFallback":
                 (
                     "Industry Growth uses the median actual return of "
@@ -3322,6 +3519,12 @@ def main():
 
         "stockStrength6MFallbackUsed":
             strength_6m_fallback_count,
+
+        "nseStockReturnUpdateStatus":
+            nse_return_update_status,
+
+        "nseStockReturnHistoryDates":
+            nse_history_dates,
 
         "verifiedMacro":
             verified_macro_count,
