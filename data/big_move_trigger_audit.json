@@ -81,8 +81,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 70,
-        "bigMoveScore": 70
+        "phase1Score": 69,
+        "bigMoveScore": 69
       },
       "sourceResearchFields": {
         "symbol": "KABRAEXTRU",
@@ -172,21 +172,21 @@
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
-            "reason": "Automated screening proxy based on available historical and forward financial data.",
+            "reason": "Automated screening proxy based on revenue growth 7.4%, earnings growth 21.2%, quarterly earnings growth 21.1%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-09-02",
+            "sourceDate": "2026-09-27",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
-            "reason": "Automated screening proxy based on ROE 12.3%, profit margin 8.1%, operating margin 12.6%, current ratio 2.37, positive free cash flow, positive operating cash flow.",
+            "reason": "Automated screening proxy based on ROE 12.3%, profit margin 8.1%, operating margin 5.5%, debt/equity 21.7, current ratio 2.37, positive free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-09-02",
+            "sourceDate": "2026-09-27",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.74× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-09-02",
+            "sourceDate": "2026-09-27",
             "mode": "AUTOMATED"
           }
         }
@@ -206,8 +206,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 70,
-        "bigMoveScore": 70
+        "phase1Score": 71,
+        "bigMoveScore": 71
       },
       "sourceResearchFields": {
         "symbol": "BLISSGVS",
