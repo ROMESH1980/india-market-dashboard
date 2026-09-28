@@ -1381,7 +1381,7 @@ td:nth-child(21) {
       { field: "volatilityContraction", label: "Volatility Contraction", type: "boolean", filterable: true },
       { field: "turnoverExpansion", label: "Turnover Expansion", type: "number", filterable: true },
       { field: "fundamentalTrigger", label: "Fund. Trigger", type: "boolean", filterable: true },
-      { field: "keyTrigger", label: "Key Trigger", type: "text", filterable: true }
+      { field: "keyTrigger", label: "Key Trigger", type: "keyTrigger", filterable: true }
     ];
 
     const $ = (id) => document.getElementById(id);
@@ -1895,10 +1895,14 @@ td:nth-child(21) {
           control = `<select class="select-filter" data-field="${escapeHtml(column.field)}"><option value="">All</option><option value="true">✓ Yes</option><option value="false">✕ No</option></select>`;
         } else if (column.type === "select") {
           control = `<select class="select-filter" data-field="${escapeHtml(column.field)}"><option value="">All</option>${(column.options || []).map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}</select>`;
+        } else if (column.type === "keyTrigger") {
+          control = `<select class="select-filter key-trigger-filter" data-field="${escapeHtml(column.field)}"><option value="">All</option></select>`;
         } else {
           control = `<input type="text" class="text-filter" data-field="${escapeHtml(column.field)}" placeholder="Filter..." />`;
         }
-        return `<th data-field="${escapeHtml(column.field)}"><div>${escapeHtml(column.label)}</div><div class="filter-box">${control}<select class="sort-select text-sort" data-field="${escapeHtml(column.field)}"><option value="">Default</option><option value="desc">Descending</option><option value="asc">Ascending</option></select></div></th>`;
+        const noSort = column.field === "breakoutStatus" || column.field === "keyTrigger";
+        const sortControl = noSort ? "" : `<select class="sort-select text-sort" data-field="${escapeHtml(column.field)}"><option value="">Default</option><option value="desc">Descending</option><option value="asc">Ascending</option></select>`;
+        return `<th data-field="${escapeHtml(column.field)}"><div>${escapeHtml(column.label)}</div><div class="filter-box">${control}${sortControl}</div></th>`;
       }).join("");
       bindHeaderFilterEvents();
     }
@@ -1912,6 +1916,15 @@ td:nth-child(21) {
         if(e.target.value) Object.keys(filterState).forEach(k => { if(k!==field){ filterState[k].sort=""; const x=document.querySelector(`.sort-select[data-field="${k}"]`); if(x)x.value=""; } });
         currentPage=1; applyFiltersAndRender();
       }));
+    }
+
+    function updateKeyTriggerFilterOptions() {
+      const select = document.querySelector('.key-trigger-filter[data-field="keyTrigger"]');
+      if (!select) return;
+      const values = [...new Set(allRows.map(row => normalizeText(row.keyTrigger)).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      select.innerHTML = `<option value="">All</option>${values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
+      select.value = filterState.keyTrigger?.value || "";
     }
 
     function clearFilters() {
@@ -3183,6 +3196,8 @@ td:nth-child(21) {
           .filter((row) => {
             return Boolean(row.symbol);
           });
+
+        updateKeyTriggerFilterOptions();
 
         if (!marketDate && allRows.length) {
           marketDate = normalizeText(
