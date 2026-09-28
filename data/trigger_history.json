@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "stocks": {
+    "MACPOWER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MACPOWER_10112025094328_Intimation_for_Completion_of_Capacity_addition_of_500_Machine_P.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "MANAKSTEEL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MANAKSTEEL_10082026201343_MSLOutcome10082026.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "EMIL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EMILTD_21092026171349_Intimation.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NRAIL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NRAIL_26022026162559_IntimationunderReg30EnhancementofProductionCapacity26022026.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "SHANTIGOLD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-08",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SHANTIGOLD_08062026165035_Commencement_of_Operations_Marol_facility_SGIL.pdf",
+        "reason": "Verified CAPEX / Capacity Expansion: Shanti Gold International commenced commercial production at its new expanded Marol manufacturing facility on June 8, 2026. The expansion adds approximately 4,000 kg per annum to manufacturing capacity.",
+        "verified": true
+      }
+    ],
+    "GRWRHITECH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GRWRHITECH_06052026135237_GHFL_Capacity_addition_Reg_30.pdf",
+        "reason": "Verified CAPEX / Capacity Expansion: Garware Hi-Tech Films approved a new lamination line at Waluj with proposed capacity addition of 1,200 LSF per annum. The project amount is approximately Rs. 191 crore plus applicable taxes and is expected to be added within 14 months.",
+        "verified": true
+      }
+    ],
+    "SAMBHV": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SAMBHAV2024_03082026194638_June26.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "STEELCAS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/STEELCAS_29072026171503_Outcome_Q1_Signed.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "WELCORP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/WELCORP_06112025174540_SEDICAPACITY.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "PODDARMENT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PODDARMENT_27032026125849_Intimation_to_Stock_Exchanges_27032026.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NGLFINE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NGL2022_24092026152741_Final_Reg_30_Disclosure_Commissioning_of_Phase_II_24092026_Signed.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GINNIFILA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GINNIFILA1_05052026174633_capacity_addition.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "TVSSRICHAK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TVSSRICHAK_27052026184016_TVSSRICHAKRALIMITEDMaduraiPlantExpansion27052026.pdf",
+        "reason": "Verified CAPEX / Capacity Expansion: TVS Srichakra approved capital investment of up to Rs. 220 crore for capacity expansion at its Madurai manufacturing units. Proposed capacity addition is about 5% for the 2W plant and about 25% for the Off Highway Tyre plant.",
+        "verified": true
+      }
+    ],
+    "LORDSCHLO": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LCAL_10112025192742_Outcome_of_BM.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "BOROLTD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BOROSIL_10032026121142_SEINTIMATION.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "SDBL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SDBL_11062026151803_PressRelease_.pdf",
+        "reason": "Verified Capacity Expansion: Som Distilleries & Breweries' wholly owned subsidiary Woodpecker Green Agri Nutrients commenced commercial production at its brewery facility in Uttar Pradesh on June 10, 2026. The company states that the new brewery strengthens manufacturing capabilities and supports expansion in northern India.",
+        "verified": true
+      }
+    ],
+    "ARTEMISMED": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ARTEMISMED_03082026174428_Outcome_03082026.pdf",
+        "reason": "Verified CAPEX / Capacity Expansion: Artemis Medicare approved expansion of Tower IV at its flagship Gurugram hospital. More than 200 beds are proposed to be added over approximately two years with estimated investment of Rs. 160-180 crore, funded through internal accruals and debt.",
+        "verified": true
+      }
+    ],
+    "KSHINTL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-04",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/INTERNATIONAL_04082026142527_KSHIntiamtionofNewUnit04082026signed.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ISGEC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ISGEC_27052026181032_Outcome.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "CROWN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-25",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CROWN_25032026145016_AnnouncementOfCrane.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "SWELECTES": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-16",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SWELECTES_16042026214041_Intimation_on_Sirungattur_commisioning_signed.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "verified": true
+      }
+    ],
+    "DAVANGERE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DAVANGERESUGAR_30032026182901_IntimationCapacityExpansionSigned.pdf",
+        "reason": "Verified CAPEX / Capacity Expansion: Davangere Sugar approved expansion of distillery production capacity by 85 KLPD from an existing 65 KLPD. The proposed investment is Rs. 127.50 crore and the additional capacity is planned within 18 months.",
+        "verified": true
+      }
+    ],
+    "GRADIENTE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GRADIENTE_11062026120102_Reg_30_Announcement_Gradiente_Studio.pdf",
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "verified": true
+      }
+    ]
+  },
+  "updatedAt": "2026-09-28T12:45:46+00:00",
+  "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records."
+}

@@ -17,16 +17,193 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 11196,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 370,
+      "announcementsSeen": 11476,
+      "rawCapexMatches": 11,
+      "negativeCapexRejected": 411,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 8,
+      "capexCandidates": 8,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 8,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "MACPOWER": {
+      "name": "Macpower CNC Machines Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/MACPOWER_10112025094328_Intimation_for_Completion_of_Capacity_addition_of_500_Machine_P.pdf",
+          "sourceDate": "10-Nov-2025 09:49:22",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "NGLFINE": {
+      "name": "NGL Fine-Chem Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/NGL2022_24092026152741_Final_Reg_30_Disclosure_Commissioning_of_Phase_II_24092026_Signed.pdf",
+          "sourceDate": "24-Sep-2026 15:28:11",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "BOROLTD": {
+      "name": "Borosil Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/BOROSIL_10032026121142_SEINTIMATION.pdf",
+          "sourceDate": "10-Mar-2026 12:16:44",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "PODDARMENT": {
+      "name": "Poddar Pigments Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/PODDARMENT_27032026125849_Intimation_to_Stock_Exchanges_27032026.pdf",
+          "sourceDate": "27-Mar-2026 13:02:33",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "KSHINTL": {
+      "name": "KSH International Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/INTERNATIONAL_04082026142527_KSHIntiamtionofNewUnit04082026signed.pdf",
+          "sourceDate": "04-Aug-2026 14:29:20",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "GINNIFILA": {
+      "name": "Ginni Filaments Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/GINNIFILA1_05052026174633_capacity_addition.pdf",
+          "sourceDate": "05-May-2026 17:46:46",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "MANAKSTEEL": {
+      "name": "Manaksia Steels Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/MANAKSTEEL_10082026201343_MSLOutcome10082026.pdf",
+          "sourceDate": "10-Aug-2026 20:13:56",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    },
+    "CROWN": {
+      "name": "Crown Lifters Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/CROWN_25032026145016_AnnouncementOfCrane.pdf",
+          "sourceDate": "25-Mar-2026 14:51:29",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-09-28"
+        }
+      ]
+    }
+  }
 }

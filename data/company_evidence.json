@@ -169,6 +169,102 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-09-26"
       }
+    },
+    "MACPOWER": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MACPOWER_10112025094328_Intimation_for_Completion_of_Capacity_addition_of_500_Machine_P.pdf",
+        "sourceDate": "2025-11-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "NGLFINE": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/NGL2022_24092026152741_Final_Reg_30_Disclosure_Commissioning_of_Phase_II_24092026_Signed.pdf",
+        "sourceDate": "2026-09-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "BOROLTD": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/BOROSIL_10032026121142_SEINTIMATION.pdf",
+        "sourceDate": "2026-03-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "PODDARMENT": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PODDARMENT_27032026125849_Intimation_to_Stock_Exchanges_27032026.pdf",
+        "sourceDate": "2026-03-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "KSHINTL": {
+      "capex": {
+        "score": 90,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: COMMISSIONING_OR_PRODUCTION. Matched: commercial production. Filing: Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/INTERNATIONAL_04082026142527_KSHIntiamtionofNewUnit04082026signed.pdf",
+        "sourceDate": "2026-08-04",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "GINNIFILA": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GINNIFILA1_05052026174633_capacity_addition.pdf",
+        "sourceDate": "2026-05-05",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "MANAKSTEEL": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MANAKSTEEL_10082026201343_MSLOutcome10082026.pdf",
+        "sourceDate": "2026-08-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-28"
+      }
+    },
+    "CROWN": {
+      "capex": {
+        "score": 100,
+        "reason": "NSE filing indicates a possible company-specific CAPEX/expansion event. Event class: CAPACITY_EXPANSION. Matched: capacity addition. Filing: Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/CROWN_25032026145016_AnnouncementOfCrane.pdf",
+        "sourceDate": "2026-03-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-28"
+      }
     }
   }
 }
