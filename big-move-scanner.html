@@ -1209,6 +1209,14 @@ td:nth-child(21) {
   white-space: normal !important;
 }
 
+
+/* FINAL ALL-COLUMN FILTERS + 20-COLUMN LAYOUT */
+#scannerTable .text-filter,#scannerTable .select-filter{width:100%;height:23px;padding:2px 3px;border:1px solid #334155;border-radius:5px;background:#07111f;color:#fff;font-size:9px}
+#scannerTable .text-sort{width:76px;height:23px;padding:2px;border:1px solid #334155;border-radius:5px;background:#07111f;color:#fff;font-size:9px;margin:0 auto}
+#scannerTable th:nth-child(3),#scannerTable td:nth-child(3){min-width:105px!important;width:105px!important}
+#scannerTable th:nth-child(18),#scannerTable td:nth-child(18){min-width:98px!important;width:98px!important}
+#scannerTable th:nth-child(19),#scannerTable td:nth-child(19){min-width:76px!important;width:76px!important;max-width:76px!important}
+#scannerTable th:nth-child(20),#scannerTable td:nth-child(20){min-width:150px!important;width:150px!important;max-width:150px!important}
 </style>
 </head>
 
@@ -1311,7 +1319,7 @@ td:nth-child(21) {
 
           <tbody id="tableBody">
             <tr class="loading-row">
-              <td colspan="21">Loading Big Move Scanner...</td>
+              <td colspan="20">Loading Big Move Scanner...</td>
             </tr>
           </tbody>
         </table>
@@ -1354,132 +1362,26 @@ td:nth-child(21) {
 
     const filterState = {};
         const columns = [
-      {
-        field: "symbol",
-        label: "Stock",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "bigMoveScore",
-        label: "Big Move Score",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "setupStatus",
-        label: "Setup Status",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "price",
-        label: "Price",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "return1W",
-        label: "1W %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "return1M",
-        label: "1M %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "return3M",
-        label: "3M %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "return6M",
-        label: "6M %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "rsRating",
-        label: "RS",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "stockMomentumRating",
-        label: "Stock Momentum",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "industryRating",
-        label: "Industry Rating",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "freeFloatCr",
-        label: "Free Float ₹ Cr",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "priorMovePct",
-        label: "Prior Move %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "retracementPct",
-        label: "Retracement %",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "consolidationDays",
-        label: "Consolidation Days",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "volumeContraction",
-        label: "Volume Contraction",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "volatilityContraction",
-        label: "Volatility Contraction",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "breakoutStatus",
-        label: "Breakout Status",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "turnoverExpansion",
-        label: "Turnover Expansion",
-        type: "number",
-        filterable: true
-      },
-      {
-        field: "fundamentalTrigger",
-        label: "Fund. Trigger",
-        type: "text",
-        filterable: false
-      },
-      {
-        field: "keyTrigger",
-        label: "Key Trigger",
-        type: "text",
-        filterable: false
-      }
+      { field: "symbol", label: "Stock", type: "text", filterable: true },
+      { field: "bigMoveScore", label: "Big Move Score", type: "number", filterable: true },
+      { field: "breakoutStatus", label: "Breakout Status", type: "select", filterable: true, options: ["Breakout Confirmed", "Near Breakout", "Below Trigger", "Pending"] },
+      { field: "price", label: "Price", type: "number", filterable: true },
+      { field: "return1W", label: "1W %", type: "number", filterable: true },
+      { field: "return1M", label: "1M %", type: "number", filterable: true },
+      { field: "return3M", label: "3M %", type: "number", filterable: true },
+      { field: "return6M", label: "6M %", type: "number", filterable: true },
+      { field: "rsRating", label: "RS", type: "number", filterable: true },
+      { field: "stockMomentumRating", label: "Stock Momentum", type: "number", filterable: true },
+      { field: "industryRating", label: "Industry Rating", type: "number", filterable: true },
+      { field: "freeFloatCr", label: "Free Float ₹ Cr", type: "number", filterable: true },
+      { field: "priorMovePct", label: "Prior Move %", type: "number", filterable: true },
+      { field: "retracementPct", label: "Retracement %", type: "number", filterable: true },
+      { field: "consolidationDays", label: "Consolidation Days", type: "number", filterable: true },
+      { field: "volumeContraction", label: "Volume Contraction", type: "boolean", filterable: true },
+      { field: "volatilityContraction", label: "Volatility Contraction", type: "boolean", filterable: true },
+      { field: "turnoverExpansion", label: "Turnover Expansion", type: "number", filterable: true },
+      { field: "fundamentalTrigger", label: "Fund. Trigger", type: "boolean", filterable: true },
+      { field: "keyTrigger", label: "Key Trigger", type: "text", filterable: true }
     ];
 
     const $ = (id) => document.getElementById(id);
@@ -1715,7 +1617,6 @@ td:nth-child(21) {
     function getSetupStatus(row) {
       return normalizeText(
         firstDefined(
-          row.setupStatus,
           row.setup_status,
           row.status
         )
@@ -1912,7 +1813,6 @@ td:nth-child(21) {
         companyName: getCompanyName(row),
 
         bigMoveScore: getBigMoveScore(row),
-        setupStatus: getSetupStatus(row),
 
         price: getPrice(row),
 
@@ -1982,225 +1882,68 @@ td:nth-child(21) {
     }
 
     function makeFilterState() {
-      for (const column of columns) {
-        if (!column.filterable) {
-          continue;
-        }
-
-        filterState[column.field] = {
-          active: false,
-          operator: ">=",
-          value: "",
-          sort: ""
-        };
-      }
+      for (const column of columns) filterState[column.field] = { active: false, operator: ">=", value: "", sort: "" };
     }
 
     function buildTableHeader() {
       const headRow = $("tableHeadRow");
-
-      headRow.innerHTML = columns
-        .map((column) => {
-          if (!column.filterable) {
-            return `
-              <th data-field="${escapeHtml(column.field)}">
-                ${escapeHtml(column.label)}
-              </th>
-            `;
-          }
-
-          return `
-            <th data-field="${escapeHtml(column.field)}">
-              <div>${escapeHtml(column.label)}</div>
-
-              <div class="filter-box">
-                <label>
-                  <input
-                    type="checkbox"
-                    class="filter-active"
-                    data-field="${escapeHtml(column.field)}"
-                  />
-                  Active
-                </label>
-
-                <div class="filter-line">
-                  <select
-                    class="operator"
-                    data-field="${escapeHtml(column.field)}"
-                  >
-                    <option value=">=">≥</option>
-                    <option value="<=">≤</option>
-                  </select>
-
-                  <input
-                    type="number"
-                    step="any"
-                    class="filter-value"
-                    data-field="${escapeHtml(column.field)}"
-                    placeholder="Value"
-                  />
-                </div>
-
-                <select
-                  class="sort-select"
-                  data-field="${escapeHtml(column.field)}"
-                >
-                  <option value="">Default</option>
-                  <option value="desc">Descending</option>
-                  <option value="asc">Ascending</option>
-                </select>
-              </div>
-            </th>
-          `;
-        })
-        .join("");
-
+      headRow.innerHTML = columns.map((column) => {
+        let control = "";
+        if (column.type === "number") {
+          control = `<label><input type="checkbox" class="filter-active" data-field="${escapeHtml(column.field)}" />Active</label><div class="filter-line"><select class="operator" data-field="${escapeHtml(column.field)}"><option value=">=">≥</option><option value="<=">≤</option></select><input type="number" step="any" class="filter-value" data-field="${escapeHtml(column.field)}" placeholder="Value" /></div>`;
+        } else if (column.type === "boolean") {
+          control = `<select class="select-filter" data-field="${escapeHtml(column.field)}"><option value="">All</option><option value="true">✓ Yes</option><option value="false">✕ No</option></select>`;
+        } else if (column.type === "select") {
+          control = `<select class="select-filter" data-field="${escapeHtml(column.field)}"><option value="">All</option>${(column.options || []).map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}</select>`;
+        } else {
+          control = `<input type="text" class="text-filter" data-field="${escapeHtml(column.field)}" placeholder="Filter..." />`;
+        }
+        return `<th data-field="${escapeHtml(column.field)}"><div>${escapeHtml(column.label)}</div><div class="filter-box">${control}<select class="sort-select text-sort" data-field="${escapeHtml(column.field)}"><option value="">Default</option><option value="desc">Descending</option><option value="asc">Ascending</option></select></div></th>`;
+      }).join("");
       bindHeaderFilterEvents();
     }
 
     function bindHeaderFilterEvents() {
-      document.querySelectorAll(".filter-active").forEach((element) => {
-        element.addEventListener("change", (event) => {
-          const field = event.target.dataset.field;
-
-          if (!filterState[field]) {
-            return;
-          }
-
-          filterState[field].active = event.target.checked;
-          currentPage = 1;
-          applyFiltersAndRender();
-        });
-      });
-
-      document.querySelectorAll(".operator").forEach((element) => {
-        element.addEventListener("change", (event) => {
-          const field = event.target.dataset.field;
-
-          if (!filterState[field]) {
-            return;
-          }
-
-          filterState[field].operator = event.target.value;
-          currentPage = 1;
-          applyFiltersAndRender();
-        });
-      });
-
-      document.querySelectorAll(".filter-value").forEach((element) => {
-        element.addEventListener("input", (event) => {
-          const field = event.target.dataset.field;
-
-          if (!filterState[field]) {
-            return;
-          }
-
-          filterState[field].value = event.target.value;
-          currentPage = 1;
-          applyFiltersAndRender();
-        });
-      });
-
-      document.querySelectorAll(".sort-select").forEach((element) => {
-        element.addEventListener("change", (event) => {
-          const field = event.target.dataset.field;
-
-          if (!filterState[field]) {
-            return;
-          }
-
-          filterState[field].sort = event.target.value;
-
-          if (event.target.value) {
-            for (const key of Object.keys(filterState)) {
-              if (key !== field) {
-                filterState[key].sort = "";
-
-                const otherSort = document.querySelector(
-                  `.sort-select[data-field="${key}"]`
-                );
-
-                if (otherSort) {
-                  otherSort.value = "";
-                }
-              }
-            }
-          }
-
-          currentPage = 1;
-          applyFiltersAndRender();
-        });
-      });
+      document.querySelectorAll(".filter-active").forEach(el => el.addEventListener("change", e => { const f=e.target.dataset.field; filterState[f].active=e.target.checked; currentPage=1; applyFiltersAndRender(); }));
+      document.querySelectorAll(".operator").forEach(el => el.addEventListener("change", e => { filterState[e.target.dataset.field].operator=e.target.value; currentPage=1; applyFiltersAndRender(); }));
+      document.querySelectorAll(".filter-value,.text-filter,.select-filter").forEach(el => el.addEventListener(el.tagName === "INPUT" ? "input" : "change", e => { filterState[e.target.dataset.field].value=e.target.value; currentPage=1; applyFiltersAndRender(); }));
+      document.querySelectorAll(".sort-select").forEach(el => el.addEventListener("change", e => {
+        const field=e.target.dataset.field; filterState[field].sort=e.target.value;
+        if(e.target.value) Object.keys(filterState).forEach(k => { if(k!==field){ filterState[k].sort=""; const x=document.querySelector(`.sort-select[data-field="${k}"]`); if(x)x.value=""; } });
+        currentPage=1; applyFiltersAndRender();
+      }));
     }
 
     function clearFilters() {
-      for (const field of Object.keys(filterState)) {
-        filterState[field] = {
-          active: false,
-          operator: ">=",
-          value: "",
-          sort: ""
-        };
-      }
-
-      $("searchInput").value = "";
-
-      document.querySelectorAll(".filter-active").forEach((element) => {
-        element.checked = false;
-      });
-
-      document.querySelectorAll(".operator").forEach((element) => {
-        element.value = ">=";
-      });
-
-      document.querySelectorAll(".filter-value").forEach((element) => {
-        element.value = "";
-      });
-
-      document.querySelectorAll(".sort-select").forEach((element) => {
-        element.value = "";
-      });
-
-      currentPage = 1;
-      applyFiltersAndRender();
+      Object.keys(filterState).forEach(field => { filterState[field]={active:false,operator:">=",value:"",sort:""}; });
+      $("searchInput").value="";
+      document.querySelectorAll(".filter-active").forEach(e=>e.checked=false);
+      document.querySelectorAll(".operator").forEach(e=>e.value=">=");
+      document.querySelectorAll(".filter-value,.text-filter,.select-filter").forEach(e=>e.value="");
+      document.querySelectorAll(".sort-select").forEach(e=>e.value="");
+      currentPage=1; applyFiltersAndRender();
     }
 
     function passesNumericFilter(row, field, state) {
-      if (!state.active) {
-        return true;
-      }
+      if (!state.active) return true;
+      const threshold=toNumber(state.value); if(threshold===null) return true;
+      const value=toNumber(row[field]); if(value===null) return false;
+      return state.operator === "<=" ? value <= threshold : value >= threshold;
+    }
 
-      const threshold = toNumber(state.value);
-
-      if (threshold === null) {
-        return true;
-      }
-
-      const value = toNumber(row[field]);
-
-      if (value === null) {
-        return false;
-      }
-
-      if (state.operator === "<=") {
-        return value <= threshold;
-      }
-
-      return value >= threshold;
+    function passesColumnFilter(row, field, state) {
+      const column=columns.find(c=>c.field===field); if(!column) return true;
+      if(column.type==="number") return passesNumericFilter(row,field,state);
+      if(!state.value) return true;
+      if(column.type==="boolean") return String(isTruthyFlag(row[field]))===state.value;
+      return normalizeText(row[field]).toLowerCase().includes(String(state.value).toLowerCase());
     }
 
     function getActiveSort() {
-      for (const [field, state] of Object.entries(filterState)) {
-        if (state.sort === "asc" || state.sort === "desc") {
-          return {
-            field,
-            direction: state.sort
-          };
-        }
-      }
-
+      for(const [field,state] of Object.entries(filterState)) if(state.sort==="asc"||state.sort==="desc") return {field,direction:state.sort};
       return null;
     }
+
         function applyFiltersAndRender() {
       const searchText = $("searchInput")
         .value
@@ -2212,7 +1955,6 @@ td:nth-child(21) {
           const searchable = [
             row.symbol,
             row.companyName,
-            row.setupStatus,
             row.breakoutStatus,
             row.fundamentalTrigger,
             row.keyTrigger
@@ -2227,7 +1969,7 @@ td:nth-child(21) {
         }
 
         for (const [field, state] of Object.entries(filterState)) {
-          if (!passesNumericFilter(row, field, state)) {
+          if (!passesColumnFilter(row, field, state)) {
             return false;
           }
         }
@@ -2241,6 +1983,12 @@ td:nth-child(21) {
         const { field, direction } = activeSort;
 
         filteredRows.sort((a, b) => {
+          const column = columns.find(c => c.field === field);
+          if (column && column.type !== "number") {
+            const av=normalizeText(a[field]).toLowerCase(), bv=normalizeText(b[field]).toLowerCase();
+            const cmp=av.localeCompare(bv, undefined, {numeric:true,sensitivity:"base"});
+            return direction === "asc" ? cmp : -cmp;
+          }
           const aValue = toNumber(a[field]);
           const bValue = toNumber(b[field]);
 
@@ -2500,7 +2248,7 @@ td:nth-child(21) {
       if (!filteredRows.length) {
         body.innerHTML = `
           <tr class="empty-row">
-            <td colspan="21">
+            <td colspan="20">
               No stocks match the current filters.
             </td>
           </tr>
@@ -2544,7 +2292,7 @@ td:nth-child(21) {
               </td>
 
               <td>
-                ${setupStatusBadge(row.setupStatus)}
+                ${breakoutBadge(row.breakoutStatus)}
               </td>
 
               <td class="number">
@@ -2601,10 +2349,6 @@ td:nth-child(21) {
 
               <td>
                 ${fundamentalTriggerSymbol(row.volatilityContraction)}
-              </td>
-
-              <td>
-                ${breakoutBadge(row.breakoutStatus)}
               </td>
 
               <td class="number">
@@ -2743,8 +2487,8 @@ td:nth-child(21) {
               scoreBadge(row.bigMoveScore)
             ),
             detailItem(
-              "Setup Status",
-              setupStatusBadge(row.setupStatus)
+              "Breakout Status",
+              breakoutBadge(row.breakoutStatus)
             ),
             detailItem(
               "Price",
@@ -3074,7 +2818,6 @@ td:nth-child(21) {
         "Stock",
         "Company Name",
         "Big Move Score",
-        "Setup Status",
         "Price",
         "1W %",
         "1M %",
@@ -3104,7 +2847,6 @@ td:nth-child(21) {
           row.symbol,
           row.companyName,
           row.bigMoveScore,
-          row.setupStatus,
           row.price,
           row.return1W,
           row.return1M,
@@ -3387,7 +3129,7 @@ td:nth-child(21) {
 
       $("tableBody").innerHTML = `
         <tr class="empty-row">
-          <td colspan="21">
+          <td colspan="20">
             Big Move Scanner data load nahi ho saka.
             Please check data/big_move_scanner.json
           </td>
