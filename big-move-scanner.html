@@ -1841,7 +1841,8 @@ td:nth-child(21) {
         turnoverExpansion: getTurnoverExpansion(row),
 
         fundamentalTrigger: getFundamentalTrigger(row),
-        keyTrigger: getKeyTrigger(row)
+        keyTrigger: getKeyTrigger(row),
+        triggerHistory: Array.isArray(row.triggerHistory) ? row.triggerHistory : []
       };
     }
 
@@ -2264,6 +2265,35 @@ td:nth-child(21) {
       return escapeHtml(text);
     }
 
+    function safeHttpUrl(value) {
+      const text = normalizeText(value);
+      if (!/^https?:\/\//i.test(text)) return "";
+      return text;
+    }
+
+    function triggerHistoryHtml(history) {
+      if (!Array.isArray(history) || !history.length) {
+        return `<span class="muted">No permanent verified trigger history yet.</span>`;
+      }
+
+      return history.map((item) => {
+        const type = escapeHtml(item.type || item.trigger || "Trigger");
+        const date = escapeHtml(item.sourceDate || item.date || "—");
+        const sourceName = escapeHtml(item.sourceName || item.sourceLabel || "Source");
+        const reason = escapeHtml(item.reason || "");
+        const url = safeHttpUrl(item.source || item.sourceUrl || item.url);
+        const source = url
+          ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" style="color:#7dd3fc;text-decoration:underline">${sourceName} ↗</a>`
+          : `<span class="muted">${sourceName}</span>`;
+
+        return `<div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #22334a">` +
+          `<div><strong>${type}</strong> • ${date}</div>` +
+          (reason ? `<div class="muted" style="margin-top:4px">${reason}</div>` : "") +
+          `<div style="margin-top:4px">${source}</div>` +
+          `</div>`;
+      }).join("");
+    }
+
     function renderTable() {
       const body = $("tableBody");
 
@@ -2624,6 +2654,15 @@ td:nth-child(21) {
           ]
         )
       );
+
+      if (Array.isArray(row.triggerHistory) && row.triggerHistory.length) {
+        body.push(`
+          <section class="detail-section">
+            <h3>Permanent Verified Trigger History</h3>
+            ${triggerHistoryHtml(row.triggerHistory)}
+          </section>
+        `);
+      }
 
       const optionalTriggerFields = [
         ["Earnings Acceleration", firstDefined(
