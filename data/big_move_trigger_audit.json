@@ -238,19 +238,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 37.6%, earnings growth 15.1%, quarterly earnings growth 16.4%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on profit margin 13.5%, operating margin 23.3%, debt/equity 1.8.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           }
         }
@@ -302,19 +302,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth -23.2%, earnings growth -97.9%, quarterly earnings growth -97.8%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on profit margin 5.5%, operating margin -3.4%, debt/equity 38.9.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 1.62× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-09-27",
+            "sourceDate": "2026-09-28",
             "mode": "AUTOMATED"
           }
         }
