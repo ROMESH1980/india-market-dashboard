@@ -1,6 +1,6 @@
 {
   "marketDate": "2026-09-28",
-  "generatedAt": "2026-09-28T18:21:32+00:00",
+  "generatedAt": "2026-09-28T18:50:36+00:00",
   "scannerVersion": "2.2",
   "methodology": {
     "phase1": "RS + Stock Momentum + Industry Rating + multi-period price strength + existing fundamental/business triggers.",
@@ -281962,7 +281962,7 @@
     }
   ],
   "phase": "PHASE_2_TECHNICAL",
-  "technicalGeneratedAt": "2026-09-28T18:26:33+00:00",
+  "technicalGeneratedAt": "2026-09-28T18:55:44+00:00",
   "technicalMarketDate": "2026-09-28",
   "technicalHistory": {
     "source": "Official NSE UDiFF EOD bhavcopy",
@@ -281970,5 +281970,5 @@
     "firstDate": "2025-09-09",
     "lastDate": "2026-09-28"
   },
-  "triggerHistoryUpdatedAt": "2026-09-28T18:26:33+00:00"
+  "triggerHistoryUpdatedAt": "2026-09-28T18:55:44+00:00"
 }
