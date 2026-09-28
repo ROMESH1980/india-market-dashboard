@@ -1005,86 +1005,124 @@ def valid_source(source):
 # BUILD REASON
 # =========================================================
 
-def build_reason(
-    trigger_type,
-    announcement,
-    matches,
-    event_class,
-):
+def _extract_area(text):
+    text = clean(text)
+    patterns = [
+        r"\b(\d[\d,]*(?:\.\d+)?)\s*(?:sq\.?\s*ft\.?|square\s+feet|square\s+foot)\b",
+        r"\b(\d[\d,]*(?:\.\d+)?)\s*(?:sq\.?\s*m\.?|square\s+met(?:er|re)s?)\b",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            raw = match.group(0)
+            raw = re.sub(r"\bsquare\s+(?:feet|foot)\b", "sq ft", raw, flags=re.I)
+            raw = re.sub(r"\bsq\.?\s*ft\.?\b", "sq ft", raw, flags=re.I)
+            raw = re.sub(r"\bsquare\s+met(?:er|re)s?\b", "sq m", raw, flags=re.I)
+            raw = re.sub(r"\bsq\.?\s*m\.?\b", "sq m", raw, flags=re.I)
+            return clean(raw)
+    return ""
 
-    subject = clean(
-        announcement.get(
-            "subject"
-        )
+
+def _extract_store_brand(text):
+    text = clean(text)
+    patterns = [
+        r"\bunder\s+(?:the\s+)?(?:brand(?:\s+name)?|banner)\s+[\"']?([A-Za-z0-9& .'-]{2,60}?)[\"']?(?=\s+(?:at|in|located|with|having|admeasuring|measuring|spread|commenced|has|which|for)\b|[,.;]|$)",
+        r"\b(?:brand(?:\s+name)?|banner)\s*[:\-]\s*[\"']?([A-Za-z0-9& .'-]{2,60}?)[\"']?(?=[,.;]|$)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            brand = clean(match.group(1)).strip(" .,'\"-")
+            if 1 < len(brand) <= 60:
+                return brand
+    return ""
+
+
+def _sentence_with_terms(text, terms):
+    text = clean(text)
+    if not text:
+        return ""
+    sentences = [clean(p) for p in re.split(r"(?<=[.!?])\s+|;\s+", text) if clean(p)]
+    lowered_terms = [low(term) for term in terms if clean(term)]
+    for sentence in sentences:
+        if any(term in low(sentence) for term in lowered_terms):
+            return sentence[:257].rstrip() + "..." if len(sentence) > 260 else sentence
+    fallback = sentences[0] if sentences else text
+    return fallback[:257].rstrip() + "..." if len(fallback) > 260 else fallback
+
+
+def _capex_trigger_label(text, event_class):
+    t = low(text)
+    if any(term in t for term in (
+        "new store", "new showroom", "new outlet", "store expansion",
+        "showroom expansion", "outlet expansion", "multi-brand store",
+        "multi brand store",
+    )):
+        return "Capacity Expansion / New Store Expansion"
+    if any(term in t for term in (
+        "new production line", "additional production line", "new manufacturing line",
+    )):
+        return "Capacity Expansion / New Production Line"
+    if any(term in t for term in (
+        "new manufacturing plant", "new manufacturing facility",
+        "new manufacturing unit", "setting up a plant", "setting up new plant",
+        "setting up a facility", "setting up new facility", "greenfield project",
+    )):
+        return "Capacity Expansion / New Plant or Facility"
+    if event_class == "CAPACITY_EXPANSION":
+        return "Capacity Expansion"
+    if event_class == "COMMISSIONING_OR_PRODUCTION":
+        return "Commissioning / Commercial Operations"
+    return "CAPEX / Expansion"
+
+
+def _clean_reason_sentence(sentence):
+    sentence = clean(sentence)
+    sentence = re.sub(
+        r"^(?:pursuant\s+to.*?,\s*)?(?:we\s+(?:wish|would\s+like)\s+to\s+inform\s+you\s+that\s+)",
+        "", sentence, flags=re.I,
     )
-
-    description = clean(
-        announcement.get(
-            "description"
-        )
+    sentence = re.sub(
+        r"^(?:this\s+is\s+to\s+inform\s+(?:you|that)\s+)",
+        "", sentence, flags=re.I,
     )
+    return clean(sentence).strip(" :-")
 
-    if (
-        subject
-        and description
-    ):
 
-        filing_text = (
-            f"{subject}: "
-            f"{description}"
-        )
-
-    else:
-
-        filing_text = (
-            subject
-            or description
-            or announcement.get(
-                "text",
-                ""
-            )
-        )
-
-    filing_text = clean(
-        filing_text
-    )
-
-    if len(
-        filing_text
-    ) > 700:
-
-        filing_text = (
-            filing_text[:697]
-            +
-            "..."
-        )
+def build_reason(trigger_type, announcement, matches, event_class):
+    subject = clean(announcement.get("subject"))
+    description = clean(announcement.get("description"))
+    filing_text = clean(" ".join(v for v in (subject, description) if v))
+    if not filing_text:
+        filing_text = clean(announcement.get("text", ""))
 
     if trigger_type == "capex":
+        trigger_label = _capex_trigger_label(filing_text, event_class)
 
-        prefix = (
-            "NSE filing indicates "
-            "a possible company-specific "
-            "CAPEX/expansion event."
+        if trigger_label == "Capacity Expansion / New Store Expansion":
+            area = _extract_area(filing_text)
+            brand = _extract_store_brand(filing_text)
+            parts = ["New"]
+            if area:
+                parts.append(area)
+            if brand:
+                parts.append(brand)
+            parts.append("store")
+            if contains_any(filing_text, CAPEX_OPERATIONAL):
+                parts.append("commenced commercial operations.")
+            else:
+                parts.append("was announced/opened as an expansion event.")
+            return clean(f"{trigger_label}. " + " ".join(parts))
+
+        sentence = _sentence_with_terms(
+            filing_text, [*matches, *CAPEX_OPERATIONAL, *CAPEX_VERY_STRONG]
         )
+        sentence = _clean_reason_sentence(sentence)
+        return clean(f"{trigger_label}. {sentence}") if sentence else trigger_label
 
-    else:
-
-        prefix = (
-            "NSE filing indicates "
-            "a possible structural "
-            "industry tailwind event."
-        )
-
-    matched = ", ".join(
-        matches
-    )
-
-    return clean(
-        f"{prefix} "
-        f"Event class: {event_class}. "
-        f"Matched: {matched}. "
-        f"Filing: {filing_text}"
-    )
+    sentence = _sentence_with_terms(filing_text, [*matches, *TAILWIND_STRONG])
+    sentence = _clean_reason_sentence(sentence)
+    return clean(f"Industry Tailwind. {sentence}") if sentence else "Industry Tailwind"
 
 
 # =========================================================
@@ -1289,16 +1327,21 @@ def auto_verifiable_capex(item):
 
 
 def verified_record_from_candidate(item):
+    reason = clean(item.get("reason"))
+    event_class = clean(item.get("eventClass"))
+    trigger_label = clean(reason.split(".", 1)[0]) if reason else ""
+
     return {
         "score": int(item.get("evidenceStrength", 90)),
-        "reason": clean(item.get("reason")),
+        "reason": reason,
         "source": clean(item.get("source")),
-        "sourceDate": normalized_source_date(
-            item.get("sourceDate")
-        ),
+        "sourceName": "Official NSE Filing",
+        "sourceDate": normalized_source_date(item.get("sourceDate")),
         "mode": "AUTO_VERIFIED",
         "verification": "NSE_PRIMARY_FILING",
-        "eventClass": clean(item.get("eventClass")),
+        "verified": True,
+        "triggerType": trigger_label or event_class,
+        "eventClass": event_class,
         "verifiedAt": RUN_DATE,
     }
 
