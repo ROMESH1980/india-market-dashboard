@@ -1217,6 +1217,10 @@ td:nth-child(21) {
 #scannerTable th:nth-child(18),#scannerTable td:nth-child(18){min-width:98px!important;width:98px!important}
 #scannerTable th:nth-child(19),#scannerTable td:nth-child(19){min-width:76px!important;width:76px!important;max-width:76px!important}
 #scannerTable th:nth-child(20),#scannerTable td:nth-child(20){min-width:150px!important;width:150px!important;max-width:150px!important}
+
+/* FINAL 19-COLUMN LAYOUT: Fund. Trigger removed; Key Trigger is column 19 */
+#scannerTable th:nth-child(19),#scannerTable td:nth-child(19){min-width:150px!important;width:150px!important;max-width:150px!important}
+#scannerTable tbody td:nth-child(19){white-space:nowrap!important;text-overflow:ellipsis!important}
 </style>
 </head>
 
@@ -1319,7 +1323,7 @@ td:nth-child(21) {
 
           <tbody id="tableBody">
             <tr class="loading-row">
-              <td colspan="20">Loading Big Move Scanner...</td>
+              <td colspan="19">Loading Big Move Scanner...</td>
             </tr>
           </tbody>
         </table>
@@ -1380,7 +1384,6 @@ td:nth-child(21) {
       { field: "volumeContraction", label: "Volume Contraction", type: "boolean", filterable: true },
       { field: "volatilityContraction", label: "Volatility Contraction", type: "boolean", filterable: true },
       { field: "turnoverExpansion", label: "Turnover Expansion", type: "number", filterable: true },
-      { field: "fundamentalTrigger", label: "Fund. Trigger", type: "boolean", filterable: true },
       { field: "keyTrigger", label: "Key Trigger", type: "keyTrigger", filterable: true }
     ];
 
@@ -1923,7 +1926,7 @@ td:nth-child(21) {
       if (!select) return;
       const values = [...new Set(allRows.map(row => normalizeText(row.keyTrigger)).filter(Boolean))]
         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
-      select.innerHTML = `<option value="">All</option>${values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
+      select.innerHTML = `<option value="">All</option><option value="__TRIGGER__">Trigger</option><option value="__NON_TRIGGER__">Non Trigger</option>${values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
       select.value = filterState.keyTrigger?.value || "";
     }
 
@@ -1949,6 +1952,12 @@ td:nth-child(21) {
       if(column.type==="number") return passesNumericFilter(row,field,state);
       if(!state.value) return true;
       if(column.type==="boolean") return String(isTruthyFlag(row[field]))===state.value;
+      if(column.type==="keyTrigger") {
+        const text = normalizeText(row[field]).trim();
+        if(state.value === "__TRIGGER__") return Boolean(text);
+        if(state.value === "__NON_TRIGGER__") return !text;
+        return text.toLowerCase().includes(String(state.value).toLowerCase());
+      }
       return normalizeText(row[field]).toLowerCase().includes(String(state.value).toLowerCase());
     }
 
@@ -2261,7 +2270,7 @@ td:nth-child(21) {
       if (!filteredRows.length) {
         body.innerHTML = `
           <tr class="empty-row">
-            <td colspan="20">
+            <td colspan="19">
               No stocks match the current filters.
             </td>
           </tr>
@@ -2366,10 +2375,6 @@ td:nth-child(21) {
 
               <td class="number">
                 ${escapeHtml(formatX(row.turnoverExpansion))}
-              </td>
-
-              <td class="trigger-cell">
-                ${fundamentalTriggerSymbol(row.fundamentalTrigger)}
               </td>
 
               <td class="trigger-cell">
@@ -2847,7 +2852,6 @@ td:nth-child(21) {
         "Volatility Contraction",
         "Breakout Status",
         "Turnover Expansion",
-        "Fundamental Trigger",
         "Key Trigger"
       ];
 
@@ -2876,7 +2880,6 @@ td:nth-child(21) {
           normalizeText(row.volatilityContraction),
           row.breakoutStatus,
           row.turnoverExpansion,
-          row.fundamentalTrigger,
           row.keyTrigger
         ];
 
@@ -3142,7 +3145,7 @@ td:nth-child(21) {
 
       $("tableBody").innerHTML = `
         <tr class="empty-row">
-          <td colspan="20">
+          <td colspan="19">
             Big Move Scanner data load nahi ho saka.
             Please check data/big_move_scanner.json
           </td>
