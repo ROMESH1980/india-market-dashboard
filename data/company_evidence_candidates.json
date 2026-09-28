@@ -17,9 +17,9 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
+      "announcementsSeen": 11511,
       "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "negativeCapexRejected": 397,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 0,
       "capexCandidates": 0,
