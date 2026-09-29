@@ -15923,5 +15923,15 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "VARMORA": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "PARTY-RE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
