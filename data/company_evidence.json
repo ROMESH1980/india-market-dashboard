@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-09-28",
+    "updated": "2026-09-29",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -264,6 +264,126 @@
         "verification": "NSE_PRIMARY_FILING",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-09-28"
+      }
+    },
+    "KIRLOSENG": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/KIRLOSENG_14052026184957_SE_Capacity_14May26.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "TDPOWERSYS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/TDPOWERSYS_18122025222026_Intimation_Reg_30_-__Commenced_Operations_sg.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-18",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "ROSSTECH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/9886945009_11052026200733_SE_Letter_Cap_Exp.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "JAYNECOIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/JAYNECOIND3_25042026190733_Reg_30Pellet_Plant25042026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "AEROFLEX": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/AEROFLEXINDIA_01042026115210_intimationsigned.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-01",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "OMFREIGHT": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/OMFRIEGHT_08052026201518_Reg-30_Capex_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-08",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "STLTECH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/STLTECH_03092026173848_BMOutcome03Sep2026_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
+      }
+    },
+    "HFCL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/AHMED_14092026205936_STX_Announcement_BM_September14_2026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-29"
       }
     }
   }
