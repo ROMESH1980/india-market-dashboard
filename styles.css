@@ -2005,3 +2005,234 @@ button {
   }
 
 }
+/* =====================================================
+   PAGE 1 — FINAL COMPACT TABLE
+   Match Page 2 density — sizing only
+   ===================================================== */
+
+/* Compact body rows */
+.table-wrap tbody tr {
+  height: 27px !important;
+  min-height: 27px !important;
+  max-height: 27px !important;
+}
+
+.table-wrap tbody td {
+  height: 27px !important;
+  min-height: 0 !important;
+  max-height: 27px !important;
+
+  padding: 0 4px !important;
+
+  font-size: 12px !important;
+  line-height: 1 !important;
+
+  vertical-align: middle !important;
+}
+
+/* Compact main header */
+.table-wrap thead tr:first-child th {
+  padding: 5px 4px !important;
+  line-height: 1.05 !important;
+}
+
+/* Compact filter row */
+.table-wrap .filter-row th {
+  padding: 3px 3px !important;
+}
+
+.table-wrap .filter-box {
+  gap: 2px !important;
+}
+
+.table-wrap .filter-box > input,
+.table-wrap .filter-box select {
+  padding: 2px 3px !important;
+  font-size: 9px !important;
+}
+
+/* Stock column */
+.table-wrap th:nth-child(1),
+.table-wrap td:nth-child(1) {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+}
+
+/* Market Cap */
+.table-wrap th:nth-child(2),
+.table-wrap td:nth-child(2) {
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
+}
+
+/* Price */
+.table-wrap th:nth-child(3),
+.table-wrap td:nth-child(3) {
+  width: 68px !important;
+  min-width: 68px !important;
+  max-width: 68px !important;
+}
+
+/* Change */
+.table-wrap th:nth-child(4),
+.table-wrap td:nth-child(4) {
+  width: 66px !important;
+  min-width: 66px !important;
+  max-width: 66px !important;
+}
+
+/* Today Volume */
+.table-wrap th:nth-child(5),
+.table-wrap td:nth-child(5) {
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+}
+
+/* Today Delivery */
+.table-wrap th:nth-child(6),
+.table-wrap td:nth-child(6) {
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
+}
+
+/* 5D Avg Delivery */
+.table-wrap th:nth-child(7),
+.table-wrap td:nth-child(7) {
+  width: 92px !important;
+  min-width: 92px !important;
+  max-width: 92px !important;
+}
+
+/* Delivery Times */
+.table-wrap th:nth-child(8),
+.table-wrap td:nth-child(8) {
+  width: 78px !important;
+  min-width: 78px !important;
+  max-width: 78px !important;
+}
+
+/* Delivery % */
+.table-wrap th:nth-child(9),
+.table-wrap td:nth-child(9) {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+}
+
+/* 5L Vol + 5% Move */
+.table-wrap th:nth-child(10),
+.table-wrap td:nth-child(10) {
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+}
+
+/* RS Rating */
+.table-wrap th:nth-child(11),
+.table-wrap td:nth-child(11) {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+}
+
+/* Sector */
+.table-wrap th:nth-child(12),
+.table-wrap td:nth-child(12) {
+  width: 100px !important;
+  min-width: 100px !important;
+  max-width: 100px !important;
+}
+
+/* Industry */
+.table-wrap th:nth-child(13),
+.table-wrap td:nth-child(13) {
+  width: 115px !important;
+  min-width: 115px !important;
+  max-width: 115px !important;
+}
+
+/* Sector Growth */
+.table-wrap th:nth-child(14),
+.table-wrap td:nth-child(14) {
+  width: 68px !important;
+  min-width: 68px !important;
+  max-width: 68px !important;
+}
+
+/* Stock Growth */
+.table-wrap th:nth-child(15),
+.table-wrap td:nth-child(15) {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+}
+
+/* TMV */
+.table-wrap th:nth-child(16),
+.table-wrap td:nth-child(16) {
+  width: 112px !important;
+  min-width: 112px !important;
+  max-width: 112px !important;
+}
+
+/* GFC */
+.table-wrap th:nth-child(17),
+.table-wrap td:nth-child(17) {
+  width: 112px !important;
+  min-width: 112px !important;
+  max-width: 112px !important;
+}
+
+/* Overall */
+.table-wrap th:nth-child(18),
+.table-wrap td:nth-child(18) {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+}
+
+/* Make stock text compact */
+.table-wrap tbody .stock-cell {
+  gap: 0 !important;
+}
+
+.table-wrap tbody .stock-cell strong {
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+.table-wrap tbody .stock-cell small {
+  font-size: 9px !important;
+  line-height: 1 !important;
+}
+
+/* Compact Market Cap display */
+.table-wrap tbody .market-cap-category {
+  font-size: 11px !important;
+  line-height: 1 !important;
+}
+
+.table-wrap tbody .market-cap-value {
+  margin-top: 1px !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+/* Compact RS box */
+.table-wrap tbody .rs-rating {
+  min-width: 46px !important;
+  padding: 2px 3px !important;
+}
+
+.table-wrap tbody .rs-rating strong {
+  font-size: 12px !important;
+}
+
+.table-wrap tbody .rs-rating small {
+  margin-top: 1px !important;
+  font-size: 7px !important;
+}
