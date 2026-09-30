@@ -15933,5 +15933,20 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "BAGMANE": {
+    "sector": "Realty",
+    "industry": "Realty",
+    "source": "Nifty Indices"
+  },
+  "BIRET": {
+    "sector": "Realty",
+    "industry": "Realty",
+    "source": "Nifty Indices"
+  },
+  "EMBASSY": {
+    "sector": "Realty",
+    "industry": "Realty",
+    "source": "Nifty Indices"
   }
 }

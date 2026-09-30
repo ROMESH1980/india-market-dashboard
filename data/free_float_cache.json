@@ -41690,5 +41690,47 @@
     "reason": "No NSE shareholding filing returned",
     "cachedAt": "2026-09-29T16:37:41+00:00",
     "freeFloatEstimated": false
+  },
+  "ELEVATE": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "GSPLTRANS": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "POOJALOGIS": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "ADROITIND": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "COREIN": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "ARMEE": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:04+00:00",
+    "freeFloatEstimated": false
+  },
+  "SWASTIKAIN": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-09-30T16:29:05+00:00",
+    "freeFloatEstimated": false
   }
 }

@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-09-29",
+    "updated": "2026-09-30",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -384,6 +384,156 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-09-29"
+      }
+    },
+    "INNOVACAP": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/INNOVACAPTAB_22082026052409_ICL_Outcome_of_Board_Meeting_Under_Regulation_30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-22",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "GREENPLY": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GREEN_04022026152309_Capacity_Addition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-04",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "YATHARTH": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/YATHARTH_01112025174736_YH_Intimation.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-01",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "DIAMONDYD": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/DIAMONDYD_06022026214628_BMOutcome06022026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "HCG": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/HCG1_19052026132437_SE_Intimation_19_May_2026_North_Bangalore.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-19",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "MAXHEALTH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MAXHEALTH_21052026164737_SE_Intimation_Board_Meeting_Outcome.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "ASTERDM": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ASTERDM2_31082026221752_SE_Int_31082026__Capacity_Addition_s.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-31",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "STALLION": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/STALLION_19092026183204_Intimation-Commercial-Operations-at-Khalapur-Facility-Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-19",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "DECCANCE": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/DECCANCE_15122025161956_Disclsoure_Reg_30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-15",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
+      }
+    },
+    "GUJTHEM": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GUJARATTHEMIS_18102025110003_Reg_30_Intimation_GTBL.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-10-18",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-09-30"
       }
     }
   }

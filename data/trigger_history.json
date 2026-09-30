@@ -310,8 +310,108 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "STALLION": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-19",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/STALLION_19092026183204_Intimation-Commercial-Operations-at-Khalapur-Facility-Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "INNOVACAP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-22",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/INNOVACAPTAB_22082026052409_ICL_Outcome_of_Board_Meeting_Under_Regulation_30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GREENPLY": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-04",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GREEN_04022026152309_Capacity_Addition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "YATHARTH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-01",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/YATHARTH_01112025174736_YH_Intimation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "DIAMONDYD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DIAMONDYD_06022026214628_BMOutcome06022026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "HCG": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-19",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/HCG1_19052026132437_SE_Intimation_19_May_2026_North_Bangalore.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GUJTHEM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-10-18",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GUJARATTHEMIS_18102025110003_Reg_30_Intimation_GTBL.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ASTERDM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ASTERDM2_31082026221752_SE_Int_31082026__Capacity_Addition_s.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "DECCANCE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-15",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DECCANCE_15122025161956_Disclsoure_Reg_30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "MAXHEALTH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MAXHEALTH_21052026164737_SE_Intimation_Board_Meeting_Outcome.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-09-29T17:11:00+00:00",
+  "updatedAt": "2026-09-30T16:42:10+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
