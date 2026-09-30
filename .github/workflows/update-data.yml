@@ -73,8 +73,12 @@ jobs:
 
       - name: Build free float
         run: python scripts/build_free_float.py
+        
 
+      - name: Build corporate action adjustments
+        run: python scripts/build_corporate_actions.py
 
+        
       - name: Build RS rating
         run: python scripts/build_rs_rating.py
 
