@@ -1001,6 +1001,47 @@ def calculate_current_rs(
             current_price,
             price_12m,
         )
+                # =====================================================
+        # DEBUG MBAPL - VERIFY HISTORICAL PRICES
+        # =====================================================
+        if str(row.get("symbol") or "").upper() == "MBAPL":
+            print()
+            print("========== MBAPL RS DEBUG ==========")
+            print("Symbol:", row.get("symbol"))
+            print("Series:", row.get("series"))
+            print("Current date:", latest_date)
+            print("Current price:", current_price)
+
+            print(
+                "3M:",
+                bhav_3m["date"],
+                "Price:", price_3m,
+                "Return:", return_3m,
+            )
+
+            print(
+                "6M:",
+                bhav_6m["date"],
+                "Price:", price_6m,
+                "Return:", return_6m,
+            )
+
+            print(
+                "9M:",
+                bhav_9m["date"],
+                "Price:", price_9m,
+                "Return:", return_9m,
+            )
+
+            print(
+                "12M:",
+                bhav_12m["date"],
+                "Price:", price_12m,
+                "Return:", return_12m,
+            )
+
+            print("====================================")
+            print()
 
         raw_rs = calculate_raw_rs(
             return_3m,
