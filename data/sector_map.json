@@ -15948,5 +15948,40 @@
     "sector": "Realty",
     "industry": "Realty",
     "source": "Nifty Indices"
+  },
+  "ADROITIND": {
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "source": "Yahoo Finance"
+  },
+  "ARMEE": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
+  },
+  "ELEVATE": {
+    "sector": "Consumer Cyclical",
+    "industry": "Lodging",
+    "source": "Yahoo Finance"
+  },
+  "GSPLTRANS": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Midstream",
+    "source": "Yahoo Finance"
+  },
+  "SWASTIKAIN": {
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
+  },
+  "COREIN": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "POOJALOGIS": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
