@@ -18,6 +18,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 STOCKS_PATH = DATA / "stocks.json"
+CORPORATE_ACTIONS_PATH = DATA / "corporate_action_adjustments.json"
 
 
 # =========================================================
@@ -307,6 +308,7 @@ def parse_bhavcopy_zip(content, date_obj, url):
 
     prices = {}
     symbol_only = {}
+    isin_only = {}
 
     for record in reader:
         clean = {
@@ -324,6 +326,14 @@ def parse_bhavcopy_zip(content, date_obj, url):
         series = (
             clean.get("SCTYSRS")
             or clean.get("SERIES")
+            or ""
+        ).strip().upper()
+
+        isin = (
+            clean.get("ISIN")
+            or clean.get("ISINNUMBER")
+            or clean.get("ISINNO")
+            or clean.get("ISIN_NUMBER")
             or ""
         ).strip().upper()
 
@@ -357,6 +367,18 @@ def parse_bhavcopy_zip(content, date_obj, url):
                 symbol
             ] = close
 
+        # ISIN is stable across many symbol/series changes.
+        # Keep it as a final historical-price fallback so renamed
+        # securities can still resolve without weakening RS rules.
+        if isin:
+            existing_isin = isin_only.get(isin)
+
+            if (
+                existing_isin is None
+                or series == "EQ"
+            ):
+                isin_only[isin] = close
+
     if not prices:
         raise RuntimeError(
             "No valid securities found in NSE bhavcopy"
@@ -367,6 +389,7 @@ def parse_bhavcopy_zip(content, date_obj, url):
         "url": url,
         "prices": prices,
         "symbolOnly": symbol_only,
+        "isinOnly": isin_only,
         "count": len(prices),
     }
 
@@ -569,6 +592,10 @@ def lookup_price(stock, bhavcopy):
     symbol_only = bhavcopy[
         "symbolOnly"
     ]
+    isin_only = bhavcopy.get(
+        "isinOnly",
+        {},
+    )
 
     exact = prices.get(
         (
@@ -590,8 +617,172 @@ def lookup_price(stock, bhavcopy):
     if eq is not None:
         return eq
 
-    return symbol_only.get(
+    symbol_match = symbol_only.get(
         symbol
+    )
+
+    if symbol_match is not None:
+        return symbol_match
+
+    # Final fallback: resolve historical symbol/series changes by ISIN.
+    isin = str(
+        stock.get("isin")
+        or ""
+    ).strip().upper()
+
+    if isin:
+        return isin_only.get(isin)
+
+    return None
+
+
+# =========================================================
+# CORPORATE ACTION ADJUSTMENT
+# =========================================================
+
+def load_corporate_action_adjustments():
+    payload = load_json(
+        CORPORATE_ACTIONS_PATH,
+        {},
+    )
+
+    if not isinstance(payload, dict):
+        return {}
+
+    adjustments = payload.get(
+        "adjustments",
+        {},
+    )
+
+    if not isinstance(adjustments, dict):
+        return {}
+
+    return adjustments
+
+
+def parse_iso_date(value):
+    if not value:
+        return None
+
+    try:
+        return datetime.strptime(
+            str(value)[:10],
+            "%Y-%m-%d",
+        ).date()
+    except Exception:
+        return None
+
+
+def corporate_action_factor(
+    stock,
+    historical_date,
+    latest_date,
+    adjustments,
+):
+    """
+    Return cumulative split/bonus factor applicable between the
+    historical bhavcopy date and the current/latest market date.
+
+    Example:
+        historical raw close = 562
+        split factor = 5
+        adjusted historical close = 562 / 5
+    """
+    symbol = str(
+        stock.get("symbol")
+        or ""
+    ).strip().upper()
+
+    if not symbol:
+        return 1.0, []
+
+    actions = adjustments.get(
+        symbol,
+        [],
+    )
+
+    if not isinstance(actions, list):
+        return 1.0, []
+
+    factor = 1.0
+    applied = []
+
+    for action in actions:
+        if not isinstance(action, dict):
+            continue
+
+        action_type = str(
+            action.get("type")
+            or ""
+        ).strip().upper()
+
+        if action_type not in {
+            "BONUS",
+            "SPLIT",
+        }:
+            continue
+
+        ex_date = parse_iso_date(
+            action.get("exDate")
+        )
+
+        action_factor = safe_float(
+            action.get("factor")
+        )
+
+        if (
+            ex_date is None
+            or action_factor is None
+        ):
+            continue
+
+        # Apply only when historical price is pre-action and
+        # the action had already occurred by the latest date.
+        if (
+            historical_date < ex_date
+            <= latest_date
+        ):
+            factor *= action_factor
+            applied.append({
+                "type": action_type,
+                "exDate": ex_date.isoformat(),
+                "factor": action_factor,
+                "purpose": action.get("purpose"),
+            })
+
+    return factor, applied
+
+
+def adjust_historical_price(
+    stock,
+    raw_price,
+    historical_date,
+    latest_date,
+    adjustments,
+):
+    raw_price = safe_float(
+        raw_price
+    )
+
+    if raw_price is None:
+        return None, 1.0, []
+
+    factor, applied = (
+        corporate_action_factor(
+            stock,
+            historical_date,
+            latest_date,
+            adjustments,
+        )
+    )
+
+    if factor <= 0:
+        factor = 1.0
+
+    return (
+        raw_price / factor,
+        factor,
+        applied,
     )
 
 
@@ -914,6 +1105,15 @@ def calculate_current_rs(
         target_12m
     )
 
+    corporate_actions = (
+        load_corporate_action_adjustments()
+    )
+
+    print(
+        "Corporate-action adjustment symbols:",
+        len(corporate_actions),
+    )
+
     print()
 
     stats = {
@@ -950,24 +1150,64 @@ def calculate_current_rs(
 
             continue
 
-        price_3m = lookup_price(
+        raw_price_3m = lookup_price(
             row,
             bhav_3m,
         )
 
-        price_6m = lookup_price(
+        raw_price_6m = lookup_price(
             row,
             bhav_6m,
         )
 
-        price_9m = lookup_price(
+        raw_price_9m = lookup_price(
             row,
             bhav_9m,
         )
 
-        price_12m = lookup_price(
+        raw_price_12m = lookup_price(
             row,
             bhav_12m,
+        )
+
+        price_3m, factor_3m, actions_3m = (
+            adjust_historical_price(
+                row,
+                raw_price_3m,
+                bhav_3m["date"],
+                latest_date,
+                corporate_actions,
+            )
+        )
+
+        price_6m, factor_6m, actions_6m = (
+            adjust_historical_price(
+                row,
+                raw_price_6m,
+                bhav_6m["date"],
+                latest_date,
+                corporate_actions,
+            )
+        )
+
+        price_9m, factor_9m, actions_9m = (
+            adjust_historical_price(
+                row,
+                raw_price_9m,
+                bhav_9m["date"],
+                latest_date,
+                corporate_actions,
+            )
+        )
+
+        price_12m, factor_12m, actions_12m = (
+            adjust_historical_price(
+                row,
+                raw_price_12m,
+                bhav_12m["date"],
+                latest_date,
+                corporate_actions,
+            )
         )
 
         if price_3m is None:
@@ -1001,46 +1241,59 @@ def calculate_current_rs(
             current_price,
             price_12m,
         )
-                # =====================================================
-        # DEBUG MBAPL - VERIFY HISTORICAL PRICES
-        # =====================================================
-        if str(row.get("symbol") or "").upper() == "MBAPL":
-            print()
-            print("========== MBAPL RS DEBUG ==========")
-            print("Symbol:", row.get("symbol"))
-            print("Series:", row.get("series"))
-            print("Current date:", latest_date)
-            print("Current price:", current_price)
 
+        if str(
+            row.get("symbol")
+            or ""
+        ).strip().upper() == "MBAPL":
+            print()
+            print(
+                "========== MBAPL RS FINAL DEBUG =========="
+            )
+            print(
+                "Current:",
+                latest_date,
+                current_price,
+            )
             print(
                 "3M:",
                 bhav_3m["date"],
-                "Price:", price_3m,
-                "Return:", return_3m,
+                "raw=", raw_price_3m,
+                "factor=", factor_3m,
+                "adjusted=", price_3m,
+                "return=", return_3m,
+                "actions=", actions_3m,
             )
-
             print(
                 "6M:",
                 bhav_6m["date"],
-                "Price:", price_6m,
-                "Return:", return_6m,
+                "raw=", raw_price_6m,
+                "factor=", factor_6m,
+                "adjusted=", price_6m,
+                "return=", return_6m,
+                "actions=", actions_6m,
             )
-
             print(
                 "9M:",
                 bhav_9m["date"],
-                "Price:", price_9m,
-                "Return:", return_9m,
+                "raw=", raw_price_9m,
+                "factor=", factor_9m,
+                "adjusted=", price_9m,
+                "return=", return_9m,
+                "actions=", actions_9m,
             )
-
             print(
                 "12M:",
                 bhav_12m["date"],
-                "Price:", price_12m,
-                "Return:", return_12m,
+                "raw=", raw_price_12m,
+                "factor=", factor_12m,
+                "adjusted=", price_12m,
+                "return=", return_12m,
+                "actions=", actions_12m,
             )
-
-            print("====================================")
+            print(
+                "=========================================="
+            )
             print()
 
         raw_rs = calculate_raw_rs(
@@ -1120,13 +1373,14 @@ def calculate_current_rs(
             "MarketSmith-style 12M relative "
             "price strength percentile; "
             "40% 3M + 20% 6M + "
-            "20% 9M + 20% 12M"
+            "20% 9M + 20% 12M; "
+            "NSE Bonus/Split adjusted historical prices"
         )
 
         row[
             "rsSource"
         ] = (
-            "Official NSE UDiFF EOD bhavcopy"
+            "Official NSE UDiFF EOD bhavcopy + NSE corporate actions"
         )
 
         row[
