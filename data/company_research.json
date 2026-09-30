@@ -55,7 +55,7 @@
     },
     "3MINDIA": {
       "tailwindScore": null,
-      "futureGrowth": 83.92,
+      "futureGrowth": 84.25,
       "fundamentalQuality": 78.15,
       "capexScore": 60.0,
       "researchReasons": {
@@ -172,7 +172,7 @@
     },
     "ABB": {
       "tailwindScore": 88.0,
-      "futureGrowth": 59.99,
+      "futureGrowth": 59.67,
       "fundamentalQuality": 82.84,
       "capexScore": 70.0,
       "researchReasons": {
@@ -250,7 +250,7 @@
     },
     "ABBOTINDIA": {
       "tailwindScore": 82.0,
-      "futureGrowth": 66.03,
+      "futureGrowth": 66.02,
       "fundamentalQuality": 94.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -835,7 +835,7 @@
     },
     "AFCONS": {
       "tailwindScore": 87.0,
-      "futureGrowth": 24.53,
+      "futureGrowth": 24.54,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -991,7 +991,7 @@
     },
     "AEGISLOG": {
       "tailwindScore": 58.0,
-      "futureGrowth": 89.03,
+      "futureGrowth": 89.01,
       "fundamentalQuality": 80.79,
       "capexScore": 80.0,
       "researchReasons": {
@@ -1108,7 +1108,7 @@
     },
     "ABDL": {
       "tailwindScore": 70.0,
-      "futureGrowth": 47.54,
+      "futureGrowth": 47.52,
       "fundamentalQuality": 60.2,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1147,7 +1147,7 @@
     },
     "AIAENG": {
       "tailwindScore": 88.0,
-      "futureGrowth": 54.8,
+      "futureGrowth": 54.79,
       "fundamentalQuality": 95.97,
       "capexScore": 70.0,
       "researchReasons": {
@@ -1537,7 +1537,7 @@
     },
     "APOLLOHOSP": {
       "tailwindScore": 82.0,
-      "futureGrowth": 86.08,
+      "futureGrowth": 86.05,
       "fundamentalQuality": 60.29,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2083,7 +2083,7 @@
     },
     "DMART": {
       "tailwindScore": 70.0,
-      "futureGrowth": 67.31,
+      "futureGrowth": 67.26,
       "fundamentalQuality": 68.25,
       "capexScore": 90.0,
       "researchReasons": {
@@ -19906,7 +19906,7 @@
     },
     "ACI": {
       "tailwindScore": 76.0,
-      "futureGrowth": 44.15,
+      "futureGrowth": 44.14,
       "fundamentalQuality": 72.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -21622,7 +21622,7 @@
     },
     "AARTIPHARM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 88.9,
+      "futureGrowth": 88.66,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -21895,7 +21895,7 @@
     },
     "ACCELYA": {
       "tailwindScore": 75.0,
-      "futureGrowth": 40.75,
+      "futureGrowth": 40.76,
       "fundamentalQuality": 89.63,
       "capexScore": 70.0,
       "researchReasons": {
@@ -22324,7 +22324,7 @@
     },
     "ADVENZYMES": {
       "tailwindScore": 76.0,
-      "futureGrowth": 47.57,
+      "futureGrowth": 47.37,
       "fundamentalQuality": 90.73,
       "capexScore": 80.0,
       "researchReasons": {
@@ -23845,7 +23845,7 @@
     },
     "ALIVUS": {
       "tailwindScore": 82.0,
-      "futureGrowth": 78.37,
+      "futureGrowth": 78.38,
       "fundamentalQuality": 96.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -24547,7 +24547,7 @@
     },
     "AMBIKCO": {
       "tailwindScore": 70.0,
-      "futureGrowth": 86.08,
+      "futureGrowth": 86.07,
       "fundamentalQuality": 66.53,
       "capexScore": 70.0,
       "researchReasons": {
@@ -26926,7 +26926,7 @@
     },
     "AHLEAST": {
       "tailwindScore": 70.0,
-      "futureGrowth": 33.01,
+      "futureGrowth": 33.03,
       "fundamentalQuality": 26.6,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27472,7 +27472,7 @@
     },
     "AURIONPRO": {
       "tailwindScore": 75.0,
-      "futureGrowth": 47.97,
+      "futureGrowth": 47.98,
       "fundamentalQuality": 80.64,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27975,7 +27975,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "ASMS": {
       "tailwindScore": 75.0,
@@ -28053,7 +28053,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "AVROIND": {
       "tailwindScore": 70.0,
@@ -28092,7 +28092,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+      "financialDataRefresh": "OK"
     },
     "AVTNPL": {
       "tailwindScore": 76.0,
