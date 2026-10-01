@@ -801,6 +801,34 @@ def nse_lookup_price(stock, bhavcopy):
     return bhavcopy["symbolOnly"].get(symbol)
 
 
+def nse_adjusted_historical_price(stock, old_price, historical_date, current_date, adjustments):
+    """Adjust old NSE close for verified bonus/split ex-dates inside the return window."""
+    old_price = safe_float(old_price)
+    if old_price is None or old_price <= 0:
+        return None
+
+    symbol = str(stock.get("symbol") or "").strip().upper()
+    factor = 1.0
+    for action in adjustments.get(symbol, []):
+        if not isinstance(action, dict):
+            continue
+        if str(action.get("type") or "").upper() not in ("BONUS", "SPLIT"):
+            continue
+        if action.get("status") != "AUTO_VERIFIED_RATIO":
+            continue
+        try:
+            ex_date = datetime.strptime(str(action.get("exDate"))[:10], "%Y-%m-%d").date()
+        except (ValueError, TypeError):
+            continue
+        action_factor = safe_float(action.get("factor"))
+        if action_factor is None or action_factor <= 0:
+            continue
+        if historical_date < ex_date <= current_date:
+            factor *= action_factor
+
+    return old_price / factor
+
+
 def nse_return(current_price, old_price):
     current_price = safe_float(current_price)
     old_price = safe_float(old_price)
@@ -1197,6 +1225,14 @@ def main():
     stock_growth_6m = {}
 
     latest_stock_date = nse_latest_stock_date(stocks)
+    action_payload = load_json(DATA / "corporate_action_adjustments.json", {})
+    corporate_adjustments = (
+        action_payload.get("adjustments", {})
+        if isinstance(action_payload, dict) else {}
+    )
+    if not isinstance(corporate_adjustments, dict):
+        corporate_adjustments = {}
+    print("Research returns: verified corporate-action symbols:", len(corporate_adjustments))
     nse_warmup()
 
     nse_return_update_status = "UPDATED"
@@ -1219,7 +1255,11 @@ def main():
             if current_price is None or current_price <= 0:
                 continue
 
-            value_1m = nse_return(current_price, nse_lookup_price(row, bhav_1m))
+            old_1m = nse_adjusted_historical_price(
+                row, nse_lookup_price(row, bhav_1m),
+                bhav_1m["date"], latest_stock_date, corporate_adjustments,
+            )
+            value_1m = nse_return(current_price, old_1m)
 
             # Prefer the already-calculated RS NSE returns for 3M/6M.
             # They use the same official NSE UDiFF source and avoid duplicate
@@ -1229,9 +1269,17 @@ def main():
 
             # If RS values are unavailable, calculate from the same NSE files.
             if value_3m is None:
-                value_3m = nse_return(current_price, nse_lookup_price(row, bhav_3m))
+                old_3m = nse_adjusted_historical_price(
+                    row, nse_lookup_price(row, bhav_3m),
+                    bhav_3m["date"], latest_stock_date, corporate_adjustments,
+                )
+                value_3m = nse_return(current_price, old_3m)
             if value_6m is None:
-                value_6m = nse_return(current_price, nse_lookup_price(row, bhav_6m))
+                old_6m = nse_adjusted_historical_price(
+                    row, nse_lookup_price(row, bhav_6m),
+                    bhav_6m["date"], latest_stock_date, corporate_adjustments,
+                )
+                value_6m = nse_return(current_price, old_6m)
 
             if value_1m is not None:
                 stock_growth_1m[symbol] = value_1m
