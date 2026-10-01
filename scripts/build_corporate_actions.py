@@ -681,10 +681,57 @@ def main():
 
     warmup_nse()
 
-    records = request_actions(
-        from_date,
-        to_date,
-    )
+    try:
+        records = request_actions(
+            from_date,
+            to_date,
+        )
+    except Exception as exc:
+        # NSE sometimes blocks automated requests with HTTP 403.
+        # Keep the LAST VERIFIED corporate-action data unchanged.
+        # Never overwrite the verified cache with an empty dataset.
+        previous = load_json(OUTPUT_PATH, None)
+        if not (
+            isinstance(previous, dict)
+            and isinstance(previous.get("meta"), dict)
+            and isinstance(previous.get("adjustments"), dict)
+            and previous["meta"].get("source") == "NSE Corporate Actions"
+            and previous["meta"].get("generatedAt")
+        ):
+            raise RuntimeError(
+                "NSE corporate-action download failed AND no valid "
+                "previously verified adjustment cache exists. "
+                "Refusing to continue with unadjusted RS prices."
+            ) from exc
+
+        previous_actions = previous["adjustments"]
+        verified_count = sum(
+            1
+            for items in previous_actions.values()
+            if isinstance(items, list)
+            for item in items
+            if isinstance(item, dict)
+            and item.get("status") == "AUTO_VERIFIED_RATIO"
+            and item.get("type") in ("BONUS", "SPLIT")
+        )
+        if verified_count == 0:
+            raise RuntimeError(
+                "NSE corporate-action download failed AND existing "
+                "cache has no verified Bonus/Split adjustments. "
+                "Refusing to continue."
+            ) from exc
+
+        print()
+        print("WARNING: NSE CORPORATE ACTION REFRESH FAILED")
+        print("Reason:", str(exc))
+        print("FALLBACK: Reusing previously verified adjustment JSON.")
+        print("Cached generatedAt:", previous["meta"]["generatedAt"])
+        print("Cached fromDate:", previous["meta"].get("fromDate"))
+        print("Cached toDate:", previous["meta"].get("toDate"))
+        print("Cached verified actions:", verified_count)
+        print("FRESHNESS: STALE — NEW BONUS/SPLIT ACTIONS MAY BE MISSING.")
+        print("No cache file was modified; downstream RS will use cached data.")
+        return
 
     print(
         "NSE action records downloaded:",
