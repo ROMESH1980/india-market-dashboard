@@ -535,6 +535,171 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-09-30"
       }
+    },
+    "VIVIANA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/VIVIANA_21092026141448_Factory_Inaugration_21092026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "SCHNEIDER": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SCHNEIDER_03072026130850_OutcomeCapex_RevisionJuly32026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "RAMRAT": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/RAMRATNA_28032026172733_Announcement_Reg30_Expansion.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-28",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "KSB": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/KSB_06082026194744_Final_SEBI_intimation_EPD_Plant_expansion_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "LLOYDSME": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/LLOYDSME_21092026155517_20260921_Outcome_of_Board_Meeting.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "ABDL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ABDINDIA_11092026170419_Capacity_Expansion_-_MAILLP_sd.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "UNOMINDA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MINDAIND1_14092026211010_Outcome_Board_Meeting_14092026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "SIMBHALS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SIMBHALS_27112025124917_Lettersd.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "INDOTECH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/INDOTECH_26062026164339_Capacity_Addition_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "MARUTI": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MARUTIASHISH_24032026142443_StxIntimation_CapacityAddition_24March2026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
+    },
+    "NUVOCO": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/NUVOCO_11072026125708_SEIntimationFinal.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-01"
+      }
     }
   }
 }

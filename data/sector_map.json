@@ -15983,5 +15983,15 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "AONESTEELS": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "MONEYVIEW": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "Yahoo Finance"
   }
 }

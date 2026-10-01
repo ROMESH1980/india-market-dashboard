@@ -410,8 +410,118 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "INDOTECH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/INDOTECH_26062026164339_Capacity_Addition_Signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RAMRAT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-28",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RAMRATNA_28032026172733_Announcement_Reg30_Expansion.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "LLOYDSME": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LLOYDSME_21092026155517_20260921_Outcome_of_Board_Meeting.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ABDL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ABDINDIA_11092026170419_Capacity_Expansion_-_MAILLP_sd.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "SCHNEIDER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SCHNEIDER_03072026130850_OutcomeCapex_RevisionJuly32026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "NUVOCO": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NUVOCO_11072026125708_SEIntimationFinal.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "UNOMINDA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-14",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MINDAIND1_14092026211010_Outcome_Board_Meeting_14092026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "VIVIANA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/VIVIANA_21092026141448_Factory_Inaugration_21092026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "KSB": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KSB_06082026194744_Final_SEBI_intimation_EPD_Plant_expansion_signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "SIMBHALS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SIMBHALS_27112025124917_Lettersd.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "MARUTI": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MARUTIASHISH_24032026142443_StxIntimation_CapacityAddition_24March2026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-01T19:23:29+00:00",
+  "updatedAt": "2026-10-01T20:01:36+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

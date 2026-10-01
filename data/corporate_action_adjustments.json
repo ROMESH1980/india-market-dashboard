@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -330,6 +330,20 @@
         "type": "BONUS"
       }
     ],
+    "BUILDPRO": [
+      {
+        "exDate": "2026-10-08",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BUILDPRO",
+        "type": "SPLIT"
+      }
+    ],
     "CAMS": [
       {
         "exDate": "2025-12-05",
@@ -403,18 +417,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 3.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 2:1",
-        "ratioA": 2.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -424,6 +426,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 3.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 2:1",
+        "ratioA": 2.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "BONUS"
       }
     ],
     "DEVIT": [
@@ -485,18 +499,6 @@
     "FCL": [
       {
         "exDate": "2025-10-31",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "FCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-10-31",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -506,6 +508,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "FCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-10-31",
+        "factor": 5.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 4:1",
+        "ratioA": 4.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "FCL",
+        "type": "BONUS"
       }
     ],
     "FISCHER": [
@@ -970,6 +984,20 @@
         "type": "BONUS"
       }
     ],
+    "MOLDTKPAC": [
+      {
+        "exDate": "2026-10-09",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "MOLDTKPAC",
+        "type": "BONUS"
+      }
+    ],
     "MONEYBOXX": [
       {
         "exDate": "2025-12-15",
@@ -1044,18 +1072,6 @@
       {
         "exDate": "2025-09-26",
         "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "NAZARA",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-09-26",
-        "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
         "oldFaceValue": 4.0,
@@ -1064,6 +1080,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "NAZARA",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-09-26",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "NAZARA",
+        "type": "BONUS"
       }
     ],
     "NESTLEIND": [
@@ -1357,18 +1385,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -1378,6 +1394,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "SPLIT"
       }
     ],
     "SIYSIL": [
@@ -1730,11 +1758,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 125,
-    "dashboardSymbols": 3167,
-    "downloadedRecords": 3136,
-    "fromDate": "2025-07-08",
-    "generatedAt": "2026-09-30T20:21:40.513242+00:00",
+    "acceptedActions": 127,
+    "dashboardSymbols": 3168,
+    "downloadedRecords": 3132,
+    "fromDate": "2025-07-09",
+    "generatedAt": "2026-10-01T19:49:38.131184+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 0,
     "source": "NSE Corporate Actions",
@@ -1742,8 +1770,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 114,
-    "toDate": "2026-10-08",
+    "symbolsWithAdjustments": 116,
+    "toDate": "2026-10-09",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
