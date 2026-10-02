@@ -1408,32 +1408,6 @@
         "type": "SPLIT"
       }
     ],
-    "SIYSIL": [
-      {
-        "exDate": "2026-08-21",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SIYSIL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-08-21",
-        "factor": 4.0,
-        "method": "(A+B)/B",
-        "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
-        "ratioA": 3.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SIYSIL",
-        "type": "BONUS"
-      }
-    ],
     "SKMEGGPROD": [
       {
         "exDate": "2026-01-12",
@@ -1616,34 +1590,6 @@
         "type": "BONUS"
       }
     ],
-    "TVSHLTD": [
-      {
-        "exDate": "2026-09-08",
-        "factor": 47.0,
-        "method": "(A+B)/B",
-        "purpose": "Scheme Of Arrangement - Bonus Ncrps 46:1",
-        "ratioA": 46.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "TVSHLTD",
-        "type": "BONUS"
-      }
-    ],
-    "TVSMOTOR": [
-      {
-        "exDate": "2025-08-25",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "TVSMOTOR",
-        "type": "BONUS"
-      }
-    ],
     "UEL": [
       {
         "exDate": "2025-10-10",
@@ -1758,19 +1704,19 @@
     ]
   },
   "meta": {
-    "acceptedActions": 127,
+    "acceptedActions": 123,
     "dashboardSymbols": 3168,
     "downloadedRecords": 3132,
     "fromDate": "2025-07-09",
-    "generatedAt": "2026-10-01T19:49:38.131184+00:00",
+    "generatedAt": "2026-10-02T07:07:20.131041+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
-    "skippedAmbiguousActions": 0,
+    "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
     "supportedActions": [
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 116,
+    "symbolsWithAdjustments": 113,
     "toDate": "2026-10-09",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
@@ -1781,5 +1727,30 @@
       "CAPITAL_REDUCTION"
     ]
   },
-  "skipped": []
+  "skipped": [
+    {
+      "exDate": "2026-08-21",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
+      "reason": "NON_EQUITY_BONUS_EXCLUDED",
+      "symbol": "SIYSIL"
+    },
+    {
+      "exDate": "2026-08-21",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
+      "reason": "NON_EQUITY_BONUS_EXCLUDED",
+      "symbol": "SIYSIL"
+    },
+    {
+      "exDate": "2026-09-08",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 46:1",
+      "reason": "NON_EQUITY_BONUS_EXCLUDED",
+      "symbol": "TVSHLTD"
+    },
+    {
+      "exDate": "2025-08-25",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
+      "reason": "NON_EQUITY_BONUS_EXCLUDED",
+      "symbol": "TVSMOTOR"
+    }
+  ]
 }
