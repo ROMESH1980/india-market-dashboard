@@ -436,6 +436,46 @@ def action_ex_date(record):
 # BONUS PARSER
 # =========================================================
 
+# Non-equity distributions must never change the equity share-count factor.
+# This also protects cached actions from older versions of this script.
+NON_EQUITY_TERMS = (
+    "NCRPS", "N.C.R.P.S", "PREFERENCE SHARE", "PREFERENCE SHARES",
+    "PREF SHARE", "PREF. SHARE", "REDEEMABLE PREFERENCE",
+    "NON CONVERTIBLE REDEEMABLE", "NON-CONVERTIBLE REDEEMABLE",
+    "BONUS DEBENTURE", "BONUS DEBENTURES", "BONUS BOND",
+)
+
+
+def is_non_equity_distribution(purpose):
+    upper = clean_text(purpose).upper()
+    return any(term in upper for term in NON_EQUITY_TERMS)
+
+
+def sanitize_cached_adjustments(payload):
+    """Remove previously misclassified non-equity bonus actions in-place."""
+    adjustments = payload.get("adjustments", {})
+    if not isinstance(adjustments, dict):
+        raise RuntimeError("Invalid corporate-action cache adjustments")
+    removed = []
+    for symbol in list(adjustments):
+        entries = adjustments[symbol]
+        if not isinstance(entries, list):
+            raise RuntimeError(f"Invalid corporate-action cache for {symbol}")
+        kept = []
+        for action in entries:
+            if not isinstance(action, dict):
+                raise RuntimeError(f"Invalid cached action for {symbol}")
+            if is_non_equity_distribution(action.get("purpose", "")):
+                removed.append({"symbol": symbol, "action": action})
+            else:
+                kept.append(action)
+        if kept:
+            adjustments[symbol] = kept
+        else:
+            del adjustments[symbol]
+    return removed
+
+
 def parse_bonus_factor(purpose):
     """
     NSE examples:
@@ -451,7 +491,7 @@ def parse_bonus_factor(purpose):
 
     text = clean_text(purpose).upper()
 
-    if "BONUS" not in text:
+    if "BONUS" not in text or is_non_equity_distribution(purpose):
         return None
 
     patterns = [
@@ -599,6 +639,8 @@ def parse_split_factor(purpose):
 # =========================================================
 
 def classify_action(purpose):
+    if is_non_equity_distribution(purpose):
+        return None
     bonus = parse_bonus_factor(
         purpose
     )
@@ -686,6 +728,8 @@ def main():
             from_date,
             to_date,
         )
+        if not records:
+            raise RuntimeError("NSE returned empty corporate-action response")
     except Exception as exc:
         # NSE sometimes blocks automated requests with HTTP 403.
         # Keep the LAST VERIFIED corporate-action data unchanged.
@@ -703,6 +747,27 @@ def main():
                 "previously verified adjustment cache exists. "
                 "Refusing to continue with unadjusted RS prices."
             ) from exc
+
+        removed = sanitize_cached_adjustments(previous)
+        if removed:
+            previous.setdefault("skipped", [])
+            for entry in removed:
+                action = entry["action"]
+                previous["skipped"].append({
+                    "symbol": entry["symbol"],
+                    "exDate": action.get("exDate"),
+                    "purpose": action.get("purpose"),
+                    "reason": "NON_EQUITY_BONUS_EXCLUDED",
+                })
+            previous["meta"]["cacheSanitizedAt"] = datetime.now(timezone.utc).isoformat()
+            previous["meta"]["nonEquityActionsRemoved"] = len(removed)
+            previous["meta"]["acceptedActions"] = sum(len(v) for v in previous["adjustments"].values())
+            previous["meta"]["symbolsWithAdjustments"] = len(previous["adjustments"])
+            previous["meta"]["skippedAmbiguousActions"] = len(previous["skipped"])
+            save_json(OUTPUT_PATH, previous)
+            print("CACHE CLEANUP: excluded non-equity bonus actions:", len(removed))
+            for entry in removed:
+                print("  ", entry["symbol"], entry["action"].get("purpose"))
 
         previous_actions = previous["adjustments"]
         verified_count = sum(
@@ -787,6 +852,15 @@ def main():
         )
 
         if not potentially_relevant:
+            continue
+
+        if is_non_equity_distribution(purpose):
+            skipped.append({
+                "symbol": symbol,
+                "purpose": purpose,
+                "exDate": ex_date.isoformat() if ex_date else None,
+                "reason": "NON_EQUITY_BONUS_EXCLUDED",
+            })
             continue
 
         parsed = classify_action(
