@@ -2235,7 +2235,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AUBANK": {
       "tailwindScore": 78.0,
@@ -20136,7 +20136,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "ACGL": {
       "tailwindScore": 70.0,
@@ -20175,7 +20175,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "BANG": {
       "tailwindScore": 70.0,
@@ -27573,7 +27573,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated screening proxy unavailable: cash-flow statement not available.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-10-02",
           "mode": "AUTOMATED"
@@ -27780,7 +27780,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "AVANTIFEED": {
       "tailwindScore": 70.0,
@@ -100242,7 +100242,7 @@
         "fundamentalQuality": "AUTOMATED",
         "capex": "AUTOMATED"
       },
-      "financialDataRefresh": "OK"
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
     "DHATRE": {
       "tailwindScore": null,
