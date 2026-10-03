@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Industry Heatmap | MY MARKET RESEARCH</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,sans-serif;background:#081321;color:#e8f0fa}
+*{box-sizing:border-box}body{margin:0}header{padding:17px 22px;background:#0b1a2b;border-bottom:1px solid #29415e}
+h1{font-size:21px;margin:0 0 10px}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{padding:9px 13px;border:1px solid #29415e;border-radius:7px;color:#b8cbe0;text-decoration:none;font-size:13px}nav .on{background:#245e9e;color:white}
+main{padding:16px;max-width:1700px;margin:auto}section{border:1px solid #29415e;border-radius:10px;background:#0c192b;margin-bottom:15px;padding:14px}
+h2{font-size:17px;margin:0 0 12px}.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+input,select,button{background:#122741;color:#f1f6ff;border:1px solid #355376;border-radius:6px;padding:9px;font-size:13px}
+button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}small,.muted{color:#9eb2c9}
+.scroll{overflow:auto;max-height:560px}table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid #24374f;padding:9px 10px;white-space:nowrap;text-align:right}th{position:sticky;top:0;background:#10243c;z-index:1;cursor:pointer}th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:#10243c;z-index:2}tbody tr:hover td{background:#1c3553}tbody tr{cursor:pointer}
+.heat{border-radius:4px;padding:6px 8px;display:inline-block;min-width:75px;text-align:center;font-weight:bold}
+.good{background:#124f3b;color:#aaf2c9}.bad{background:#602d36;color:#ffced4}.flat{background:#344158;color:#d6e2f0}
+.chartwrap{overflow-x:auto}canvas{width:100%;height:380px;display:block}#legend{display:flex;gap:8px;flex-wrap:wrap;max-height:115px;overflow:auto;margin-top:8px}
+.legend{font-size:11px;cursor:pointer;padding:5px;border:1px solid #355376;border-radius:5px}.legend.off{opacity:.35}
+.note{font-size:12px;color:#aebed2;margin-top:8px}
+</style></head><body>
+<header><h1>MY MARKET RESEARCH</h1><nav>
+<a href="index.html">Market Research</a><a href="big-move-scanner.html">Big Move Scanner</a><a href="industry-heatmap.html" class="on">Industry Heatmap</a>
+</nav></header>
+<main>
+<section><h2>Industry Performance Heatmap</h2><div class="controls">
+<input id="search" placeholder="Search industry...">
+<label>Sort <select id="sort"><option value="1M">1M Return</option><option value="1W">1W Return</option><option value="3M">3M Return</option><option value="6M">6M Return</option><option value="1Y">1Y Return</option><option value="rating">Industry Rating</option><option value="stockCount">Stock Count</option></select></label>
+<label><select id="direction"><option value="desc">Highest first</option><option value="asc">Lowest first</option></select></label>
+<span id="summary" class="muted">Loading data...</span></div>
+<div class="scroll"><table><thead><tr><th>Industry (click for stocks)</th><th>Stocks</th><th>1W %</th><th>1M %</th><th>3M %</th><th>6M %</th><th>1Y %</th><th>Rating</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="note">Equal-weight mean of available stock returns. Coverage can differ by period; select an industry to inspect its stocks.</p></section>
+<section><h2 id="chartTitle">Industry Performance Race Chart</h2><div class="controls">
+<button id="weekly" class="active">Weekly (53 points)</button><button id="monthly">Monthly (13 points)</button>
+<button id="back" hidden>← All Industries</button>
+<label>Show <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="50">Top 50</option><option value="all">All</option></select></label>
+<span class="muted" id="chartStatus"></span></div>
+<div class="chartwrap"><canvas id="chart" aria-label="Performance line chart"></canvas></div><div id="legend"></div>
+<p class="note">Each series starts at 0%. Weekly/monthly chart uses a consistent historical cohort for industries; missing stock points are shown as gaps, not interpolated. Click legend entries to hide/show lines.</p></section>
+</main>
+<script>
+"use strict";
+let dataset=null, mode="weekly", selected=null, disabled=new Set();
+const $=id=>document.getElementById(id);
+const periods=["1W","1M","3M","6M","1Y"];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const numeric=v=>v===null||v===undefined||v===""?null:Number(v);
+const pct=v=>{const n=numeric(v);return n===null||!Number.isFinite(n)?"—":(n>0?"+":"")+n.toFixed(2)+"%";};
+const cell=v=>{const n=numeric(v);return '<span class="heat '+(n===null||!Number.isFinite(n)?"flat":n>0?"good":n<0?"bad":"flat")+'">'+pct(v)+'</span>';};
+function visibleIndustries(){const q=$("search").value.toLowerCase().trim(),sort=$("sort").value,dir=$("direction").value==="asc"?1:-1;
+return dataset.industries.filter(i=>i.industry.toLowerCase().includes(q)).sort((a,b)=>{const x=numeric(sort==="rating"?a.rating:sort==="stockCount"?a.stockCount:a.returns?.[sort]);const y=numeric(sort==="rating"?b.rating:sort==="stockCount"?b.stockCount:b.returns?.[sort]);if(x===null)return 1;if(y===null)return -1;return dir*(x-y)||a.industry.localeCompare(b.industry);});}
+function table(){if(!dataset)return;const items=visibleIndustries();$("rows").innerHTML=items.map(i=>'<tr data-industry="'+esc(i.industry)+'"><td>'+esc(i.industry)+'</td><td>'+i.stockCount+'</td>'+periods.map(p=>'<td>'+cell(i.returns?.[p])+'</td>').join("")+'<td>'+(numeric(i.rating)===null?"—":Number(i.rating).toFixed(1))+'</td></tr>').join("");
+$("summary").textContent=items.length+" industries · As of "+(dataset.meta?.asOf||"—");
+$("rows").querySelectorAll("tr").forEach(tr=>tr.addEventListener("click",()=>{selected=tr.dataset.industry;disabled.clear();draw();}));}
+function series(){let entries;
+if(selected){const industry=dataset.industries.find(i=>i.industry===selected);entries=(industry?.symbols||[]).map(sym=>({name:sym,data:dataset.stocks?.[sym]?.[mode]}));}
+else entries=visibleIndustries().map(i=>({name:i.industry,data:i[mode]}));
+const limit=$("limit").value;if(limit!=="all")entries=entries.slice(0,Number(limit));
+return entries.filter(e=>Array.isArray(e.data?.dates)&&Array.isArray(e.data?.values)&&e.data.dates.length);}
+function draw(){if(!dataset)return;
+$("chartTitle").textContent=selected?selected+" — Stock Performance Race Chart":"Industry Performance Race Chart";
+$("back").hidden=!selected;$("weekly").classList.toggle("active",mode==="weekly");$("monthly").classList.toggle("active",mode==="monthly");
+const entries=series(),active=entries.filter(e=>!disabled.has(e.name));
+$("chartStatus").textContent=entries.length+" series · "+mode;
+$("legend").innerHTML=entries.map((e,i)=>'<button class="legend '+(disabled.has(e.name)?"off":"")+'" data-name="'+esc(e.name)+'" style="border-left:4px solid '+color(i)+'">'+esc(e.name)+'</button>').join("");
+$("legend").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{if(disabled.has(b.dataset.name))disabled.delete(b.dataset.name);else disabled.add(b.dataset.name);draw();}));
+const canvas=$("chart"),width=Math.max(650,canvas.parentElement.clientWidth),height=380,dpr=window.devicePixelRatio||1;
+canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);const ctx=canvas.getContext("2d");ctx.scale(dpr,dpr);ctx.clearRect(0,0,width,height);
+const left=58,right=20,top=20,bottom=45,w=width-left-right,h=height-top-bottom;
+const all=active.flatMap(e=>e.data.values.filter(v=>numeric(v)!==null&&Number.isFinite(Number(v))).map(Number));if(!all.length){ctx.fillStyle="#b8cbe0";ctx.font="14px Arial";ctx.fillText("No complete chart data available for this selection.",left,55);return;}
+let min=Math.min(0,...all),max=Math.max(0,...all);if(min===max){min-=1;max+=1;}const pad=(max-min)*.07;min-=pad;max+=pad;
+const yy=v=>top+(max-v)/(max-min)*h;
+ctx.font="11px Arial";ctx.strokeStyle="#29415e";ctx.fillStyle="#aebed2";ctx.lineWidth=1;
+for(let i=0;i<=5;i++){const v=min+(max-min)*i/5,y=yy(v);ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(width-right,y);ctx.stroke();ctx.fillText(v.toFixed(1)+"%",4,y+4);}
+const dates=[...new Set(active.flatMap(e=>e.data.dates))].sort();if(!dates.length)return;
+const xx=date=>left+(dates.length===1?0:dates.indexOf(date)/(dates.length-1))*w;
+for(let i=0;i<dates.length;i+=Math.max(1,Math.ceil(dates.length/7))){const x=xx(dates[i]);ctx.fillText(dates[i].slice(2,10),Math.min(width-80,x-25),height-15);}
+active.forEach(e=>{const idx=entries.indexOf(e);ctx.strokeStyle=color(idx);ctx.lineWidth=1.8;ctx.beginPath();let started=false;
+e.data.dates.forEach((d,j)=>{const v=numeric(e.data.values[j]);if(v===null||!Number.isFinite(v)){started=false;return;}const x=xx(d),y=yy(v);if(!started)ctx.moveTo(x,y);else ctx.lineTo(x,y);started=true;});ctx.stroke();});
+}
+function color(i){return "hsl("+((i*137.508+200)%360).toFixed(1)+" 75% 65%)";}
+["search","sort","direction"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",()=>{table();if(!selected)draw();}));
+$("limit").addEventListener("change",()=>{disabled.clear();draw();});
+["weekly","monthly"].forEach(id=>$(id).addEventListener("click",()=>{mode=id;disabled.clear();draw();}));
+$("back").addEventListener("click",()=>{selected=null;disabled.clear();draw();});
+window.addEventListener("resize",()=>{if(dataset)draw();});
+fetch("data/industry_heatmap.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();}).then(data=>{if(!Array.isArray(data.industries)||!data.stocks)throw Error("Invalid JSON format");dataset=data;table();draw();}).catch(err=>{$("summary").textContent="Data loading failed: "+err.message;$("chartStatus").textContent="Check data/industry_heatmap.json";});
+</script></body></html>
