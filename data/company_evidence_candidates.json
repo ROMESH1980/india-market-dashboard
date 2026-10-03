@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-02",
+    "updated": "2026-10-03",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,9 +17,9 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12155,
+      "announcementsSeen": 8765,
       "rawCapexMatches": 0,
-      "negativeCapexRejected": 369,
+      "negativeCapexRejected": 262,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 0,
       "capexCandidates": 0,

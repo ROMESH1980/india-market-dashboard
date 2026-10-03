@@ -253,18 +253,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 10.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -274,6 +262,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "BONUS"
       }
     ],
     "BHARATRAS": [
@@ -1072,18 +1072,6 @@
       {
         "exDate": "2025-09-26",
         "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 4.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "NAZARA",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2025-09-26",
-        "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
         "ratioA": 1.0,
@@ -1092,6 +1080,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "NAZARA",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2025-09-26",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 4.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "NAZARA",
+        "type": "SPLIT"
       }
     ],
     "NESTLEIND": [
@@ -1706,9 +1706,9 @@
   "meta": {
     "acceptedActions": 123,
     "dashboardSymbols": 3168,
-    "downloadedRecords": 3132,
-    "fromDate": "2025-07-09",
-    "generatedAt": "2026-10-02T16:48:06.455387+00:00",
+    "downloadedRecords": 3125,
+    "fromDate": "2025-07-10",
+    "generatedAt": "2026-10-03T07:16:09.861689+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1717,7 +1717,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 113,
-    "toDate": "2026-10-09",
+    "toDate": "2026-10-10",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
