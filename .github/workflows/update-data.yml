@@ -103,6 +103,10 @@ jobs:
         run: python scripts/apply_research_scores.py
 
 
+      - name: Build Industry Heat Map
+        run: python scripts/build_industry_heatmap.py
+
+        
       - name: Build Big Move Scanner
         run: python scripts/build_big_move_scanner.py
 
