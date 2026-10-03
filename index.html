@@ -125,6 +125,35 @@
 
     }
 
+
+    /* Page 1: compact stock-return and momentum columns only */
+    .table-wrap table { table-layout: auto; }
+    .table-wrap table thead tr > th:nth-child(n+19):nth-child(-n+22),
+    .table-wrap table tbody tr > td:nth-child(n+19):nth-child(-n+22) {
+      min-width: 86px !important;
+      width: 92px !important;
+      max-width: 106px !important;
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+      box-sizing: border-box;
+    }
+    .table-wrap table thead tr > th:nth-child(22),
+    .table-wrap table tbody tr > td:nth-child(22) {
+      min-width: 112px !important;
+      width: 116px !important;
+      max-width: 124px !important;
+    }
+    .table-wrap table thead tr > th:nth-child(n+19):nth-child(-n+22) .filter-box {
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+    .table-wrap table thead tr > th:nth-child(n+19):nth-child(-n+22) input[type=number],
+    .table-wrap table thead tr > th:nth-child(n+19):nth-child(-n+22) select {
+      min-width: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+
   </style>
 
 </head>
@@ -224,7 +253,7 @@
         <p>
           Market Cap • Turnover • Delivery •
           Industry Momentum • Stock Momentum •
-          RS Rating • T+M+VM • G+F+C • Overall
+          RS Rating
         </p>
 
       </div>
@@ -583,30 +612,6 @@
               Rating
             </th>
 
-
-            <th>
-              T + M + VM
-              <br>
-
-              <small>
-                Tailwind + Macro + Value Migration
-              </small>
-            </th>
-
-
-            <th>
-              G + F + C
-              <br>
-
-              <small>
-                Growth + Fundamental + CAPEX
-              </small>
-            </th>
-
-
-            <th>
-              Overall
-            </th>
 
           </tr>
 
@@ -1376,109 +1381,6 @@
             </th>
 
 
-
-            <!-- TMV -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeTMV"
-                    type="checkbox"
-                  >
-
-                  <span>
-                    Active
-                  </span>
-
-                </label>
-
-
-                <input
-                  id="aboveTMV"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="1"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-
-            <!-- GFC -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeGFC"
-                    type="checkbox"
-                  >
-
-                  <span>
-                    Active
-                  </span>
-
-                </label>
-
-
-                <input
-                  id="aboveGFC"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="1"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
-
-
-
-            <!-- OVERALL -->
-
-            <th>
-
-              <div class="filter-box">
-
-                <label class="filter-toggle">
-
-                  <input
-                    id="activeOverall"
-                    type="checkbox"
-                  >
-
-                  <span>
-                    Active
-                  </span>
-
-                </label>
-
-
-                <input
-                  id="aboveOverall"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="1"
-                  placeholder="Above"
-                >
-
-              </div>
-
-            </th>
 
           </tr>
 

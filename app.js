@@ -1688,86 +1688,6 @@ function passesFilters(row) {
   }
 
 
-  /* ===================================================
-     T + M + VM
-  =================================================== */
-
-  if (checked("activeTMV")) {
-
-    const threshold =
-      inputNumber(
-        "aboveTMV"
-      );
-
-    const value =
-      num(row.tmvScore);
-
-    if (value === null) {
-      return false;
-    }
-
-    if (
-      threshold !== null &&
-      value < threshold
-    ) {
-      return false;
-    }
-  }
-
-
-  /* ===================================================
-     G + F + C
-  =================================================== */
-
-  if (checked("activeGFC")) {
-
-    const threshold =
-      inputNumber(
-        "aboveGFC"
-      );
-
-    const value =
-      num(row.gfcScore);
-
-    if (value === null) {
-      return false;
-    }
-
-    if (
-      threshold !== null &&
-      value < threshold
-    ) {
-      return false;
-    }
-  }
-
-
-  /* ===================================================
-     OVERALL
-  =================================================== */
-
-  if (checked("activeOverall")) {
-
-    const threshold =
-      inputNumber(
-        "aboveOverall"
-      );
-
-    const value =
-      num(row.overallScore);
-
-    if (value === null) {
-      return false;
-    }
-
-    if (
-      threshold !== null &&
-      value < threshold
-    ) {
-      return false;
-    }
-  }
-
   return true;
 }
 /* =====================================================
@@ -1846,15 +1766,6 @@ function sortValue(
 
     case "stockMomentumRating":
       return stockMomentumRating(row);
-
-    case "tmvScore":
-      return num(row.tmvScore);
-
-    case "gfcScore":
-      return num(row.gfcScore);
-
-    case "overallScore":
-      return num(row.overallScore);
 
     default:
       return null;
@@ -2030,16 +1941,7 @@ const sortFieldByActiveCheckbox = {
     "stockGrowth6M",
 
   activeStockRating:
-    "stockMomentumRating",
-
-  activeTMV:
-    "tmvScore",
-
-  activeGFC:
-    "gfcScore",
-
-  activeOverall:
-    "overallScore"
+    "stockMomentumRating"
 
 };
 
@@ -2616,46 +2518,6 @@ function renderRows() {
             </td>
 
 
-            <!-- T + M + VM -->
-
-            <td>
-
-              ${researchScoreButton(
-                globalIndex,
-                "tmv",
-                row.tmvScore
-              )}
-
-            </td>
-
-
-            <!-- G + F + C -->
-
-            <td>
-
-              ${researchScoreButton(
-                globalIndex,
-                "gfc",
-                row.gfcScore
-              )}
-
-            </td>
-
-
-            <!-- OVERALL -->
-
-            <td>
-
-              <strong class="overall-score">
-
-                ${formatScore(
-                  row.overallScore
-                )}
-
-              </strong>
-
-            </td>
-
           </tr>
         `;
       })
@@ -2913,12 +2775,6 @@ function setupFilterEvents() {
 
 
     /* RESEARCH */
-
-    "aboveTMV",
-
-    "aboveGFC",
-
-    "aboveOverall"
 
   ];
 
@@ -4856,27 +4712,7 @@ function buildExportRows() {
             ? "Pending"
             : momentumRatingLabel(
                 stockMomentumValue
-              ),
-
-
-        /* ============================================
-           RESEARCH SCORES
-        ============================================ */
-
-        "T + M + VM":
-          exportInteger(
-            row.tmvScore
-          ),
-
-        "G + F + C":
-          exportInteger(
-            row.gfcScore
-          ),
-
-        "Overall":
-          exportInteger(
-            row.overallScore
-          )
+              )
 
       };
     }
@@ -5268,31 +5104,19 @@ function downloadExcel(rows) {
           /* STOCK MOMENTUM */
 
           "Stock 1M %":
-            16,
+            12,
 
           "Stock 3M %":
-            16,
+            12,
 
           "Stock 6M %":
-            16,
+            12,
 
           "Stock Momentum Rating":
-            22,
+            16,
 
           "Stock Momentum Label":
-            22,
-
-
-          /* RESEARCH */
-
-          "T + M + VM":
-            14,
-
-          "G + F + C":
-            14,
-
-          "Overall":
-            12
+            22
 
         };
 
@@ -5498,35 +5322,7 @@ function downloadExcel(rows) {
     "Stock Momentum Rating",
     "0"
   );
-
-
-  /* ===================================================
-     RESEARCH SCORES
-  =================================================== */
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "T + M + VM",
-    "0"
-  );
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "G + F + C",
-    "0"
-  );
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "Overall",
-    "0"
-  );
-
-
-  /* ===================================================
+/* ===================================================
      FREEZE TOP ROW
   =================================================== */
 
