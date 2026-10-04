@@ -16,7 +16,7 @@ button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}sma
 .legend{font-size:11px;cursor:pointer;padding:5px;border:1px solid #355376;border-radius:5px}.legend.off{opacity:.35}.legend strong{margin-left:5px}.legend.flag{border-style:dashed}.warning{color:#f5c77d}.chart-info{font-size:12px;color:#b4c6d9;margin:8px 0} .legend:hover{background:#284563}
 .note{font-size:12px;color:#aebed2;margin-top:8px}
 .sort-head{cursor:pointer}.sort-head:hover{color:#8bc5ff}.chart-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.chart-heading h2{margin:0}.legend{display:inline-flex;align-items:center;gap:6px}.legend-toggle{accent-color:#65b9ff;width:15px;height:15px;min-width:15px;cursor:pointer}.legend-name{background:transparent;border:0;color:inherit;padding:2px 1px;cursor:pointer;font-size:11px;text-align:left}.legend-name:hover{text-decoration:underline;color:#8bc5ff}.legend-name:focus-visible{outline:2px solid #8bc5ff}.legend-stock{font-size:11px}.legend.off{opacity:.4}#back{margin-left:auto}
-#chart{cursor:crosshair;touch-action:pan-y}.chartwrap{position:relative;padding-bottom:96px}#chartTooltip{position:absolute;display:none;pointer-events:none;z-index:30;background:#091626f2;border:1px solid #4b6989;border-radius:8px;padding:9px 11px;box-shadow:0 5px 20px #0009;font-size:12px;min-width:155px;max-width:260px}#chartTooltip .tip-line{display:flex;align-items:center;gap:7px;font-weight:bold;margin-bottom:5px}#chartTooltip .tip-swatch{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0}#chartTooltip .tip-date{color:#b3c5d9;margin-bottom:4px}#chartTooltip .tip-return{font-weight:bold}#reset{border-color:#5b82b3}
+#chart{cursor:crosshair;touch-action:pan-y}.chartwrap{position:relative}.chart-info-row{position:relative;min-height:31px}.chart-info-row #chartInfo{padding-right:390px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#chartTooltip{position:absolute;right:0;top:0;display:none;pointer-events:none;z-index:30;background:#091626;border:1px solid #4b6989;border-radius:6px;padding:6px 9px;font-size:12px;max-width:380px;white-space:nowrap;box-shadow:0 2px 9px #0005}@media(max-width:850px){.chart-info-row #chartInfo{padding-right:0;padding-top:30px}.chart-info-row{min-height:58px}#chartTooltip{left:0;right:auto;max-width:100%}}#chartTooltip .tip-line{display:flex;align-items:center;gap:7px;font-weight:bold;margin-bottom:5px}#chartTooltip .tip-swatch{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0}#chartTooltip .tip-date{color:#b3c5d9;margin-bottom:4px}#chartTooltip .tip-return{font-weight:bold}#reset{border-color:#5b82b3}
 </style></head><body>
 <header><h1>MY MARKET RESEARCH</h1><nav>
 <a href="index.html">Market Research</a><a href="big-move-scanner.html">Big Move Scanner</a><a href="industry-heatmap.html" class="on">Industry Heatmap</a>
@@ -27,7 +27,7 @@ button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}sma
 
 <label>Show <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="50">Top 50</option><option value="all">All</option></select></label>
 <span class="muted" id="chartStatus"></span></div>
-<div id="chartInfo" class="chart-info">Select an industry to compare its stocks.</div><div class="chartwrap"><canvas id="chart" aria-label="Performance line chart"></canvas><div id="chartTooltip" role="status" aria-live="off"></div></div><div id="legend"></div>
+<div class="chart-info-row"><div id="chartInfo" class="chart-info">Select an industry to compare its stocks.</div><div id="chartTooltip" role="status" aria-live="off"></div></div><div class="chartwrap"><canvas id="chart" aria-label="Performance line chart"></canvas></div><div id="legend"></div>
 <p class="note">Click an industry name to view its stocks. Every line is ON by default; uncheck to hide a line. Names are ordered by latest chart return. ⚠ means verify historical price/corporate actions, not a confirmed error.</p></section>
 <section><h2>Industry Performance Heatmap</h2><div class="controls">
 
@@ -133,13 +133,8 @@ function chartHover(event){
   }
  }
  if(!best||best.dist>16){tip.style.display="none";return;}
- tip.innerHTML='<div class="tip-line"><span class="tip-swatch" style="background:'+best.line.color+'"></span><span>'+esc(best.line.name)+'</span></div><div class="tip-date">Date: '+esc(best.point.date)+'</div><div class="tip-return">Return: '+pct(best.point.value)+'</div>';
+ tip.innerHTML='<span class="tip-line" style="display:inline-flex;margin:0 10px 0 0"><span class="tip-swatch" style="background:'+best.line.color+'"></span><span>'+esc(best.line.name)+'</span></span><span class="tip-date" style="display:inline;margin:0 9px 0 0">'+esc(best.point.date)+'</span><span class="tip-return">'+pct(best.point.value)+'</span>';
  tip.style.display="block";
- const scaleX=rect.width/g.width;
- const tipWidth=tip.offsetWidth;
- // Reserve a tooltip strip below the canvas, outside all plotted lines.
- tip.style.left=Math.max(4,Math.min(rect.width-tipWidth-4,mx*scaleX+24))+'px';
- tip.style.top=(rect.height+12)+'px';
 }
 $("chart").addEventListener("mousemove",chartHover);
 $("chart").addEventListener("mouseleave",()=>{$("chartTooltip").style.display="none";});
