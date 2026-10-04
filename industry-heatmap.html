@@ -16,7 +16,7 @@ button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}sma
 .legend{font-size:11px;cursor:pointer;padding:5px;border:1px solid #355376;border-radius:5px}.legend.off{opacity:.35}.legend strong{margin-left:5px}.legend.flag{border-style:dashed}.warning{color:#f5c77d}.chart-info{font-size:12px;color:#b4c6d9;margin:8px 0} .legend:hover{background:#284563}
 .note{font-size:12px;color:#aebed2;margin-top:8px}
 .sort-head{cursor:pointer}.sort-head:hover{color:#8bc5ff}.chart-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.chart-heading h2{margin:0}.legend{display:inline-flex;align-items:center;gap:6px}.legend-toggle{accent-color:#65b9ff;width:15px;height:15px;min-width:15px;cursor:pointer}.legend-name{background:transparent;border:0;color:inherit;padding:2px 1px;cursor:pointer;font-size:11px;text-align:left}.legend-name:hover{text-decoration:underline;color:#8bc5ff}.legend-name:focus-visible{outline:2px solid #8bc5ff}.legend-stock{font-size:11px}.legend.off{opacity:.4}#back{margin-left:auto}
-#chart{cursor:crosshair;touch-action:pan-y}.chartwrap{position:relative}#chartTooltip{position:absolute;display:none;pointer-events:none;z-index:30;background:#091626f2;border:1px solid #4b6989;border-radius:8px;padding:9px 11px;box-shadow:0 5px 20px #0009;font-size:12px;min-width:155px;max-width:260px}#chartTooltip .tip-line{display:flex;align-items:center;gap:7px;font-weight:bold;margin-bottom:5px}#chartTooltip .tip-swatch{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0}#chartTooltip .tip-date{color:#b3c5d9;margin-bottom:4px}#chartTooltip .tip-return{font-weight:bold}#reset{border-color:#5b82b3}
+#chart{cursor:crosshair;touch-action:pan-y}.chartwrap{position:relative;padding-bottom:96px}#chartTooltip{position:absolute;display:none;pointer-events:none;z-index:30;background:#091626f2;border:1px solid #4b6989;border-radius:8px;padding:9px 11px;box-shadow:0 5px 20px #0009;font-size:12px;min-width:155px;max-width:260px}#chartTooltip .tip-line{display:flex;align-items:center;gap:7px;font-weight:bold;margin-bottom:5px}#chartTooltip .tip-swatch{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0}#chartTooltip .tip-date{color:#b3c5d9;margin-bottom:4px}#chartTooltip .tip-return{font-weight:bold}#reset{border-color:#5b82b3}
 </style></head><body>
 <header><h1>MY MARKET RESEARCH</h1><nav>
 <a href="index.html">Market Research</a><a href="big-move-scanner.html">Big Move Scanner</a><a href="industry-heatmap.html" class="on">Industry Heatmap</a>
@@ -135,10 +135,11 @@ function chartHover(event){
  if(!best||best.dist>16){tip.style.display="none";return;}
  tip.innerHTML='<div class="tip-line"><span class="tip-swatch" style="background:'+best.line.color+'"></span><span>'+esc(best.line.name)+'</span></div><div class="tip-date">Date: '+esc(best.point.date)+'</div><div class="tip-return">Return: '+pct(best.point.value)+'</div>';
  tip.style.display="block";
- const wrap=canvas.parentElement,scaleX=rect.width/g.width,scaleY=rect.height/g.height;
- const tipWidth=tip.offsetWidth,tipHeight=tip.offsetHeight;
- tip.style.left=Math.max(3,Math.min(rect.width-tipWidth-3,mx*scaleX+14))+'px';
- tip.style.top=Math.max(3,Math.min(rect.height-tipHeight-3,my*scaleY-14))+'px';
+ const scaleX=rect.width/g.width;
+ const tipWidth=tip.offsetWidth;
+ // Reserve a tooltip strip below the canvas, outside all plotted lines.
+ tip.style.left=Math.max(4,Math.min(rect.width-tipWidth-4,mx*scaleX+24))+'px';
+ tip.style.top=(rect.height+12)+'px';
 }
 $("chart").addEventListener("mousemove",chartHover);
 $("chart").addEventListener("mouseleave",()=>{$("chartTooltip").style.display="none";});
