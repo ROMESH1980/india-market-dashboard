@@ -15,27 +15,26 @@ button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}sma
 .chartwrap{overflow-x:auto}canvas{width:100%;height:380px;display:block}#legend{display:flex;gap:8px;flex-wrap:wrap;max-height:115px;overflow:auto;margin-top:8px}
 .legend{font-size:11px;cursor:pointer;padding:5px;border:1px solid #355376;border-radius:5px}.legend.off{opacity:.35}.legend strong{margin-left:5px}.legend.flag{border-style:dashed}.warning{color:#f5c77d}.chart-info{font-size:12px;color:#b4c6d9;margin:8px 0} .legend:hover{background:#284563}
 .note{font-size:12px;color:#aebed2;margin-top:8px}
-.filter-row th{top:36px;z-index:3;padding:5px;background:#142b46}.filter-row input{width:100%;min-width:65px;padding:6px;font-size:11px}.filter-row th:first-child{z-index:4}.sort-head{cursor:pointer}.sort-head:hover{color:#8bc5ff}.filter-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.filter-actions button{padding:7px 10px}
+.sort-head{cursor:pointer}.sort-head:hover{color:#8bc5ff}.chart-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.chart-heading h2{margin:0}.legend{display:inline-flex;align-items:center;gap:6px}.legend-toggle{accent-color:#65b9ff;width:15px;height:15px;min-width:15px;cursor:pointer}.legend-name{background:transparent;border:0;color:inherit;padding:2px 1px;cursor:pointer;font-size:11px;text-align:left}.legend-name:hover{text-decoration:underline;color:#8bc5ff}.legend-name:focus-visible{outline:2px solid #8bc5ff}.legend-stock{font-size:11px}.legend.off{opacity:.4}#back{margin-left:auto}
 </style></head><body>
 <header><h1>MY MARKET RESEARCH</h1><nav>
 <a href="index.html">Market Research</a><a href="big-move-scanner.html">Big Move Scanner</a><a href="industry-heatmap.html" class="on">Industry Heatmap</a>
 </nav></header>
 <main>
-<section><h2 id="chartTitle">Industry Performance Race Chart</h2><div class="controls">
+<section id="raceSection"><div class="chart-heading"><h2 id="chartTitle">Industry Performance Race Chart</h2><button id="back" hidden>← Back to Industries</button></div><div class="controls">
 <button id="weekly" class="active">Weekly (53 points)</button><button id="monthly">Monthly (13 points)</button>
-<button id="back" hidden>← All Industries</button>
+
 <label>Show <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="50">Top 50</option><option value="all">All</option></select></label>
 <span class="muted" id="chartStatus"></span></div>
 <div id="chartInfo" class="chart-info">Select an industry to compare its stocks.</div><div class="chartwrap"><canvas id="chart" aria-label="Performance line chart"></canvas></div><div id="legend"></div>
-<p class="note">Names are ranked by latest chart return (highest to lowest). ⚠ marks large returns for price/corporate-action verification; it does not mean an error is confirmed. Each series starts at 0%. Weekly/monthly chart uses a consistent historical cohort for industries; missing stock points are shown as gaps, not interpolated. Click legend entries to hide/show lines.</p></section>
+<p class="note">Click an industry name to view its stocks. Every line is ON by default; uncheck to hide a line. Names are ordered by latest chart return. ⚠ means verify historical price/corporate actions, not a confirmed error.</p></section>
 <section><h2>Industry Performance Heatmap</h2><div class="controls">
 
 <label>Sort <select id="sort"><option value="race">Race Chart Latest Return</option><option value="1M">1M Return</option><option value="1W">1W Return</option><option value="3M">3M Return</option><option value="6M">6M Return</option><option value="1Y">1Y Return</option><option value="rating">Industry Rating</option><option value="stockCount">Stock Count</option></select></label>
 <label><select id="direction"><option value="desc">Highest first</option><option value="asc">Lowest first</option></select></label>
-<span id="summary" class="muted">Loading data...</span><button id="clearFilters" type="button">Clear Filters</button></div>
-<div class="scroll"><table><thead><tr><th class="sort-head" data-sort="industry">Industry ↕</th><th class="sort-head" data-sort="stockCount">Stocks ↕</th><th class="sort-head" data-sort="1W">1W % ↕</th><th class="sort-head" data-sort="1M">1M % ↕</th><th class="sort-head" data-sort="3M">3M % ↕</th><th class="sort-head" data-sort="6M">6M % ↕</th><th class="sort-head" data-sort="1Y">1Y % ↕</th><th class="sort-head" data-sort="rating">Rating ↕</th></tr>
-<tr class="filter-row"><th><input id="search" placeholder="Search industry" aria-label="Search industry"></th><th><input id="minStocks" type="number" placeholder="Min count" aria-label="Minimum stocks"></th><th><input id="min1W" type="number" step="any" placeholder="Min %" aria-label="Minimum 1W return"></th><th><input id="min1M" type="number" step="any" placeholder="Min %" aria-label="Minimum 1M return"></th><th><input id="min3M" type="number" step="any" placeholder="Min %" aria-label="Minimum 3M return"></th><th><input id="min6M" type="number" step="any" placeholder="Min %" aria-label="Minimum 6M return"></th><th><input id="min1Y" type="number" step="any" placeholder="Min %" aria-label="Minimum 1Y return"></th><th><input id="minRating" type="number" step="any" placeholder="Min rating" aria-label="Minimum rating"></th></tr></thead><tbody id="rows"></tbody></table></div>
-<p class="note">Column filters are minimum thresholds; click headings to sort ascending/descending. Default ranking matches the latest Race Chart return. Equal-weight mean of available stock returns. Coverage can differ by period; select an industry to inspect its stocks.</p></section>
+<span id="summary" class="muted">Loading data...</span></div>
+<div class="scroll"><table><thead><tr><th>Industry</th><th>Stocks</th><th class="sort-head" data-sort="1W">1W % ↕</th><th class="sort-head" data-sort="1M">1M % ↕</th><th class="sort-head" data-sort="3M">3M % ↕</th><th class="sort-head" data-sort="6M">6M % ↕</th><th class="sort-head" data-sort="1Y">1Y % ↕</th><th class="sort-head" data-sort="rating">Rating ↕</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="note">Click the 1W / 1M / 3M / 6M / 1Y / Rating headings to sort highest or lowest. Default ranking matches the latest Race Chart return. Equal-weight mean of available stock returns. Coverage can differ by period; select an industry to inspect its stocks.</p></section>
 
 </main>
 <script>
@@ -49,11 +48,9 @@ const pct=v=>{const n=numeric(v);return n===null||!Number.isFinite(n)?"—":(n>0
 const cell=v=>{const n=numeric(v);return '<span class="heat '+(n===null||!Number.isFinite(n)?"flat":n>0?"good":n<0?"bad":"flat")+'">'+pct(v)+'</span>';};
 function raceLatest(i){return latestReturn({data:i[mode]});}
 function visibleIndustries(){
- const q=$("search").value.toLowerCase().trim(),sort=$("sort").value,dir=$("direction").value==="asc"?1:-1;
- const min=id=>$(id).value.trim()===""?null:Number($(id).value);
- const passes=(v,threshold)=>threshold===null||(numeric(v)!==null&&Number(v)>=threshold);
+ const sort=$("sort").value,dir=$("direction").value==="asc"?1:-1;
  const get=(i,key)=>key==="race"?raceLatest(i):key==="industry"?i.industry:key==="rating"?i.rating:key==="stockCount"?i.stockCount:i.returns?.[key];
- return dataset.industries.filter(i=>i.industry.toLowerCase().includes(q)&&passes(i.stockCount,min("minStocks"))&&passes(i.rating,min("minRating"))&&periods.every(k=>passes(i.returns?.[k],min("min"+k)))).sort((a,b)=>{
+ return dataset.industries.slice().sort((a,b)=>{
   const x=get(a,sort),y=get(b,sort);
   if(sort==="industry")return dir*String(x).localeCompare(String(y));
   const nx=numeric(x),ny=numeric(y);if(nx===null)return 1;if(ny===null)return -1;
@@ -92,8 +89,9 @@ const flagged=entries.filter(e=>Math.abs(latestReturn(e))>=300);
 $("chartInfo").textContent=selected
  ? "Industry stocks: "+entries.length+" plotted / "+(dataset.industries.find(i=>i.industry===selected)?.stockCount||0)+" total · ordered by latest return · "+flagged.length+" extreme return(s) to verify"
  : "Industry lines: "+entries.length+" plotted · ordered by latest return · "+flagged.length+" extreme return(s) to verify";
-$("legend").innerHTML=entries.map((e,i)=>'<button class="legend '+(disabled.has(e.name)?"off":"")+(Math.abs(latestReturn(e))>=300?' flag':'')+'" data-name="'+esc(e.name)+'" style="border-left:4px solid '+color(i)+'" title="'+esc(e.name)+' latest '+pct(latestReturn(e))+'">'+(i+1)+'. '+esc(e.name)+' <strong>'+pct(latestReturn(e))+'</strong>'+(Math.abs(latestReturn(e))>=300?' ⚠':'')+'</button>').join("");
-$("legend").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{if(disabled.has(b.dataset.name))disabled.delete(b.dataset.name);else disabled.add(b.dataset.name);draw();}));
+$("legend").innerHTML=entries.map((e,i)=>'<span class="legend '+(disabled.has(e.name)?"off":"")+(Math.abs(latestReturn(e))>=300?' flag':'')+'" style="border-left:4px solid '+color(i)+'"><input class="legend-toggle" type="checkbox" data-name="'+esc(e.name)+'" aria-label="Show '+esc(e.name)+' line" '+(disabled.has(e.name)?'':'checked')+'>'+(selected?'<span class="legend-stock">'+(i+1)+'. '+esc(e.name)+'</span>':'<button type="button" class="legend-name" data-industry="'+esc(e.name)+'">'+(i+1)+'. '+esc(e.name)+'</button>')+' <strong>'+pct(latestReturn(e))+'</strong>'+(Math.abs(latestReturn(e))>=300?' ⚠':'')+'</span>').join("");
+$("legend").querySelectorAll(".legend-toggle").forEach(box=>box.addEventListener("change",()=>{if(box.checked)disabled.delete(box.dataset.name);else disabled.add(box.dataset.name);draw();}));
+$("legend").querySelectorAll(".legend-name").forEach(btn=>btn.addEventListener("click",()=>{selected=btn.dataset.industry;disabled.clear();draw();$("raceSection").scrollIntoView({behavior:"smooth",block:"start"});}));
 const canvas=$("chart"),width=Math.max(650,canvas.parentElement.clientWidth),height=380,dpr=window.devicePixelRatio||1;
 canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);const ctx=canvas.getContext("2d");ctx.scale(dpr,dpr);ctx.clearRect(0,0,width,height);
 const left=58,right=20,top=20,bottom=45,w=width-left-right,h=height-top-bottom;
@@ -109,13 +107,11 @@ active.forEach(e=>{const idx=entries.indexOf(e);ctx.strokeStyle=color(idx);ctx.l
 e.data.dates.forEach((d,j)=>{const v=numeric(e.data.values[j]);if(v===null||!Number.isFinite(v)){started=false;return;}const x=xx(d),y=yy(v);if(!started)ctx.moveTo(x,y);else ctx.lineTo(x,y);started=true;});ctx.stroke();});
 }
 function color(i){return "hsl("+((i*137.508+200)%360).toFixed(1)+" 75% 65%)";}
-["search","sort","direction","minStocks","minRating","min1W","min1M","min3M","min6M","min1Y"].forEach(id=>$(id).addEventListener(["sort","direction"].includes(id)?"change":"input",()=>{table();if(!selected)draw();}));
-
-$("clearFilters").addEventListener("click",()=>{["search","minStocks","minRating",...periods.map(k=>"min"+k)].forEach(id=>$(id).value="");$("sort").value="race";$("direction").value="desc";table();if(!selected)draw();});
+["sort","direction"].forEach(id=>$(id).addEventListener("change",()=>{table();if(!selected)draw();}));
 document.querySelectorAll(".sort-head").forEach(th=>th.addEventListener("click",()=>{const key=th.dataset.sort;if(![...$("sort").options].some(o=>o.value===key)){const o=document.createElement("option");o.value=key;o.textContent=key;$("sort").append(o);}if($("sort").value===key){$("direction").value=$("direction").value==="desc"?"asc":"desc";}else{$("sort").value=key;$("direction").value=key==="industry"?"asc":"desc";}table();if(!selected)draw();}));
 $("limit").addEventListener("change",()=>{disabled.clear();draw();});
 ["weekly","monthly"].forEach(id=>$(id).addEventListener("click",()=>{mode=id;disabled.clear();table();draw();}));
-$("back").addEventListener("click",()=>{selected=null;disabled.clear();draw();});
+$("back").addEventListener("click",()=>{selected=null;disabled.clear();draw();$("raceSection").scrollIntoView({behavior:"smooth",block:"start"});});
 window.addEventListener("resize",()=>{if(dataset)draw();});
 fetch("data/industry_heatmap.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();}).then(data=>{if(!Array.isArray(data.industries)||!data.stocks)throw Error("Invalid JSON format");dataset=data;table();draw();}).catch(err=>{$("summary").textContent="Data loading failed: "+err.message;$("chartStatus").textContent="Check data/industry_heatmap.json";});
 </script></body></html>
