@@ -520,8 +520,128 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "KILITCH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-17",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KILITCH_17062026140834_IntimationToStockExchanges.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ARIES": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ARIES_12022026131620_LetterBSENSEInaugurationMfgUnitSayakha12022026FINALUpload.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RRKABEL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-15",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RRKL1995_15092026183656_Intimation_Reg_30_Commercial_Operation_15_09_2026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SSWL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SSWL_26122025185635_OutcomeIntimationSigned.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CPPLUS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CPPLUS_12022026211952_bmoutcome.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PARAGMILK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PARAGMILK_21092026212216_01_Intimation.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "LUXIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-04",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LUXIND_04072026173750_Reg30capacityaddition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GAUDIUMIVF": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GAUDIUM_24092026211539_Centre_Opening_Intimation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "HINDCOMPOS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/HINDCOMPOS_23042026184949_HCLFR31032026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "DCMSHRIRAM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DCMSHRIRAM_30092026181754_DCMALUMINIUMCHLORIDEBHARUCH30SEP2026SIGNED.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "JSLL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JEENASIKHO_13082026171343_Intimation_Capacity_addition_Bareilly-_Sign.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ESCORTS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ESCORTS2_24032026152501_EKL_2026_03_24_Land_acquisition_update_Signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-05T11:49:11+00:00",
+  "updatedAt": "2026-10-05T19:36:17+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

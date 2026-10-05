@@ -15993,5 +15993,40 @@
     "sector": "Technology",
     "industry": "Software - Application",
     "source": "Yahoo Finance"
+  },
+  "ACEVECTOR": {
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "source": "Yahoo Finance"
+  },
+  "AURIGROW": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "GERMAN": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
+  },
+  "ORIENTCABL": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "RUNWALENTR": {
+    "sector": "Real Estate",
+    "industry": "Real Estate - Development",
+    "source": "Yahoo Finance"
+  },
+  "BMISL": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "HIMALAYAN": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

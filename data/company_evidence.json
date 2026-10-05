@@ -700,6 +700,186 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-01"
       }
+    },
+    "DCMSHRIRAM": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/DCMSHRIRAM_30092026181754_DCMALUMINIUMCHLORIDEBHARUCH30SEP2026SIGNED.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "LUXIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/LUXIND_04072026173750_Reg30capacityaddition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-04",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "KILITCH": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/KILITCH_17062026140834_IntimationToStockExchanges.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-17",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "PARAGMILK": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/PARAGMILK_21092026212216_01_Intimation.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "JSLL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/JEENASIKHO_13082026171343_Intimation_Capacity_addition_Bareilly-_Sign.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-13",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "ESCORTS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ESCORTS2_24032026152501_EKL_2026_03_24_Land_acquisition_update_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "GAUDIUMIVF": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/GAUDIUM_24092026211539_Centre_Opening_Intimation.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "HINDCOMPOS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/HINDCOMPOS_23042026184949_HCLFR31032026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "RRKABEL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/RRKL1995_15092026183656_Intimation_Reg_30_Commercial_Operation_15_09_2026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-15",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "SSWL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SSWL_26122025185635_OutcomeIntimationSigned.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "CPPLUS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/CPPLUS_12022026211952_bmoutcome.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
+    },
+    "ARIES": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ARIES_12022026131620_LetterBSENSEInaugurationMfgUnitSayakha12022026FINALUpload.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-05"
+      }
     }
   }
 }
