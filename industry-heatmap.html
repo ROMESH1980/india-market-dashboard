@@ -1,169 +1,1910 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Industry Heatmap | MY MARKET RESEARCH</title>
+
 <style>
 :root{color-scheme:dark;font-family:Arial,sans-serif;background:#081321;color:#e8f0fa}
-*{box-sizing:border-box}body{margin:0}header{padding:17px 22px;background:#0b1a2b;border-bottom:1px solid #29415e}
-h1{font-size:21px;margin:0 0 10px}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{padding:9px 13px;border:1px solid #29415e;border-radius:7px;color:#b8cbe0;text-decoration:none;font-size:13px}nav .on{background:#245e9e;color:white}
-main{padding:16px;max-width:1700px;margin:auto}section{border:1px solid #29415e;border-radius:10px;background:#0c192b;margin-bottom:15px;padding:14px}
-h2{font-size:17px;margin:0 0 12px}.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
-input,select,button{background:#122741;color:#f1f6ff;border:1px solid #355376;border-radius:6px;padding:9px;font-size:13px}
-button{cursor:pointer}button.active{background:#245e9e}input{min-width:220px}small,.muted{color:#9eb2c9}
-.scroll{overflow:auto;max-height:560px;position:relative;isolation:isolate}table{border-collapse:separate;border-spacing:0;width:100%;font-size:12px}th,td{border-bottom:1px solid #24374f;padding:9px 10px;white-space:nowrap;text-align:right}thead{position:sticky;top:0;z-index:20;background:#10243c}thead th{position:sticky;top:0;background:#10243c;z-index:21;cursor:pointer;box-shadow:0 2px 0 #355376}th:first-child,td:first-child{text-align:left;background:#10243c}thead th:first-child{z-index:22}tbody tr:hover td{background:#1c3553}tbody tr{cursor:pointer} tbody tr:focus-visible{outline:2px solid #75baff}.industry-link{color:#8bc5ff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
-.heat{border-radius:4px;padding:6px 8px;display:inline-block;min-width:75px;text-align:center;font-weight:bold}
-.good{background:#124f3b;color:#aaf2c9}.bad{background:#602d36;color:#ffced4}.flat{background:#344158;color:#d6e2f0}
-.chartwrap{overflow-x:auto}canvas{width:100%;height:380px;display:block}#legend{display:flex;gap:8px;flex-wrap:wrap;max-height:115px;overflow:auto;margin-top:8px}
-.legend{font-size:11px;cursor:pointer;padding:5px;border:1px solid #355376;border-radius:5px}.legend.off{opacity:.35}.legend strong{margin-left:5px}.legend.flag{border-style:dashed}.warning{color:#f5c77d}.chart-info{font-size:12px;color:#b4c6d9;margin:8px 0} .legend:hover{background:#284563}
-.note{font-size:12px;color:#aebed2;margin-top:8px}
-.sort-head{cursor:pointer}.sort-head:hover{color:#8bc5ff}.chart-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.chart-heading h2{margin:0}.legend{display:inline-flex;align-items:center;gap:6px}.legend-toggle{accent-color:#65b9ff;width:15px;height:15px;min-width:15px;cursor:pointer}.legend-name{background:transparent;border:0;color:inherit;padding:2px 1px;cursor:pointer;font-size:11px;text-align:left}.legend-name:hover{text-decoration:underline;color:#8bc5ff}.legend-name:focus-visible{outline:2px solid #8bc5ff}.legend-stock{font-size:11px}.legend.off{opacity:.4}#back{margin-left:auto}
-#chart{cursor:crosshair;touch-action:pan-y}.chartwrap{position:relative}.chart-info-row{position:relative;min-height:31px}.chart-info-row #chartInfo{padding-right:390px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#chartTooltip{position:absolute;right:0;top:0;display:none;pointer-events:none;z-index:30;background:#091626;border:1px solid #4b6989;border-radius:6px;padding:6px 9px;font-size:12px;max-width:380px;white-space:nowrap;box-shadow:0 2px 9px #0005}@media(max-width:850px){.chart-info-row #chartInfo{padding-right:0;padding-top:30px}.chart-info-row{min-height:58px}#chartTooltip{left:0;right:auto;max-width:100%}}#chartTooltip .tip-line{display:flex;align-items:center;gap:7px;font-weight:bold;margin-bottom:5px}#chartTooltip .tip-swatch{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0}#chartTooltip .tip-date{color:#b3c5d9;margin-bottom:4px}#chartTooltip .tip-return{font-weight:bold}#reset{border-color:#5b82b3}
-</style></head><body>
-<header><h1>MY MARKET RESEARCH</h1><nav>
-<a href="index.html">Market Research</a><a href="big-move-scanner.html">Big Move Scanner</a><a href="industry-heatmap.html" class="on">Industry Heatmap</a>
-</nav></header>
+*{box-sizing:border-box}
+body{margin:0}
+header{padding:17px 22px;background:#0b1a2b;border-bottom:1px solid #29415e}
+h1{font-size:21px;margin:0 0 10px}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{padding:9px 13px;border:1px solid #29415e;border-radius:7px;color:#b8cbe0;text-decoration:none;font-size:13px}
+nav .on{background:#245e9e;color:white}
+
+main{padding:16px;max-width:1700px;margin:auto}
+section{border:1px solid #29415e;border-radius:10px;background:#0c192b;margin-bottom:15px;padding:14px}
+h2{font-size:17px;margin:0 0 12px}
+
+.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+
+input,select,button{
+ background:#122741;
+ color:#f1f6ff;
+ border:1px solid #355376;
+ border-radius:6px;
+ padding:9px;
+ font-size:13px
+}
+
+button{cursor:pointer}
+button.active{background:#245e9e}
+input{min-width:220px}
+small,.muted{color:#9eb2c9}
+
+.scroll{
+ overflow:auto;
+ max-height:560px;
+ position:relative;
+ isolation:isolate
+}
+
+table{
+ border-collapse:separate;
+ border-spacing:0;
+ width:100%;
+ font-size:12px
+}
+
+th,td{
+ border-bottom:1px solid #24374f;
+ padding:9px 10px;
+ white-space:nowrap;
+ text-align:right
+}
+
+thead{
+ position:sticky;
+ top:0;
+ z-index:20;
+ background:#10243c
+}
+
+thead th{
+ position:sticky;
+ top:0;
+ background:#10243c;
+ z-index:21;
+ cursor:pointer;
+ box-shadow:0 2px 0 #355376
+}
+
+th:first-child,
+td:first-child{
+ text-align:left;
+ background:#10243c
+}
+
+thead th:first-child{z-index:22}
+
+tbody tr:hover td{background:#1c3553}
+tbody tr{cursor:pointer}
+tbody tr:focus-visible{outline:2px solid #75baff}
+
+.industry-link{
+ color:#8bc5ff;
+ text-decoration:underline;
+ text-underline-offset:3px;
+ font-weight:600
+}
+
+.heat{
+ border-radius:4px;
+ padding:6px 8px;
+ display:inline-block;
+ min-width:75px;
+ text-align:center;
+ font-weight:bold
+}
+
+.good{background:#124f3b;color:#aaf2c9}
+.bad{background:#602d36;color:#ffced4}
+.flat{background:#344158;color:#d6e2f0}
+
+.chartwrap{overflow-x:auto}
+
+canvas{
+ width:100%;
+ height:380px;
+ display:block
+}
+
+#legend{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ max-height:115px;
+ overflow:auto;
+ margin-top:8px
+}
+
+.legend{
+ font-size:11px;
+ cursor:pointer;
+ padding:5px;
+ border:1px solid #355376;
+ border-radius:5px
+}
+
+.legend.off{opacity:.35}
+.legend strong{margin-left:5px}
+.legend.flag{border-style:dashed}
+.warning{color:#f5c77d}
+
+.chart-info{
+ font-size:12px;
+ color:#b4c6d9;
+ margin:8px 0
+}
+
+.legend:hover{background:#284563}
+
+.note{
+ font-size:12px;
+ color:#aebed2;
+ margin-top:8px
+}
+
+.sort-head{cursor:pointer}
+.sort-head:hover{color:#8bc5ff}
+
+.chart-heading{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-bottom:10px
+}
+
+.chart-heading h2{margin:0}
+
+.legend{
+ display:inline-flex;
+ align-items:center;
+ gap:6px
+}
+
+.legend-toggle{
+ accent-color:#65b9ff;
+ width:15px;
+ height:15px;
+ min-width:15px;
+ cursor:pointer
+}
+
+.legend-name{
+ background:transparent;
+ border:0;
+ color:inherit;
+ padding:2px 1px;
+ cursor:pointer;
+ font-size:11px;
+ text-align:left
+}
+
+.legend-name:hover{
+ text-decoration:underline;
+ color:#8bc5ff
+}
+
+.legend-name:focus-visible{outline:2px solid #8bc5ff}
+.legend-stock{font-size:11px}
+.legend.off{opacity:.4}
+#back{margin-left:auto}
+
+#chart{
+ cursor:crosshair;
+ touch-action:pan-y
+}
+
+.chartwrap{position:relative}
+
+.chart-info-row{
+ position:relative;
+ min-height:31px
+}
+
+.chart-info-row #chartInfo{
+ padding-right:390px;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis
+}
+
+#chartTooltip{
+ position:absolute;
+ right:0;
+ top:0;
+ display:none;
+ pointer-events:none;
+ z-index:30;
+ background:#091626;
+ border:1px solid #4b6989;
+ border-radius:6px;
+ padding:6px 9px;
+ font-size:12px;
+ max-width:380px;
+ white-space:nowrap;
+ box-shadow:0 2px 9px #0005
+}
+
+@media(max-width:850px){
+ .chart-info-row #chartInfo{
+  padding-right:0;
+  padding-top:30px
+ }
+ .chart-info-row{min-height:58px}
+ #chartTooltip{
+  left:0;
+  right:auto;
+  max-width:100%
+ }
+}
+
+#chartTooltip .tip-line{
+ display:flex;
+ align-items:center;
+ gap:7px;
+ font-weight:bold;
+ margin-bottom:5px
+}
+
+#chartTooltip .tip-swatch{
+ width:11px;
+ height:11px;
+ border-radius:3px;
+ display:inline-block;
+ flex-shrink:0
+}
+
+#chartTooltip .tip-date{
+ color:#b3c5d9;
+ margin-bottom:4px
+}
+
+#chartTooltip .tip-return{font-weight:bold}
+#reset{border-color:#5b82b3}
+
+/* ONLY NEW FEATURE: Industry Search inside Industry heading */
+.industry-search{
+ width:100%;
+ min-width:120px;
+ padding:6px 8px;
+ font-size:12px;
+ background:#10243c;
+ border:1px solid #355376;
+ color:#f1f6ff;
+ border-radius:5px;
+ outline:none
+}
+
+.industry-search::placeholder{
+ color:#b8cbe0
+}
+
+.industry-search:focus{
+ border-color:#75baff
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MY MARKET RESEARCH</h1>
+
+<nav>
+<a href="index.html">Market Research</a>
+<a href="big-move-scanner.html">Big Move Scanner</a>
+<a href="industry-heatmap.html" class="on">Industry Heatmap</a>
+</nav>
+</header>
+
 <main>
-<section id="raceSection"><div class="chart-heading"><h2 id="chartTitle">Industry Performance Race Chart</h2><button id="back" hidden>← Back to Industries</button></div><div class="controls">
-<button id="weekly" class="active">Weekly (53 points)</button><button id="monthly">Monthly (13 points)</button>
 
-<label>Show <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="50">Top 50</option><option value="all">All</option></select></label>
-<span class="muted" id="chartStatus"></span></div>
-<div class="chart-info-row"><div id="chartInfo" class="chart-info">Select an industry to compare its stocks.</div><div id="chartTooltip" role="status" aria-live="off"></div></div><div class="chartwrap"><canvas id="chart" aria-label="Performance line chart"></canvas></div><div id="legend"></div>
-<p class="note">Click an industry name to view its stocks. Every line is ON by default; uncheck to hide a line. Names are ordered by latest chart return. ⚠ means verify historical price/corporate actions, not a confirmed error.</p></section>
-<section><h2>Industry Performance Heatmap</h2><div class="controls">
+<section id="raceSection">
 
-<label>Sort <select id="sort"><option value="race">Race Chart Latest Return</option><option value="1M">1M Return</option><option value="1W">1W Return</option><option value="3M">3M Return</option><option value="6M">6M Return</option><option value="1Y">1Y Return</option><option value="rating">Industry Rating</option><option value="stockCount">Stock Count</option></select></label>
-<label><select id="direction"><option value="desc">Highest first</option><option value="asc">Lowest first</option></select></label>
-<button id="reset" type="button">Reset</button><span id="summary" class="muted">Loading data...</span></div>
-<div class="scroll"><table><thead><tr><th>Industry</th><th>Stocks</th><th class="sort-head" data-sort="1W">1W % ↕</th><th class="sort-head" data-sort="1M">1M % ↕</th><th class="sort-head" data-sort="3M">3M % ↕</th><th class="sort-head" data-sort="6M">6M % ↕</th><th class="sort-head" data-sort="1Y">1Y % ↕</th><th class="sort-head" data-sort="rating">Rating ↕</th></tr></thead><tbody id="rows"></tbody></table></div>
-<p class="note">Click the 1W / 1M / 3M / 6M / 1Y / Rating headings to sort highest or lowest. Default ranking matches the latest Race Chart return. Equal-weight mean of available stock returns. Coverage can differ by period; select an industry to inspect its stocks.</p></section>
+<div class="chart-heading">
+<h2 id="chartTitle">Industry Performance Race Chart</h2>
+<button id="back" hidden>← Back to Industries</button>
+</div>
+
+<div class="controls">
+
+<button id="weekly" class="active">
+Weekly (53 points)
+</button>
+
+<button id="monthly">
+Monthly (13 points)
+</button>
+
+<label>
+Show
+<select id="limit">
+<option value="10">Top 10</option>
+<option value="20">Top 20</option>
+<option value="50">Top 50</option>
+<option value="all">All</option>
+</select>
+</label>
+
+<span class="muted" id="chartStatus"></span>
+
+</div>
+
+<div class="chart-info-row">
+
+<div id="chartInfo" class="chart-info">
+Select an industry to compare its stocks.
+</div>
+
+<div id="chartTooltip"
+     role="status"
+     aria-live="off">
+</div>
+
+</div>
+
+<div class="chartwrap">
+<canvas id="chart"
+        aria-label="Performance line chart">
+</canvas>
+</div>
+
+<div id="legend"></div>
+
+<p class="note">
+Click an industry name to view its stocks.
+Every line is ON by default; uncheck to hide a line.
+Names are ordered by latest chart return.
+⚠ means verify historical price/corporate actions,
+not a confirmed error.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>Industry Performance Heatmap</h2>
+
+<div class="controls">
+
+<label>
+Sort
+<select id="sort">
+<option value="race">Race Chart Latest Return</option>
+<option value="1M">1M Return</option>
+<option value="1W">1W Return</option>
+<option value="3M">3M Return</option>
+<option value="6M">6M Return</option>
+<option value="1Y">1Y Return</option>
+<option value="rating">Industry Rating</option>
+<option value="stockCount">Stock Count</option>
+</select>
+</label>
+
+<label>
+<select id="direction">
+<option value="desc">Highest first</option>
+<option value="asc">Lowest first</option>
+</select>
+</label>
+
+<button id="reset" type="button">
+Reset
+</button>
+
+<span id="summary" class="muted">
+Loading data...
+</span>
+
+</div>
+
+
+<div class="scroll">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+<input
+ id="industrySearch"
+ class="industry-search"
+ type="search"
+ placeholder="Search Industry..."
+ autocomplete="off"
+ aria-label="Search Industry">
+</th>
+
+<th>Stocks</th>
+
+<th class="sort-head"
+    data-sort="1W">
+1W % ↕
+</th>
+
+<th class="sort-head"
+    data-sort="1M">
+1M % ↕
+</th>
+
+<th class="sort-head"
+    data-sort="3M">
+3M % ↕
+</th>
+
+<th class="sort-head"
+    data-sort="6M">
+6M % ↕
+</th>
+
+<th class="sort-head"
+    data-sort="1Y">
+1Y % ↕
+</th>
+
+<th class="sort-head"
+    data-sort="rating">
+Rating ↕
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="rows"></tbody>
+
+</table>
+
+</div>
+
+<p class="note">
+Click the 1W / 1M / 3M / 6M / 1Y / Rating headings
+to sort highest or lowest.
+Default ranking matches the latest Race Chart return.
+Equal-weight mean of available stock returns.
+Coverage can differ by period;
+select an industry to inspect its stocks.
+</p>
+
+</section>
 
 </main>
+
+
 <script>
 "use strict";
-let dataset=null, mode="weekly", selected=null, disabled=new Set();
-let hoverLines=[],hoverGeometry=null,chartBaseImage=null;
+
+let dataset=null,
+    mode="weekly",
+    selected=null,
+    disabled=new Set();
+
+let hoverLines=[],
+    hoverGeometry=null,
+    chartBaseImage=null;
+
 const $=id=>document.getElementById(id);
-const periods=["1W","1M","3M","6M","1Y"];
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const numeric=v=>v===null||v===undefined||v===""?null:Number(v);
-const pct=v=>{const n=numeric(v);return n===null||!Number.isFinite(n)?"—":(n>0?"+":"")+n.toFixed(2)+"%";};
-const cell=v=>{const n=numeric(v);return '<span class="heat '+(n===null||!Number.isFinite(n)?"flat":n>0?"good":n<0?"bad":"flat")+'">'+pct(v)+'</span>';};
-function raceLatest(i){return latestReturn({data:i[mode]});}
-function visibleIndustries(){
- const sort=$("sort").value,dir=$("direction").value==="asc"?1:-1;
- const get=(i,key)=>key==="race"?raceLatest(i):key==="industry"?i.industry:key==="rating"?i.rating:key==="stockCount"?i.stockCount:i.returns?.[key];
- return dataset.industries.slice().sort((a,b)=>{
-  const x=get(a,sort),y=get(b,sort);
-  if(sort==="industry")return dir*String(x).localeCompare(String(y));
-  const nx=numeric(x),ny=numeric(y);if(nx===null)return 1;if(ny===null)return -1;
-  return dir*(nx-ny)||a.industry.localeCompare(b.industry);
+
+const periods=[
+ "1W",
+ "1M",
+ "3M",
+ "6M",
+ "1Y"
+];
+
+const esc=s=>
+ String(s??"").replace(
+  /[&<>"']/g,
+  c=>({
+   "&":"&amp;",
+   "<":"&lt;",
+   ">":"&gt;",
+   '"':"&quot;",
+   "'":"&#39;"
+  }[c])
+ );
+
+const numeric=v=>
+ v===null||
+ v===undefined||
+ v===""
+ ? null
+ : Number(v);
+
+const pct=v=>{
+ const n=numeric(v);
+
+ return n===null||
+        !Number.isFinite(n)
+ ? "—"
+ : (n>0?"+":"")+
+   n.toFixed(2)+"%";
+};
+
+const cell=v=>{
+ const n=numeric(v);
+
+ return '<span class="heat '+
+ (
+  n===null||
+  !Number.isFinite(n)
+  ?"flat"
+  :n>0
+  ?"good"
+  :n<0
+  ?"bad"
+  :"flat"
+ )+
+ '">'+
+ pct(v)+
+ '</span>';
+};
+
+
+function raceLatest(i){
+ return latestReturn({
+  data:i[mode]
  });
 }
-function table(){if(!dataset)return;const items=visibleIndustries();$("rows").innerHTML=items.map(i=>'<tr tabindex="0" data-industry="'+esc(i.industry)+'"><td><span class="industry-link">'+esc(i.industry)+'</span></td><td>'+i.stockCount+'</td>'+periods.map(p=>'<td>'+cell(i.returns?.[p])+'</td>').join("")+'<td>'+(numeric(i.rating)===null?"—":Number(i.rating).toFixed(1))+'</td></tr>').join("");
-$("summary").textContent=items.length+" industries · As of "+(dataset.meta?.asOf||"—");
-$("rows").querySelectorAll("tr").forEach(tr=>{
- const choose=()=>{selected=tr.dataset.industry;disabled.clear();draw();document.getElementById("chartTitle").scrollIntoView({behavior:"smooth",block:"start"});};
- tr.addEventListener("click",choose);
- tr.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();choose();}});
-});}
-function latestReturn(e){
- const vals=e.data?.values||[];
- for(let i=vals.length-1;i>=0;i--){
-  const n=numeric(vals[i]);
-  if(n!==null&&Number.isFinite(n))return n;
+
+
+function visibleIndustries(){
+
+ const sort=$("sort").value;
+
+ const dir=
+  $("direction").value==="asc"
+  ?1
+  :-1;
+
+ const search=
+  ($("industrySearch")?.value||"")
+  .trim()
+  .toLowerCase();
+
+ const get=(i,key)=>
+  key==="race"
+  ?raceLatest(i)
+  :key==="industry"
+  ?i.industry
+  :key==="rating"
+  ?i.rating
+  :key==="stockCount"
+  ?i.stockCount
+  :i.returns?.[key];
+
+ let items=dataset.industries.slice();
+
+ if(search){
+  items=items.filter(i=>
+   String(i.industry||"")
+   .toLowerCase()
+   .includes(search)
+  );
  }
+
+ return items.sort((a,b)=>{
+
+  const x=get(a,sort),
+        y=get(b,sort);
+
+  if(sort==="industry")
+   return dir*
+    String(x).localeCompare(
+     String(y)
+    );
+
+  const nx=numeric(x),
+        ny=numeric(y);
+
+  if(nx===null)return 1;
+  if(ny===null)return -1;
+
+  return dir*(nx-ny)||
+         a.industry.localeCompare(
+          b.industry
+         );
+ });
+}
+
+
+function table(){
+
+ if(!dataset)return;
+
+ const items=
+  visibleIndustries();
+
+ $("rows").innerHTML=
+  items.map(i=>
+
+   '<tr tabindex="0" data-industry="'+
+   esc(i.industry)+
+   '">'+
+
+   '<td><span class="industry-link">'+
+   esc(i.industry)+
+   '</span></td>'+
+
+   '<td>'+
+   i.stockCount+
+   '</td>'+
+
+   periods.map(
+    p=>
+    '<td>'+
+    cell(i.returns?.[p])+
+    '</td>'
+   ).join("")+
+
+   '<td>'+
+   (
+    numeric(i.rating)===null
+    ?"—"
+    :Number(i.rating).toFixed(1)
+   )+
+   '</td>'+
+
+   '</tr>'
+
+  ).join("");
+
+ $("summary").textContent=
+  items.length+
+  " industries · As of "+
+  (dataset.meta?.asOf||"—");
+
+ $("rows")
+ .querySelectorAll("tr")
+ .forEach(tr=>{
+
+  const choose=()=>{
+
+   selected=
+    tr.dataset.industry;
+
+   disabled.clear();
+
+   draw();
+
+   document
+    .getElementById("chartTitle")
+    .scrollIntoView({
+     behavior:"smooth",
+     block:"start"
+    });
+  };
+
+  tr.addEventListener(
+   "click",
+   choose
+  );
+
+  tr.addEventListener(
+   "keydown",
+   e=>{
+
+    if(
+     e.key==="Enter"||
+     e.key===" "
+    ){
+     e.preventDefault();
+     choose();
+    }
+
+   }
+  );
+
+ });
+}
+
+
+function latestReturn(e){
+
+ const vals=
+  e.data?.values||[];
+
+ for(
+  let i=vals.length-1;
+  i>=0;
+  i--
+ ){
+
+  const n=
+   numeric(vals[i]);
+
+  if(
+   n!==null&&
+   Number.isFinite(n)
+  )
+   return n;
+ }
+
  return null;
 }
-function series(){let entries;
- if(selected){const industry=dataset.industries.find(i=>i.industry===selected);entries=(industry?.symbols||[]).map(sym=>({name:sym,data:dataset.stocks?.[sym]?.[mode]}));}
- else entries=visibleIndustries().map(i=>({name:i.industry,data:i[mode]}));
- entries.sort((a,b)=>{const av=latestReturn(a),bv=latestReturn(b);if(av===null&&bv===null)return a.name.localeCompare(b.name);if(av===null)return 1;if(bv===null)return -1;return bv-av||a.name.localeCompare(b.name);});
- const limit=$("limit").value;
- return limit==="all"?entries:entries.slice(0,Number(limit));
-}
-function draw(){if(!dataset)return;
-hoverLines=[];hoverGeometry=null;chartBaseImage=null;$("chartTooltip").style.display="none";
-$("chartTitle").textContent=selected?selected+" — Stock Performance Race Chart":"Industry Performance Race Chart";
-$("back").hidden=!selected;$("weekly").classList.toggle("active",mode==="weekly");$("monthly").classList.toggle("active",mode==="monthly");
-const entries=series(),active=entries.filter(e=>!disabled.has(e.name)&&Array.isArray(e.data?.dates)&&Array.isArray(e.data?.values)&&e.data.dates.length&&latestReturn(e)!==null);
-$("chartStatus").textContent=active.length+" plotted / "+entries.length+" listed · "+mode;
-const flagged=entries.filter(e=>Math.abs(latestReturn(e))>=300);
-$("chartInfo").textContent=selected
- ? "Industry stocks: "+active.length+" plotted / "+entries.length+" listed / "+(dataset.industries.find(i=>i.industry===selected)?.stockCount||0)+" total · missing data shown as N/A · "+flagged.length+" extreme return(s) to verify"
- : "Industry lines: "+entries.length+" plotted · ordered by latest return · "+flagged.length+" extreme return(s) to verify";
-$("legend").innerHTML=entries.map((e,i)=>'<span class="legend '+(disabled.has(e.name)?"off":"")+(Math.abs(latestReturn(e))>=300?' flag':'')+'" style="border-left:4px solid '+color(i)+'"><input class="legend-toggle" type="checkbox" data-name="'+esc(e.name)+'" aria-label="Show '+esc(e.name)+' line" '+(disabled.has(e.name)?'':'checked')+'>'+(selected?'<span class="legend-stock">'+(i+1)+'. '+esc(e.name)+'</span>':'<button type="button" class="legend-name" data-industry="'+esc(e.name)+'">'+(i+1)+'. '+esc(e.name)+'</button>')+' <strong>'+pct(latestReturn(e))+'</strong>'+(Math.abs(latestReturn(e))>=300?' ⚠':'')+'</span>').join("");
-$("legend").querySelectorAll(".legend-toggle").forEach(box=>box.addEventListener("change",()=>{if(box.checked)disabled.delete(box.dataset.name);else disabled.add(box.dataset.name);draw();}));
-$("legend").querySelectorAll(".legend-name").forEach(btn=>btn.addEventListener("click",()=>{selected=btn.dataset.industry;disabled.clear();draw();$("raceSection").scrollIntoView({behavior:"smooth",block:"start"});}));
-const canvas=$("chart"),width=Math.max(650,canvas.parentElement.clientWidth),height=380,dpr=window.devicePixelRatio||1;
-canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);const ctx=canvas.getContext("2d");ctx.scale(dpr,dpr);ctx.clearRect(0,0,width,height);
-const left=58,right=20,top=20,bottom=45,w=width-left-right,h=height-top-bottom;
-const all=active.flatMap(e=>e.data.values.filter(v=>numeric(v)!==null&&Number.isFinite(Number(v))).map(Number));if(!all.length){ctx.fillStyle="#b8cbe0";ctx.font="14px Arial";ctx.fillText("No complete chart data available for this selection.",left,55);return;}
-let min=Math.min(0,...all),max=Math.max(0,...all);if(min===max){min-=1;max+=1;}const pad=(max-min)*.07;min-=pad;max+=pad;
-const yy=v=>top+(max-v)/(max-min)*h;
-ctx.font="11px Arial";ctx.strokeStyle="#29415e";ctx.fillStyle="#aebed2";ctx.lineWidth=1;
-for(let i=0;i<=5;i++){const v=min+(max-min)*i/5,y=yy(v);ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(width-right,y);ctx.stroke();ctx.fillText(v.toFixed(1)+"%",4,y+4);}
-const dates=[...new Set(active.flatMap(e=>e.data.dates))].sort();if(!dates.length)return;
-const xx=date=>left+(dates.length===1?0:dates.indexOf(date)/(dates.length-1))*w;
-// Show one date label for each calendar month, keeping all original data points.
-const monthLabels=[];let previousMonth="";
-dates.forEach((d,i)=>{const month=d.slice(0,7);if(month!==previousMonth){monthLabels.push({d,i});previousMonth=month;}});
-ctx.textAlign="center";
-monthLabels.forEach(({d})=>{const x=xx(d);ctx.fillText(d.slice(2,7),Math.max(left+19,Math.min(width-right-19,x)),height-15);});
-ctx.textAlign="start";
-hoverGeometry={left,top,width,height,dates,xx,yy};
-active.forEach(e=>{const idx=entries.indexOf(e),lineColor=color(idx);ctx.strokeStyle=lineColor;ctx.lineWidth=1.8;ctx.beginPath();let started=false,points=[];
-e.data.dates.forEach((d,j)=>{const v=numeric(e.data.values[j]);if(v===null||!Number.isFinite(v)){started=false;points.push(null);return;}const x=xx(d),y=yy(v);points.push({x,y,date:d,value:v});if(!started)ctx.moveTo(x,y);else ctx.lineTo(x,y);started=true;});ctx.stroke();hoverLines.push({name:e.name,color:lineColor,points});});
-chartBaseImage=ctx.getImageData(0,0,canvas.width,canvas.height);
-}
-function color(i){return "hsl("+((i*137.508+200)%360).toFixed(1)+" 75% 65%)";}
-// Match the pointer to the nearest visible line segment (not merely its X-position).
-function chartHover(event){
- const g=hoverGeometry,tip=$("chartTooltip");if(!g||!hoverLines.length){tip.style.display="none";return;}
- const canvas=$("chart"),rect=canvas.getBoundingClientRect();
- const mx=(event.clientX-rect.left)*g.width/rect.width,my=(event.clientY-rect.top)*g.height/rect.height;
- if(mx<g.left-8||mx>g.width-8||my<g.top-12||my>g.height-30){tip.style.display="none";clearCrosshair();return;}
- let best=null;
- for(const line of hoverLines){
-  const pts=line.points.filter(Boolean);
-  for(let j=0;j<pts.length;j++){
-   const a=pts[j],b=pts[j+1]||a,dx=b.x-a.x,dy=b.y-a.y;
-   const t=Math.max(0,Math.min(1,(dx*(mx-a.x)+dy*(my-a.y))/(dx*dx+dy*dy||1)));
-   const x=a.x+t*dx,y=a.y+t*dy,dist=Math.hypot(mx-x,my-y);
-   if(!best||dist<best.dist){const nearest=t<0.5?a:b;best={line,point:nearest,dist};}
-  }
+
+
+function series(){
+
+ let entries;
+
+ if(selected){
+
+  const industry=
+   dataset.industries.find(
+    i=>i.industry===selected
+   );
+
+  entries=
+   (industry?.symbols||[])
+   .map(sym=>({
+    name:sym,
+    data:
+     dataset.stocks?.[sym]?.[mode]
+   }));
+
+ }else{
+
+  entries=
+   visibleIndustries()
+   .map(i=>({
+    name:i.industry,
+    data:i[mode]
+   }));
  }
- if(!best||best.dist>16){tip.style.display="none";drawCrosshair(mx);return;}
- tip.innerHTML='<span class="tip-line" style="display:inline-flex;margin:0 10px 0 0"><span class="tip-swatch" style="background:'+best.line.color+'"></span><span>'+esc(best.line.name)+'</span></span><span class="tip-date" style="display:inline;margin:0 9px 0 0">'+esc(best.point.date)+'</span><span class="tip-return">'+pct(best.point.value)+'</span>';
- tip.style.display="block";
- // Keep tooltip at a fixed height above the chart, tracking the vertical cursor line.
- const infoRow=tip.parentElement;
- const localX=event.clientX-infoRow.getBoundingClientRect().left;
- const maxLeft=Math.max(0,infoRow.clientWidth-tip.offsetWidth);
- tip.style.left=Math.max(0,Math.min(maxLeft,localX-tip.offsetWidth/2))+"px";
- tip.style.right="auto";
- // Draw only the vertical crosshair, without modifying the original chart lines.
+
+ entries.sort((a,b)=>{
+
+  const av=latestReturn(a),
+        bv=latestReturn(b);
+
+  if(
+   av===null&&
+   bv===null
+  )
+   return a.name.localeCompare(
+    b.name
+   );
+
+  if(av===null)return 1;
+  if(bv===null)return -1;
+
+  return bv-av||
+         a.name.localeCompare(
+          b.name
+         );
+ });
+
+ const limit=
+  $("limit").value;
+
+ return limit==="all"
+ ?entries
+ :entries.slice(
+   0,
+   Number(limit)
+  );
+}
+
+
+function draw(){
+
+ if(!dataset)return;
+
+ hoverLines=[];
+ hoverGeometry=null;
+ chartBaseImage=null;
+
+ $("chartTooltip").style.display=
+  "none";
+
+ $("chartTitle").textContent=
+  selected
+  ?selected+
+   " — Stock Performance Race Chart"
+  :"Industry Performance Race Chart";
+
+ $("back").hidden=
+  !selected;
+
+ $("weekly")
+  .classList.toggle(
+   "active",
+   mode==="weekly"
+  );
+
+ $("monthly")
+  .classList.toggle(
+   "active",
+   mode==="monthly"
+  );
+
+ const entries=
+  series();
+
+ const active=
+  entries.filter(e=>
+   !disabled.has(e.name)&&
+   Array.isArray(e.data?.dates)&&
+   Array.isArray(e.data?.values)&&
+   e.data.dates.length&&
+   latestReturn(e)!==null
+  );
+
+ $("chartStatus").textContent=
+  active.length+
+  " plotted / "+
+  entries.length+
+  " listed · "+
+  mode;
+
+ const flagged=
+  entries.filter(
+   e=>
+   Math.abs(
+    latestReturn(e)
+   )>=300
+  );
+
+ $("chartInfo").textContent=
+  selected
+  ?"Industry stocks: "+
+   active.length+
+   " plotted / "+
+   entries.length+
+   " listed / "+
+   (
+    dataset.industries.find(
+     i=>i.industry===selected
+    )?.stockCount||0
+   )+
+   " total · missing data shown as N/A · "+
+   flagged.length+
+   " extreme return(s) to verify"
+
+  :"Industry lines: "+
+   entries.length+
+   " plotted · ordered by latest return · "+
+   flagged.length+
+   " extreme return(s) to verify";
+
+
+ $("legend").innerHTML=
+  entries.map((e,i)=>
+
+   '<span class="legend '+
+   (
+    disabled.has(e.name)
+    ?"off"
+    :""
+   )+
+   (
+    Math.abs(
+     latestReturn(e)
+    )>=300
+    ?' flag'
+    :''
+   )+
+   '" style="border-left:4px solid '+
+   color(i)+
+   '">'+
+
+   '<input class="legend-toggle" type="checkbox" data-name="'+
+   esc(e.name)+
+   '" aria-label="Show '+
+   esc(e.name)+
+   ' line" '+
+   (
+    disabled.has(e.name)
+    ?''
+    :'checked'
+   )+
+   '>'+
+
+   (
+    selected
+    ?'<span class="legend-stock">'+
+      (i+1)+
+      '. '+
+      esc(e.name)+
+      '</span>'
+
+    :'<button type="button" class="legend-name" data-industry="'+
+      esc(e.name)+
+      '">'+
+      (i+1)+
+      '. '+
+      esc(e.name)+
+      '</button>'
+   )+
+
+   ' <strong>'+
+   pct(latestReturn(e))+
+   '</strong>'+
+
+   (
+    Math.abs(
+     latestReturn(e)
+    )>=300
+    ?' ⚠'
+    :''
+   )+
+
+   '</span>'
+
+  ).join("");
+
+
+ $("legend")
+ .querySelectorAll(
+  ".legend-toggle"
+ )
+ .forEach(box=>
+  box.addEventListener(
+   "change",
+   ()=>{
+
+    if(box.checked)
+     disabled.delete(
+      box.dataset.name
+     );
+    else
+     disabled.add(
+      box.dataset.name
+     );
+
+    draw();
+   }
+  )
+ );
+
+
+ $("legend")
+ .querySelectorAll(
+  ".legend-name"
+ )
+ .forEach(btn=>
+  btn.addEventListener(
+   "click",
+   ()=>{
+
+    selected=
+     btn.dataset.industry;
+
+    disabled.clear();
+
+    draw();
+
+    $("raceSection")
+     .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+     });
+   }
+  )
+ );
+
+
+ const canvas=$("chart"),
+       width=Math.max(
+        650,
+        canvas.parentElement.clientWidth
+       ),
+       height=380,
+       dpr=
+        window.devicePixelRatio||1;
+
+ canvas.width=
+  Math.round(width*dpr);
+
+ canvas.height=
+  Math.round(height*dpr);
+
+ const ctx=
+  canvas.getContext("2d");
+
+ ctx.scale(dpr,dpr);
+
+ ctx.clearRect(
+  0,
+  0,
+  width,
+  height
+ );
+
+ const left=58,
+       right=20,
+       top=20,
+       bottom=45,
+       w=width-left-right,
+       h=height-top-bottom;
+
+
+ const all=
+  active.flatMap(
+   e=>
+    e.data.values
+    .filter(
+     v=>
+      numeric(v)!==null&&
+      Number.isFinite(
+       Number(v)
+      )
+    )
+    .map(Number)
+  );
+
+
+ if(!all.length){
+
+  ctx.fillStyle=
+   "#b8cbe0";
+
+  ctx.font=
+   "14px Arial";
+
+  ctx.fillText(
+   "No complete chart data available for this selection.",
+   left,
+   55
+  );
+
+  return;
+ }
+
+
+ let min=
+  Math.min(
+   0,
+   ...all
+  );
+
+ let max=
+  Math.max(
+   0,
+   ...all
+  );
+
+
+ if(min===max){
+  min-=1;
+  max+=1;
+ }
+
+
+ const pad=
+  (max-min)*.07;
+
+ min-=pad;
+ max+=pad;
+
+
+ const yy=v=>
+  top+
+  (max-v)/
+  (max-min)*
+  h;
+
+
+ ctx.font=
+  "11px Arial";
+
+ ctx.strokeStyle=
+  "#29415e";
+
+ ctx.fillStyle=
+  "#aebed2";
+
+ ctx.lineWidth=1;
+
+
+ for(
+  let i=0;
+  i<=5;
+  i++
+ ){
+
+  const v=
+   min+
+   (max-min)*
+   i/5;
+
+  const y=
+   yy(v);
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+   left,
+   y
+  );
+
+  ctx.lineTo(
+   width-right,
+   y
+  );
+
+  ctx.stroke();
+
+  ctx.fillText(
+   v.toFixed(1)+"%",
+   4,
+   y+4
+  );
+ }
+
+
+ const dates=[
+  ...new Set(
+   active.flatMap(
+    e=>e.data.dates
+   )
+  )
+ ].sort();
+
+
+ if(!dates.length)return;
+
+
+ const xx=date=>
+  left+
+  (
+   dates.length===1
+   ?0
+   :dates.indexOf(date)/
+    (dates.length-1)
+  )*
+  w;
+
+
+ const monthLabels=[];
+
+ let previousMonth="";
+
+
+ dates.forEach((d,i)=>{
+
+  const month=
+   d.slice(0,7);
+
+  if(month!==previousMonth){
+
+   monthLabels.push({
+    d,
+    i
+   });
+
+   previousMonth=
+    month;
+  }
+
+ });
+
+
+ ctx.textAlign=
+  "center";
+
+
+ monthLabels.forEach(
+  ({d})=>{
+
+   const x=
+    xx(d);
+
+   ctx.fillText(
+    d.slice(2,7),
+    Math.max(
+     left+19,
+     Math.min(
+      width-right-19,
+      x
+     )
+    ),
+    height-15
+   );
+
+  }
+ );
+
+
+ ctx.textAlign=
+  "start";
+
+
+ hoverGeometry={
+  left,
+  top,
+  width,
+  height,
+  dates,
+  xx,
+  yy
+ };
+
+
+ active.forEach(e=>{
+
+  const idx=
+   entries.indexOf(e);
+
+  const lineColor=
+   color(idx);
+
+  ctx.strokeStyle=
+   lineColor;
+
+  ctx.lineWidth=
+   1.8;
+
+  ctx.beginPath();
+
+  let started=false,
+      points=[];
+
+
+  e.data.dates.forEach(
+   (d,j)=>{
+
+    const v=
+     numeric(
+      e.data.values[j]
+     );
+
+
+    if(
+     v===null||
+     !Number.isFinite(v)
+    ){
+
+     started=false;
+
+     points.push(null);
+
+     return;
+    }
+
+
+    const x=xx(d),
+          y=yy(v);
+
+    points.push({
+     x,
+     y,
+     date:d,
+     value:v
+    });
+
+
+    if(!started)
+     ctx.moveTo(x,y);
+    else
+     ctx.lineTo(x,y);
+
+
+    started=true;
+
+   }
+  );
+
+
+  ctx.stroke();
+
+
+  hoverLines.push({
+   name:e.name,
+   color:lineColor,
+   points
+  });
+
+ });
+
+
+ chartBaseImage=
+  ctx.getImageData(
+   0,
+   0,
+   canvas.width,
+   canvas.height
+  );
+}
+
+
+function color(i){
+
+ return "hsl("+
+  (
+   (
+    i*137.508+
+    200
+   )%
+   360
+  ).toFixed(1)+
+  " 75% 65%)";
+}
+
+
+// Match pointer to nearest visible line segment.
+function chartHover(event){
+
+ const g=
+  hoverGeometry;
+
+ const tip=
+  $("chartTooltip");
+
+
+ if(
+  !g||
+  !hoverLines.length
+ ){
+
+  tip.style.display=
+   "none";
+
+  return;
+ }
+
+
+ const canvas=
+  $("chart");
+
+ const rect=
+  canvas.getBoundingClientRect();
+
+
+ const mx=
+  (
+   event.clientX-
+   rect.left
+  )*
+  g.width/
+  rect.width;
+
+
+ const my=
+  (
+   event.clientY-
+   rect.top
+  )*
+  g.height/
+  rect.height;
+
+
+ if(
+  mx<g.left-8||
+  mx>g.width-8||
+  my<g.top-12||
+  my>g.height-30
+ ){
+
+  tip.style.display=
+   "none";
+
+  clearCrosshair();
+
+  return;
+ }
+
+
+ let best=null;
+
+
+ for(
+  const line
+  of hoverLines
+ ){
+
+  const pts=
+   line.points.filter(Boolean);
+
+
+  for(
+   let j=0;
+   j<pts.length;
+   j++
+  ){
+
+   const a=pts[j],
+         b=pts[j+1]||a,
+         dx=b.x-a.x,
+         dy=b.y-a.y;
+
+
+   const t=
+    Math.max(
+     0,
+     Math.min(
+      1,
+      (
+       dx*(mx-a.x)+
+       dy*(my-a.y)
+      )/
+      (
+       dx*dx+
+       dy*dy||
+       1
+      )
+     )
+    );
+
+
+   const x=
+    a.x+
+    t*dx;
+
+   const y=
+    a.y+
+    t*dy;
+
+
+   const dist=
+    Math.hypot(
+     mx-x,
+     my-y
+    );
+
+
+   if(
+    !best||
+    dist<best.dist
+   ){
+
+    const nearest=
+     t<0.5
+     ?a
+     :b;
+
+
+    best={
+     line,
+     point:nearest,
+     dist
+    };
+   }
+
+  }
+
+ }
+
+
+ if(
+  !best||
+  best.dist>16
+ ){
+
+  tip.style.display=
+   "none";
+
+  drawCrosshair(mx);
+
+  return;
+ }
+
+
+ tip.innerHTML=
+  '<span class="tip-line" style="display:inline-flex;margin:0 10px 0 0">'+
+  '<span class="tip-swatch" style="background:'+
+  best.line.color+
+  '"></span>'+
+  '<span>'+
+  esc(best.line.name)+
+  '</span>'+
+  '</span>'+
+  '<span class="tip-date" style="display:inline;margin:0 9px 0 0">'+
+  esc(best.point.date)+
+  '</span>'+
+  '<span class="tip-return">'+
+  pct(best.point.value)+
+  '</span>';
+
+
+ tip.style.display=
+  "block";
+
+
+ // Tooltip stays at fixed height,
+ // only moving left/right with vertical cursor.
+ const infoRow=
+  tip.parentElement;
+
+
+ const localX=
+  event.clientX-
+  infoRow
+   .getBoundingClientRect()
+   .left;
+
+
+ const maxLeft=
+  Math.max(
+   0,
+   infoRow.clientWidth-
+   tip.offsetWidth
+  );
+
+
+ tip.style.left=
+  Math.max(
+   0,
+   Math.min(
+    maxLeft,
+    localX-
+    tip.offsetWidth/2
+   )
+  )+
+  "px";
+
+
+ tip.style.right=
+  "auto";
+
+
+ // Vertical crosshair only.
  drawCrosshair(mx);
 }
-function drawCrosshair(x){
- const canvas=$("chart"),g=hoverGeometry;if(!g)return;
- // Restore the original chart before painting a new cursor line.
- if(!chartBaseImage)return;
- const ctx=canvas.getContext("2d");ctx.putImageData(chartBaseImage,0,0);
- const dpr=window.devicePixelRatio||1;
- ctx.save();ctx.setTransform(dpr,0,0,dpr,0,0);
- ctx.strokeStyle="rgba(245,194,82,.85)";ctx.lineWidth=1;ctx.setLineDash([5,4]);
- ctx.beginPath();ctx.moveTo(x,g.top);ctx.lineTo(x,g.height-45);ctx.stroke();ctx.restore();
-}
-function clearCrosshair(){if(chartBaseImage){$("chart").getContext("2d").putImageData(chartBaseImage,0,0);}}
-$("chart").addEventListener("mousemove",chartHover);
-$("chart").addEventListener("mouseleave",()=>{$("chartTooltip").style.display="none";clearCrosshair();});
-$("reset").addEventListener("click",()=>{$("sort").value="race";$("direction").value="desc";table();if(!selected)draw();});
 
-["sort","direction"].forEach(id=>$(id).addEventListener("change",()=>{table();if(!selected)draw();}));
-document.querySelectorAll(".sort-head").forEach(th=>th.addEventListener("click",()=>{const key=th.dataset.sort;if(![...$("sort").options].some(o=>o.value===key)){const o=document.createElement("option");o.value=key;o.textContent=key;$("sort").append(o);}if($("sort").value===key){$("direction").value=$("direction").value==="desc"?"asc":"desc";}else{$("sort").value=key;$("direction").value=key==="industry"?"asc":"desc";}table();if(!selected)draw();}));
-$("limit").addEventListener("change",()=>{disabled.clear();draw();});
-["weekly","monthly"].forEach(id=>$(id).addEventListener("click",()=>{mode=id;disabled.clear();table();draw();}));
-$("back").addEventListener("click",()=>{selected=null;disabled.clear();draw();$("raceSection").scrollIntoView({behavior:"smooth",block:"start"});});
-window.addEventListener("resize",()=>{if(dataset)draw();});
-fetch("data/industry_heatmap.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();}).then(data=>{if(!Array.isArray(data.industries)||!data.stocks)throw Error("Invalid JSON format");dataset=data;table();draw();}).catch(err=>{$("summary").textContent="Data loading failed: "+err.message;$("chartStatus").textContent="Check data/industry_heatmap.json";});
-</script></body></html>
+
+function drawCrosshair(x){
+
+ const canvas=
+  $("chart");
+
+ const g=
+  hoverGeometry;
+
+
+ if(!g)return;
+
+ if(!chartBaseImage)
+  return;
+
+
+ const ctx=
+  canvas.getContext("2d");
+
+
+ ctx.putImageData(
+  chartBaseImage,
+  0,
+  0
+ );
+
+
+ const dpr=
+  window.devicePixelRatio||
+  1;
+
+
+ ctx.save();
+
+
+ ctx.setTransform(
+  dpr,
+  0,
+  0,
+  dpr,
+  0,
+  0
+ );
+
+
+ ctx.strokeStyle=
+  "rgba(245,194,82,.85)";
+
+ ctx.lineWidth=
+  1;
+
+ ctx.setLineDash([
+  5,
+  4
+ ]);
+
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  x,
+  g.top
+ );
+
+ ctx.lineTo(
+  x,
+  g.height-45
+ );
+
+ ctx.stroke();
+
+ ctx.restore();
+}
+
+
+function clearCrosshair(){
+
+ if(chartBaseImage){
+
+  $("chart")
+   .getContext("2d")
+   .putImageData(
+    chartBaseImage,
+    0,
+    0
+   );
+
+ }
+}
+
+
+$("chart")
+ .addEventListener(
+  "mousemove",
+  chartHover
+ );
+
+
+$("chart")
+ .addEventListener(
+  "mouseleave",
+  ()=>{
+
+   $("chartTooltip")
+    .style.display=
+    "none";
+
+   clearCrosshair();
+
+  }
+ );
+
+
+$("reset")
+ .addEventListener(
+  "click",
+  ()=>{
+
+   $("sort").value=
+    "race";
+
+   $("direction").value=
+    "desc";
+
+   $("industrySearch").value=
+    "";
+
+   table();
+
+   if(!selected)
+    draw();
+
+  }
+ );
+
+
+["sort","direction"]
+.forEach(
+ id=>
+  $(id).addEventListener(
+   "change",
+   ()=>{
+
+    table();
+
+    if(!selected)
+     draw();
+
+   }
+  )
+);
+
+
+// ONLY NEW EVENT:
+// filter Industry Heatmap while typing.
+$("industrySearch")
+ .addEventListener(
+  "input",
+  ()=>{
+
+   table();
+
+  }
+ );
+
+
+document
+ .querySelectorAll(
+  ".sort-head"
+ )
+ .forEach(
+  th=>
+   th.addEventListener(
+    "click",
+    ()=>{
+
+     const key=
+      th.dataset.sort;
+
+
+     if(
+      ![
+       ...$("sort").options
+      ].some(
+       o=>o.value===key
+      )
+     ){
+
+      const o=
+       document.createElement(
+        "option"
+       );
+
+      o.value=
+       key;
+
+      o.textContent=
+       key;
+
+      $("sort")
+       .append(o);
+     }
+
+
+     if(
+      $("sort").value===
+      key
+     ){
+
+      $("direction").value=
+       $("direction").value===
+       "desc"
+       ?"asc"
+       :"desc";
+
+     }else{
+
+      $("sort").value=
+       key;
+
+      $("direction").value=
+       key==="industry"
+       ?"asc"
+       :"desc";
+     }
+
+
+     table();
+
+     if(!selected)
+      draw();
+
+    }
+   )
+ );
+
+
+$("limit")
+ .addEventListener(
+  "change",
+  ()=>{
+
+   disabled.clear();
+
+   draw();
+
+  }
+ );
+
+
+["weekly","monthly"]
+.forEach(
+ id=>
+  $(id).addEventListener(
+   "click",
+   ()=>{
+
+    mode=id;
+
+    disabled.clear();
+
+    table();
+
+    draw();
+
+   }
+  )
+ );
+
+
+$("back")
+ .addEventListener(
+  "click",
+  ()=>{
+
+   selected=null;
+
+   disabled.clear();
+
+   draw();
+
+   $("raceSection")
+    .scrollIntoView({
+     behavior:"smooth",
+     block:"start"
+    });
+
+  }
+ );
+
+
+window
+ .addEventListener(
+  "resize",
+  ()=>{
+
+   if(dataset)
+    draw();
+
+  }
+ );
+
+
+fetch(
+ "data/industry_heatmap.json?v="+
+ Date.now(),
+ {
+  cache:"no-store"
+ }
+)
+.then(r=>{
+
+ if(!r.ok)
+  throw Error(
+   "HTTP "+r.status
+  );
+
+ return r.json();
+
+})
+.then(data=>{
+
+ if(
+  !Array.isArray(
+   data.industries
+  )||
+  !data.stocks
+ )
+  throw Error(
+   "Invalid JSON format"
+  );
+
+
+ dataset=data;
+
+ table();
+
+ draw();
+
+})
+.catch(err=>{
+
+ $("summary").textContent=
+  "Data loading failed: "+
+  err.message;
+
+ $("chartStatus").textContent=
+  "Check data/industry_heatmap.json";
+
+});
+</script>
+
+</body>
+</html>
