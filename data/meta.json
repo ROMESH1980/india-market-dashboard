@@ -143,10 +143,10 @@
       "sourceSymbol": "GC=F",
       "date": "2026-10-05",
       "historyRows": 1258,
-      "daily": 22,
+      "daily": 15,
       "weekly": 14,
       "monthly": 25,
-      "overall": 21,
+      "overall": 20,
       "dailySignal": {
         "label": "Defensive Weak",
         "signal": "defensive",
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4168.7,
-          "fastMA": 4318.93,
-          "slowMA": 4368.23,
-          "momentumPct": 0.01,
-          "rsi14": 32.74,
-          "distanceFromHighPct": -6.55
+          "latest": 4168.1,
+          "fastMA": 4318.9,
+          "slowMA": 4368.22,
+          "momentumPct": -0.01,
+          "rsi14": 32.65,
+          "distanceFromHighPct": -6.56
         },
         "weekly": {
-          "latest": 4168.7,
-          "fastMA": 4401.01,
-          "slowMA": 4420.02,
-          "momentumPct": -5.45,
-          "rsi14": 51.62,
-          "distanceFromHighPct": -10.94
+          "latest": 4168.1,
+          "fastMA": 4400.95,
+          "slowMA": 4420.0,
+          "momentumPct": -5.46,
+          "rsi14": 51.6,
+          "distanceFromHighPct": -10.95
         },
         "monthly": {
-          "latest": 4168.7,
-          "fastMA": 4262.57,
-          "slowMA": 4484.56,
-          "momentumPct": 1.5,
-          "rsi14": 58.83,
-          "distanceFromHighPct": -20.56
+          "latest": 4168.1,
+          "fastMA": 4262.47,
+          "slowMA": 4484.5,
+          "momentumPct": 1.49,
+          "rsi14": 58.82,
+          "distanceFromHighPct": -20.58
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-05T19:29:50.258929+00:00"
+  "marketRegimeGeneratedAt": "2026-10-05T20:01:41.986218+00:00"
 }
