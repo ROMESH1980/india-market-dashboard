@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-05",
+    "updated": "2026-10-06",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -879,6 +879,201 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-05"
+      }
+    },
+    "BALAMINES": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/BALAMINES_24092026153701_Intimation_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "ARFIN": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ARFIND_20012026165116_ArfinPurchaseofNewMachinery.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-20",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "VINDHYATEL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/VINDHYATEL_23052026212128_AuditedFinancialResults.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "JAMNAAUTO": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/JAMNAAUTO_12112025140504_SE_Disclosure.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "PAUSHAKLTD": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PAUSHAKLTD_21012026151434_Intimation_-_Commencement_of_Commercial_Production_-_21012026_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "GOCLCORP": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/GULFCORP_08042026163050_FactoryLicenseEMS08042026Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-08",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "CHEMPLASTS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/CHEMPLASTS_28052026182739_PhaseIIICMCDCommencementofProductionregd28052026SD.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-28",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "LXCHEM": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/LXCHEM_18102025163753_Intimation.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-10-18",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "GRAVITA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GRAVITA_19082026203845_IntimationCapacityaddition19082026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-19",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "PASUPTAC": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/PASUPTAC_25052026171825_Enhance_of_manufacturing_capacity_240_KL.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "MILKYMIST": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MILKYMIST_10092026185745_intimationoncommissioningofnewskyrandgreekyogurt1092026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "JAIBALAJI": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/JAIBALAJI_02022026130427_INTIMATION_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-02",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-06"
+      }
+    },
+    "DIACABS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/DIACABS_20082026185956_Copper_Line_Exchange_Intimation_Reg30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-20",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-06"
       }
     }
   }

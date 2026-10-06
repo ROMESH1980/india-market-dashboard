@@ -640,8 +640,138 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "DIACABS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-20",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DIACABS_20082026185956_Copper_Line_Exchange_Intimation_Reg30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "LXCHEM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-10-18",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LXCHEM_18102025163753_Intimation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "VINDHYATEL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/VINDHYATEL_23052026212128_AuditedFinancialResults.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BALAMINES": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BALAMINES_24092026153701_Intimation_Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "PASUPTAC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-25",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PASUPTAC_25052026171825_Enhance_of_manufacturing_capacity_240_KL.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ARFIN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-20",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ARFIND_20012026165116_ArfinPurchaseofNewMachinery.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "JAMNAAUTO": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JAMNAAUTO_12112025140504_SE_Disclosure.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "MILKYMIST": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MILKYMIST_10092026185745_intimationoncommissioningofnewskyrandgreekyogurt1092026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PAUSHAKLTD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PAUSHAKLTD_21012026151434_Intimation_-_Commencement_of_Commercial_Production_-_21012026_signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GOCLCORP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-08",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GULFCORP_08042026163050_FactoryLicenseEMS08042026Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "JAIBALAJI": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-02",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JAIBALAJI_02022026130427_INTIMATION_signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GRAVITA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-19",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GRAVITA_19082026203845_IntimationCapacityaddition19082026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CHEMPLASTS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-28",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CHEMPLASTS_28052026182739_PhaseIIICMCDCommencementofProductionregd28052026SD.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-05T20:07:46+00:00",
+  "updatedAt": "2026-10-06T17:35:35+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
