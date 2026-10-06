@@ -16028,5 +16028,15 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "SHAHINVEST": {
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "source": "Yahoo Finance"
+  },
+  "SRIT": {
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "source": "Yahoo Finance"
   }
 }
