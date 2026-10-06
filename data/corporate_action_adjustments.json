@@ -1694,7 +1694,7 @@
     "dashboardSymbols": 3176,
     "downloadedRecords": 3100,
     "fromDate": "2025-07-13",
-    "generatedAt": "2026-10-06T16:54:05.047721+00:00",
+    "generatedAt": "2026-10-06T17:23:06.920966+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
