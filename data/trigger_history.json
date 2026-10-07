@@ -770,8 +770,108 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "PANAMAPET": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PANAMAPET_06072026122122_Intimation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "TATVA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-17",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TATVA_17072026155023_O.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "EPACKPEB": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-01",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EPACKPREFAB_01052026221016_Intimation_Plant_expansion.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ELLEN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-25",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ELLENBARRIE2024_25092026141614_Announcement_Commissioning_of_Jai_Balaji_ASU_Plant25092026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "CINELINE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CINELINE_27012026150601_Intimation_Opening_of_Screen_Cineline.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "STEELXIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-14",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/STEELXIND_14112025212210_Intimation_under-Regulation_30_14112025_Final.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BIRLANU": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/sumedha_06082026134438_BMOutcome06082026signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PYRAMID": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-10-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PYRAMIDTECHNO_30102025145648_Press_Release_Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "KANSAINER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KANSAINER_03082026162532_signedCapacity_Addition_-_SE_intimationR.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "MBEL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MBENG_10082026130455_Intimation_Phenix_capacity_addition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-07T10:13:22+00:00",
+  "updatedAt": "2026-10-07T16:03:57+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

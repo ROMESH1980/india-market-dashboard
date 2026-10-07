@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "SPLIT"
       }
     ],
     "AIIL": [
@@ -1263,18 +1263,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -1284,6 +1272,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "SPLIT"
       }
     ],
     "ROLEXRINGS": [
@@ -1371,18 +1371,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -1392,6 +1380,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "SPLIT"
       }
     ],
     "SKMEGGPROD": [
@@ -1694,7 +1694,7 @@
     "dashboardSymbols": 3178,
     "downloadedRecords": 3100,
     "fromDate": "2025-07-14",
-    "generatedAt": "2026-10-07T09:59:58.944599+00:00",
+    "generatedAt": "2026-10-07T15:51:05.533496+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

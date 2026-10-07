@@ -1075,6 +1075,156 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-06"
       }
+    },
+    "MBEL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MBENG_10082026130455_Intimation_Phenix_capacity_addition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "EPACKPEB": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/EPACKPREFAB_01052026221016_Intimation_Plant_expansion.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-01",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "PANAMAPET": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PANAMAPET_06072026122122_Intimation.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "CINELINE": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/CINELINE_27012026150601_Intimation_Opening_of_Screen_Cineline.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "TATVA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/TATVA_17072026155023_O.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-17",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "BIRLANU": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/sumedha_06082026134438_BMOutcome06082026signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "PYRAMID": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PYRAMIDTECHNO_30102025145648_Press_Release_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-10-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "ELLEN": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/ELLENBARRIE2024_25092026141614_Announcement_Commissioning_of_Jai_Balaji_ASU_Plant25092026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "STEELXIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/STEELXIND_14112025212210_Intimation_under-Regulation_30_14112025_Final.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
+    },
+    "KANSAINER": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/KANSAINER_03082026162532_signedCapacity_Addition_-_SE_intimationR.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-07"
+      }
     }
   }
 }

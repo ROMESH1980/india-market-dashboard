@@ -16038,5 +16038,15 @@
     "sector": "Technology",
     "industry": "Information Technology Services",
     "source": "Yahoo Finance"
+  },
+  "GREENASIA": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "PAPADMALJI": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
