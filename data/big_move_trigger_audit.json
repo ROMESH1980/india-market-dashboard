@@ -17,8 +17,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 66,
-        "bigMoveScore": 66
+        "phase1Score": 62,
+        "bigMoveScore": 62
       },
       "sourceResearchFields": {
         "symbol": "ANTELOPUS",
@@ -207,8 +207,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 66,
-        "bigMoveScore": 66
+        "phase1Score": 60,
+        "bigMoveScore": 60
       },
       "sourceResearchFields": {
         "symbol": "BLISSGVS",
@@ -271,8 +271,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 71,
-        "bigMoveScore": 71
+        "phase1Score": 72,
+        "bigMoveScore": 72
       },
       "sourceResearchFields": {
         "symbol": "BAFNAPH",
