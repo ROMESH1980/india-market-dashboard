@@ -118,7 +118,14 @@ function rankedChartData(raw,period,exactReturn){
 function series(){let entries;
  if(selected){
   const industry=dataset.industries.find(i=>i.industry===selected);
-  entries=(industry?.symbols||[]).map(sym=>({name:sym,data:dataset.stocks?.[sym]?.[mode],rankValue:latestReturn({data:dataset.stocks?.[sym]?.[mode]})}));
+  const rankBy=$("raceRank").value;
+  entries=(industry?.symbols||[]).map(sym=>{
+   const stock=dataset.stocks?.[sym];
+   const raw=stock?.[mode];
+   const exactReturn=rankBy==="race"?latestReturn({data:raw}):numeric(stock?.returns?.[rankBy]);
+   const rankValue=exactReturn!==null&&Number.isFinite(exactReturn)?exactReturn:latestReturn({data:rankBy==="race"?raw:rankedChartData(raw,rankBy,null)});
+   return {name:sym,data:rankBy==="race"?raw:rankedChartData(raw,rankBy,exactReturn),rankValue};
+  });
  } else {
   const rankBy=$("raceRank").value;
   // Race Chart uses the full industry list directly, so Heatmap sort/search stays independent.
@@ -140,9 +147,9 @@ $("chartStatus").textContent=active.length+" plotted / "+entries.length+" listed
 const flagged=entries.filter(e=>Math.abs(latestReturn(e))>=300);
 const raceRankLabel=$("raceRank").value==="race"?"Race Latest":$("raceRank").value;
 $("chartInfo").textContent=selected
- ? "Industry stocks: "+active.length+" plotted / "+entries.length+" listed / "+(dataset.industries.find(i=>i.industry===selected)?.stockCount||0)+" total · missing data shown as N/A · "+flagged.length+" extreme return(s) to verify"
+ ? "Industry stocks: "+active.length+" plotted / "+entries.length+" listed / "+(dataset.industries.find(i=>i.industry===selected)?.stockCount||0)+" total · ranked by "+raceRankLabel+" · missing data shown as N/A · "+flagged.length+" extreme return(s) to verify"
  : "Industry lines: "+entries.length+" plotted · ranked by "+raceRankLabel+" · "+flagged.length+" extreme return(s) to verify";
-$("legend").innerHTML=entries.map((e,i)=>'<span class="legend '+(disabled.has(e.name)?"off":"")+(Math.abs(latestReturn(e))>=300?' flag':'')+'" style="border-left:4px solid '+stableColor(e.name)+'"><input class="legend-toggle" type="checkbox" data-name="'+esc(e.name)+'" aria-label="Show '+esc(e.name)+' line" '+(disabled.has(e.name)?'':'checked')+'>'+(selected?'<span class="legend-stock">'+(i+1)+'. '+esc(e.name)+'</span>':'<button type="button" class="legend-name" data-industry="'+esc(e.name)+'">'+(i+1)+'. '+esc(e.name)+'</button>')+' <strong>'+pct(selected?latestReturn(e):e.rankValue)+'</strong>'+(Math.abs(latestReturn(e))>=300?' ⚠':'')+'</span>').join("");
+$("legend").innerHTML=entries.map((e,i)=>'<span class="legend '+(disabled.has(e.name)?"off":"")+(Math.abs(latestReturn(e))>=300?' flag':'')+'" style="border-left:4px solid '+stableColor(e.name)+'"><input class="legend-toggle" type="checkbox" data-name="'+esc(e.name)+'" aria-label="Show '+esc(e.name)+' line" '+(disabled.has(e.name)?'':'checked')+'>'+(selected?'<span class="legend-stock">'+(i+1)+'. '+esc(e.name)+'</span>':'<button type="button" class="legend-name" data-industry="'+esc(e.name)+'">'+(i+1)+'. '+esc(e.name)+'</button>')+' <strong>'+pct(e.rankValue)+'</strong>'+(Math.abs(latestReturn(e))>=300?' ⚠':'')+'</span>').join("");
 $("legend").querySelectorAll(".legend-toggle").forEach(box=>box.addEventListener("change",()=>{if(box.checked)disabled.delete(box.dataset.name);else disabled.add(box.dataset.name);draw();}));
 $("legend").querySelectorAll(".legend-name").forEach(btn=>btn.addEventListener("click",()=>{selected=btn.dataset.industry;disabled.clear();draw();$("raceSection").scrollIntoView({behavior:"smooth",block:"start"});}));
 const canvas=$("chart"),width=Math.max(650,canvas.parentElement.clientWidth),height=380,dpr=window.devicePixelRatio||1;
