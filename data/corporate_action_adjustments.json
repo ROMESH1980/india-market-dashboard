@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -1263,18 +1263,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1284,6 +1272,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1691,10 +1691,10 @@
   },
   "meta": {
     "acceptedActions": 122,
-    "dashboardSymbols": 3176,
+    "dashboardSymbols": 3178,
     "downloadedRecords": 3100,
-    "fromDate": "2025-07-13",
-    "generatedAt": "2026-10-06T17:23:06.920966+00:00",
+    "fromDate": "2025-07-14",
+    "generatedAt": "2026-10-07T09:59:58.944599+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1703,7 +1703,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 112,
-    "toDate": "2026-10-13",
+    "toDate": "2026-10-14",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
@@ -1716,13 +1716,13 @@
   "skipped": [
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
