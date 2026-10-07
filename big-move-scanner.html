@@ -1221,6 +1221,11 @@ td:nth-child(21) {
 /* FINAL 19-COLUMN LAYOUT: Fund. Trigger removed; Key Trigger is column 19 */
 #scannerTable th:nth-child(19),#scannerTable td:nth-child(19){min-width:150px!important;width:150px!important;max-width:150px!important}
 #scannerTable tbody td:nth-child(19){white-space:nowrap!important;text-overflow:ellipsis!important}
+
+/* Page-1 style Market / Delivery date — only visual date change */
+.market-date{display:inline-flex!important;flex-direction:column!important;align-items:flex-end!important;line-height:1.1!important;color:var(--muted)!important}
+.market-date .market-date-title{font-size:12px!important;font-weight:700!important}
+.market-date .market-date-value{margin-top:3px!important;font-size:20px!important;font-weight:800!important;color:var(--text)!important}
 </style>
 </head>
 
@@ -1261,7 +1266,8 @@ td:nth-child(21) {
 
       <div class="toolbar-right">
         <span class="market-date" id="marketDateLabel">
-          Market Date: —
+          <span class="market-date-title">Market / Delivery</span>
+          <span class="market-date-value">—</span>
         </span>
 
         <label>
@@ -3191,8 +3197,8 @@ td:nth-child(21) {
         </tr>
       `;
 
-      $("marketDateLabel").textContent =
-        "Market Date: —";
+      $("marketDateLabel").innerHTML =
+        '<span class="market-date-title">Market / Delivery</span><span class="market-date-value">—</span>';
 
       $("paginationInfo").textContent =
         "Data unavailable";
@@ -3251,10 +3257,10 @@ td:nth-child(21) {
           );
         }
 
-        $("marketDateLabel").textContent =
-          marketDate
-            ? `Market Date: ${marketDate}`
-            : "Market Date: —";
+        $("marketDateLabel").innerHTML =
+          '<span class="market-date-title">Market / Delivery</span><span class="market-date-value">' +
+          (marketDate || "—") +
+          '</span>';
 
 
         currentPage = 1;
