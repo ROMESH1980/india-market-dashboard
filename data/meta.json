@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4146.7,
-          "fastMA": 4290.04,
-          "slowMA": 4372.35,
-          "momentumPct": -0.96,
-          "rsi14": 23.55,
-          "distanceFromHighPct": -6.29
+          "latest": 4138.2,
+          "fastMA": 4289.62,
+          "slowMA": 4372.18,
+          "momentumPct": -1.16,
+          "rsi14": 23.14,
+          "distanceFromHighPct": -6.48
         },
         "weekly": {
-          "latest": 4146.7,
-          "fastMA": 4398.81,
-          "slowMA": 4419.29,
-          "momentumPct": -5.95,
-          "rsi14": 50.79,
-          "distanceFromHighPct": -11.41
+          "latest": 4138.2,
+          "fastMA": 4397.96,
+          "slowMA": 4419.01,
+          "momentumPct": -6.14,
+          "rsi14": 50.47,
+          "distanceFromHighPct": -11.59
         },
         "monthly": {
-          "latest": 4146.7,
-          "fastMA": 4258.9,
-          "slowMA": 4482.36,
-          "momentumPct": 0.97,
-          "rsi14": 58.48,
-          "distanceFromHighPct": -20.98
+          "latest": 4138.2,
+          "fastMA": 4257.48,
+          "slowMA": 4481.51,
+          "momentumPct": 0.76,
+          "rsi14": 58.34,
+          "distanceFromHighPct": -21.15
         }
       },
       "error": null
@@ -204,9 +204,9 @@
       "date": "2026-10-07",
       "universeSize": 100,
       "daily": 49,
-      "weekly": 41,
+      "weekly": 37,
       "monthly": 82,
-      "overall": 63,
+      "overall": 62,
       "dailySignal": {
         "label": "Warning",
         "signal": "warning",
@@ -238,9 +238,9 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 40.0,
-          "medianReturnPct": -1.61,
-          "returnStrengthScore": 41.94
+          "positiveBreadthPct": 36.0,
+          "medianReturnPct": -2.13,
+          "returnStrengthScore": 39.34
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-07T17:27:02.780578+00:00"
+  "marketRegimeGeneratedAt": "2026-10-07T17:59:07.162733+00:00"
 }
