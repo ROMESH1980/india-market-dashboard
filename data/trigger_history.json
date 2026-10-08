@@ -982,6 +982,6 @@
       }
     ]
   },
-  "updatedAt": "2026-10-08T19:06:25+00:00",
+  "updatedAt": "2026-10-08T20:17:14+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

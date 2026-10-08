@@ -3,6 +3,8 @@ const MIN_MARKET_CAP_CR = 100;
 
 let allStocks = [];
 let filteredStocks = [];
+let peerIndustry = null;
+let peerSelectedStock = null;
 let currentPage = 1;
 let activeSortField = null;
 let activeSortDirection = "desc";
@@ -92,26 +94,7 @@ function totalVolume(row) {
 }
 
 
-/* =====================================================
-   TODAY TURNOVER (APPROX ₹ CR)
-===================================================== */
 
-function todayTurnoverCr(row) {
-  const price = num(row.price);
-  const volume = totalVolume(row);
-
-  if (
-    price === null ||
-    volume === null
-  ) {
-    return null;
-  }
-
-  return (
-    price *
-    volume
-  ) / 10000000;
-}
 
 
 /* =====================================================
@@ -539,25 +522,7 @@ function formatNumber(value) {
 }
 
 
-function formatTurnoverCr(value) {
-  const n = num(value);
 
-  if (n === null) {
-    return `
-      <span class="pending">
-        —
-      </span>
-    `;
-  }
-
-  return `₹${n.toLocaleString(
-    "en-IN",
-    {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }
-  )} Cr`;
-}
 
 
 function formatPrice(value) {
@@ -1102,6 +1067,47 @@ function checked(id) {
    FILTERING
 ===================================================== */
 
+function findSearchedStock() {
+  const q = (el("q")?.value || "").trim().toLowerCase();
+  if (!q) return null;
+  const universe = allStocks.filter(passesPermanentUniverseRule);
+  const exact = universe.filter(row =>
+    [row.symbol, row.name, row.companyName].some(v =>
+      String(v || "").trim().toLowerCase() === q
+    )
+  );
+  if (exact.length === 1) return exact[0];
+  if (exact.length > 1) return null;
+  const partial = universe.filter(row =>
+    [row.symbol, row.name, row.companyName].some(v =>
+      String(v || "").toLowerCase().includes(q)
+    )
+  );
+  return partial.length === 1 ? partial[0] : null;
+}
+
+function updatePeersButton() {
+  const button = el("peersButton");
+  if (!button) return;
+  const stock = peerIndustry ? peerSelectedStock : findSearchedStock();
+  button.disabled = !stock || !String(stock.industry || "").trim();
+  button.textContent = peerIndustry ? "PEERS ✓" : "PEERS";
+  button.title = stock?.industry ? `Industry: ${stock.industry}` : "Search one stock first";
+}
+
+function setupPeers() {
+  el("peersButton")?.addEventListener("click", () => {
+    const stock = peerIndustry ? peerSelectedStock : findSearchedStock();
+    if (!stock?.industry) return;
+    peerIndustry = String(stock.industry).trim();
+    peerSelectedStock = stock;
+    if (el("q")) el("q").value = "";
+    currentPage = 1;
+    renderRows();
+  });
+  updatePeersButton();
+}
+
 function passesFilters(row) {
 
   if (
@@ -1110,9 +1116,11 @@ function passesFilters(row) {
     return false;
   }
 
+  if (peerIndustry && String(row.industry || "").trim() !== peerIndustry) return false;
+
   const q =
     (
-      el("q")?.value ||
+      (peerIndustry ? "" : el("q")?.value) ||
       ""
     )
       .trim()
@@ -1237,33 +1245,6 @@ function passesFilters(row) {
 
     const value =
       totalVolume(row);
-
-    if (value === null) {
-      return false;
-    }
-
-    if (
-      threshold !== null &&
-      value < threshold
-    ) {
-      return false;
-    }
-  }
-
-
-  /* ===================================================
-     TODAY TURNOVER
-  =================================================== */
-
-  if (checked("activeTodayTurnover")) {
-
-    const threshold =
-      inputNumber(
-        "aboveTodayTurnover"
-      );
-
-    const value =
-      todayTurnoverCr(row);
 
     if (value === null) {
       return false;
@@ -1713,9 +1694,6 @@ function sortValue(
     case "todayVolume":
       return totalVolume(row);
 
-    case "todayTurnoverCr":
-      return todayTurnoverCr(row);
-
     case "todayDeliveryVolume":
       return todayDeliveryVolume(row);
 
@@ -1897,9 +1875,6 @@ const sortFieldByActiveCheckbox = {
 
   activeTodayVolume:
     "todayVolume",
-
-  activeTodayTurnover:
-    "todayTurnoverCr",
 
   activeTodayDelivery:
     "todayDeliveryVolume",
@@ -2254,9 +2229,6 @@ function renderRows() {
         const volume =
           totalVolume(row);
 
-        const turnover =
-          todayTurnoverCr(row);
-
         return `
           <tr>
 
@@ -2276,21 +2248,6 @@ function renderRows() {
                       <small>
                         ${symbol}
                       </small>
-                    `
-                    : ""
-                }
-
-                ${
-                  row.industry
-                    ? `
-                      <button
-                        type="button"
-                        class="peer-button"
-                        data-row-index="${globalIndex}"
-                        title="Compare same-industry stocks"
-                      >
-                        PEER
-                      </button>
                     `
                     : ""
                 }
@@ -2334,17 +2291,6 @@ function renderRows() {
                   `
                   : formatNumber(volume)
               }
-
-            </td>
-
-
-            <!-- TODAY TURNOVER -->
-
-            <td>
-
-              ${formatTurnoverCr(
-                turnover
-              )}
 
             </td>
 
@@ -2565,6 +2511,7 @@ function renderRows() {
   }
 
   syncTopScrollbar();
+  updatePeersButton();
 
   setupReasonButtons();
 }
@@ -2707,6 +2654,8 @@ function setupFilterEvents() {
       "input",
       () => {
 
+        peerIndustry = null;
+        peerSelectedStock = null;
         currentPage = 1;
 
         renderRows();
@@ -2753,8 +2702,6 @@ function setupFilterEvents() {
     "aboveChange",
 
     "aboveTodayVolume",
-
-    "aboveTodayTurnover",
 
     "aboveTodayDelivery",
 
@@ -2862,6 +2809,8 @@ function setupFilterEvents() {
 ===================================================== */
 
 function resetFilters() {
+  peerIndustry = null;
+  peerSelectedStock = null;
 
   if (el("q")) {
 
@@ -4257,6 +4206,7 @@ async function init() {
     updateHeaderRegime();
 
     setupFilterEvents();
+    setupPeers();
 
     setupPagination();
 
@@ -4497,9 +4447,6 @@ function buildExportRows() {
       const volume =
         totalVolume(row);
 
-      const turnover =
-        todayTurnoverCr(row);
-
       const delivery =
         todayDeliveryVolume(row);
 
@@ -4575,12 +4522,6 @@ function buildExportRows() {
         "Today Volume":
           exportInteger(
             volume
-          ),
-
-        "Today Turnover ₹ Cr":
-          exportRoundedNumber(
-            turnover,
-            2
           ),
 
 
@@ -5067,9 +5008,6 @@ function downloadExcel(rows) {
           "Today Volume":
             16,
 
-          "Today Turnover ₹ Cr":
-            20,
-
           "Today Delivery Vol":
             20,
 
@@ -5193,18 +5131,6 @@ function downloadExcel(rows) {
     headers,
     "Today Volume",
     "0"
-  );
-
-
-  /* ===================================================
-     TURNOVER
-  =================================================== */
-
-  applyExcelNumberFormat(
-    worksheet,
-    headers,
-    "Today Turnover ₹ Cr",
-    "0.00"
   );
 
 
@@ -5486,90 +5412,3 @@ if (
   setupDownload();
 }
 
-/* ===== SAME INDUSTRY PEER COMPARISON ===== */
-
-function openPeerComparison(stock) {
-  const industry = String(stock.industry || "").trim();
-  if (!industry) return;
-
-  const modal = document.getElementById("peerModal");
-  const tbody = document.getElementById("peerRows");
-  if (!modal || !tbody) return;
-
-  const peers = allStocks.filter(
-    s => String(s.industry || "").trim() === industry
-  );
-
-  document.getElementById("peerTitle").textContent =
-    "Peer Comparison — " + (stock.symbol || stock.name || "Stock");
-
-  document.getElementById("peerIndustry").textContent =
-    "Industry: " + industry + " | Stocks: " + peers.length;
-
-  const pct = v => {
-    const n = Number(v);
-    return v == null || v === "" || !Number.isFinite(n)
-      ? "—" : n.toFixed(2) + "%";
-  };
-
-  const val = v => {
-    const n = Number(v);
-    return v == null || v === "" || !Number.isFinite(n)
-      ? "—" : n.toFixed(2);
-  };
-
-  tbody.innerHTML = peers.map(s => {
-    const selected = s === stock;
-    return `
-      <tr class="${selected ? "peer-current" : ""}">
-        <td>
-          <strong>${escapeHtml(String(s.name || s.companyName || s.symbol || ""))}</strong>
-          <span class="peer-symbol">${escapeHtml(String(s.symbol || ""))}</span>
-        </td>
-        <td>${val(s.price)}</td>
-        <td>${pct(s.changePct ?? s.changePercent)}</td>
-        <td>${rsRatingVal(s) ?? "—"}</td>
-        <td>${pct(stockGrowth1M(s))}</td>
-        <td>${pct(stockGrowth3M(s))}</td>
-        <td>${pct(stockGrowth6M(s))}</td>
-        <td>${momentumRatingVal(stockMomentumRating(s)) ?? "—"}</td>
-        <td>${val(s.freeFloatMarketCapCr ?? s.marketCapCr)}</td>
-      </tr>
-    `;
-  }).join("");
-
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-document.addEventListener("click", event => {
-  const button = event.target.closest(".peer-button");
-  if (button) {
-    const index = Number(button.dataset.rowIndex);
-    if (Number.isInteger(index) && allStocks[index]) {
-      openPeerComparison(allStocks[index]);
-    }
-    return;
-  }
-
-  const modal = document.getElementById("peerModal");
-  if (!modal) return;
-
-  if (
-    event.target.id === "closePeerModal" ||
-    event.target === modal
-  ) {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-  }
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    const modal = document.getElementById("peerModal");
-    if (modal) {
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-    }
-  }
-});
