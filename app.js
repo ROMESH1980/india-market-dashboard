@@ -2280,6 +2280,21 @@ function renderRows() {
                     : ""
                 }
 
+                ${
+                  row.industry
+                    ? `
+                      <button
+                        type="button"
+                        class="peer-button"
+                        data-row-index="${globalIndex}"
+                        title="Compare same-industry stocks"
+                      >
+                        PEER
+                      </button>
+                    `
+                    : ""
+                }
+
               </div>
 
             </td>
@@ -5470,3 +5485,91 @@ if (
 
   setupDownload();
 }
+
+/* ===== SAME INDUSTRY PEER COMPARISON ===== */
+
+function openPeerComparison(stock) {
+  const industry = String(stock.industry || "").trim();
+  if (!industry) return;
+
+  const modal = document.getElementById("peerModal");
+  const tbody = document.getElementById("peerRows");
+  if (!modal || !tbody) return;
+
+  const peers = allStocks.filter(
+    s => String(s.industry || "").trim() === industry
+  );
+
+  document.getElementById("peerTitle").textContent =
+    "Peer Comparison — " + (stock.symbol || stock.name || "Stock");
+
+  document.getElementById("peerIndustry").textContent =
+    "Industry: " + industry + " | Stocks: " + peers.length;
+
+  const pct = v => {
+    const n = Number(v);
+    return v == null || v === "" || !Number.isFinite(n)
+      ? "—" : n.toFixed(2) + "%";
+  };
+
+  const val = v => {
+    const n = Number(v);
+    return v == null || v === "" || !Number.isFinite(n)
+      ? "—" : n.toFixed(2);
+  };
+
+  tbody.innerHTML = peers.map(s => {
+    const selected = s === stock;
+    return `
+      <tr class="${selected ? "peer-current" : ""}">
+        <td>
+          <strong>${escapeHtml(String(s.name || s.companyName || s.symbol || ""))}</strong>
+          <span class="peer-symbol">${escapeHtml(String(s.symbol || ""))}</span>
+        </td>
+        <td>${val(s.price)}</td>
+        <td>${pct(s.changePct ?? s.changePercent)}</td>
+        <td>${rsRatingVal(s) ?? "—"}</td>
+        <td>${pct(stockGrowth1M(s))}</td>
+        <td>${pct(stockGrowth3M(s))}</td>
+        <td>${pct(stockGrowth6M(s))}</td>
+        <td>${momentumRatingVal(stockMomentumRating(s)) ?? "—"}</td>
+        <td>${val(s.freeFloatMarketCapCr ?? s.marketCapCr)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+document.addEventListener("click", event => {
+  const button = event.target.closest(".peer-button");
+  if (button) {
+    const index = Number(button.dataset.rowIndex);
+    if (Number.isInteger(index) && allStocks[index]) {
+      openPeerComparison(allStocks[index]);
+    }
+    return;
+  }
+
+  const modal = document.getElementById("peerModal");
+  if (!modal) return;
+
+  if (
+    event.target.id === "closePeerModal" ||
+    event.target === modal
+  ) {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    const modal = document.getElementById("peerModal");
+    if (modal) {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+  }
+});

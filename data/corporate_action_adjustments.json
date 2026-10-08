@@ -152,20 +152,6 @@
         "type": "SPLIT"
       }
     ],
-    "ANUHPHR": [
-      {
-        "exDate": "2025-07-15",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "ANUHPHR",
-        "type": "BONUS"
-      }
-    ],
     "AQYLON": [
       {
         "exDate": "2026-03-05",
@@ -222,6 +208,20 @@
         "type": "BONUS"
       }
     ],
+    "BANSALWIRE": [
+      {
+        "exDate": "2026-10-16",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 5.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BANSALWIRE",
+        "type": "SPLIT"
+      }
+    ],
     "BECTORFOOD": [
       {
         "exDate": "2025-12-12",
@@ -253,18 +253,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 10.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -274,6 +262,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "BONUS"
       }
     ],
     "BHARATRAS": [
@@ -1692,9 +1692,9 @@
   "meta": {
     "acceptedActions": 122,
     "dashboardSymbols": 3181,
-    "downloadedRecords": 3096,
-    "fromDate": "2025-07-15",
-    "generatedAt": "2026-10-08T18:00:13.347074+00:00",
+    "downloadedRecords": 3088,
+    "fromDate": "2025-07-16",
+    "generatedAt": "2026-10-08T18:52:33.010042+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1703,7 +1703,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 112,
-    "toDate": "2026-10-15",
+    "toDate": "2026-10-16",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",

@@ -18,60 +18,15 @@
     "counts": {
       "symbolsScanned": 350,
       "announcementsSeen": 16482,
-      "rawCapexMatches": 2,
-      "negativeCapexRejected": 487,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 483,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 2,
-      "capexCandidates": 2,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 2,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "KROSS": {
-      "name": "Kross Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/8910457293_27022026180448_Reg_30_SEBI_LODR_extrusion.pdf",
-          "sourceDate": "27-Feb-2026 18:05:35",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-08"
-        }
-      ]
-    },
-    "JUBLFOOD": {
-      "name": "Jubilant Foodworks Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/JUBLFOOD_11032026172848_STXDisclosureMumbaiCommissary.pdf",
-          "sourceDate": "11-Mar-2026 17:30:03",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-08"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }

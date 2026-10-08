@@ -175,19 +175,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 7.4%, earnings growth 21.2%, quarterly earnings growth 21.1%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-10-06",
+            "sourceDate": "2026-10-08",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on ROE 12.3%, profit margin 8.1%, operating margin 5.5%, debt/equity 21.7, current ratio 2.37, positive free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-10-06",
+            "sourceDate": "2026-10-08",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.74× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-10-06",
+            "sourceDate": "2026-10-08",
             "mode": "AUTOMATED"
           }
         }
