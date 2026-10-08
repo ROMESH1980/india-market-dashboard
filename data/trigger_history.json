@@ -960,8 +960,28 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "KROSS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/8910457293_27022026180448_Reg_30_SEBI_LODR_extrusion.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "JUBLFOOD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JUBLFOOD_11032026172848_STXDisclosureMumbaiCommissary.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-08T17:46:11+00:00",
+  "updatedAt": "2026-10-08T18:14:48+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

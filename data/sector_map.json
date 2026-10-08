@@ -16048,5 +16048,20 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "NITYAS": {
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
+  },
+  "VNL": {
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "source": "Yahoo Finance"
+  },
+  "EVENTIONS": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

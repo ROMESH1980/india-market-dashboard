@@ -1360,6 +1360,36 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-08"
       }
+    },
+    "KROSS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/8910457293_27022026180448_Reg_30_SEBI_LODR_extrusion.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "JUBLFOOD": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/JUBLFOOD_11032026172848_STXDisclosureMumbaiCommissary.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-08"
+      }
     }
   }
 }
