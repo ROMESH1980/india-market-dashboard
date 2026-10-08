@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-07",
+    "updated": "2026-10-08",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -1224,6 +1224,141 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-07"
+      }
+    },
+    "BOROSCI": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/BOROSCI_22092026131923_BSL_SE_Capex.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-22",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "SHREEPUSHK": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SHREEPUSHK_10092026183045_SPCFLUnit5DyesCommencement10092026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "SEDEMAC": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SEDEMAC2007_25092026165649_20260925-IntimationofstartofProd.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "KANPRPLA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/KANPRPLA_10112025202211_Outcome_BM_New_Projects_.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "UNIMECH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/UNIMECH_29122025131618_Reg30DisclosureAdditional62000_SqftUnit3Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "VENUSPIPES": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/VENUSPIPES_17082026194322_Intimation_of_Commencement_of_Solar.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-17",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "BCLIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/BCLIND_13072026111921_Commisioning_of_150_KLPD_Ethanol_Plant__1___1_.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-13",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "UTLSOLAR": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/UTLSOLAR2024_24082026195932_NSEOutcome_Board_MeetingReg_30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
+      }
+    },
+    "GALAPREC": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GALAPRE_11062026164229_Gala_Stock_Exchange_Intimation_Land_MOU.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-08"
       }
     }
   }

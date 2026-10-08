@@ -154,6 +154,24 @@
       box-sizing: border-box;
     }
 
+
+    /* Page 1: Same-industry peer comparison */
+    .peer-button { margin-top: 5px; padding: 3px 8px; border: 1px solid #377fc9; border-radius: 5px; background: #102039; color: #d8e9ff; font-size: 10px; font-weight: 800; cursor: pointer; }
+    .peer-button:hover { background: #245e9e; color: #fff; }
+    .peer-modal { position: fixed; inset: 0; z-index: 120; display: none; align-items: center; justify-content: center; padding: 18px; background: rgba(0,0,0,.72); }
+    .peer-modal.open { display: flex; }
+    .peer-modal-card { width: min(1100px, 96vw); max-height: 88vh; overflow: auto; position: relative; padding: 18px; border: 1px solid #29415e; border-radius: 10px; background: #081321; box-shadow: 0 18px 60px rgba(0,0,0,.45); }
+    .peer-close { position: absolute; top: 10px; right: 12px; width: 32px; height: 32px; border: 1px solid #29415e; border-radius: 6px; background: #0c192b; color: #fff; font-size: 20px; cursor: pointer; }
+    .peer-modal-card h2 { margin: 0 42px 4px 0; color: #fff; }
+    .peer-industry { margin: 0 0 14px; color: #aebed2; font-size: 12px; font-weight: 700; }
+    .peer-table-wrap { overflow-x: auto; }
+    .peer-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+    .peer-table th, .peer-table td { padding: 8px 10px; border-bottom: 1px solid #223651; text-align: right; font-size: 12px; }
+    .peer-table th:first-child, .peer-table td:first-child { text-align: left; }
+    .peer-table th { position: sticky; top: 0; background: #0c192b; color: #aebed2; z-index: 1; }
+    .peer-current td { background: rgba(36,94,158,.22); }
+    .peer-symbol { display: block; margin-top: 2px; color: #7f96b2; font-size: 10px; }
+
   </style>
 
 </head>
@@ -1398,6 +1416,28 @@
 
   </div>
 
+
+
+  <!-- =================================================
+       SAME-INDUSTRY PEER MODAL
+  ================================================== -->
+  <div id="peerModal" class="peer-modal" aria-hidden="true">
+    <div class="peer-modal-card" role="dialog" aria-modal="true" aria-labelledby="peerTitle">
+      <button id="closePeerModal" class="peer-close" type="button" aria-label="Close peers">×</button>
+      <h2 id="peerTitle">Industry Peers</h2>
+      <div id="peerIndustry" class="peer-industry"></div>
+      <div class="peer-table-wrap">
+        <table class="peer-table">
+          <thead>
+            <tr>
+              <th>Stock</th><th>Price</th><th>Change %</th><th>RS</th><th>1M %</th><th>3M %</th><th>6M %</th><th>Momentum</th><th>Free Float / M.Cap</th>
+            </tr>
+          </thead>
+          <tbody id="peerRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
 
   <!-- =================================================

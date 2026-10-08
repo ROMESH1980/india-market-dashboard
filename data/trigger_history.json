@@ -870,8 +870,98 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "VENUSPIPES": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-17",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/VENUSPIPES_17082026194322_Intimation_of_Commencement_of_Solar.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "UNIMECH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/UNIMECH_29122025131618_Reg30DisclosureAdditional62000_SqftUnit3Signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GALAPREC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GALAPRE_11062026164229_Gala_Stock_Exchange_Intimation_Land_MOU.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "KANPRPLA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KANPRPLA_10112025202211_Outcome_BM_New_Projects_.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "SHREEPUSHK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SHREEPUSHK_10092026183045_SPCFLUnit5DyesCommencement10092026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SEDEMAC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-25",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SEDEMAC2007_25092026165649_20260925-IntimationofstartofProd.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "BCLIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BCLIND_13072026111921_Commisioning_of_150_KLPD_Ethanol_Plant__1___1_.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "UTLSOLAR": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/UTLSOLAR2024_24082026195932_NSEOutcome_Board_MeetingReg_30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BOROSCI": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-22",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BOROSCI_22092026131923_BSL_SE_Capex.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-07T18:05:10+00:00",
+  "updatedAt": "2026-10-08T17:46:11+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
