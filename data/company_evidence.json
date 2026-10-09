@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-08",
+    "updated": "2026-10-09",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -1389,6 +1389,96 @@
         "triggerType": "Commissioning / Commercial Operations",
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-10-08"
+      }
+    },
+    "SURAJLTD": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SURAJLTD_08042026180145_Reg_30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-08",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-09"
+      }
+    },
+    "TCPLPACK": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/TCPLPACK_09022026184035_Accura_Technik.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-09",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-09"
+      }
+    },
+    "UNITEDPOLY": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/UNITEDPOLY_24022026185930_NSE.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-09"
+      }
+    },
+    "GMRAIRPORT": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/GMRINFRA_17082026174524_17082026-CommencementOfOperations-BhogapuramAirport-PressRelease.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-17",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-09"
+      }
+    },
+    "VISAKAIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/VISAKAIND_06082026171312_outcome_of_board_meeting-DSC.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-09"
+      }
+    },
+    "RUSHIL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/RUSHIL_10122025095428_Jumbo_Laminate.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-09"
       }
     }
   }

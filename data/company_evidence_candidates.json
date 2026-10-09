@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-08",
+    "updated": "2026-10-09",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,149 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 16482,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 483,
+      "announcementsSeen": 10549,
+      "rawCapexMatches": 7,
+      "negativeCapexRejected": 356,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 6,
+      "capexCandidates": 6,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 6,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "SURAJLTD": {
+      "name": "Suraj Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SURAJLTD_08042026180145_Reg_30.pdf",
+          "sourceDate": "08-Apr-2026 18:02:16",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    },
+    "TCPLPACK": {
+      "name": "TCPL Packaging Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/TCPLPACK_09022026184035_Accura_Technik.pdf",
+          "sourceDate": "09-Feb-2026 18:40:45",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    },
+    "UNITEDPOLY": {
+      "name": "United Polyfab Gujarat Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/UNITEDPOLY_24022026185930_NSE.pdf",
+          "sourceDate": "24-Feb-2026 18:59:51",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    },
+    "GMRAIRPORT": {
+      "name": "GMR AIRPORTS LIMITED",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/GMRINFRA_17082026174524_17082026-CommencementOfOperations-BhogapuramAirport-PressRelease.pdf",
+          "sourceDate": "17-Aug-2026 17:47:44",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    },
+    "VISAKAIND": {
+      "name": "Visaka Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/VISAKAIND_06082026171312_outcome_of_board_meeting-DSC.pdf",
+          "sourceDate": "06-Aug-2026 17:13:59",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    },
+    "RUSHIL": {
+      "name": "Rushil Decor Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/RUSHIL_10122025095428_Jumbo_Laminate.pdf",
+          "sourceDate": "10-Dec-2025 09:56:02",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-09"
+        }
+      ]
+    }
+  }
 }

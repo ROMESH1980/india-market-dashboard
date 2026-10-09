@@ -42038,5 +42038,23 @@
     "reason": "API: equities: HTTP 403 | sme: HTTP 403",
     "cachedAt": "2026-10-08T17:32:37+00:00",
     "freeFloatEstimated": false
+  },
+  "NATCO-RE": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-09T17:07:14+00:00",
+    "freeFloatEstimated": false
+  },
+  "AGOL": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-09T17:07:14+00:00",
+    "freeFloatEstimated": false
+  },
+  "BELDING": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-09T17:07:14+00:00",
+    "freeFloatEstimated": false
   }
 }

@@ -980,8 +980,68 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "TCPLPACK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-09",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TCPLPACK_09022026184035_Accura_Technik.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "UNITEDPOLY": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/UNITEDPOLY_24022026185930_NSE.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "VISAKAIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/VISAKAIND_06082026171312_outcome_of_board_meeting-DSC.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RUSHIL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-10",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RUSHIL_10122025095428_Jumbo_Laminate.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GMRAIRPORT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-17",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GMRINFRA_17082026174524_17082026-CommencementOfOperations-BhogapuramAirport-PressRelease.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SURAJLTD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-08",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SURAJLTD_08042026180145_Reg_30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-08T20:17:14+00:00",
+  "updatedAt": "2026-10-09T17:19:50+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
