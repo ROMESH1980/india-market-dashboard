@@ -1,6 +1,6 @@
 {
   "marketDate": "2026-10-09",
-  "generatedAt": "2026-10-09T17:14:50+00:00",
+  "generatedAt": "2026-10-09T17:58:52+00:00",
   "scannerVersion": "2.2",
   "methodology": {
     "phase1": "RS + Stock Momentum + Industry Rating + multi-period price strength + existing fundamental/business triggers.",
@@ -269716,16 +269716,16 @@
       "stockMomentumRating": null,
       "industryRating": 68.0,
       "freeFloatPct": null,
-      "freeFloatShares": null,
-      "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
-      "freeFloatMethod": null,
+      "freeFloatShares": 5407333,
+      "freeFloatStatus": "READY",
+      "freeFloatDate": "30-SEP-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1735012_09102026050641_WEB.xml",
+      "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
       "freeFloatEstimated": false,
-      "publicShares": null,
+      "publicShares": 5407333,
       "publicHoldingPct": null,
-      "publicLockedShares": null,
+      "publicLockedShares": 0,
       "fundamentalTrigger": false,
       "fundamentalTriggers": [],
       "businessTriggers": [],
@@ -269759,7 +269759,6 @@
       "missingConditions": [
         "RS",
         "Stock Momentum",
-        "Free Float",
         "Technical Analysis"
       ],
       "return1W": -0.18,
@@ -281816,16 +281815,16 @@
       "stockMomentumRating": null,
       "industryRating": null,
       "freeFloatPct": null,
-      "freeFloatShares": null,
-      "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
-      "freeFloatMethod": null,
+      "freeFloatShares": 5852400,
+      "freeFloatStatus": "READY",
+      "freeFloatDate": "01-OCT-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1734199_08102026013839_WEB.xml",
+      "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
       "freeFloatEstimated": false,
-      "publicShares": null,
+      "publicShares": 6604800,
       "publicHoldingPct": null,
-      "publicLockedShares": null,
+      "publicLockedShares": 752400,
       "fundamentalTrigger": false,
       "fundamentalTriggers": [],
       "businessTriggers": [],
@@ -281860,7 +281859,6 @@
         "RS",
         "Stock Momentum",
         "Industry Rating",
-        "Free Float",
         "Technical Analysis"
       ],
       "return1W": null,
@@ -284051,7 +284049,7 @@
     }
   ],
   "phase": "PHASE_2_TECHNICAL",
-  "technicalGeneratedAt": "2026-10-09T17:19:49+00:00",
+  "technicalGeneratedAt": "2026-10-09T19:05:07+00:00",
   "technicalMarketDate": "2026-10-09",
   "technicalHistory": {
     "source": "Official NSE UDiFF EOD bhavcopy",
@@ -284059,5 +284057,5 @@
     "firstDate": "2025-09-19",
     "lastDate": "2026-10-09"
   },
-  "triggerHistoryUpdatedAt": "2026-10-09T17:19:50+00:00"
+  "triggerHistoryUpdatedAt": "2026-10-09T19:05:08+00:00"
 }

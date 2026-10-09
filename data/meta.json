@@ -169,26 +169,26 @@
       },
       "details": {
         "daily": {
-          "latest": 4216.9,
-          "fastMA": 4267.63,
+          "latest": 4216.8,
+          "fastMA": 4267.62,
           "slowMA": 4376.98,
           "momentumPct": 1.31,
-          "rsi14": 33.1,
+          "rsi14": 33.09,
           "distanceFromHighPct": -4.7
         },
         "weekly": {
-          "latest": 4216.9,
-          "fastMA": 4405.83,
+          "latest": 4216.8,
+          "fastMA": 4405.82,
           "slowMA": 4421.63,
-          "momentumPct": -4.35,
+          "momentumPct": -4.36,
           "rsi14": 53.32,
           "distanceFromHighPct": -9.91
         },
         "monthly": {
-          "latest": 4216.9,
-          "fastMA": 4270.6,
-          "slowMA": 4489.38,
-          "momentumPct": 2.68,
+          "latest": 4216.8,
+          "fastMA": 4270.58,
+          "slowMA": 4489.37,
+          "momentumPct": 2.67,
           "rsi14": 59.45,
           "distanceFromHighPct": -19.65
         }
@@ -204,8 +204,8 @@
       "date": "2026-10-09",
       "universeSize": 100,
       "daily": 57,
-      "weekly": 28,
-      "monthly": 76,
+      "weekly": 30,
+      "monthly": 75,
       "overall": 58,
       "dailySignal": {
         "label": "Selective Buying",
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 27.0,
-          "medianReturnPct": -3.92,
-          "returnStrengthScore": 30.4
+          "positiveBreadthPct": 28.0,
+          "medianReturnPct": -3.54,
+          "returnStrengthScore": 32.3
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 72.0,
-          "medianReturnPct": 12.71,
-          "returnStrengthScore": 81.78
+          "medianReturnPct": 12.03,
+          "returnStrengthScore": 80.08
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-09T17:13:24.801453+00:00"
+  "marketRegimeGeneratedAt": "2026-10-09T17:43:42.671651+00:00"
 }
