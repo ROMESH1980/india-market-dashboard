@@ -166,20 +166,6 @@
         "type": "SPLIT"
       }
     ],
-    "ASHOKLEY": [
-      {
-        "exDate": "2025-07-16",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "ASHOKLEY",
-        "type": "BONUS"
-      }
-    ],
     "AVROIND": [
       {
         "exDate": "2026-05-05",
@@ -280,18 +266,6 @@
       {
         "exDate": "2025-12-12",
         "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 5.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BHARATRAS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2025-12-12",
-        "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
         "ratioA": 1.0,
@@ -300,6 +274,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BHARATRAS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2025-12-12",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 5.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BHARATRAS",
+        "type": "SPLIT"
       }
     ],
     "BLSE": [
@@ -417,18 +403,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 3.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 2:1",
-        "ratioA": 2.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -438,6 +412,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 3.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 2:1",
+        "ratioA": 2.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "BONUS"
       }
     ],
     "DEVIT": [
@@ -485,18 +471,6 @@
     "FCL": [
       {
         "exDate": "2025-10-31",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "FCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-10-31",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -506,6 +480,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "FCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-10-31",
+        "factor": 5.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 4:1",
+        "ratioA": 4.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "FCL",
+        "type": "BONUS"
       }
     ],
     "FISCHER": [
@@ -1072,18 +1058,6 @@
       {
         "exDate": "2025-09-26",
         "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 4.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "NAZARA",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2025-09-26",
-        "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
         "ratioA": 1.0,
@@ -1092,6 +1066,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "NAZARA",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2025-09-26",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 4.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "NAZARA",
+        "type": "SPLIT"
       }
     ],
     "NESTLEIND": [
@@ -1690,11 +1676,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 122,
+    "acceptedActions": 121,
     "dashboardSymbols": 3182,
-    "downloadedRecords": 3091,
-    "fromDate": "2025-07-16",
-    "generatedAt": "2026-10-09T17:35:47.423470+00:00",
+    "downloadedRecords": 3084,
+    "fromDate": "2025-07-17",
+    "generatedAt": "2026-10-10T09:13:58.588495+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1702,8 +1688,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 112,
-    "toDate": "2026-10-16",
+    "symbolsWithAdjustments": 111,
+    "toDate": "2026-10-17",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
