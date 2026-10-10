@@ -1040,8 +1040,48 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "KRISHANA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KRISHANA_31032026170720_Commprod3103NSETOUP.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SGMART": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SGMART_27072026183647_Commencement_of_unit.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "PARKHOSPS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PARKMEDIWORLD2025_26082026092528_intimation26.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "EICHERMOT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EICHERMOT_29072026190218_EML_Update_on_AP_GreenfieldStock_Exchange_Dislosure_29072026_Signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-10T09:26:43+00:00",
+  "updatedAt": "2026-10-10T16:54:18+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

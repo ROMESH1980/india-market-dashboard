@@ -1480,6 +1480,66 @@
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-10-09"
       }
+    },
+    "KRISHANA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/KRISHANA_31032026170720_Commprod3103NSETOUP.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-31",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-10"
+      }
+    },
+    "SGMART": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SGMART_27072026183647_Commencement_of_unit.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-10"
+      }
+    },
+    "EICHERMOT": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/EICHERMOT_29072026190218_EML_Update_on_AP_GreenfieldStock_Exchange_Dislosure_29072026_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-10"
+      }
+    },
+    "PARKHOSPS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/PARKMEDIWORLD2025_26082026092528_intimation26.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-10"
+      }
     }
   }
 }
