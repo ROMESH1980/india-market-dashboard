@@ -17,105 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 19712,
-      "rawCapexMatches": 8,
-      "negativeCapexRejected": 592,
+      "announcementsSeen": 15772,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 436,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 4,
-      "capexCandidates": 4,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 4,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "KRISHANA": {
-      "name": "Krishana Phoschem Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/KRISHANA_31032026170720_Commprod3103NSETOUP.pdf",
-          "sourceDate": "31-Mar-2026 17:19:10",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-10"
-        }
-      ]
-    },
-    "SGMART": {
-      "name": "SG Mart Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/SGMART_27072026183647_Commencement_of_unit.pdf",
-          "sourceDate": "27-Jul-2026 18:37:47",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-10"
-        }
-      ]
-    },
-    "EICHERMOT": {
-      "name": "Eicher Motors Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/EICHERMOT_29072026190218_EML_Update_on_AP_GreenfieldStock_Exchange_Dislosure_29072026_Signed.pdf",
-          "sourceDate": "29-Jul-2026 19:02:27",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-10"
-        }
-      ]
-    },
-    "PARKHOSPS": {
-      "name": "Park Medi World Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/PARKMEDIWORLD2025_26082026092528_intimation26.pdf",
-          "sourceDate": "26-Aug-2026 09:25:40",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-10"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
