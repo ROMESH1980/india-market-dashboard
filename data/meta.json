@@ -1,11 +1,11 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 2603,
-  "uniqueCount": 2603,
+  "nseCount": 3182,
+  "uniqueCount": 3182,
   "eodPriceCount": 3687,
-  "matchedPriceCount": 2589,
+  "matchedPriceCount": 3039,
   "marketDate": "2026-10-09",
-  "lastUpdated": "2026-10-10",
+  "lastUpdated": "2026-10-11",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-10-09",
@@ -31,12 +31,12 @@
     "2026-09-11",
     "2026-09-10"
   ],
-  "todayVolumeCount": 2326,
-  "deliveryVolumeCount": 2326,
-  "deliveryRatioCount": 2299,
-  "deliveryPctCount": 2326,
-  "full5DayDeliveryAverageCount": 2351,
-  "incomplete5DayDeliveryCount": 252,
+  "todayVolumeCount": 2776,
+  "deliveryVolumeCount": 2776,
+  "deliveryRatioCount": 2729,
+  "deliveryPctCount": 2776,
+  "full5DayDeliveryAverageCount": 2873,
+  "incomplete5DayDeliveryCount": 309,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -257,19 +257,19 @@
     "sme": {
       "name": "NIFTY SME Emerge",
       "type": "equity",
-      "available": false,
+      "available": true,
       "source": "Official NSE SME board dashboard breadth proxy",
       "sourceSymbol": null,
       "date": "2026-10-09",
-      "universeSize": 0,
-      "daily": null,
+      "universeSize": 579,
+      "daily": 51,
       "weekly": null,
       "monthly": null,
-      "overall": null,
+      "overall": 51,
       "dailySignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Warning",
+        "signal": "warning",
+        "emoji": "🟡"
       },
       "weeklySignal": {
         "label": "Pending",
@@ -282,14 +282,17 @@
         "emoji": "⚪"
       },
       "overallSignal": {
-        "label": "Pending",
-        "signal": "pending",
-        "emoji": "⚪"
+        "label": "Warning",
+        "signal": "warning",
+        "emoji": "🟡"
       },
       "details": {
         "daily": {
-          "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "method": "Dashboard universe breadth proxy",
+          "availableStocks": 450,
+          "positiveBreadthPct": 51.22,
+          "medianReturnPct": 0.0,
+          "returnStrengthScore": 50.0
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
@@ -302,7 +305,7 @@
       },
       "proxy": true,
       "proxyNote": "Breadth/momentum proxy from dashboard NSE stock universe; not official index historical score.",
-      "error": "Insufficient proxy data"
+      "error": null
     }
   },
   "dailyRegimeScore": 22.0,
@@ -337,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-10T17:48:16.031166+00:00"
+  "marketRegimeGeneratedAt": "2026-10-11T09:05:01.215557+00:00"
 }
