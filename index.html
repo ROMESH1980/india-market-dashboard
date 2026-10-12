@@ -128,37 +128,30 @@
 
     /* Page 1: compact industry and stock momentum, including filter controls. */
     .table-wrap table { table-layout: auto; }
-    .table-wrap table thead tr > th:nth-child(n+15):nth-child(-n+22),
-    .table-wrap table tbody tr > td:nth-child(n+15):nth-child(-n+22) {
+    .table-wrap table thead tr > th:nth-child(n+14):nth-child(-n+21),
+    .table-wrap table tbody tr > td:nth-child(n+14):nth-child(-n+21) {
       min-width: 74px !important; width: 82px !important;
       max-width: 96px !important; padding: 4px !important;
       box-sizing: border-box; white-space: normal;
     }
-    .table-wrap table thead tr > th:nth-child(14),
-    .table-wrap table tbody tr > td:nth-child(14) {
-      min-width: 96px !important; width: 102px !important;
-      max-width: 112px !important; padding: 4px !important;
-    }
-    .table-wrap table thead tr > th:nth-child(18),
-    .table-wrap table thead tr > th:nth-child(22),
-    .table-wrap table tbody tr > td:nth-child(18),
-    .table-wrap table tbody tr > td:nth-child(22) {
+    .table-wrap table thead tr > th:nth-child(17),
+    .table-wrap table thead tr > th:nth-child(21),
+    .table-wrap table tbody tr > td:nth-child(17),
+    .table-wrap table tbody tr > td:nth-child(21) {
       min-width: 100px !important; width: 106px !important; max-width: 112px !important;
     }
-    .table-wrap table thead tr > th:nth-child(n+15):nth-child(-n+22) .filter-box {
+    .table-wrap table thead tr > th:nth-child(n+14):nth-child(-n+21) .filter-box {
       min-width: 0 !important; width: 100% !important; gap: 2px !important;
     }
-    .table-wrap table thead tr > th:nth-child(n+15):nth-child(-n+22) input[type=number],
-    .table-wrap table thead tr > th:nth-child(n+15):nth-child(-n+22) select,
-    .table-wrap table #surveillanceFilter {
+    .table-wrap table thead tr > th:nth-child(n+14):nth-child(-n+21) input[type=number],
+    .table-wrap table thead tr > th:nth-child(n+14):nth-child(-n+21) select {
       min-width: 0 !important; width: 100% !important; max-width: 100% !important;
       box-sizing: border-box; padding: 2px !important; font-size: 10px !important;
     }
-    .table-wrap table thead tr.filter-row > th:nth-child(n+15):nth-child(-n+22) {
+    .table-wrap table thead tr.filter-row > th:nth-child(n+14):nth-child(-n+21) {
       padding: 2px !important;
     }
     .table-wrap table thead tr.filter-row .filter-toggle { font-size: 10px !important; }
-    .table-wrap table .surveillance-col { font-size: 10px !important; }
     #peersButton:disabled { opacity: .45; cursor: not-allowed; }
     #peersButton:not(:disabled) { border-color: #377fc9; color: #d8e9ff; cursor: pointer; }
 
@@ -551,9 +544,6 @@
             <th>
               Industry
             </th>
-
-
-            <th class="surveillance-col">Surveillance<br><small>ASM/GSM/ESM</small></th>
 
             <!-- INDUSTRY MOMENTUM -->
 
@@ -1043,18 +1033,6 @@
 
             </th>
 
-
-
-            <th class="surveillance-col">
-              <select id="surveillanceFilter" aria-label="Surveillance status">
-                <option value="">All</option>
-                <option value="ASM">ASM</option>
-                <option value="GSM">GSM</option>
-                <option value="ESM">ESM</option>
-                <option value="Unverified">Unverified</option>
-              </select>
-            </th>
-
             <!-- INDUSTRY 1M -->
 
             <th>
@@ -1439,10 +1417,6 @@
     </div>
 
   </div>
-
-
-
-  <script src="surveillance.js" defer></script>
   <script
     src="app.js"
     defer

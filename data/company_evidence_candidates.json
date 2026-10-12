@@ -17,127 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12723,
-      "rawCapexMatches": 7,
-      "negativeCapexRejected": 385,
+      "announcementsSeen": 12730,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 379,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 5,
-      "capexCandidates": 5,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 5,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "SHRINGARMS": {
-      "name": "Shringar House of Mangalsutra Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/SHRINGAR_23022026183507_Final.pdf",
-          "sourceDate": "23-Feb-2026 18:35:16",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-12"
-        }
-      ]
-    },
-    "ADVANCE": {
-      "name": "Advance Agrolife Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/ADVANCE_13032026204233_New_intimation_PEDA__1_.pdf",
-          "sourceDate": "13-Mar-2026 20:44:01",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-12"
-        }
-      ]
-    },
-    "TATACHEM": {
-      "name": "Tata Chemicals Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/TATACHEMYS_04052026181823_Reg30capexmatter04052026signed.pdf",
-          "sourceDate": "04-May-2026 18:18:59",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-12"
-        }
-      ]
-    },
-    "CRAFTSMAN": {
-      "name": "Craftsman Automation Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/CRAFTSMAN_29062026112324_CAL_Intimation_for_commencement_of_operation_Ludhiana_Punjab_signed.pdf",
-          "sourceDate": "29-Jun-2026 11:25:38",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-12"
-        }
-      ]
-    },
-    "SBCL": {
-      "name": "Shivalik Bimetal Controls Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/SBCL_05022026173401_Outcome05022026signed.pdf",
-          "sourceDate": "05-Feb-2026 17:34:19",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-12"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
