@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "SPLIT"
       }
     ],
     "AIIL": [
@@ -239,18 +239,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 10.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -260,6 +248,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 10.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "SPLIT"
       }
     ],
     "BHARATRAS": [
@@ -471,18 +471,6 @@
     "FCL": [
       {
         "exDate": "2025-10-31",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "FCL",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2025-10-31",
         "factor": 5.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 4:1",
@@ -492,6 +480,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "FCL",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2025-10-31",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "FCL",
+        "type": "SPLIT"
       }
     ],
     "FISCHER": [
@@ -648,20 +648,6 @@
         "type": "BONUS"
       }
     ],
-    "IFGLEXPOR": [
-      {
-        "exDate": "2025-07-18",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "IFGLEXPOR",
-        "type": "BONUS"
-      }
-    ],
     "INDIAGLYCO": [
       {
         "exDate": "2025-08-12",
@@ -673,20 +659,6 @@
         "source": "NSE Corporate Actions",
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "INDIAGLYCO",
-        "type": "SPLIT"
-      }
-    ],
-    "INDOTHAI": [
-      {
-        "exDate": "2025-07-18",
-        "factor": 10.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "INDOTHAI",
         "type": "SPLIT"
       }
     ],
@@ -995,34 +967,6 @@
         "source": "NSE Corporate Actions",
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "MONEYBOXX",
-        "type": "BONUS"
-      }
-    ],
-    "MOTHERSON": [
-      {
-        "exDate": "2025-07-18",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "MOTHERSON",
-        "type": "BONUS"
-      }
-    ],
-    "MSUMI": [
-      {
-        "exDate": "2025-07-18",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "MSUMI",
         "type": "BONUS"
       }
     ],
@@ -1676,11 +1620,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 121,
-    "dashboardSymbols": 2603,
-    "downloadedRecords": 3084,
-    "fromDate": "2025-07-17",
-    "generatedAt": "2026-10-10T17:40:44.183447+00:00",
+    "acceptedActions": 117,
+    "dashboardSymbols": 3201,
+    "downloadedRecords": 3027,
+    "fromDate": "2025-07-19",
+    "generatedAt": "2026-10-12T09:51:28.916229+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1688,8 +1632,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 111,
-    "toDate": "2026-10-17",
+    "symbolsWithAdjustments": 107,
+    "toDate": "2026-10-19",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
@@ -1702,13 +1646,13 @@
   "skipped": [
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
