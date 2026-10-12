@@ -1444,6 +1444,14 @@ function passesFilters(row) {
   }
 
 
+  const surveillanceChoice = el("surveillanceFilter")?.value || "";
+  if (surveillanceChoice) {
+    const info = window.MMRSurveillance?.lookup(row);
+    if (surveillanceChoice === "Unverified") {
+      if (info?.text !== "Unverified") return false;
+    } else if (!info?.tags?.includes(surveillanceChoice)) return false;
+  }
+
   /* ===================================================
      INDUSTRY 1M
   =================================================== */
@@ -2391,6 +2399,11 @@ function renderRows() {
             </td>
 
 
+            <!-- SURVEILLANCE -->
+            <td class="surveillance-col" title="${escapeHtml(window.MMRSurveillance?.lookup(row).date || "Verification unavailable")}">
+              ${escapeHtml(window.MMRSurveillance?.lookup(row).text || "Unverified")}
+            </td>
+
             <!-- INDUSTRY 1M -->
 
             <td>
@@ -2648,6 +2661,11 @@ function updateStockRatingSortMode() {
 ===================================================== */
 
 function setupFilterEvents() {
+  el("surveillanceFilter")?.addEventListener("change", () => {
+    currentPage = 1;
+    renderRows();
+  });
+
 
   el("q")
     ?.addEventListener(
@@ -2876,6 +2894,8 @@ function resetFilters() {
       "";
   }
 
+
+  if (el("surveillanceFilter")) el("surveillanceFilter").value = "";
 
   /* ===================================================
      RESET INDUSTRY RATING MODE
@@ -5412,3 +5432,9 @@ if (
   setupDownload();
 }
 
+
+
+// Refresh surveillance cells when verified list becomes available.
+window.MMRSurveillance?.ready.then(() => {
+  if (typeof renderRows === "function" && Array.isArray(allStocks) && allStocks.length) renderRows();
+});
