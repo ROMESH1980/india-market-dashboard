@@ -1080,8 +1080,58 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "SBCL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SBCL_05022026173401_Outcome05022026signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ADVANCE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ADVANCE_13032026204233_New_intimation_PEDA__1_.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CRAFTSMAN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CRAFTSMAN_29062026112324_CAL_Intimation_for_commencement_of_operation_Ludhiana_Punjab_signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SHRINGARMS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SHRINGAR_23022026183507_Final.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "TATACHEM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-04",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TATACHEMYS_04052026181823_Reg30capexmatter04052026signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-12T10:05:39+00:00",
+  "updatedAt": "2026-10-12T11:46:41+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

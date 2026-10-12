@@ -1540,6 +1540,81 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-10"
       }
+    },
+    "SHRINGARMS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SHRINGAR_23022026183507_Final.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-12"
+      }
+    },
+    "ADVANCE": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ADVANCE_13032026204233_New_intimation_PEDA__1_.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-13",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-12"
+      }
+    },
+    "TATACHEM": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/TATACHEMYS_04052026181823_Reg30capexmatter04052026signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-04",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-12"
+      }
+    },
+    "CRAFTSMAN": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/CRAFTSMAN_29062026112324_CAL_Intimation_for_commencement_of_operation_Ludhiana_Punjab_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-12"
+      }
+    },
+    "SBCL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SBCL_05022026173401_Outcome05022026signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-05",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-12"
+      }
     }
   }
 }
