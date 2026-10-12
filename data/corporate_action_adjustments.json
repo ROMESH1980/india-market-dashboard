@@ -1621,10 +1621,10 @@
   },
   "meta": {
     "acceptedActions": 117,
-    "dashboardSymbols": 3201,
+    "dashboardSymbols": 3187,
     "downloadedRecords": 3027,
-    "fromDate": "2025-07-19",
-    "generatedAt": "2026-10-12T12:48:59.571547+00:00",
+    "fromDate": "2025-07-20",
+    "generatedAt": "2026-10-12T22:02:59.426429+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1633,7 +1633,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 107,
-    "toDate": "2026-10-19",
+    "toDate": "2026-10-20",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
