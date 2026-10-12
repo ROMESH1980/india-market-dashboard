@@ -1,11 +1,11 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3182,
-  "uniqueCount": 3182,
+  "nseCount": 3201,
+  "uniqueCount": 3201,
   "eodPriceCount": 3687,
-  "matchedPriceCount": 3039,
+  "matchedPriceCount": 3013,
   "marketDate": "2026-10-09",
-  "lastUpdated": "2026-10-11",
+  "lastUpdated": "2026-10-12",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-10-09",
@@ -31,12 +31,12 @@
     "2026-09-11",
     "2026-09-10"
   ],
-  "todayVolumeCount": 2776,
-  "deliveryVolumeCount": 2776,
-  "deliveryRatioCount": 2729,
-  "deliveryPctCount": 2776,
-  "full5DayDeliveryAverageCount": 2873,
-  "incomplete5DayDeliveryCount": 309,
+  "todayVolumeCount": 2768,
+  "deliveryVolumeCount": 2768,
+  "deliveryRatioCount": 2721,
+  "deliveryPctCount": 2768,
+  "full5DayDeliveryAverageCount": 2863,
+  "incomplete5DayDeliveryCount": 338,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -48,12 +48,12 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-10-09",
+      "date": "2026-10-12",
       "historyRows": 1235,
-      "daily": 22,
+      "daily": 15,
       "weekly": 4,
       "monthly": 5,
-      "overall": 8,
+      "overall": 7,
       "dailySignal": {
         "label": "G-Sec / Gold / Cash",
         "signal": "defensive",
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 22520.45,
-          "fastMA": 22972.44,
-          "slowMA": 23726.47,
-          "momentumPct": 0.44,
-          "rsi14": 34.34,
-          "distanceFromHighPct": -4.08
+          "latest": 22335.9,
+          "fastMA": 22915.34,
+          "slowMA": 23686.84,
+          "momentumPct": -0.97,
+          "rsi14": 30.42,
+          "distanceFromHighPct": -4.74
         },
         "weekly": {
-          "latest": 22520.45,
-          "fastMA": 23608.94,
-          "slowMA": 23738.16,
-          "momentumPct": -3.75,
-          "rsi14": 27.02,
-          "distanceFromHighPct": -8.34
+          "latest": 22335.9,
+          "fastMA": 23385.46,
+          "slowMA": 23712.2,
+          "momentumPct": -4.33,
+          "rsi14": 26.19,
+          "distanceFromHighPct": -9.1
         },
         "monthly": {
-          "latest": 22520.45,
-          "fastMA": 23503.07,
-          "slowMA": 23784.67,
-          "momentumPct": -7.64,
-          "rsi14": 40.89,
-          "distanceFromHighPct": -14.05
+          "latest": 22335.9,
+          "fastMA": 23472.31,
+          "slowMA": 23766.21,
+          "momentumPct": -8.4,
+          "rsi14": 40.18,
+          "distanceFromHighPct": -14.76
         }
       },
       "error": null
@@ -141,7 +141,7 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-10-09",
+      "date": "2026-10-12",
       "historyRows": 1258,
       "daily": 22,
       "weekly": 14,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4216.3,
-          "fastMA": 4267.6,
-          "slowMA": 4376.97,
-          "momentumPct": 1.3,
-          "rsi14": 33.02,
-          "distanceFromHighPct": -4.71
+          "latest": 4199.4,
+          "fastMA": 4259.97,
+          "slowMA": 4378.82,
+          "momentumPct": 1.02,
+          "rsi14": 32.41,
+          "distanceFromHighPct": -5.1
         },
         "weekly": {
-          "latest": 4216.3,
-          "fastMA": 4405.77,
-          "slowMA": 4421.61,
-          "momentumPct": -4.37,
-          "rsi14": 53.3,
-          "distanceFromHighPct": -9.92
+          "latest": 4199.4,
+          "fastMA": 4385.74,
+          "slowMA": 4409.09,
+          "momentumPct": -5.1,
+          "rsi14": 53.11,
+          "distanceFromHighPct": -10.28
         },
         "monthly": {
-          "latest": 4216.3,
-          "fastMA": 4270.5,
-          "slowMA": 4489.32,
-          "momentumPct": 2.66,
-          "rsi14": 59.44,
-          "distanceFromHighPct": -19.66
+          "latest": 4199.4,
+          "fastMA": 4267.68,
+          "slowMA": 4487.63,
+          "momentumPct": 2.25,
+          "rsi14": 59.25,
+          "distanceFromHighPct": -19.98
         }
       },
       "error": null
@@ -205,8 +205,8 @@
       "universeSize": 100,
       "daily": 57,
       "weekly": 30,
-      "monthly": 75,
-      "overall": 58,
+      "monthly": 77,
+      "overall": 59,
       "dailySignal": {
         "label": "Selective Buying",
         "signal": "selective",
@@ -245,9 +245,9 @@
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 72.0,
-          "medianReturnPct": 12.03,
-          "returnStrengthScore": 80.08
+          "positiveBreadthPct": 73.0,
+          "medianReturnPct": 12.92,
+          "returnStrengthScore": 82.3
         }
       },
       "proxy": true,
@@ -261,7 +261,7 @@
       "source": "Official NSE SME board dashboard breadth proxy",
       "sourceSymbol": null,
       "date": "2026-10-09",
-      "universeSize": 579,
+      "universeSize": 581,
       "daily": 51,
       "weekly": null,
       "monthly": null,
@@ -296,11 +296,11 @@
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         },
         "monthly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         }
       },
       "proxy": true,
@@ -308,11 +308,11 @@
       "error": null
     }
   },
-  "dailyRegimeScore": 22.0,
+  "dailyRegimeScore": 15.0,
   "weeklyRegimeScore": 4.0,
   "monthlyRegimeScore": 5.0,
   "marketRegime": {
-    "daily": 22.0,
+    "daily": 15.0,
     "weekly": 4.0,
     "monthly": 5.0
   },
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-11T09:05:01.215557+00:00"
+  "marketRegimeGeneratedAt": "2026-10-12T09:29:07.183562+00:00"
 }
