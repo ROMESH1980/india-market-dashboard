@@ -1,9 +1,9 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3201,
-  "uniqueCount": 3201,
+  "nseCount": 3187,
+  "uniqueCount": 3187,
   "eodPriceCount": 3713,
-  "matchedPriceCount": 3057,
+  "matchedPriceCount": 3043,
   "marketDate": "2026-10-12",
   "lastUpdated": "2026-10-12",
   "mode": "FREE_EOD",
@@ -31,12 +31,12 @@
     "2026-09-15",
     "2026-09-11"
   ],
-  "todayVolumeCount": 2791,
-  "deliveryVolumeCount": 2791,
-  "deliveryRatioCount": 2747,
-  "deliveryPctCount": 2791,
-  "full5DayDeliveryAverageCount": 2888,
-  "incomplete5DayDeliveryCount": 313,
+  "todayVolumeCount": 2790,
+  "deliveryVolumeCount": 2790,
+  "deliveryRatioCount": 2746,
+  "deliveryPctCount": 2790,
+  "full5DayDeliveryAverageCount": 2887,
+  "incomplete5DayDeliveryCount": 300,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -48,12 +48,12 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-10-12",
-      "historyRows": 1235,
-      "daily": 15,
+      "date": "2026-10-09",
+      "historyRows": 1234,
+      "daily": 22,
       "weekly": 4,
       "monthly": 5,
-      "overall": 7,
+      "overall": 8,
       "dailySignal": {
         "label": "G-Sec / Gold / Cash",
         "signal": "defensive",
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 22363.35,
-          "fastMA": 22916.72,
-          "slowMA": 23687.39,
-          "momentumPct": -0.85,
-          "rsi14": 30.73,
-          "distanceFromHighPct": -4.62
+          "latest": 22520.45,
+          "fastMA": 22972.44,
+          "slowMA": 23726.47,
+          "momentumPct": 0.44,
+          "rsi14": 34.34,
+          "distanceFromHighPct": -4.08
         },
         "weekly": {
-          "latest": 22363.35,
-          "fastMA": 23388.21,
-          "slowMA": 23713.12,
-          "momentumPct": -4.21,
-          "rsi14": 26.38,
-          "distanceFromHighPct": -8.98
+          "latest": 22520.45,
+          "fastMA": 23608.94,
+          "slowMA": 23738.16,
+          "momentumPct": -3.75,
+          "rsi14": 27.02,
+          "distanceFromHighPct": -8.34
         },
         "monthly": {
-          "latest": 22363.35,
-          "fastMA": 23476.88,
-          "slowMA": 23768.96,
-          "momentumPct": -8.29,
-          "rsi14": 40.28,
-          "distanceFromHighPct": -14.65
+          "latest": 22520.45,
+          "fastMA": 23503.07,
+          "slowMA": 23784.67,
+          "momentumPct": -7.64,
+          "rsi14": 40.89,
+          "distanceFromHighPct": -14.05
         }
       },
       "error": null
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4190.9,
-          "fastMA": 4259.55,
-          "slowMA": 4378.65,
-          "momentumPct": 0.82,
-          "rsi14": 31.87,
-          "distanceFromHighPct": -5.29
+          "latest": 4195.9,
+          "fastMA": 4259.8,
+          "slowMA": 4378.75,
+          "momentumPct": 0.94,
+          "rsi14": 32.18,
+          "distanceFromHighPct": -5.18
         },
         "weekly": {
-          "latest": 4190.9,
-          "fastMA": 4384.89,
-          "slowMA": 4408.81,
-          "momentumPct": -5.29,
-          "rsi14": 52.78,
-          "distanceFromHighPct": -10.46
+          "latest": 4195.9,
+          "fastMA": 4385.39,
+          "slowMA": 4408.98,
+          "momentumPct": -5.18,
+          "rsi14": 52.98,
+          "distanceFromHighPct": -10.36
         },
         "monthly": {
-          "latest": 4190.9,
-          "fastMA": 4266.27,
-          "slowMA": 4486.78,
-          "momentumPct": 2.04,
-          "rsi14": 59.16,
-          "distanceFromHighPct": -20.14
+          "latest": 4195.9,
+          "fastMA": 4267.1,
+          "slowMA": 4487.28,
+          "momentumPct": 2.16,
+          "rsi14": 59.22,
+          "distanceFromHighPct": -20.05
         }
       },
       "error": null
@@ -308,11 +308,11 @@
       "error": null
     }
   },
-  "dailyRegimeScore": 15.0,
+  "dailyRegimeScore": 22.0,
   "weeklyRegimeScore": 4.0,
   "monthlyRegimeScore": 5.0,
   "marketRegime": {
-    "daily": 15.0,
+    "daily": 22.0,
     "weekly": 4.0,
     "monthly": 5.0
   },
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-12T12:56:13.414569+00:00"
+  "marketRegimeGeneratedAt": "2026-10-12T22:09:19.570612+00:00"
 }
