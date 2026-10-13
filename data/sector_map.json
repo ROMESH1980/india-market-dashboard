@@ -16065,14 +16065,14 @@
     "source": "Unavailable"
   },
   "AGOL": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Luxury Goods",
+    "source": "Yahoo Finance"
   },
   "BELDING": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
   },
   "NATCO-RE": {
     "sector": "Unclassified",

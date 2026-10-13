@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-12",
+    "updated": "2026-10-13",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,61 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12650,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 364,
+      "announcementsSeen": 12065,
+      "rawCapexMatches": 6,
+      "negativeCapexRejected": 425,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 2,
+      "capexCandidates": 2,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 2,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "REGAAL": {
+      "name": "Regaal Resources Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/REGAAL_26052026083959_Disclosure_under_Reg_30_for_Capacity_Addition_and_Product_Launch.pdf",
+          "sourceDate": "26-May-2026 08:40:42",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-13"
+        }
+      ]
+    },
+    "WAAREEENER": {
+      "name": "Waaree Energies Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/WAAREE_06042026124338_CommencementofOperationsSSOPL_signed.pdf",
+          "sourceDate": "06-Apr-2026 12:43:48",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-13"
+        }
+      ]
+    }
+  }
 }

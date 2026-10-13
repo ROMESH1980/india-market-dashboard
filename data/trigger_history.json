@@ -1130,8 +1130,28 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "REGAAL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/REGAAL_26052026083959_Disclosure_under_Reg_30_for_Capacity_Addition_and_Product_Launch.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "WAAREEENER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/WAAREE_06042026124338_CommencementofOperationsSSOPL_signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-12T22:16:01+00:00",
+  "updatedAt": "2026-10-13T17:54:15+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
