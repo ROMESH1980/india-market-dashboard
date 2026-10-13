@@ -185,7 +185,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 68.58,
-      "futureGrowth": 74.82,
+      "futureGrowth": 74.68,
       "fundamentalQuality": 69.61,
       "capexScore": 50.0,
       "researchReasons": {
@@ -490,7 +490,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 59.78,
-      "futureGrowth": 45.73,
+      "futureGrowth": 45.71,
       "fundamentalQuality": 74.17,
       "capexScore": 50.0,
       "researchReasons": {
@@ -958,7 +958,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 57.27,
-      "futureGrowth": 74.35,
+      "futureGrowth": 74.39,
       "fundamentalQuality": 66.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -1386,7 +1386,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 50.53,
-      "futureGrowth": 54.46,
+      "futureGrowth": 54.45,
       "fundamentalQuality": 68.15,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1447,7 +1447,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 78.8,
-      "futureGrowth": 90.41,
+      "futureGrowth": 90.2,
       "fundamentalQuality": 57.31,
       "capexScore": 90.0,
       "researchReasons": {
@@ -1508,7 +1508,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 67.88,
-      "futureGrowth": 88.28,
+      "futureGrowth": 88.52,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2445,7 +2445,7 @@
       "tailwindScore": 87.0,
       "macroSupport": 85,
       "valueMigration": 63.71,
-      "futureGrowth": 22.52,
+      "futureGrowth": 22.6,
       "fundamentalQuality": 70.02,
       "capexScore": 50.0,
       "researchReasons": {
@@ -2506,7 +2506,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 73.4,
-      "futureGrowth": 40.75,
+      "futureGrowth": 40.26,
       "fundamentalQuality": 89.63,
       "capexScore": 70.0,
       "researchReasons": {
@@ -2914,7 +2914,7 @@
       "tailwindScore": 90.0,
       "macroSupport": 90,
       "valueMigration": 59.03,
-      "futureGrowth": 93.57,
+      "futureGrowth": 93.56,
       "fundamentalQuality": 62.43,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3036,7 +3036,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 60.2,
-      "futureGrowth": 76.78,
+      "futureGrowth": 76.62,
       "fundamentalQuality": 80.1,
       "capexScore": 70.0,
       "researchReasons": {
@@ -3138,7 +3138,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 85.0,
-      "futureGrowth": 91.05,
+      "futureGrowth": 91.08,
       "fundamentalQuality": 98.9,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3260,7 +3260,7 @@
       "tailwindScore": 62.0,
       "macroSupport": 65,
       "valueMigration": 79.5,
-      "futureGrowth": 76.12,
+      "futureGrowth": 76.15,
       "fundamentalQuality": 51.41,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3382,7 +3382,7 @@
       "tailwindScore": null,
       "macroSupport": null,
       "valueMigration": 71.76,
-      "futureGrowth": 63.8,
+      "futureGrowth": 63.83,
       "fundamentalQuality": 88.26,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3443,7 +3443,7 @@
       "tailwindScore": 90.0,
       "macroSupport": 90,
       "valueMigration": 69.09,
-      "futureGrowth": 88.04,
+      "futureGrowth": 88.19,
       "fundamentalQuality": 82.67,
       "capexScore": 90.0,
       "researchReasons": {
@@ -3891,7 +3891,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 65.56,
-      "futureGrowth": 74.73,
+      "futureGrowth": 74.69,
       "fundamentalQuality": 34.41,
       "capexScore": 70.0,
       "researchReasons": {
@@ -4074,7 +4074,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 57.25,
-      "futureGrowth": 64.41,
+      "futureGrowth": 64.55,
       "fundamentalQuality": 99.71,
       "capexScore": 60.0,
       "researchReasons": {
@@ -4135,7 +4135,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 93.12,
-      "futureGrowth": 92.03,
+      "futureGrowth": 92.1,
       "fundamentalQuality": 76.25,
       "capexScore": 100,
       "researchReasons": {
@@ -4237,7 +4237,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 49.89,
-      "futureGrowth": 88.52,
+      "futureGrowth": 88.57,
       "fundamentalQuality": 56.89,
       "capexScore": 80.0,
       "researchReasons": {
@@ -4908,7 +4908,7 @@
       "tailwindScore": 58.0,
       "macroSupport": 55,
       "valueMigration": 50.58,
-      "futureGrowth": 89.03,
+      "futureGrowth": 89.39,
       "fundamentalQuality": 80.79,
       "capexScore": 80.0,
       "researchReasons": {
@@ -4969,7 +4969,7 @@
       "tailwindScore": 58.0,
       "macroSupport": 55,
       "valueMigration": 53.99,
-      "futureGrowth": 93.41,
+      "futureGrowth": 93.4,
       "fundamentalQuality": 84.52,
       "capexScore": 90.0,
       "researchReasons": {
@@ -5152,7 +5152,7 @@
       "tailwindScore": 62.0,
       "macroSupport": null,
       "valueMigration": 59.19,
-      "futureGrowth": 92.72,
+      "futureGrowth": 92.29,
       "fundamentalQuality": 82.46,
       "capexScore": 100,
       "researchReasons": {
@@ -5417,7 +5417,7 @@
       "tailwindScore": 87.0,
       "macroSupport": 85,
       "valueMigration": 64.92,
-      "futureGrowth": 24.55,
+      "futureGrowth": 24.53,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -5478,7 +5478,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 65.25,
-      "futureGrowth": 76.59,
+      "futureGrowth": 76.57,
       "fundamentalQuality": 85.21,
       "capexScore": 80.0,
       "researchReasons": {
@@ -5804,7 +5804,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 53.84,
-      "futureGrowth": 68.36,
+      "futureGrowth": 68.41,
       "fundamentalQuality": 80.16,
       "capexScore": 90.0,
       "researchReasons": {
@@ -6252,7 +6252,7 @@
       "tailwindScore": 87.0,
       "macroSupport": 85,
       "valueMigration": 52.81,
-      "futureGrowth": 32.5,
+      "futureGrowth": 32.44,
       "fundamentalQuality": 66.74,
       "capexScore": 90.0,
       "researchReasons": {
@@ -6659,7 +6659,7 @@
       "tailwindScore": 87.0,
       "macroSupport": 85,
       "valueMigration": 55.43,
-      "futureGrowth": 57.77,
+      "futureGrowth": 57.79,
       "fundamentalQuality": 77.63,
       "capexScore": 60.0,
       "researchReasons": {
@@ -7697,7 +7697,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 61.8,
-      "futureGrowth": 71.51,
+      "futureGrowth": 71.4,
       "fundamentalQuality": 71.18,
       "capexScore": 90.0,
       "researchReasons": {
@@ -8063,7 +8063,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 69.12,
-      "futureGrowth": 39.63,
+      "futureGrowth": 39.75,
       "fundamentalQuality": 80.94,
       "capexScore": 80.0,
       "researchReasons": {
@@ -8124,7 +8124,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 59.21,
-      "futureGrowth": 86.88,
+      "futureGrowth": 86.8,
       "fundamentalQuality": 85.53,
       "capexScore": 90.0,
       "researchReasons": {
@@ -8531,7 +8531,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 75.13,
-      "futureGrowth": 47.56,
+      "futureGrowth": 47.51,
       "fundamentalQuality": 60.2,
       "capexScore": 100,
       "researchReasons": {
@@ -8592,7 +8592,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 49.8,
-      "futureGrowth": 50.22,
+      "futureGrowth": 50.13,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -9101,7 +9101,7 @@
       "tailwindScore": 75.0,
       "macroSupport": null,
       "valueMigration": 54.72,
-      "futureGrowth": 94.03,
+      "futureGrowth": 93.98,
       "fundamentalQuality": 70.5,
       "capexScore": 50.0,
       "researchReasons": {
@@ -9284,7 +9284,7 @@
       "tailwindScore": 80.0,
       "macroSupport": 70,
       "valueMigration": 68.92,
-      "futureGrowth": 72.31,
+      "futureGrowth": 72.17,
       "fundamentalQuality": 70.13,
       "capexScore": 90.0,
       "researchReasons": {
@@ -9549,7 +9549,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 74.01,
-      "futureGrowth": 38.34,
+      "futureGrowth": 38.32,
       "fundamentalQuality": 58.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -9671,7 +9671,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 46.91,
-      "futureGrowth": 86.07,
+      "futureGrowth": 86.37,
       "fundamentalQuality": 66.53,
       "capexScore": 70.0,
       "researchReasons": {
@@ -10302,7 +10302,7 @@
       "tailwindScore": 72.0,
       "macroSupport": 65,
       "valueMigration": 61.33,
-      "futureGrowth": 68.77,
+      "futureGrowth": 68.78,
       "fundamentalQuality": 92.25,
       "capexScore": 50.0,
       "researchReasons": {
@@ -10628,7 +10628,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 79.35,
-      "futureGrowth": 87.49,
+      "futureGrowth": 87.28,
       "fundamentalQuality": 68.22,
       "capexScore": 50.0,
       "researchReasons": {
@@ -11483,7 +11483,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 57.86,
-      "futureGrowth": 35.78,
+      "futureGrowth": 35.62,
       "fundamentalQuality": 98.64,
       "capexScore": 70.0,
       "researchReasons": {
@@ -11544,7 +11544,7 @@
       "tailwindScore": null,
       "macroSupport": null,
       "valueMigration": 55.45,
-      "futureGrowth": 30.71,
+      "futureGrowth": 30.77,
       "fundamentalQuality": 61.23,
       "capexScore": 80.0,
       "researchReasons": {
@@ -11666,7 +11666,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 69.66,
-      "futureGrowth": 70.18,
+      "futureGrowth": 70.24,
       "fundamentalQuality": 70.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -11768,7 +11768,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 65.11,
-      "futureGrowth": 88.16,
+      "futureGrowth": 88.11,
       "fundamentalQuality": 69.8,
       "capexScore": 90.0,
       "researchReasons": {
@@ -11829,7 +11829,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 52.03,
-      "futureGrowth": 86.84,
+      "futureGrowth": 86.4,
       "fundamentalQuality": 79.11,
       "capexScore": 70.0,
       "researchReasons": {
@@ -11890,7 +11890,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 49.61,
-      "futureGrowth": 47.34,
+      "futureGrowth": 47.32,
       "fundamentalQuality": 73.42,
       "capexScore": 90.0,
       "researchReasons": {
@@ -11992,7 +11992,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 54.3,
-      "futureGrowth": 75.36,
+      "futureGrowth": 75.21,
       "fundamentalQuality": 72.92,
       "capexScore": 60.0,
       "researchReasons": {
@@ -12053,7 +12053,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 71.43,
-      "futureGrowth": 64.44,
+      "futureGrowth": 64.45,
       "fundamentalQuality": 68.86,
       "capexScore": 80.0,
       "researchReasons": {
@@ -12114,7 +12114,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 74.49,
-      "futureGrowth": 86.05,
+      "futureGrowth": 85.84,
       "fundamentalQuality": 60.29,
       "capexScore": 90.0,
       "researchReasons": {
@@ -12562,7 +12562,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 50.97,
-      "futureGrowth": 66.79,
+      "futureGrowth": 66.67,
       "fundamentalQuality": 68.64,
       "capexScore": 60.0,
       "researchReasons": {
@@ -12623,7 +12623,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 73.63,
-      "futureGrowth": 73.14,
+      "futureGrowth": 73.01,
       "fundamentalQuality": 71.36,
       "capexScore": 50.0,
       "researchReasons": {
@@ -12827,7 +12827,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 59.87,
-      "futureGrowth": 44.15,
+      "futureGrowth": 44.25,
       "fundamentalQuality": 72.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -14354,7 +14354,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 60.32,
-      "futureGrowth": 42.86,
+      "futureGrowth": 42.97,
       "fundamentalQuality": 47.48,
       "capexScore": 70.0,
       "researchReasons": {
@@ -14415,7 +14415,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 65.06,
-      "futureGrowth": 63.49,
+      "futureGrowth": 63.46,
       "fundamentalQuality": 62.33,
       "capexScore": 90.0,
       "researchReasons": {
@@ -14517,7 +14517,7 @@
       "tailwindScore": 72.0,
       "macroSupport": null,
       "valueMigration": 56.07,
-      "futureGrowth": 85.35,
+      "futureGrowth": 85.21,
       "fundamentalQuality": 85.49,
       "capexScore": 50.0,
       "researchReasons": {
@@ -14639,7 +14639,7 @@
       "tailwindScore": 80.0,
       "macroSupport": 70,
       "valueMigration": 50.75,
-      "futureGrowth": 84.89,
+      "futureGrowth": 84.9,
       "fundamentalQuality": 69.08,
       "capexScore": 90.0,
       "researchReasons": {
@@ -15474,7 +15474,7 @@
       "tailwindScore": null,
       "macroSupport": null,
       "valueMigration": 75.9,
-      "futureGrowth": 69.59,
+      "futureGrowth": 69.55,
       "fundamentalQuality": 60.62,
       "capexScore": 90.0,
       "researchReasons": {
@@ -15901,7 +15901,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 60.34,
-      "futureGrowth": 87.16,
+      "futureGrowth": 86.98,
       "fundamentalQuality": 64.01,
       "capexScore": 90.0,
       "researchReasons": {
@@ -16308,7 +16308,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 73.03,
-      "futureGrowth": 39.91,
+      "futureGrowth": 40.0,
       "fundamentalQuality": 68.2,
       "capexScore": 100,
       "researchReasons": {
@@ -16369,7 +16369,7 @@
       "tailwindScore": 80.0,
       "macroSupport": null,
       "valueMigration": 58.86,
-      "futureGrowth": 31.45,
+      "futureGrowth": 31.32,
       "fundamentalQuality": 77.57,
       "capexScore": 70.0,
       "researchReasons": {
@@ -16430,7 +16430,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 67.88,
-      "futureGrowth": 84.69,
+      "futureGrowth": 84.6,
       "fundamentalQuality": 73.78,
       "capexScore": 80.0,
       "researchReasons": {
@@ -16837,7 +16837,7 @@
       "tailwindScore": 90.0,
       "macroSupport": 85,
       "valueMigration": 62.96,
-      "futureGrowth": 82.74,
+      "futureGrowth": 82.14,
       "fundamentalQuality": 78.19,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17122,7 +17122,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 59.28,
-      "futureGrowth": 85.8,
+      "futureGrowth": 85.66,
       "fundamentalQuality": 81.02,
       "capexScore": 70.0,
       "researchReasons": {
@@ -17183,7 +17183,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 73.65,
-      "futureGrowth": 89.89,
+      "futureGrowth": 89.92,
       "fundamentalQuality": 98.08,
       "capexScore": 80.0,
       "researchReasons": {
@@ -17305,7 +17305,7 @@
       "tailwindScore": 75.0,
       "macroSupport": null,
       "valueMigration": 62.46,
-      "futureGrowth": 47.94,
+      "futureGrowth": 48.01,
       "fundamentalQuality": 80.64,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17407,7 +17407,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 62.78,
-      "futureGrowth": 78.38,
+      "futureGrowth": 78.44,
       "fundamentalQuality": 75.65,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17814,7 +17814,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 49.52,
-      "futureGrowth": 83.89,
+      "futureGrowth": 84.18,
       "fundamentalQuality": 38.81,
       "capexScore": 90.0,
       "researchReasons": {
@@ -18119,7 +18119,7 @@
       "tailwindScore": 92.0,
       "macroSupport": null,
       "valueMigration": 48.56,
-      "futureGrowth": 92.24,
+      "futureGrowth": 92.06,
       "fundamentalQuality": 69.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -18343,7 +18343,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 62.51,
-      "futureGrowth": 32.94,
+      "futureGrowth": 32.85,
       "fundamentalQuality": 71.72,
       "capexScore": 70.0,
       "researchReasons": {
@@ -18445,7 +18445,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 70.25,
-      "futureGrowth": 66.33,
+      "futureGrowth": 66.09,
       "fundamentalQuality": 63.7,
       "capexScore": 90.0,
       "researchReasons": {
