@@ -2506,7 +2506,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 41.7,
-      "futureGrowth": 41.18,
+      "futureGrowth": 40.75,
       "fundamentalQuality": 89.63,
       "capexScore": 70.0,
       "researchReasons": {
@@ -4603,7 +4603,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 57.8,
-      "futureGrowth": 47.34,
+      "futureGrowth": 47.32,
       "fundamentalQuality": 90.73,
       "capexScore": 80.0,
       "researchReasons": {
@@ -5356,7 +5356,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 57.3,
-      "futureGrowth": 89.3,
+      "futureGrowth": 89.41,
       "fundamentalQuality": 87.61,
       "capexScore": 90.0,
       "researchReasons": {
@@ -7697,7 +7697,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 54.0,
-      "futureGrowth": 71.59,
+      "futureGrowth": 71.51,
       "fundamentalQuality": 71.18,
       "capexScore": 90.0,
       "researchReasons": {
@@ -7941,7 +7941,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 60.63,
-      "futureGrowth": 78.36,
+      "futureGrowth": 78.48,
       "fundamentalQuality": 96.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -8531,7 +8531,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 80.5,
-      "futureGrowth": 47.65,
+      "futureGrowth": 47.56,
       "fundamentalQuality": 60.2,
       "capexScore": 100,
       "researchReasons": {
@@ -8592,7 +8592,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 57.69,
-      "futureGrowth": 50.16,
+      "futureGrowth": 50.22,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -9671,7 +9671,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 43.13,
-      "futureGrowth": 86.09,
+      "futureGrowth": 86.07,
       "fundamentalQuality": 66.53,
       "capexScore": 70.0,
       "researchReasons": {
@@ -12053,7 +12053,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 63.0,
-      "futureGrowth": 64.45,
+      "futureGrowth": 64.44,
       "fundamentalQuality": 68.86,
       "capexScore": 80.0,
       "researchReasons": {
@@ -17407,7 +17407,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 62.39,
-      "futureGrowth": 78.39,
+      "futureGrowth": 78.38,
       "fundamentalQuality": 75.65,
       "capexScore": 90.0,
       "researchReasons": {
@@ -18445,7 +18445,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 72.39,
-      "futureGrowth": 65.95,
+      "futureGrowth": 66.33,
       "fundamentalQuality": 63.7,
       "capexScore": 90.0,
       "researchReasons": {
@@ -19911,7 +19911,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 80.55,
-      "futureGrowth": 71.08,
+      "futureGrowth": 71.11,
       "fundamentalQuality": 34.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -24349,7 +24349,7 @@
       "valueMigration": 89.76,
       "futureGrowth": 44.6,
       "fundamentalQuality": 46.1,
-      "capexScore": 50.0,
+      "capexScore": 90.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy unavailable: no mapped structural-tailwind rule for this sector/industry.",
@@ -24382,10 +24382,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-13",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/BCCL_27052026104235_Bhojudih_washery_Announcement_Signed.pdf",
+          "sourceDate": "2026-05-27",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -79041,7 +79041,7 @@
       "valueMigration": 87.46,
       "futureGrowth": 33.98,
       "fundamentalQuality": 61.86,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: domestic manufacturing and the investment cycle support capital-goods demand.",
@@ -79074,10 +79074,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.61× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-20",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/JINDALSAW_27042026180153_Buhur-Capacity_addition.pdf",
+          "sourceDate": "2026-04-27",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -79725,10 +79725,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
-          "source": "https://finance.yahoo.com/quote/JKPAPER.NS/",
-          "sourceDate": "",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/JKPAPER_30062026173236_Disclosure_Under_R30_BCTMP.pdf",
+          "sourceDate": "2026-06-30",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -104318,7 +104318,7 @@
       "valueMigration": 70.84,
       "futureGrowth": 100,
       "fundamentalQuality": 44.22,
-      "capexScore": 50.0,
+      "capexScore": 90.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -104351,10 +104351,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/MUKKA_09102026155012_Intimation_of_commercial_production.pdf",
+          "sourceDate": "2026-10-09",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -130163,10 +130163,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.86× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/REFEX2002_25092026142104_RIL_Commencment_RMC.pdf",
+          "sourceDate": "2026-09-25",
+          "mode": "VERIFIED"
         }
       }
     },
