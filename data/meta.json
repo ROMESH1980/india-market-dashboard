@@ -48,12 +48,12 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-10-14",
-      "historyRows": 1235,
-      "daily": 22,
-      "weekly": 4,
+      "date": "2026-10-13",
+      "historyRows": 1234,
+      "daily": 15,
+      "weekly": 12,
       "monthly": 5,
-      "overall": 8,
+      "overall": 9,
       "dailySignal": {
         "label": "G-Sec / Gold / Cash",
         "signal": "defensive",
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 22622.7,
-          "fastMA": 22858.11,
-          "slowMA": 23611.13,
-          "momentumPct": 0.09,
-          "rsi14": 36.18,
-          "distanceFromHighPct": -3.51
+          "latest": 22721.95,
+          "fastMA": 22882.91,
+          "slowMA": 23654.16,
+          "momentumPct": -0.24,
+          "rsi14": 39.88,
+          "distanceFromHighPct": -3.09
         },
         "weekly": {
-          "latest": 22622.7,
-          "fastMA": 23414.14,
-          "slowMA": 23721.76,
-          "momentumPct": -3.1,
-          "rsi14": 29.41,
-          "distanceFromHighPct": -7.93
+          "latest": 22721.95,
+          "fastMA": 23424.07,
+          "slowMA": 23725.07,
+          "momentumPct": -2.67,
+          "rsi14": 31.18,
+          "distanceFromHighPct": -7.52
         },
         "monthly": {
-          "latest": 22622.7,
-          "fastMA": 23520.11,
-          "slowMA": 23794.89,
-          "momentumPct": -7.22,
-          "rsi14": 41.3,
-          "distanceFromHighPct": -13.66
+          "latest": 22721.95,
+          "fastMA": 23536.65,
+          "slowMA": 23804.82,
+          "momentumPct": -6.81,
+          "rsi14": 41.85,
+          "distanceFromHighPct": -13.28
         }
       },
       "error": null
@@ -145,8 +145,8 @@
       "historyRows": 1258,
       "daily": 12,
       "weekly": 5,
-      "monthly": 18,
-      "overall": 13,
+      "monthly": 25,
+      "overall": 16,
       "dailySignal": {
         "label": "Defensive Weak",
         "signal": "defensive",
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4102.6,
-          "fastMA": 4237.51,
-          "slowMA": 4379.38,
-          "momentumPct": -0.92,
-          "rsi14": 31.26,
-          "distanceFromHighPct": -7.28
+          "latest": 4112.3,
+          "fastMA": 4238.0,
+          "slowMA": 4379.57,
+          "momentumPct": -0.69,
+          "rsi14": 31.85,
+          "distanceFromHighPct": -7.06
         },
         "weekly": {
-          "latest": 4102.6,
-          "fastMA": 4376.06,
-          "slowMA": 4405.87,
-          "momentumPct": -7.28,
-          "rsi14": 49.62,
-          "distanceFromHighPct": -12.35
+          "latest": 4112.3,
+          "fastMA": 4377.03,
+          "slowMA": 4406.19,
+          "momentumPct": -7.06,
+          "rsi14": 49.95,
+          "distanceFromHighPct": -12.14
         },
         "monthly": {
-          "latest": 4102.6,
-          "fastMA": 4251.55,
-          "slowMA": 4477.95,
-          "momentumPct": -0.11,
-          "rsi14": 57.79,
-          "distanceFromHighPct": -21.82
+          "latest": 4112.3,
+          "fastMA": 4253.17,
+          "slowMA": 4478.92,
+          "momentumPct": 0.13,
+          "rsi14": 57.94,
+          "distanceFromHighPct": -21.64
         }
       },
       "error": null
@@ -308,12 +308,12 @@
       "error": null
     }
   },
-  "dailyRegimeScore": 22.0,
-  "weeklyRegimeScore": 4.0,
+  "dailyRegimeScore": 15.0,
+  "weeklyRegimeScore": 12.0,
   "monthlyRegimeScore": 5.0,
   "marketRegime": {
-    "daily": 22.0,
-    "weekly": 4.0,
+    "daily": 15.0,
+    "weekly": 12.0,
     "monthly": 5.0
   },
   "marketRegimeDate": "2026-10-14",
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-14T16:09:31.368554+00:00"
+  "marketRegimeGeneratedAt": "2026-10-14T18:33:05.206957+00:00"
 }
