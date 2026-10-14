@@ -239,18 +239,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 10.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -260,6 +248,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 10.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "SPLIT"
       }
     ],
     "BHARATRAS": [
@@ -1193,18 +1193,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1214,6 +1202,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1301,18 +1301,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -1322,6 +1310,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "BONUS"
       }
     ],
     "SKMEGGPROD": [
@@ -1621,10 +1621,10 @@
   },
   "meta": {
     "acceptedActions": 117,
-    "dashboardSymbols": 3186,
+    "dashboardSymbols": 3185,
     "downloadedRecords": 3033,
     "fromDate": "2025-07-21",
-    "generatedAt": "2026-10-13T20:10:13.446172+00:00",
+    "generatedAt": "2026-10-14T15:31:11.602364+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

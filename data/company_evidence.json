@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-13",
+    "updated": "2026-10-14",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -1644,6 +1644,81 @@
         "triggerType": "Commissioning / Commercial Operations",
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-10-13"
+      }
+    },
+    "REFEX": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/REFEX2002_25092026142104_RIL_Commencment_RMC.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-25",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-14"
+      }
+    },
+    "JKPAPER": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/JKPAPER_30062026173236_Disclosure_Under_R30_BCTMP.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-14"
+      }
+    },
+    "BHARATCOAL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/BCCL_27052026104235_Bhojudih_washery_Announcement_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-14"
+      }
+    },
+    "MUKKA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/MUKKA_09102026155012_Intimation_of_commercial_production.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-09",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-14"
+      }
+    },
+    "JINDALSAW": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/JINDALSAW_27042026180153_Buhur-Capacity_addition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-14"
       }
     }
   }

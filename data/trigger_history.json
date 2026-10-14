@@ -1150,8 +1150,58 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "JINDALSAW": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JINDALSAW_27042026180153_Buhur-Capacity_addition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "MUKKA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-09",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MUKKA_09102026155012_Intimation_of_commercial_production.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "JKPAPER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JKPAPER_30062026173236_Disclosure_Under_R30_BCTMP.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "REFEX": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-25",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/REFEX2002_25092026142104_RIL_Commencment_RMC.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "BHARATCOAL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BCCL_27052026104235_Bhojudih_washery_Announcement_Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-13T20:23:50+00:00",
+  "updatedAt": "2026-10-14T15:45:16+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
