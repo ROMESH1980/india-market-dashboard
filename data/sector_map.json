@@ -16088,5 +16088,10 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "TIKONA": {
+    "sector": "Basic Materials",
+    "industry": "Steel",
+    "source": "Yahoo Finance"
   }
 }
