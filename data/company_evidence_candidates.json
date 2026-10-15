@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-14",
+    "updated": "2026-10-15",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,215 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "announcementsSeen": 14296,
+      "rawCapexMatches": 13,
+      "negativeCapexRejected": 400,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 9,
+      "capexCandidates": 9,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 9,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "SHREERAMA": {
+      "name": "Shree Rama Multi-Tech Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SHREERAMA_21092026152034_Reg30DisclCOPTubingMachine.pdf",
+          "sourceDate": "21-Sep-2026 15:26:03",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "NESTLEIND": {
+      "name": "Nestle India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NESTLEIND1_01042026184954_STXIntimation01042026signed.pdf",
+          "sourceDate": "01-Apr-2026 18:50:29",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "ENRIN": {
+      "name": "Siemens Energy India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ENRIN_13022026143539_BMOutcome13022026.pdf",
+          "sourceDate": "13-Feb-2026 14:35:50",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "DEEDEV": {
+      "name": "DEE Development Engineers Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/DDEL_19032026095607_BSENSESIGNED.pdf",
+          "sourceDate": "19-Mar-2026 10:02:52",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "EMMVEE": {
+      "name": "Emmvee Photovoltaic Power Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EMMVEE_20122025121544_EEPL_Commissioning_of_Unit_VI.pdf",
+          "sourceDate": "20-Dec-2025 12:18:32",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "GVT&D": {
+      "name": "GE Vernova T&D India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/GETDIL1_18052026201354_GEVTD_Intimation_of_Capacity_Addition-_May_18_2026_revised.pdf",
+          "sourceDate": "18-May-2026 20:14:05",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "CARBORUNIV": {
+      "name": "Carborundum Universal Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/CARBORUNIV_16032026172419_intimation_sd.pdf",
+          "sourceDate": "16-Mar-2026 17:29:25",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "CGPOWER": {
+      "name": "CG Power and Industrial Solutions Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/CGPOWER_04092026151721_Disclosure_on_additonal_Capacity_expansion_-_Transformers.pdf",
+          "sourceDate": "04-Sep-2026 15:18:43",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    },
+    "GODAVARIB": {
+      "name": "Godavari Biorefineries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/GODAVARIBIO_29062026162242_Intemetion_to_SE-_Capacity_Addition.pdf",
+          "sourceDate": "29-Jun-2026 16:22:58",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-15"
+        }
+      ]
+    }
+  }
 }

@@ -1200,8 +1200,98 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "SHREERAMA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SHREERAMA_21092026152034_Reg30DisclCOPTubingMachine.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GVT&D": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-18",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GETDIL1_18052026201354_GEVTD_Intimation_of_Capacity_Addition-_May_18_2026_revised.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CARBORUNIV": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-16",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CARBORUNIV_16032026172419_intimation_sd.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CGPOWER": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-04",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CGPOWER_04092026151721_Disclosure_on_additonal_Capacity_expansion_-_Transformers.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ENRIN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ENRIN_13022026143539_BMOutcome13022026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "DEEDEV": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-19",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DDEL_19032026095607_BSENSESIGNED.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GODAVARIB": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GODAVARIBIO_29062026162242_Intemetion_to_SE-_Capacity_Addition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "EMMVEE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-20",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EMMVEE_20122025121544_EEPL_Commissioning_of_Unit_VI.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NESTLEIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-01",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NESTLEIND1_01042026184954_STXIntimation01042026signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-14T18:40:13+00:00",
+  "updatedAt": "2026-10-15T15:37:33+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-14",
+    "updated": "2026-10-15",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -1719,6 +1719,141 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-14"
+      }
+    },
+    "SHREERAMA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SHREERAMA_21092026152034_Reg30DisclCOPTubingMachine.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "NESTLEIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/NESTLEIND1_01042026184954_STXIntimation01042026signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-01",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "ENRIN": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ENRIN_13022026143539_BMOutcome13022026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-13",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "DEEDEV": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/DDEL_19032026095607_BSENSESIGNED.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-19",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "EMMVEE": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/EMMVEE_20122025121544_EEPL_Commissioning_of_Unit_VI.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-20",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "GVT&D": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GETDIL1_18052026201354_GEVTD_Intimation_of_Capacity_Addition-_May_18_2026_revised.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-18",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "CARBORUNIV": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/CARBORUNIV_16032026172419_intimation_sd.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-16",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "CGPOWER": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/CGPOWER_04092026151721_Disclosure_on_additonal_Capacity_expansion_-_Transformers.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-04",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
+      }
+    },
+    "GODAVARIB": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GODAVARIBIO_29062026162242_Intemetion_to_SE-_Capacity_Addition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-15"
       }
     }
   }
