@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -192,6 +192,20 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AXITA",
         "type": "BONUS"
+      }
+    ],
+    "AZADIND": [
+      {
+        "exDate": "2026-10-23",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AZADIND",
+        "type": "SPLIT"
       }
     ],
     "BANSALWIRE": [
@@ -403,18 +417,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 3.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 2:1",
-        "ratioA": 2.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -424,6 +426,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 3.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 2:1",
+        "ratioA": 2.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "BONUS"
       }
     ],
     "DEVIT": [
@@ -471,18 +485,6 @@
     "FCL": [
       {
         "exDate": "2025-10-31",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "FCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-10-31",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -492,6 +494,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "FCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-10-31",
+        "factor": 5.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 4:1",
+        "ratioA": 4.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "FCL",
+        "type": "BONUS"
       }
     ],
     "FISCHER": [
@@ -1207,18 +1221,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1228,6 +1230,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1634,11 +1648,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 118,
+    "acceptedActions": 119,
     "dashboardSymbols": 3185,
-    "downloadedRecords": 3030,
-    "fromDate": "2025-07-22",
-    "generatedAt": "2026-10-15T18:08:17.886319+00:00",
+    "downloadedRecords": 3025,
+    "fromDate": "2025-07-23",
+    "generatedAt": "2026-10-16T15:05:06.843811+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1646,8 +1660,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 108,
-    "toDate": "2026-10-22",
+    "symbolsWithAdjustments": 109,
+    "toDate": "2026-10-23",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
@@ -1660,13 +1674,13 @@
   "skipped": [
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
     {
       "exDate": "2026-08-21",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
+      "purpose": "Scheme Of Arrangement - Bonus Ncrps 3:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "SIYSIL"
     },
