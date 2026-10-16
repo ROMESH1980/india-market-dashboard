@@ -17,16 +17,127 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "announcementsSeen": 19548,
+      "rawCapexMatches": 10,
+      "negativeCapexRejected": 650,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 5,
+      "capexCandidates": 5,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 5,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "DALBHARAT": {
+      "name": "Dalmia Bharat Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/DALBHARAT_29052026185510_DBLupdate29may.pdf",
+          "sourceDate": "29-May-2026 19:00:43",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-16"
+        }
+      ]
+    },
+    "ROSSARI": {
+      "name": "Rossari Biotech Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ROSSARI_31032026184105_20260331_Intimation_on_remaining_capacity_addition_at_Unitop.pdf",
+          "sourceDate": "31-Mar-2026 18:42:11",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-16"
+        }
+      ]
+    },
+    "NRBBEARING": {
+      "name": "NRB Bearing Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NRBBEARING1_07052026221230_NRB_Outcome_of_the_Board_Meeting_May_07_2026_for_upload.pdf",
+          "sourceDate": "07-May-2026 22:12:51",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-16"
+        }
+      ]
+    },
+    "SHYAMMETL": {
+      "name": "Shyam Metalics and Energy Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SHYAMMETL_30122025112432_DisclosureunderRegulation_30.pdf",
+          "sourceDate": "30-Dec-2025 11:24:40",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-16"
+        }
+      ]
+    },
+    "RNBDENIMS": {
+      "name": "R&B Denims Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/RBDENIMS_30092026161719_Regulation_30__polyster_yarn_by_ricon_indus.pdf",
+          "sourceDate": "30-Sep-2026 16:17:42",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-16"
+        }
+      ]
+    }
+  }
 }

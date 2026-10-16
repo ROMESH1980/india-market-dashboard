@@ -1290,8 +1290,58 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "SHYAMMETL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SHYAMMETL_30122025112432_DisclosureunderRegulation_30.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NRBBEARING": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-07",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NRBBEARING1_07052026221230_NRB_Outcome_of_the_Board_Meeting_May_07_2026_for_upload.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ROSSARI": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ROSSARI_31032026184105_20260331_Intimation_on_remaining_capacity_addition_at_Unitop.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RNBDENIMS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RBDENIMS_30092026161719_Regulation_30__polyster_yarn_by_ricon_indus.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "DALBHARAT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DALBHARAT_29052026185510_DBLupdate29may.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-16T15:13:34+00:00",
+  "updatedAt": "2026-10-16T15:59:59+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

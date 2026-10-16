@@ -1855,6 +1855,81 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-15"
       }
+    },
+    "DALBHARAT": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/DALBHARAT_29052026185510_DBLupdate29may.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-16"
+      }
+    },
+    "ROSSARI": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ROSSARI_31032026184105_20260331_Intimation_on_remaining_capacity_addition_at_Unitop.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-31",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-16"
+      }
+    },
+    "NRBBEARING": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/NRBBEARING1_07052026221230_NRB_Outcome_of_the_Board_Meeting_May_07_2026_for_upload.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-07",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-16"
+      }
+    },
+    "SHYAMMETL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SHYAMMETL_30122025112432_DisclosureunderRegulation_30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-12-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-16"
+      }
+    },
+    "RNBDENIMS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/RBDENIMS_30092026161719_Regulation_30__polyster_yarn_by_ricon_indus.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-16"
+      }
     }
   }
 }
