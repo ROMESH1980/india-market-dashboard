@@ -17,16 +17,259 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "announcementsSeen": 13438,
+      "rawCapexMatches": 23,
+      "negativeCapexRejected": 441,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 11,
+      "capexCandidates": 11,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 11,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "PLATIND": {
+      "name": "Platinum Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/PLATINUM_21052026153545_Reg_30-_Commence_Commercial_Production.pdf",
+          "sourceDate": "21-May-2026 15:35:57",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "HSCL": {
+      "name": "Himadri Speciality Chemical Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/HSCL_23042026155746_Commencementoffirstanodematerialproduction.pdf",
+          "sourceDate": "23-Apr-2026 15:57:58",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "AONESTEELS": {
+      "name": "A-One Steels India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/AONESTEELS_12102026182800_SE_Intimation_Signed.pdf",
+          "sourceDate": "12-Oct-2026 18:28:30",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "PPL": {
+      "name": "Prakash Pipes Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/PPL_14082026143108_PPL_Results_30062026.pdf",
+          "sourceDate": "14-Aug-2026 14:32:02",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "SOUTHBANK": {
+      "name": "The South Indian Bank Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SOUTHBANK_24092026151819_SD_STT_BRANCHOPENING_24SEPT2026.pdf",
+          "sourceDate": "24-Sep-2026 15:19:34",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "TIRUMALCHM": {
+      "name": "Thirumalai Chemicals Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/TIRUMALCHM1_02012026214425_IntimationunderReg30TCLLLC02012026.pdf",
+          "sourceDate": "02-Jan-2026 21:47:17",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "SJVN": {
+      "name": "SJVN Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SJVN_11092026174237_1.pdf",
+          "sourceDate": "11-Sep-2026 17:43:01",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "APCOTEXIND": {
+      "name": "Apcotex Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/APCOTEXIND_06112025163738_Intimation_for_Capex_-_Regulation_30_-_signed.pdf",
+          "sourceDate": "06-Nov-2025 16:38:13",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "GAEL": {
+      "name": "Gujarat Ambuja Exports Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/GAEL_09092026154306_850_TPD_Hubli.pdf",
+          "sourceDate": "09-Sep-2026 15:43:14",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "RMDRIP": {
+      "name": "R M Drip and Sprinklers Systems Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/RMDRIP_12012026211259_02Reg_30_manufacturing_unit.pdf",
+          "sourceDate": "12-Jan-2026 21:13:26",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    },
+    "ELGIEQUIP": {
+      "name": "Elgi Equipments Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ELGIEQUIP_24072026150535_Continuous_Disclosure_in_Capacity_Addition.pdf",
+          "sourceDate": "24-Jul-2026 15:05:50",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-19"
+        }
+      ]
+    }
+  }
 }

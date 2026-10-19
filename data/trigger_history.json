@@ -1340,8 +1340,118 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "SOUTHBANK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SOUTHBANK_24092026151819_SD_STT_BRANCHOPENING_24SEPT2026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "APCOTEXIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/APCOTEXIND_06112025163738_Intimation_for_Capex_-_Regulation_30_-_signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "HSCL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/HSCL_23042026155746_Commencementoffirstanodematerialproduction.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GAEL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-09",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GAEL_09092026154306_850_TPD_Hubli.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PLATIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PLATINUM_21052026153545_Reg_30-_Commence_Commercial_Production.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ELGIEQUIP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ELGIEQUIP_24072026150535_Continuous_Disclosure_in_Capacity_Addition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PPL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-14",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PPL_14082026143108_PPL_Results_30062026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RMDRIP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RMDRIP_12012026211259_02Reg_30_manufacturing_unit.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "TIRUMALCHM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-02",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TIRUMALCHM1_02012026214425_IntimationunderReg30TCLLLC02012026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "AONESTEELS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/AONESTEELS_12102026182800_SE_Intimation_Signed.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SJVN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-11",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SJVN_11092026174237_1.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-19T17:23:02+00:00",
+  "updatedAt": "2026-10-19T18:02:24+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

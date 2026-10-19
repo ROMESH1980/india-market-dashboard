@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "SPLIT"
       }
     ],
     "AIIL": [
@@ -760,20 +760,6 @@
         "type": "BONUS"
       }
     ],
-    "KELLTONTEC": [
-      {
-        "exDate": "2025-07-25",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 5.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "KELLTONTEC",
-        "type": "SPLIT"
-      }
-    ],
     "KILITCH": [
       {
         "exDate": "2026-03-24",
@@ -1221,18 +1207,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -1242,6 +1216,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "SPLIT"
       }
     ],
     "ROLEXRINGS": [
@@ -1329,18 +1315,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -1350,6 +1324,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "BONUS"
       }
     ],
     "SKMEGGPROD": [
@@ -1648,11 +1634,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 119,
-    "dashboardSymbols": 3185,
-    "downloadedRecords": 3025,
-    "fromDate": "2025-07-23",
-    "generatedAt": "2026-10-16T17:52:13.722586+00:00",
+    "acceptedActions": 118,
+    "dashboardSymbols": 3200,
+    "downloadedRecords": 2950,
+    "fromDate": "2025-07-26",
+    "generatedAt": "2026-10-19T17:50:07.894834+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1660,8 +1646,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 109,
-    "toDate": "2026-10-23",
+    "symbolsWithAdjustments": 108,
+    "toDate": "2026-10-26",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",

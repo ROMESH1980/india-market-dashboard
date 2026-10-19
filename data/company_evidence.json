@@ -1930,6 +1930,171 @@
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-10-16"
       }
+    },
+    "PLATIND": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PLATINUM_21052026153545_Reg_30-_Commence_Commercial_Production.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "HSCL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/HSCL_23042026155746_Commencementoffirstanodematerialproduction.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "AONESTEELS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/AONESTEELS_12102026182800_SE_Intimation_Signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "PPL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/PPL_14082026143108_PPL_Results_30062026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-08-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "SOUTHBANK": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SOUTHBANK_24092026151819_SD_STT_BRANCHOPENING_24SEPT2026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "TIRUMALCHM": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/TIRUMALCHM1_02012026214425_IntimationunderReg30TCLLLC02012026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-02",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "SJVN": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/SJVN_11092026174237_1.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "APCOTEXIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/APCOTEXIND_06112025163738_Intimation_for_Capex_-_Regulation_30_-_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2025-11-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "GAEL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GAEL_09092026154306_850_TPD_Hubli.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-09",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "RMDRIP": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/RMDRIP_12012026211259_02Reg_30_manufacturing_unit.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-19"
+      }
+    },
+    "ELGIEQUIP": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ELGIEQUIP_24072026150535_Continuous_Disclosure_in_Capacity_Addition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-19"
+      }
     }
   }
 }
