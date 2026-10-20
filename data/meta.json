@@ -5,7 +5,7 @@
   "eodPriceCount": 3668,
   "matchedPriceCount": 3050,
   "marketDate": "2026-10-19",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-10-20",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-10-19",
@@ -48,12 +48,12 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-10-16",
-      "historyRows": 1235,
+      "date": "2026-10-19",
+      "historyRows": 1236,
       "daily": 65,
       "weekly": 15,
-      "monthly": 9,
-      "overall": 22,
+      "monthly": 5,
+      "overall": 20,
       "dailySignal": {
         "label": "Stocks Overweight",
         "signal": "overweight",
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 23146.15,
-          "fastMA": 22840.88,
-          "slowMA": 23549.21,
-          "momentumPct": 2.78,
-          "rsi14": 50.09,
-          "distanceFromHighPct": -1.28
+          "latest": 22888.95,
+          "fastMA": 22818.01,
+          "slowMA": 23514.27,
+          "momentumPct": 2.35,
+          "rsi14": 51.85,
+          "distanceFromHighPct": -2.38
         },
         "weekly": {
-          "latest": 23146.15,
-          "fastMA": 23466.49,
-          "slowMA": 23739.21,
-          "momentumPct": -0.86,
-          "rsi14": 37.86,
-          "distanceFromHighPct": -5.8
+          "latest": 22888.95,
+          "fastMA": 23318.78,
+          "slowMA": 23741.52,
+          "momentumPct": -1.09,
+          "rsi14": 33.94,
+          "distanceFromHighPct": -6.84
         },
         "monthly": {
-          "latest": 23146.15,
-          "fastMA": 23607.35,
-          "slowMA": 23847.24,
-          "momentumPct": -5.07,
-          "rsi14": 44.12,
-          "distanceFromHighPct": -11.67
+          "latest": 22888.95,
+          "fastMA": 23564.48,
+          "slowMA": 23821.52,
+          "momentumPct": -6.13,
+          "rsi14": 42.77,
+          "distanceFromHighPct": -12.65
         }
       },
       "error": null
@@ -141,7 +141,7 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "historyRows": 1258,
       "daily": 20,
       "weekly": 14,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4161.3,
-          "fastMA": 4202.98,
-          "slowMA": 4369.65,
-          "momentumPct": -0.7,
-          "rsi14": 47.82,
-          "distanceFromHighPct": -4.92
+          "latest": 4157.0,
+          "fastMA": 4191.95,
+          "slowMA": 4364.37,
+          "momentumPct": -0.49,
+          "rsi14": 46.46,
+          "distanceFromHighPct": -3.8
         },
         "weekly": {
-          "latest": 4161.3,
-          "fastMA": 4356.31,
-          "slowMA": 4397.44,
-          "momentumPct": -3.7,
-          "rsi14": 55.39,
-          "distanceFromHighPct": -11.09
+          "latest": 4157.0,
+          "fastMA": 4355.88,
+          "slowMA": 4397.3,
+          "momentumPct": -3.8,
+          "rsi14": 55.21,
+          "distanceFromHighPct": -11.19
         },
         "monthly": {
-          "latest": 4161.3,
-          "fastMA": 4261.33,
-          "slowMA": 4483.82,
-          "momentumPct": 1.32,
-          "rsi14": 58.71,
-          "distanceFromHighPct": -20.71
+          "latest": 4157.0,
+          "fastMA": 4260.62,
+          "slowMA": 4483.39,
+          "momentumPct": 1.22,
+          "rsi14": 58.64,
+          "distanceFromHighPct": -20.79
         }
       },
       "error": null
@@ -310,11 +310,11 @@
   },
   "dailyRegimeScore": 65.0,
   "weeklyRegimeScore": 15.0,
-  "monthlyRegimeScore": 9.0,
+  "monthlyRegimeScore": 5.0,
   "marketRegime": {
     "daily": 65.0,
     "weekly": 15.0,
-    "monthly": 9.0
+    "monthly": 5.0
   },
   "marketRegimeDate": "2026-10-19",
   "marketRegimeMethod": {
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-19T19:51:37.372117+00:00"
+  "marketRegimeGeneratedAt": "2026-10-20T15:31:12.983159+00:00"
 }
