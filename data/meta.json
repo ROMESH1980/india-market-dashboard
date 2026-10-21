@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4155.7,
-          "fastMA": 4183.1,
-          "slowMA": 4358.37,
-          "momentumPct": 1.16,
-          "rsi14": 44.59,
-          "distanceFromHighPct": -3.83
+          "latest": 4148.7,
+          "fastMA": 4182.75,
+          "slowMA": 4358.23,
+          "momentumPct": 0.99,
+          "rsi14": 43.68,
+          "distanceFromHighPct": -3.99
         },
         "weekly": {
-          "latest": 4155.7,
-          "fastMA": 4355.75,
-          "slowMA": 4397.26,
-          "momentumPct": -3.83,
-          "rsi14": 55.16,
-          "distanceFromHighPct": -11.21
+          "latest": 4148.7,
+          "fastMA": 4355.05,
+          "slowMA": 4397.02,
+          "momentumPct": -3.99,
+          "rsi14": 54.87,
+          "distanceFromHighPct": -11.36
         },
         "monthly": {
-          "latest": 4155.7,
-          "fastMA": 4260.4,
-          "slowMA": 4483.26,
-          "momentumPct": 1.19,
-          "rsi14": 58.62,
-          "distanceFromHighPct": -20.81
+          "latest": 4148.7,
+          "fastMA": 4259.23,
+          "slowMA": 4482.56,
+          "momentumPct": 1.02,
+          "rsi14": 58.51,
+          "distanceFromHighPct": -20.95
         }
       },
       "error": null
@@ -204,9 +204,9 @@
       "date": "2026-10-21",
       "universeSize": 100,
       "daily": 12,
-      "weekly": 27,
-      "monthly": 65,
-      "overall": 43,
+      "weekly": 18,
+      "monthly": 58,
+      "overall": 37,
       "dailySignal": {
         "label": "G-Sec / Gold / Cash",
         "signal": "defensive",
@@ -218,8 +218,8 @@
         "emoji": "🔴"
       },
       "monthlySignal": {
-        "label": "Stocks Overweight",
-        "signal": "overweight",
+        "label": "Selective Buying",
+        "signal": "selective",
         "emoji": "🟢"
       },
       "overallSignal": {
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 29.0,
-          "medianReturnPct": -5.19,
-          "returnStrengthScore": 24.05
+          "positiveBreadthPct": 21.0,
+          "medianReturnPct": -7.26,
+          "returnStrengthScore": 13.72
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 64.0,
-          "medianReturnPct": 6.17,
-          "returnStrengthScore": 65.43
+          "positiveBreadthPct": 59.0,
+          "medianReturnPct": 2.84,
+          "returnStrengthScore": 57.1
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-21T15:44:25.035988+00:00"
+  "marketRegimeGeneratedAt": "2026-10-21T16:16:27.554459+00:00"
 }
