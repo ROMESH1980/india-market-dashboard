@@ -16093,5 +16093,25 @@
     "sector": "Basic Materials",
     "industry": "Steel",
     "source": "Yahoo Finance"
+  },
+  "HDFIRE": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "IIRM": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "OLAELEC-RE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "LOANFRONT": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
