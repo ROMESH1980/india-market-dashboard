@@ -42524,5 +42524,29 @@
     "freeFloatMethodologyNote": "Filing-derived tradable public shares proxy. Not the NSE Indices official free-float factor.",
     "freeFloatEstimated": false,
     "cachedAt": "2026-10-15T15:22:17+00:00"
+  },
+  "IIRM": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-21T15:38:58+00:00",
+    "freeFloatEstimated": false
+  },
+  "HDFIRE": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-21T15:38:59+00:00",
+    "freeFloatEstimated": false
+  },
+  "LOANFRONT": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-21T15:38:59+00:00",
+    "freeFloatEstimated": false
+  },
+  "OLAELEC-RE": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-21T15:38:59+00:00",
+    "freeFloatEstimated": false
   }
 }

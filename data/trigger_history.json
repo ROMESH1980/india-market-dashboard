@@ -1450,8 +1450,68 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "RKFORGE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RKFORGE_31032026182738_IntimationunderReg30HorizontalCastingLine.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PROSTARM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PROSTARM_30122025182207_SE_NewUnit_Signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "SOLEX": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-11-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SOLEX_24112025170424_Intimation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SRF": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-21",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ekta_maheshwari_21102026145942_SEIntimationCapexSRFAltech.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "ABCOTS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-18",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ABCOTSPIN_18122025171335_Intimation_UR_30__Purchase_of_land.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "JNPR": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-16",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JGEL2025_16102026220338_2026_10_16_JGEL_Reg_30_Stellar_Wind_Commissioning.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-20T18:37:54+00:00",
+  "updatedAt": "2026-10-21T15:52:06+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
