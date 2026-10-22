@@ -1510,8 +1510,18 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "KEI": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KEI_03082026201500_Intimation030826.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-21T16:25:08+00:00",
+  "updatedAt": "2026-10-22T15:56:54+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

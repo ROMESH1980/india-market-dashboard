@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-21",
+    "updated": "2026-10-22",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,39 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 16416,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 597,
+      "announcementsSeen": 12285,
+      "rawCapexMatches": 2,
+      "negativeCapexRejected": 435,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 1,
+      "capexCandidates": 1,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 1,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "KEI": {
+      "name": "KEI Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/KEI_03082026201500_Intimation030826.pdf",
+          "sourceDate": "03-Aug-2026 20:15:10",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-22"
+        }
+      ]
+    }
+  }
 }

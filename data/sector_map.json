@@ -16100,9 +16100,9 @@
     "source": "Yahoo Finance"
   },
   "IIRM": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Financial Services",
+    "industry": "Insurance Brokers",
+    "source": "Yahoo Finance"
   },
   "OLAELEC-RE": {
     "sector": "Unclassified",
