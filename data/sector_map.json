@@ -16113,5 +16113,15 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "FUSIONCX": {
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "source": "Yahoo Finance"
+  },
+  "RAVITA": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

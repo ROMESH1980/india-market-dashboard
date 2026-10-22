@@ -18,38 +18,15 @@
     "counts": {
       "symbolsScanned": 350,
       "announcementsSeen": 12285,
-      "rawCapexMatches": 2,
-      "negativeCapexRejected": 435,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 434,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 1,
-      "capexCandidates": 1,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 1,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "KEI": {
-      "name": "KEI Industries Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/KEI_03082026201500_Intimation030826.pdf",
-          "sourceDate": "03-Aug-2026 20:15:10",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-22"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
