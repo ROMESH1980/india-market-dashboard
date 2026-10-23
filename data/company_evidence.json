@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-22",
+    "updated": "2026-10-23",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -2199,6 +2199,66 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-22"
+      }
+    },
+    "ATUL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ATUL1_24072026143111_IntimationtoSEsMCPA.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-23"
+      }
+    },
+    "PCBL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/PCBL_11062026180712_Commissioningofanewspecialtyproductionline.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-23"
+      }
+    },
+    "EXICOM": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/EXICOM_16032026092048_Intimation_Commencemnet_of_Plantsigned.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-16",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-23"
+      }
+    },
+    "MADRASFERT": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/MADRASFERT_27062026144720_Lr_NSE_Resumption_Plant_Operations_27062026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-23"
       }
     }
   }

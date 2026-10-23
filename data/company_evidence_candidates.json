@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-22",
+    "updated": "2026-10-23",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,105 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12288,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 434,
+      "announcementsSeen": 16706,
+      "rawCapexMatches": 6,
+      "negativeCapexRejected": 481,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 4,
+      "capexCandidates": 4,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 4,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "ATUL": {
+      "name": "Atul Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ATUL1_24072026143111_IntimationtoSEsMCPA.pdf",
+          "sourceDate": "24-Jul-2026 14:31:59",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-23"
+        }
+      ]
+    },
+    "PCBL": {
+      "name": "PCBL Chemical Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/PCBL_11062026180712_Commissioningofanewspecialtyproductionline.pdf",
+          "sourceDate": "11-Jun-2026 18:07:33",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-23"
+        }
+      ]
+    },
+    "EXICOM": {
+      "name": "Exicom Tele-Systems Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EXICOM_16032026092048_Intimation_Commencemnet_of_Plantsigned.pdf",
+          "sourceDate": "16-Mar-2026 09:21:08",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-23"
+        }
+      ]
+    },
+    "MADRASFERT": {
+      "name": "Madras Fertilizers Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/MADRASFERT_27062026144720_Lr_NSE_Resumption_Plant_Operations_27062026.pdf",
+          "sourceDate": "27-Jun-2026 14:47:38",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-23"
+        }
+      ]
+    }
+  }
 }
