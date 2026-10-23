@@ -16123,5 +16123,30 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "BONFIG": {
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "source": "Yahoo Finance"
+  },
+  "SMT": {
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "source": "Yahoo Finance"
+  },
+  "TONBO": {
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "Yahoo Finance"
+  },
+  "ZETWERK": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "ICICILIFE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
