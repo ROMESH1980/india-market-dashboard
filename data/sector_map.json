@@ -16145,8 +16145,8 @@
     "source": "Yahoo Finance"
   },
   "ICICILIFE": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Financial Services",
+    "industry": "Insurance - Life",
+    "source": "Yahoo Finance"
   }
 }
