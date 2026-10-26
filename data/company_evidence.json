@@ -2260,6 +2260,111 @@
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-10-23"
       }
+    },
+    "ATHERENERG": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ATHERENERGY_26102026143153_CapacityAdditionsigned.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "EPACK": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/EPACKNSE_10022026154517_Intimation_EMTPL.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-10",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "JUBLCPL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/JACPL_03062026190754_JACPL_Capacity_Addition_Update.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-06-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "COMPUSOFT": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/COMPUSOFT_28012026154111_IntimationRegulation30.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-01-28",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "SJS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SJS_11102026145244_Reg30SJSDisplayElectronicsNewManufacturingFacility.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-11",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "POLYPLEX": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/POLYPLEX_07102026202813_PCL_Reg30_Disclosure_PTL_BOPP_Machine.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-07",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
+    },
+    "E2E": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/E2E_26102026141943_Capacity_Addition__1_.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-26",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-26"
+      }
     }
   }
 }
