@@ -2506,7 +2506,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 49.13,
-      "futureGrowth": 48.25,
+      "futureGrowth": 48.34,
       "fundamentalQuality": 89.93,
       "capexScore": 70.0,
       "researchReasons": {
@@ -7941,7 +7941,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 60.7,
-      "futureGrowth": 78.44,
+      "futureGrowth": 78.37,
       "fundamentalQuality": 96.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -9671,7 +9671,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 38.7,
-      "futureGrowth": 86.02,
+      "futureGrowth": 86.07,
       "fundamentalQuality": 66.53,
       "capexScore": 70.0,
       "researchReasons": {
@@ -16778,7 +16778,7 @@
       "valueMigration": 99.89,
       "futureGrowth": 100,
       "fundamentalQuality": 48.91,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: vehicle premiumisation, localisation and technology transition provide sector support.",
@@ -16811,10 +16811,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 15.87× operating cash flow.",
-          "source": "methodology.html#capex",
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ATHERENERGY_26102026143153_CapacityAdditionsigned.pdf",
           "sourceDate": "2026-10-26",
-          "mode": "AUTOMATED"
+          "mode": "VERIFIED"
         }
       }
     },
@@ -17468,7 +17468,7 @@
       "tailwindScore": 72.0,
       "macroSupport": null,
       "valueMigration": 54.38,
-      "futureGrowth": 50.0,
+      "futureGrowth": 60.71,
       "fundamentalQuality": 65.98,
       "capexScore": 70.0,
       "researchReasons": {
@@ -18445,7 +18445,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 65.89,
-      "futureGrowth": 65.95,
+      "futureGrowth": 66.14,
       "fundamentalQuality": 63.7,
       "capexScore": 90.0,
       "researchReasons": {
@@ -19199,7 +19199,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 70.65,
-      "futureGrowth": 84.73,
+      "futureGrowth": 84.72,
       "fundamentalQuality": 73.96,
       "capexScore": 50.0,
       "researchReasons": {
@@ -23332,7 +23332,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -24835,7 +24835,7 @@
       "tailwindScore": 58.0,
       "macroSupport": 55,
       "valueMigration": 81.26,
-      "futureGrowth": 46.88,
+      "futureGrowth": 46.9,
       "fundamentalQuality": 53.62,
       "capexScore": 80.0,
       "researchReasons": {
@@ -25163,7 +25163,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -25631,7 +25631,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -26823,7 +26823,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -27625,7 +27625,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -27849,7 +27849,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -29233,7 +29233,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -30841,7 +30841,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "reason": "Automated screening proxy unavailable: insufficient growth data.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-10-26",
           "mode": "AUTOMATED"
@@ -35168,10 +35168,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 2.26× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-26",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/COMPUSOFT_28012026154111_IntimationRegulation30.pdf",
+          "sourceDate": "2026-01-28",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -45600,7 +45600,7 @@
       "valueMigration": 88.47,
       "futureGrowth": 100,
       "fundamentalQuality": 83.32,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
@@ -45633,10 +45633,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 10.34× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-23",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/E2E_26102026141943_Capacity_Addition__1_.pdf",
+          "sourceDate": "2026-10-26",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -49163,7 +49163,7 @@
       "valueMigration": 96.68,
       "futureGrowth": 33.33,
       "fundamentalQuality": 51.58,
-      "capexScore": 50.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -49196,10 +49196,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-22",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/EPACKNSE_10022026154517_Intimation_EMTPL.pdf",
+          "sourceDate": "2026-02-10",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -81156,7 +81156,7 @@
       "valueMigration": 74.57,
       "futureGrowth": 63.55,
       "fundamentalQuality": 72.91,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -81189,10 +81189,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
-          "source": "https://finance.yahoo.com/quote/JUBLCPL.NS/",
-          "sourceDate": "",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/JACPL_03062026190754_JACPL_Capacity_Addition_Update.pdf",
+          "sourceDate": "2026-06-03",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -121170,7 +121170,7 @@
       "valueMigration": 80.89,
       "futureGrowth": 94.4,
       "fundamentalQuality": 68.7,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -121203,10 +121203,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.75× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/POLYPLEX_07102026202813_PCL_Reg30_Disclosure_PTL_BOPP_Machine.pdf",
+          "sourceDate": "2026-10-07",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -135382,7 +135382,7 @@
       "valueMigration": 84.79,
       "futureGrowth": 86.32,
       "fundamentalQuality": 91.24,
-      "capexScore": 80.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -135415,10 +135415,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.37× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SJS_11102026145244_Reg30SJSDisplayElectronicsNewManufacturingFacility.pdf",
+          "sourceDate": "2026-10-11",
+          "mode": "VERIFIED"
         }
       }
     },
