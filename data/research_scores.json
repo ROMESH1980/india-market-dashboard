@@ -1793,7 +1793,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 66.85,
-      "futureGrowth": 65.07,
+      "futureGrowth": 64.89,
       "fundamentalQuality": 66.0,
       "capexScore": 50.0,
       "researchReasons": {
@@ -2098,7 +2098,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 65.23,
-      "futureGrowth": 66.1,
+      "futureGrowth": 66.03,
       "fundamentalQuality": 94.67,
       "capexScore": 50.0,
       "researchReasons": {
@@ -2506,7 +2506,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 48.97,
-      "futureGrowth": 48.25,
+      "futureGrowth": 48.34,
       "fundamentalQuality": 89.93,
       "capexScore": 70.0,
       "researchReasons": {
@@ -2949,10 +2949,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 4.26× operating cash flow.",
-          "source": "methodology.html#capex",
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/ACMECS_27102026193023_IntimationGreentech7.pdf",
           "sourceDate": "2026-10-27",
-          "mode": "AUTOMATED"
+          "mode": "VERIFIED"
         }
       }
     },
@@ -4074,7 +4074,7 @@
       "tailwindScore": 78.0,
       "macroSupport": 70,
       "valueMigration": 60.9,
-      "futureGrowth": 46.81,
+      "futureGrowth": 46.85,
       "fundamentalQuality": 84.63,
       "capexScore": 60.0,
       "researchReasons": {
@@ -4908,7 +4908,7 @@
       "tailwindScore": 58.0,
       "macroSupport": 55,
       "valueMigration": 39.58,
-      "futureGrowth": 76.88,
+      "futureGrowth": 76.49,
       "fundamentalQuality": 76.8,
       "capexScore": 80.0,
       "researchReasons": {
@@ -5417,7 +5417,7 @@
       "tailwindScore": 87.0,
       "macroSupport": 85,
       "valueMigration": 54.64,
-      "futureGrowth": 24.55,
+      "futureGrowth": 24.47,
       "fundamentalQuality": 55.76,
       "capexScore": 50.0,
       "researchReasons": {
@@ -6313,7 +6313,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 64.86,
-      "futureGrowth": 54.79,
+      "futureGrowth": 54.8,
       "fundamentalQuality": 95.97,
       "capexScore": 70.0,
       "researchReasons": {
@@ -7697,7 +7697,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 61.96,
-      "futureGrowth": 71.51,
+      "futureGrowth": 71.45,
       "fundamentalQuality": 71.18,
       "capexScore": 90.0,
       "researchReasons": {
@@ -7941,7 +7941,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 88.3,
-      "futureGrowth": 78.44,
+      "futureGrowth": 78.37,
       "fundamentalQuality": 96.45,
       "capexScore": 90.0,
       "researchReasons": {
@@ -8592,7 +8592,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 54.26,
-      "futureGrowth": 50.36,
+      "futureGrowth": 50.22,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -9734,7 +9734,7 @@
       "valueMigration": 47.29,
       "futureGrowth": 24.33,
       "fundamentalQuality": 75.3,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
@@ -9767,10 +9767,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.18× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-27",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/AMBUJACEM_01122025185306_ACL_SE_INTIMATION.pdf",
+          "sourceDate": "2025-12-01",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -11666,7 +11666,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 66.18,
-      "futureGrowth": 70.1,
+      "futureGrowth": 70.18,
       "fundamentalQuality": 70.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -12053,7 +12053,7 @@
       "tailwindScore": 88.0,
       "macroSupport": 85,
       "valueMigration": 96.79,
-      "futureGrowth": 85.05,
+      "futureGrowth": 85.04,
       "fundamentalQuality": 72.16,
       "capexScore": 80.0,
       "researchReasons": {
@@ -17305,7 +17305,7 @@
       "tailwindScore": 75.0,
       "macroSupport": null,
       "valueMigration": 63.57,
-      "futureGrowth": 47.94,
+      "futureGrowth": 48.09,
       "fundamentalQuality": 80.64,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17407,7 +17407,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 77.92,
-      "futureGrowth": 78.39,
+      "futureGrowth": 78.31,
       "fundamentalQuality": 75.65,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17468,7 +17468,7 @@
       "tailwindScore": 72.0,
       "macroSupport": null,
       "valueMigration": 49.83,
-      "futureGrowth": 50.0,
+      "futureGrowth": 60.71,
       "fundamentalQuality": 65.98,
       "capexScore": 70.0,
       "researchReasons": {
@@ -17564,7 +17564,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated screening proxy unavailable: cash-flow statement not available.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-10-27",
           "mode": "AUTOMATED"
@@ -35881,10 +35881,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.76× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-23",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/CORONAREMEDIES_30062026164616_Intimation_Commencement_of_Commercial_Production.pdf",
+          "sourceDate": "2026-06-30",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -39532,7 +39532,7 @@
       "valueMigration": 80.62,
       "futureGrowth": 90.33,
       "fundamentalQuality": 61.59,
-      "capexScore": 70.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -39565,10 +39565,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.16× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-23",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/DCW_13082026172215_SIOP_Capacity_Expansion_.pdf",
+          "sourceDate": "2026-08-13",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -106719,7 +106719,7 @@
       "valueMigration": 83.94,
       "futureGrowth": 90.95,
       "fundamentalQuality": 41.01,
-      "capexScore": 50.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy unavailable: no mapped structural-tailwind rule for this sector/industry.",
@@ -106752,10 +106752,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NFL_13022026181125_SignedNSEreg30.pdf",
+          "sourceDate": "2026-02-13",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -106963,7 +106963,7 @@
       "valueMigration": 98.52,
       "futureGrowth": 89.84,
       "fundamentalQuality": 90.05,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -106996,10 +106996,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.55× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NAVINFLUOR_30102025163044_Outcome_of_Board_Meeting-October_30_2025-signed.pdf",
+          "sourceDate": "2025-10-30",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -121020,10 +121020,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.02× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/9072530155_05102026171254_Intimation_Commencement_Sd.pdf",
+          "sourceDate": "2026-10-05",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -148393,7 +148393,7 @@
       "valueMigration": 79.63,
       "futureGrowth": 91.06,
       "fundamentalQuality": 41.96,
-      "capexScore": 80.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: urbanisation and housing/commercial demand provide positive but cyclical support.",
@@ -148426,10 +148426,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.32× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SMARTWORKS_14082026203154_Intimation_Capacity_Addition__1_.pdf",
+          "sourceDate": "2026-08-14",
+          "mode": "VERIFIED"
         }
       }
     },
