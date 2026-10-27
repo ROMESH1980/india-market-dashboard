@@ -42872,5 +42872,11 @@
     "reason": "API: equities: HTTP 403 | sme: HTTP 403",
     "cachedAt": "2026-10-26T17:03:37+00:00",
     "freeFloatEstimated": false
+  },
+  "SHIVAM-RE1": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-27T16:03:07+00:00",
+    "freeFloatEstimated": false
   }
 }

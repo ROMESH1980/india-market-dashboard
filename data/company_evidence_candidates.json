@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-26",
+    "updated": "2026-10-27",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,193 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 14135,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 456,
+      "announcementsSeen": 17986,
+      "rawCapexMatches": 72,
+      "negativeCapexRejected": 446,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 8,
+      "capexCandidates": 8,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 8,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "PVSL": {
+      "name": "Popular Vehicles and Services Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/9072530155_05102026171254_Intimation_Commencement_Sd.pdf",
+          "sourceDate": "05-Oct-2026 17:14:43",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "ACMESOLAR": {
+      "name": "Acme Solar Holdings Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/ACMECS_27102026193023_IntimationGreentech7.pdf",
+          "sourceDate": "27-Oct-2026 19:31:05",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "NAVINFLUOR": {
+      "name": "Navin Fluorine International Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NAVINFLUOR_30102025163044_Outcome_of_Board_Meeting-October_30_2025-signed.pdf",
+          "sourceDate": "30-Oct-2025 16:31:53",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "NFL": {
+      "name": "National Fertilizers Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/NFL_13022026181125_SignedNSEreg30.pdf",
+          "sourceDate": "13-Feb-2026 18:11:39",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "DCW": {
+      "name": "DCW Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/DCW_13082026172215_SIOP_Capacity_Expansion_.pdf",
+          "sourceDate": "13-Aug-2026 17:22:55",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "CORONA": {
+      "name": "CORONA Remedies Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/CORONAREMEDIES_30062026164616_Intimation_Commencement_of_Commercial_Production.pdf",
+          "sourceDate": "30-Jun-2026 16:46:45",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "SMARTWORKS": {
+      "name": "Smartworks Coworking Spaces Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SMARTWORKS_14082026203154_Intimation_Capacity_Addition__1_.pdf",
+          "sourceDate": "14-Aug-2026 20:32:37",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    },
+    "AMBUJACEM": {
+      "name": "Ambuja Cements Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/AMBUJACEM_01122025185306_ACL_SE_INTIMATION.pdf",
+          "sourceDate": "01-Dec-2025 18:53:49",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-27"
+        }
+      ]
+    }
+  }
 }

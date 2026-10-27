@@ -1630,8 +1630,88 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "NAVINFLUOR": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-10-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NAVINFLUOR_30102025163044_Outcome_of_Board_Meeting-October_30_2025-signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "CORONA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/CORONAREMEDIES_30062026164616_Intimation_Commencement_of_Commercial_Production.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ACMESOLAR": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ACMECS_27102026193023_IntimationGreentech7.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SMARTWORKS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-14",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SMARTWORKS_14082026203154_Intimation_Capacity_Addition__1_.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "PVSL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/9072530155_05102026171254_Intimation_Commencement_Sd.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "DCW": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DCW_13082026172215_SIOP_Capacity_Expansion_.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "NFL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NFL_13022026181125_SignedNSEreg30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "AMBUJACEM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2025-12-01",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/AMBUJACEM_01122025185306_ACL_SE_INTIMATION.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-26T20:03:01+00:00",
+  "updatedAt": "2026-10-27T16:15:42+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
