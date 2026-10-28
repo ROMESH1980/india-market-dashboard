@@ -42906,7 +42906,35 @@
   "SHIVAM-RE1": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-10-27T16:03:07+00:00",
+    "cachedAt": "2026-10-28T16:52:29+00:00",
+    "freeFloatEstimated": false
+  },
+  "PARASHLTH": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-28T16:52:28+00:00",
+    "freeFloatEstimated": false
+  },
+  "JPL": {
+    "status": "READY",
+    "publicShares": 3271189185,
+    "publicHoldingPct": null,
+    "publicLockedShares": 3070323251,
+    "freeFloatShares": 200865934,
+    "freeFloatPct": null,
+    "freeFloatDate": "27-OCT-2026",
+    "freeFloatSubmissionDate": "28-OCT-2026",
+    "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+    "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1747552_28102026022548_WEB.xml",
+    "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
+    "freeFloatMethodologyNote": "Filing-derived tradable public shares proxy. Not the NSE Indices official free-float factor.",
+    "freeFloatEstimated": false,
+    "cachedAt": "2026-10-28T16:52:30+00:00"
+  },
+  "BONDADA": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-10-28T16:52:36+00:00",
     "freeFloatEstimated": false
   }
 }
