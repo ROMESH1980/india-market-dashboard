@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4053.2,
-          "fastMA": 4136.83,
-          "slowMA": 4318.56,
-          "momentumPct": -2.33,
-          "rsi14": 39.96,
-          "distanceFromHighPct": -3.87
+          "latest": 4052.2,
+          "fastMA": 4136.78,
+          "slowMA": 4318.54,
+          "momentumPct": -2.36,
+          "rsi14": 39.88,
+          "distanceFromHighPct": -3.89
         },
         "weekly": {
-          "latest": 4053.2,
-          "fastMA": 4278.23,
-          "slowMA": 4371.45,
-          "momentumPct": -2.62,
-          "rsi14": 49.4,
-          "distanceFromHighPct": -13.4
+          "latest": 4052.2,
+          "fastMA": 4278.13,
+          "slowMA": 4371.41,
+          "momentumPct": -2.65,
+          "rsi14": 49.37,
+          "distanceFromHighPct": -13.43
         },
         "monthly": {
-          "latest": 4053.2,
-          "fastMA": 4243.32,
-          "slowMA": 4473.01,
-          "momentumPct": -1.31,
-          "rsi14": 57.04,
-          "distanceFromHighPct": -22.77
+          "latest": 4052.2,
+          "fastMA": 4243.15,
+          "slowMA": 4472.91,
+          "momentumPct": -1.33,
+          "rsi14": 57.03,
+          "distanceFromHighPct": -22.78
         }
       },
       "error": null
@@ -204,9 +204,9 @@
       "date": "2026-10-28",
       "universeSize": 100,
       "daily": 60,
-      "weekly": 24,
-      "monthly": 62,
-      "overall": 50,
+      "weekly": 31,
+      "monthly": 64,
+      "overall": 53,
       "dailySignal": {
         "label": "Selective Buying",
         "signal": "selective",
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 27.0,
-          "medianReturnPct": -6.05,
-          "returnStrengthScore": 19.73
+          "positiveBreadthPct": 32.0,
+          "medianReturnPct": -3.99,
+          "returnStrengthScore": 30.06
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 61.0,
-          "medianReturnPct": 5.17,
-          "returnStrengthScore": 62.92
+          "positiveBreadthPct": 62.0,
+          "medianReturnPct": 6.43,
+          "returnStrengthScore": 66.08
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-10-28T16:58:27.955239+00:00"
+  "marketRegimeGeneratedAt": "2026-10-28T17:34:16.590035+00:00"
 }
