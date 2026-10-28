@@ -1498,7 +1498,7 @@
     },
     "ANURAS": {
       "tailwindScore": 76.0,
-      "futureGrowth": 70.18,
+      "futureGrowth": 70.16,
       "fundamentalQuality": 70.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -10413,17 +10413,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.57× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-06",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/JUBLINGREA_21032026184324_CommencementofCommercialProduction.pdf",
+          "sourceDate": "2026-03-21",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -21622,7 +21622,7 @@
     },
     "AARTIPHARM": {
       "tailwindScore": 82.0,
-      "futureGrowth": 87.58,
+      "futureGrowth": 88.28,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -21895,7 +21895,7 @@
     },
     "ACCELYA": {
       "tailwindScore": 75.0,
-      "futureGrowth": 48.25,
+      "futureGrowth": 48.34,
       "fundamentalQuality": 89.93,
       "capexScore": 70.0,
       "researchReasons": {
@@ -22324,7 +22324,7 @@
     },
     "ADVENZYMES": {
       "tailwindScore": 76.0,
-      "futureGrowth": 47.34,
+      "futureGrowth": 47.07,
       "fundamentalQuality": 90.73,
       "capexScore": 80.0,
       "researchReasons": {
@@ -24157,7 +24157,7 @@
     },
     "ADSL": {
       "tailwindScore": 75.0,
-      "futureGrowth": 50.36,
+      "futureGrowth": 50.22,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -25444,7 +25444,7 @@
     },
     "APOLLO": {
       "tailwindScore": 92.0,
-      "futureGrowth": 92.63,
+      "futureGrowth": 92.67,
       "fundamentalQuality": 69.33,
       "capexScore": 50.0,
       "researchReasons": {
@@ -27121,7 +27121,7 @@
     },
     "ASALCBR": {
       "tailwindScore": 70.0,
-      "futureGrowth": 34.23,
+      "futureGrowth": 34.17,
       "fundamentalQuality": 71.71,
       "capexScore": 90.0,
       "researchReasons": {
@@ -27511,7 +27511,7 @@
     },
     "AURUM": {
       "tailwindScore": 72.0,
-      "futureGrowth": 50.0,
+      "futureGrowth": 60.71,
       "fundamentalQuality": 65.98,
       "capexScore": 70.0,
       "researchReasons": {
@@ -74196,7 +74196,7 @@
       "tailwindScore": 70.0,
       "futureGrowth": 95.68,
       "fundamentalQuality": 60.33,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -74217,17 +74217,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.65× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/RPPL_01062026135422_CapacityAnnouncementNSE.pdf",
+          "sourceDate": "2026-06-01",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -85995,17 +85995,17 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.08× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/STYLAMIND_22092026104225_Intimation_for_commencement.pdf",
+          "sourceDate": "2026-09-22",
+          "mode": "VERIFIED"
         }
       },
       "researchMode": {
         "tailwind": "AUTOMATED",
         "futureGrowth": "AUTOMATED",
         "fundamentalQuality": "AUTOMATED",
-        "capex": "AUTOMATED"
+        "capex": "VERIFIED"
       },
       "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
     },
@@ -102553,6 +102553,45 @@
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        }
+      },
+      "researchMode": {
+        "tailwind": "AUTOMATED",
+        "futureGrowth": "AUTOMATED",
+        "fundamentalQuality": "AUTOMATED",
+        "capex": "AUTOMATED"
+      },
+      "financialDataRefresh": "PARTIAL_OR_UNAVAILABLE"
+    },
+    "JPL": {
+      "tailwindScore": 87.0,
+      "futureGrowth": null,
+      "fundamentalQuality": null,
+      "capexScore": null,
+      "researchReasons": {
+        "tailwind": {
+          "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
           "source": "methodology.html#tailwind",
           "sourceDate": "2026-10-28",
           "mode": "AUTOMATED"

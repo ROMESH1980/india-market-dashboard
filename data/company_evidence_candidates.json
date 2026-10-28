@@ -18,82 +18,15 @@
     "counts": {
       "symbolsScanned": 350,
       "announcementsSeen": 12946,
-      "rawCapexMatches": 4,
-      "negativeCapexRejected": 427,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 418,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 3,
-      "capexCandidates": 3,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 3,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "STYLAMIND": {
-      "name": "Stylam Industries Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/STYLAMIND_22092026104225_Intimation_for_commencement.pdf",
-          "sourceDate": "22-Sep-2026 10:43:14",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-28"
-        }
-      ]
-    },
-    "JUBLINGREA": {
-      "name": "Jubilant Ingrevia Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/JUBLINGREA_21032026184324_CommencementofCommercialProduction.pdf",
-          "sourceDate": "21-Mar-2026 18:43:34",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-28"
-        }
-      ]
-    },
-    "RPPL": {
-      "name": "Rajshree Polypack Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/RPPL_01062026135422_CapacityAnnouncementNSE.pdf",
-          "sourceDate": "01-Jun-2026 13:54:30",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-28"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }

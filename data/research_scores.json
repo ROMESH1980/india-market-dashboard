@@ -1508,7 +1508,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 63.36,
-      "futureGrowth": 87.58,
+      "futureGrowth": 88.28,
       "fundamentalQuality": 74.91,
       "capexScore": 90.0,
       "researchReasons": {
@@ -2506,7 +2506,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 50.33,
-      "futureGrowth": 48.25,
+      "futureGrowth": 48.34,
       "fundamentalQuality": 89.93,
       "capexScore": 70.0,
       "researchReasons": {
@@ -4603,7 +4603,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 56.24,
-      "futureGrowth": 47.34,
+      "futureGrowth": 47.07,
       "fundamentalQuality": 90.73,
       "capexScore": 80.0,
       "researchReasons": {
@@ -8592,7 +8592,7 @@
       "tailwindScore": 75.0,
       "macroSupport": 60,
       "valueMigration": 56.82,
-      "futureGrowth": 50.36,
+      "futureGrowth": 50.22,
       "fundamentalQuality": 65.4,
       "capexScore": 50.0,
       "researchReasons": {
@@ -11666,7 +11666,7 @@
       "tailwindScore": 76.0,
       "macroSupport": null,
       "valueMigration": 72.82,
-      "futureGrowth": 70.18,
+      "futureGrowth": 70.16,
       "fundamentalQuality": 70.09,
       "capexScore": 90.0,
       "researchReasons": {
@@ -12175,7 +12175,7 @@
       "tailwindScore": 92.0,
       "macroSupport": 80,
       "valueMigration": 59.13,
-      "futureGrowth": 92.63,
+      "futureGrowth": 92.67,
       "fundamentalQuality": 69.33,
       "capexScore": 50.0,
       "researchReasons": {
@@ -16186,7 +16186,7 @@
       "tailwindScore": 70.0,
       "macroSupport": 60,
       "valueMigration": 47.97,
-      "futureGrowth": 34.23,
+      "futureGrowth": 34.17,
       "fundamentalQuality": 71.71,
       "capexScore": 90.0,
       "researchReasons": {
@@ -17468,7 +17468,7 @@
       "tailwindScore": 72.0,
       "macroSupport": null,
       "valueMigration": 51.5,
-      "futureGrowth": 50.0,
+      "futureGrowth": 60.71,
       "fundamentalQuality": 65.98,
       "capexScore": 70.0,
       "researchReasons": {
@@ -79733,34 +79733,39 @@
       }
     },
     "JPL": {
-      "industryGrowth1M": null,
-      "industryGrowth3M": null,
-      "industryGrowth6M": null,
-      "industryRating": null,
+      "industryGrowth1M": -8.3716,
+      "industryGrowth3M": -4.78,
+      "industryGrowth6M": -8.99,
+      "industryRating": 51,
       "stockMomentumRating": null,
-      "sectorGrowth1M": null,
-      "sectorGrowthSource": null,
+      "sectorGrowth1M": -8.3663,
+      "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": null,
       "stockGrowth3M": null,
       "stockGrowth6M": null,
-      "sectorStrength": null,
+      "sectorStrength": 31.03,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
-      "strengthBenchmark": "^CRSLDX",
-      "tailwindScore": null,
-      "macroSupport": null,
+      "strengthBenchmark": "^CNXIT",
+      "tailwindScore": 87.0,
+      "macroSupport": 85,
       "valueMigration": 100.0,
       "futureGrowth": null,
       "fundamentalQuality": null,
       "capexScore": null,
       "researchReasons": {
-        "tailwind": {},
+        "tailwind": {
+          "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
         "macro": {
-          "reason": "Automated Macro screening proxy unavailable: no mapped Macro-support rule for this sector/industry.",
+          "reason": "Automated Macro screening proxy: infrastructure spending, domestic manufacturing and the investment cycle provide sector support.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-10-28",
-          "mode": "PENDING"
+          "mode": "AUTOMATED"
         },
         "valueMigration": {
           "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (100.0) and 40% turnover-percentile component (100.0). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
@@ -79768,9 +79773,24 @@
           "sourceDate": "2026-10-28",
           "mode": "AUTOMATED_PROXY"
         },
-        "futureGrowth": {},
-        "fundamentalQuality": {},
-        "capex": {}
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-10-28",
+          "mode": "AUTOMATED"
+        }
       }
     },
     "JITFINFRA": {
@@ -81027,10 +81047,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.57× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-06",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/JUBLINGREA_21032026184324_CommencementofCommercialProduction.pdf",
+          "sourceDate": "2026-03-21",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -128258,7 +128278,7 @@
       "valueMigration": 64.74,
       "futureGrowth": 95.68,
       "fundamentalQuality": 60.33,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -128291,10 +128311,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.65× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/RPPL_01062026135422_CapacityAnnouncementNSE.pdf",
+          "sourceDate": "2026-06-01",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -153272,10 +153292,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.08× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/STYLAMIND_22092026104225_Intimation_for_commencement.pdf",
+          "sourceDate": "2026-09-22",
+          "mode": "VERIFIED"
         }
       }
     },

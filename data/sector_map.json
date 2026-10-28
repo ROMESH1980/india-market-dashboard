@@ -16163,5 +16163,20 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "JPL": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
+  },
+  "BONDADA": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "PARASHLTH": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
