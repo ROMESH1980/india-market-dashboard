@@ -1,6 +1,6 @@
 {
   "marketDate": "2026-10-29",
-  "generatedAt": "2026-10-29T17:44:47+00:00",
+  "generatedAt": "2026-10-29T19:40:47+00:00",
   "scannerVersion": "2.2",
   "methodology": {
     "phase1": "RS + Stock Momentum + Industry Rating + multi-period price strength + existing fundamental/business triggers.",
@@ -13644,16 +13644,16 @@
       "stockMomentumRating": 96.0,
       "industryRating": 61.0,
       "freeFloatPct": null,
-      "freeFloatShares": null,
-      "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
-      "freeFloatMethod": null,
+      "freeFloatShares": 12986519,
+      "freeFloatStatus": "READY",
+      "freeFloatDate": "30-SEP-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1747537_28102026021051_WEB.xml",
+      "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
       "freeFloatEstimated": false,
-      "publicShares": null,
+      "publicShares": 20278519,
       "publicHoldingPct": null,
-      "publicLockedShares": null,
+      "publicLockedShares": 7292000,
       "fundamentalTrigger": true,
       "fundamentalTriggers": [
         "CAPEX"
@@ -13702,7 +13702,6 @@
         "turnoverScore": 0
       },
       "missingConditions": [
-        "Free Float",
         "Technical Analysis"
       ],
       "return1W": 2.14,
@@ -319730,7 +319729,7 @@
     }
   ],
   "phase": "PHASE_2_TECHNICAL",
-  "technicalGeneratedAt": "2026-10-29T17:49:28+00:00",
+  "technicalGeneratedAt": "2026-10-29T19:45:47+00:00",
   "technicalMarketDate": "2026-10-29",
   "technicalHistory": {
     "source": "Official NSE UDiFF EOD bhavcopy",
@@ -319747,5 +319746,5 @@
     "asOf": "2026-10-29"
   },
   "earlySignalMethodology": "Additive, provisional stages; 50DMA requires dated price_history.json; RS improving requires a previous saved observation. Existing setupStatus and bigMoveScore are unchanged. Not a validated buy signal.",
-  "triggerHistoryUpdatedAt": "2026-10-29T17:49:34+00:00"
+  "triggerHistoryUpdatedAt": "2026-10-29T19:45:55+00:00"
 }
