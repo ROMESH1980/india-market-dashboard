@@ -16178,5 +16178,10 @@
     "sector": "Healthcare",
     "industry": "Medical Care Facilities",
     "source": "Yahoo Finance"
+  },
+  "INDTONER": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
