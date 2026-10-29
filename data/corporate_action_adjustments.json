@@ -1221,18 +1221,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1242,6 +1230,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1649,10 +1649,10 @@
   },
   "meta": {
     "acceptedActions": 119,
-    "dashboardSymbols": 3200,
-    "downloadedRecords": 2879,
+    "dashboardSymbols": 3201,
+    "downloadedRecords": 2886,
     "fromDate": "2025-08-05",
-    "generatedAt": "2026-10-28T19:28:12.237112+00:00",
+    "generatedAt": "2026-10-29T17:07:13.706096+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

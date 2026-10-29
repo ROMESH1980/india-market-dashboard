@@ -16170,13 +16170,13 @@
     "source": "Yahoo Finance"
   },
   "BONDADA": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "source": "Yahoo Finance"
   },
   "PARASHLTH": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "Yahoo Finance"
   }
 }

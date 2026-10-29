@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-10-28",
+    "updated": "2026-10-29",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,61 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12951,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 418,
+      "announcementsSeen": 14072,
+      "rawCapexMatches": 2,
+      "negativeCapexRejected": 415,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 2,
+      "capexCandidates": 2,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 2,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "APOLLOPIPE": {
+      "name": "Apollo Pipes Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/APOLLOPIPE_14042026124610_IntimationCommercialProductionStartAPL14042026.pdf",
+          "sourceDate": "14-Apr-2026 12:47:31",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-29"
+        }
+      ]
+    },
+    "SENORES": {
+      "name": "Senores Pharmaceuticals Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SENORES_29102026135704_Intimation_of_capacity_expansion.pdf",
+          "sourceDate": "29-Oct-2026 13:57:27",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-10-29"
+        }
+      ]
+    }
+  }
 }

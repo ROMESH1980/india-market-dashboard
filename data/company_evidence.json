@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-10-28",
+    "updated": "2026-10-29",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -2529,6 +2529,36 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-10-28"
+      }
+    },
+    "APOLLOPIPE": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/APOLLOPIPE_14042026124610_IntimationCommercialProductionStartAPL14042026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-14",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-10-29"
+      }
+    },
+    "SENORES": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SENORES_29102026135704_Intimation_of_capacity_expansion.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-10-29"
       }
     }
   }
