@@ -431,18 +431,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 3.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 2:1",
@@ -452,6 +440,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "SPLIT"
       }
     ],
     "DEVIT": [
@@ -1233,18 +1233,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -1254,6 +1242,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "SPLIT"
       }
     ],
     "ROLEXRINGS": [
@@ -1662,9 +1662,9 @@
   "meta": {
     "acceptedActions": 120,
     "dashboardSymbols": 3201,
-    "downloadedRecords": 2870,
+    "downloadedRecords": 2889,
     "fromDate": "2025-08-06",
-    "generatedAt": "2026-10-29T19:32:41.785964+00:00",
+    "generatedAt": "2026-10-30T16:52:28.848064+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

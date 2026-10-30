@@ -13080,9 +13080,9 @@
     "source": "Unavailable"
   },
   "ARHAM": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "source": "Yahoo Finance"
   },
   "ARIHANTACA": {
     "sector": "Unclassified",
@@ -16180,8 +16180,8 @@
     "source": "Yahoo Finance"
   },
   "INDTONER": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
   }
 }

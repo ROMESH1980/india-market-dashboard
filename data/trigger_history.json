@@ -1760,8 +1760,48 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "PARADEEP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-01",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PPLTD_01042026103458_PPLLettertoSE.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "AEGISVOPAK": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/AVTL_24082026183613_AVTL_Amnomia_Terminal_BTA_Exceution_S.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "GRPLTD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-20",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GRPLTD_20102026115825_Stock_Exchange_Intimation_Commencment_of_Solar_Pwer.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ANDHRSUGAR": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-16",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ANDHRSUGAR_16072026181229_Solarpower.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-29T19:45:55+00:00",
+  "updatedAt": "2026-10-30T17:05:50+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
