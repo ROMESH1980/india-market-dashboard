@@ -18,104 +18,15 @@
     "counts": {
       "symbolsScanned": 350,
       "announcementsSeen": 20143,
-      "rawCapexMatches": 4,
-      "negativeCapexRejected": 637,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 622,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 4,
-      "capexCandidates": 4,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 4,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "GRPLTD": {
-      "name": "GRP Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/GRPLTD_20102026115825_Stock_Exchange_Intimation_Commencment_of_Solar_Pwer.pdf",
-          "sourceDate": "20-Oct-2026 11:58:59",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-30"
-        }
-      ]
-    },
-    "PARADEEP": {
-      "name": "Paradeep Phosphates Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/PPLTD_01042026103458_PPLLettertoSE.pdf",
-          "sourceDate": "01-Apr-2026 10:40:20",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-30"
-        }
-      ]
-    },
-    "AEGISVOPAK": {
-      "name": "Aegis Vopak Terminals Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/AVTL_24082026183613_AVTL_Amnomia_Terminal_BTA_Exceution_S.pdf",
-          "sourceDate": "24-Aug-2026 18:37:24",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-30"
-        }
-      ]
-    },
-    "ANDHRSUGAR": {
-      "name": "The Andhra Sugars Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/ANDHRSUGAR_16072026181229_Solarpower.pdf",
-          "sourceDate": "16-Jul-2026 18:12:39",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-10-30"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }

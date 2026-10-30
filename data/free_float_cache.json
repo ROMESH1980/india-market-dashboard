@@ -42976,13 +42976,13 @@
   "SHIVAM-RE1": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-10-29T17:07:11+00:00",
+    "cachedAt": "2026-10-30T17:17:21+00:00",
     "freeFloatEstimated": false
   },
   "PARASHLTH": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-10-29T17:07:11+00:00",
+    "cachedAt": "2026-10-30T17:17:21+00:00",
     "freeFloatEstimated": false
   },
   "JPL": {
@@ -43004,13 +43004,13 @@
   "BONDADA": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-10-29T17:07:10+00:00",
+    "cachedAt": "2026-10-30T17:17:21+00:00",
     "freeFloatEstimated": false
   },
   "INDTONER": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-10-29T17:07:10+00:00",
+    "cachedAt": "2026-10-30T17:17:22+00:00",
     "freeFloatEstimated": false
   }
 }
