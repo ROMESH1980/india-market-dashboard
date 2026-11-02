@@ -1800,8 +1800,98 @@
         "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
         "verified": true
       }
+    ],
+    "HARSHA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-28",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/Harsha_28052026142110_SE_Intimation_HEAL_May2026_F.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BECTORFOOD": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BECTORFOOD_31032026190835_Intimation_Khapoli_Final.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "ADFFOODS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-28",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/ADFFOODS1_28032026163107_Reg30commercialproductionsurat.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "INDIGOPNTS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-13",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/INDIGOPNTS_13022026184842_Regulation30_OutcomeofBoardMeeting_-_Jodhpur_Plant_SD.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "NBCC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-01-09",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NBCC_09012026182341_intimation_dubai_mainland09012026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/Narayana_05102026174434_SENHLCommercialOperation.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SAATVIKGL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-02",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SAATVIK_02112026201412_Reg30odishafacility.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "BORANA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-02",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BORANA_02112026173847_Expansion_Reg_30.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "JKTYRE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/JKTYRE_26052026185655_ExpansionFinal.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-10-30T19:18:27+00:00",
+  "updatedAt": "2026-11-02T20:49:25+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
