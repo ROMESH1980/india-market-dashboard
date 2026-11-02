@@ -16183,5 +16183,15 @@
     "sector": "Basic Materials",
     "industry": "Specialty Chemicals",
     "source": "Yahoo Finance"
+  },
+  "EDELALTS": {
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "Yahoo Finance"
+  },
+  "ABCIND": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

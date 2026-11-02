@@ -1613,8 +1613,8 @@
     },
     "AASTHA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -2086,7 +2086,7 @@
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
-      "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
+      "sectorGrowthSource": null,
       "stockGrowth1M": null,
       "stockGrowth3M": -18.55,
       "stockGrowth6M": -27.56,
@@ -2109,7 +2109,7 @@
           "mode": "AUTOMATED"
         },
         "macro": {
-          "reason": "Automated Macro screening proxy: consumption growth, income growth and premiumisation provide moderate support.",
+          "reason": "Automated Macro screening proxy unavailable: no mapped Macro-support rule for this sector/industry.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -3548,8 +3548,8 @@
     },
     "ADDIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -3702,10 +3702,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.44× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-11-02",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/ADFFOODS1_28032026163107_Reg30commercialproductionsurat.pdf",
+          "sourceDate": "2026-03-28",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -4223,7 +4223,7 @@
       "industryGrowth3M": -16.89,
       "industryGrowth6M": -10.4,
       "industryRating": 24,
-      "stockMomentumRating": 67,
+      "stockMomentumRating": 66,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -5.4517,
@@ -7273,8 +7273,8 @@
     },
     "AKSHAR": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 71,
       "sectorGrowth1M": -4.8034,
@@ -8697,8 +8697,8 @@
     },
     "ALOKINDS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 50,
       "sectorGrowth1M": -4.8034,
@@ -8921,8 +8921,8 @@
     },
     "ALPINETEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -9328,8 +9328,8 @@
     },
     "AMARJOTHI": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -9654,8 +9654,8 @@
     },
     "AMBIKCO": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 41,
       "sectorGrowth1M": -4.8034,
@@ -14418,8 +14418,8 @@
     },
     "ARVIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 50,
       "sectorGrowth1M": -4.8034,
@@ -19324,8 +19324,8 @@
     },
     "AXITA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 47,
       "sectorGrowth1M": -4.8034,
@@ -19507,10 +19507,10 @@
     },
     "AYMSYNTEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 57,
+      "stockMomentumRating": 56,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -6.1761,
@@ -22050,8 +22050,8 @@
     },
     "BASML": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 14,
       "sectorGrowth1M": -4.8034,
@@ -22233,8 +22233,8 @@
     },
     "BANSWRAS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 41,
       "sectorGrowth1M": -4.8034,
@@ -23190,8 +23190,8 @@
     },
     "BELLACASA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 32,
       "sectorGrowth1M": -4.8034,
@@ -23352,7 +23352,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -25183,7 +25183,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -25387,8 +25387,8 @@
     },
     "BTTL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 24,
       "sectorGrowth1M": -4.8034,
@@ -25651,7 +25651,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -26843,7 +26843,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -27645,7 +27645,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -27666,8 +27666,8 @@
     },
     "BOMDYEING": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 18,
       "sectorGrowth1M": -4.8034,
@@ -28012,8 +28012,8 @@
     },
     "BORANA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 4,
       "sectorGrowth1M": -4.8034,
@@ -28031,7 +28031,7 @@
       "valueMigration": 72.16,
       "futureGrowth": 95.58,
       "fundamentalQuality": 81.78,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -28064,10 +28064,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 4.03× operating cash flow.",
-          "source": "methodology.html#capex",
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/BORANA_02112026173847_Expansion_Reg_30.pdf",
           "sourceDate": "2026-11-02",
-          "mode": "AUTOMATED"
+          "mode": "VERIFIED"
         }
       }
     },
@@ -29172,8 +29172,8 @@
     },
     "BSL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 63,
       "sectorGrowth1M": -4.8034,
@@ -29314,7 +29314,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -30922,7 +30922,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -32083,8 +32083,8 @@
     },
     "CENTENKA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 19,
       "sectorGrowth1M": -4.8034,
@@ -33386,8 +33386,8 @@
     },
     "CHEVIOT": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 47,
       "sectorGrowth1M": -4.8034,
@@ -33694,7 +33694,7 @@
       "industryGrowth3M": -10.22,
       "industryGrowth6M": -11.84,
       "industryRating": 60,
-      "stockMomentumRating": 87,
+      "stockMomentumRating": 86,
       "sectorGrowth1M": -6.6116,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": 9.8185,
@@ -34078,8 +34078,8 @@
     },
     "CLCIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -34142,7 +34142,7 @@
       "industryGrowth3M": -18.02,
       "industryGrowth6M": -30.625,
       "industryRating": 19,
-      "stockMomentumRating": 78,
+      "stockMomentumRating": 77,
       "sectorGrowth1M": -6.9559,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -3.639,
@@ -34342,7 +34342,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED"
@@ -38800,8 +38800,8 @@
     },
     "DAMODARIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 34,
       "sectorGrowth1M": -4.8034,
@@ -39533,8 +39533,8 @@
     },
     "DCMNVL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 85,
       "sectorGrowth1M": -4.8034,
@@ -41019,8 +41019,8 @@
     },
     "DELTAMAGNT": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 61,
       "sectorGrowth1M": -4.8034,
@@ -43014,8 +43014,8 @@
     },
     "DIGJAMLMTD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 89,
       "sectorGrowth1M": -4.8034,
@@ -44256,10 +44256,10 @@
     },
     "DONEAR": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 57,
+      "stockMomentumRating": 56,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -0.4608,
@@ -45722,34 +45722,39 @@
       }
     },
     "EDELALTS": {
-      "industryGrowth1M": null,
-      "industryGrowth3M": null,
-      "industryGrowth6M": null,
-      "industryRating": null,
+      "industryGrowth1M": -4.2531,
+      "industryGrowth3M": -11.44,
+      "industryGrowth6M": -9.3,
+      "industryRating": 54,
       "stockMomentumRating": null,
-      "sectorGrowth1M": null,
-      "sectorGrowthSource": null,
+      "sectorGrowth1M": -4.1997,
+      "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": null,
       "stockGrowth3M": null,
       "stockGrowth6M": null,
-      "sectorStrength": null,
+      "sectorStrength": 55.17,
       "stockStrength1M": null,
       "stockStrength3M": null,
       "stockStrength6M": null,
-      "strengthBenchmark": "^CRSLDX",
-      "tailwindScore": null,
-      "macroSupport": null,
+      "strengthBenchmark": "^CNXFINANCE",
+      "tailwindScore": 78.0,
+      "macroSupport": 70,
       "valueMigration": 85.74,
       "futureGrowth": null,
       "fundamentalQuality": null,
       "capexScore": null,
       "researchReasons": {
-        "tailwind": {},
+        "tailwind": {
+          "reason": "Automated screening proxy: financialisation, credit penetration and formalisation support long-term sector growth.",
+          "source": "methodology.html#tailwind",
+          "sourceDate": "2026-11-02",
+          "mode": "AUTOMATED"
+        },
         "macro": {
-          "reason": "Automated Macro screening proxy unavailable: no mapped Macro-support rule for this sector/industry.",
+          "reason": "Automated Macro screening proxy: financialisation, formalisation and credit penetration support sector growth.",
           "source": "methodology.html#macro",
           "sourceDate": "2026-11-02",
-          "mode": "PENDING"
+          "mode": "AUTOMATED"
         },
         "valueMigration": {
           "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (76.4) and 40% turnover-percentile component (99.8). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
@@ -45757,9 +45762,24 @@
           "sourceDate": "2026-11-02",
           "mode": "AUTOMATED_PROXY"
         },
-        "futureGrowth": {},
-        "fundamentalQuality": {},
-        "capex": {}
+        "futureGrowth": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#future-growth",
+          "sourceDate": "2026-11-02",
+          "mode": "AUTOMATED"
+        },
+        "fundamentalQuality": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#fundamental",
+          "sourceDate": "2026-11-02",
+          "mode": "AUTOMATED"
+        },
+        "capex": {
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
+          "source": "methodology.html#capex",
+          "sourceDate": "2026-11-02",
+          "mode": "AUTOMATED"
+        }
       }
     },
     "EASTWEST": {
@@ -45825,8 +45845,8 @@
     },
     "EASTSILK": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 83,
       "sectorGrowth1M": -4.8034,
@@ -49717,7 +49737,7 @@
       "industryGrowth3M": -3.855,
       "industryGrowth6M": 9.07,
       "industryRating": 81,
-      "stockMomentumRating": 32,
+      "stockMomentumRating": 31,
       "sectorGrowth1M": -5.8091,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -2.4878,
@@ -51567,8 +51587,8 @@
     },
     "FAZE3Q": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 55,
       "sectorGrowth1M": -4.8034,
@@ -52096,10 +52116,10 @@
     },
     "FIBERWEB": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 43,
+      "stockMomentumRating": 42,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -1.9962,
@@ -52320,8 +52340,8 @@
     },
     "FILATEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 52,
       "sectorGrowth1M": -4.8034,
@@ -53032,10 +53052,10 @@
     },
     "FLEXITUFF": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 12,
+      "stockMomentumRating": 11,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -9.9338,
@@ -55476,10 +55496,10 @@
     },
     "GANECOS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 49,
+      "stockMomentumRating": 48,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -0.5276,
@@ -55883,8 +55903,8 @@
     },
     "GARFIBRES": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 60,
       "sectorGrowth1M": -4.8034,
@@ -57185,8 +57205,8 @@
     },
     "GHCLTEXTIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 55,
       "sectorGrowth1M": -4.8034,
@@ -57429,8 +57449,8 @@
     },
     "GINNIFILA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 62,
       "sectorGrowth1M": -4.8034,
@@ -58124,7 +58144,7 @@
       "industryGrowth3M": -16.09,
       "industryGrowth6M": -23.79,
       "industryRating": 28,
-      "stockMomentumRating": 19,
+      "stockMomentumRating": 20,
       "sectorGrowth1M": -6.7416,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -21.3618,
@@ -58243,8 +58263,8 @@
     },
     "GLOBALE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 70,
       "sectorGrowth1M": -4.8034,
@@ -58365,8 +58385,8 @@
     },
     "GLOBE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 27,
       "sectorGrowth1M": -4.8034,
@@ -58589,8 +58609,8 @@
     },
     "GLOSTERLTD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 33,
       "sectorGrowth1M": -4.8034,
@@ -64490,7 +64510,7 @@
       "valueMigration": 83.49,
       "futureGrowth": 61.31,
       "fundamentalQuality": 71.5,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy unavailable: no mapped structural-tailwind rule for this sector/industry.",
@@ -64523,10 +64543,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 1.75× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-10-08",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/Harsha_28052026142110_SE_Intimation_HEAL_May2026_F.pdf",
+          "sourceDate": "2026-05-28",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -66871,8 +66891,8 @@
     },
     "HIMATSEIDE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 8,
       "sectorGrowth1M": -4.8034,
@@ -69764,7 +69784,7 @@
       "industryGrowth3M": -5.58,
       "industryGrowth6M": -3.35,
       "industryRating": 70,
-      "stockMomentumRating": 85,
+      "stockMomentumRating": 86,
       "sectorGrowth1M": -5.2774,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": 7.5269,
@@ -72222,8 +72242,8 @@
     },
     "INDIANCARD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 49,
       "sectorGrowth1M": -4.8034,
@@ -73035,7 +73055,7 @@
       "valueMigration": 36.76,
       "futureGrowth": 84.65,
       "fundamentalQuality": 77.85,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: import substitution, supply-chain diversification and specialty-product demand can support growth.",
@@ -73068,10 +73088,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.61× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-02",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/INDIGOPNTS_13022026184842_Regulation30_OutcomeofBoardMeeting_-_Jodhpur_Plant_SD.pdf",
+          "sourceDate": "2026-02-13",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -73260,8 +73280,8 @@
     },
     "ICIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 86,
       "sectorGrowth1M": -4.8034,
@@ -73382,8 +73402,8 @@
     },
     "INDORAMA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 49,
       "sectorGrowth1M": -4.8034,
@@ -76662,7 +76682,7 @@
       "industryGrowth3M": -15.41,
       "industryGrowth6M": -24.37,
       "industryRating": 35,
-      "stockMomentumRating": 54,
+      "stockMomentumRating": 53,
       "sectorGrowth1M": -6.271,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -4.1765,
@@ -78413,7 +78433,7 @@
       "industryGrowth3M": -7.32,
       "industryGrowth6M": 2.67,
       "industryRating": 64,
-      "stockMomentumRating": 56,
+      "stockMomentumRating": 55,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -4.4509,
@@ -79879,7 +79899,7 @@
       "industryGrowth3M": -8.605,
       "industryGrowth6M": -12.515,
       "industryRating": 57,
-      "stockMomentumRating": 42,
+      "stockMomentumRating": 43,
       "sectorGrowth1M": -4.0463,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -7.5065,
@@ -80059,8 +80079,8 @@
     },
     "JINDWORLD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 39,
       "sectorGrowth1M": -4.8034,
@@ -80607,7 +80627,7 @@
       "valueMigration": 93.47,
       "futureGrowth": 29.02,
       "fundamentalQuality": 53.25,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: vehicle premiumisation, localisation and technology transition provide sector support.",
@@ -80640,10 +80660,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: Too Many Requests. Rate limited. Try after a while.",
-          "source": "https://finance.yahoo.com/quote/JKTYRE.NS/",
-          "sourceDate": "",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/JKTYRE_26052026185655_ExpansionFinal.pdf",
+          "sourceDate": "2026-05-26",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -89623,8 +89643,8 @@
     },
     "KUSUMGAR": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -90050,8 +90070,8 @@
     },
     "LAGNAM": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 79,
       "sectorGrowth1M": -4.8034,
@@ -90111,8 +90131,8 @@
     },
     "LAHOTIOV": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 61,
       "sectorGrowth1M": -4.8034,
@@ -90233,8 +90253,8 @@
     },
     "LAKSHMIMIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -90457,8 +90477,8 @@
     },
     "LAMBODHARA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 51,
       "sectorGrowth1M": -4.8034,
@@ -91230,8 +91250,8 @@
     },
     "LAXMICOT": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 20,
       "sectorGrowth1M": -4.8034,
@@ -91657,8 +91677,8 @@
     },
     "LEMERITE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 57,
       "sectorGrowth1M": -4.8034,
@@ -93630,8 +93650,8 @@
     },
     "LOYALTEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 68,
       "sectorGrowth1M": -4.8034,
@@ -95116,8 +95136,8 @@
     },
     "MAFATIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 33,
       "sectorGrowth1M": -4.8034,
@@ -95462,8 +95482,8 @@
     },
     "MFML": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 43,
       "sectorGrowth1M": -4.8034,
@@ -95523,8 +95543,8 @@
     },
     "MHLXMIRU": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 81,
       "sectorGrowth1M": -4.8034,
@@ -95648,7 +95668,7 @@
       "industryGrowth3M": -3.17,
       "industryGrowth6M": -5.38,
       "industryRating": 82,
-      "stockMomentumRating": 40,
+      "stockMomentumRating": 39,
       "sectorGrowth1M": 0.8696,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -0.7174,
@@ -98495,8 +98515,8 @@
     },
     "MANOMAY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 80,
       "sectorGrowth1M": -4.8034,
@@ -98678,10 +98698,10 @@
     },
     "MARALOVER": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 74,
+      "stockMomentumRating": 73,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": 0.5893,
@@ -100227,10 +100247,10 @@
     },
     "MAYURUNIQ": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 76,
+      "stockMomentumRating": 75,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": 2.614,
@@ -101472,7 +101492,7 @@
       "industryGrowth3M": -7.32,
       "industryGrowth6M": 2.67,
       "industryRating": 64,
-      "stockMomentumRating": 47,
+      "stockMomentumRating": 48,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -7.3445,
@@ -102670,8 +102690,8 @@
     },
     "MITTAL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 27,
       "sectorGrowth1M": -4.8034,
@@ -102955,8 +102975,8 @@
     },
     "MODTHREAD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 63,
       "sectorGrowth1M": -4.8034,
@@ -103301,8 +103321,8 @@
     },
     "MOHITIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 29,
       "sectorGrowth1M": -4.8034,
@@ -103362,8 +103382,8 @@
     },
     "MOHITE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -104054,8 +104074,8 @@
     },
     "MORARJEE": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -104839,10 +104859,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.98× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/BECTORFOOD_31032026190835_Intimation_Khapoli_Final.pdf",
+          "sourceDate": "2026-03-31",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -106496,8 +106516,8 @@
     },
     "NAGREEKEXP": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 54,
       "sectorGrowth1M": -4.8034,
@@ -106618,8 +106638,8 @@
     },
     "NAHARINDUS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 47,
       "sectorGrowth1M": -4.8034,
@@ -106740,8 +106760,8 @@
     },
     "NAHARSPING": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 61,
       "sectorGrowth1M": -4.8034,
@@ -107005,10 +107025,10 @@
     },
     "NDL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 65,
+      "stockMomentumRating": 64,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -1.1811,
@@ -107179,10 +107199,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.54× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/Narayana_05102026174434_SENHLCommercialOperation.pdf",
+          "sourceDate": "2026-10-05",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -108000,7 +108020,7 @@
       "valueMigration": 97.84,
       "futureGrowth": 60.49,
       "fundamentalQuality": 72.71,
-      "capexScore": 60.0,
+      "capexScore": 90.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: infrastructure investment and public/private CAPEX provide a favourable demand environment.",
@@ -108033,10 +108053,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 0.09× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-11",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/NBCC_09012026182341_intimation_dubai_mainland09012026.pdf",
+          "sourceDate": "2026-01-09",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -110750,8 +110770,8 @@
     },
     "NITINSPIN": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 92,
       "sectorGrowth1M": -4.8034,
@@ -114453,8 +114473,8 @@
     },
     "ORBTEXP": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 74,
       "sectorGrowth1M": -4.8034,
@@ -117588,8 +117608,8 @@
     },
     "PARASPETRO": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 21,
       "sectorGrowth1M": -4.8034,
@@ -117975,8 +117995,8 @@
     },
     "PASHUPATI": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 98,
       "sectorGrowth1M": -4.8034,
@@ -118036,8 +118056,8 @@
     },
     "PASUPTAC": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 87,
       "sectorGrowth1M": -4.8034,
@@ -118667,8 +118687,8 @@
     },
     "PBMPOLY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -118792,7 +118812,7 @@
       "industryGrowth3M": -9.75,
       "industryGrowth6M": -12.2,
       "industryRating": 37,
-      "stockMomentumRating": 41,
+      "stockMomentumRating": 40,
       "sectorGrowth1M": -7.7469,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -12.0995,
@@ -120235,8 +120255,8 @@
     },
     "PIONEEREMB": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 21,
       "sectorGrowth1M": -4.8034,
@@ -123349,10 +123369,10 @@
     },
     "PRECOT": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 32,
+      "stockMomentumRating": 31,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -7.5977,
@@ -123410,8 +123430,8 @@
     },
     "PREMCO": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 63,
       "sectorGrowth1M": -4.8034,
@@ -124492,7 +124512,7 @@
       "industryGrowth3M": -3.83,
       "industryGrowth6M": -1.6,
       "industryRating": 55,
-      "stockMomentumRating": 24,
+      "stockMomentumRating": 23,
       "sectorGrowth1M": -6.6951,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -14.7114,
@@ -127260,8 +127280,8 @@
     },
     "RNBDENIMS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 28,
       "sectorGrowth1M": -4.8034,
@@ -128298,8 +128318,8 @@
     },
     "RAJRILTD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 52,
       "sectorGrowth1M": -4.8034,
@@ -128420,10 +128440,10 @@
     },
     "RAJPALAYAM": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 37,
+      "stockMomentumRating": 36,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -4.519,
@@ -129092,8 +129112,8 @@
     },
     "RAJVIR": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -131677,8 +131697,8 @@
     },
     "RELCHEMQ": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 39,
       "sectorGrowth1M": -4.8034,
@@ -134324,10 +134344,10 @@
     },
     "RRIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 46,
+      "stockMomentumRating": 45,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -1.8531,
@@ -134446,8 +134466,8 @@
     },
     "RSWM": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 35,
       "sectorGrowth1M": -4.8034,
@@ -135768,7 +135788,7 @@
       "valueMigration": 77.73,
       "futureGrowth": 25.62,
       "fundamentalQuality": 58.06,
-      "capexScore": 50.0,
+      "capexScore": 90.0,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: renewable-energy capacity additions, energy transition and related investment provide a strong structural tailwind.",
@@ -135801,10 +135821,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: CAPEX detected, but positive operating cash flow was unavailable for comparison.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-09-18",
-          "mode": "AUTOMATED"
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/SAATVIK_02112026201412_Reg30odishafacility.pdf",
+          "sourceDate": "2026-11-02",
+          "mode": "VERIFIED"
         }
       }
     },
@@ -137399,8 +137419,8 @@
     },
     "SALONA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 58,
       "sectorGrowth1M": -4.8034,
@@ -137562,8 +137582,8 @@
     },
     "SAMBANDAM": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -138030,8 +138050,8 @@
     },
     "SANATHAN": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 81,
       "sectorGrowth1M": -4.8034,
@@ -138213,8 +138233,8 @@
     },
     "SANGAMIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 66,
       "sectorGrowth1M": -4.8034,
@@ -139027,8 +139047,8 @@
     },
     "SARLAPOLY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 71,
       "sectorGrowth1M": -4.8034,
@@ -140778,8 +140798,8 @@
     },
     "SELMC": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -143424,8 +143444,8 @@
     },
     "SHEKHAWATI": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 49,
       "sectorGrowth1M": -4.8034,
@@ -144238,10 +144258,10 @@
     },
     "SHIVAMILLS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 55,
+      "stockMomentumRating": 54,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -1.2546,
@@ -144299,8 +144319,8 @@
     },
     "SHIVATEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 63,
       "sectorGrowth1M": -4.8034,
@@ -145236,8 +145256,8 @@
     },
     "SRTL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 29,
       "sectorGrowth1M": -4.8034,
@@ -146112,8 +146132,8 @@
     },
     "SHRJAGP": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -148678,8 +148698,8 @@
     },
     "SIYSIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 16,
       "sectorGrowth1M": -4.8034,
@@ -150147,7 +150167,7 @@
       "industryGrowth3M": -25.32,
       "industryGrowth6M": -28.35,
       "industryRating": 10,
-      "stockMomentumRating": 23,
+      "stockMomentumRating": 22,
       "sectorGrowth1M": -7.7013,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -13.8237,
@@ -150307,8 +150327,8 @@
     },
     "SOMATEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 16,
       "sectorGrowth1M": -4.8034,
@@ -150714,8 +150734,8 @@
     },
     "SONA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -151692,10 +151712,10 @@
     },
     "SPORTKING": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 40,
+      "stockMomentumRating": 39,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -10.679,
@@ -152751,8 +152771,8 @@
     },
     "SIL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 72,
       "sectorGrowth1M": -4.8034,
@@ -152876,7 +152896,7 @@
       "industryGrowth3M": -16.09,
       "industryGrowth6M": -23.79,
       "industryRating": 28,
-      "stockMomentumRating": 57,
+      "stockMomentumRating": 56,
       "sectorGrowth1M": -6.7416,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -4.6191,
@@ -153849,8 +153869,8 @@
     },
     "SGL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 67,
       "sectorGrowth1M": -4.8034,
@@ -154989,8 +155009,8 @@
     },
     "SUMEETINDS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 16,
       "sectorGrowth1M": -4.8034,
@@ -156027,8 +156047,8 @@
     },
     "SUNRAKSHAK": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -156353,8 +156373,8 @@
     },
     "SUPERSPIN": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 38,
       "sectorGrowth1M": -4.8034,
@@ -157574,8 +157594,8 @@
     },
     "SURYALAXMI": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 21,
       "sectorGrowth1M": -4.8034,
@@ -157635,10 +157655,10 @@
     },
     "SURYALA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 66,
+      "stockMomentumRating": 65,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": 0.6887,
@@ -157757,8 +157777,8 @@
     },
     "SUTLEJTEX": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 27,
       "sectorGrowth1M": -4.8034,
@@ -158062,8 +158082,8 @@
     },
     "SVPGLOB": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 87,
       "sectorGrowth1M": -4.8034,
@@ -158306,10 +158326,10 @@
     },
     "SWARAJ": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
-      "stockMomentumRating": 47,
+      "stockMomentumRating": 46,
       "sectorGrowth1M": -4.8034,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -8.1314,
@@ -159263,8 +159283,8 @@
     },
     "TTL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 21,
       "sectorGrowth1M": -4.8034,
@@ -164798,8 +164818,8 @@
     },
     "RUBYMILLS": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 60,
       "sectorGrowth1M": -4.8034,
@@ -165571,8 +165591,8 @@
     },
     "THOMASCOTT": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 59,
       "sectorGrowth1M": -4.8034,
@@ -171574,8 +171594,8 @@
     },
     "UNITEDPOLY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 96,
       "sectorGrowth1M": -4.8034,
@@ -172595,7 +172615,7 @@
       "industryGrowth3M": -9.745,
       "industryGrowth6M": -8.18,
       "industryRating": 63,
-      "stockMomentumRating": 33,
+      "stockMomentumRating": 32,
       "sectorGrowth1M": -4.1997,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -8.3682,
@@ -173937,8 +173957,8 @@
     },
     "VARDHACRLC": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 32,
       "sectorGrowth1M": -4.8034,
@@ -174059,8 +174079,8 @@
     },
     "VARDMNPOLY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 8,
       "sectorGrowth1M": -4.8034,
@@ -174425,8 +174445,8 @@
     },
     "VGL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 19,
       "sectorGrowth1M": -4.8034,
@@ -174690,8 +174710,8 @@
     },
     "VCL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 89,
       "sectorGrowth1M": -4.8034,
@@ -176139,7 +176159,7 @@
       "industryGrowth3M": -4.48,
       "industryGrowth6M": -5.8,
       "industryRating": 57,
-      "stockMomentumRating": 27,
+      "stockMomentumRating": 26,
       "sectorGrowth1M": -6.7416,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -10.3078,
@@ -177358,8 +177378,8 @@
     },
     "VINNY": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 70,
       "sectorGrowth1M": -4.8034,
@@ -178193,8 +178213,8 @@
     },
     "VIVIDHA": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 29,
       "sectorGrowth1M": -4.8034,
@@ -178397,8 +178417,8 @@
     },
     "VISHAL": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -179924,8 +179944,8 @@
     },
     "VTMLTD": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": null,
       "sectorGrowth1M": -4.8034,
@@ -180758,8 +180778,8 @@
     },
     "WEIZMANIND": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 44,
       "sectorGrowth1M": -4.8034,
@@ -183629,8 +183649,8 @@
     },
     "ZENITHEXPO": {
       "industryGrowth1M": -3.8236,
-      "industryGrowth3M": -5.69,
-      "industryGrowth6M": -7.25,
+      "industryGrowth3M": -5.47,
+      "industryGrowth6M": -7.145,
       "industryRating": 66,
       "stockMomentumRating": 17,
       "sectorGrowth1M": -4.8034,
@@ -184222,7 +184242,7 @@
       "industryGrowth3M": -16.21,
       "industryGrowth6M": -22.44,
       "industryRating": 27,
-      "stockMomentumRating": 30,
+      "stockMomentumRating": 31,
       "sectorGrowth1M": -6.7416,
       "sectorGrowthSource": "SECTOR_STOCK_MEDIAN",
       "stockGrowth1M": -13.82,
