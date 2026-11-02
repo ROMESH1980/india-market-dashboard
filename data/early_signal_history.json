@@ -13565,7 +13565,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 57.0,
+          "rsRating": 56.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -27717,7 +27717,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 86.0,
+          "rsRating": 85.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -30385,10 +30385,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 97.0,
+          "rsRating": 96.0,
           "stage": "Breakout Confirmed",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -33517,10 +33517,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 77.0,
+          "rsRating": 76.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -35721,10 +35721,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 91.0,
-          "stage": "Early Watch",
+          "rsRating": 90.0,
+          "stage": "No Early Signal",
           "above50DMA": true,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -41553,7 +41553,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 75.0,
+          "rsRating": 74.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -42481,7 +42481,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 28.0,
+          "rsRating": 27.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -42597,7 +42597,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 67.0,
+          "rsRating": 66.0,
           "stage": "No Early Signal",
           "above50DMA": true,
           "rsImproving": false
@@ -42829,7 +42829,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 71.0,
+          "rsRating": 70.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -45381,7 +45381,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 87.0,
+          "rsRating": 86.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -54313,7 +54313,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 48.0,
+          "rsRating": 47.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -66029,7 +66029,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 81.0,
+          "rsRating": 80.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -72641,7 +72641,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 69.0,
+          "rsRating": 68.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -73221,7 +73221,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 49.0,
+          "rsRating": 48.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -74613,7 +74613,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 80.0,
+          "rsRating": 79.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -81921,7 +81921,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 62.0,
+          "rsRating": 61.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -82617,7 +82617,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 92.0,
+          "rsRating": 91.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -84589,7 +84589,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 47.0,
+          "rsRating": 46.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -87605,7 +87605,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 51.0,
+          "rsRating": 50.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -93637,7 +93637,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 76.0,
+          "rsRating": 75.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -97581,7 +97581,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 74.0,
+          "rsRating": 73.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -104425,7 +104425,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 35.0,
+          "rsRating": 34.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -107325,7 +107325,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 66.0,
+          "rsRating": 65.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -107441,10 +107441,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 42.0,
+          "rsRating": 41.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -111153,7 +111153,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 19.0,
+          "rsRating": 18.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -111617,7 +111617,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 68.0,
+          "rsRating": 67.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -113241,7 +113241,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 38.0,
+          "rsRating": 37.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -115445,7 +115445,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 31.0,
+          "rsRating": 30.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -117881,7 +117881,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 56.0,
+          "rsRating": 55.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -123797,7 +123797,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 36.0,
+          "rsRating": 35.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -126001,7 +126001,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 48.0,
+          "rsRating": 47.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -127741,7 +127741,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 64.0,
+          "rsRating": 63.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -136413,10 +136413,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 42.0,
+          "rsRating": 41.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -137109,7 +137109,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 21.0,
+          "rsRating": 20.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -137341,7 +137341,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 82.0,
+          "rsRating": 81.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -144069,7 +144069,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 37.0,
+          "rsRating": 36.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -144301,7 +144301,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 36.0,
+          "rsRating": 35.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -145693,7 +145693,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 34.0,
+          "rsRating": 33.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -147549,7 +147549,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 11.0,
+          "rsRating": 10.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -148361,7 +148361,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 12.0,
+          "rsRating": 11.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -149057,7 +149057,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 33.0,
+          "rsRating": 32.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -151145,7 +151145,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 70.0,
+          "rsRating": 69.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -154045,7 +154045,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 6.0,
+          "rsRating": 5.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -154277,7 +154277,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 29.0,
+          "rsRating": 28.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -158105,7 +158105,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 43.0,
+          "rsRating": 42.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -161353,10 +161353,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 12.0,
+          "rsRating": 11.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -161933,7 +161933,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 21.0,
+          "rsRating": 20.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -162049,7 +162049,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 41.0,
+          "rsRating": 40.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -162165,7 +162165,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 9.0,
+          "rsRating": 8.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -162977,7 +162977,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 23.0,
+          "rsRating": 22.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -164137,7 +164137,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 25.0,
+          "rsRating": 24.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -164949,7 +164949,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 51.0,
+          "rsRating": 50.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -166573,7 +166573,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 28.0,
+          "rsRating": 27.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -167153,7 +167153,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 23.0,
+          "rsRating": 22.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -171329,7 +171329,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 57.0,
+          "rsRating": 56.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -172489,7 +172489,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 47.0,
+          "rsRating": 46.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -172721,7 +172721,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 60.0,
+          "rsRating": 59.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -178521,7 +178521,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 44.0,
+          "rsRating": 43.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -180841,7 +180841,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 16.0,
+          "rsRating": 15.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -183857,7 +183857,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 8.0,
+          "rsRating": 7.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -186409,7 +186409,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 7.0,
+          "rsRating": 6.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -187105,7 +187105,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 17.0,
+          "rsRating": 16.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -187801,7 +187801,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 30.0,
+          "rsRating": 29.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -188149,7 +188149,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 22.0,
+          "rsRating": 21.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -189193,7 +189193,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 35.0,
+          "rsRating": 34.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -192325,7 +192325,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 39.0,
+          "rsRating": 38.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -194529,7 +194529,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 18.0,
+          "rsRating": 17.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -195109,7 +195109,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 28.0,
+          "rsRating": 27.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -195341,7 +195341,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 31.0,
+          "rsRating": 30.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -197197,7 +197197,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 40.0,
+          "rsRating": 39.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -197893,7 +197893,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 11.0,
+          "rsRating": 10.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -198357,7 +198357,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 29.0,
+          "rsRating": 28.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -201373,7 +201373,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 8.0,
+          "rsRating": 7.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -202533,7 +202533,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 46.0,
+          "rsRating": 45.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -204273,10 +204273,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 45.0,
+          "rsRating": 44.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -204853,7 +204853,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 22.0,
+          "rsRating": 21.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -207289,7 +207289,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 22.0,
+          "rsRating": 21.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -209493,7 +209493,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 13.0,
+          "rsRating": 12.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -211349,7 +211349,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 32.0,
+          "rsRating": 31.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -215641,7 +215641,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 4.0,
+          "rsRating": 3.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -217381,7 +217381,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 50.0,
+          "rsRating": 49.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -217845,7 +217845,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 53.0,
+          "rsRating": 52.0,
           "stage": "No Early Signal",
           "above50DMA": true,
           "rsImproving": false
@@ -218077,7 +218077,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 39.0,
+          "rsRating": 38.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -219585,7 +219585,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 18.0,
+          "rsRating": 17.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -221905,7 +221905,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 38.0,
+          "rsRating": 37.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -222485,7 +222485,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 34.0,
+          "rsRating": 33.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -222601,7 +222601,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 5.0,
+          "rsRating": 4.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -222833,7 +222833,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 72.0,
+          "rsRating": 71.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -225037,7 +225037,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 16.0,
+          "rsRating": 15.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -228053,7 +228053,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 26.0,
+          "rsRating": 25.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -231533,7 +231533,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 13.0,
+          "rsRating": 12.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -231997,7 +231997,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 32.0,
+          "rsRating": 31.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -236057,7 +236057,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 27.0,
+          "rsRating": 26.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -236521,10 +236521,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 24.0,
+          "rsRating": 23.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -243945,7 +243945,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 61.0,
+          "rsRating": 60.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -246845,7 +246845,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 46.0,
+          "rsRating": 45.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -248585,7 +248585,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 52.0,
+          "rsRating": 51.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -248701,7 +248701,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 30.0,
+          "rsRating": 29.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -252761,7 +252761,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 23.0,
+          "rsRating": 22.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -253341,7 +253341,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 11.0,
+          "rsRating": 10.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -254501,7 +254501,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 59.0,
+          "rsRating": 58.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -254849,10 +254849,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 40.0,
+          "rsRating": 39.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -255661,7 +255661,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 33.0,
+          "rsRating": 32.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -257981,7 +257981,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 58.0,
+          "rsRating": 57.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -258445,7 +258445,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 41.0,
+          "rsRating": 40.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -260069,7 +260069,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 6.0,
+          "rsRating": 5.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -260185,7 +260185,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 20.0,
+          "rsRating": 19.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -262688,7 +262688,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 24.0,
+          "rsRating": 23.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -263848,7 +263848,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 17.0,
+          "rsRating": 16.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -267096,7 +267096,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 7.0,
+          "rsRating": 6.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -268140,7 +268140,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 14.0,
+          "rsRating": 13.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -268836,7 +268836,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 37.0,
+          "rsRating": 36.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -269068,7 +269068,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 15.0,
+          "rsRating": 14.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -270808,7 +270808,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 45.0,
+          "rsRating": 44.0,
           "stage": "Early Watch",
           "above50DMA": true,
           "rsImproving": true
@@ -272780,7 +272780,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 25.0,
+          "rsRating": 24.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -273128,10 +273128,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 26.0,
+          "rsRating": 25.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -274868,7 +274868,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 27.0,
+          "rsRating": 26.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -274984,10 +274984,10 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 54.0,
+          "rsRating": 53.0,
           "stage": "No Early Signal",
           "above50DMA": false,
-          "rsImproving": true
+          "rsImproving": false
         }
       ]
     },
@@ -276608,7 +276608,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 43.0,
+          "rsRating": 42.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -276956,7 +276956,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 15.0,
+          "rsRating": 14.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -278109,7 +278109,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 65.0,
+          "rsRating": 64.0,
           "stage": "No Early Signal",
           "above50DMA": true,
           "rsImproving": false
@@ -280429,7 +280429,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 13.0,
+          "rsRating": 12.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -308779,7 +308779,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 52.0,
+          "rsRating": 51.0,
           "stage": "No Early Signal",
           "above50DMA": true,
           "rsImproving": null
@@ -310635,7 +310635,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 63.0,
+          "rsRating": 62.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": true
@@ -318987,7 +318987,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 18.0,
+          "rsRating": 17.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -328963,7 +328963,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 20.0,
+          "rsRating": 19.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -335227,7 +335227,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 12.0,
+          "rsRating": 11.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -336503,7 +336503,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 5.0,
+          "rsRating": 4.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -337663,7 +337663,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 14.0,
+          "rsRating": 13.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -343579,7 +343579,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 17.0,
+          "rsRating": 16.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -345319,7 +345319,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 16.0,
+          "rsRating": 15.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -350539,7 +350539,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 55.0,
+          "rsRating": 54.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": null
@@ -352859,7 +352859,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 19.0,
+          "rsRating": 18.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": null
@@ -362371,7 +362371,7 @@
         },
         {
           "date": "2026-11-02",
-          "rsRating": 10.0,
+          "rsRating": 9.0,
           "stage": "No Early Signal",
           "above50DMA": false,
           "rsImproving": false
@@ -370909,8 +370909,30 @@
           "rsImproving": null
         }
       ]
+    },
+    "BLSPOLY": {
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
+    },
+    "SFCTECH": {
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
     }
   },
   "lastMarketDate": "2026-11-02",
-  "updatedAt": "2026-11-02T21:09:05.890400+00:00"
+  "updatedAt": "2026-11-02T22:53:43.053747+00:00"
 }
