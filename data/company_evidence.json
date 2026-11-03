@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-11-02",
+    "updated": "2026-11-03",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -2754,6 +2754,51 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-11-02"
+      }
+    },
+    "TRIDENT": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/TRIDENT_02112026174551_Filing_Capacity.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-02",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-03"
+      }
+    },
+    "GANECOS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GANECOS_21052026180925_odisha_plant_s.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-21",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-03"
+      }
+    },
+    "360ONE": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/IIFLWAM_31102026105746_IntimationSigned.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-31",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-03"
       }
     }
   }

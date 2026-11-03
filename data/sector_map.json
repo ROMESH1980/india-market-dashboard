@@ -16190,8 +16190,18 @@
     "source": "Yahoo Finance"
   },
   "ABCIND": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Textile Manufacturing",
+    "source": "Yahoo Finance"
+  },
+  "BLSPOLY": {
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "source": "Yahoo Finance"
+  },
+  "SFCTECH": {
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "source": "Yahoo Finance"
   }
 }
