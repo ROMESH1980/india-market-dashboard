@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-03",
+    "updated": "2026-11-04",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,83 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12534,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 362,
+      "announcementsSeen": 8912,
+      "rawCapexMatches": 8,
+      "negativeCapexRejected": 237,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 3,
+      "capexCandidates": 3,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 3,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "EKC": {
+      "name": "Everest Kanto Cylinder Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/EKC_29092026184711_EKCLIntimationofEgyptcommercialproduction.pdf",
+          "sourceDate": "29-Sep-2026 18:47:31",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-04"
+        }
+      ]
+    },
+    "MEDANTA": {
+      "name": "Global Health Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/MEDANTA21_03112026162207_GHLOUTCOMEOFBMNOV032026SIGNED.pdf",
+          "sourceDate": "03-Nov-2026 16:22:19",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-04"
+        }
+      ]
+    },
+    "SKFINDIA": {
+      "name": "SKF India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/SKFINDIA25_03112026202711_NSE.pdf",
+          "sourceDate": "03-Nov-2026 20:27:45",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-04"
+        }
+      ]
+    }
+  }
 }

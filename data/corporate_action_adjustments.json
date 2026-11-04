@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -431,18 +431,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 3.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 2:1",
@@ -452,6 +440,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "SPLIT"
       }
     ],
     "DEVIT": [
@@ -1341,18 +1341,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -1362,6 +1350,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "SPLIT"
       }
     ],
     "SKMEGGPROD": [
@@ -1661,10 +1661,10 @@
   },
   "meta": {
     "acceptedActions": 120,
-    "dashboardSymbols": 3204,
-    "downloadedRecords": 2851,
+    "dashboardSymbols": 3209,
+    "downloadedRecords": 2860,
     "fromDate": "2025-08-11",
-    "generatedAt": "2026-11-03T20:29:48.314677+00:00",
+    "generatedAt": "2026-11-04T18:19:13.782910+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

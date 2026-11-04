@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-11-03",
+    "updated": "2026-11-04",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -2799,6 +2799,51 @@
         "triggerType": "Commissioning / Commercial Operations",
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-11-03"
+      }
+    },
+    "EKC": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/EKC_29092026184711_EKCLIntimationofEgyptcommercialproduction.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-29",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-04"
+      }
+    },
+    "MEDANTA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/MEDANTA21_03112026162207_GHLOUTCOMEOFBMNOV032026SIGNED.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-04"
+      }
+    },
+    "SKFINDIA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/SKFINDIA25_03112026202711_NSE.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-03",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-04"
       }
     }
   }

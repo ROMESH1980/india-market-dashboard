@@ -1920,8 +1920,38 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "MEDANTA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MEDANTA21_03112026162207_GHLOUTCOMEOFBMNOV032026SIGNED.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "EKC": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EKC_29092026184711_EKCLIntimationofEgyptcommercialproduction.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "SKFINDIA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-03",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/SKFINDIA25_03112026202711_NSE.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-03T20:44:45+00:00",
+  "updatedAt": "2026-11-04T18:30:00+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
