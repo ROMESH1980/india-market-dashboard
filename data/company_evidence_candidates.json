@@ -17,83 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 20546,
-      "rawCapexMatches": 4,
-      "negativeCapexRejected": 557,
+      "announcementsSeen": 20547,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 550,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 3,
-      "capexCandidates": 3,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 3,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "XPROINDIA": {
-      "name": "Xpro India Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/XPROINDIA_27032026143629_SE_Letter_27032026.pdf",
-          "sourceDate": "27-Mar-2026 14:41:18",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-04"
-        }
-      ]
-    },
-    "LINDEINDIA": {
-      "name": "Linde India Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/LINDEINDIA1_27052026160715_Commencement_of_production_at_JSL_Kalinganagar.pdf",
-          "sourceDate": "27-May-2026 16:10:32",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-04"
-        }
-      ]
-    },
-    "GPIL": {
-      "name": "Godawari Power And Ispat limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/GPIL_24032026141749_GPILNSEBSEOUTCOMEOFBM24032026.pdf",
-          "sourceDate": "24-Mar-2026 14:18:11",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-04"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }

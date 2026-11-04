@@ -431,18 +431,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 3.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 2:1",
-        "ratioA": 2.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -452,6 +440,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 3.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 2:1",
+        "ratioA": 2.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "BONUS"
       }
     ],
     "DEVIT": [
@@ -1662,9 +1662,9 @@
   "meta": {
     "acceptedActions": 120,
     "dashboardSymbols": 3209,
-    "downloadedRecords": 2848,
+    "downloadedRecords": 2847,
     "fromDate": "2025-08-12",
-    "generatedAt": "2026-11-04T18:56:13.143645+00:00",
+    "generatedAt": "2026-11-04T20:45:00.632379+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
