@@ -280,18 +280,6 @@
       {
         "exDate": "2025-12-12",
         "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BHARATRAS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-12-12",
-        "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 5.0,
         "oldFaceValue": 10.0,
@@ -300,6 +288,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BHARATRAS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-12-12",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BHARATRAS",
+        "type": "BONUS"
       }
     ],
     "BLSE": [
@@ -499,18 +499,6 @@
     "FCL": [
       {
         "exDate": "2025-10-31",
-        "factor": 5.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 4:1",
-        "ratioA": 4.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "FCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2025-10-31",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -520,6 +508,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "FCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2025-10-31",
+        "factor": 5.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 4:1",
+        "ratioA": 4.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "FCL",
+        "type": "BONUS"
       }
     ],
     "FISCHER": [
@@ -1233,18 +1233,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -1254,6 +1242,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "SPLIT"
       }
     ],
     "ROLEXRINGS": [
@@ -1341,18 +1341,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -1362,6 +1350,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "BONUS"
       }
     ],
     "SKMEGGPROD": [
@@ -1662,9 +1662,9 @@
   "meta": {
     "acceptedActions": 120,
     "dashboardSymbols": 3209,
-    "downloadedRecords": 2860,
-    "fromDate": "2025-08-11",
-    "generatedAt": "2026-11-04T18:19:13.782910+00:00",
+    "downloadedRecords": 2848,
+    "fromDate": "2025-08-12",
+    "generatedAt": "2026-11-04T18:56:13.143645+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1673,7 +1673,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 109,
-    "toDate": "2026-11-11",
+    "toDate": "2026-11-12",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",

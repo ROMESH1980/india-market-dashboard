@@ -16203,5 +16203,35 @@
     "sector": "Industrials",
     "industry": "Pollution & Treatment Controls",
     "source": "Yahoo Finance"
+  },
+  "ENNATURE": {
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
+  },
+  "IGLSPIRITS": {
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Wineries & Distilleries",
+    "source": "Yahoo Finance"
+  },
+  "MELSTAR": {
+    "sector": "Financial Services",
+    "industry": "Shell Companies",
+    "source": "Yahoo Finance"
+  },
+  "EVONILE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "MKJEWELS": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "URBAN-RE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

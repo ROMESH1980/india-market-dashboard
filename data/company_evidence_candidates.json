@@ -17,9 +17,9 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 8912,
-      "rawCapexMatches": 8,
-      "negativeCapexRejected": 237,
+      "announcementsSeen": 20546,
+      "rawCapexMatches": 4,
+      "negativeCapexRejected": 557,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 3,
       "capexCandidates": 3,
@@ -29,8 +29,8 @@
     }
   },
   "stocks": {
-    "EKC": {
-      "name": "Everest Kanto Cylinder Limited",
+    "XPROINDIA": {
+      "name": "Xpro India Limited",
       "board": "MAIN",
       "capex": [
         {
@@ -40,8 +40,8 @@
           "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
           "subject": "",
           "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/EKC_29092026184711_EKCLIntimationofEgyptcommercialproduction.pdf",
-          "sourceDate": "29-Sep-2026 18:47:31",
+          "source": "https://nsearchives.nseindia.com/corporate/XPROINDIA_27032026143629_SE_Letter_27032026.pdf",
+          "sourceDate": "27-Mar-2026 14:41:18",
           "matchedTerms": [
             "commercial production"
           ],
@@ -51,21 +51,21 @@
         }
       ]
     },
-    "MEDANTA": {
-      "name": "Global Health Limited",
+    "LINDEINDIA": {
+      "name": "Linde India Limited",
       "board": "MAIN",
       "capex": [
         {
           "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
           "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/MEDANTA21_03112026162207_GHLOUTCOMEOFBMNOV032026SIGNED.pdf",
-          "sourceDate": "03-Nov-2026 16:22:19",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/LINDEINDIA1_27052026160715_Commencement_of_production_at_JSL_Kalinganagar.pdf",
+          "sourceDate": "27-May-2026 16:10:32",
           "matchedTerms": [
-            "capacity addition"
+            "commercial production"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "AUTO_VERIFIED",
@@ -73,8 +73,8 @@
         }
       ]
     },
-    "SKFINDIA": {
-      "name": "SKF India Limited",
+    "GPIL": {
+      "name": "Godawari Power And Ispat limited",
       "board": "MAIN",
       "capex": [
         {
@@ -84,8 +84,8 @@
           "reason": "Capacity Expansion. Capacity addition",
           "subject": "",
           "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/SKFINDIA25_03112026202711_NSE.pdf",
-          "sourceDate": "03-Nov-2026 20:27:45",
+          "source": "https://nsearchives.nseindia.com/corporate/GPIL_24032026141749_GPILNSEBSEOUTCOMEOFBM24032026.pdf",
+          "sourceDate": "24-Mar-2026 14:18:11",
           "matchedTerms": [
             "capacity addition"
           ],

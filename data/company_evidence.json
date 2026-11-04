@@ -2845,6 +2845,51 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-11-04"
       }
+    },
+    "XPROINDIA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/XPROINDIA_27032026143629_SE_Letter_27032026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-04"
+      }
+    },
+    "LINDEINDIA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/LINDEINDIA1_27052026160715_Commencement_of_production_at_JSL_Kalinganagar.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-27",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-04"
+      }
+    },
+    "GPIL": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/GPIL_24032026141749_GPILNSEBSEOUTCOMEOFBM24032026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-24",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-04"
+      }
     }
   }
 }

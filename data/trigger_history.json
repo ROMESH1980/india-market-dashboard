@@ -1950,8 +1950,38 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "LINDEINDIA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LINDEINDIA1_27052026160715_Commencement_of_production_at_JSL_Kalinganagar.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "XPROINDIA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-27",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/XPROINDIA_27032026143629_SE_Letter_27032026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GPIL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-24",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GPIL_24032026141749_GPILNSEBSEOUTCOMEOFBM24032026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-04T18:30:00+00:00",
+  "updatedAt": "2026-11-04T19:08:33+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
