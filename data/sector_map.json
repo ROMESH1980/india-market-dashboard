@@ -16233,5 +16233,15 @@
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
+  },
+  "BCSSL": {
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "Yahoo Finance"
+  },
+  "BRIGHTOUTD": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

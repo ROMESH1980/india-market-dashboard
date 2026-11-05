@@ -690,20 +690,6 @@
         "type": "BONUS"
       }
     ],
-    "INDIAGLYCO": [
-      {
-        "exDate": "2025-08-12",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 5.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "INDIAGLYCO",
-        "type": "SPLIT"
-      }
-    ],
     "INFOBEAN": [
       {
         "exDate": "2026-02-27",
@@ -1233,18 +1219,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1254,6 +1228,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1660,11 +1646,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 120,
+    "acceptedActions": 119,
     "dashboardSymbols": 3211,
-    "downloadedRecords": 2873,
-    "fromDate": "2025-08-12",
-    "generatedAt": "2026-11-05T18:20:29.241749+00:00",
+    "downloadedRecords": 2866,
+    "fromDate": "2025-08-13",
+    "generatedAt": "2026-11-05T19:04:33.615374+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1672,8 +1658,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 109,
-    "toDate": "2026-11-12",
+    "symbolsWithAdjustments": 108,
+    "toDate": "2026-11-13",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
