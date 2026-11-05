@@ -1980,8 +1980,58 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "MOTHERSON": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-08-26",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/MOTHERSON_26082026170806_SAMIL_SE_Disclosure_26082026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "NEOGEN": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-31",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/NEOGEN_31102026200351_BMOutcome_31102026_Final.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BORORENEW": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-22",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BORORENEW12_22092026120903_OUTCOME_1_-_revised.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BALKRISIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-06-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/BALKRISIND_29062026180439_Regulation30Increaseincapacitysigned.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "RAMCOCEM": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-29",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RAMCOCEM_29092026170947_sesdebot.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-04T20:59:10+00:00",
+  "updatedAt": "2026-11-05T18:32:45+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
