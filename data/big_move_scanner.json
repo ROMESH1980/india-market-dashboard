@@ -1,6 +1,6 @@
 {
   "marketDate": "2026-11-06",
-  "generatedAt": "2026-11-06T17:49:01+00:00",
+  "generatedAt": "2026-11-06T18:47:30+00:00",
   "scannerVersion": "2.2",
   "methodology": {
     "phase1": "RS + Stock Momentum + Industry Rating + multi-period price strength + existing fundamental/business triggers.",
@@ -83207,9 +83207,9 @@
       "freeFloatPct": null,
       "freeFloatShares": null,
       "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
+      "freeFloatDate": "30-SEP-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1735909_12102026125856_WEB.xml",
       "freeFloatMethod": null,
       "freeFloatEstimated": false,
       "publicShares": null,
@@ -208732,9 +208732,9 @@
       "freeFloatPct": null,
       "freeFloatShares": null,
       "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
+      "freeFloatDate": "30-SEP-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1740017_16102026042923_WEB.xml",
       "freeFloatMethod": null,
       "freeFloatEstimated": false,
       "publicShares": null,
@@ -235535,9 +235535,9 @@
       "freeFloatPct": null,
       "freeFloatShares": null,
       "freeFloatStatus": "PENDING",
-      "freeFloatDate": null,
-      "freeFloatSource": null,
-      "freeFloatSourceUrl": null,
+      "freeFloatDate": "30-SEP-2026",
+      "freeFloatSource": "NSE Corporate Share Holdings API",
+      "freeFloatSourceUrl": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1741218_19102026122846_WEB.xml",
       "freeFloatMethod": null,
       "freeFloatEstimated": false,
       "publicShares": null,
@@ -321893,7 +321893,7 @@
     }
   ],
   "phase": "PHASE_2_TECHNICAL",
-  "technicalGeneratedAt": "2026-11-06T17:54:10+00:00",
+  "technicalGeneratedAt": "2026-11-06T18:51:51+00:00",
   "technicalMarketDate": "2026-11-06",
   "technicalHistory": {
     "source": "Official NSE UDiFF EOD bhavcopy",
@@ -321910,5 +321910,5 @@
     "asOf": "2026-11-06"
   },
   "earlySignalMethodology": "Additive, provisional stages; 50DMA requires dated price_history.json; RS improving requires a previous saved observation. Existing setupStatus and bigMoveScore are unchanged. Not a validated buy signal.",
-  "triggerHistoryUpdatedAt": "2026-11-06T17:54:19+00:00"
+  "triggerHistoryUpdatedAt": "2026-11-06T18:51:56+00:00"
 }
