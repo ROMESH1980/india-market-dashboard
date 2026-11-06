@@ -2030,8 +2030,88 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "KINGFA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/KINGFA_23022026113509_Intimation_of_Commencement_of_Commercial_Production.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "DEVX": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/DEVACCE_06112026175517_SE_CapacityAddition.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "BERGEPAINT": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-08",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/PAINTBERGE_08092026193217_Commercial_Production_Hindupur_Final_080926.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "EXCELINDUS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-07-23",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/EXCELINDUS_23072026190227_Disclosure_to_the_Stock_Exchanges_-_PPA_signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "HNDFDS": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-04-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/9136565850_30042026133011_Intimation_30042026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "VTL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-03-07",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/VTL_07032026140922_MATERIAL__EVENT.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "TENNIND": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TENNECO_05112026113327_BoardMeetingOutcome_Expansion_signed.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "TIINDIA": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-05",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026132904_TIINSEBSEBM.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-05T21:12:12+00:00",
+  "updatedAt": "2026-11-06T17:54:19+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

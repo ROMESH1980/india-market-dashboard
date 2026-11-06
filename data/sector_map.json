@@ -13205,9 +13205,9 @@
     "source": "Unavailable"
   },
   "BAHETI": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Aluminum",
+    "source": "Yahoo Finance"
   },
   "BALAJIPHOS": {
     "sector": "Unclassified",

@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-11-05",
+    "updated": "2026-11-06",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -2964,6 +2964,126 @@
         "triggerType": "Capacity Expansion",
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-11-05"
+      }
+    },
+    "KINGFA": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/KINGFA_23022026113509_Intimation_of_Commencement_of_Commercial_Production.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "TENNIND": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/TENNECO_05112026113327_BoardMeetingOutcome_Expansion_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-05",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "EXCELINDUS": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/EXCELINDUS_23072026190227_Disclosure_to_the_Stock_Exchanges_-_PPA_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-07-23",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "DEVX": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/DEVACCE_06112026175517_SE_CapacityAddition.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "TIINDIA": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026132904_TIINSEBSEBM.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-05",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "HNDFDS": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/9136565850_30042026133011_Intimation_30042026.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-04-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "BERGEPAINT": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/PAINTBERGE_08092026193217_Commercial_Production_Hindupur_Final_080926.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-09-08",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-06"
+      }
+    },
+    "VTL": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/VTL_07032026140922_MATERIAL__EVENT.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-03-07",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-06"
       }
     }
   }

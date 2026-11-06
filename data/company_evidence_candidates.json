@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-05",
+    "updated": "2026-11-06",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,193 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 20729,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 472,
+      "announcementsSeen": 16522,
+      "rawCapexMatches": 13,
+      "negativeCapexRejected": 402,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 8,
+      "capexCandidates": 8,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 8,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "KINGFA": {
+      "name": "Kingfa Science & Technology (India) Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/KINGFA_23022026113509_Intimation_of_Commencement_of_Commercial_Production.pdf",
+          "sourceDate": "23-Feb-2026 11:37:07",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "TENNIND": {
+      "name": "Tenneco Clean Air India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/TENNECO_05112026113327_BoardMeetingOutcome_Expansion_signed.pdf",
+          "sourceDate": "05-Nov-2026 11:34:43",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "EXCELINDUS": {
+      "name": "Excel Industries Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/EXCELINDUS_23072026190227_Disclosure_to_the_Stock_Exchanges_-_PPA_signed.pdf",
+          "sourceDate": "23-Jul-2026 19:02:39",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "DEVX": {
+      "name": "Dev Accelerator Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/DEVACCE_06112026175517_SE_CapacityAddition.pdf",
+          "sourceDate": "06-Nov-2026 17:55:30",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "TIINDIA": {
+      "name": "Tube Investments of India Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026132904_TIINSEBSEBM.pdf",
+          "sourceDate": "05-Nov-2026 13:29:13",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "HNDFDS": {
+      "name": "Hindustan Foods Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/9136565850_30042026133011_Intimation_30042026.pdf",
+          "sourceDate": "30-Apr-2026 13:33:56",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "BERGEPAINT": {
+      "name": "Berger Paints (I) Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/PAINTBERGE_08092026193217_Commercial_Production_Hindupur_Final_080926.pdf",
+          "sourceDate": "08-Sep-2026 19:32:30",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    },
+    "VTL": {
+      "name": "Vardhman Textiles Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/VTL_07032026140922_MATERIAL__EVENT.pdf",
+          "sourceDate": "07-Mar-2026 14:11:45",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-06"
+        }
+      ]
+    }
+  }
 }
