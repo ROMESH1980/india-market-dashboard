@@ -2110,8 +2110,28 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "TIMETECHNO": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-09-17",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/TIMETECHNO_17092026190705_Intimation17092026.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "GHCL": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/GHCL_12102026141339_GHCL_Intimation_UR30_Commencement_Launch_Product_Bromine_October2026.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-09T21:55:04+00:00",
+  "updatedAt": "2026-11-09T23:31:38+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }
