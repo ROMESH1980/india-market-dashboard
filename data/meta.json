@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 4025.4,
-          "fastMA": 4069.31,
-          "slowMA": 4212.99,
-          "momentumPct": 2.16,
-          "rsi14": 42.45,
-          "distanceFromHighPct": -3.72
+          "latest": 4036.3,
+          "fastMA": 4069.86,
+          "slowMA": 4213.21,
+          "momentumPct": 2.43,
+          "rsi14": 43.02,
+          "distanceFromHighPct": -3.46
         },
         "weekly": {
-          "latest": 4025.4,
-          "fastMA": 4172.18,
-          "slowMA": 4314.08,
-          "momentumPct": -3.72,
-          "rsi14": 36.9,
-          "distanceFromHighPct": -14.0
+          "latest": 4036.3,
+          "fastMA": 4173.27,
+          "slowMA": 4314.44,
+          "momentumPct": -3.46,
+          "rsi14": 37.18,
+          "distanceFromHighPct": -13.77
         },
         "monthly": {
-          "latest": 4025.4,
-          "fastMA": 4123.0,
-          "slowMA": 4385.61,
-          "momentumPct": -10.18,
-          "rsi14": 52.04,
-          "distanceFromHighPct": -23.3
+          "latest": 4036.3,
+          "fastMA": 4124.82,
+          "slowMA": 4386.7,
+          "momentumPct": -9.93,
+          "rsi14": 52.18,
+          "distanceFromHighPct": -23.09
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-10T18:21:14.175982+00:00"
+  "marketRegimeGeneratedAt": "2026-11-10T19:00:24.301562+00:00"
 }
