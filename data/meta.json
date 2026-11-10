@@ -5,7 +5,7 @@
   "eodPriceCount": 3704,
   "matchedPriceCount": 3078,
   "marketDate": "2026-11-09",
-  "lastUpdated": "2026-11-09",
+  "lastUpdated": "2026-11-10",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-11-09",
@@ -48,8 +48,8 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-11-06",
-      "historyRows": 1235,
+      "date": "2026-11-09",
+      "historyRows": 1236,
       "daily": 75,
       "weekly": 70,
       "monthly": 87,
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 25030.35,
-          "fastMA": 23116.54,
-          "slowMA": 23248.02,
-          "momentumPct": 8.58,
-          "rsi14": 80.54,
+          "latest": 25044.65,
+          "fastMA": 23242.75,
+          "slowMA": 23264.76,
+          "momentumPct": 6.84,
+          "rsi14": 87.92,
           "distanceFromHighPct": 0.0
         },
         "weekly": {
-          "latest": 25030.35,
-          "fastMA": 23255.47,
-          "slowMA": 23775.88,
-          "momentumPct": 11.14,
-          "rsi14": 55.36,
+          "latest": 25044.65,
+          "fastMA": 23370.16,
+          "slowMA": 23798.92,
+          "momentumPct": 8.2,
+          "rsi14": 54.04,
           "distanceFromHighPct": 0.0
         },
         "monthly": {
-          "latest": 25030.35,
-          "fastMA": 23838.94,
-          "slowMA": 23808.9,
-          "momentumPct": 3.94,
-          "rsi14": 51.67,
-          "distanceFromHighPct": -4.21
+          "latest": 25044.65,
+          "fastMA": 23841.32,
+          "slowMA": 23810.33,
+          "momentumPct": 4.0,
+          "rsi14": 51.72,
+          "distanceFromHighPct": -4.15
         }
       },
       "error": null
@@ -141,16 +141,16 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "historyRows": 1258,
-      "daily": 65,
-      "weekly": 17,
-      "monthly": 35,
-      "overall": 36,
+      "daily": 32,
+      "weekly": 0,
+      "monthly": 10,
+      "overall": 11,
       "dailySignal": {
-        "label": "Strong",
-        "signal": "overweight",
-        "emoji": "🟢"
+        "label": "Defensive Weak",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "weeklySignal": {
         "label": "Defensive Weak",
@@ -158,39 +158,39 @@
         "emoji": "🔴"
       },
       "monthlySignal": {
-        "label": "Weak / Correction",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Defensive Weak",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "overallSignal": {
-        "label": "Weak / Correction",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Defensive Weak",
+        "signal": "defensive",
+        "emoji": "🔴"
       },
       "details": {
         "daily": {
-          "latest": 4155.2,
-          "fastMA": 4078.94,
-          "slowMA": 4222.93,
-          "momentumPct": 4.68,
-          "rsi14": 50.8,
-          "distanceFromHighPct": -0.62
+          "latest": 4025.4,
+          "fastMA": 4069.31,
+          "slowMA": 4212.99,
+          "momentumPct": 2.16,
+          "rsi14": 42.45,
+          "distanceFromHighPct": -3.72
         },
         "weekly": {
-          "latest": 4155.2,
-          "fastMA": 4185.16,
-          "slowMA": 4318.41,
-          "momentumPct": -0.62,
-          "rsi14": 41.62,
-          "distanceFromHighPct": -11.23
+          "latest": 4025.4,
+          "fastMA": 4172.18,
+          "slowMA": 4314.08,
+          "momentumPct": -3.72,
+          "rsi14": 36.9,
+          "distanceFromHighPct": -14.0
         },
         "monthly": {
-          "latest": 4155.2,
-          "fastMA": 4144.63,
-          "slowMA": 4398.59,
-          "momentumPct": -7.28,
-          "rsi14": 53.65,
-          "distanceFromHighPct": -20.82
+          "latest": 4025.4,
+          "fastMA": 4123.0,
+          "slowMA": 4385.61,
+          "momentumPct": -10.18,
+          "rsi14": 52.04,
+          "distanceFromHighPct": -23.3
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-09T23:25:39.984712+00:00"
+  "marketRegimeGeneratedAt": "2026-11-10T18:21:14.175982+00:00"
 }
