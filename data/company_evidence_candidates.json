@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-09",
+    "updated": "2026-11-10",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,61 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 11635,
-      "rawCapexMatches": 2,
-      "negativeCapexRejected": 380,
+      "announcementsSeen": 11657,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 338,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 2,
-      "capexCandidates": 2,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 2,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "GHCL": {
-      "name": "GHCL Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/GHCL_12102026141339_GHCL_Intimation_UR30_Commencement_Launch_Product_Bromine_October2026.pdf",
-          "sourceDate": "12-Oct-2026 14:13:51",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-09"
-        }
-      ]
-    },
-    "TIMETECHNO": {
-      "name": "Time Technoplast Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "COMMISSIONING_OR_PRODUCTION",
-          "evidenceStrength": 90,
-          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
-          "subject": "",
-          "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.com/corporate/TIMETECHNO_17092026190705_Intimation17092026.pdf",
-          "sourceDate": "17-Sep-2026 19:08:36",
-          "matchedTerms": [
-            "commercial production"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-09"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
