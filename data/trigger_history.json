@@ -2130,8 +2130,48 @@
         "reason": "Capacity Expansion. Capacity addition",
         "verified": true
       }
+    ],
+    "RCF": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-02-12",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/RCF_12022026152300_PhosphricAcidplant.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "LOTUSEYE": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-10-30",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/LOTUSEYE_30102026200412_Opening_of_Erode_branch.pdf",
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "verified": true
+      }
+    ],
+    "COCHINSHIP": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-05-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/Aswi4739_06052026104436_SE_Intimation_SD.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
+    ],
+    "INTERARCH": [
+      {
+        "type": "CAPEX",
+        "sourceDate": "2026-11-06",
+        "sourceName": "NSE Filing",
+        "source": "https://nsearchives.nseindia.com/corporate/INTERARCH1983_06112026143604_IntimationunderRegulation30GujaratPhase2Production.pdf",
+        "reason": "Capacity Expansion. Capacity addition",
+        "verified": true
+      }
     ]
   },
-  "updatedAt": "2026-11-10T20:55:37+00:00",
+  "updatedAt": "2026-11-11T18:17:16+00:00",
   "description": "Permanent source-backed verified trigger history for Big Move Scanner. Normal daily rebuilds do not delete prior records. Current keyTrigger remains separate from historical triggers."
 }

@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Verified company-level research evidence used by MY MARKET RESEARCH",
     "rule": "Do not add a company-specific score or Big Move trigger without a supporting reason and source.",
-    "updated": "2026-11-10",
+    "updated": "2026-11-11",
     "autoVerification": "Strict NSE primary-filing CAPEX auto-verification enabled."
   },
   "stocks": {
@@ -3114,6 +3114,66 @@
         "triggerType": "Commissioning / Commercial Operations",
         "eventClass": "COMMISSIONING_OR_PRODUCTION",
         "verifiedAt": "2026-11-09"
+      }
+    },
+    "COCHINSHIP": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/Aswi4739_06052026104436_SE_Intimation_SD.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-05-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-11"
+      }
+    },
+    "LOTUSEYE": {
+      "capex": {
+        "score": 90,
+        "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+        "source": "https://nsearchives.nseindia.com/corporate/LOTUSEYE_30102026200412_Opening_of_Erode_branch.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Commissioning / Commercial Operations",
+        "eventClass": "COMMISSIONING_OR_PRODUCTION",
+        "verifiedAt": "2026-11-11"
+      }
+    },
+    "RCF": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/RCF_12022026152300_PhosphricAcidplant.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-02-12",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-11"
+      }
+    },
+    "INTERARCH": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/INTERARCH1983_06112026143604_IntimationunderRegulation30GujaratPhase2Production.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-11-06",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-11"
       }
     }
   }

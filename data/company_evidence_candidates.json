@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-10",
+    "updated": "2026-11-11",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,16 +17,105 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 11658,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 338,
+      "announcementsSeen": 9390,
+      "rawCapexMatches": 10,
+      "negativeCapexRejected": 215,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 4,
+      "capexCandidates": 4,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 0,
+      "autoVerifiedCapex": 4,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "COCHINSHIP": {
+      "name": "Cochin Shipyard Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/Aswi4739_06052026104436_SE_Intimation_SD.pdf",
+          "sourceDate": "06-May-2026 10:44:51",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-11"
+        }
+      ]
+    },
+    "LOTUSEYE": {
+      "name": "Lotus Eye Hospital and Institute Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.com/corporate/LOTUSEYE_30102026200412_Opening_of_Erode_branch.pdf",
+          "sourceDate": "30-Oct-2026 20:06:48",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-11"
+        }
+      ]
+    },
+    "RCF": {
+      "name": "Rashtriya Chemicals and Fertilizers Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/RCF_12022026152300_PhosphricAcidplant.pdf",
+          "sourceDate": "12-Feb-2026 15:23:06",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-11"
+        }
+      ]
+    },
+    "INTERARCH": {
+      "name": "Interarch Building Solutions Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/INTERARCH1983_06112026143604_IntimationunderRegulation30GujaratPhase2Production.pdf",
+          "sourceDate": "06-Nov-2026 14:36:17",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "AUTO_VERIFIED",
+          "candidateBuilt": "2026-11-11"
+        }
+      ]
+    }
+  }
 }

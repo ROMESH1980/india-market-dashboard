@@ -73,18 +73,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -94,6 +82,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -431,18 +431,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 3.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 2:1",
@@ -452,6 +440,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "SPLIT"
       }
     ],
     "DEVIT": [
@@ -1104,6 +1104,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "PASHUPATI",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-11-13",
+        "factor": 2.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 3:2",
+        "ratioA": 3.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "PASHUPATI",
+        "type": "BONUS"
       }
     ],
     "PATANJALI": [
@@ -1219,18 +1231,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 2.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 1.0,
-        "oldFaceValue": 2.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 1.5,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:2",
@@ -1240,6 +1240,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 2.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 2.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "SPLIT"
       }
     ],
     "ROLEXRINGS": [
@@ -1632,11 +1644,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 118,
-    "dashboardSymbols": 3230,
-    "downloadedRecords": 2836,
+    "acceptedActions": 119,
+    "dashboardSymbols": 3217,
+    "downloadedRecords": 2844,
     "fromDate": "2025-08-18",
-    "generatedAt": "2026-11-10T20:46:10.169847+00:00",
+    "generatedAt": "2026-11-11T18:07:22.214079+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",

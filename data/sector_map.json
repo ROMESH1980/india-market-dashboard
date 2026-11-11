@@ -16220,9 +16220,9 @@
     "source": "Yahoo Finance"
   },
   "EVONILE": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "Yahoo Finance"
   },
   "MKJEWELS": {
     "sector": "Consumer Cyclical",
