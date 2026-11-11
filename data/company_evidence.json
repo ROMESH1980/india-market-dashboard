@@ -3175,6 +3175,21 @@
         "eventClass": "CAPACITY_EXPANSION",
         "verifiedAt": "2026-11-11"
       }
+    },
+    "ELEVATE": {
+      "capex": {
+        "score": 100,
+        "reason": "Capacity Expansion. Capacity addition",
+        "source": "https://nsearchives.nseindia.com/corporate/ELEVATE_30102026123113_Final_Stock_Exchange_Disclosure_signed.pdf",
+        "sourceName": "Official NSE Filing",
+        "sourceDate": "2026-10-30",
+        "mode": "AUTO_VERIFIED",
+        "verification": "NSE_PRIMARY_FILING",
+        "verified": true,
+        "triggerType": "Capacity Expansion",
+        "eventClass": "CAPACITY_EXPANSION",
+        "verifiedAt": "2026-11-11"
+      }
     }
   }
 }
