@@ -1,6 +1,6 @@
 {
   "marketDate": "2026-11-11",
-  "generatedAt": "2026-11-11T19:01:15+00:00",
+  "generatedAt": "2026-11-11T21:14:51+00:00",
   "scannerVersion": "2.2",
   "methodology": {
     "phase1": "RS + Stock Momentum + Industry Rating + multi-period price strength + existing fundamental/business triggers.",
@@ -322825,7 +322825,7 @@
     }
   ],
   "phase": "PHASE_2_TECHNICAL",
-  "technicalGeneratedAt": "2026-11-11T19:05:48+00:00",
+  "technicalGeneratedAt": "2026-11-11T21:18:48+00:00",
   "technicalMarketDate": "2026-11-11",
   "technicalHistory": {
     "source": "Official NSE UDiFF EOD bhavcopy",
@@ -322842,5 +322842,5 @@
     "asOf": "2026-11-11"
   },
   "earlySignalMethodology": "Additive, provisional stages; 50DMA requires dated price_history.json; RS improving requires a previous saved observation. Existing setupStatus and bigMoveScore are unchanged. Not a validated buy signal.",
-  "triggerHistoryUpdatedAt": "2026-11-11T19:05:54+00:00"
+  "triggerHistoryUpdatedAt": "2026-11-11T21:18:53+00:00"
 }

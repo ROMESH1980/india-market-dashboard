@@ -17584,7 +17584,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-11",
           "mode": "AUTOMATED"
@@ -47228,7 +47228,7 @@
       "valueMigration": 90.8,
       "futureGrowth": 32.32,
       "fundamentalQuality": 57.9,
-      "capexScore": 90.0,
+      "capexScore": 100,
       "researchReasons": {
         "tailwind": {
           "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
@@ -47261,10 +47261,10 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy: capital expenditure is 8.16× operating cash flow.",
-          "source": "methodology.html#capex",
-          "sourceDate": "2026-11-09",
-          "mode": "AUTOMATED"
+          "reason": "Capacity Expansion. Capacity addition",
+          "source": "https://nsearchives.nseindia.com/corporate/ELEVATE_30102026123113_Final_Stock_Exchange_Disclosure_signed.pdf",
+          "sourceDate": "2026-10-30",
+          "mode": "VERIFIED"
         }
       }
     },
