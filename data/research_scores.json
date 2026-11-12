@@ -8063,7 +8063,7 @@
       "tailwindScore": 82.0,
       "macroSupport": 70,
       "valueMigration": 58.16,
-      "futureGrowth": 39.84,
+      "futureGrowth": 39.83,
       "fundamentalQuality": 80.66,
       "capexScore": 80.0,
       "researchReasons": {
@@ -23372,7 +23372,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -25610,7 +25610,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -26790,7 +26790,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -26863,7 +26863,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -27665,7 +27665,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -27726,7 +27726,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -29436,7 +29436,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -31044,7 +31044,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -36601,7 +36601,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -36613,7 +36613,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -42057,7 +42057,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -44907,7 +44907,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -44919,7 +44919,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -48401,7 +48401,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -48939,7 +48939,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -48951,7 +48951,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -54091,7 +54091,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -56126,7 +56126,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -58315,7 +58315,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -60003,7 +60003,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: cash-flow statement not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -60818,7 +60818,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -62110,7 +62110,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -62122,7 +62122,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: cash-flow statement not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -63534,7 +63534,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -63656,7 +63656,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -65263,7 +65263,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -65568,7 +65568,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -66300,7 +66300,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -68925,7 +68925,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -68937,7 +68937,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -69059,7 +69059,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -69862,7 +69862,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -70920,7 +70920,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -70932,7 +70932,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -71359,7 +71359,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: cash-flow statement not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -74471,7 +74471,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -74838,7 +74838,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -76650,7 +76650,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -79745,7 +79745,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -83110,7 +83110,7 @@
           "mode": "AUTOMATED_PROXY"
         },
         "futureGrowth": {
-          "reason": "Automated screening proxy unavailable: insufficient growth data.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#future-growth",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"
@@ -83244,7 +83244,7 @@
           "mode": "AUTOMATED"
         },
         "capex": {
-          "reason": "Automated screening proxy unavailable: capital expenditure data not available.",
+          "reason": "Automated financial-data refresh failed: Too Many Requests. Rate limited. Try after a while.",
           "source": "methodology.html#capex",
           "sourceDate": "2026-11-12",
           "mode": "AUTOMATED"

@@ -16263,5 +16263,10 @@
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "source": "Yahoo Finance"
+  },
+  "SUVID-RE": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }
