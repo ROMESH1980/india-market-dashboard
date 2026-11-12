@@ -17,8 +17,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 39,
-        "bigMoveScore": 39
+        "phase1Score": 38,
+        "bigMoveScore": 38
       },
       "sourceResearchFields": {
         "symbol": "ANTELOPUS",
@@ -31,37 +31,37 @@
           "tailwind": {
             "reason": "Automated screening proxy: energy demand remains supportive, although commodity cycles and energy transition limit structural visibility.",
             "source": "methodology.html#tailwind",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "macro": {
             "reason": "Automated Macro screening proxy: energy demand remains supportive, although commodity cycles reduce visibility.",
             "source": "methodology.html#macro",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (12.5) and 40% turnover-percentile component (79.1). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (56.1) and 40% turnover-percentile component (81.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 116.0%, earnings growth 384.4%, quarterly earnings growth 385.1%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on profit margin 42.1%, operating margin 55.7%, debt/equity 1.4, current ratio 2.87, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 1.85× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           }
         }
@@ -81,8 +81,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 56,
-        "bigMoveScore": 56
+        "phase1Score": 53,
+        "bigMoveScore": 53
       },
       "sourceResearchFields": {
         "symbol": "KABRAEXTRU",
@@ -95,37 +95,37 @@
           "tailwind": {
             "reason": "Automated screening proxy: domestic manufacturing and the investment cycle support capital-goods demand.",
             "source": "methodology.html#tailwind",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "macro": {
             "reason": "Automated Macro screening proxy unavailable: no mapped Macro-support rule for this sector/industry.",
             "source": "methodology.html#macro",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "PENDING"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (63.1) and 40% turnover-percentile component (56.9). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (21.6) and 40% turnover-percentile component (60.3). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 64.2%, earnings growth 1155.6%, quarterly earnings growth 1095.9%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
-            "reason": "Automated screening proxy based on ROE 0.9%, profit margin 0.7%, operating margin 5.8%, debt/equity 63.6, current ratio 1.56, negative free cash flow, negative operating cash flow.",
+            "reason": "Automated screening proxy based on ROE 0.9%, profit margin 0.7%, operating margin 2.5%, debt/equity 63.6, current ratio 1.56, negative free cash flow, negative operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 4.21× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           }
         }
@@ -145,8 +145,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 56,
-        "bigMoveScore": 56
+        "phase1Score": 57,
+        "bigMoveScore": 57
       },
       "sourceResearchFields": {
         "symbol": "GNA",
@@ -159,37 +159,37 @@
           "tailwind": {
             "reason": "Automated screening proxy: income growth, premiumisation and consumption expansion provide long-term support.",
             "source": "methodology.html#tailwind",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "macro": {
             "reason": "Automated Macro screening proxy: consumption growth, income growth and premiumisation provide moderate support.",
             "source": "methodology.html#macro",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (56.2) and 40% turnover-percentile component (70.3). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (60.8) and 40% turnover-percentile component (80.1). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 49.8%, earnings growth 41.1%, quarterly earnings growth 41.3%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
-            "reason": "Automated screening proxy based on ROE 14.4%, profit margin 8.3%, operating margin 12.1%, debt/equity 21.9, current ratio 2.16, negative free cash flow, positive operating cash flow.",
+            "reason": "Automated screening proxy based on ROE 14.4%, profit margin 8.3%, operating margin 10.8%, debt/equity 21.9, current ratio 2.16, negative free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.74× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-06",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           }
         }
@@ -209,8 +209,8 @@
         "businessTriggers": [],
         "structuralTriggers": [],
         "keyTrigger": null,
-        "phase1Score": 60,
-        "bigMoveScore": 60
+        "phase1Score": 56,
+        "bigMoveScore": 56
       },
       "sourceResearchFields": {
         "symbol": "BLISSGVS",
@@ -223,37 +223,37 @@
           "tailwind": {
             "reason": "Automated screening proxy: healthcare demand, exports and rising healthcare penetration provide long-duration support.",
             "source": "methodology.html#tailwind",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "macro": {
             "reason": "Automated Macro screening proxy: healthcare demand, exports and rising healthcare penetration provide support.",
             "source": "methodology.html#macro",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (51.7) and 40% turnover-percentile component (69.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (34.3) and 40% turnover-percentile component (65.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 28.2%, earnings growth 89.4%, quarterly earnings growth 91.7%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on ROE 13.3%, profit margin 15.0%, operating margin 18.6%, debt/equity 1.7, current ratio 4.35, positive free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           }
         }
@@ -287,37 +287,37 @@
           "tailwind": {
             "reason": "Automated screening proxy: healthcare demand, exports and rising healthcare penetration provide long-duration support.",
             "source": "methodology.html#tailwind",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "macro": {
             "reason": "Automated Macro screening proxy: healthcare demand, exports and rising healthcare penetration provide support.",
             "source": "methodology.html#macro",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (64.0) and 40% turnover-percentile component (38.9). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (63.9) and 40% turnover-percentile component (25.1). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED_PROXY"
           },
           "futureGrowth": {
-            "reason": "Automated screening proxy based on revenue growth -23.2%, earnings growth -97.9%, quarterly earnings growth -97.8%.",
+            "reason": "Automated screening proxy based on revenue growth 37.6%, earnings growth 118.9%, quarterly earnings growth 119.1%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
-            "reason": "Automated screening proxy based on profit margin 5.5%, operating margin 3.7%, debt/equity 38.9.",
+            "reason": "Automated screening proxy based on ROE 11.8%, profit margin 7.4%, operating margin 7.2%, debt/equity 36.0, current ratio 1.43, negative free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 1.62× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-11",
+            "sourceDate": "2026-11-12",
             "mode": "AUTOMATED"
           }
         }

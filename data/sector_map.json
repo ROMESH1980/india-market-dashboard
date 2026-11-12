@@ -16260,8 +16260,8 @@
     "source": "Unavailable"
   },
   "VEEFIN": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "Yahoo Finance"
   }
 }
