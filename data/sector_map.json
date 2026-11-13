@@ -13685,9 +13685,9 @@
     "source": "Unavailable"
   },
   "ESFL": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Cyclical",
+    "industry": "Furnishings, Fixtures & Appliances",
+    "source": "Yahoo Finance"
   },
   "EXCELLENT": {
     "sector": "Unclassified",

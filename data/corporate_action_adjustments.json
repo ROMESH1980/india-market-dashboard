@@ -253,18 +253,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 10.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -274,6 +262,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "BONUS"
       }
     ],
     "BHARATRAS": [
@@ -313,6 +313,20 @@
         "source": "NSE Corporate Actions",
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BLSE",
+        "type": "SPLIT"
+      }
+    ],
+    "BNAGROCHEM": [
+      {
+        "exDate": "2026-11-16",
+        "factor": 10.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 1.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BNAGROCHEM",
         "type": "SPLIT"
       }
     ],
@@ -431,18 +445,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 3.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 2:1",
-        "ratioA": 2.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -452,6 +454,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 3.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 2:1",
+        "ratioA": 2.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "BONUS"
       }
     ],
     "DEVIT": [
@@ -1644,11 +1658,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 119,
+    "acceptedActions": 120,
     "dashboardSymbols": 3218,
-    "downloadedRecords": 2833,
+    "downloadedRecords": 2845,
     "fromDate": "2025-08-20",
-    "generatedAt": "2026-11-12T19:13:04.448074+00:00",
+    "generatedAt": "2026-11-13T18:05:10.224090+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 4,
     "source": "NSE Corporate Actions",
@@ -1656,7 +1670,7 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 107,
+    "symbolsWithAdjustments": 108,
     "toDate": "2026-11-20",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
