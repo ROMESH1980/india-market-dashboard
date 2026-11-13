@@ -17,39 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 10632,
-      "rawCapexMatches": 1,
-      "negativeCapexRejected": 315,
+      "announcementsSeen": 0,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 0,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 1,
-      "capexCandidates": 1,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
-      "autoVerifiedCapex": 1,
+      "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "SHARDAMOTR": {
-      "name": "Sharda Motor Industries Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.com/corporate/SHARDACHIRAG_06022026192009_S_Draft_Outcome_06-02-2026_-_v3.pdf",
-          "sourceDate": "06-Feb-2026 19:20:17",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "AUTO_VERIFIED",
-          "candidateBuilt": "2026-11-13"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
