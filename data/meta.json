@@ -1,9 +1,9 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3230,
-  "uniqueCount": 3230,
+  "nseCount": 3217,
+  "uniqueCount": 3217,
   "eodPriceCount": 3777,
-  "matchedPriceCount": 3124,
+  "matchedPriceCount": 3107,
   "marketDate": "2026-11-16",
   "lastUpdated": "2026-11-16",
   "mode": "FREE_EOD",
@@ -36,7 +36,7 @@
   "deliveryRatioCount": 2832,
   "deliveryPctCount": 2886,
   "full5DayDeliveryAverageCount": 2937,
-  "incomplete5DayDeliveryCount": 293,
+  "incomplete5DayDeliveryCount": 280,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3853.6,
-          "fastMA": 4019.88,
-          "slowMA": 4169.05,
-          "momentumPct": -6.34,
-          "rsi14": 36.01,
-          "distanceFromHighPct": -7.14
+          "latest": 3856.8,
+          "fastMA": 4020.04,
+          "slowMA": 4169.12,
+          "momentumPct": -6.26,
+          "rsi14": 36.16,
+          "distanceFromHighPct": -7.07
         },
         "weekly": {
-          "latest": 3853.6,
-          "fastMA": 4102.74,
-          "slowMA": 4279.87,
-          "momentumPct": -3.85,
-          "rsi14": 31.32,
-          "distanceFromHighPct": -14.93
+          "latest": 3856.8,
+          "fastMA": 4103.06,
+          "slowMA": 4279.97,
+          "momentumPct": -3.77,
+          "rsi14": 31.38,
+          "distanceFromHighPct": -14.86
         },
         "monthly": {
-          "latest": 3853.6,
-          "fastMA": 4094.37,
-          "slowMA": 4368.43,
-          "momentumPct": -14.01,
-          "rsi14": 49.73,
-          "distanceFromHighPct": -26.57
+          "latest": 3856.8,
+          "fastMA": 4094.9,
+          "slowMA": 4368.75,
+          "momentumPct": -13.94,
+          "rsi14": 49.78,
+          "distanceFromHighPct": -26.51
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-16T21:22:38.984272+00:00"
+  "marketRegimeGeneratedAt": "2026-11-16T23:21:36.151410+00:00"
 }
