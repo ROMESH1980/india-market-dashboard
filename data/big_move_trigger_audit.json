@@ -169,7 +169,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (48.6) and 40% turnover-percentile component (69.9). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (48.6) and 40% turnover-percentile component (69.8). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-17",
             "mode": "AUTOMATED_PROXY"
@@ -233,7 +233,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (46.3) and 40% turnover-percentile component (64.6). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (46.3) and 40% turnover-percentile component (64.5). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-17",
             "mode": "AUTOMATED_PROXY"
