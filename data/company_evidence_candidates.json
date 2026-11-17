@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-16",
+    "updated": "2026-11-17",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,61 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 13764,
-      "rawCapexMatches": 6,
-      "negativeCapexRejected": 376,
+      "announcementsSeen": 9929,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 300,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 2,
-      "capexCandidates": 2,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
       "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "BEARDSELL": {
-      "name": "Beardsell Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/BEARDSELL_14112026165212_Financial_Results_Sep2026.pdf",
-          "sourceDate": "14-Nov-2026 16:52:57",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-16"
-        }
-      ]
-    },
-    "VRAJ": {
-      "name": "Vraj Iron and Steel Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/VISL_14072026191756_Outcome_of_Meeting.PDF",
-          "sourceDate": "14-Jul-2026 19:18:19",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-16"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }
