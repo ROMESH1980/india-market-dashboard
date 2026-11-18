@@ -1,19 +1,5 @@
 {
   "adjustments": {
-    "AARON": [
-      {
-        "exDate": "2025-08-25",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AARON",
-        "type": "BONUS"
-      }
-    ],
     "AASTHA": [
       {
         "exDate": "2026-09-28",
@@ -1339,18 +1325,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -1360,6 +1334,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "BONUS"
       }
     ],
     "SKMEGGPROD": [
@@ -1644,20 +1630,20 @@
     ]
   },
   "meta": {
-    "acceptedActions": 119,
+    "acceptedActions": 118,
     "dashboardSymbols": 3215,
-    "downloadedRecords": 2803,
-    "fromDate": "2025-08-25",
-    "generatedAt": "2026-11-17T22:10:36.426164+00:00",
+    "downloadedRecords": 2799,
+    "fromDate": "2025-08-26",
+    "generatedAt": "2026-11-18T19:04:37.802607+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
-    "skippedAmbiguousActions": 4,
+    "skippedAmbiguousActions": 3,
     "source": "NSE Corporate Actions",
     "supportedActions": [
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 107,
-    "toDate": "2026-11-25",
+    "symbolsWithAdjustments": 106,
+    "toDate": "2026-11-26",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
@@ -1685,12 +1671,6 @@
       "purpose": "Scheme Of Arrangement - Bonus Ncrps 46:1",
       "reason": "NON_EQUITY_BONUS_EXCLUDED",
       "symbol": "TVSHLTD"
-    },
-    {
-      "exDate": "2025-08-25",
-      "purpose": "Scheme Of Arrangement - Bonus Ncrps 4:1",
-      "reason": "NON_EQUITY_BONUS_EXCLUDED",
-      "symbol": "TVSMOTOR"
     }
   ]
 }
