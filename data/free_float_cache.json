@@ -43256,5 +43256,11 @@
     "reason": "No NSE shareholding filing returned",
     "cachedAt": "2026-11-17T22:09:15+00:00",
     "freeFloatEstimated": false
+  },
+  "BRAHMVIRAT": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-11-18T21:46:50+00:00",
+    "freeFloatEstimated": false
   }
 }

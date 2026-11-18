@@ -618665,8 +618665,19 @@
           "rsImproving": null
         }
       ]
+    },
+    "BRAHMVIRAT": {
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
     }
   },
   "lastMarketDate": "2026-11-18",
-  "updatedAt": "2026-11-18T19:50:41.744352+00:00"
+  "updatedAt": "2026-11-18T21:57:18.087379+00:00"
 }
