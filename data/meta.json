@@ -3,7 +3,7 @@
   "nseCount": 3215,
   "uniqueCount": 3215,
   "eodPriceCount": 3702,
-  "matchedPriceCount": 3081,
+  "matchedPriceCount": 3077,
   "marketDate": "2026-11-18",
   "lastUpdated": "2026-11-18",
   "mode": "FREE_EOD",
@@ -35,8 +35,8 @@
   "deliveryVolumeCount": 2856,
   "deliveryRatioCount": 2820,
   "deliveryPctCount": 2856,
-  "full5DayDeliveryAverageCount": 2948,
-  "incomplete5DayDeliveryCount": 267,
+  "full5DayDeliveryAverageCount": 2947,
+  "incomplete5DayDeliveryCount": 268,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3724.1,
-          "fastMA": 3984.63,
-          "slowMA": 4142.81,
-          "momentumPct": -6.91,
-          "rsi14": 32.9,
-          "distanceFromHighPct": -9.49
+          "latest": 3726.7,
+          "fastMA": 3984.76,
+          "slowMA": 4142.86,
+          "momentumPct": -6.84,
+          "rsi14": 32.99,
+          "distanceFromHighPct": -9.43
         },
         "weekly": {
-          "latest": 3724.1,
-          "fastMA": 4089.79,
-          "slowMA": 4275.55,
-          "momentumPct": -7.08,
-          "rsi14": 28.92,
-          "distanceFromHighPct": -17.79
+          "latest": 3726.7,
+          "fastMA": 4090.05,
+          "slowMA": 4275.64,
+          "momentumPct": -7.02,
+          "rsi14": 28.97,
+          "distanceFromHighPct": -17.73
         },
         "monthly": {
-          "latest": 3724.1,
-          "fastMA": 4072.78,
-          "slowMA": 4355.48,
-          "momentumPct": -16.9,
-          "rsi14": 48.03,
-          "distanceFromHighPct": -29.04
+          "latest": 3726.7,
+          "fastMA": 4073.22,
+          "slowMA": 4355.74,
+          "momentumPct": -16.84,
+          "rsi14": 48.06,
+          "distanceFromHighPct": -28.99
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-18T19:44:57.760574+00:00"
+  "marketRegimeGeneratedAt": "2026-11-18T21:50:47.281077+00:00"
 }
