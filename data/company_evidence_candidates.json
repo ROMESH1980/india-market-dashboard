@@ -17,16 +17,61 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "announcementsSeen": 11239,
+      "rawCapexMatches": 6,
+      "negativeCapexRejected": 248,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 2,
+      "capexCandidates": 2,
       "tailwindCandidates": 0,
       "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "SUBROS": {
+      "name": "Subros Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/SUBROS_28102026164601_Reg30announcement28102026.pdf",
+          "sourceDate": "28-Oct-2026 16:46:17",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-19"
+        }
+      ]
+    },
+    "ENDURANCE": {
+      "name": "Endurance Technologies Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/ENDURANCE_18062026185024_2026_06_18_-_Capacity_addition_battery_packs__Mindewadi_-_Final.pdf",
+          "sourceDate": "18-Jun-2026 18:51:18",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-19"
+        }
+      ]
+    }
+  }
 }

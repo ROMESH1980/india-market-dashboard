@@ -648,20 +648,6 @@
         "type": "BONUS"
       }
     ],
-    "HDFCBANK": [
-      {
-        "exDate": "2025-08-26",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "HDFCBANK",
-        "type": "BONUS"
-      }
-    ],
     "HIRECT": [
       {
         "exDate": "2026-03-27",
@@ -743,20 +729,6 @@
         "source": "NSE Corporate Actions",
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "KAPSTON",
-        "type": "BONUS"
-      }
-    ],
-    "KARURVYSYA": [
-      {
-        "exDate": "2025-08-26",
-        "factor": 1.2,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:5",
-        "ratioA": 1.0,
-        "ratioB": 5.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "KARURVYSYA",
         "type": "BONUS"
       }
     ],
@@ -1217,18 +1189,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1238,6 +1198,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1584,6 +1556,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "VGL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-11-27",
+        "factor": 2.5,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 5.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "VGL",
+        "type": "SPLIT"
       }
     ],
     "WEBELSOLAR": [
@@ -1630,11 +1614,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 118,
+    "acceptedActions": 117,
     "dashboardSymbols": 3215,
-    "downloadedRecords": 2799,
-    "fromDate": "2025-08-26",
-    "generatedAt": "2026-11-18T21:46:52.686432+00:00",
+    "downloadedRecords": 2793,
+    "fromDate": "2025-08-27",
+    "generatedAt": "2026-11-19T19:41:15.634921+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 3,
     "source": "NSE Corporate Actions",
@@ -1642,8 +1626,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 106,
-    "toDate": "2026-11-26",
+    "symbolsWithAdjustments": 104,
+    "toDate": "2026-11-27",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
