@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-18",
+    "updated": "2026-11-19",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,61 +17,16 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 9978,
-      "rawCapexMatches": 3,
-      "negativeCapexRejected": 277,
+      "announcementsSeen": 0,
+      "rawCapexMatches": 0,
+      "negativeCapexRejected": 0,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 2,
-      "capexCandidates": 2,
+      "symbolsWithCandidates": 0,
+      "capexCandidates": 0,
       "tailwindCandidates": 0,
       "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {
-    "SUBROS": {
-      "name": "Subros Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/SUBROS_28102026164601_Reg30announcement28102026.pdf",
-          "sourceDate": "28-Oct-2026 16:46:17",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-18"
-        }
-      ]
-    },
-    "SCODATUBES": {
-      "name": "Scoda Tubes Limited",
-      "board": "MAIN",
-      "capex": [
-        {
-          "type": "capex",
-          "eventClass": "CAPACITY_EXPANSION",
-          "evidenceStrength": 100,
-          "reason": "Capacity Expansion. Capacity addition",
-          "subject": "",
-          "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/SCODA_25022026173719_Regulation_30_announcement.pdf",
-          "sourceDate": "25-Feb-2026 17:37:34",
-          "matchedTerms": [
-            "capacity addition"
-          ],
-          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
-          "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-18"
-        }
-      ]
-    }
-  }
+  "stocks": {}
 }

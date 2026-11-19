@@ -16275,8 +16275,13 @@
     "source": "Unavailable"
   },
   "JKSHAH": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Consumer Defensive",
+    "industry": "Education & Training Services",
+    "source": "Yahoo Finance"
+  },
+  "BRAHMVIRAT": {
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "source": "Yahoo Finance"
   }
 }
