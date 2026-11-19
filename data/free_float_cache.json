@@ -43300,7 +43300,23 @@
   "BRAHMVIRAT": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-11-18T21:46:50+00:00",
+    "cachedAt": "2026-11-19T22:03:11+00:00",
     "freeFloatEstimated": false
+  },
+  "SHUKRAMED": {
+    "status": "READY",
+    "publicShares": 213872610,
+    "publicHoldingPct": null,
+    "publicLockedShares": 0,
+    "freeFloatShares": 213872610,
+    "freeFloatPct": null,
+    "freeFloatDate": "30-SEP-2026",
+    "freeFloatSubmissionDate": "21-OCT-2026",
+    "freeFloatSource": "NSE Corporate Share Holdings API + XBRL",
+    "freeFloatSourceUrl": "https://nsearchives.nseindia.in/corporate/xbrl/SHP_1743144_21102026052139_WEB.xml",
+    "freeFloatMethod": "Exact Public Shares less Locked-in Public Shares",
+    "freeFloatMethodologyNote": "Filing-derived tradable public shares proxy. Not the NSE Indices official free-float factor.",
+    "freeFloatEstimated": false,
+    "cachedAt": "2026-11-19T22:03:12+00:00"
   }
 }
