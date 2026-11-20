@@ -41,7 +41,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (39.3) and 40% turnover-percentile component (75.1). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (39.3) and 40% turnover-percentile component (69.8). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-20",
             "mode": "AUTOMATED_PROXY"
@@ -105,7 +105,7 @@
             "mode": "PENDING"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (46.3) and 40% turnover-percentile component (57.9). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (46.3) and 40% turnover-percentile component (49.8). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-20",
             "mode": "AUTOMATED_PROXY"
@@ -169,7 +169,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (22.6) and 40% turnover-percentile component (74.4). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (22.6) and 40% turnover-percentile component (68.8). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-20",
             "mode": "AUTOMATED_PROXY"
@@ -177,19 +177,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 49.8%, earnings growth 41.1%, quarterly earnings growth 41.3%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-12",
+            "sourceDate": "2026-11-20",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on ROE 14.4%, profit margin 8.3%, operating margin 10.8%, debt/equity 21.9, current ratio 2.16, negative free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-12",
+            "sourceDate": "2026-11-20",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.74× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-12",
+            "sourceDate": "2026-11-20",
             "mode": "AUTOMATED"
           }
         }
@@ -233,7 +233,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (23.9) and 40% turnover-percentile component (82.2). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (23.9) and 40% turnover-percentile component (78.3). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-20",
             "mode": "AUTOMATED_PROXY"
@@ -297,7 +297,7 @@
             "mode": "AUTOMATED"
           },
           "valueMigration": {
-            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (36.1) and 40% turnover-percentile component (41.2). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
+            "reason": "AUTOMATED screening proxy only — NOT verified business Value Migration. Current score uses 60% short-term price-momentum component (36.1) and 40% turnover-percentile component (33.1). Verified Value Migration requires company/business evidence showing a structural shift such as market-share migration, import substitution, organised-market gains, technology transition or movement toward higher-value products.",
             "source": "methodology.html#value-migration",
             "sourceDate": "2026-11-20",
             "mode": "AUTOMATED_PROXY"

@@ -17,16 +17,149 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 0,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 0,
+      "announcementsSeen": 21100,
+      "rawCapexMatches": 6,
+      "negativeCapexRejected": 539,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 6,
+      "capexCandidates": 6,
       "tailwindCandidates": 0,
       "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "JLHL": {
+      "name": "Jupiter Life Line Hospitals Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/JUPITER2023_12112026145328_Intimation__addition_of_bed_capacity.pdf",
+          "sourceDate": "12-Nov-2026 14:54:06",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    },
+    "EIHOTEL": {
+      "name": "EIH Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/EIHOTEL01_12112026190046_EIHSTX_Hyderabad.pdf",
+          "sourceDate": "12-Nov-2026 19:01:02",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    },
+    "SICALLOG": {
+      "name": "Sical Logistics Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.in/corporate/SICALLOG_21112025183553_DiscloureUnderReg30CommissioningOfGCT.pdf",
+          "sourceDate": "21-Nov-2025 18:37:00",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    },
+    "MANGLMCEM": {
+      "name": "Mangalam Cement Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "COMMISSIONING_OR_PRODUCTION",
+          "evidenceStrength": 90,
+          "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
+          "subject": "",
+          "details": "Commencement of commercial production/operations",
+          "source": "https://nsearchives.nseindia.in/corporate/MANGLMCEM_31032026163425_NSE_BSE_Capacity_Increase_S.pdf",
+          "sourceDate": "31-Mar-2026 16:34:41",
+          "matchedTerms": [
+            "commercial production"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    },
+    "BEARDSELL": {
+      "name": "Beardsell Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/BEARDSELL_14112026165212_Financial_Results_Sep2026.pdf",
+          "sourceDate": "14-Nov-2026 16:52:57",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    },
+    "SULA": {
+      "name": "Sula Vineyards Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/SULA_05112026180103_SE_intimation_BM_outcome_05112026.pdf",
+          "sourceDate": "05-Nov-2026 18:01:13",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-20"
+        }
+      ]
+    }
+  }
 }
