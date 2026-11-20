@@ -1,9 +1,9 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3214,
-  "uniqueCount": 3214,
+  "nseCount": 2631,
+  "uniqueCount": 2631,
   "eodPriceCount": 3742,
-  "matchedPriceCount": 3102,
+  "matchedPriceCount": 2621,
   "marketDate": "2026-11-20",
   "lastUpdated": "2026-11-20",
   "mode": "FREE_EOD",
@@ -31,12 +31,12 @@
     "2026-10-26",
     "2026-10-23"
   ],
-  "todayVolumeCount": 2882,
-  "deliveryVolumeCount": 2882,
-  "deliveryRatioCount": 2850,
-  "deliveryPctCount": 2882,
-  "full5DayDeliveryAverageCount": 2953,
-  "incomplete5DayDeliveryCount": 261,
+  "todayVolumeCount": 2401,
+  "deliveryVolumeCount": 2401,
+  "deliveryRatioCount": 2386,
+  "deliveryPctCount": 2401,
+  "full5DayDeliveryAverageCount": 2422,
+  "incomplete5DayDeliveryCount": 209,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3519.9,
-          "fastMA": 3942.38,
-          "slowMA": 4110.95,
-          "momentumPct": -9.43,
-          "rsi14": 25.0,
-          "distanceFromHighPct": -14.45
+          "latest": 3526.1,
+          "fastMA": 3942.69,
+          "slowMA": 4111.08,
+          "momentumPct": -9.27,
+          "rsi14": 25.18,
+          "distanceFromHighPct": -14.3
         },
         "weekly": {
-          "latest": 3519.9,
-          "fastMA": 4069.37,
-          "slowMA": 4268.74,
-          "momentumPct": -12.18,
-          "rsi14": 25.81,
-          "distanceFromHighPct": -22.3
+          "latest": 3526.1,
+          "fastMA": 4069.99,
+          "slowMA": 4268.95,
+          "momentumPct": -12.02,
+          "rsi14": 25.89,
+          "distanceFromHighPct": -22.16
         },
         "monthly": {
-          "latest": 3519.9,
-          "fastMA": 4038.75,
-          "slowMA": 4335.06,
-          "momentumPct": -21.46,
-          "rsi14": 45.57,
-          "distanceFromHighPct": -32.93
+          "latest": 3526.1,
+          "fastMA": 4039.78,
+          "slowMA": 4335.68,
+          "momentumPct": -21.32,
+          "rsi14": 45.64,
+          "distanceFromHighPct": -32.81
         }
       },
       "error": null
@@ -257,19 +257,19 @@
     "sme": {
       "name": "NIFTY SME Emerge",
       "type": "equity",
-      "available": true,
+      "available": false,
       "source": "Official NSE SME board dashboard breadth proxy",
       "sourceSymbol": null,
       "date": "2026-11-20",
-      "universeSize": 583,
-      "daily": 43,
+      "universeSize": 0,
+      "daily": null,
       "weekly": null,
       "monthly": null,
-      "overall": 43,
+      "overall": null,
       "dailySignal": {
-        "label": "Equity Reduce",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
       "weeklySignal": {
         "label": "Pending",
@@ -282,30 +282,27 @@
         "emoji": "⚪"
       },
       "overallSignal": {
-        "label": "Equity Reduce",
-        "signal": "reduce",
-        "emoji": "🟠"
+        "label": "Pending",
+        "signal": "pending",
+        "emoji": "⚪"
       },
       "details": {
         "daily": {
-          "method": "Dashboard universe breadth proxy",
-          "availableStocks": 575,
-          "positiveBreadthPct": 42.0,
-          "medianReturnPct": -0.38,
-          "returnStrengthScore": 43.63
+          "error": "Insufficient proxy breadth",
+          "availableStocks": 0
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 1
+          "availableStocks": 0
         },
         "monthly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 1
+          "availableStocks": 0
         }
       },
       "proxy": true,
       "proxyNote": "Breadth/momentum proxy from dashboard NSE stock universe; not official index historical score.",
-      "error": null
+      "error": "Insufficient proxy data"
     }
   },
   "dailyRegimeScore": 90.0,
@@ -340,5 +337,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-20T19:23:19.615807+00:00"
+  "marketRegimeGeneratedAt": "2026-11-20T21:51:23.609150+00:00"
 }
