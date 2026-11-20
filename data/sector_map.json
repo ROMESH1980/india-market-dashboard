@@ -16283,5 +16283,10 @@
     "sector": "Consumer Cyclical",
     "industry": "Apparel Manufacturing",
     "source": "Yahoo Finance"
+  },
+  "SHUKRAMED": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

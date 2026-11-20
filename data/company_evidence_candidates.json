@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-19",
+    "updated": "2026-11-20",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,9 +17,9 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 11239,
-      "rawCapexMatches": 6,
-      "negativeCapexRejected": 248,
+      "announcementsSeen": 11324,
+      "rawCapexMatches": 2,
+      "negativeCapexRejected": 297,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 2,
       "capexCandidates": 2,
@@ -29,8 +29,8 @@
     }
   },
   "stocks": {
-    "SUBROS": {
-      "name": "Subros Limited",
+    "JLHL": {
+      "name": "Jupiter Life Line Hospitals Limited",
       "board": "MAIN",
       "capex": [
         {
@@ -40,19 +40,19 @@
           "reason": "Capacity Expansion. Capacity addition",
           "subject": "",
           "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/SUBROS_28102026164601_Reg30announcement28102026.pdf",
-          "sourceDate": "28-Oct-2026 16:46:17",
+          "source": "https://nsearchives.nseindia.in/corporate/JUPITER2023_12112026145328_Intimation__addition_of_bed_capacity.pdf",
+          "sourceDate": "12-Nov-2026 14:54:06",
           "matchedTerms": [
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-19"
+          "candidateBuilt": "2026-11-20"
         }
       ]
     },
-    "ENDURANCE": {
-      "name": "Endurance Technologies Limited",
+    "EIHOTEL": {
+      "name": "EIH Limited",
       "board": "MAIN",
       "capex": [
         {
@@ -62,14 +62,14 @@
           "reason": "Capacity Expansion. Capacity addition",
           "subject": "",
           "details": "Capacity addition",
-          "source": "https://nsearchives.nseindia.in/corporate/ENDURANCE_18062026185024_2026_06_18_-_Capacity_addition_battery_packs__Mindewadi_-_Final.pdf",
-          "sourceDate": "18-Jun-2026 18:51:18",
+          "source": "https://nsearchives.nseindia.in/corporate/EIHOTEL01_12112026190046_EIHSTX_Hyderabad.pdf",
+          "sourceDate": "12-Nov-2026 19:01:02",
           "matchedTerms": [
             "capacity addition"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-19"
+          "candidateBuilt": "2026-11-20"
         }
       ]
     }
