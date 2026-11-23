@@ -204,18 +204,18 @@
       "date": "2026-11-23",
       "universeSize": 100,
       "daily": 34,
-      "weekly": 69,
-      "monthly": 70,
-      "overall": 62,
+      "weekly": 88,
+      "monthly": 67,
+      "overall": 67,
       "dailySignal": {
         "label": "G-Sec / Gold / Cash",
         "signal": "defensive",
         "emoji": "🔴"
       },
       "weeklySignal": {
-        "label": "Stocks Overweight",
-        "signal": "overweight",
-        "emoji": "🟢"
+        "label": "Aggressive Stocks",
+        "signal": "aggressive",
+        "emoji": "🟢🟢"
       },
       "monthlySignal": {
         "label": "Stocks Overweight",
@@ -223,8 +223,8 @@
         "emoji": "🟢"
       },
       "overallSignal": {
-        "label": "Selective Buying",
-        "signal": "selective",
+        "label": "Stocks Overweight",
+        "signal": "overweight",
         "emoji": "🟢"
       },
       "details": {
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 68.0,
-          "medianReturnPct": 4.02,
-          "returnStrengthScore": 70.12
+          "positiveBreadthPct": 80.0,
+          "medianReturnPct": 10.64,
+          "returnStrengthScore": 100
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 68.0,
-          "medianReturnPct": 9.57,
-          "returnStrengthScore": 73.92
+          "positiveBreadthPct": 65.0,
+          "medianReturnPct": 7.62,
+          "returnStrengthScore": 69.06
         }
       },
       "proxy": true,
@@ -296,11 +296,11 @@
         },
         "weekly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         },
         "monthly": {
           "error": "Insufficient proxy breadth",
-          "availableStocks": 0
+          "availableStocks": 1
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-23T22:19:19.044735+00:00"
+  "marketRegimeGeneratedAt": "2026-11-23T23:02:18.916252+00:00"
 }
