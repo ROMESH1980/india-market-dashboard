@@ -48,21 +48,21 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "^NSEI",
-      "date": "2026-11-20",
-      "historyRows": 1235,
-      "daily": 95,
-      "weekly": 75,
+      "date": "2026-11-23",
+      "historyRows": 1236,
+      "daily": 90,
+      "weekly": 70,
       "monthly": 95,
-      "overall": 89,
+      "overall": 86,
       "dailySignal": {
         "label": "Aggressive Stocks",
         "signal": "aggressive",
         "emoji": "🟢🟢"
       },
       "weeklySignal": {
-        "label": "Aggressive Stocks",
-        "signal": "aggressive",
-        "emoji": "🟢🟢"
+        "label": "Stocks Overweight",
+        "signal": "overweight",
+        "emoji": "🟢"
       },
       "monthlySignal": {
         "label": "Aggressive Stocks",
@@ -76,28 +76,28 @@
       },
       "details": {
         "daily": {
-          "latest": 25800.6,
-          "fastMA": 24276.78,
-          "slowMA": 23485.81,
-          "momentumPct": 2.61,
-          "rsi14": 90.69,
-          "distanceFromHighPct": 0.0
+          "latest": 25349.65,
+          "fastMA": 24414.26,
+          "slowMA": 23520.1,
+          "momentumPct": 0.23,
+          "rsi14": 77.75,
+          "distanceFromHighPct": -1.75
         },
         "weekly": {
-          "latest": 25800.6,
-          "fastMA": 23620.38,
-          "slowMA": 23865.66,
-          "momentumPct": 14.16,
-          "rsi14": 61.18,
-          "distanceFromHighPct": 0.0
+          "latest": 25349.65,
+          "fastMA": 23820.7,
+          "slowMA": 23910.73,
+          "momentumPct": 9.96,
+          "rsi14": 58.13,
+          "distanceFromHighPct": -1.75
         },
         "monthly": {
-          "latest": 25800.6,
-          "fastMA": 23967.32,
-          "slowMA": 23885.92,
-          "momentumPct": 7.14,
-          "rsi14": 54.45,
-          "distanceFromHighPct": -1.26
+          "latest": 25349.65,
+          "fastMA": 23892.16,
+          "slowMA": 23840.83,
+          "momentumPct": 5.27,
+          "rsi14": 52.86,
+          "distanceFromHighPct": -2.98
         }
       },
       "error": null
@@ -143,10 +143,10 @@
       "sourceSymbol": "GC=F",
       "date": "2026-11-24",
       "historyRows": 1258,
-      "daily": 4,
+      "daily": 0,
       "weekly": 0,
       "monthly": 5,
-      "overall": 3,
+      "overall": 2,
       "dailySignal": {
         "label": "Defensive Weak",
         "signal": "defensive",
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3665.3,
-          "fastMA": 3923.5,
-          "slowMA": 4097.13,
-          "momentumPct": -4.87,
-          "rsi14": 36.58,
-          "distanceFromHighPct": -10.92
+          "latest": 3549.5,
+          "fastMA": 3896.55,
+          "slowMA": 4081.19,
+          "momentumPct": -8.14,
+          "rsi14": 23.29,
+          "distanceFromHighPct": -13.73
         },
         "weekly": {
-          "latest": 3665.3,
-          "fastMA": 3992.96,
-          "slowMA": 4235.95,
-          "momentumPct": -5.99,
-          "rsi14": 21.91,
-          "distanceFromHighPct": -18.12
+          "latest": 3549.5,
+          "fastMA": 3981.38,
+          "slowMA": 4232.09,
+          "momentumPct": -8.96,
+          "rsi14": 16.56,
+          "distanceFromHighPct": -20.71
         },
         "monthly": {
-          "latest": 3665.3,
-          "fastMA": 4062.98,
-          "slowMA": 4349.6,
-          "momentumPct": -18.21,
-          "rsi14": 47.3,
-          "distanceFromHighPct": -30.16
+          "latest": 3549.5,
+          "fastMA": 4043.68,
+          "slowMA": 4338.02,
+          "momentumPct": -20.8,
+          "rsi14": 45.91,
+          "distanceFromHighPct": -32.36
         }
       },
       "error": null
@@ -308,12 +308,12 @@
       "error": null
     }
   },
-  "dailyRegimeScore": 95.0,
-  "weeklyRegimeScore": 75.0,
+  "dailyRegimeScore": 90.0,
+  "weeklyRegimeScore": 70.0,
   "monthlyRegimeScore": 95.0,
   "marketRegime": {
-    "daily": 95.0,
-    "weekly": 75.0,
+    "daily": 90.0,
+    "weekly": 70.0,
     "monthly": 95.0
   },
   "marketRegimeDate": "2026-11-23",
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-24T01:39:26.070493+00:00"
+  "marketRegimeGeneratedAt": "2026-11-24T20:59:24.466152+00:00"
 }
