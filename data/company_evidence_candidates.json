@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-23",
+    "updated": "2026-11-24",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -47,7 +47,7 @@
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-23"
+          "candidateBuilt": "2026-11-24"
         }
       ]
     },
@@ -69,7 +69,7 @@
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-23"
+          "candidateBuilt": "2026-11-24"
         }
       ]
     }
