@@ -5,7 +5,7 @@
   "eodPriceCount": 3755,
   "matchedPriceCount": 3107,
   "marketDate": "2026-11-23",
-  "lastUpdated": "2026-11-23",
+  "lastUpdated": "2026-11-24",
   "mode": "FREE_EOD",
   "note": "NSE-only dashboard.",
   "deliveryDate": "2026-11-23",
@@ -141,7 +141,7 @@
       "available": true,
       "source": "Yahoo Finance",
       "sourceSymbol": "GC=F",
-      "date": "2026-11-23",
+      "date": "2026-11-24",
       "historyRows": 1258,
       "daily": 4,
       "weekly": 0,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3634.4,
-          "fastMA": 3921.95,
-          "slowMA": 4096.51,
-          "momentumPct": -5.67,
-          "rsi14": 34.6,
-          "distanceFromHighPct": -11.67
+          "latest": 3665.3,
+          "fastMA": 3923.5,
+          "slowMA": 4097.13,
+          "momentumPct": -4.87,
+          "rsi14": 36.58,
+          "distanceFromHighPct": -10.92
         },
         "weekly": {
-          "latest": 3634.4,
-          "fastMA": 3989.87,
-          "slowMA": 4234.92,
-          "momentumPct": -6.78,
-          "rsi14": 20.55,
-          "distanceFromHighPct": -18.81
+          "latest": 3665.3,
+          "fastMA": 3992.96,
+          "slowMA": 4235.95,
+          "momentumPct": -5.99,
+          "rsi14": 21.91,
+          "distanceFromHighPct": -18.12
         },
         "monthly": {
-          "latest": 3634.4,
-          "fastMA": 4057.83,
-          "slowMA": 4346.51,
-          "momentumPct": -18.9,
-          "rsi14": 46.92,
-          "distanceFromHighPct": -30.75
+          "latest": 3665.3,
+          "fastMA": 4062.98,
+          "slowMA": 4349.6,
+          "momentumPct": -18.21,
+          "rsi14": 47.3,
+          "distanceFromHighPct": -30.16
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-23T23:02:18.916252+00:00"
+  "marketRegimeGeneratedAt": "2026-11-24T01:39:26.070493+00:00"
 }
