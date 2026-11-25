@@ -708781,8 +708781,41 @@
           "rsImproving": null
         }
       ]
+    },
+    "MROTEK": {
+      "observations": [
+        {
+          "date": "2026-11-25",
+          "rsRating": 74.0,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
+    },
+    "CRYSTALCP": {
+      "observations": [
+        {
+          "date": "2026-11-25",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
+    },
+    "PRAXIS-RE3": {
+      "observations": [
+        {
+          "date": "2026-11-25",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
     }
   },
   "lastMarketDate": "2026-11-25",
-  "updatedAt": "2026-11-25T20:55:38.323197+00:00"
+  "updatedAt": "2026-11-25T23:12:48.094927+00:00"
 }

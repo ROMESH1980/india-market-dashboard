@@ -1601,10 +1601,10 @@
   },
   "meta": {
     "acceptedActions": 116,
-    "dashboardSymbols": 3214,
+    "dashboardSymbols": 3216,
     "downloadedRecords": 2757,
     "fromDate": "2025-09-02",
-    "generatedAt": "2026-11-25T20:43:26.874983+00:00",
+    "generatedAt": "2026-11-25T23:02:13.458841+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 3,
     "source": "NSE Corporate Actions",
