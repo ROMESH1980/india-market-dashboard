@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3582.0,
-          "fastMA": 3873.69,
-          "slowMA": 4065.32,
-          "momentumPct": -4.27,
-          "rsi14": 21.95,
-          "distanceFromHighPct": -12.94
+          "latest": 3594.8,
+          "fastMA": 3874.33,
+          "slowMA": 4065.58,
+          "momentumPct": -3.93,
+          "rsi14": 22.99,
+          "distanceFromHighPct": -12.63
         },
         "weekly": {
-          "latest": 3582.0,
-          "fastMA": 3984.63,
-          "slowMA": 4233.18,
-          "momentumPct": -8.13,
-          "rsi14": 18.13,
-          "distanceFromHighPct": -19.98
+          "latest": 3594.8,
+          "fastMA": 3985.91,
+          "slowMA": 4233.6,
+          "momentumPct": -7.8,
+          "rsi14": 18.74,
+          "distanceFromHighPct": -19.7
         },
         "monthly": {
-          "latest": 3582.0,
-          "fastMA": 4049.1,
-          "slowMA": 4341.27,
-          "momentumPct": -20.07,
-          "rsi14": 46.29,
-          "distanceFromHighPct": -31.74
+          "latest": 3594.8,
+          "fastMA": 4051.23,
+          "slowMA": 4342.55,
+          "momentumPct": -19.79,
+          "rsi14": 46.44,
+          "distanceFromHighPct": -31.5
         }
       },
       "error": null
@@ -205,7 +205,7 @@
       "universeSize": 100,
       "daily": 51,
       "weekly": 89,
-      "monthly": 66,
+      "monthly": 67,
       "overall": 70,
       "dailySignal": {
         "label": "Warning",
@@ -239,15 +239,15 @@
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 81.0,
-          "medianReturnPct": 10.85,
+          "medianReturnPct": 10.93,
           "returnStrengthScore": 100
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 65.0,
-          "medianReturnPct": 7.23,
-          "returnStrengthScore": 68.07
+          "medianReturnPct": 8.14,
+          "returnStrengthScore": 70.35
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-25T20:16:54.312246+00:00"
+  "marketRegimeGeneratedAt": "2026-11-25T20:48:54.618381+00:00"
 }
