@@ -1,9 +1,9 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3214,
-  "uniqueCount": 3214,
+  "nseCount": 3216,
+  "uniqueCount": 3216,
   "eodPriceCount": 3741,
-  "matchedPriceCount": 3095,
+  "matchedPriceCount": 3092,
   "marketDate": "2026-11-25",
   "lastUpdated": "2026-11-25",
   "mode": "FREE_EOD",
@@ -31,12 +31,12 @@
     "2026-10-28",
     "2026-10-27"
   ],
-  "todayVolumeCount": 2887,
-  "deliveryVolumeCount": 2887,
-  "deliveryRatioCount": 2853,
-  "deliveryPctCount": 2887,
-  "full5DayDeliveryAverageCount": 2961,
-  "incomplete5DayDeliveryCount": 253,
+  "todayVolumeCount": 2886,
+  "deliveryVolumeCount": 2886,
+  "deliveryRatioCount": 2852,
+  "deliveryPctCount": 2886,
+  "full5DayDeliveryAverageCount": 2960,
+  "incomplete5DayDeliveryCount": 256,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -169,28 +169,28 @@
       },
       "details": {
         "daily": {
-          "latest": 3594.8,
-          "fastMA": 3874.33,
-          "slowMA": 4065.58,
-          "momentumPct": -3.93,
-          "rsi14": 22.99,
-          "distanceFromHighPct": -12.63
+          "latest": 3617.8,
+          "fastMA": 3875.48,
+          "slowMA": 4066.04,
+          "momentumPct": -3.32,
+          "rsi14": 24.79,
+          "distanceFromHighPct": -12.07
         },
         "weekly": {
-          "latest": 3594.8,
-          "fastMA": 3985.91,
-          "slowMA": 4233.6,
-          "momentumPct": -7.8,
-          "rsi14": 18.74,
-          "distanceFromHighPct": -19.7
+          "latest": 3617.8,
+          "fastMA": 3988.21,
+          "slowMA": 4234.37,
+          "momentumPct": -7.21,
+          "rsi14": 19.8,
+          "distanceFromHighPct": -19.18
         },
         "monthly": {
-          "latest": 3594.8,
-          "fastMA": 4051.23,
-          "slowMA": 4342.55,
-          "momentumPct": -19.79,
-          "rsi14": 46.44,
-          "distanceFromHighPct": -31.5
+          "latest": 3617.8,
+          "fastMA": 4055.07,
+          "slowMA": 4344.85,
+          "momentumPct": -19.27,
+          "rsi14": 46.72,
+          "distanceFromHighPct": -31.06
         }
       },
       "error": null
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-25T20:48:54.618381+00:00"
+  "marketRegimeGeneratedAt": "2026-11-25T23:06:14.895319+00:00"
 }
