@@ -241,19 +241,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 28.2%, earnings growth 89.4%, quarterly earnings growth 91.7%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on ROE 13.3%, profit margin 15.0%, operating margin 18.6%, debt/equity 1.7, current ratio 4.35, positive free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 0.41× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           }
         }
@@ -305,19 +305,19 @@
           "futureGrowth": {
             "reason": "Automated screening proxy based on revenue growth 34.4%, earnings growth 118.9%, quarterly earnings growth 119.1%.",
             "source": "methodology.html#future-growth",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           },
           "fundamentalQuality": {
             "reason": "Automated screening proxy based on ROE 11.8%, profit margin 7.4%, operating margin 6.4%, debt/equity 36.0, current ratio 1.43, negative free cash flow, positive operating cash flow.",
             "source": "methodology.html#fundamental",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           },
           "capex": {
             "reason": "Automated screening proxy: capital expenditure is 1.62× operating cash flow.",
             "source": "methodology.html#capex",
-            "sourceDate": "2026-11-24",
+            "sourceDate": "2026-11-25",
             "mode": "AUTOMATED"
           }
         }
