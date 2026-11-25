@@ -16290,8 +16290,8 @@
     "source": "Yahoo Finance"
   },
   "MITSU": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "source": "Yahoo Finance"
   }
 }
