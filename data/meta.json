@@ -1,9 +1,9 @@
 {
   "generatedFrom": "Official NSE Equity + SME security master + NSE UDiFF EOD bhavcopy",
-  "nseCount": 3216,
-  "uniqueCount": 3216,
+  "nseCount": 3218,
+  "uniqueCount": 3218,
   "eodPriceCount": 3729,
-  "matchedPriceCount": 3086,
+  "matchedPriceCount": 3085,
   "marketDate": "2026-11-26",
   "lastUpdated": "2026-11-26",
   "mode": "FREE_EOD",
@@ -35,8 +35,8 @@
   "deliveryVolumeCount": 2876,
   "deliveryRatioCount": 2836,
   "deliveryPctCount": 2876,
-  "full5DayDeliveryAverageCount": 2945,
-  "incomplete5DayDeliveryCount": 271,
+  "full5DayDeliveryAverageCount": 2944,
+  "incomplete5DayDeliveryCount": 274,
   "deliveryAverageRule": "Previous 5 available stock delivery records",
   "deliveryAverageRequiredRecords": 5,
   "deliveryHistorySessionsLoaded": 20,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-26T20:40:01.688516+00:00"
+  "marketRegimeGeneratedAt": "2026-11-26T22:58:50.195461+00:00"
 }
