@@ -731326,8 +731326,41 @@
           "rsImproving": null
         }
       ]
+    },
+    "MONTEIL": {
+      "observations": [
+        {
+          "date": "2026-11-26",
+          "rsRating": 76.0,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
+    },
+    "HEGRAPHITE": {
+      "observations": [
+        {
+          "date": "2026-11-26",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
+    },
+    "MAHACOAL": {
+      "observations": [
+        {
+          "date": "2026-11-26",
+          "rsRating": null,
+          "stage": "No Early Signal",
+          "above50DMA": null,
+          "rsImproving": null
+        }
+      ]
     }
   },
   "lastMarketDate": "2026-11-26",
-  "updatedAt": "2026-11-26T20:47:25.353463+00:00"
+  "updatedAt": "2026-11-26T23:06:58.402070+00:00"
 }
