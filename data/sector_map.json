@@ -14545,9 +14545,9 @@
     "source": "Unavailable"
   },
   "OLIL": {
-    "sector": "Unclassified",
-    "industry": "Unclassified",
-    "source": "Unavailable"
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "source": "Yahoo Finance"
   },
   "ONYX": {
     "sector": "Unclassified",
@@ -16293,5 +16293,25 @@
     "sector": "Basic Materials",
     "industry": "Specialty Chemicals",
     "source": "Yahoo Finance"
+  },
+  "HEGRAPHITE": {
+    "sector": "Capital Goods",
+    "industry": "Capital Goods",
+    "source": "Nifty Indices"
+  },
+  "CRYSTALCP": {
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "source": "Yahoo Finance"
+  },
+  "MROTEK": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
+  },
+  "PRAXIS-RE3": {
+    "sector": "Unclassified",
+    "industry": "Unclassified",
+    "source": "Unavailable"
   }
 }

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "NSE corporate-announcement evidence candidates for Big Move Scanner.",
-    "updated": "2026-11-25",
+    "updated": "2026-11-26",
     "status": "AUTO_VERIFY_STRICT",
     "lookbackDays": 365,
     "maxSymbolsPerRun": 350,
@@ -17,9 +17,9 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 12688,
+      "announcementsSeen": 4333,
       "rawCapexMatches": 1,
-      "negativeCapexRejected": 284,
+      "negativeCapexRejected": 177,
       "rawTailwindMatches": 0,
       "symbolsWithCandidates": 1,
       "capexCandidates": 1,
@@ -29,8 +29,8 @@
     }
   },
   "stocks": {
-    "GODREJCP": {
-      "name": "Godrej Consumer Products Limited",
+    "KOTARISUG": {
+      "name": "Kothari Sugars And Chemicals Limited",
       "board": "MAIN",
       "capex": [
         {
@@ -40,14 +40,14 @@
           "reason": "Commissioning / Commercial Operations. Commencement of commercial production/operations",
           "subject": "",
           "details": "Commencement of commercial production/operations",
-          "source": "https://nsearchives.nseindia.in/corporate/GODREJCP_23102026165750_Disclosure_signed.pdf",
-          "sourceDate": "23-Oct-2026 16:58:03",
+          "source": "https://nsearchives.nseindia.in/corporate/KOTARISUG_23122025075340_IntimationtoSE23122025.pdf",
+          "sourceDate": "23-Dec-2025 07:56:59",
           "matchedTerms": [
             "commercial production"
           ],
           "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
           "candidateStatus": "REVIEW_REQUIRED",
-          "candidateBuilt": "2026-11-25"
+          "candidateBuilt": "2026-11-26"
         }
       ]
     }

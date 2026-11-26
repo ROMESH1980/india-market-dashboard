@@ -239,18 +239,6 @@
     "BESTAGRO": [
       {
         "exDate": "2026-01-16",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "BESTAGRO",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-01-16",
         "factor": 10.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -260,6 +248,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "BESTAGRO",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-01-16",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "BESTAGRO",
+        "type": "BONUS"
       }
     ],
     "BHARATRAS": [
@@ -1189,18 +1189,6 @@
     "RNBDENIMS": [
       {
         "exDate": "2026-04-02",
-        "factor": 1.5,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:2",
-        "ratioA": 1.0,
-        "ratioB": 2.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "RNBDENIMS",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-02",
         "factor": 2.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 1.0,
@@ -1210,6 +1198,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "RNBDENIMS",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-02",
+        "factor": 1.5,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:2",
+        "ratioA": 1.0,
+        "ratioB": 2.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "RNBDENIMS",
+        "type": "BONUS"
       }
     ],
     "ROLEXRINGS": [
@@ -1418,6 +1418,20 @@
         "type": "SPLIT"
       }
     ],
+    "TECHM": [
+      {
+        "exDate": "2026-11-30",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "TECHM",
+        "type": "BONUS"
+      }
+    ],
     "TEMBO": [
       {
         "exDate": "2026-08-05",
@@ -1600,11 +1614,11 @@
     ]
   },
   "meta": {
-    "acceptedActions": 116,
+    "acceptedActions": 117,
     "dashboardSymbols": 3216,
-    "downloadedRecords": 2757,
-    "fromDate": "2025-09-02",
-    "generatedAt": "2026-11-25T23:02:13.458841+00:00",
+    "downloadedRecords": 2743,
+    "fromDate": "2025-09-03",
+    "generatedAt": "2026-11-26T19:54:05.728443+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 3,
     "source": "NSE Corporate Actions",
@@ -1612,8 +1626,8 @@
       "BONUS",
       "SPLIT"
     ],
-    "symbolsWithAdjustments": 103,
-    "toDate": "2026-12-03",
+    "symbolsWithAdjustments": 104,
+    "toDate": "2026-12-04",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",
