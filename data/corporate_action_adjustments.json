@@ -59,18 +59,6 @@
     "AHCL": [
       {
         "exDate": "2026-04-24",
-        "factor": 2.0,
-        "method": "(A+B)/B",
-        "purpose": "Bonus 1:1",
-        "ratioA": 1.0,
-        "ratioB": 1.0,
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "AHCL",
-        "type": "BONUS"
-      },
-      {
-        "exDate": "2026-04-24",
         "factor": 5.0,
         "method": "oldFaceValue/newFaceValue",
         "newFaceValue": 2.0,
@@ -80,6 +68,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "AHCL",
         "type": "SPLIT"
+      },
+      {
+        "exDate": "2026-04-24",
+        "factor": 2.0,
+        "method": "(A+B)/B",
+        "purpose": "Bonus 1:1",
+        "ratioA": 1.0,
+        "ratioB": 1.0,
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "AHCL",
+        "type": "BONUS"
       }
     ],
     "AIIL": [
@@ -431,18 +431,6 @@
     "DELPHIFX": [
       {
         "exDate": "2026-02-13",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "DELPHIFX",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-02-13",
         "factor": 3.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 2:1",
@@ -452,6 +440,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "DELPHIFX",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-02-13",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "DELPHIFX",
+        "type": "SPLIT"
       }
     ],
     "E2E": [
@@ -1297,18 +1297,6 @@
     "SILVERTUC": [
       {
         "exDate": "2026-03-06",
-        "factor": 5.0,
-        "method": "oldFaceValue/newFaceValue",
-        "newFaceValue": 2.0,
-        "oldFaceValue": 10.0,
-        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
-        "source": "NSE Corporate Actions",
-        "status": "AUTO_VERIFIED_RATIO",
-        "symbol": "SILVERTUC",
-        "type": "SPLIT"
-      },
-      {
-        "exDate": "2026-03-06",
         "factor": 2.0,
         "method": "(A+B)/B",
         "purpose": "Bonus 1:1",
@@ -1318,6 +1306,18 @@
         "status": "AUTO_VERIFIED_RATIO",
         "symbol": "SILVERTUC",
         "type": "BONUS"
+      },
+      {
+        "exDate": "2026-03-06",
+        "factor": 5.0,
+        "method": "oldFaceValue/newFaceValue",
+        "newFaceValue": 2.0,
+        "oldFaceValue": 10.0,
+        "purpose": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share",
+        "source": "NSE Corporate Actions",
+        "status": "AUTO_VERIFIED_RATIO",
+        "symbol": "SILVERTUC",
+        "type": "SPLIT"
       }
     ],
     "SKMEGGPROD": [
@@ -1615,10 +1615,10 @@
   },
   "meta": {
     "acceptedActions": 117,
-    "dashboardSymbols": 3218,
-    "downloadedRecords": 2743,
-    "fromDate": "2025-09-03",
-    "generatedAt": "2026-11-26T22:55:29.842725+00:00",
+    "dashboardSymbols": 3219,
+    "downloadedRecords": 2735,
+    "fromDate": "2025-09-04",
+    "generatedAt": "2026-11-27T19:41:50.866970+00:00",
     "method": "Historical raw price divided by cumulative Bonus/Split factor for actions after historical date.",
     "skippedAmbiguousActions": 3,
     "source": "NSE Corporate Actions",
@@ -1627,7 +1627,7 @@
       "SPLIT"
     ],
     "symbolsWithAdjustments": 104,
-    "toDate": "2026-12-04",
+    "toDate": "2026-12-05",
     "unsupportedAutomaticActions": [
       "DIVIDEND",
       "RIGHTS",

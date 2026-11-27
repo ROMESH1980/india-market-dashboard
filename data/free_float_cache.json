@@ -43443,13 +43443,13 @@
   "PRAXIS-RE3": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-11-25T23:02:09+00:00",
+    "cachedAt": "2026-11-27T19:41:48+00:00",
     "freeFloatEstimated": false
   },
   "CRYSTALCP": {
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
-    "cachedAt": "2026-11-25T23:02:09+00:00",
+    "cachedAt": "2026-11-27T19:41:47+00:00",
     "freeFloatEstimated": false
   },
   "MROTEK": {
@@ -43494,6 +43494,12 @@
     "status": "PENDING",
     "reason": "No NSE shareholding filing returned",
     "cachedAt": "2026-11-26T22:55:27+00:00",
+    "freeFloatEstimated": false
+  },
+  "WATRANA": {
+    "status": "PENDING",
+    "reason": "No NSE shareholding filing returned",
+    "cachedAt": "2026-11-27T19:41:48+00:00",
     "freeFloatEstimated": false
   }
 }

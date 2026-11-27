@@ -16305,11 +16305,21 @@
     "source": "Yahoo Finance"
   },
   "MROTEK": {
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "source": "Yahoo Finance"
+  },
+  "PRAXIS-RE3": {
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
   },
-  "PRAXIS-RE3": {
+  "MAHACOAL": {
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "Yahoo Finance"
+  },
+  "MONTEIL": {
     "sector": "Unclassified",
     "industry": "Unclassified",
     "source": "Unavailable"
