@@ -17,16 +17,61 @@
     },
     "counts": {
       "symbolsScanned": 350,
-      "announcementsSeen": 63,
-      "rawCapexMatches": 0,
-      "negativeCapexRejected": 4,
+      "announcementsSeen": 12628,
+      "rawCapexMatches": 2,
+      "negativeCapexRejected": 350,
       "rawTailwindMatches": 0,
-      "symbolsWithCandidates": 0,
-      "capexCandidates": 0,
+      "symbolsWithCandidates": 2,
+      "capexCandidates": 2,
       "tailwindCandidates": 0,
       "autoVerifiedCapex": 0,
       "fetchFailures": 0
     }
   },
-  "stocks": {}
+  "stocks": {
+    "JLHL": {
+      "name": "Jupiter Life Line Hospitals Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/JUPITER2023_12112026145328_Intimation__addition_of_bed_capacity.pdf",
+          "sourceDate": "12-Nov-2026 14:54:06",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-27"
+        }
+      ]
+    },
+    "BEARDSELL": {
+      "name": "Beardsell Limited",
+      "board": "MAIN",
+      "capex": [
+        {
+          "type": "capex",
+          "eventClass": "CAPACITY_EXPANSION",
+          "evidenceStrength": 100,
+          "reason": "Capacity Expansion. Capacity addition",
+          "subject": "",
+          "details": "Capacity addition",
+          "source": "https://nsearchives.nseindia.in/corporate/BEARDSELL_14112026165212_Financial_Results_Sep2026.pdf",
+          "sourceDate": "14-Nov-2026 16:52:57",
+          "matchedTerms": [
+            "capacity addition"
+          ],
+          "sourceType": "NSE_CORPORATE_ANNOUNCEMENT",
+          "candidateStatus": "REVIEW_REQUIRED",
+          "candidateBuilt": "2026-11-27"
+        }
+      ]
+    }
+  }
 }
