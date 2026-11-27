@@ -204,9 +204,9 @@
       "date": "2026-11-27",
       "universeSize": 100,
       "daily": 61,
-      "weekly": 87,
+      "weekly": 84,
       "monthly": 65,
-      "overall": 71,
+      "overall": 70,
       "dailySignal": {
         "label": "Selective Buying",
         "signal": "selective",
@@ -238,16 +238,16 @@
         "weekly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
-          "positiveBreadthPct": 79.0,
-          "medianReturnPct": 10.63,
-          "returnStrengthScore": 100
+          "positiveBreadthPct": 76.0,
+          "medianReturnPct": 9.01,
+          "returnStrengthScore": 95.03
         },
         "monthly": {
           "method": "Dashboard universe breadth proxy",
           "availableStocks": 100,
           "positiveBreadthPct": 63.0,
-          "medianReturnPct": 6.79,
-          "returnStrengthScore": 66.98
+          "medianReturnPct": 7.56,
+          "returnStrengthScore": 68.91
         }
       },
       "proxy": true,
@@ -340,5 +340,5 @@
       "0-34": "Defensive"
     }
   },
-  "marketRegimeGeneratedAt": "2026-11-27T19:45:47.493756+00:00"
+  "marketRegimeGeneratedAt": "2026-11-27T20:28:13.215921+00:00"
 }
